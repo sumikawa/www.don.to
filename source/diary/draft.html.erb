@@ -1,0 +1,43 @@
+---
+title: Drafts
+---
+<%
+year = data.year.thisyear
+index = []
+Dir.glob("source/diary/*/[01]*.html.md.erb").each do |filename|
+  header = YAML.load_file(filename)
+  if header['draft']
+    index << gen_link(filename, header['title'] || data.site.notitle, true)
+  end
+end
+%>
+<dl>
+<%= index.sort.reverse.join("\n") %>
+</dl>
+
+<%
+d1 = []
+d2 = []
+for year in (data.year.thisyear - 1)..(data.year.thisyear)
+  Dir.glob(File.expand_path("#{data.site.imagerootdir}/diary/#{year}/*")).each do |dirname|
+    d1 << "#{year}/#{File.basename(dirname)}"
+  end
+  Dir.glob(File.expand_path("source/diary/#{year}/*")).each do |dirname|
+    d2 << "#{year}/#{File.basename(dirname)}".sub(/\.html\.md\.erb/, '')
+  end
+end
+d = d1 - d2
+%>
+
+<% unless d.size == 0 %>
+<dl>
+<%
+    d.each do |dir|
+%>
+      <%= "#{dir}.html.md.erb... generated<br />" %>
+<%
+      gen_index "#{dir}"
+    end
+%>
+</dl>
+<% end %>

@@ -1,0 +1,47 @@
+---
+code: true
+title: netconfで遊んでみる その2
+---
+<span class="warning">注: このperlスクリプトは個人的趣味で書いたものです。会社として動作を保証するものではありません。</span>
+
+<a href="../../2007/0327-netconf/">その1</a>の続き。
+コンフィグの履歴管理をしたくなったので、config2git.plを作ってみました。
+
+事前準備としてのスイッチ側の設定は<a href="../../2007/0327-netconf/">その1</a>を参照のこと。
+
+また、<a href="http://github.com/sumikawa/netconf/tree/master">github</a>から持って来た<a href="http://github.com/sumikawa/netconf/blob/d5c11fb317a17f1f88350d9cc901d2e64ad08ffc/config2git.pl">config2git.pl</a>を適当なパスにおいてください。
+同じディレクトリにある<a href="http://github.com/sumikawa/netconf/blob/d5c11fb317a17f1f88350d9cc901d2e64ad08ffc/netconf.pl">netconf.pl</a>が必要なので、これもライブラリパスが通ったところに置くこと。
+以上で準備は完了。
+
+次に、config2git.plの最初の設定は自分の環境に合わせて書き換えてください。
+@targetsが管理したいスイッチのIPアドレス。
+
+<% code("perl") do %>
+my @targets = ( "192.168.2.3", "192.168.1.222", "192.168.1.223", );
+my $gitdir = "/Users/sumikawa/configs";
+<% end %>
+
+後は、$gitdir 上で、"git init"を実行してください。
+(.git ディレクトリが存在しなければ自動実行にしようかと思ったけど、勝手にinitやられるのは嫌だと思うので、やめました。)
+
+で、config2git.plを実行。
+
+<% code("bash") do %>
+% config2git.pl
+Conect to 192.168.2.3
+Conect to 192.168.1.222
+Conect to 192.168.1.223
+Commting...
+[master (root-commit)]: created 3d9ab85: "20090421_03109"
+ 3 files changed, 561 insertions(+), 0 deletions(-)
+ create mode 100644 192.168.1.222.txt
+ create mode 100644 192.168.1.223.txt
+ create mode 100644 192.168.2.3.txt
+Finish.
+<% end %>
+
+$gitdir に"IPアドレス.txt"というファイルが置かれてるかと思います。
+cronでも手動でもいいので、config2git.plを実行すれば、
+git commitが自動実行されていきます。
+
+差分の確認は、"git log -p"がいいかと思います。

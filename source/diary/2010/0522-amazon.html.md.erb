@@ -1,0 +1,13 @@
+---
+title: don.toクラウド化計画
+---
+Amazon <a href="http://aws.amazon.com/s3/#protecting">S3 RRS</a>(Reduced Redundancy Storage)が発表されたので引っ越ししてみた。
+<a href="http://docs.amazonwebservices.com/AmazonS3/latest/index.html?DataDurability.html">ドキュメント</a>読むとs3sybc.rbの修正は以下でいいみたい。オプション化するのが筋ですが、いちいち使い分けするやついなかろうとやってません。
+
+<script src="http://gist.github.com/409931.js"></script>
+
+新規のオブジェクトをRRSに突っ込むのはいいとして、問題は現在置いてあるオブジェクトの引っ越し。
+少なくとも現状では一つ一つCOPYしてmetadataを書き換えてやらないといけないみたい。
+で、全てのオブジェクトのmetadataをテマテマ書き換えてたら赤字になることに途中で気づく。
+計算したら30セント浮かすために 70セント使ってた。
+まあ、初期投資分と月額分なのでそのうち元とれるんですけどね。

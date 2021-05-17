@@ -1,0 +1,17 @@
+---
+layout: site
+---
+<%
+index = rend_daylog(year)
+
+Dir.glob("source/diary/#{year}/[01]*.html.md.erb").sort.each do |filename|
+  header = YAML.load_file(filename)
+  if header['draft'].nil?
+    index << gen_link(filename, header['title'], false)
+  end
+end
+%>
+
+<dl>
+<%= index.sort.join("\n") %>
+</dl>

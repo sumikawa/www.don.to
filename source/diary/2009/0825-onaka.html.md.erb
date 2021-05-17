@@ -1,0 +1,182 @@
+---
+code: true
+title: おなかグラフ
+---
+過去の日記から体重と体脂肪率を取り出して<a href="http://code.google.com/intl/ja/apis/visualization/">Google Visualization API</a>でグラフにしてみた。
+ウィジェットっぽくして、サイドバーに貼るか？
+
+<div id="visualization" style="height: 400px;"></div>
+
+### 作り方
+
+まず過去の日記から日付、体重、体脂肪率を取り出して、
+Javascirpt(の一部)にするperlスクリプトgym2html.plを用意。
+4月1日を除外してるのはエイプリルフールに嘘の記述があるから、気づかなくて過去の自分にだまされた！
+
+```perl
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+$/ = "<dt>";
+my @data;
+
+while (<>) {
+  if ($_ =~ /(\d{4})\/(\d{2})\/(\d{2}).*\d{3}m.*(\d\d\.\d)kg(.*(\d\d\.\d)%)?/s) {
+    next if (($2 == 4 && $3 == 1));	# exclude aprilfool
+    push (@data, {
+      'y' => $1,
+      'm' => $2 - 1, # Feb = 1 in JavaScript
+      'd' => $3,
+      'kg' => $4,
+      'per' => $6});
+  }
+}
+
+my $prev = 0;
+my $first = 1;
+foreach my $f (sort {$a->{y} < $b->{y} ? -1 : $a->{y} > $b->{y} ? 1
+		   : $a->{m} < $b->{m} ? -1 : $a->{m} > $b->{m} ? 1
+		   : $a->{d} < $b->{d} ? -1 : $a->{d} > $b->{d} ? 1 : 0} @data) {
+  printf(",\n") if ($first == 0);
+  # reuse the previous TaiShibouritsu when there is no data
+  my $per = defined($f->{per}) ? $f->{per} : $prev;
+  printf("[new Date($f->{y}, $f->{m}, $f->{d}), $f->{kg}, $per]");
+  $prev = $per;
+  $first = 0;
+}
+```
+
+過去の日記を標準入力に突っ込んでやるとこんな出力になります。
+最後の行にカンマがあるとIE6はエラーになるので対策してます。
+
+```javascript
+[new Date(2008, 6, 09), 65.8, 26.9],
+[new Date(2009, 0, 29), 64.5, 26.9],
+[new Date(2009, 5, 03), 64.7, 26.9],
+[new Date(2009, 7, 23), 66.7, 29.6]
+```
+
+で、JavaScriptでAnnotatedTimeLineを生成。Server Side Includeで先程のスクリプトを実行。
+
+<% code("perl") do %>
+#!/usr/bin/env perl
+undef $/;
+while (<>) {
+    s|^.*<div class="indexblock">.*</div>\n||s;
+    s|<script type="text/javascript" src="/syntaxhighlighter/scripts/shCore.js\"></script>.*$||s;
+    print
+}
+<% end %>
+
+最後に&lt;body&gt;のどっかに、
+
+```html
+<script src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+      google.load('visualization', '1', {packages: ['annotatedtimeline']});
+</script>
+<script type="text/javascript">
+function drawVisualization() {
+	var visualization;
+	var data = new google.visualization.DataTable();
+	data.addColumn('date', '日付');
+	data.addColumn('number', '体重');
+	data.addColumn('number', '体脂肪率');
+	data.addRows([
+<!--#exec cmd="cat ../../*.html | ./gym2html.pl"-->
+	]);
+
+	visualization = new google.visualization.AnnotatedTimeLine(document.getElementById('visualization'));
+	visualization.draw(data, {
+		//'allValuesSuffix': '%', // A suffix that is added to all values
+		'colors': ['blue', 'red', '#0000bb'], // The colors to be used
+		'displayAnnotations': true,
+		'displayExactValues': true, // Do not truncate values (i.e. using K suffix)
+		'displayRangeSelector' : false, // Do not sow the range selector
+		'displayZoomButtons': true, // DO not display the zoom buttons
+		'fill': 30, // Fill the area below the lines with 20% opacity
+		'legendPosition': 'newRow', // Can be sameRow
+		// 'max': 70, // Override the automatic default
+		//'min':  100000, // Override the automatic default
+		'scaleColumns': [0, 1], // Have two scales, by the first and second lines
+		'scaleType': 'allmaximize', // See docs...
+		'thickness': 2 // Make the lines thicker
+		// 'zoomStartTime': new Date(2005, 9 ,1), //NOTE: month 1 = Feb (javascript to blame)
+		// 'zoomEndTime': new Date(2009, 1 ,5) //NOTE: month 1 = Feb (javascript to blame)
+	});
+}
+google.setOnLoadCallback(drawVisualization);
+</script>
+```
+
+を用意しておくと、この&lt;div&gt;にグラフが挿入されます。
+
+<script src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load('visualization', '1', {packages: ['annotatedtimeline']});
+</script>
+<script type="text/javascript">
+function drawVisualization() {
+  var visualization;
+  var data = new google.visualization.DataTable();
+  data.addColumn('date', '日付');
+  data.addColumn('number', '体重');
+  data.addColumn('number', '体脂肪率');
+  data.addRows([
+<%
+outputs = []
+per = 0
+data.daylog.each do |i|
+  next if i['comment'].nil?
+  log = ""
+  comment = ""
+  i.each do |k, v|
+    if k == "comment"
+      comment = v
+    else
+      log = k
+    end
+  end
+  md = log.match(/(\d\d\d\d)\/(\d\d)\/(\d\d)/)
+  year  = md[1].to_i
+  month = md[2].to_i
+  day   = md[3].to_i
+  next if ((month == 1 && day == 1));	# Houhu
+  next if ((month == 4 && day == 1));	# exclude aprilfool
+  if i['comment'] =~ /([\d.]+)kg/
+    kg = $1
+  else
+    next
+  end
+  next if kg.to_i < 20 # Children
+  per = $1 if i['comment'] =~ /([\d.]+)%/
+  outputs << "    [new Date(#{year}, #{month}, #{day}), #{kg}, #{per}]"
+end
+%>
+<%=
+  outputs.join(",\n")
+%>
+  ]);
+
+  visualization = new google.visualization.AnnotatedTimeLine(document.getElementById('visualization'));
+  visualization.draw(data, {
+          //'allValuesSuffix': '%', // A suffix that is added to all values
+          'colors': ['blue', 'red', '#0000bb'], // The colors to be used
+          'displayAnnotations': true,
+          'displayExactValues': true, // Do not truncate values (i.e. using K suffix)
+          'displayRangeSelector' : false, // Do not sow the range selector
+          'displayZoomButtons': true, // DO not display the zoom buttons
+          'fill': 30, // Fill the area below the lines with 20% opacity
+          'legendPosition': 'newRow', // Can be sameRow
+          // 'max': 70, // Override the automatic default
+          //'min':  100000, // Override the automatic default
+          'scaleColumns': [0, 1], // Have two scales, by the first and second lines
+          'scaleType': 'allmaximize', // See docs...
+          'thickness': 2 // Make the lines thicker
+          // 'zoomStartTime': new Date(2005, 9 ,1), //NOTE: month 1 = Feb (javascript to blame)
+          // 'zoomEndTime': new Date(2009, 1 ,5) //NOTE: month 1 = Feb (javascript to blame)
+  });
+}
+google.setOnLoadCallback(drawVisualization);
+</script>

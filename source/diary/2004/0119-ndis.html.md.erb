@@ -1,0 +1,70 @@
+---
+title: NDISドライバで遊ぶ
+---
+最近のFreeBSD-currentでは、
+ndis(4)の機能を使うことによってFreeBSDのドライバが存在しないネットワークカードでも、
+Windows 2000/XPのドライバ経由で使えるようになりました。
+[2004/11/15 追記]: 5.3-RELEASE以降でも使えます。
+
+例えば、手もとの<a href="http://buffalo.melcoinc.co.jp/products/catalog/item/w/wli-cb-g54/index.html">WLI-CB-G54</a>にはFreeBSDのドライバが存在しません。
+とりあえず、WLI-CB-G54をPCカードスロットに差してみても、当然ですが、認識されません。
+
+<pre class="terminal">
+cardbus0: &lt;network&gt; at device 0.0 (no driver attached)
+cbb0: CardBus card activation failed
+</pre>
+
+さて、BUFFALOのホームページに行ってWindows用のドライバを<a href="http://buffalo.melcoinc.co.jp/products/catalog/item/w/wli-cb-g54/index.html">ゲット</a>してきて展開します。
+
+<pre class="terminal">
+% lha x wdrv_392.exe
+</pre>
+
+<a href="http://buffalo.melcoinc.co.jp/products/catalog/item/w/wli-cb-g54/index.html">ドライバのページ</a>によると、ドライバのファイル名はBCMWL5.SYSになりますので、
+このファイルをndiscvtを使って、FreeBSD用のデータファイルに変換します。
+
+<pre class="terminal">
+% cd wdrv_392/cbg5
+% ndiscvt -s bcmwl5.sys -i netcbg54.inf -o ndis_driver_data.h
+</pre>
+
+出来上がったndis_driver_data.hを/sys/modules/if_ndis/ に置いてやり、
+loadble moduleを作り、ロードしてやります。
+
+<pre class="terminal">
+% mv ndis_driver_data.h /sys/modules/if_ndis/
+% cd /sys/modules/if_ndis/
+% make
+% ls *.ko
+if_ndis.ko*
+% su
+% kldload if_ndis.ko
+</pre>
+
+dmesgを見ると、お、認識された。素晴らしい!
+
+<pre class="terminal">
+ndis0: &lt;BUFFALO WLI-CB-G54 Wireless LAN Adapter&gt; mem 0x88000000-0x88001fff irq 10 at device 0.0 on cardbus0
+ndis0: NDIS API version: 5.0
+ndis0: 802.11 address: 00:07:40:79:c2:72
+ndis0: 11b rates: 1Mbps 2Mbps 5.5Mbps 11Mbps
+ndis0: 11g rates: 6Mbps 9Mbps 12Mbps 18Mbps 36Mbps 48Mbps 54Mbps
+</pre>
+
+WEPも動くし、もちろんdhcpでアドレスもとれます。
+
+<pre class="terminal">
+% ifconfig ndis0
+ndis0: flags=8843&lt;UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST&gt; mtu 1500
+        inet6 fe80::207:40ff:fe79:c272%ndis0 prefixlen 64 scopeid 0x6 
+        inet 192.168.0.102 netmask 0xffffff00 broadcast 192.168.0.255
+        ether 00:07:40:79:c2:72
+        media: IEEE 802.11 Wireless Ethernet autoselect
+        status: associated
+        ssid don 1:don
+        channel 9 authmode OPEN powersavemode OFF powersavesleep 100
+        wepmode MIXED weptxkey 1
+        wepkey 1:40-bit
+</pre>
+
+カードの抜き差しもできます。しゃーわせ。

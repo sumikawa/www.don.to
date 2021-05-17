@@ -1,0 +1,39 @@
+---
+title: Ubuntu 16.04LTSで、sshログインできない対策
+code: true
+---
+Ubuntu 16.04LTSをいれたら、sshの公開鍵認証でログインできなくなった。
+/var/log/auth.log を確認したところ、下記のエラーが出力されている。
+OpenSSH-7.0でssh-dssは無効化されたようだ。
+
+```shell-session
+Aug 20 23:36:26 ubuntu sshd[25608]: userauth_pubkey: key type ssh-dss not in PubkeyAcceptedKeyTypes [preauth]
+```
+
+参考: http://www.openssh.com/txt/release-7.0
+
+プロトコルの脆弱性を把握できてなかったことに衝撃を受けつつ調べるとこの情報を見つける。
+参考: http://security.stackexchange.com/questions/112802/why-openssh-deprecated-dsa-keys
+
+ssh-dssを再有効化するのはありえないので、ECDSAへの移行を決心する。ssh-keygenで、鍵ペアを生成。
+
+```shell-session
+% ssh-keygen -t ecdsa -b 384 -C 'sumikawa@XXX'
+Generating public/private ecdsa key pair.
+Enter file in which to save the key (/Users/sumikawa/.ssh/id_ecdsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /Users/sumikawa/.ssh/id_ecdsa.
+Your public key has been saved in /Users/sumikawa/.ssh/id_ecdsa.pub.
+The key fingerprint is:
+SHA256:XXX sumikawa@XXX
+The key's randomart image is:
++---[ECDSA 384]---+
+(snip)
++----[SHA256]-----+
+```
+
+これで無事sshログインできるようになりました。
+
+ついでにgithubとbitbucketのSSH keysも更新。どっちもECDSAを受け付けてくれた。
+iPadのpromptアプリは未対応だった。残念。

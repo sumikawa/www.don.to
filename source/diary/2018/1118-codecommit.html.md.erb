@@ -1,0 +1,75 @@
+---
+title: CodeCommitでip-range.jsonの変更履歴を記録する
+code: true
+---
+### やりたいこと
+
+AWSは現在利用しているIPアドレスブロックを[JSONファイル(ip-ranges.json)](https://docs.aws.amazon.com/ja_jp/general/latest/gr/aws-ip-ranges.html)にして公開していますが、このファイルの過去履歴を知りたいときがあります。
+CodeCommitにはgitプロトコルを使わずにファイルを直接アップロードする[API](https://aws.amazon.com/jp/about-aws/whats-new/2018/02/aws-codecommit-supports-creating-and-editing-files-via-the-console-editor-and-sdks/)がありますので、これを使って履歴を追えるようにしましょう。
+
+### 事前準備
+
+履歴を管理するためのCodeCommitリポジトリ("ip-range")を適当なリージョンに用意します。後述のLambda関数と同じリージョンに作成してください。
+
+README.mdなど適当なファイルを作って、initial commitしておいてください。
+
+### Lambda関数の作成
+
+ip-ranges.jsonは変更があるとSNS通知が飛ぶようになっているので(ARNは[ドキュメント](https://docs.aws.amazon.com/ja_jp/general/latest/gr/aws-ip-ranges.html)参照のこと)、この通知をトリガーにして以下のLambdaスクリプト(Python3)を呼び出します。
+
+<% code("python") do %>
+import os, sys
+import json
+import urllib.request
+import yaml
+import boto3
+
+repositroy_name = 'ip-range'
+branch_name = 'master'
+
+def upload_file(client, repositroy_name, branch_name, createDate, content, path):
+  print("uploading: " + path)
+  try:
+    branch = client.get_branch(
+      repositoryName=repositroy_name,
+      branchName=branch_name,
+    )
+    response = client.put_file(
+      repositoryName=repositroy_name,
+      branchName=branch_name,
+      fileContent=content,
+      filePath=path,
+      fileMode='NORMAL',
+      parentCommitId=branch['branch']['commitId'],
+      commitMessage=createDate,
+      name='autoupload',
+      email='auto@example.com',
+    )
+  except:
+    print("failed to upload: " + path)
+    import traceback
+    traceback.print_exc()
+
+def handle(event, context):
+  with urllib.request.urlopen("https://ip-ranges.amazonaws.com/ip-ranges.json") as res:
+    json_data = res.read().decode("utf-8")
+
+  data = json.loads(json_data)
+  yaml_data = yaml.dump(data, default_flow_style=False)
+  createDate = data['createDate']
+
+  client = boto3.client('codecommit')
+  upload_file(client, repositroy_name, branch_name, createDate, json_data, 'original/ip-range.json')
+  upload_file(client, repositroy_name, branch_name, createDate, yaml_data, 'ip-range.yaml')
+
+  return("done")
+<% end %>
+
+要はダウンロードしたjsonファイルをアップロードし直しているだけですが、jsonだと差分が追いにくいので、yamlにフォーマット変換したものものあわせてアップロードしています。
+
+参考までにこの関数を一ヶ月ほど走らせたものを下記のリポジトリに公開しています。
+https://github.com/sumikawa/ip-range
+
+### Further Working
+
+サービス単位やリージョンごとにdataを分割することで、CloudFrontのアドレス履歴や東京リージョンの履歴を追うことも簡単にできるかと思います。

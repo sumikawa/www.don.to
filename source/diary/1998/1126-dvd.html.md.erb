@@ -1,0 +1,86 @@
+---
+title: 地域コード1をこよなく愛する人達へ
+---
+要は、アメリカで売られているDVDソフトを見るための情報を集めたメモである。
+
+注意: 以下の情報は、Webをクリックしまくってインターネットに流れている情報を整理したものである。
+著者は一切確認作業をしてないので、嘘の情報が紛れてる可能性もある。
+また、改造等は当然ながら本人の責任で行うこと。問題起きても著者は一切関知しない。
+
+注意2: この情報は1999年5月以降、頻繁に更新されていませんので、情報が古い可能性があります。というかめちゃめちゃ古い。
+
+### パソコンで見る編
+
+#### 共通
+
+Cyberlinkの
+<a href="http://www.cyberlink.com.tw/english_version/Products/PowerDVD.htm">PowerDVD</a>
+というソフトウェア・プレーヤがある。
+単体販売はされてなく、ビデオカードに添付されている。
+実行時に地域コードを選択できるようになっている。5回まで変更可。
+お試し版は<a href=http://www.intel.com/apac/eng/PentiumII/dvd/download.htm>ここ</a>から入手できる。
+SiS6326というビデオチップに最適化されているが、PentiumII程度なら完全ソフト再生もできる。
+
+#### Creative PC-DVD ENCORE
+
+プレーヤのインストール時に5回まで地域コードを変換できる。
+ドライブ側のEEPROMに書く。
+
+下記のサイトに5回以上変えれるツールがある<BR>
+
+- <a href="http://dvd.anu.edu.au/#dvdrom">region.exe</a>
+- <a href="http://www.eurosat.com/visualdomain/">remote selecter</a>
+- <a href="http://www.elby.de/RegionKiller/english/index.htm">DVD region killer</a>
+
+remote selecterはMACROVISION(コピーガード)をオフにする機能などもある。
+2倍速の旧型、5倍速の新型の両方で動作する。
+
+### DVDプレーヤをregion freeにする編
+
+#### Pioneer DV-505, DVL-909, DV-S9
+
+一部機種だとハンダ一箇所だけらしい。
+リモコンで地域コードを変える機能がもともとあって、
+その機能を有効にするのにハンダづけが必要。
+全てのファームウェアのバージョンで動くようである。
+<a href="http://www.twi.ch/~i7eberha/eng/codefree505eng.htm">ここ</a>のWebが詳しい。
+
+#### Pioneer DV-515
+
+ファームウェアの入ったチップを置き換えて、かつMODチップを搭載すれば可能である。
+<a href=http://hometown.aol.com/dvd9/>ここ</a>に改造情報がある。
+改造キットはイギリスのサイトで<a href=http://www.techtronics.com/ttn/shop/50-dvd-player-pioneer-515.htm>通信販売</a>
+されており、値段は約1万円である。ただし、チップを載せ換える作業が必要なので、初心者には難しい。
+筆者自身の体験記は<a href="/diary/1999/0709-dvd/">こちら</a>
+
+#### Sony S7000
+
+初期ロットはDIP SWでregion freeにできた。
+
+最近のロットはチップにつけてる抵抗で地域コードを設定す
+るので、抵抗変えるか、ロータリSWをつければOK。ちょっと
+した工作技術が必要。以下は改造情報。
+
+- <a href="http://members.aol.com/dvd9/S7000.html">http://members.aol.com/dvd9/S7000.html</a>
+- <a href="http://www.sfc.wide.ad.jp/~uhyo/FUCKED/dvp-s9000.html">http://www.sfc.wide.ad.jp/~uhyo/FUCKED/dvp-s9000.html</a>
+
+#### JVC VX-D2000
+
+秋葉原の免税店で売っているビクターのVX-D2000はボタン操作でコード変更す
+ることができるらしい。
+
+#### その他
+
+DVDプレーヤの改造に関しては、
+<a href=http://www.zhwin.ch/~i7eberha/ger/codefree.htm>PLANET DVD</a>
+が充実してるので、そちらを参照のこと。
+
+<a href=http://www.codefreedvd.com/>CODE FREE DVD</a>,
+<a href=http://www.ebisuaudio.com/dvd.html>Ebisu Audio</a>
+では地域プロテクトのないDVDが売られています。
+
+### 情報源
+
+- [情報交換の場](http://www1.ingnet.or.jp/~visepur/board/)
+- [エセホームシアター環境](http://member.nifty.ne.jp/C3/mydvd.html)
+- [DVD Region Patches](http://www2.datatestlab.com/regionhacks/)

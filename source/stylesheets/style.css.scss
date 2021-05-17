@@ -1,0 +1,164 @@
+/* -*- coding: utf-8 -*-  */
+@import "shared";
+
+@mixin block {
+  @include vendor-prefix(box-shadow, 0px 2px 6px rgba(0,0,0,0.5));
+  @include vendor-prefix(border-radius, 10px);
+  background: #eeeeee; /* Old browsers */
+  background: linear-gradient(-45deg, #eeeeee 0%, #dddddd 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#dddddd',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  border: 2px solid white;
+  text-align: left;
+  padding-right: 7px;
+  padding-left: 7px;
+}
+
+@media screen and (min-device-width: 481px), screen and (min-width: 481px) {
+
+  %h {
+    color: $titlecolor;
+    @include shadow-inline(1px);
+    @include vendor-prefix(box-shadow, 0 1px 0 rgba(255,255,255,0.4));
+    text-shadow: 1px -1px 0px rgba(255,255,255,1);
+  }
+
+  .container {
+    width: 100%;
+    display: flex;
+    @include vendor-suffix(display, box);
+    @include vendor-prefix(box-sizing, border-box);
+  }
+
+  .titleblock {
+    @include block;
+    margin-bottom: $margin;
+  }
+
+  .mainblock {
+    @include block;
+    min-height: 450px;
+  }
+
+  .centerblock {
+    @include vendor-prefix(box-flex, 1);
+    @include vendor-prefix(box-ordinal-group, 2);
+    order: 2
+  }
+
+  .leftblock {
+    margin-right: $margin;
+    width: $leftwidth;
+    overflow: hidden;
+    @include vendor-prefix(box-ordinal-group, 1);
+    order: 1
+  }
+
+  .eachindexblock {
+    @include block;
+    margin-bottom: $margin;
+    overflow: hidden;
+  }
+
+  h1 {
+    @extend %h;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: normal;
+    text-align: center;
+    @include shadow-inline(0px);
+  }
+
+  h2 {
+    @extend %h;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: normal;
+  }
+
+  h3 {
+    color: $titlecolor;
+    background-color: transparent;
+  }
+
+  hr {
+    @include shadow-inline(0px);
+    @include vendor-prefix(box-shadow, 0 1px 0 rgba(255,255,255,0.4));
+  }
+
+  @mixin pre {
+    margin-left: 20px;
+  }
+
+  pre {
+    @include pre;
+  }
+
+  pre.flight {
+    @include pre;
+    background-color: rgba(196,255,196,0.3);
+  }
+
+  ul, ol, dl {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  dt {
+    line-height: 120%;
+  }
+
+  dd {
+    text-indent: 1.0em;
+    line-height: 110%;
+  }
+
+  li {
+    line-height: 120%;
+    margin-top: 2px;
+    margin-left: 0px;
+    margin-bottom: 2px;
+    list-style-position: outside;
+  }
+
+  .indent { margin-left: 10%; margin-right: 5%; }
+  .filename { font-family: monospace, courier; }
+  img { border: none; }
+
+  span.warning { color: red; }
+  span.fontsizeplus { font-size: x-large; }
+  span.fontsizeplusplus { font-size: xx-large; }
+
+  .nav {
+    ul { padding-left: 0; }
+    li { padding-left: 0.5em; }
+  }
+
+  pre.address {
+    margin: 10px;
+    padding: 10px 10px 10px 15px;
+    background: #f3f3f3;
+    background: linear-gradient(0 0 270deg, #f3f3f3, #f3f3f3 10%, white);
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    @include vendor-prefix(border-radius, 10px);
+    @include vendor-prefix(box-shadow, -1px 2px 2px rgba(0, 0, 0, 0.2));
+  }
+
+  /* Media Queries for adapting to various screen widths */
+  @media screen and (max-device-width: 800px), screen and (max-width: 800px) {
+    pre.address {
+      width: 80%;
+      float: none;
+    }
+    .titleblock {
+      display: none;
+    }
+    .leftblock {
+      width: 110px;
+    }
+    .mainblock {
+      font-size: medium;
+    }
+  }
+
+}

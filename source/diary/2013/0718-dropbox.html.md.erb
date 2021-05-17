@@ -1,0 +1,17 @@
+---
+title: git + dropboxの落とし穴
+---
+git pushしないでマシンをサスペンドしちゃって、別マシンで作業しようとしたら最新コードがないというのをよくやるので、
+gitで管理してるソースコードをDropboxに置いてるんですが、ソースをディレクトリごと間違って消しちゃいました。
+
+git pushしてる分はもちろんgit cloneで取り戻せますが、local branchにある書きかけのコードをサルベージしたいので、Dropboxの復元機能で復活させてみました。
+ところが削除直前のスナップショットに戻るかと思いきや、30日以内に消したファイルが全部復活しちゃうのでリポジトリの状態がぐちゃぐちゃになりました。
+
+あっちゃいけないファイルがあるために問題が出ているだけなので、以下で対処できました。
+
+- `rm -f .git/index.lock` でlockfile消す
+- local branchにしか存在しないファイルがuntracked fileとして復活しているので、`git clean -f` で削除
+- git rebase作業中になってるので、`git rebase --abort` で中断
+- 削除済みのlocal branchが復活してるので、`git branch -a | grep -v remotes | sed 's/\*//' | xargs git branch -d` で再削除
+- 過去に `git branch -D` で消したブランチは上記では消えないので、手動でブランチ削除
+- commit時に過去のcommitメッセージが残ってるという表示が出るので、削除を選択

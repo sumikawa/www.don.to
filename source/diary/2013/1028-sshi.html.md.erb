@@ -1,0 +1,23 @@
+---
+title: インスタンス名でEC2にsshしたい
+---
+インスタンス名でEC2にログインしたいことが多いので、sshiというスクリプト書きました。
+<a href="http://aws.amazon.com/jp/cli/">awscli</a>と
+<a href="http://stedolan.github.io/jq/">jq</a>をインストールしておく必要があります。
+
+<pre class="terminal">
+sshi i-hogehoge
+</pre>
+
+で、インスタンスにsshできます。
+
+<script src="https://gist.github.com/sumikawa/7116852.js"></script>
+
+鍵は.ssh/configで指定しておけば-iオプションも不要。
+
+<pre class="terminal">
+Host *.ap-northeast-1.compute.amazonaws.com
+    IdentityFile ~/.ssh/aws-tokyo.pem
+</pre>
+
+スクリプトのコメントに書いてあるけどTODOは山盛り。

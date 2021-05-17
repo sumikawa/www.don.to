@@ -1,0 +1,9 @@
+<div class="eachindexblock nav">
+  <h3>すみかわ日記</h3>
+  <ul id="gray">
+    <% for year in data.year.thisyear.downto(1996) do %>
+      <li> <%= link_to "#{year}年", "/diary/#{year}.html" %></li>
+    <% end %>
+    <li> <%= link_to '1995年以前', "/diary/1995.html" %></li>
+  </ul>
+</div>

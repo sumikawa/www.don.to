@@ -1,0 +1,79 @@
+---
+title: CloudFront Lamba@EdgeでBasic認証する
+code: true
+---
+**2017/8: GA版にあわせて書き直しました**
+
+CloudFront + S3オリジン構成の場合、Basic認証を使ったコンテンツ保護が出来ませんでしたが、[Lambda@Edge](http://docs.aws.amazon.com/ja_jp/AmazonCloudFront/latest/DeveloperGuide/lambda-at-the-edge.html)によって可能になりました。
+
+下記の機能を提供しています。
+
+- 一部のパスだけを認証の対象にできる。この例では、パスに`secret`が含まれるものだけが認証の対象です
+- Authorizationヘッダがなかった場合に401ではなく403を返すことで、ブラウザの認証ダイアログが表示される
+- 認証エラー時にBodyを返却する
+- 複数のクレデンシャルに対応している
+
+今のバージョンは、クレデンシャルがそのままハードコードされてるので、ソースの取り扱いにご注意を。
+パスワードはハッシュをかけた方が安全ですが、これはTODOとします。
+
+```javascript
+'use strict';
+
+exports.handler = (event, context, callback) => {
+  const request = event.Records[0].cf.request;
+
+  const errorContent = '\
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">\
+<html><head>\
+<title>401 Authorization Required</title>\
+</head><body>\
+<h1>Authorization Required</h1>\
+<p>This server could not verify that you are authorized to access the document\
+requested.  Either you supplied the wrong credentials (e.g., bad password), or your\
+browser doesn\'t understand how to supply the credentials required.</p>\
+</body></html>\
+';
+
+  const credentials = {
+    'user1': 'pass1234',
+    'user2': 'pass5678'
+  }
+
+  if (request.uri.match(/secret/i)) {
+    var authorities = request.headers.Authorization || request.headers.authorization
+    if (authorities) {
+      let authorized = false;
+      for (let user in credentials) {
+        var secret = new Buffer(user + ':' + credentials[user]).toString('base64');
+        for (var i = 0; i < authorities.length; i++) {
+          if (authorities[i].value.split(" ")[1] === secret) {
+            authorized = true;
+          }
+        }
+      }
+      if (authorized) {
+        console.log("match: " + authorities);
+        callback(null, request);
+      } else {
+        console.log("not match: " + authorities);
+        callback(null, {status: '403', statusDescription: '403 Forbidden',
+                        headers: {
+                          'content-type': [ { key: 'Content-Type', value: 'text/html; charset=UTF-8' } ]
+                        },
+                        body: errorContent.toString('utf8')
+                       });
+      }
+    } else {
+      // Client did not send authorization
+      callback(null, {status: '401', statusDescription: '401 Unauthorized',
+                      headers: {
+                        'www-authenticate': [{ key: 'WWW-Authenticate', value: 'Basic' }]
+                      }
+                     });
+    }
+  } else {
+    console.log("do nothing");
+    callback(null, request);
+  }
+}
+```

@@ -1,0 +1,51 @@
+---
+title: API GatewayからEC2のSecurity Groupを更新する
+code: true
+---
+### 動機
+
+セキュリティの懸念から、22番ポートをフルオープンしたくないけど、モバイル環境からEC2インスンタンスにログインしたいことってありますよね。
+Security Groupを空けるために、自分の端末が使っているグローバルIPアドレスを調べてAWS Cliを叩くのも手間ですし、スマホのsshクライアントからログインしたいときはそれすらもできません。特定のURLにアクセスするだけで、Security Groupを更新したいです。
+
+そこでAPI Gatewayを使います。リクエストヘッダのX-Forwarded-ForからクライアントのIPアドレスが分かるので、Lambdaファンクションを呼び出してSecurityGroupを書き換えます。
+ブックマークにこのAPIのURLを登録しておけば、ブラウザアクセス一発で、22番ポートに穴を空けれます。
+
+### 手順
+
+- Security Groupを新規に作成(sg-XXXXXXXXX)して、EC2インスンタンスに紐づける。管理を考えると、普段使いのSecurity Groupとは別に分けておいた方がいいかと思います。
+
+- API GatewayのBody Mapping Templates として下記を指定して、X-Forwarded-ForヘッダをLambdaに渡します。
+
+```json
+{
+  "ipinfo" : "$input.params('X-Forwarded-For')"
+}
+```
+
+- Lambdaファンクションは下記です
+
+```javascript
+var AWS = require('aws-sdk');
+var EC2 = new AWS.EC2();
+exports.handle = function(event, context) {
+  console.log('Received event:', JSON.stringify(event, null, 2));
+  var sourceip = event.ipinfo.replace(/,.*/, '') + '/32';
+  var params = {
+	GroupId: 'sg-XXXXXXXXX',
+	CidrIp: sourceip,
+	IpProtocol: 'TCP',
+	FromPort: 22,
+	ToPort: 22
+  }
+  EC2.authorizeSecurityGroupIngress(params, function(err, data) {
+	if (err) console.log(err, err.stack);
+	else     context.succeed("added:" + sourceip);
+  });
+};
+```
+
+### 注意
+
+- クライアント認証をしてないので、URLはバレないようにしましょう
+- 一回設定したIPアドレスは自動で削除してくれません。定期的にエントリを整理するか、お掃除のためのLambdaファンクションを書いて定期実行しましょう。
+- X-Forwarded-For のネストには対応してません(そういう環境になったことがないので手抜きした)

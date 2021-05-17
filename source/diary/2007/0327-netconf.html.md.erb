@@ -1,0 +1,145 @@
+---
+code: true
+title: netconfで遊んでみる
+---
+<span class="warning">注: このperlスクリプトは個人的趣味で書いたものです。会社として動作を保証するものではありません。</span>
+
+アラクサラのスイッチが<a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20070126/259786/">netconf</a>をサポートしたので、perlで遊んでみました。
+netconfサポート機種はAX12/AX24/AX36/AX63/AX67です。
+
+まず、事前準備としてスイッチ側のnetconfを有効にする。
+
+<pre class="terminal">
+% ssh operator@10.0.0.1
+operator@10.0.0.1's password:
+
+Copyright (c) 2005-2007 ALAXALA Networks Corporation. All rights reserved.
+
+ax36-2.alaxala> en
+ax36-2.alaxala# conf t
+ax36-2.alaxala(config)# netconf
+ax36-2.alaxala(config-netconf)# exit
+ax36-2.alaxala(config)# exit
+ax36-2.alaxala# exit
+Connection to 10.0.0.1 closed.
+</pre>
+
+外部接続性があるスイッチでnetconfを有効にするときは、ファイヤウォールやルータでTCP 832番(netconf/soapのポート番号)を落としてセキュリティを確保してください。
+SSLで暗号化することも可能ですが、perlスクリプトを改造する必要あり。
+
+次に、AX1230S/AX1240Sを使っている場合は、SOAPエンジンがEnvelope中のattributeの順番を決め打ちしてるので、
+SOAP/Lite.pm にこのパッチ(<a href="https://gist.github.com/sumikawa/cf28752abd325292f3d3ef35c6e12574">lite-pm.diff</a>)を当ててください。
+<a href="http://www.soaplite.com/">SOAP::Lite</a>がバグってるわけではなくて、AX12側の問題です。
+他の機種ではパッチは不要です。
+
+次に、このperlスクリプト(<a href="http://github.com/sumikawa/netconf/blob/8828f73ede8cec8216ab07376b57c204ac4152ac/getconfig.pl">getconf.pl</a>)を実行。
+必要なモジュールは適当にインストールしてください。
+
+<pre class="terminal">
+% getconf.pl 10.0.0.1
+
+#Last modified by operator at Mon Mar  5 15:03:35 2007 with version 10.4.A
+!
+hostname "xxxx.alaxala"
+clock timezone JST +9
+swrt_table_resource l3switch-2
+!
+ip domain name xxxx.alaxala.net
+!
+(以下略)
+</pre>
+
+で、configとれた。
+<a href="http://plagger.org/">Plagger</a>に突っ込めばRSSやメールでdiff通知とかできそう。
+
+流れてるメッセージのトレースは以下。
+<a href="http://www.soaplite.com/">SOAP::Lite</a>でdebugトレース取ってるので、一部のHTTPヘッダが見えてないですが。
+
+```
+SOAP::Transport::HTTP::Client::send_receive: POST http://10.0.0.1:832/onapi/ HTTP/1.1
+Accept: text/xml
+Accept: multipart/*
+Accept: application/soap
+Content-Length: 726
+Content-Type: text/xml; charset=utf-8
+SOAPAction: "urn:ietf:params:xml:ns:netconf:base:1.0#hello"
+
+<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><hello xmlns="urn:ietf:params:xml:ns:netconf:base:1.0"><capabilities><capability xsi:type="xsd:string">net:alaxala:oan:onapi:1.1</capability><capability xsi:type="xsd:anyURI">urn:ietf:params:xml:ns:netconf:capability:startup:1.0</capability><capability xsi:type="xsd:anyURI">urn:ietf:params:xml:ns:capability:writable-running:1.0</capability><capability xsi:type="xsd:anyURI">urn:ietf:params:xml:ns:netconf:base:1.0</capability></capabilities><session-id /></hello></soapenv:Body></soapenv:Envelope>
+SOAP::Transport::HTTP::Client::send_receive: HTTP/1.1 200 OK
+Connection: close
+Date: Wed, 28 Mar 2007 05:13:04 GMT
+Server: Apache/1.3.34 (Unix) mod_ssl/2.8.25 OpenSSL/0.9.7i
+Content-Type: text/html
+Client-Date: Wed, 28 Mar 2007 05:10:40 GMT
+Client-Peer: 10.0.0.1:832
+Client-Response-Num: 1
+Client-Transfer-Encoding: chunked
+Set-Cookie: SESSION_ID=1310,DEVMAC=xx:xx:xx:xx:xx:xx,;
+
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soapenv:Body>
+<hello xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+<capabilities>
+<capability>
+urn:ietf:params:xml:ns:netconf:base:1.0
+</capability>
+<capability>
+urn:ietf:params:xml:ns:netconf:capability:writable-running:1.0
+</capability>
+<capability>
+urn:ietf:params:xml:ns:netconf:capability:startup:1.0
+</capability>
+<capability>
+net:alaxala:oan:onapi:1.1
+</capability>
+</capabilities>
+<session-id>1310</session-id>
+</hello>
+</soapenv:Body>
+</soapenv:Envelope>
+SOAP::Transport::HTTP::Client::send_receive: POST http://10.0.0.1:832/onapi/ HTTP/1.1
+Accept: text/xml
+Accept: multipart/*
+Accept: application/soap
+User-Agent: SOAP::Lite/Perl/0.69
+Content-Length: 404
+Content-Type: text/xml; charset=utf-8
+SOAPAction: "urn:ietf:params:xml:ns:netconf:base:1.0#rpc"
+
+<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0"><rpc message-id="1234++"><get-config><source><running /></source></get-config></rpc></rpc></soapenv:Body></soapenv:Envelope>
+SOAP::Transport::HTTP::Client::send_receive: HTTP/1.1 200 OK
+Connection: close
+Date: Wed, 28 Mar 2007 05:13:04 GMT
+Server: Apache/1.3.34 (Unix) mod_ssl/2.8.25 OpenSSL/0.9.7i
+Content-Type: text/html
+Client-Date: Wed, 28 Mar 2007 05:10:40 GMT
+Client-Peer: 10.0.0.1:832
+Client-Response-Num: 1
+Client-Transfer-Encoding: chunked
+Set-Cookie: SESSION_ID=1310,DEVMAC=xx:xx:xx:xx:xx:xx,;
+
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soapenv:Body>
+<rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+<rpc-reply message-id="1234">
+<data>
+<ns1:ConfigData xmlns:ns1="urn:net:alaxala:oan:onapi:commons:netmod:1.0">
+#Last modified by operator at Mon Mar  5 15:03:35 2007 with version 10.4.A
+!
+hostname &quot;xxxx.alaxala&quot;
+clock timezone JST +9
+swrt_table_resource l3switch-2
+!
+(snip)
+</ns1:ConfigData>
+</data>
+</rpc-reply>
+</rpc-reply>
+</soapenv:Body>
+</soapenv:Envelope>
+```
+
+netconfのWSDLがあるので本当は下位関数作る必要ないのですが、
+<a href="http://www.soaplite.com/">SOAP::Lite</a>のWSDLスキーマ読み込みがまだいけてないので、テマテマと関数書いてます。

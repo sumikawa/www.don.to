@@ -1,0 +1,10 @@
+---
+title: 久しぶりにhack
+---
+<a href="http://www.musicpd.org/">Music Player Daemon</a>(mpd-0.11.4)がID3タグをUTF-8固定で扱っているので、
+SJIS使ってる僕の環境ではタグが文字化けします。
+
+なので、mpd.confに'tag_charset "SJIS"'とか書けるようにした<a href="https://gist.github.com/sumikawa/48ce7fb32ee6c2e91a7a30112287d3e1">パッチ</a>。
+
+作者には送付済み。libiconvが理解できる文字コードならなんでも使えます。
+MPDはとっても便利なので、そのうち解説ページ作ろう。

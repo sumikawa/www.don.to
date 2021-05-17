@@ -1,0 +1,119 @@
+---
+code: true
+title: zfsでバックアップ管理
+---
+おうちサーバをzfs(+mirror)構成にしたので、バックアップをzfs snapshotでとるようにしました。
+ディスク構成はこんな感じ。
+
+<pre class="terminal">
+% zpool status
+  pool: tank
+ state: ONLINE
+ scrub: scrub completed after 5h58m with 0 errors on Tue Jan 11 19:08:30 2011
+config:
+
+	NAME                                            STATE     READ WRITE CKSUM
+	tank                                            ONLINE       0     0     0
+	  mirror                                        ONLINE       0     0     0
+	    gptid/b4ede3f7-7374-11df-88ce-02301b00361b  ONLINE       0     0     0
+	    gptid/195e4153-c00c-11df-bd35-02301b00361b  ONLINE       0     0     0
+
+errors: No known data errors
+% df -g
+Filesystem       1G-blocks Used Avail Capacity  Mounted on
+/dev/ad4p2               1    0     1    24%    /
+devfs                    0    0     0   100%    /dev
+/dev/md0                 0    0     0     0%    /tmp
+procfs                   0    0     0   100%    /proc
+tank                   842    0   842     0%    /tank
+tank/local            1623  781   842    48%    /usr/local
+tank/obj               844    2   842     0%    /usr/obj
+tank/ports             844    1   842     0%    /usr/ports
+tank/src               843    0   842     0%    /usr/src
+devfs                    0    0     0   100%    /var/named/dev
+</pre>
+
+/usr/local以下(tank/local)を毎日バックアップします。
+まず、cronで毎晩下記のシェルスクリプトをroot権限で実行します。
+
+<% code("bash") do %>
+#!/bin/sh
+zfs snapshot tank/local@`date "+%Y%m%d"`
+<% end %>
+
+以前に使ってた<a href="http://0xcc.net/pdumpfs/">pdumpfs</a>の場合は一時間ぐらいかかってバックアップを作成してましたが、snapshotは一瞬で出来上がります。
+snapshotはzfs listで確認できます。
+
+<pre class="terminal">
+% zfs list -t snapshot
+NAME                   USED  AVAIL  REFER  MOUNTPOINT
+tank/local@20101229   29.2M      -   693G  -
+tank/local@20101230   22.2M      -   700G  -
+tank/local@20101231   21.6M      -   711G  -
+tank/local@20110101   22.7M      -   711G  -
+tank/local@20110102   20.3M      -   711G  -
+tank/local@20110103   21.0M      -   712G  -
+tank/local@20110104   11.2G      -   733G  -
+tank/local@20110105   6.26G      -   753G  -
+tank/local@20110106    208M      -   747G  -
+tank/local@20110107    195M      -   747G  -
+tank/local@20110108   7.75G      -   762G  -
+tank/local@20110109    291M      -   771G  -
+tank/local@20110110    193M      -   769G  -
+tank/local@20110111    219M      -   782G  -
+tank/local@20110112    275M      -   781G  -
+tank/local@20110113   72.0M      -   781G  -
+</pre>
+
+このままにしておくと、snapshotが日毎に際限なく増えていくので、過去のsnapshotは間引いていきます。
+pdumpfs-cleanをベースに<a href="https://gist.github.com/777602">snapshot-clean</a>というrubyスクリプトを作りました。
+
+僕の場合、下記のルールでバックアップを保持しています。
+
+- Daily backupを7日分
+- Weekly backupを8週間分
+- Monthly backupを18ケ月分
+- Yearly backupを4年分
+
+下記の引数で`snapshot-clean`を実行すると、過去のsnapshotがこのルールを元に消されていきます。
+削除もあっという間に終わります。
+
+<pre class="terminal">
+% sudo snapshot-clean -v --keep 4Y18M8W7D
+Deleting tank/local@20101229 ... done.
+Deleting tank/local@20101230 ... done.
+Deleting tank/local@20101231 ... done.
+Deleting tank/local@20110103 ... done.
+Deleting tank/local@20110104 ... done.
+Deleting tank/local@20110105 ... done.
+Deleting tank/local@20110106 ... done.
+Keep snapshots:
+tank/local@20110101
+tank/local@20110102
+tank/local@20110107
+tank/local@20110108
+tank/local@20110109
+tank/local@20110110
+tank/local@20110111
+tank/local@20110112
+tank/local@20110113
+tank/obj@null
+</pre>
+
+バックアップは、(mountpoint)/.zfs/snapshot/からアクセスできます。
+
+<pre class="terminal">
+% ls -l /usr/local/.zfs/snapshot/
+drwxr-xr-x  20 root  wheel  20 Jul 21 22:00 20110101/
+drwxr-xr-x  20 root  wheel  20 Jul 21 22:00 20110102/
+drwxr-xr-x  20 root  wheel  20 Jul 21 22:00 20110107/
+drwxr-xr-x  20 root  wheel  20 Jul 21 22:00 20110108/
+drwxr-xr-x  20 root  wheel  20 Jul 21 22:00 20110109/
+drwxr-xr-x  20 root  wheel  20 Jul 21 22:00 20110110/
+drwxr-xr-x  20 root  wheel  20 Jul 21 22:00 20110111/
+drwxr-xr-x  20 root  wheel  20 Jul 21 22:00 20110112/
+drwxr-xr-x  20 root  wheel  20 Jul 21 22:00 20110113/
+</pre>
+
+当たり前ですが、スナップショットは同一HDD内に保持するため、HDD 1台でzfsしている環境だとHDD壊れたらバックアップごと吹っ飛びます。
+ミラー構成やRAID構成が前提です。

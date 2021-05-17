@@ -1,0 +1,7 @@
+AuthUserFile /www/.htpasswd
+AuthName "secret"
+AuthType Basic
+
+<Limit GET>
+require user minako
+</Limit>

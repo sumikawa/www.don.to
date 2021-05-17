@@ -1,0 +1,11 @@
+---
+title: Microsoft Exchange serverはじめやがりました。
+---
+会社のメールシステムが新調されたと思ったら、メールサーバがMicrosoft製でPOPでもIMAPでもなくて、Microsoft独自のプロトコル(RPC系?)喋りやがんの。Outlook使えだって。きゅう。
+
+さて、どうしたもんかと、ちょっと調べたところによると、
+
+- Exchange Server側でIMAPサービスをenableにすることによって、IMAP経由でメールを取得することはできる。ただし、サーバ側の変更なので、情報管理部門との交渉が必要。普通、「Outlookのみサポート。それ以外は許さない」と言ってくるので、政治的に頑張らないといけない
+- fetchmailもmew等、普段使ってるアプリはこのプロトコルには対応してない
+- フリーソフト系では、現時点では唯一<a href="http://www.gnome.org/projects/evolution/">Evolution</a>の<a href="http://open.nit.ca/wiki/index.php?page=ExchangeItEvolution">プラグイン</a>だけが対応してるみたい
+- EvolutionはFreeBSDでportsがあるけど、プラグインの方はなし。とりあえず、さっくりとmakeは通らなかったので、移植作業必要
