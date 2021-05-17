@@ -54,12 +54,10 @@ activate :syntax
 activate :directory_indexes
 #activate :relative_assets
 
-activate :sprockets
 activate :asset_hash
 
 #activate :livereload, js_host: 'stage.aws.don.to', port: 8888, no_swf: true
 #activate :livereload
-
 # Build-specific configuration
 configure :build do
   activate :minify_css
