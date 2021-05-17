@@ -153,7 +153,6 @@ DEPENDENCIES
   redcarpet
   sass
   slim
-  sprockets (< 4.0.0)
   therubyracer
   webrick
 
