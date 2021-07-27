@@ -4,5 +4,6 @@ all::
 build::
 	bundle exec middleman build
 
-backup::
-	git push -u bitbucket master
+push::
+	git commit -m update -a
+	git push
