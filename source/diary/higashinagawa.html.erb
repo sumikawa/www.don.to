@@ -4,7 +4,7 @@ title: 東品川ごはん
 <%
   all = {}
   num = {}
-  Dir.glob("source/diary/201*/*.html.md.erb").sort.reverse.each do |filename|
+  Dir.glob("source/diary/20[12]*/*.html.md.erb").sort.reverse.each do |filename|
     open(filename) do |f|
       while l = f.gets
 	if l =~ /title: 東品川ごはん\s+(.*)/
