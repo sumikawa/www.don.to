@@ -7,7 +7,7 @@ title: 東品川ごはん
   Dir.glob("source/diary/201*/*.html.md.erb").sort.reverse.each do |filename|
     open(filename) do |f|
       while l = f.gets
-	if l =~ /title: (青物横丁|品川シーサイド)\s+(.*)/
+	if l =~ /title: (東品川ごはん)\s+(.*)/
           restaurant = $1
           if all[restaurant].nil?
   	    all[restaurant] = gen_link(filename, restaurant, true)
