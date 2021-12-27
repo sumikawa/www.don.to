@@ -6,7 +6,6 @@ module LinkHelpers
   end
   @@imageheight = 600
   @@thumbheight = 96
-  @@staticsite = "https://dl.dropboxusercontent.com/u/229780/images"
   @@redirectsite = "https://www.don.to"
 
   def image(file, height: @@thumbheight, ext: 'jpg')
@@ -47,12 +46,21 @@ module LinkHelpers
     "<a href=\"#{@@redirectsite}#{dir}#{file}\.mp4\" class=\"video swipe\"><img src=\"#{@@imagesite}#{dir}video/#{@@thumbheight}/#{file}.jpg\" height=\"#{@@thumbheight}\" alt=\"#{file}\" /></a>"
   end
 
+  def audio(file)
+    if current_page.url =~ /\.html$/
+      dir = current_page.url.sub(%r|\.html$|, '/')
+    else
+      dir = current_page.url.sub(%r|/[^/]*$|, '/')
+    end
+    "<audio controls><source src=\"#{@@redirectsite}#{dir}#{file}\.m4a\" type=\"audio/aac\"></audio>"
+  end
+
   def static_to(file, comment)
     if current_page.url =~ /\.html$/
       dir = current_page.url.sub(%r|\.html$|, '/')
     else
       dir = current_page.url.sub(%r|/[^/]*$|, '/')
     end
-    "<a href=\"#{@@staticsite}#{dir}#{file}\">#{comment}</a>"
+    "<a href=\"#{@@redirectsite}#{dir}#{file}\">#{comment}</a>"
   end
 end

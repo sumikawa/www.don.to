@@ -50,6 +50,8 @@ module CustomHelpers
         t = ex['CreationDate'] || ex['FileModifyDate'] || now
       when ".avi"
         text = "<%= movie \"#{base}\" %>"
+      when ".m4a"
+        text = "<%= audio \"#{base}\" %>"
       when ".aae"
         File.delete(f)
       else
