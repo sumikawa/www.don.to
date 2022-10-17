@@ -1,0 +1,33 @@
+---
+title: 目黒ごはん
+---
+<%
+  all = {}
+  num = {}
+  Dir.glob("source/diary/20[12]*/*.html.md.erb").sort.reverse.each do |filename|
+    open(filename) do |f|
+      while l = f.gets
+	if l =~ /title: 目黒ごはん\s+(.*)/
+          restaurant = $1
+          if all[restaurant].nil?
+  	    all[restaurant] = gen_link(filename, restaurant, true)
+  	    num[restaurant] = 1
+	  else
+  	    num[restaurant] += 1
+          end
+        end
+      end
+    end
+  end
+  list = []
+  all.each do |h, l|
+    if num[h] == 1
+      list << l
+    else
+      list << l.sub(/\<\/dt\>/, " (#{num[h]}回目)</dt>")
+    end
+  end
+%>
+<dl>
+<%= list.join("\n") %>
+</dl>

@@ -1,0 +1,67 @@
+---
+title: Links
+links:
+  すみかわ日記: http://www.don.to/diary/
+  Mail: http://mail.google.com/a/sumikawa.jp/
+  sche: http://www.google.com/calendar/hosted/sumikawa.jp/render?tab=mc
+  draft: http://stage.aws.don.to/diary/draft/
+  RSS: https://jp.inoreader.com/all_articles
+  MC: https://sumikawa.signin.aws.amazon.com/console
+  c9: https://ap-northeast-1.console.aws.amazon.com/cloud9/ide/bae76cf205f0496b9ff0e39a076a8074
+  Workdocs: https://amazon.awsapps.com/workdocs/index.html#/mydocs
+  東品川: http://www.don.to/diary/higashinagawa/
+  TODO: https://www.rememberthemilk.com/
+  webmail: https://sumikawa.awsapps.com/mail
+  あだち: http://0810.atat.jp/i/f.php
+  アニモ: http://hoshikawa.or.tv/animo/top.html
+  ひかり病児保育室: http://hoiku.net489.jp/hikariyt/hoiku.cgi
+  おとキッズ: http://www.doctorqube.com/saclass-otokids/
+  pinboard: http://pinboard.in/u:sumikawa/
+  youtube: https://www.youtube.com/playlist?list=FLb2YNIItPTCgslN3eMVG85w
+  UFJ: https://entry11.bk.mufg.jp/ibg/dfw/APLIN/loginib/login?_TRANID=AA000_001
+  Visa: https://www.smbc-card.com/mem/top/index.jsp
+  SBI: https://www.netbk.co.jp/wpl/NBGate
+  野村: https://hometrade.nomura.co.jp/web/rmfIndexWebAction.do
+  確定拠出年金: https://www.rk.sjdc.co.jp/RKWEB/RkDCMember/Common/JP_D_BFKLogin.aspx
+  福利厚生: http://www.benefit-one.co.jp/
+  健保: http://www.kenpo-info.jp/
+  payroll: https://www3.payroll.co.jp/epay/jsp/login.jsp
+  RSU: https://www.stockplanconnect.com/
+  wiki: http://sumikawa.cswiki.jp/
+  DNS: http://freedns.afraid.org/
+  図書館: https://opac.lib.city.yokohama.lg.jp/opac/
+  電子図書館: https://www.d-library.jp/yokohama/g0101/top/
+  coho: https://coho.amazon.com/
+  B+: https://b-plus.jtb-cwt.com/bplus/main/175820/Bplus_JP.aspx?CORPORATEID=KC2mrW%2fI0Zw%24&LANG=LFNXegKk4Hc%24&pageHash=D18BC24F4AED1A693EEBE4EED3393A5E
+  unlock: https://www.amazonunlock.com/
+  dynamicip: https://albauth.aws.don.to/
+  button: https://sfjsrcvkod.execute-api.ap-northeast-1.amazonaws.com/prod/button
+  knet: https://knet.csod.com/
+  workdocs: https://amazon.awsapps.com/workdocs/index.html#/mydocs
+  english: https://www.learnship.com/en/login/
+  deletemail: https://mail.google.com/mail/u/0/#search/has%3Anouserlabels+(subject%3A%E6%96%B0%E3%81%97%E3%81%84%E4%BA%88%E5%AE%9A+OR+subject%3A%22%E6%8B%9B%E5%BE%85+-+%E6%9B%B4%E6%96%B0%22+OR+from%3Anoreply%40mackerel.io+OR+from%3Abaymaga%40dbmail.dena-baystars.jp+OR+from%3Amail%40kuronekoyamato.co.jp+OR+from%3Ayokohama-library%40lib.city.yokohama.lg.jp+OR+from%3Amessaging-digest-noreply%40linkedin.com+OR+from%3Ano-reply%40sns.amazonaws.com+OR+from%3Ano-reply%40mercari.jp+OR+from%3Ano-reply%40connpass.com+OR+from%3Aannounce-noreply%40iijmio.jp)
+  oldmail: https://mail.google.com/mail/u/0/#search/(label%3Aannounce+OR+l%3Ajanog+OR+l%3Acoupon+OR+l%3Acron)+AND+older_than%3A1y
+  Covid1: https://toyokeizai.net/sp/visual/tko/covid19/
+  Covid2: https://vdata.nikkei.com/newsgraphics/coronavirus-japan-vaccine-status/
+  Covid3: https://www.stopcovid19.jp/
+---
+<p>
+  <% current_page.data.links.each do |k, v| %>
+    <%= link_to k, v, { :target => '_blank' } %> /
+  <% end %>
+</p>
+
+<form action="#" onsubmit="load_document();return false;">
+  <input type="text" id="keywords" size="15" maxlength="256" placeholder="Amazon" value="" />
+  <select name="search" id="search">
+    <option value="KindleStore">Kindle</option>
+    <option value="Books">Books</option>
+    <option value="DVD">DVD</option>
+    <option value="Music">Music</option>
+  </select>
+  <input type="submit" value="go" />
+</form>
+
+<p id="amazon"></p>
+
+<%= javascript_include_tag "amazon.js" %>

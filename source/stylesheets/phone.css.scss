@@ -1,0 +1,71 @@
+/* -*- coding: utf-8 -*-  */
+@import "shared";
+
+@media screen and (max-device-width: 480px), screen and (max-width: 480px) {
+  .titleblock {
+    display: none;
+  }
+
+  .mainblock {
+    font-size: large;
+  }
+
+  .leftblock {
+    font-size: large;
+    overflow: hidden;
+  }
+
+  @mixin hr {
+    border-bottom: 1px solid #025;
+    @include vendor-prefix(box-shadow, 0 2px 0 #fcfcfc);
+  }
+
+  hr {
+    @include hr;
+  }
+  h1 {
+    @include hr;
+    font-size: x-large;
+    text-align: center;
+    color: $titlecolor;
+  }
+  h2 {
+    font-size: x-large;
+    color: $titlecolor;
+    margin-top: 0px;
+  }
+  h3 {
+    color: $titlecolor;
+  }
+
+  ul, ol, dl {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  dt {
+    line-height: 110%;
+  }
+
+  dd {
+    text-indent: 1.0em;
+    margin-left: 1.0em;
+  }
+
+  li {
+    line-height: 110%;
+    margin-top: 2px;
+    margin-left: 0px;
+    margin-bottom: 2px;
+    list-style-position: outside;
+  }
+
+  .indent { margin-left: 10%; margin-right: 5%; }
+  .filename { font-family: monospace, courier; }
+  img { border: none; }
+
+  span.warning { color: red; }
+  span.fontsizeplus { font-size: x-large; }
+  span.fontsizeplusplus { font-size: xx-large; }
+
+}

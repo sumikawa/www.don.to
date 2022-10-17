@@ -1,0 +1,105 @@
+class: center, middle
+
+# Dancing KAME and Android
+## Munechika Sumikawa
+## KAME Project
+
+---
+class: left, top
+
+# Dancing KAMEとは
+
+.center[![Dancing KAME](http://www.kame.net/img/kame-anime-big.gif)]
+
+- www.kame.netにIPv6でアクセスすると亀が踊る
+- IPv6動作確認サイトとして、世界で一番有名
+- KAME Projectは活動終了してるが、webサイトは維持モードに入り継続
+
+---
+
+# それは2010年6月3日、この人のつぶやきからはじまった
+
+.center[![yoshiki](yoshiki.png)]
+
+---
+
+# よく分からんので、色々聞き出す
+
+* 簡単な流れ
+ - AndroidがIPv6に対応した(WiFi)
+ - World IPv6 Day(6/8)に向けて、アンドロイドで(当時)未来へ行く某社が検証した
+ - http://www.kame.net/ を見にいったらKAMEが踊らない
+ - Animated GIFがAndroid 2.2で未サポートらしい
+
+---
+
+# twitterで広く情報を集める
+
+*  未確認情報が飛び交う
+ - Android 2.2で動くよ
+ - いや、2.2で設定メニューでONにしたら動くよ
+ - いや、そんなメニューねえよ
+* バージョンみんな同じなのに話がバラバラ
+* わけわからん
+
+---
+
+# さらに調査して分かったこと
+
+* GoogleがリリースしているAndroidはAnimated GIF非サポート
+ - Androidエミュレータで確認
+* 各ベンダが独自バイナリをビルドするときに、勝手にサポートしてる場合あり
+* Goolgle標準と違うので、メニューで設定できるものあり。デフォルトでOFFにしている
+* こんなところにもフラグメンテーション問題が...
+
+---
+
+# www.kame.netをどうにかする (1/2)
+
+- Canvasでパラパラアニメを表示
+- Canvas非サポートなブラウザではAnimated GIFにフォールバック
+
+```HTML
+<div id="canvas" style="display: none;">
+  <canvas id="anime" width="124" height="100">
+  </canvas>
+</div>
+<img id="gif" src="/img/kame-mosaic-small.gif" alt="Mosaic KAME" />
+```
+
+---
+
+# www.kame.netをどうにかする (2/2)
+
+```JavaScript
+var canvas = document.getElementById('anime');
+if (! canvas || ! canvas.getContext) {
+  return false;
+}
+$('img#gif').remove();
+$('div#canvas').show();
+ctx = canvas.getContext('2d');
+for (i = 0; i <= max; i++) {
+  img[i] = new Image();
+  img[i].src = "/img/anime/kame-mosaic-small-" + i + ".png";
+}
+setInterval(function() {
+  ctx.drawImage(img[count], 0, 0);
+  count++;
+  if (count > max) {
+    count = 0;
+  }
+}, 100);
+```
+
+---
+
+# まとめ
+
+* ということで、AndroidでもKAMEが踊った
+ - 6/7に完了。なんとかWorld IPv6 Dayに間に合った
+  - 余波でwww.kame.netがHTML5準拠に
+  - HTTPセッション数が大幅に増加(3→20)
+ - こうやってTCPセッションが増えていくのね
+  - あなたのAndroidはオレオレAndroidです。一般化してはいけません
+  - twitter△

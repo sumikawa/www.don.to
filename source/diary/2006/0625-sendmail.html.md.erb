@@ -1,0 +1,43 @@
+---
+title: Greet Pause その2
+---
+Greet Pauseのデータをきちんととってみました。条件は以下。
+
+- Greet Pauseの時間は12秒
+- FEATURE(dnsbl) もenableにしてます
+
+6/20〜25にdon.toに来た全spamメールが分母で、
+そのうちsendmailが拒絶した(spamと判定した)ものが分子になります。
+
+- 06/20: 36/119
+- 06/21: 27/159
+- 06/22: 31/128
+- 06/23: 41/138
+- 06/24: 25/115
+- 06/25: 32/95
+- 計: 192/754 (成功率 25.4%)
+
+成功率25%でかなりビミョー。
+
+びっくりしたのは下記みたいにgreet pauseではねられても諦めずに再送をくりかえすやつがいること。
+spam系のメーラは再送がんばらないもんだと思ってたけどそうではないのね。
+
+こういうやつは延べで数えているので実際の成功率はさらに落ちます。
+
+<pre class="terminal">
+Jun 20 23:21:28 alamise sm-mta[24057]: k5KELSjt024057: rejecting commands from [84.6.244.25] [84.6.244.25] due to pre-greeting traffic
+Jun 20 23:21:44 alamise sm-mta[24058]: k5KELiLG024058: rejecting commands from [84.6.244.25] [84.6.244.25] due to pre-greeting traffic
+Jun 20 23:22:15 alamise sm-mta[24072]: k5KEMFG5024072: rejecting commands from [84.6.244.25] [84.6.244.25] due to pre-greeting traffic
+Jun 20 23:22:30 alamise sm-mta[24077]: k5KEMUvG024077: rejecting commands from [84.6.244.25] [84.6.244.25] due to pre-greeting traffic
+Jun 20 23:22:59 alamise sm-mta[24081]: k5KEMxHB024081: rejecting commands from [84.6.244.25] [84.6.244.25] due to pre-greeting traffic
+Jun 20 23:23:17 alamise sm-mta[24087]: k5KENGQR024087: rejecting commands from [84.6.244.25] [84.6.244.25] due to pre-greeting traffic
+Jun 20 23:23:40 alamise sm-mta[24088]: k5KENe1Q024088: rejecting commands from [84.6.244.25] [84.6.244.25] due to pre-greeting traffic
+Jun 20 23:24:16 alamise sm-mta[24091]: k5KEOGwA024091: rejecting commands from [84.6.244.25] [84.6.244.25] due to pre-greeting traffic
+Jun 20 23:24:32 alamise sm-mta[24092]: k5KEOWwb024092: rejecting commands from [84.6.244.25] [84.6.244.25] due to pre-greeting traffic
+Jun 20 23:25:03 alamise sm-mta[24106]: k5KEP3j8024106: rejecting commands from [84.6.244.25] [84.6.244.25] due to pre-greeting traffic
+Jun 20 23:25:18 alamise sm-mta[24128]: k5KEPIN1024128: rejecting commands from [84.6.244.25] [84.6.244.25] due to pre-greeting traffic
+Jun 20 23:25:50 alamise sm-mta[24129]: k5KEPoe3024129: rejecting commands from [84.6.244.25] [84.6.244.25] due to pre-greeting traffic
+Jun 20 23:26:06 alamise sm-mta[24132]: k5KEQ5v2024132: rejecting commands from [84.6.244.25] [84.6.244.25] due to pre-greeting traffic
+Jun 20 23:26:22 alamise sm-mta[24134]: k5KEQMOi024134: rejecting commands from [84.6.244.25] [84.6.244.25] due to pre-greeting traffic
+Jun 20 23:26:36 alamise sm-mta[24135]: k5KEQa5x024135: rejecting commands from [84.6.244.25] [84.6.244.25] due to pre-greeting traffic
+</pre>

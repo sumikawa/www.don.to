@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex" />
+    <title><%= gen_title %></title>
+    <link rel="alternate" type="application/rss+xml" title="rss" href="https://www.don.to/diary/index.rdf" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css" />
+  <script>(function(n,i,v,r,s,c,x,z){x=window.AwsRumClient={q:[],n:n,i:i,v:v,r:r,c:c};window[n]=function(c,p){x.q.push({c:c,p:p});};z=document.createElement('script');z.async=true;z.src=s;document.head.insertBefore(z,document.getElementsByTagName('script')[0]);})('cwr','86088aa8-6e0b-4e9c-8244-d319196bd329','1.0.0','ap-northeast-1','https://client.rum.us-east-1.amazonaws.com/1.0.2/cwr.js',{sessionSampleRate:1,guestRoleArn:"arn:aws:iam::853641575541:role/RUM-Monitor-ap-northeast-1-853641575541-3101969203461-Unauth",identityPoolId:"ap-northeast-1:e1308c17-6a0b-4e59-b0e7-dcf2a8d75f51",endpoint:"https://dataplane.rum.ap-northeast-1.amazonaws.com",telemetries:["performance","errors","http"],allowCookies:true,enableXRay:false});</script>
+    <%= stylesheet_link_tag "application" %>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Reenie+Beanie" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/images/ipod-icon.png" />
+    <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=2.0000" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="centerblock">
+	<% if current_page.data.top == true %>
+      <div class="titleblock">
+        <div id="dayd">Daydreamers On the Net</div>
+        <br />
+        <div id="doyou">- Do you dream a daydream? -</div>
+	  </div>
+	<% end %>
+	  <div class="mainblock">
+        <form role="search">
+          <input type="search" placeholder="検索" id="search" />
+        </form>
+        <% unless current_page.data.top == true %>
+          <h2><%= gen_title %></h2>
+        <% end %>
+        <%= yield %>
+        <hr />
+        <div id="name">SUMIKAWA Munechika / Daydreamers On the Net</div>
+	  </div>
+    </div>
+    <div class="leftblock">
+      <%= partial "layouts/photofooter" %>
+    </div>
+    <%= partial "layouts/pswp" %>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+  <%= javascript_include_tag "application" %>
+</html>

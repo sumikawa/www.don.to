@@ -1,0 +1,13 @@
+User-agent: baiduspider
+Disallow: /
+User-agent: pflab
+Disallow: /
+User-agent: TurnitinBot
+Disallow: /
+User-Agent: *
+Disallow: /
+Disallow: /tmp/
+Disallow: /kamefm/
+Disallow: /itojun/
+Disallow: /*.jpg$
+Disallow: /*.mp4$

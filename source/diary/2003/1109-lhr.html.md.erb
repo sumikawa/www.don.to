@@ -1,0 +1,48 @@
+---
+title: ヒースロー空港のホットスポット
+---
+BTが<a href="http://www.btopenzone.com/">BT Openzone</a>なるホットスポットを
+ヒースロー空港でサービスしてのたでものは試しとやってみる。£6/時間、£15/日でした。
+高い。
+
+アドレスもらった後にweb経由でクレジットカード情報を入力すると使えるようになります。
+
+<pre class="terminal">
+% ifconfig wi0
+wi0: flags=8843&lt;UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST&gt; mtu 1500
+        inet6 fe80::260:b3ff:fe69:3981%wi0 prefixlen 64 scopeid 0x5 
+        inet 10.96.60.52 netmask 0xffffff00 broadcast 255.255.255.255
+        ether 00:60:b3:69:39:81
+        media: IEEE 802.11 Wireless Ethernet autoselect (DS/11Mbps)
+        status: associated
+        ssid BTOpenzone 1:""
+        stationname "FreeBSD WaveLAN/IEEE node"
+        channel 7 authmode OPEN powersavemode OFF powersavesleep 100
+        wepmode OFF weptxkey 1
+</pre>
+
+tracerouteの結果。
+
+<pre class="terminal">
+% traceroute don.to
+traceroute to don.to (202.221.217.238), 64 hops max, 44 byte packets
+ 1  GW.hat1.btopenzone.com (10.96.60.1)  8.208 ms  14.709 ms  3.433 ms
+ 2  btopenzonehg1.ealing.broadband.bt.net (213.123.100.169)  18.033 ms  16.389 ms  15.701 ms
+ 3  192.168.10.2 (192.168.10.2)  19.685 ms  20.710 ms  14.424 ms
+ 4  * * *
+ 5  217.41.224.1 (217.41.224.1)  51.443 ms  19.610 ms  22.615 ms
+ 6  62.7.199.37 (62.7.199.37)  48.783 ms  151.841 ms  19.850 ms
+ 7  core1-gig2-1.kingston.ukcore.bt.net (194.72.3.1)  36.911 ms  44.429 ms  98.362 ms
+ 8  core1-pos5-1.ilford.ukcore.bt.net (195.99.120.198)  19.933 ms  22.808 ms  18.830 ms
+ 9  transit2-pos3-0.ilford.ukcore.bt.net (194.72.20.250)  22.090 ms  23.558 ms  50.001 ms
+10  t2c2-p8-0.uk-ilf.concert.net (166.49.168.97)  24.615 ms  21.999 ms  31.616 ms
+11  t2c2-p9-0.us-nyb.concert.net (166.49.208.130)  129.607 ms  128.709 ms  128.951 ms
+12  NYIIX.IIJ.net (198.32.160.42)  111.296 ms  122.102 ms  113.052 ms
+13  NewYork-bb2.IIJ.Net (216.98.98.67)  109.607 ms  109.354 ms  111.884 ms
+14  paloalto-bb2.IIJ.net (216.98.96.156)  193.456 ms  192.083 ms  214.870 ms
+15  otemachi-bb7.IIJ.net (216.98.96.194)  337.637 ms  325.100 ms  329.516 ms
+16  otemachi-gate07.IIJ.Net (210.130.143.225)  308.285 ms  305.165 ms  308.759 ms
+17  210.138.170.2 (210.138.170.2)  308.355 ms  311.206 ms  307.912 ms
+18  210.138.170.54 (210.138.170.54)  313.097 ms *  305.248 ms
+19  verifam (202.221.217.238)  349.434 ms  358.736 ms  355.590 ms
+</pre>

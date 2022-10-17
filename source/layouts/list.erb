@@ -1,0 +1,25 @@
+<% wrap_layout :site do %>
+  <ul>
+    <% if current_page.data.files.nil? %>
+      <pre>
+        Generating. Reload the page
+      </pre>
+      <% require 'yaml'
+         imagerdir = File.expand_path("#{data.site.imagerootdir}#{current_page.url}")
+	 indexfile = File.expand_path("source#{current_page.url}".sub(/\/\s*$/, '')+ ".html.md.erb")
+	 if Dir.exist? imagerdir
+	   yaml = YAML.load(open(indexfile))
+           yaml['files'] = `ls #{imagerdir}`.split(' ')
+           open(indexfile, "w") do |f|
+             YAML.dump(yaml, f)
+             f.puts "---"
+           end
+         end
+      %>
+    <% else %>
+      <% current_page.data.files.each do |l| %>
+        <li><%= static_to(l, l) %></li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>

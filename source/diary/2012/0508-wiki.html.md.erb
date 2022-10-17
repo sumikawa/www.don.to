@@ -1,0 +1,144 @@
+---
+code: true
+title: PukiWikiをdotcloud + S3で運用する
+---
+長期計画ですが、おうちサーバーを無くそうとしています。
+ただし、単純にVPSへ移動するんじゃなくて、OSやミドルウェアのメンテナンスがいらないPaaS/SaaSへの移行が目標です。
+その一貫として<a href="http://pukiwiki.sourceforge.jp/">PukiWiki</a>を<a href="https://www.dotcloud.com/">dotcloud</a>に移しました。
+
+ポイントはWikiデータをローカルディスクではなくs3fs経由でAWS S3に置くこと。
+これにより、デプロイメント(dotcloud push)のタイミングでローカルディスクの内容が消えるdotcloudの仕様を回避できます。
+また、S3上においておけば障害が起こってもデータが消えません。
+
+以下が手順です。dotcloudそのものの設定は済んでいるものとします。
+まだの人は<a href="http://docs.dotcloud.com/firststeps/install/">こちら</a>から。
+
+<h3>AWSコンソールからWiki用のbucketを作る</h3>
+
+ここでは、bucket名は"sumikawa-wiki-test"とします。
+まあ、スクリーンショット貼るほどでもないですが、一応。
+
+<%= simage "s3", ext: 'png' %>
+
+<h3>素のPukiWikiをデプロイメントする</h3>
+
+systempackagesで指定してるのはfuse-s3fsに必要なパッケージです。ついでにここでインストールしておきます。
+
+<pre class="terminal">
+% mkdir (適当なディレクトリ)
+% cd (適当なディレクトリ)
+% cat > dotcloud.yml
+wiki:
+  approot: pukiwiki-1.4.7_notb_utf8
+  type: php
+  systempackages:
+    - libfuse2
+    - fuse-utils
+(Ctrl+Dを押す)
+% tar zxf ~/Downloads/pukiwiki-1.4.7_notb_utf8.tar.gz
+% dotcloud create test
+Created application "test"
+% dotcloud push test
+(略)
+Deployment finished. Your application is available at the following URLs
+wiki: http://xxxx-xxxxxxxx.dotcloud.com/
+</pre>
+
+最後に出て来たURLにアクセスするとPukiWikiが表示されてると思います。まあ簡単。
+
+<h3>fuse-s3fsの設定をする</h3>
+
+dotcloudの<a href="http://docs.dotcloud.com/guides/s3fs/">この手順</a>に従って、fuse-s3fsの設定をします。
+
+<pre class="terminal">
+% cd pukiwiki-1.4.7_notb_utf8/
+% curl -O http://dotcloud-plugins.s3.amazonaws.com/s3fs
+% chmod +x s3fs
+% curl -O http://docs.dotcloud.com/_downloads/run.s3fs
+% chmod +x run.s3fs
+% cat > supervisord.conf 
+[program:s3fs]
+command=/home/dotcloud/current/run.s3fs
+stdout_logfile=/var/log/supervisor/s3fs.log
+stderr_logfile=/var/log/supervisor/s3fs.log
+(Ctrl+Dを押す)
+% dotcloud var set test \
+           S3FS_BUCKET=sumikawa-wiki-test \
+           S3FS_MOUNTPOINT=/home/dotcloud/s3fs \
+           S3FS_ACCESSKEY=xxxx \
+           S3FS_SECRETKEY=xxxxxxxxxxxxxxxxxxxx
+</pre>
+
+<h3>S3をマウントする</h3>
+
+上記の設定を反映して、S3をマウントするために一旦デプロイメントします。
+
+<pre class="terminal">
+% cd ..
+% dotcloud push test
+</pre>
+
+<h3>Wiki用のデータをS3にコピー</h3>
+
+sshでログインして、(初期状態の)WikiデータをS3にコピーします。
+
+<pre class="terminal">
+% dotcloud ssh test.wiki
+dotcloud@test-default-wiki-0:~$ cd current
+dotcloud@test-default-wiki-0:~/current$ cp -r wiki diff backup cache attach counter traceback ~/s3fs/
+dotcloud@test-default-wiki-0:~/s3fs$ exit
+exit
+</pre>
+
+<h3>PukiWikiの設定を変えてもう一度デプロイメント</h3>
+
+pukiwiki.phpに下記のdiffをあてて、s3fsディレクトリ以下のデータを参照するように変更します。$scriptはdotcloudが決めたURLに変更のこと。
+パスの"/pukiwiki"の部分はいりません。
+
+```
+--- pukiwiki.ini.php.orig	2012-05-08 12:38:31.000000000 +0900
++++ pukiwiki.ini.php	2012-05-08 12:51:10.000000000 +0900
+@@ -70,13 +70,13 @@
+ // You may hide these directories (from web browsers)
+ // by setting DATA_HOME at index.php.
+
+-define('DATA_DIR',      DATA_HOME . 'wiki/'     ); // Latest wiki texts
+-define('DIFF_DIR',      DATA_HOME . 'diff/'     ); // Latest diffs
+-define('BACKUP_DIR',    DATA_HOME . 'backup/'   ); // Backups
+-define('CACHE_DIR',     DATA_HOME . 'cache/'    ); // Some sort of caches
+-define('UPLOAD_DIR',    DATA_HOME . 'attach/'   ); // Attached files and logs
+-define('COUNTER_DIR',   DATA_HOME . 'counter/'  ); // Counter plugin's counts
+-define('TRACKBACK_DIR', DATA_HOME . 'trackback/'); // TrackBack logs
++define('DATA_DIR',      DATA_HOME . '../../s3fs/wiki/'     ); // Latest wiki texts
++define('DIFF_DIR',      DATA_HOME . '../../s3fs/diff/'     ); // Latest diffs
++define('BACKUP_DIR',    DATA_HOME . '../../s3fs/backup/'   ); // Backups
++define('CACHE_DIR',     DATA_HOME . '../../s3fs/cache/'    ); // Some sort of caches
++define('UPLOAD_DIR',    DATA_HOME . '../../s3fs/attach/'   ); // Attached files and logs
++define('COUNTER_DIR',   DATA_HOME . '../../s3fs/counter/'  ); // Counter plugin's counts
++define('TRACKBACK_DIR', DATA_HOME . '../../s3fs/trackback/'); // TrackBack logs
+ define('PLUGIN_DIR',    DATA_HOME . 'plugin/'   ); // Plugin directory
+
+ /////////////////////////////////////////////////
+@@ -114,7 +114,7 @@
+ $page_title = 'PukiWiki';
+
+ // Specify PukiWiki URL (default: auto)
+-//$script = 'http://example.com/pukiwiki/';
++$script = 'http://xxxx-xxxxxxxx.dotcloud.com/';
+
+ // Shorten $script: Cut its file name (default: not cut)
+ //$script_directory_index = 'index.php';
+```
+
+修正を反映するためにもう一度デプロイメント。
+
+<pre class="terminal">
+% cd ..
+% dotcloud push test
+(略)
+</pre>
+
+これで終わりです。先ほどのURLにアクセスしてWikiを編集すると、S3上のファイルが更新されるかと思います。
+既にPukiWikiのデータを持ってて移行したい人は、適当な手段でS3のデータを上書きしてください。
+
+sshができたりfuseが使えたりなど、かゆいところに手が届くので、dotcloudはお勧めです。

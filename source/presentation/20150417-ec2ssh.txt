@@ -1,0 +1,48 @@
+class: center, middle
+
+# 小物ツール ec2ssh
+## Munechika Sumikawa
+## Apr 2015
+
+---
+class: left, top
+
+# ec2ssh のご紹介
+* ec2インスタンスへのsshを簡単にするツール
+* https://github.com/sumikawa/ec2ssh
+
+---
+
+# まずはデモ
+
+---
+
+# 特徴
+* percolによるインクリメンタルサーチ
+ * https://github.com/mooz/percol
+* キャッシュ機能搭載
+* ユーザ名指定可能
+ * "User"タグで指定する
+* AWS SDK for Ruby v2で実装
+ * 認証周りはSDK提供のものを使っているので、aws cli互換
+ * Instance Profileも使える
+
+---
+
+# インストール方法
+* percolとAWS SDK for Ruby v2を入れる
+```
+pip install percol
+gem install inifile
+gem install aws-sdk
+```
+* ec2sshのファイルを実行パスへコピー
+```
+git clone git@github.com:sumikawa/ec2ssh.git
+cd ec2ssh
+cp ec2ssh get_instances.rb /usr/local/bin/
+```
+
+---
+
+# おしまい

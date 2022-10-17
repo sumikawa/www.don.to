@@ -1,0 +1,32 @@
+---
+code: true
+title: Windowsパスワード復号用の鍵ペアを全リージョンで共通化する
+---
+AWS EC2のWindowsインスタンスのAdministratorパスワードはKey Pairを使って復号するが、
+マネージメントコンソールでKey Pairを作成すると、リージョンごとに鍵がバラバラになって管理が面倒。
+
+そこで、手元で作成した公開鍵を全リージョンにインストールすることにする。
+
+### 手順
+
+まず秘密鍵と公開鍵のペアを作成。マネージメントコンソールに貼り付けるため、パスフレーズは空にする。
+
+~~~
+cd ~/.ssh
+ssh-keygen -b 2048 -t rsa -C "windows only" -N "" -f windows.pem
+~~~
+
+作成されたキーを全リージョンにimportする。
+
+~~~
+#!/bin/bash
+for region in $(aws ec2 describe-regions --query 'Regions[].RegionName' --output text); do
+  echo $region
+  aws --region $region ec2 import-key-pair --key-name windows --public-key-material file://~/.ssh/windows.pub
+done
+~~~
+
+### 注意点
+
+この秘密鍵はパスフレーズで保護されていないので、セキュリティレベルが低い。
+LinuxインスタンスのSSH鍵には使わないこと。

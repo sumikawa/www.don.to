@@ -1,0 +1,17 @@
+---
+title: おいおい
+---
+そういや、最近どんぐらいwebアクセス来てんのかなあとふとログを見てみる。
+
+<pre class="terminal">
+% cd /var/log/httpd
+% gzip -cd access.log.0.gz | grep -v HEAD | awk '{print $1}' | sort | uniq | wc -l
+    9488
+</pre>
+
+ログは1週間でrotateしてるんで、9500ホスト/週の計算になる。
+おいおい、こんなに来てるんかい。
+
+ちなみに、<a href="http://www.google.co.jp/search?q=sumikawa&amp;btnG=Google+%8C%9F%8D%F5&amp;hl=ja&amp;inlang=ja&amp;ie=Shift_JIS&amp;c2coff=1">sumikawa</a>とか
+<a href="http://www.google.co.jp/search?hl=ja&amp;inlang=ja&amp;ie=Shift_JIS&amp;c2coff=1&amp;q=%82%B7%82%DD%82%A9%82%ED&amp;btnG=Google+%8C%9F%8D%F5&amp;lr=">すみかわ</a>でgoogleしてみると、
+現在第2位。すみかわスキー場に勝てる日は来るのか！

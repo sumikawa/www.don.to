@@ -1,0 +1,55 @@
+---
+layout: false
+---
+<%
+item = []
+detail = {}
+year  = data.year.thisyear
+aburl = data.site.aburl
+limit = data.site.limit
+
+Dir.glob(["source/diary/#{year}/[01]*.html.md.erb", "source/diary/#{year - 1}/[01]*.html.md.erb"]).sort.reverse.slice(0, limit).each do |filename|
+  next if filename =~ /secret/
+  File.open(filename) do |f|
+    while line = f.gets
+      break if line =~ /draft:\strue/
+      if line =~ /title:\s*(.*)/
+        t = $1
+        dir = filename.sub(/^source\/diary/, "").sub(/.html\.md\.erb/, "/")
+	key = dir.sub(/\//, "")
+        item.push(key)
+        md = filename.match(/(\d\d\d\d)\/(\d\d)(\d\d)-/)
+        body = partial filename.sub(/^source\//, "")
+        detail[key] = <<-_EOF_
+        <title>#{md[1]}/#{md[2]}/#{md[3]}: #{t}</title>
+        <link>#{aburl}#{key}</link>
+        <description><![CDATA[#{body}]]></description>
+        <dc:date>#{year}-#{md[1]}-#{md[2]}T00:00:00+09:00</dc:date>
+        _EOF_
+      end
+    end
+  end
+end
+%>
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns="http://purl.org/rss/1.0/">
+  <channel rdf:about="<%= aburl %>">
+    <title>すみかわ日記</title>
+    <description>子供ネタ7割、食い物2割、技術1割</description>
+    <link><%= aburl %></link>
+    <items>
+      <rdf:Seq>
+        <% item.each do |i| %>
+          <%= "<rdf:li resource=\"#{i}\"/>" %>
+        <% end %>
+      </rdf:Seq>
+    </items>
+  </channel>
+<% item.each do |i| %>
+  <item rdf:about="<%= i %>">
+    <%= detail[i] %>
+  </item>
+<% end %>
+</rdf:RDF>

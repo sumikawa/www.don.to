@@ -1,0 +1,203 @@
+---
+title: don.toようやっと復活
+---
+don.toのHDD増設するために電源を落としたら、なぜかサーバがご臨終に。
+まあ、3年の間24時間運用してたので寿命かと新サーバを慌てて見繕う。
+
+- CPUはファンレスが入ること
+- H264エンコードがしたいので、完全ファンレスにはこだわらない
+- HDDは3.5インチが二基入ること
+
+を条件に調べたら、oliospecの<a href="http://www.oliospec.com/windows/sn68sg2.html">静音PC</a>がよさげだったのでこれにする。
+別モデルでさらに静音でACアダプター外付けのモデルもあったけど、
+サーバは玄関に置いてるのでむしろ省スペースの方が重要なので、そこまで静音にはこだわらない。
+ということで、ポチッと注文。
+
+途中、手持ちのCD-ROMからFreeBSDがブートしなかったり(いまだに原因不明)して、
+結局pxeブートでインストールしました。amd64でFreeBSD 7-STABLEが動いております。
+dmesgは以下。
+
+<pre class="terminal">
+Copyright (c) 1992-2008 The FreeBSD Project.
+Copyright (c) 1979, 1980, 1983, 1986, 1988, 1989, 1991, 1992, 1993, 1994
+	The Regents of the University of California. All rights reserved.
+FreeBSD is a registered trademark of The FreeBSD Foundation.
+FreeBSD 7.0-PRERELEASE #3: Fri Jan  4 14:49:43 JST 2008
+    sumikawa@alamise.don.to:/usr/src/sys/amd64/compile/ALAMISE
+Timecounter "i8254" frequency 1193182 Hz quality 0
+CPU: AMD Athlon(tm) 64 X2 Dual Core Processor 4000+ (2100.21-MHz K8-class CPU)
+  Origin = "AuthenticAMD"  Id = 0x60fb1  Stepping = 1
+  Features=0x178bfbff<FPU,VME,DE,PSE,TSC,MSR,PAE,MCE,CX8,APIC,SEP,MTRR,PGE,MCA,CMOV,PAT,PSE36,CLFLUSH,MMX,FXSR,SSE,SSE2,HTT>
+  Features2=0x2001<SSE3,CX16>
+  AMD Features=0xea500800<SYSCALL,NX,MMX+,FFXSR,RDTSCP,LM,3DNow!+,3DNow!>
+  AMD Features2=0x11f<LAHF,CMP,SVM,ExtAPIC,CR8,Prefetch>
+  Cores per package: 2
+usable memory = 4150870016 (3958 MB)
+avail memory  = 3981701120 (3797 MB)
+ACPI APIC Table: <Shuttl Shuttle >
+FreeBSD/SMP: Multiprocessor System Detected: 2 CPUs
+ cpu0 (BSP): APIC ID:  0
+ cpu1 (AP): APIC ID:  1
+ACPI Warning (tbfadt-0505): Optional field "Pm2ControlBlock" has zero address or length:        0       0/1 [20070320]
+ioapic0: Changing APIC ID to 2
+ioapic0 <Version 1.1> irqs 0-23 on motherboard
+kbd0 at kbdmux0
+acpi0: <Shuttl Shuttle> on motherboard
+acpi0: [ITHREAD]
+acpi0: Power Button (fixed)
+ACPI Error (psargs-0459): [GUR_._BAS] Namespace lookup failure, AE_NOT_FOUND
+ACPI Error (psparse-0626): Method parse/execution failed [\\_SB_.PCI0.MBIO._CRS] (Node 0xffffff00011bd6e0), AE_NOT_FOUND
+acpi0: reservation of 0, a0000 (3) failed
+acpi0: reservation of 100000, b7df0000 (3) failed
+Timecounter "ACPI-fast" frequency 3579545 Hz quality 1000
+acpi_timer0: <24-bit timer at 3.579545MHz> port 0x1008-0x100b on acpi0
+acpi_hpet0: <High Precision Event Timer> iomem 0xfeff0000-0xfeff03ff on acpi0
+device_attach: acpi_hpet0 attach returned 12
+cpu0: <ACPI CPU> on acpi0
+powernow0: <PowerNow! K8> on cpu0
+cpu1: <ACPI CPU> on acpi0
+powernow1: <PowerNow! K8> on cpu1
+acpi_button0: <Power Button> on acpi0
+pcib0: <ACPI Host-PCI bridge> port 0xcf8-0xcff on acpi0
+pci0: <ACPI PCI bus> on pcib0
+pci0: <memory, RAM> at device 0.0 (no driver attached)
+isab0: <PCI-ISA bridge> at device 1.0 on pci0
+isa0: <ISA bus> on isab0
+pci0: <serial bus, SMBus> at device 1.1 (no driver attached)
+pci0: <memory, RAM> at device 1.2 (no driver attached)
+ohci0: <OHCI (generic) USB controller> mem 0xfe02f000-0xfe02ffff irq 21 at device 2.0 on pci0
+ohci0: [GIANT-LOCKED]
+ohci0: [ITHREAD]
+usb0: OHCI version 1.0, legacy support
+usb0: SMM does not respond, resetting
+usb0: <OHCI (generic) USB controller> on ohci0
+usb0: USB revision 1.0
+uhub0: <nVidia OHCI root hub, class 9/0, rev 1.00/1.00, addr 1> on usb0
+uhub0: 5 ports with 5 removable, self powered
+ehci0: <EHCI (generic) USB 2.0 controller> mem 0xfe02e000-0xfe02e0ff irq 22 at device 2.1 on pci0
+ehci0: [GIANT-LOCKED]
+ehci0: [ITHREAD]
+usb1: EHCI version 1.0
+usb1: companion controller, 12 ports each: usb0
+usb1: <EHCI (generic) USB 2.0 controller> on ehci0
+usb1: USB revision 2.0
+uhub1: <nVidia EHCI root hub, class 9/0, rev 2.00/1.00, addr 1> on usb1
+uhub1: 5 ports with 5 removable, self powered
+ohci1: <OHCI (generic) USB controller> mem 0xfe02d000-0xfe02dfff irq 23 at device 4.0 on pci0
+ohci1: [GIANT-LOCKED]
+ohci1: [ITHREAD]
+usb2: OHCI version 1.0, legacy support
+usb2: SMM does not respond, resetting
+usb2: <OHCI (generic) USB controller> on ohci1
+usb2: USB revision 1.0
+uhub2: <nVidia OHCI root hub, class 9/0, rev 1.00/1.00, addr 1> on usb2
+uhub2: 5 ports with 5 removable, self powered
+ehci1: <EHCI (generic) USB 2.0 controller> mem 0xfe02c000-0xfe02c0ff irq 20 at device 4.1 on pci0
+ehci1: [GIANT-LOCKED]
+ehci1: [ITHREAD]
+usb3: EHCI version 1.0
+usb3: companion controller, 12 ports each: usb2
+usb3: <EHCI (generic) USB 2.0 controller> on ehci1
+usb3: USB revision 2.0
+uhub3: <nVidia EHCI root hub, class 9/0, rev 2.00/1.00, addr 1> on usb3
+uhub3: 5 ports with 5 removable, self powered
+atapci0: <nVidia nForce MCP67 UDMA133 controller> port 0x1f0-0x1f7,0x3f6,0x170-0x177,0x376,0xf000-0xf00f at device 6.0 on pci0
+ata0: <ATA channel 0> on atapci0
+ata0: [ITHREAD]
+ata1: <ATA channel 1> on atapci0
+ata1: [ITHREAD]
+pci0: <multimedia> at device 7.0 (no driver attached)
+pcib1: <ACPI PCI-PCI bridge> at device 8.0 on pci0
+pci1: <ACPI PCI bus> on pcib1
+fwohci0: <Texas Instruments TSB43AB22/A> mem 0xfd0ff000-0xfd0ff7ff,0xfd0f8000-0xfd0fbfff irq 17 at device 8.0 on pci1
+fwohci0: [FILTER]
+fwohci0: OHCI version 1.10 (ROM=1)
+fwohci0: No. of Isochronous channels is 4.
+fwohci0: EUI64 00:30:1b:bc:00:00:36:1b
+fwohci0: Phy 1394a available S400, 2 ports.
+fwohci0: Link S400, max_rec 2048 bytes.
+firewire0: <IEEE1394(FireWire) bus> on fwohci0
+sbp0: <SBP-2/SCSI over FireWire> on firewire0
+dcons_crom0: <dcons configuration ROM> on firewire0
+dcons_crom0: bus_addr 0xae1fc000
+fwe0: <Ethernet over FireWire> on firewire0
+if_fwe0: Fake Ethernet address: 02:30:1b:00:36:1b
+fwe0: Ethernet address: 02:30:1b:00:36:1b
+fwip0: <IP over FireWire> on firewire0
+fwip0: Firewire address: 00:30:1b:bc:00:00:36:1b @ 0xfffe00000000, S400, maxrec 2048
+fwohci0: Initiate bus reset
+fwohci0: BUS reset
+fwohci0: node_id=0xc000ffc0, gen=1, CYCLEMASTER mode
+atapci1: <nVidia ATA controller> port 0x9f0-0x9f7,0xbf0-0xbf3,0x970-0x977,0xb70-0xb73,0xdc00-0xdc0f mem 0xfe026000-0xfe027fff irq 22 at device 9.0 on pci0
+atapci1: [ITHREAD]
+ata2: <ATA channel 0> on atapci1
+ata2: [ITHREAD]
+ata3: <ATA channel 1> on atapci1
+ata3: [ITHREAD]
+nfe0: <NVIDIA nForce MCP67 Networking Adapter> port 0xd800-0xd807 mem 0xfe02b000-0xfe02bfff,0xfe02a000-0xfe02a0ff,0xfe029000-0xfe02900f irq 23 at device 10.0 on pci0
+miibus0: <MII bus> on nfe0
+e1000phy0: <Marvell 88E1116 Gigabit PHY> PHY 19 on miibus0
+e1000phy0:  10baseT, 10baseT-FDX, 100baseTX, 100baseTX-FDX, 1000baseTX-FDX, auto
+nfe0: Ethernet address: 00:30:1b:bc:35:b7
+nfe0: [FILTER]
+nfe0: [FILTER]
+nfe0: [FILTER]
+nfe0: [FILTER]
+nfe0: [FILTER]
+nfe0: [FILTER]
+nfe0: [FILTER]
+nfe0: [FILTER]
+pcib2: <ACPI PCI-PCI bridge> at device 11.0 on pci0
+pci2: <ACPI PCI bus> on pcib2
+pcib3: <ACPI PCI-PCI bridge> at device 12.0 on pci0
+pci3: <ACPI PCI bus> on pcib3
+pcib4: <ACPI PCI-PCI bridge> at device 13.0 on pci0
+pci4: <ACPI PCI bus> on pcib4
+pcib5: <ACPI PCI-PCI bridge> at device 14.0 on pci0
+pci5: <ACPI PCI bus> on pcib5
+pcib6: <ACPI PCI-PCI bridge> at device 15.0 on pci0
+pci6: <ACPI PCI bus> on pcib6
+pcib7: <ACPI PCI-PCI bridge> at device 16.0 on pci0
+pci7: <ACPI PCI bus> on pcib7
+pcib8: <ACPI PCI-PCI bridge> at device 17.0 on pci0
+pci8: <ACPI PCI bus> on pcib8
+vgapci0: <VGA-compatible display> mem 0xfb000000-0xfbffffff,0xe0000000-0xefffffff,0xfc000000-0xfcffffff irq 20 at device 18.0 on pci0
+acpi_tz0: <Thermal Zone> on acpi0
+fdc0: <floppy drive controller> port 0x3f0-0x3f5,0x3f7 irq 6 drq 2 on acpi0
+fdc0: [FILTER]
+ppc0: <Parallel port> port 0x378-0x37f irq 7 on acpi0
+ppc0: Generic chipset (NIBBLE-only) in COMPATIBLE mode
+ppbus0: <Parallel port bus> on ppc0
+lpt0: <Printer> on ppbus0
+lpt0: Interrupt-driven port
+ppi0: <Parallel I/O> on ppbus0
+ppc0: [GIANT-LOCKED]
+ppc0: [ITHREAD]
+acpi_hpet0: <High Precision Event Timer> iomem 0xfeff0000-0xfeff03ff on acpi0
+device_attach: acpi_hpet0 attach returned 12
+orm0: <ISA Option ROMs> at iomem 0xd0000-0xd7fff,0xd8000-0xd97ff on isa0
+sc0: <System console> at flags 0x100 on isa0
+sc0: VGA <16 virtual consoles, flags=0x300>
+sio0: configured irq 4 not in bitmap of probed irqs 0
+sio0: port may not be enabled
+sio0: configured irq 4 not in bitmap of probed irqs 0
+sio0: port may not be enabled
+sio0 at port 0x3f8-0x3ff irq 4 flags 0x10 on isa0
+sio0: type 8250 or not responding
+sio0: [FILTER]
+sio1: configured irq 3 not in bitmap of probed irqs 0
+sio1: port may not be enabled
+vga0: <Generic ISA VGA> at port 0x3c0-0x3df iomem 0xa0000-0xbffff on isa0
+Timecounters tick every 1.000 msec
+firewire0: 1 nodes, maxhop <= 0, cable IRM = 0 (me)
+firewire0: bus manager 0 (me)
+ad0: 476940MB <Maxtor 6H500R0 HA3D1D90> at ata0-master UDMA133
+ad4: 953869MB <WDC WD10EACS-00ZJB0 01.01B01> at ata2-master UDMA33
+SMP: AP CPU #1 Launched!
+Trying to mount root from ufs:/dev/ad4s1a
+nfe0: link state changed to UP
+</pre>
+
+最初は6-STABLEにしてたら、イーサが<a href="http://www.f.csce.kyushu-u.ac.jp/~shigeaki/software/freebsd-nfe.html">nfe</a>なのでブート後に認識しなくなって、pxeなんでNFSが使えなくなって致命的。
+
+ということで、64ビット初デビュー。portsで動かんやつあるなあ。

@@ -1,0 +1,45 @@
+function load_document() {
+  var k = document.getElementById("keywords").value;
+  var i = document.getElementById("search").value;
+  var apig = 'https://sfjsrcvkod.execute-api.ap-northeast-1.amazonaws.com/prod/aws_pa'
+  document.getElementById('amazon').innerHTML = "searching...";
+  $.getJSON(apig + '?Operation=ItemSearch&ResponseGroup=ItemAttributes&SearchIndex=' + i + '&Keywords=' + k, function(json) {
+    var asid = "<%= data.site.asid %>";
+    var buf = [];
+    var now = new Date();
+    var year = now.getFullYear()
+    var month = now.getMonth() + 1;
+    var day = now.getDate();
+    var data = json.ItemSearchResponse.Items.Item;
+    $.each(data, function() {
+      asin = this.ASIN;
+      title = this.ItemAttributes.Title.replace(/[（(].*[)）]/, '');
+      author = this.ItemAttributes.Author;
+      manufacturer = this.ItemAttributes.Manufacturer;
+      artist = this.ItemAttributes.Artist;
+      buf.push(
+	"  - " + year + "/"
+	  + ((month < 10) ? "0" : "") + month + "/"
+	  + ((day  < 10) ? "0" : "") + day
+	  + ": 「&lt;a href=\"http://www.amazon.co.jp/exec/obidos/ASIN/"
+	  + asin + "/" + asid + "\"&gt;"
+	  + "<a href=\"http://www.amazon.co.jp/exec/obidos/ASIN/"
+	  + asin + "/" + asid + "\">"
+	  + title
+	  + "</a>"
+	  + "&lt;/a&gt;」"
+      );
+      if (author) {
+	buf.push("、" + author);
+      };
+      if (manufacturer) {
+	buf.push("、" + manufacturer);
+      };
+      if (artist) {
+	buf.push("、" + artist);
+      };
+      buf.push("<br />");
+    });
+    document.getElementById('amazon').innerHTML = buf.join("");
+  })
+}

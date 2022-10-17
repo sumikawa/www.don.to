@@ -1,0 +1,28 @@
+---
+title: SpamAssassinのバージョンアップ
+---
+FreeBSDのportsの話。
+
+<a href="http://spamassassin.apache.org/">SpamAssassin</a>を2.xから3.0.1に
+バージョン・アップしたら、SPAMメールのすり抜けが増えたような気がします。
+
+<pre class="terminal">
+cd /usr/local/etc/mail/spamassassin/
+su
+cp init.pre.sample init.pre
+</pre>
+
+したら大きく改善しました。もちろんspamdは再起動してください。
+
+問題を調べたところ、
+network mode時(-Lオプション無し)のscoreが、URIDNSBL等のプラグインの利用を想定していて、
+低く押えられていました。
+例えば、Bayesのテストで最もひどい結果のBAYES_99ですら1.8なので、
+プラグイン無しかつnetwork modeで動かすと、すり抜け率が増えてるように見えます。
+
+local test mode(-L)だと個々のscoreが大きく増えるので(前述のBAYES_99で4.0になる)、
+問題ないっぽい。プラグインはデフォルトでenableにしようよーと、port maintainerに<del>交渉中</del>
+(<a href="http://www.freebsd.org/cgi/cvsweb.cgi/ports/mail/p5-Mail-SpamAssassin/Makefile.diff?r1=1.63&amp;r2=1.64">commit</a>されました)。
+
+なお、URIDNSBLはメール中に出て来るURL(URI)がブラックリスト登録されてないかどうか調べてくれるチェッカです。
+これっていいアイデアだなあ。みんな色々考えるねえ。ほんとイタチごっこ。

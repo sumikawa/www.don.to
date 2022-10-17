@@ -1,0 +1,87 @@
+---
+code: true
+title: おなかグラフ2
+---
+4月から筋トレ始めてるので、おなかグラフを[Google Charts](https://developers.google.com/chart/)ベースで書き直した。
+横軸の日時が見えないので、チューニングの余地はあるけどまずはこれで。
+
+<div id="chart_div"></div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['line', 'corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+  var chartDiv = document.getElementById('chart_div');
+
+  var data = new google.visualization.DataTable();
+  data.addColumn('date', '日付');
+  data.addColumn('number', "体重");
+  data.addColumn('number', "体脂肪率");
+
+  data.addRows([
+<%
+outputs = []
+per = 0
+data.daylog.each do |i|
+  next if i['comment'].nil?
+  log = ""
+  comment = ""
+  i.each do |k, v|
+    if k == "comment"
+      comment = v
+    else
+      log = k
+    end
+  end
+  md = log.match(/(\d\d\d\d)\/(\d\d)\/(\d\d)/)
+  year  = md[1].to_i
+  month = md[2].to_i
+  day   = md[3].to_i
+  next if ((month == 1 && day == 1));	# Houhu
+  next if ((month == 4 && day == 1));	# exclude aprilfool
+  if i['comment'] =~ /([\d.]+)kg/
+    kg = $1
+  else
+    next
+  end
+  next if kg.to_i < 20 # Children
+  per = $1 if i['comment'] =~ /([\d.]+)%/
+  outputs << "    [new Date(#{year}, #{month}, #{day}), #{kg}, #{per}]"
+end
+%>
+<%=
+  outputs.join(",\n")
+%>
+  ]);
+
+  var materialOptions = {
+    chart: {
+      title: 'おなかグラフ'
+    },
+//  width: 900,
+    height: 500,
+    series: {
+      // Gives each series an axis name that matches the Y-axis below.
+      0: {axis: '体重'},
+      1: {axis: '体脂肪率'}
+    },
+    axes: {
+      // Adds labels to each axis; they don't have to match the axis names.
+      y: {
+        Temps: {label: 'Temps (Celsius)'},
+        Daylight: {label: 'Daylight'}
+      }
+    }
+  };
+
+  function drawMaterialChart() {
+    var materialChart = new google.charts.Line(chartDiv);
+    materialChart.draw(data, materialOptions);
+  }
+
+  drawMaterialChart();
+}
+</script>

@@ -1,0 +1,27 @@
+---
+title: チャンドラ2 + 外部ディスプレイで1024x768を表示する方法
+---
+チャンドラ2を外部ディスプレイにつないで1024x768表示をさせようとするとコツがいるので、メモしときます。
+
+<a href="http://www.xig.com/">Acceralated-X</a>
+は800x600以上の選択肢がないのでダメみたいです。
+手でいろいろと設定ファイルをいじってみましたが、うまくいきませんでした。
+次に、XFree86で試しました。こっちはうまくいきました。
+
+まず、/etc/XF86Configを<a href="XF86Config.chandra1024x768">これ</a>に置き換えます。
+
+なぜか、8bpp設定だとこれだけでオッケーなんだけど、
+16bppだとXFree86 3.3.3が、
+
+<pre class="terminal">
+Clock for mode "1024x768" is too high for the configured hardware.
+Limit is  56.126 MHz
+</pre>
+
+というエラーを吐いて終了しちゃうので、
+<a href="https://gist.github.com/sumikawa/78f01a367671f7390deee463563d4345">パッチ</a>
+を当ててチェックを外してしまいます。
+xc/programs/Xserver/hw/xfree86/common/xf86Config.c
+に当てて下さい。
+ただし、これはチェックを外すだけで何ら根本的対策をしてません。
+また、チェックを外したことにより、予想外のトラブルがあるかも知れません。

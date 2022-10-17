@@ -1,0 +1,117 @@
+---
+title: FreeBSD + ATI Rage Mobility で幸せになる方法
+---
+[2003/10/01 追記] XFree86 4.3.0以降はXvideoに対応していますので、
+本作業は不要です。
+
+XFree86 4.2.1ではATI Rage MobilityのドライバはXVideoに対応していないので、
+そのままでは<a href="http://xine.sourceforge.net/">xine</a>や
+<a href="http://www.mplayerhq.hu/homepage/">mplayer</a>が動かず、
+動画が見れません。さてどうするかというお話し。
+
+<a href="http://www.au.linuxvideo.org/gatos/">GATOS</a>のページにいって、
+ati.2/ 以下のコードをanonymous cvsでとってきます。
+
+XFree86サーバのportsを使って展開します。
+
+<pre class="terminal">
+% cd /usr/ports/x11-servers/XFree86-4-Server
+% make patch
+</pre>
+
+んで、atiのドライバをGATOSのものにまるごと入れ換え。
+
+<pre class="terminal">
+% cp hoge/ati.2/* work/xc/programs/Xserver/hw/xfree86/drivers/ati
+</pre>
+
+make続行して、インストール。
+
+<pre class="terminal">
+% make
+% su
+% make install
+</pre>
+
+Xを再起動して、xvinfoコマンドでXVideoが動いてることを確認
+
+<pre class="terminal">
+% xvinfo
+X-Video Extension version 2.2
+screen #0
+  Adaptor #0: "ATI mach64 Video Overlay"
+    number of ports: 1
+    port base: 55
+    operations supported: PutImage 
+    supported visuals:
+      depth 24, visualID 0x23
+      depth 24, visualID 0x24
+      depth 24, visualID 0x25
+      depth 24, visualID 0x26
+    number of attributes: 14
+      "XV_SET_DEFAULTS" (range 0 to 1)
+              client settable attribute
+      "XV_AUTOPAINT_COLORKEY" (range 0 to 1)
+              client settable attribute
+              client gettable attribute (current value is 1)
+      "XV_COLORKEY" (range 0 to -1)
+              client settable attribute
+              client gettable attribute (current value is 197120)
+      "XV_DOUBLE_BUFFER" (range 0 to 1)
+              client settable attribute
+              client gettable attribute (current value is 1)
+      "XV_ENCODING" (range 0 to 12)
+              client settable attribute
+              client gettable attribute (current value is 1)
+      "XV_FREQ" (range 0 to -1)
+              client settable attribute
+              client gettable attribute (current value is 1000)
+      "XV_TUNER_STATUS" (range -1000 to 1000)
+              client gettable attribute (current value is 4)
+      "XV_MUTE" (range 0 to 1)
+              client settable attribute
+              client gettable attribute (current value is 1)
+      "XV_VOLUME" (range 1 to 127)
+              client settable attribute
+              client gettable attribute (current value is 1)
+      "XV_BRIGHTNESS" (range -1000 to 1000)
+              client settable attribute
+              client gettable attribute (current value is 0)
+      "XV_CONTRAST" (range -1000 to 1000)
+              client settable attribute
+              client gettable attribute (current value is 0)
+      "XV_SATURATION" (range -1000 to 1000)
+              client settable attribute
+              client gettable attribute (current value is 16)
+      "XV_COLOR" (range -1000 to 1000)
+              client settable attribute
+              client gettable attribute (current value is 16)
+      "XV_HUE" (range -1000 to 1000)
+              client settable attribute
+              client gettable attribute (current value is 0)
+    maximum XvImage size: 2048 x 2048
+    Number of image formats: 4
+      id: 0x32595559 (YUY2)
+        guid: 59555932-0000-0010-8000-00aa00389b71
+        bits per pixel: 16
+        number of planes: 1
+        type: YUV (packed)
+      id: 0x59565955 (UYVY)
+        guid: 55595659-0000-0010-8000-00aa00389b71
+        bits per pixel: 16
+        number of planes: 1
+        type: YUV (packed)
+      id: 0x32315659 (YV12)
+        guid: 59563132-0000-0010-8000-00aa00389b71
+        bits per pixel: 12
+        number of planes: 3
+        type: YUV (planar)
+      id: 0x30323449 (I420)
+        guid: 49343230-0000-0010-8000-00aa00389b71
+        bits per pixel: 12
+        number of planes: 3
+        type: YUV (planar)
+
+</pre>
+
+動画三昧。ぱちぱちぱち。

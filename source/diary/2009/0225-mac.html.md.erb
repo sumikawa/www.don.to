@@ -1,0 +1,22 @@
+---
+code: true
+title: Ctrl+Tabでターミナルのタブを切り替える方法
+---
+[2012/06/26: 追記] 最新のKeyRemap4MacBookだと<a href="https://gist.github.com/sumikawa/7fb9488d755adbfedec6a47d3adbdaa8">このファイル</a>を読み込むだけでできます。
+
+### 以下の情報は古いです
+
+Mac OS X 10.5.6のターミナルは「Command + }」と「Command + {」で、タブを切り替えれます。
+このキーボード・ショートカットを好みに応じて変えたいときは、
+「<a href="http://avoidnotes.org/urlmemo/cache/20080204124320.html">開発環境としてのMac OS X Leopard</a>」
+に書いてあるやり方で変更できます。
+
+さて、個人的にはFirefoxのように「Ctrl + Tab」でタブを切り替えたいんですが、
+システム環境設定では「Ctrl + Tab」をショートカットに設定できないようです。
+そこで、<a href="http://www.pqrs.org/tekezo/macosx/keyremap4macbook/document.html.ja">KeyRemap4MacBook</a> 5.1.0
+に機能を追加して、「Ctrl + Tab」を「Command + }」にマッピングするようにしました。
+パッチはこれ(<a href="https://gist.github.com/sumikawa/3665f98c7392d2dad8dc02a97999c7fd#file-keyremap-diff-txt">keyremap-diff.txt</a>)になります。
+
+以下の二つのremapをチェックすれば有効になります。
+
+<%= simage "screen-capture", ext: 'png' %>
