@@ -35,6 +35,7 @@
     <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
     <script type="text/javascript">
       var query = window.location.search.substring(1);
+      console.log(query);
       var slideshow = remark.create({
         sourceUrl: query ? "../" + query : "sample.md",
         highlightStyle: 'default',
