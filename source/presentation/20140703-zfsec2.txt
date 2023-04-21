@@ -35,7 +35,7 @@ aws ec2 run-instances --image-id ami-bdcda3bc --key-name sumikawa \
 
 ## 10GBのボリュームを足します
 
-.center[![10G](20140703-zfsec2/10g.png)]
+.center[![10G](https://sumikawa.github.io/www.don.to/presentation/20140703-zfsec2/10g-34cd643d.png)]
 
 ---
 
