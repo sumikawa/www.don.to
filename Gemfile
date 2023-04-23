@@ -13,7 +13,7 @@ gem "sass"
 
 gem "middleman-sprockets"
 
-gem 'therubyracer', :platforms => :ruby
+# gem 'therubyracer', :platforms => :ruby
 
 #gem 'sprockets', '< 4.0.0'
 
