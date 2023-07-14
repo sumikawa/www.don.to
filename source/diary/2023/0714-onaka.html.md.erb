@@ -1,5 +1,4 @@
 ---
-draft: true
 title: おなかグラフ3
 ---
 スマート体組成計買ったので、iPhoneのヘルスケアで体重と体脂肪率記録できるようになった。
@@ -26,7 +25,7 @@ function drawChart() {
 outputs = []
 
 data.health.each do |k, v|
-  outputs << "    [new Date(#{k.gsub(/-/, ', ')}), #{v[0]}, #{v[1]}]"
+  outputs << "    [new Date(#{k.gsub(/-0?/, ', ')}), #{v[0]}, #{v[1]}]"
 end
 
 per = 0
