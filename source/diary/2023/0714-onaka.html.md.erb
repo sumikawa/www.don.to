@@ -25,7 +25,8 @@ function drawChart() {
 outputs = []
 
 data.health.each do |k, v|
-  outputs << "    [new Date(#{k.gsub(/-0?/, ', ')}), #{v[0]}, #{v[1]}]"
+  d = k.split(/-0?/)
+  outputs << "    [new Date(#{d[0]}, #{d[1].to_i - 1}, #{d[2]}), #{v[0]}, #{v[1]}]"
 end
 
 per = 0
@@ -53,7 +54,7 @@ data.daylog.each do |i|
   end
   next if kg.to_i < 20 # Children
   per = $1 if i['comment'] =~ /([\d.]+)%/
-  outputs << "    [new Date(#{year}, #{month}, #{day}), #{kg}, #{per}]"
+  outputs << "    [new Date(#{year}, #{month - 1}, #{day}), #{kg}, #{per}]"
 end
 %>
 <%=
