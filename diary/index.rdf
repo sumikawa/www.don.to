@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns="http://purl.org/rss/1.0/">
+  <channel rdf:about="https://www.don.to/diary/">
+    <title>すみかわ日記</title>
+    <description>子供ネタ7割、食い物2割、技術1割</description>
+    <link>https://www.don.to/diary/</link>
+    <items>
+      <rdf:Seq>
+          <rdf:li resource="2024/0622-camp/"/>
+          <rdf:li resource="2024/0615-gyoza/"/>
+          <rdf:li resource="2024/0611-lunch/"/>
+          <rdf:li resource="2024/0609-kamakura/"/>
+          <rdf:li resource="2024/0530-dallas/"/>
+          <rdf:li resource="2024/0529-dallas/"/>
+          <rdf:li resource="2024/0528-dallas/"/>
+          <rdf:li resource="2024/0527-dallas/"/>
+          <rdf:li resource="2024/0526-dallas/"/>
+          <rdf:li resource="2024/0518-camp/"/>
+          <rdf:li resource="2024/0421-kamakura/"/>
+          <rdf:li resource="2024/0415-yugawara/"/>
+          <rdf:li resource="2024/0414-yugawara/"/>
+          <rdf:li resource="2024/0406-kamakura/"/>
+          <rdf:li resource="2024/0405-meguro/"/>
+          <rdf:li resource="2024/0317-kurihama/"/>
+          <rdf:li resource="2024/0310-kamakura/"/>
+          <rdf:li resource="2024/0303-kamakura/"/>
+          <rdf:li resource="2024/0226-lunch/"/>
+          <rdf:li resource="2024/0218-camp/"/>
+          <rdf:li resource="2024/0216-yokohama/"/>
+          <rdf:li resource="2024/0211-kamakura/"/>
+          <rdf:li resource="2024/0209-kusatu/"/>
+          <rdf:li resource="2024/0208-kusatu/"/>
+          <rdf:li resource="2024/0206-kusatu/"/>
+          <rdf:li resource="2024/0205-kusatu/"/>
+          <rdf:li resource="2024/0204-kusatu/"/>
+          <rdf:li resource="2024/0203-lunch/"/>
+          <rdf:li resource="2024/0127-gear/"/>
+          <rdf:li resource="2024/0114-gyoza/"/>
+      </rdf:Seq>
+    </items>
+  </channel>
+  <item rdf:about="2024/0622-camp/">
+            <title>2024/06/22: デイキャン</title>
+        <link>https://www.don.to/diary/2024/0622-camp/</link>
+        <description><![CDATA[<p>今日だけ晴れたので、いつもの<a href="https://www.shizenkanizumi.jp/">ベリーキャンプ場</a>へ。
+予約無しの当日受付。ガラガラでフリーエリアは貸し切り状態だった。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9766.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9766.jpg" srcset="https://www.don.to/diary/96/img_9766.jpg 1x, https://www.don.to/diary/192/img_9766.jpg 2x" height="96" alt="img_9766"/></a></p>
+
+<p>最小限の荷物で、コンビニ飯と酒で焚き火する。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9767.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9767.jpg" srcset="https://www.don.to/diary/96/img_9767.jpg 1x, https://www.don.to/diary/192/img_9767.jpg 2x" height="96" alt="img_9767"/></a>
+<a href="https://www.don.to/diary/600/img_9768.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9768.jpg" srcset="https://www.don.to/diary/96/img_9768.jpg 1x, https://www.don.to/diary/192/img_9768.jpg 2x" height="96" alt="img_9768"/></a></p>
+]]></description>
+        <dc:date>2024-2024-06T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0615-gyoza/">
+            <title>2024/06/15: 餃子と地ビール いち</title>
+        <link>https://www.don.to/diary/2024/0615-gyoza/</link>
+        <description><![CDATA[<p>娘さんと<a href="https://www.sportsoasis.co.jp/coco/">SPA</a>へ行って、そのまま晩飯。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140203/14079008/">餃子と地ビール いち センター南</a>
+神奈川県横浜市都筑区茅ヶ崎中央18-5 LLCビル 1F
+050-5869-8296
+</pre>
+
+<p><a href="https://www.don.to/diary/600/img_9758.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9758.jpg" srcset="https://www.don.to/diary/96/img_9758.jpg 1x, https://www.don.to/diary/192/img_9758.jpg 2x" height="96" alt="img_9758"/></a>
+<a href="https://www.don.to/diary/600/img_9760.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9760.jpg" srcset="https://www.don.to/diary/96/img_9760.jpg 1x, https://www.don.to/diary/192/img_9760.jpg 2x" height="96" alt="img_9760"/></a>
+<a href="https://www.don.to/diary/600/img_9761.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9761.jpg" srcset="https://www.don.to/diary/96/img_9761.jpg 1x, https://www.don.to/diary/192/img_9761.jpg 2x" height="96" alt="img_9761"/></a>
+<a href="https://www.don.to/diary/600/img_9762.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9762.jpg" srcset="https://www.don.to/diary/96/img_9762.jpg 1x, https://www.don.to/diary/192/img_9762.jpg 2x" height="96" alt="img_9762"/></a>
+<a href="https://www.don.to/diary/600/img_9763.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9763.jpg" srcset="https://www.don.to/diary/96/img_9763.jpg 1x, https://www.don.to/diary/192/img_9763.jpg 2x" height="96" alt="img_9763"/></a>
+<a href="https://www.don.to/diary/600/img_9764.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9764.jpg" srcset="https://www.don.to/diary/96/img_9764.jpg 1x, https://www.don.to/diary/192/img_9764.jpg 2x" height="96" alt="img_9764"/></a></p>
+]]></description>
+        <dc:date>2024-2024-06T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0611-lunch/">
+            <title>2024/06/11: 東品川ごはん サイアムオーキッド</title>
+        <link>https://www.don.to/diary/2024/0611-lunch/</link>
+        <description><![CDATA[<pre class="address">
+<a href="https://tabelog.com/tokyo/A1315/A131501/13229968/">サイアムオーキッド 品川シーサイドフォレスト店</a>
+東京都品川区東品川4-12-6 品川シーサイドフォレストオーバルガーデン 1F
+03-3474-6222
+</pre>
+
+<p>ガバオ＆グリーンカレーのセット。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9756.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9756.jpg" srcset="https://www.don.to/diary/96/img_9756.jpg 1x, https://www.don.to/diary/192/img_9756.jpg 2x" height="96" alt="img_9756"/></a>
+<a href="https://www.don.to/diary/600/img_9757.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9757.jpg" srcset="https://www.don.to/diary/96/img_9757.jpg 1x, https://www.don.to/diary/192/img_9757.jpg 2x" height="96" alt="img_9757"/></a></p>
+]]></description>
+        <dc:date>2024-2024-06T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0609-kamakura/">
+            <title>2024/06/09: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2024/0609-kamakura/</link>
+        <description><![CDATA[<p>紫陽花シーズン。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9753.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9753.jpg" srcset="https://www.don.to/diary/96/img_9753.jpg 1x, https://www.don.to/diary/192/img_9753.jpg 2x" height="96" alt="img_9753"/></a></p>
+
+<p>定点観測。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9755.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9755.jpg" srcset="https://www.don.to/diary/96/img_9755.jpg 1x, https://www.don.to/diary/192/img_9755.jpg 2x" height="96" alt="img_9755"/></a></p>
+]]></description>
+        <dc:date>2024-2024-06T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0530-dallas/">
+            <title>2024/05/30: ダラス出張 その5</title>
+        <link>https://www.don.to/diary/2024/0530-dallas/</link>
+        <description><![CDATA[<p>最終日。</p>
+
+<p>昼飯は<a href="https://www.thegalleria.ae/en/dine/raising-canes">Raising Cane&rsquo;s</a>。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9741.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9741.jpg" srcset="https://www.don.to/diary/96/img_9741.jpg 1x, https://www.don.to/diary/192/img_9741.jpg 2x" height="96" alt="img_9741"/></a></p>
+
+<p>夜は地元の同僚に連絡したら空いてるというので、クラフトビールを飲むことに。</p>
+
+<pre class="address">
+<a href="https://ronsplaceaddison.com/">Ron's Place</a>
+4145 Belt Line Rd
+Addison, Texas 75001
+(214) 628-0634
+</pre>
+
+<p><a href="https://www.don.to/diary/600/img_9742.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9742.jpg" srcset="https://www.don.to/diary/96/img_9742.jpg 1x, https://www.don.to/diary/192/img_9742.jpg 2x" height="96" alt="img_9742"/></a>
+<a href="https://www.don.to/diary/600/img_9743.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9743.jpg" srcset="https://www.don.to/diary/96/img_9743.jpg 1x, https://www.don.to/diary/192/img_9743.jpg 2x" height="96" alt="img_9743"/></a>
+<a href="https://www.don.to/diary/600/img_9744.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9744.jpg" srcset="https://www.don.to/diary/96/img_9744.jpg 1x, https://www.don.to/diary/192/img_9744.jpg 2x" height="96" alt="img_9744"/></a>
+<a href="https://www.don.to/diary/600/img_9745.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9745.jpg" srcset="https://www.don.to/diary/96/img_9745.jpg 1x, https://www.don.to/diary/192/img_9745.jpg 2x" height="96" alt="img_9745"/></a></p>
+
+<p>Uberでどこでも行ける。便利な世の中になったもんだ。</p>
+]]></description>
+        <dc:date>2024-2024-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0529-dallas/">
+            <title>2024/05/29: ダラス出張 その4</title>
+        <link>https://www.don.to/diary/2024/0529-dallas/</link>
+        <description><![CDATA[<p>昼飯は<a href="https://www.pandaexpress.com/locations/tx/dallas/1819">パンダエクスプレス</a>。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9740.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9740.jpg" srcset="https://www.don.to/diary/96/img_9740.jpg 1x, https://www.don.to/diary/192/img_9740.jpg 2x" height="96" alt="img_9740"/></a></p>
+
+<p>夜はホテルのロビーでビール飲みながら仕事。</p>
+]]></description>
+        <dc:date>2024-2024-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0528-dallas/">
+            <title>2024/05/28: ダラス出張 その3</title>
+        <link>https://www.don.to/diary/2024/0528-dallas/</link>
+        <description><![CDATA[<p>明け方の緊急速報で起こされる。ダラス名物ハリケーン。</p>
+
+<p><a href="https://www.don.to/diary/600/img_e9738.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_e9738.jpg" srcset="https://www.don.to/diary/96/img_e9738.jpg 1x, https://www.don.to/diary/192/img_e9738.jpg 2x" height="96" alt="img_e9738"/></a>
+<a href="https://www.don.to/diary/hdimg_9736.mp4" class="video swipe"><img src="https://www.don.to/diary/video/96/hdimg_9736.jpg" height="96" alt="hdimg_9736" /></a></p>
+
+<p>しばらくしたらホテルが停電して、さらに若干、道路が冠水。</p>
+
+<p>オフィスに行ったら普通に通電してた。</p>
+]]></description>
+        <dc:date>2024-2024-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0527-dallas/">
+            <title>2024/05/27: ダラス出張 その2</title>
+        <link>https://www.don.to/diary/2024/0527-dallas/</link>
+        <description><![CDATA[<p>朝起きてもWiFiつながらず、切り分けしたら部屋に入った瞬間にIPアドレスが取れなくなる。
+フロントに言って部屋を変えてもらったらあっという間に解消。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9731.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9731.jpg" srcset="https://www.don.to/diary/96/img_9731.jpg 1x, https://www.don.to/diary/192/img_9731.jpg 2x" height="96" alt="img_9731"/></a></p>
+
+<p>仕事とミーティングしてから、早めにレストランに行って、<a href="https://www.northitalia.com/locations/dallas-galleria-tx/menus/happy-hour-menu/">ハッピーアワー</a>で晩飯。
+物価高すぎるねん。</p>
+
+<pre class="address">
+<a href="https://www.northitalia.com/locations/dallas-galleria-tx/">North Italia</a>
+13270 Dallas Parkway Suite #1155
+Dallas, TX 75240
+(972) 788.3230
+</pre>
+
+<p><a href="https://www.don.to/diary/600/img_9732.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9732.jpg" srcset="https://www.don.to/diary/96/img_9732.jpg 1x, https://www.don.to/diary/192/img_9732.jpg 2x" height="96" alt="img_9732"/></a></p>
+]]></description>
+        <dc:date>2024-2024-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0526-dallas/">
+            <title>2024/05/26: ダラス出張 その1</title>
+        <link>https://www.don.to/diary/2024/0526-dallas/</link>
+        <description><![CDATA[<p>ダラス出張。</p>
+
+<p>UberでGalleriaへ移動。前回と同じホテル。</p>
+
+<pre class="address">
+<a href="https://www.marriott.com/en-us/hotels/dalmd-le-meridien-dallas-by-the-galleria/overview/">Le Meridien Dallas by the Galleria</a>
+13402 Noel Road, Dallas, Texas, USA, 75240
+</pre>
+
+<p><a href="https://www.don.to/diary/600/img_9730.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9730.jpg" srcset="https://www.don.to/diary/96/img_9730.jpg 1x, https://www.don.to/diary/192/img_9730.jpg 2x" height="96" alt="img_9730"/></a>
+<a href="https://www.don.to/diary/600/img_9728.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9728.jpg" srcset="https://www.don.to/diary/96/img_9728.jpg 1x, https://www.don.to/diary/192/img_9728.jpg 2x" height="96" alt="img_9728"/></a>
+<a href="https://www.don.to/diary/600/img_9727.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9727.jpg" srcset="https://www.don.to/diary/96/img_9727.jpg 1x, https://www.don.to/diary/192/img_9727.jpg 2x" height="96" alt="img_9727"/></a>
+<a href="https://www.don.to/diary/600/img_9729.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9729.jpg" srcset="https://www.don.to/diary/96/img_9729.jpg 1x, https://www.don.to/diary/192/img_9729.jpg 2x" height="96" alt="img_9729"/></a></p>
+
+<p>ブラっと歩いて改めて車がないと何もできないことを実感する。
+マクドナルドで晩飯食おうとおもったらテイクアウトのみだった。</p>
+
+<p>ハンバーガー食いながら歩いてホテルに戻る。
+WiFi何やってもつながらず明日には解消してることを期待して寝る。</p>
+]]></description>
+        <dc:date>2024-2024-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0518-camp/">
+            <title>2024/05/18: デイキャン 茅ヶ崎</title>
+        <link>https://www.don.to/diary/2024/0518-camp/</link>
+        <description><![CDATA[<p>当初は泊まるつもりだったけど、体調に不安があるので、デイキャンに切り替える。</p>
+
+<p>茅ヶ崎駅前の肉屋と魚屋で食材を買って<a href="https://www.yanagishima-camp.com/">柳島キャンプ場</a>へ。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9711.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9711.jpg" srcset="https://www.don.to/diary/96/img_9711.jpg 1x, https://www.don.to/diary/192/img_9711.jpg 2x" height="96" alt="img_9711"/></a>
+<a href="https://www.don.to/diary/600/img_9712.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9712.jpg" srcset="https://www.don.to/diary/96/img_9712.jpg 1x, https://www.don.to/diary/192/img_9712.jpg 2x" height="96" alt="img_9712"/></a>
+<a href="https://www.don.to/diary/600/img_9713.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9713.jpg" srcset="https://www.don.to/diary/96/img_9713.jpg 1x, https://www.don.to/diary/192/img_9713.jpg 2x" height="96" alt="img_9713"/></a></p>
+
+<p>とりあえず生しらす軍艦とビール。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9714.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9714.jpg" srcset="https://www.don.to/diary/96/img_9714.jpg 1x, https://www.don.to/diary/192/img_9714.jpg 2x" height="96" alt="img_9714"/></a></p>
+
+<p>海岸へ移動してポークソーセージ。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9715.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9715.jpg" srcset="https://www.don.to/diary/96/img_9715.jpg 1x, https://www.don.to/diary/192/img_9715.jpg 2x" height="96" alt="img_9715"/></a>
+<a href="https://www.don.to/diary/600/img_9716.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9716.jpg" srcset="https://www.don.to/diary/96/img_9716.jpg 1x, https://www.don.to/diary/192/img_9716.jpg 2x" height="96" alt="img_9716"/></a>
+<a href="https://www.don.to/diary/600/img_9717.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9717.jpg" srcset="https://www.don.to/diary/96/img_9717.jpg 1x, https://www.don.to/diary/192/img_9717.jpg 2x" height="96" alt="img_9717"/></a>
+<a href="https://www.don.to/diary/600/img_9719.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9719.jpg" srcset="https://www.don.to/diary/96/img_9719.jpg 1x, https://www.don.to/diary/192/img_9719.jpg 2x" height="96" alt="img_9719"/></a>
+<a href="https://www.don.to/diary/600/img_9720.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9720.jpg" srcset="https://www.don.to/diary/96/img_9720.jpg 1x, https://www.don.to/diary/192/img_9720.jpg 2x" height="96" alt="img_9720"/></a></p>
+
+<p>流木拾ってキャンプ場へ戻る。薪を買う必要なし。
+貝を焼く。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9721.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9721.jpg" srcset="https://www.don.to/diary/96/img_9721.jpg 1x, https://www.don.to/diary/192/img_9721.jpg 2x" height="96" alt="img_9721"/></a>
+<a href="https://www.don.to/diary/600/img_9722.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9722.jpg" srcset="https://www.don.to/diary/96/img_9722.jpg 1x, https://www.don.to/diary/192/img_9722.jpg 2x" height="96" alt="img_9722"/></a>
+<a href="https://www.don.to/diary/600/img_9723.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9723.jpg" srcset="https://www.don.to/diary/96/img_9723.jpg 1x, https://www.don.to/diary/192/img_9723.jpg 2x" height="96" alt="img_9723"/></a>
+<a href="https://www.don.to/diary/600/img_9724.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9724.jpg" srcset="https://www.don.to/diary/96/img_9724.jpg 1x, https://www.don.to/diary/192/img_9724.jpg 2x" height="96" alt="img_9724"/></a></p>
+
+<p>さらに半額の西京漬けステーキ。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9725.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9725.jpg" srcset="https://www.don.to/diary/96/img_9725.jpg 1x, https://www.don.to/diary/192/img_9725.jpg 2x" height="96" alt="img_9725"/></a>
+<a href="https://www.don.to/diary/600/img_9726.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9726.jpg" srcset="https://www.don.to/diary/96/img_9726.jpg 1x, https://www.don.to/diary/192/img_9726.jpg 2x" height="96" alt="img_9726"/></a></p>
+
+<p>茅ヶ崎はソロキャンでも程よい量のBBQ具材を購入できるので大変よろしい。
+次回は宿泊しよう。</p>
+]]></description>
+        <dc:date>2024-2024-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0421-kamakura/">
+            <title>2024/04/21: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2024/0421-kamakura/</link>
+        <description><![CDATA[<p>定点観測。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9696.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9696.jpg" srcset="https://www.don.to/diary/96/img_9696.jpg 1x, https://www.don.to/diary/192/img_9696.jpg 2x" height="96" alt="img_9696"/></a></p>
+]]></description>
+        <dc:date>2024-2024-04T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0415-yugawara/">
+            <title>2024/04/15: 湯河原ソロキャン その2</title>
+        <link>https://www.don.to/diary/2024/0415-yugawara/</link>
+        <description><![CDATA[<p>昨日作ったおにぎりを朝ご飯にして、キャンプ場をさらに奥にある道なき道を進む。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9682.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9682.jpg" srcset="https://www.don.to/diary/96/img_9682.jpg 1x, https://www.don.to/diary/192/img_9682.jpg 2x" height="96" alt="img_9682"/></a>
+<a href="https://www.don.to/diary/600/img_9683.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9683.jpg" srcset="https://www.don.to/diary/96/img_9683.jpg 1x, https://www.don.to/diary/192/img_9683.jpg 2x" height="96" alt="img_9683"/></a>
+<a href="https://www.don.to/diary/600/img_9684.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9684.jpg" srcset="https://www.don.to/diary/96/img_9684.jpg 1x, https://www.don.to/diary/192/img_9684.jpg 2x" height="96" alt="img_9684"/></a>
+<a href="https://www.don.to/diary/600/img_9685.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9685.jpg" srcset="https://www.don.to/diary/96/img_9685.jpg 1x, https://www.don.to/diary/192/img_9685.jpg 2x" height="96" alt="img_9685"/></a>
+<a href="https://www.don.to/diary/600/img_9686.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9686.jpg" srcset="https://www.don.to/diary/96/img_9686.jpg 1x, https://www.don.to/diary/192/img_9686.jpg 2x" height="96" alt="img_9686"/></a></p>
+
+<p>突き当りの崖を2mぐらい上がると、道路に出た。
+バス停あるがなと思ったら、廃止路線になってた。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9687.png" class="image swipe"><img src="https://www.don.to/diary/96/img_9687.png" srcset="https://www.don.to/diary/96/img_9687.png 1x, https://www.don.to/diary/192/img_9687.png 2x" height="96" alt="img_9687"/></a>
+<a href="https://www.don.to/diary/600/img_9688.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9688.jpg" srcset="https://www.don.to/diary/96/img_9688.jpg 1x, https://www.don.to/diary/192/img_9688.jpg 2x" height="96" alt="img_9688"/></a></p>
+
+<p>そのまま城山山頂へ。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9689.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9689.jpg" srcset="https://www.don.to/diary/96/img_9689.jpg 1x, https://www.don.to/diary/192/img_9689.jpg 2x" height="96" alt="img_9689"/></a>
+<a href="https://www.don.to/diary/600/img_9690.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9690.jpg" srcset="https://www.don.to/diary/96/img_9690.jpg 1x, https://www.don.to/diary/192/img_9690.jpg 2x" height="96" alt="img_9690"/></a>
+<a href="https://www.don.to/diary/600/img_9691.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9691.jpg" srcset="https://www.don.to/diary/96/img_9691.jpg 1x, https://www.don.to/diary/192/img_9691.jpg 2x" height="96" alt="img_9691"/></a>
+<a href="https://www.don.to/diary/600/img_9692.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9692.jpg" srcset="https://www.don.to/diary/96/img_9692.jpg 1x, https://www.don.to/diary/192/img_9692.jpg 2x" height="96" alt="img_9692"/></a>
+<a href="https://www.don.to/diary/600/img_9693.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9693.jpg" srcset="https://www.don.to/diary/96/img_9693.jpg 1x, https://www.don.to/diary/192/img_9693.jpg 2x" height="96" alt="img_9693"/></a></p>
+
+<p>来た道を戻るのは危ないので湯河原駅方面に向かう。
+五所神社からバスに乗ってキャンプ場に戻るが、最寄りのバス停からキャンプ場へ登る道がめっちゃしんどかった。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9694.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9694.jpg" srcset="https://www.don.to/diary/96/img_9694.jpg 1x, https://www.don.to/diary/192/img_9694.jpg 2x" height="96" alt="img_9694"/></a></p>
+
+<p>道中で<a href="https://www.town.yugawara.kanagawa.jp/soshiki/17/2015.html">ゆたぽん号</a>なる乗り合いタクシーの待合ポイントを見つけたけど、旅行者は駄目っぽい。</p>
+]]></description>
+        <dc:date>2024-2024-04T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0414-yugawara/">
+            <title>2024/04/14: 湯河原ソロキャン その1</title>
+        <link>https://www.don.to/diary/2024/0414-yugawara/</link>
+        <description><![CDATA[<p>温泉のあるキャンプ場に来てみた。</p>
+
+<pre class="address">
+<a href="https://onsencamp.com/">湯河原温泉神谷キャンプ場</a>
+神奈川県足柄下郡湯河原町宮上773-257
+090-7823-0369
+</pre>
+
+<p>湯河原駅前のスーパーで2日分の食料の買い出しをして、タクシーでキャンプ場へ移動。
+冷蔵庫があるのでビールも肉も冷やせます。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9675.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9675.jpg" srcset="https://www.don.to/diary/96/img_9675.jpg 1x, https://www.don.to/diary/192/img_9675.jpg 2x" height="96" alt="img_9675"/></a>
+<a href="https://www.don.to/diary/600/img_9677.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9677.jpg" srcset="https://www.don.to/diary/96/img_9677.jpg 1x, https://www.don.to/diary/192/img_9677.jpg 2x" height="96" alt="img_9677"/></a>
+<a href="https://www.don.to/diary/600/img_9678.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9678.jpg" srcset="https://www.don.to/diary/96/img_9678.jpg 1x, https://www.don.to/diary/192/img_9678.jpg 2x" height="96" alt="img_9678"/></a></p>
+
+<p>薪ストーブを持ってきたので、焚き火台はコンパクトな2次燃焼ストーブにする。
+写真ないけど焼肉と白米。余った分はおにぎりにする。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9679.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9679.jpg" srcset="https://www.don.to/diary/96/img_9679.jpg 1x, https://www.don.to/diary/192/img_9679.jpg 2x" height="96" alt="img_9679"/></a></p>
+
+<p>お風呂はこんなの。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9681.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9681.jpg" srcset="https://www.don.to/diary/96/img_9681.jpg 1x, https://www.don.to/diary/192/img_9681.jpg 2x" height="96" alt="img_9681"/></a></p>
+]]></description>
+        <dc:date>2024-2024-04T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0406-kamakura/">
+            <title>2024/04/06: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2024/0406-kamakura/</link>
+        <description><![CDATA[<p>明月院あたり。桜が咲いてるので混んでる。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9665.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9665.jpg" srcset="https://www.don.to/diary/96/img_9665.jpg 1x, https://www.don.to/diary/192/img_9665.jpg 2x" height="96" alt="img_9665"/></a></p>
+
+<p>定点観測。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9666.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9666.jpg" srcset="https://www.don.to/diary/96/img_9666.jpg 1x, https://www.don.to/diary/192/img_9666.jpg 2x" height="96" alt="img_9666"/></a></p>
+
+<p>鶴岡八幡宮近辺。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9667.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9667.jpg" srcset="https://www.don.to/diary/96/img_9667.jpg 1x, https://www.don.to/diary/192/img_9667.jpg 2x" height="96" alt="img_9667"/></a></p>
+]]></description>
+        <dc:date>2024-2024-04T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0405-meguro/">
+            <title>2024/04/05: 目黒川</title>
+        <link>https://www.don.to/diary/2024/0405-meguro/</link>
+        <description><![CDATA[<p>昼飯戻りにちょっと川沿いを歩く。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9663.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9663.jpg" srcset="https://www.don.to/diary/96/img_9663.jpg 1x, https://www.don.to/diary/192/img_9663.jpg 2x" height="96" alt="img_9663"/></a>
+<a href="https://www.don.to/diary/600/img_9664.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9664.jpg" srcset="https://www.don.to/diary/96/img_9664.jpg 1x, https://www.don.to/diary/192/img_9664.jpg 2x" height="96" alt="img_9664"/></a></p>
+]]></description>
+        <dc:date>2024-2024-04T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0317-kurihama/">
+            <title>2024/03/17: 輪行 久里浜</title>
+        <link>https://www.don.to/diary/2024/0317-kurihama/</link>
+        <description><![CDATA[<p>逗子まで輪行してそこから久里浜へ向かう。</p>
+
+<p>コロッケ屋が閉店前で間に合ったのでついつい買ってしまう。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9601.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9601.jpg" srcset="https://www.don.to/diary/96/img_9601.jpg 1x, https://www.don.to/diary/192/img_9601.jpg 2x" height="96" alt="img_9601"/></a></p>
+
+<p>トンビに付け狙われながら食す。当たり前だけど冷めてた。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9603.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9603.jpg" srcset="https://www.don.to/diary/96/img_9603.jpg 1x, https://www.don.to/diary/192/img_9603.jpg 2x" height="96" alt="img_9603"/></a>
+<a href="https://www.don.to/diary/600/img_9602.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9602.jpg" srcset="https://www.don.to/diary/96/img_9602.jpg 1x, https://www.don.to/diary/192/img_9602.jpg 2x" height="96" alt="img_9602"/></a></p>
+
+<p>一風呂浴びて一般飲んで帰宅。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9604.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9604.jpg" srcset="https://www.don.to/diary/96/img_9604.jpg 1x, https://www.don.to/diary/192/img_9604.jpg 2x" height="96" alt="img_9604"/></a>
+<a href="https://www.don.to/diary/600/img_9605.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9605.jpg" srcset="https://www.don.to/diary/96/img_9605.jpg 1x, https://www.don.to/diary/192/img_9605.jpg 2x" height="96" alt="img_9605"/></a></p>
+]]></description>
+        <dc:date>2024-2024-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0310-kamakura/">
+            <title>2024/03/10: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2024/0310-kamakura/</link>
+        <description><![CDATA[<p>定点観測。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9587.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9587.jpg" srcset="https://www.don.to/diary/96/img_9587.jpg 1x, https://www.don.to/diary/192/img_9587.jpg 2x" height="96" alt="img_9587"/></a></p>
+
+<p>去年プチ遭難したポイント。右に曲がらずに真っ直ぐいってしまった。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9588.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9588.jpg" srcset="https://www.don.to/diary/96/img_9588.jpg 1x, https://www.don.to/diary/192/img_9588.jpg 2x" height="96" alt="img_9588"/></a></p>
+
+<p>例によって大船に移動してサウナ。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9589.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9589.jpg" srcset="https://www.don.to/diary/96/img_9589.jpg 1x, https://www.don.to/diary/192/img_9589.jpg 2x" height="96" alt="img_9589"/></a></p>
+
+<p>そしてハッピーアワーでメガハイボールが90円！</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1404/A140401/14067389/">大船ホルモンセンター</a>
+神奈川県鎌倉市大船1-10-7
+0467-84-9665
+</pre>
+
+<p><a href="https://www.don.to/diary/600/img_9590.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9590.jpg" srcset="https://www.don.to/diary/96/img_9590.jpg 1x, https://www.don.to/diary/192/img_9590.jpg 2x" height="96" alt="img_9590"/></a>
+<a href="https://www.don.to/diary/600/img_9591.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9591.jpg" srcset="https://www.don.to/diary/96/img_9591.jpg 1x, https://www.don.to/diary/192/img_9591.jpg 2x" height="96" alt="img_9591"/></a>
+<a href="https://www.don.to/diary/600/img_9592.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9592.jpg" srcset="https://www.don.to/diary/96/img_9592.jpg 1x, https://www.don.to/diary/192/img_9592.jpg 2x" height="96" alt="img_9592"/></a></p>
+]]></description>
+        <dc:date>2024-2024-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0303-kamakura/">
+            <title>2024/03/03: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2024/0303-kamakura/</link>
+        <description><![CDATA[<p>定点観測。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9583.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9583.jpg" srcset="https://www.don.to/diary/96/img_9583.jpg 1x, https://www.don.to/diary/192/img_9583.jpg 2x" height="96" alt="img_9583"/></a></p>
+
+<p>久しぶりに最長ルート(12km)歩いた。</p>
+]]></description>
+        <dc:date>2024-2024-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0226-lunch/">
+            <title>2024/02/26: 東品川ごはん さくら商店</title>
+        <link>https://www.don.to/diary/2024/0226-lunch/</link>
+        <description><![CDATA[<pre class="address">
+<a href="https://tabelog.com/tokyo/A1315/A131501/13258633/">唐揚げ専門 さくら商店 品川シーサイド店</a>
+東京都品川区東品川3-27-17
+03-6718-4800
+</pre>
+
+<p>タルタル南蛮弁当。カロリーの味がする。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9581.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9581.jpg" srcset="https://www.don.to/diary/96/img_9581.jpg 1x, https://www.don.to/diary/192/img_9581.jpg 2x" height="96" alt="img_9581"/></a></p>
+
+<p>食後なんか腹にもたれるなあと思ったら、おれ週末に食あたりで寝込んでたんだった。</p>
+]]></description>
+        <dc:date>2024-2024-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0218-camp/">
+            <title>2024/02/18: デイキャン</title>
+        <link>https://www.don.to/diary/2024/0218-camp/</link>
+        <description><![CDATA[<p>煙突が固定できなかったのでスパークアレスタを導入。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9575.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9575.jpg" srcset="https://www.don.to/diary/96/img_9575.jpg 1x, https://www.don.to/diary/192/img_9575.jpg 2x" height="96" alt="img_9575"/></a>
+<a href="https://www.don.to/diary/600/img_9579.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9579.jpg" srcset="https://www.don.to/diary/96/img_9579.jpg 1x, https://www.don.to/diary/192/img_9579.jpg 2x" height="96" alt="img_9579"/></a></p>
+
+<p>これだけでもまあまあな荷物なのに、泊まりだとこれに寝具を追加しないといけない。
+これはなかなか大変だ。徒歩冬キャン難しい。</p>
+
+<p>いつもの華丸鍋。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9580.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9580.jpg" srcset="https://www.don.to/diary/96/img_9580.jpg 1x, https://www.don.to/diary/192/img_9580.jpg 2x" height="96" alt="img_9580"/></a></p>
+]]></description>
+        <dc:date>2024-2024-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0216-yokohama/">
+            <title>2024/02/16: 横浜デート</title>
+        <link>https://www.don.to/diary/2024/0216-yokohama/</link>
+        <description><![CDATA[<p>娘と横浜デート。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9572.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9572.jpg" srcset="https://www.don.to/diary/96/img_9572.jpg 1x, https://www.don.to/diary/192/img_9572.jpg 2x" height="96" alt="img_9572"/></a>
+<a href="https://www.don.to/diary/600/img_9574.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9574.jpg" srcset="https://www.don.to/diary/96/img_9574.jpg 1x, https://www.don.to/diary/192/img_9574.jpg 2x" height="96" alt="img_9574"/></a></p>
+]]></description>
+        <dc:date>2024-2024-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0211-kamakura/">
+            <title>2024/02/11: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2024/0211-kamakura/</link>
+        <description><![CDATA[<p>定点観測。</p>
+
+<p>妙に家族連れが多い日。白内障手術後に作り直したメガネは視界明瞭で快適。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9567.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9567.jpg" srcset="https://www.don.to/diary/96/img_9567.jpg 1x, https://www.don.to/diary/192/img_9567.jpg 2x" height="96" alt="img_9567"/></a></p>
+]]></description>
+        <dc:date>2024-2024-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0209-kusatu/">
+            <title>2024/02/09: 草津ワーケーション その5</title>
+        <link>https://www.don.to/diary/2024/0209-kusatu/</link>
+        <description><![CDATA[<p>希望は土曜日チェックアウトだったんだけど、金曜の夜は予約がとれないため今日が帰宅日。</p>
+
+<p>徒歩圏内のコーヒー屋さんで早めの昼飯食いながらちょっとお仕事。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/gunma/A1004/A100402/10023132/">森田コーヒー</a>
+群馬県吾妻郡草津町草津454-6 加藤ハイツ文京 1F
+</pre>
+
+<p><a href="https://www.don.to/diary/600/img_9561.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9561.jpg" srcset="https://www.don.to/diary/96/img_9561.jpg 1x, https://www.don.to/diary/192/img_9561.jpg 2x" height="96" alt="img_9561"/></a>
+<a href="https://www.don.to/diary/600/img_9558.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9558.jpg" srcset="https://www.don.to/diary/96/img_9558.jpg 1x, https://www.don.to/diary/192/img_9558.jpg 2x" height="96" alt="img_9558"/></a>
+<a href="https://www.don.to/diary/600/img_9559.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9559.jpg" srcset="https://www.don.to/diary/96/img_9559.jpg 1x, https://www.don.to/diary/192/img_9559.jpg 2x" height="96" alt="img_9559"/></a></p>
+
+<p>帰りはローカルバスで軽井沢駅北口へ。</p>
+
+<p>モールぶらついてから東京へ向かう。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9562.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9562.jpg" srcset="https://www.don.to/diary/96/img_9562.jpg 1x, https://www.don.to/diary/192/img_9562.jpg 2x" height="96" alt="img_9562"/></a>
+<a href="https://www.don.to/diary/600/img_9563.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9563.jpg" srcset="https://www.don.to/diary/96/img_9563.jpg 1x, https://www.don.to/diary/192/img_9563.jpg 2x" height="96" alt="img_9563"/></a></p>
+]]></description>
+        <dc:date>2024-2024-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0208-kusatu/">
+            <title>2024/02/08: 草津ワーケーション その4</title>
+        <link>https://www.don.to/diary/2024/0208-kusatu/</link>
+        <description><![CDATA[<p>休みをとってがっつり湯治の日。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/gunma/A1004/A100402/10001016/">とん香</a>
+群馬県吾妻郡草津町草津23-90
+0279-88-6139
+</pre>
+
+<p>開店直後に入ってジャンボロースカツ定食。
+店を出たらもう売り切れだった。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9553.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9553.jpg" srcset="https://www.don.to/diary/96/img_9553.jpg 1x, https://www.don.to/diary/192/img_9553.jpg 2x" height="96" alt="img_9553"/></a>
+<a href="https://www.don.to/diary/600/img_9551.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9551.jpg" srcset="https://www.don.to/diary/96/img_9551.jpg 1x, https://www.don.to/diary/192/img_9551.jpg 2x" height="96" alt="img_9551"/></a>
+<a href="https://www.don.to/diary/600/img_9552.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9552.jpg" srcset="https://www.don.to/diary/96/img_9552.jpg 1x, https://www.don.to/diary/192/img_9552.jpg 2x" height="96" alt="img_9552"/></a></p>
+
+<p><a href="https://www.don.to/diary/600/img_9554.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9554.jpg" srcset="https://www.don.to/diary/96/img_9554.jpg 1x, https://www.don.to/diary/192/img_9554.jpg 2x" height="96" alt="img_9554"/></a></p>
+]]></description>
+        <dc:date>2024-2024-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0206-kusatu/">
+            <title>2024/02/06: 草津ワーケーション その3</title>
+        <link>https://www.don.to/diary/2024/0206-kusatu/</link>
+        <description><![CDATA[<p>ミーティングが入って遅くなってしまい、あまり選択肢がなかったが、狙ってたステーキ屋さんへ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/gunma/A1004/A100402/10020214/">シルバーバック 草津</a>
+群馬県吾妻郡草津町大字草津372
+0279-82-5029
+</pre>
+
+<p>メンチと豚ステーキのコンボ。メンチはいらんかった。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9550.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9550.jpg" srcset="https://www.don.to/diary/96/img_9550.jpg 1x, https://www.don.to/diary/192/img_9550.jpg 2x" height="96" alt="img_9550"/></a></p>
+]]></description>
+        <dc:date>2024-2024-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0205-kusatu/">
+            <title>2024/02/05: 草津ワーケーション その2</title>
+        <link>https://www.don.to/diary/2024/0205-kusatu/</link>
+        <description><![CDATA[<p>昨夜からめっちゃ雪。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9539.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9539.jpg" srcset="https://www.don.to/diary/96/img_9539.jpg 1x, https://www.don.to/diary/192/img_9539.jpg 2x" height="96" alt="img_9539"/></a></p>
+
+<p>晩ごはん。今回イチオシ。
+肴がうまいのでついつい熱燗を飲み過ぎしまう。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/gunma/A1004/A100402/10024161/">やきとり居酒屋 香心</a>
+群馬県吾妻郡草津町大字草津139
+0279-82-5591
+</pre>
+
+<p><a href="https://www.don.to/diary/600/img_9548.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9548.jpg" srcset="https://www.don.to/diary/96/img_9548.jpg 1x, https://www.don.to/diary/192/img_9548.jpg 2x" height="96" alt="img_9548"/></a>
+<a href="https://www.don.to/diary/600/img_9540.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9540.jpg" srcset="https://www.don.to/diary/96/img_9540.jpg 1x, https://www.don.to/diary/192/img_9540.jpg 2x" height="96" alt="img_9540"/></a>
+<a href="https://www.don.to/diary/600/img_9541.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9541.jpg" srcset="https://www.don.to/diary/96/img_9541.jpg 1x, https://www.don.to/diary/192/img_9541.jpg 2x" height="96" alt="img_9541"/></a>
+<a href="https://www.don.to/diary/600/img_9542.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9542.jpg" srcset="https://www.don.to/diary/96/img_9542.jpg 1x, https://www.don.to/diary/192/img_9542.jpg 2x" height="96" alt="img_9542"/></a>
+<a href="https://www.don.to/diary/600/img_9543.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9543.jpg" srcset="https://www.don.to/diary/96/img_9543.jpg 1x, https://www.don.to/diary/192/img_9543.jpg 2x" height="96" alt="img_9543"/></a>
+<a href="https://www.don.to/diary/600/img_9544.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9544.jpg" srcset="https://www.don.to/diary/96/img_9544.jpg 1x, https://www.don.to/diary/192/img_9544.jpg 2x" height="96" alt="img_9544"/></a>
+<a href="https://www.don.to/diary/600/img_9545.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9545.jpg" srcset="https://www.don.to/diary/96/img_9545.jpg 1x, https://www.don.to/diary/192/img_9545.jpg 2x" height="96" alt="img_9545"/></a>
+<a href="https://www.don.to/diary/600/img_9546.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9546.jpg" srcset="https://www.don.to/diary/96/img_9546.jpg 1x, https://www.don.to/diary/192/img_9546.jpg 2x" height="96" alt="img_9546"/></a>
+<a href="https://www.don.to/diary/600/img_9547.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9547.jpg" srcset="https://www.don.to/diary/96/img_9547.jpg 1x, https://www.don.to/diary/192/img_9547.jpg 2x" height="96" alt="img_9547"/></a></p>
+
+<p>皆さん早めの夕食を取るので、二周目に滑りこむのが草津ワーケーションのコツであることを学ぶ。
+ただし、あんまり遅いと店が早仕舞いするので注意。</p>
+
+<p>湯畑を眺めてから巡回バスに乗って戻る。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9549.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9549.jpg" srcset="https://www.don.to/diary/96/img_9549.jpg 1x, https://www.don.to/diary/192/img_9549.jpg 2x" height="96" alt="img_9549"/></a></p>
+]]></description>
+        <dc:date>2024-2024-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0204-kusatu/">
+            <title>2024/02/04: 草津ワーケーション その1</title>
+        <link>https://www.don.to/diary/2024/0204-kusatu/</link>
+        <description><![CDATA[<p>今回のワーケーションは草津温泉へ。
+横浜駅から長距離バスで草津温泉バスターミナルへ。</p>
+
+<p>今回のお宿は<a href="https://kusatsu-resort.com/">草津温泉ホテルリゾート</a>。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9556.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9556.jpg" srcset="https://www.don.to/diary/96/img_9556.jpg 1x, https://www.don.to/diary/192/img_9556.jpg 2x" height="96" alt="img_9556"/></a>
+<a href="https://www.don.to/diary/600/img_9531.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9531.jpg" srcset="https://www.don.to/diary/96/img_9531.jpg 1x, https://www.don.to/diary/192/img_9531.jpg 2x" height="96" alt="img_9531"/></a></p>
+
+<p>一風呂浴びて金沢おでんの店へ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/gunma/A1004/A100402/10020942/">香林坊 本店</a>
+群馬県吾妻郡草津町大字草津114-4
+0279-88-4222
+</pre>
+
+<p><a href="https://www.don.to/diary/600/img_9538.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9538.jpg" srcset="https://www.don.to/diary/96/img_9538.jpg 1x, https://www.don.to/diary/192/img_9538.jpg 2x" height="96" alt="img_9538"/></a>
+<a href="https://www.don.to/diary/600/img_9532.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9532.jpg" srcset="https://www.don.to/diary/96/img_9532.jpg 1x, https://www.don.to/diary/192/img_9532.jpg 2x" height="96" alt="img_9532"/></a>
+<a href="https://www.don.to/diary/600/img_9533.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9533.jpg" srcset="https://www.don.to/diary/96/img_9533.jpg 1x, https://www.don.to/diary/192/img_9533.jpg 2x" height="96" alt="img_9533"/></a>
+<a href="https://www.don.to/diary/600/img_9534.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9534.jpg" srcset="https://www.don.to/diary/96/img_9534.jpg 1x, https://www.don.to/diary/192/img_9534.jpg 2x" height="96" alt="img_9534"/></a>
+<a href="https://www.don.to/diary/600/img_9537.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9537.jpg" srcset="https://www.don.to/diary/96/img_9537.jpg 1x, https://www.don.to/diary/192/img_9537.jpg 2x" height="96" alt="img_9537"/></a></p>
+]]></description>
+        <dc:date>2024-2024-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0203-lunch/">
+            <title>2024/02/03: 櫻井中華そば店</title>
+        <link>https://www.don.to/diary/2024/0203-lunch/</link>
+        <description><![CDATA[<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140301/14068897/">櫻井中華そば店</a>
+神奈川県横浜市保土ケ谷区岩井町53 稲村ビル 1F
+045-315-2058
+</pre>
+
+<p>辛味にんにく中華そば。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9528.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9528.jpg" srcset="https://www.don.to/diary/96/img_9528.jpg 1x, https://www.don.to/diary/192/img_9528.jpg 2x" height="96" alt="img_9528"/></a></p>
+]]></description>
+        <dc:date>2024-2024-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0127-gear/">
+            <title>2024/01/27: 冬キャン対策</title>
+        <link>https://www.don.to/diary/2024/0127-gear/</link>
+        <description><![CDATA[<p>寝袋に続いてさらにコットとパッドを購入。</p>
+
+<p><a href="https://www.don.to/diary/600/img_e9524.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_e9524.jpg" srcset="https://www.don.to/diary/96/img_e9524.jpg 1x, https://www.don.to/diary/192/img_e9524.jpg 2x" height="96" alt="img_e9524"/></a></p>
+]]></description>
+        <dc:date>2024-2024-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/0114-gyoza/">
+            <title>2024/01/14: ホワイト餃子</title>
+        <link>https://www.don.to/diary/2024/0114-gyoza/</link>
+        <description><![CDATA[<p>チャリ乗ってホワイト餃子食って電車で帰る。</p>
+
+<p><a href="https://www.don.to/diary/600/img_9515.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9515.jpg" srcset="https://www.don.to/diary/96/img_9515.jpg 1x, https://www.don.to/diary/192/img_9515.jpg 2x" height="96" alt="img_9515"/></a>
+<a href="https://www.don.to/diary/600/img_9516.jpg" class="image swipe"><img src="https://www.don.to/diary/96/img_9516.jpg" srcset="https://www.don.to/diary/96/img_9516.jpg 1x, https://www.don.to/diary/192/img_9516.jpg 2x" height="96" alt="img_9516"/></a></p>
+
+<p>3皿頼んだ。腹パンパン。</p>
+]]></description>
+        <dc:date>2024-2024-01T00:00:00+09:00</dc:date>
+
+  </item>
+</rdf:RDF>
