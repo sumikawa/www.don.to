@@ -7,7 +7,6 @@ gem "middleman", github: "middleman/middleman"
 gem "middleman-syntax"
 gem "slim"
 gem "redcarpet"
-gem "pry"
 gem "mini_exiftool"
 gem "sass"
 
