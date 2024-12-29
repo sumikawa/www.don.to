@@ -2,6 +2,7 @@
 # the following line to use "https"
 source 'http://rubygems.org'
 
+gem 'rack', '~> 2.2'
 gem "middleman", github: "middleman/middleman"
 # gem "middleman"
 gem "middleman-syntax"
