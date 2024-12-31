@@ -26,7 +26,7 @@ function drawChart() {
 outputs = []
 
 data.health.each do |k, v|
-  d = k.split(/-0?/)
+  d = k.to_s.split(/-0?/)
   outputs << "    [new Date(#{d[0]}, #{d[1].to_i - 1}, #{d[2]}), #{v[0]}, #{v[1]}]"
 end
 
