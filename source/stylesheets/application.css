@@ -1,4 +1,6 @@
-/*
- *= require_self
- *= require_tree .
-*/
+@import "./code.css";
+@import "./default-skin.css";
+@import "./phone.css";
+@import "./photoswipe.css";
+@import "./search.css";
+@import "./style.css";
