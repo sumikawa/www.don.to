@@ -50,6 +50,8 @@ set :js_dir, 'javascripts'
 set :images_dir, 'images'
 set :slim, { :pretty => true, :sort_attrs => false, :format => :html }
 
+activate :sprockets
+
 activate :syntax
 activate :directory_indexes
 #activate :relative_assets
@@ -67,3 +69,4 @@ configure :build do
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
 end
+
