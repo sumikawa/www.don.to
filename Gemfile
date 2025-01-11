@@ -2,14 +2,12 @@
 # the following line to use "https"
 source 'http://rubygems.org'
 
-# Fix error
-gem 'rack', '~> 2.2'
-
 gem "middleman", github: "middleman/middleman"
 # gem "middleman"
 gem "middleman-syntax"
 gem "slim"
 gem "redcarpet"
+gem "pry"
 gem "mini_exiftool"
 gem "sass"
 
@@ -20,4 +18,3 @@ gem "middleman-sprockets"
 #gem 'sprockets', '< 4.0.0'
 
 gem 'webrick'
-
