@@ -1,6 +1,6 @@
 module LinkHelpers
-  if `hostname`.strip =~ /mbair/
-    @@imagesite = "http://localhost:4567/images"
+  if `hostname`.strip =~ /b8e85624ccdc/
+    @@imagesite = "http://localhost:8888"
   else
     @@imagesite = "https://www.don.to"
   end
@@ -26,8 +26,7 @@ module LinkHelpers
     file = File.basename(file)
     if ext == 'jpg'
       height = 300 if height == 0
-      image_tag("diary/#{dir}/#{height}/#{file}.#{ext}")
-      # "<img src=\"#{@@imagesite}#{dir}/#{height}/#{file}.#{ext}\" srcset=\"#{@@imagesite}#{dir}/#{height}/#{file}.#{ext} 1x, #{@@imagesite}#{dir}/#{height.to_i * 2}/#{file}.#{ext} 2x\" height=\"#{height}\" alt=\"#{file}\"/>"
+      "<img src=\"#{@@imagesite}#{dir}/#{height}/#{file}.#{ext}\" srcset=\"#{@@imagesite}#{dir}/#{height}/#{file}.#{ext} 1x, #{@@imagesite}#{dir}/#{height.to_i * 2}/#{file}.#{ext} 2x\" height=\"#{height}\" alt=\"#{file}\"/>"
     else
       height = 300 if height == 0 # height = 0 is not working
       if height == 0
