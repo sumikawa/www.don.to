@@ -17,14 +17,28 @@ module LinkHelpers
     end
   end
 
+  def dropbox_url(year:, dirname:, basename:)
+    begin
+      link_to("<img src=\"#{data.image[year][dirname][basename][@@thumbheight]}\"",
+              data.image[year][dirname][basename][@@imageheight],
+              class: 'image swipe')
+    rescue
+      # "Error: #{year}, #{dirname}, #{basename}, #{height}, #{data.image.class}, #{data.image.pretty_inspect}"
+      link_to(image_tag('under_idx.webp'), image_path('under.webp'), class: 'image swipe')
+    end
+  end
+
   def image(file, height: @@thumbheight, ext: 'jpg')
     if current_page.url =~ /\.html$/
       dir = current_page.url.sub(%r|\.html$|, '/')
     else
       dir = current_page.url.sub(%r|/[^/]*$|, '/')
     end
-    # "<a href=\"#{@@imagesite}#{dir}#{@@imageheight}/#{file}.#{ext}\" class=\"image swipe\">#{simage(file, height: height, ext: ext)}</a>"
-    link_to(image_tag('under_idx.webp'), image_path('under.webp'), class: 'image swipe')
+    layers = dir.split('/')
+    year = layers[2].to_s
+    dirname = layers[3].to_s
+    basename = file.to_s
+    dropbox_url(year: year, dirname: dirname, basename: basename)
   end
 
   def simage(file, height: 0, ext: 'jpg')
