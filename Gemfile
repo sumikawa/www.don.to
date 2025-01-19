@@ -21,4 +21,7 @@ group :development do
   gem 'pry'
 end
 
+# workaround
+gem 'logger', '1.6.5'
+
 gem 'webrick'
