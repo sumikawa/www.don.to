@@ -42,6 +42,18 @@ module CustomHelpers
       when ".jpg", ".heic"
         text = "<%= image \"#{base}\" %>"
         t = ex['DateTimeOriginal'] || now
+
+        if localhost?
+          data.site.heights.each do |height|
+            filepath = File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/#{base}.#{height}.webp")
+            unless File.exist?(filepath)
+              FileUtils.mkdir_p(File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/#{height}"))
+              image = Magick::Image.read(f).first
+              image = image.resize_to_fit(0, height)
+              image.write(filepath)
+            end
+          end
+        end
       when ".png"
         text = "<%= image \"#{base}\", ext: 'png' %>"
       when ".mov", ".mp4", ".mts"

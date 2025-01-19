@@ -1,14 +1,21 @@
 module LinkHelpers
-  if `hostname`.strip =~ /mbair/
-    @@imagesite = "http://localhost:4567/images"
-    @@localhost = true
-  else
-    @@imagesite = "https://www.don.to"
-    @@localhost = false
-  end
+  # if localhost?
+  # @@imagesite = "http://localhost:4567/images"
+  # else
+  # @@imagesite = "https://www.don.to"
+  # end
+  @@imagesite = "https://www.don.to"
   @@imageheight = 600
   @@thumbheight = 96
   @@redirectsite = "https://www.don.to"
+
+  def localhost?
+    if `hostname`.strip =~ /mbair/
+      true
+    else
+      false
+    end
+  end
 
   def image(file, height: @@thumbheight, ext: 'jpg')
     if current_page.url =~ /\.html$/
@@ -28,7 +35,7 @@ module LinkHelpers
     file = File.basename(file)
     if ext == 'jpg'
       height = 300 if height == 0
-      if @@localhost
+      if localhost?
         image_tag("#{dir}/#{height}/#{file}.#{ext}")
       else
         "<img src=\"#{@@imagesite}#{dir}/#{height}/#{file}.#{ext}\" srcset=\"#{@@imagesite}#{dir}/#{height}/#{file}.#{ext} 1x, #{@@imagesite}#{dir}/#{height.to_i * 2}/#{file}.#{ext} 2x\" height=\"#{height}\" alt=\"#{file}\"/>"
