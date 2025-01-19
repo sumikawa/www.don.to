@@ -23,7 +23,8 @@ module LinkHelpers
     else
       dir = current_page.url.sub(%r|/[^/]*$|, '/')
     end
-    "<a href=\"#{@@imagesite}#{dir}#{@@imageheight}/#{file}.#{ext}\" class=\"image swipe\">#{simage(file, height: height, ext: ext)}</a>"
+    # "<a href=\"#{@@imagesite}#{dir}#{@@imageheight}/#{file}.#{ext}\" class=\"image swipe\">#{simage(file, height: height, ext: ext)}</a>"
+    link_to(image_tag('under_idx.webp'), image_path('under.webp'), class: 'image swipe')
   end
 
   def simage(file, height: 0, ext: 'jpg')
