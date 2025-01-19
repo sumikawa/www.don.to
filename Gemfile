@@ -17,4 +17,8 @@ gem "middleman-sprockets"
 
 #gem 'sprockets', '< 4.0.0'
 
+group :development do
+  gem 'rmagick'
+end
+
 gem 'webrick'

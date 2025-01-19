@@ -85,6 +85,7 @@ GEM
       rouge (~> 3.2)
     mini_exiftool (2.10.2)
     minitest (5.15.0)
+    observer (0.1.2)
     oj (3.13.10)
     padrino-helpers (0.14.4)
       i18n (~> 0.6, >= 0.6.7)
@@ -93,6 +94,7 @@ GEM
     padrino-support (0.14.4)
     parallel (1.21.0)
     parslet (2.0.0)
+    pkg-config (1.5.9)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -106,6 +108,9 @@ GEM
     rgl (0.5.7)
       lazy_priority_queue (~> 0.1.0)
       stream (~> 0.5.3)
+    rmagick (6.1.0)
+      observer (~> 0.1)
+      pkg-config (~> 1.4)
     rouge (3.27.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -146,6 +151,7 @@ DEPENDENCIES
   mini_exiftool
   pry
   redcarpet
+  rmagick
   sass
   slim
   webrick
