@@ -110,7 +110,7 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    redcarpet (3.5.1)
+    redcarpet (3.6.0)
     rexml (3.4.0)
     rgl (0.5.10)
       pairing_heap (>= 0.3.0)
@@ -158,7 +158,7 @@ DEPENDENCIES
   middleman-syntax
   mini_exiftool
   pry
-  redcarpet
+  redcarpet (= 3.6.0)
   rmagick
   sass
   slim

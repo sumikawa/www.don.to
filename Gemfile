@@ -6,7 +6,7 @@ gem "middleman", github: "middleman/middleman"
 # gem "middleman"
 gem "middleman-syntax"
 gem "slim"
-gem "redcarpet"
+gem "redcarpet", '3.6.0'
 gem "mini_exiftool"
 gem "sass"
 
