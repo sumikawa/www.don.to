@@ -7,7 +7,6 @@ gem "middleman", github: "middleman/middleman"
 gem "middleman-syntax"
 gem "slim"
 gem "redcarpet"
-gem "pry"
 gem "mini_exiftool"
 gem "sass"
 
@@ -19,6 +18,7 @@ gem "middleman-sprockets"
 
 group :development do
   gem 'rmagick'
+  gem 'pry'
 end
 
 gem 'webrick'
