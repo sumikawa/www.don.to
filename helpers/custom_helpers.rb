@@ -1,5 +1,4 @@
 require 'mini_exiftool'
-require 'RMagick'
 
 module CustomHelpers
   def gen_title
