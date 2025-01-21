@@ -1,5 +1,5 @@
 all::
-	bundle exec middleman server --instrument --bind-address=127.0.0.1
+	bundle exec middleman server --instrument --bind-address=0.0.0.0
 
 build::
 	bundle exec middleman build --verbose
