@@ -82,10 +82,14 @@ module LinkHelpers
     dirname = layers[3].to_s
     basename = file.to_s
     ext = 'mp4'
-    imgsrc_name = "#{basename}.#{ext}"
-    imgsrc = data.image[year][dirname][imgsrc_name]
-    "<video controls height=\"160\"><source src=\"#{imgsrc}\" /></video>"
-    # "<a href=\"#{@@redirectsite}#{dir}#{file}\.mp4\" class=\"video swipe\"><img src=\"#{@@imagesite}#{dir}video/#{@@thumbheight}/#{file}.jpg\" height=\"#{@@thumbheight}\" alt=\"#{file}\" /></a>"
+    begin
+      imgsrc_name = "#{basename}.#{ext}"
+      imgsrc = data.image[year][dirname][imgsrc_name]
+      # "<a href=\"#{@@redirectsite}#{dir}#{file}\.mp4\" class=\"video swipe\"><img src=\"#{@@imagesite}#{dir}video/#{@@thumbheight}/#{file}.jpg\" height=\"#{@@thumbheight}\" alt=\"#{file}\" /></a>"
+      "<video controls height=\"160\"><source src=\"#{imgsrc}\" /></video>"
+    rescue
+      link_to(image_tag('under_idx.jpg'), image_path('under.jpg'), class: 'image swipe')
+    end
   end
 
   def audio(file)
