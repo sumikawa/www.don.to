@@ -17,10 +17,10 @@ module LinkHelpers
     end
   end
 
-  def dropbox_url(year:, dirname:, basename:)
+  def dropbox_url(year:, dirname:, basename:, ext: 'jpg')
     begin
-      imgsrc_name = "#{basename}.#{@@imageheight}.jpg"
-      img_name = "#{basename}.#{@@imageheight}.jpg"
+      imgsrc_name = "#{basename}.#{@@imageheight}.#{ext}"
+      img_name = "#{basename}.#{@@imageheight}.#{ext}"
       imgsrc = data.image[year][dirname][imgsrc_name]
       img = data.image[year][dirname][img_name]
 
@@ -77,7 +77,15 @@ module LinkHelpers
     else
       dir = current_page.url.sub(%r|/[^/]*$|, '/')
     end
-    "<a href=\"#{@@redirectsite}#{dir}#{file}\.mp4\" class=\"video swipe\"><img src=\"#{@@imagesite}#{dir}video/#{@@thumbheight}/#{file}.jpg\" height=\"#{@@thumbheight}\" alt=\"#{file}\" /></a>"
+    layers = dir.split('/')
+    year = layers[2].to_s
+    dirname = layers[3].to_s
+    basename = file.to_s
+    ext = 'mp4'
+    imgsrc_name = "#{basename}.#{ext}"
+    imgsrc = data.image[year][dirname][imgsrc_name]
+    "<video controls height=\"160\"><source src=\"#{imgsrc}\" /></video>"
+    # "<a href=\"#{@@redirectsite}#{dir}#{file}\.mp4\" class=\"video swipe\"><img src=\"#{@@imagesite}#{dir}video/#{@@thumbheight}/#{file}.jpg\" height=\"#{@@thumbheight}\" alt=\"#{file}\" /></a>"
   end
 
   def audio(file)

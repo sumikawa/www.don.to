@@ -8,3 +8,5 @@ cacherootdir: "~/Dropbox/.cache/tmp"
 heights:
  - 96
  - 600
+thumbext: 'jpg'
+
