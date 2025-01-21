@@ -24,9 +24,10 @@ module LinkHelpers
       imgsrc = data.image[year][dirname][imgsrc_name]
       img = data.image[year][dirname][img_name]
 
-      link_to("<img src=\"#{imgsrc}\" height=\"160\"/>",
-              img,
-              class: 'image swipe')
+      "<img src=\"#{imgsrc}\" height=\"160\"/>"
+      # "<img src=\"#{imgsrc}\" height=\"160\"/>",
+      #        img,
+      #        class: 'image swipe')
     rescue
       # "Error: #{year}, #{dirname}, #{basename}, #{height}, #{data.image.class}, #{data.image.pretty_inspect}"
       link_to(image_tag('under_idx.jpg'), image_path('under.jpg'), class: 'image swipe')
