@@ -19,12 +19,12 @@ module LinkHelpers
 
   def dropbox_url(year:, dirname:, basename:)
     begin
-      imgsrc_name = "#{basename}.#{@@thumbheight}.jpg"
+      imgsrc_name = "#{basename}.#{@@imageheight}.jpg"
       img_name = "#{basename}.#{@@imageheight}.jpg"
       imgsrc = data.image[year][dirname][imgsrc_name]
       img = data.image[year][dirname][img_name]
 
-      link_to("<img src=\"#{imgsrc}\"/>",
+      link_to("<img src=\"#{imgsrc}\" height=\"160\"/>",
               img,
               class: 'image swipe')
     rescue
