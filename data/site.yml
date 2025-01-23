@@ -4,9 +4,8 @@ secretmes: "(要パスワード)"
 asid: daydreaonthen-22
 notitle: "no title"
 imagerootdir: "~/Dropbox/images"
-cacherootdir: "~/Dropbox/.cache/tmp"
+cacherootdir: "~/Dropbox/.cache"
 heights:
- - 96
  - 600
 thumbext: 'jpg'
 
