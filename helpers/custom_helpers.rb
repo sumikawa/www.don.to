@@ -59,6 +59,19 @@ module CustomHelpers
       when ".mov", ".mp4", ".mts"
         text = "<%= movie \"hd#{base}\" %>"
         t = ex['CreationDate'] || ex['FileModifyDate'] || now
+
+        if localhost?
+          FileUtils.mkdir_p(File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}"))
+          filepath = File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/hd#{base}.mp4")
+          unless File.exist?(filepath)
+            acodec = 'aac'
+            rotateopt = ''
+            pixel = '480x270'
+            extops = ''
+            puts   "ffmpeg -i #{f} #{rotateopt} -g 120 -vcodec libx264 -s #{pixel} -bt 1024k -acodec #{acodec} -ar 32000 -ac 1 -ab 48k -movflags faststart #{extops} -f mp4 #{filepath} > /dev/null 2>&1"
+            system "ffmpeg -i #{f} #{rotateopt} -g 120 -vcodec libx264 -s #{pixel} -bt 1024k -acodec #{acodec} -ar 32000 -ac 1 -ab 48k -movflags faststart #{extops} -f mp4 #{filepath} > /dev/null 2>&1"
+          end
+        end
       when ".avi"
         text = "<%= movie \"#{base}\" %>"
       when ".m4a"
