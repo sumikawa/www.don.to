@@ -19,6 +19,8 @@ gem "middleman-sprockets"
 group :development do
   gem 'rmagick'
   gem 'pry'
+  gem 'rspec'
+  gem 'rake'
 end
 
 # workaround
