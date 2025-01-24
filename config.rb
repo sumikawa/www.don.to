@@ -54,9 +54,9 @@ activate :syntax
 activate :directory_indexes
 #activate :relative_assets
 
-activate :asset_hash
+#activate :asset_hash
 
-#activate :livereload, js_host: 'stage.aws.don.to', port: 8888, no_swf: true
+#activate :livereload, js_host: 'stage.don.to', port: 4567, no_swf: true
 #activate :livereload
 # Build-specific configuration
 configure :build do
