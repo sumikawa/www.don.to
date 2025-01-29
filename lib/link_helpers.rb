@@ -84,7 +84,7 @@ module LinkHelpers
       img_url = data.image[year][dirname][img_name]
 
       thumb_name = "#{basename}.#{data.site.thumbext}"
-      thumb_url = data.image[year][dirname][thumb_name]
+      thumb_url = data.image[year][dirname][thumb_name] || 'under.webp'
 
       "<a href=\"#{img_url}\" class=\"video swipe\">#{image_tag(thumb_url, height: data.site.thumbheight)}</a>"
     rescue
