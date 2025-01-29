@@ -68,8 +68,11 @@ module CustomHelpers
 
         if localhost?
           FileUtils.mkdir_p(File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}"))
-          filepath = File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/hd#{base}.mp4")
-          Video.convert(original: f, target: filepath, acodec: 'aac', vcodec: 'mp4') unless File.exist?(filepath)
+          filepath = File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/hd#{base}.#{data.site.videoext}")
+          thumbpath = File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/hd#{base}.#{data.site.thumbext}")
+
+          Video.convert(original: f, target: filepath, acodec: data.site.acodec, vcodec: data.site.videoext) unless File.exist?(filepath)
+          Video.poster(original: filepath, target: thumbpath) unless File.exist?(thumbpath)
         end
       when ".avi"
         text = "<%= movie \"#{base}\" %>"

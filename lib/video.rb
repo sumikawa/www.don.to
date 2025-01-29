@@ -1,3 +1,5 @@
+require 'tempfile'
+
 class Video
   class << self
     def detect(report)
@@ -75,6 +77,33 @@ class Video
       ffmpeg_cmd = "ffmpeg -i #{original} #{ffmpeg_opts} #{target}"
       puts ffmpeg_cmd
       system "#{ffmpeg_cmd} > /dev/null 2>&1"
+    end
+
+    # def overlay_playicon(image, size)
+    #  playicon = MiniMagick::Image.open("../source/images/play.png")
+    #  image.resize "x#{size}"
+    # if size.to_i > 100
+    #    image
+    #  else
+    #    composite = image.composite(playicon) do |c|
+    #       c.dissolve "75%"
+    #       c.gravity "center"
+    #     end
+    #     composite
+    #   end
+    # end
+
+    def poster(original:, target:)
+      thumb_cmd = "ffmpeg -i #{original} -ss 0.1 -vframes 1 -f image2 #{target}"
+
+      puts thumb_cmd
+      system "#{thumb_cmd} > /dev/null 2>&1"
+
+      # Tempfile.create("thumb") do |temp|
+
+        # image = overlay_playicon(MiniMagick::Image.read(temp.path), 600)
+        # image.strip.to_blob
+        # end
     end
   end
 end

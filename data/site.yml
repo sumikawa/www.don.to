@@ -10,3 +10,4 @@ heights:
 thumbext: 'jpg'
 thumbheight: 96
 videoext: 'mp4'
+acodec: 'aac'
