@@ -6,7 +6,6 @@ module LinkHelpers
   # end
   @@imagesite = "https://www.don.to"
   @@imageheight = 600
-  @@thumbheight = 96
   @@redirectsite = "https://www.don.to"
 
   def localhost?
@@ -24,16 +23,16 @@ module LinkHelpers
 
       raise if img_url.nil?
 
-      link_to("<img src=\"#{img_url}\" height=\"#{data.site.thumbheight}\"/>",
+      link_to(image_tag(img_url, height: data.site.thumbheight),
               img_url,
               class: 'image swipe')
     rescue
       # "Error: #{year}, #{dirname}, #{basename}, #{height}, #{data.image.class}, #{data.image.pretty_inspect}"
-      image_tag('under.webp', height: 160)
+      image_tag('under.webp', height: data.site.thumbheight)
     end
   end
 
-  def image(file, height: @@thumbheight, ext: 'jpg')
+  def image(file, height: data.site.thumbheight, ext: data.site.thumbext)
     if current_page.url =~ /\.html$/
       dir = current_page.url.sub(%r|\.html$|, '/')
     else
@@ -80,14 +79,18 @@ module LinkHelpers
     year = layers[2].to_s
     dirname = layers[3].to_s
     basename = file.to_s
-    ext = 'mp4'
     begin
-      imgsrc_name = "#{basename}.#{ext}"
-      imgsrc = data.image[year][dirname][imgsrc_name]
-      # "<a href=\"#{@@redirectsite}#{dir}#{file}\.mp4\" class=\"video swipe\"><img src=\"#{@@imagesite}#{dir}video/#{@@thumbheight}/#{file}.jpg\" height=\"#{@@thumbheight}\" alt=\"#{file}\" /></a>"
-      "<video controls height=\"160\"><source src=\"#{imgsrc}\" /></video>"
+      img_name = "#{basename}.#{data.site.videoext}"
+      img_url = data.image[year][dirname][img_name]
+
+      # "<video controls height=\"#{data.site.thumbheight}\"><source src=\"#{img_url}\" /></video>"
+      # video_tag(img_url, height: data.site.thumbheight, controls: true, class: 'video swipe')
+      # "<a href=\"#{img_url}\" class=\"video swipe\"><img src=\"#{@@imagesite}#{dir}video/#{data.site.thumbheight}/#{file}.jpg\" height=\"#{data.site.thumbheight}\" alt=\"#{file}\" /></a>"
+      "<a href=\"#{img_url}\" class=\"video swipe\">#{image_tag('under.webp', height: data.site.thumbheight)}</a>"
+
     rescue
-      link_to(image_tag('under_idx.jpg'), image_path('under.jpg'), class: 'image swipe')
+      # puts "Error: #{year}, #{dirname}, #{img_name}, #{img_url}"
+      image_tag('under.webp', height: data.site.thumbheight)
     end
   end
 
