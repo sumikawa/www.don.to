@@ -53,6 +53,7 @@ set :slim, { :pretty => true, :sort_attrs => false, :format => :html }
 activate :syntax
 activate :directory_indexes
 #activate :relative_assets
+activate :sprockets
 
 #activate :asset_hash
 
