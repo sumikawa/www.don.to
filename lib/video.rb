@@ -74,7 +74,7 @@ class Video
       ffmpeg_opts = cmd_opts(opts: opts, acodec: acodec, vcodec: vcodec)
       ffmpeg_cmd = "ffmpeg -i #{original} #{ffmpeg_opts} #{target}"
       puts ffmpeg_cmd
-      # system "#{ffmpeg_cmd} > /dev/null 2>&1"
+      system "#{ffmpeg_cmd} > /dev/null 2>&1"
     end
   end
 end

@@ -1,4 +1,5 @@
 require 'mini_exiftool'
+require_relative '../lib/video.rb'
 
 module CustomHelpers
   def gen_title
