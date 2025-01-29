@@ -17,12 +17,18 @@ module LinkHelpers
     end
   end
 
-  def dropbox_url(year:, dirname:, basename:, ext: 'jpg')
+  def dropbox_url(year:, dirname:, basename:, ext:)
     begin
-      imgsrc_name = "#{basename}.#{@@imageheight}.#{ext}"
+      if ext == 'jpg'
+        imgsrc_name = "#{basename}.#{@@imageheight}.#{ext}"
+      else
+        imgsrc_name = "#{basename}.#{ext}"
+      end
       img_name = "#{basename}.#{@@imageheight}.#{ext}"
       imgsrc = data.image[year][dirname][imgsrc_name]
       img = data.image[year][dirname][img_name]
+
+      raise if imgsrc.nil?
 
       "<img src=\"#{imgsrc}\" height=\"160\"/>"
       # "<img src=\"#{imgsrc}\" height=\"160\"/>",
@@ -30,7 +36,7 @@ module LinkHelpers
       #        class: 'image swipe')
     rescue
       # "Error: #{year}, #{dirname}, #{basename}, #{height}, #{data.image.class}, #{data.image.pretty_inspect}"
-      link_to(image_tag('under_idx.webp'), image_path('under.webp'), class: 'image swipe')
+      image_tag('under.webp', height: 160)
     end
   end
 
@@ -44,7 +50,7 @@ module LinkHelpers
     year = layers[2].to_s
     dirname = layers[3].to_s
     basename = file.to_s
-    dropbox_url(year: year, dirname: dirname, basename: basename)
+    dropbox_url(year: year, dirname: dirname, basename: basename, ext: ext)
   end
 
   def simage(file, height: 0, ext: 'jpg')

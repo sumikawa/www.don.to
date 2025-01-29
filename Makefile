@@ -1,4 +1,5 @@
 all::
+	(cd data ; make all)
 	bundle exec middleman server --instrument --bind-address=0.0.0.0
 
 build::

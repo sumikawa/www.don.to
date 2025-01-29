@@ -39,7 +39,7 @@ module CustomHelpers
       t = now
       text = ""
 
-      case ext
+      case ext.downcase
       when ".jpg", ".heic"
         text = "<%= image \"#{base}\" %>"
         t = ex['DateTimeOriginal'] || now
@@ -57,6 +57,11 @@ module CustomHelpers
         end
       when ".png"
         text = "<%= image \"#{base}\", ext: 'png' %>"
+
+        if localhost?
+          FileUtils.mkdir_p(File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}"))
+          FileUtils.copy(f, File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/#{file}"))
+        end
       when ".mov", ".mp4", ".mts"
         text = "<%= movie \"hd#{base}\" %>"
         t = ex['CreationDate'] || ex['FileModifyDate'] || now
