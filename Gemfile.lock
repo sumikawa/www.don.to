@@ -17,7 +17,7 @@ GIT
       bundler
       contracts (~> 0.16.0)
       dotenv
-      erubis
+      erubi
       execjs (~> 2.0)
       fastimage (~> 2.0)
       hamster (~> 3.0)
@@ -58,7 +58,7 @@ GEM
     contracts (0.16.1)
     diff-lcs (1.5.1)
     dotenv (3.1.7)
-    erubis (2.7.0)
+    erubi (1.13.1)
     execjs (2.10.0)
     fastimage (2.4.0)
     ffi (1.17.1)
@@ -167,6 +167,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  erubi (= 1.13.1)
   logger (= 1.6.5)
   middleman!
   middleman-sprockets
