@@ -63,16 +63,7 @@ module CustomHelpers
         if localhost?
           FileUtils.mkdir_p(File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}"))
           filepath = File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/hd#{base}.mp4")
-          unless File.exist?(filepath)
-            acodec = 'aac'
-            rotateopt = ''
-            pixel = '480x270'
-            extops = ''
-            # Video.detect(`ffmpeg -i #{f} 2>&1 >/dev/null`)
-            # rotate, pixel, prefix, aspect, extops = detectvideo(`ffmpeg -i #{temp.path} 2>&1 >/dev/null`.split("\n"))
-            puts   "ffmpeg -i #{f} #{rotateopt} -g 120 -vcodec libx264 -s #{pixel} -bt 1024k -acodec #{acodec} -ar 32000 -ac 1 -ab 48k -movflags faststart #{extops} -f mp4 #{filepath} > /dev/null 2>&1"
-            system "ffmpeg -i #{f} #{rotateopt} -g 120 -vcodec libx264 -s #{pixel} -bt 1024k -acodec #{acodec} -ar 32000 -ac 1 -ab 48k -movflags faststart #{extops} -f mp4 #{filepath} > /dev/null 2>&1"
-          end
+          Video.convert(original: f, target: filepath, acodec: 'aac', vcodec: 'mp4') unless File.exist?(filepath)
         end
       when ".avi"
         text = "<%= movie \"#{base}\" %>"

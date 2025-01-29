@@ -64,17 +64,17 @@ class Video
       { rotate: rotate, rotate_opt: rotate_opt, pixel: pixel, prefix: prefix, aspect: aspect, ext_opt: ext_opt }
     end
 
-    def cmd_opts(opts)
-      acodec = 'aac'
-      vcodec = 'mp4'
+    def cmd_opts(opts:, acodec:, vcodec:)
       "#{opts[:rotate_opt]} -g 120 -vcodec libx264 -s #{opts[:pixel]} -bt 1024k -acodec #{acodec} -ar 32000 -ac 1 -ab 48k -movflags faststart #{opts[:ext_opt]} -f #{vcodec}"
     end
 
-    def convert(original:, target:)
+    def convert(original:, target:, acodec:, vcodec:)
       probe = `ffmpeg -i #{original} 2>&1 >/dev/null`
       opts = detect(probe)
-      ffmpeg_cmd = "ffmpeg -i #{original} #{cmd_opts(opts)} #{target}"
+      ffmpeg_opts = cmd_opts(opts: opts, acodec: acodec, vcodec: vcodec)
+      ffmpeg_cmd = "ffmpeg -i #{original} #{ffmpeg_opts} #{target}"
       puts ffmpeg_cmd
+      # system "#{ffmpeg_cmd} > /dev/null 2>&1"
     end
   end
 end
