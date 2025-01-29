@@ -6,7 +6,7 @@ gem "middleman", github: "middleman/middleman"
 # gem "middleman"
 gem "middleman-syntax"
 gem "slim"
-gem "redcarpet", '3.6.0'
+gem "redcarpet"
 gem "mini_exiftool"
 gem "sass"
 
@@ -22,9 +22,5 @@ group :development do
   gem 'rspec'
   gem 'rake'
 end
-
-# workaround
-gem 'logger', '1.6.5'
-gem 'erubi', '1.13.1'
 
 gem 'webrick'

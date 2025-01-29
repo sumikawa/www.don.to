@@ -172,15 +172,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  erubi (= 1.13.1)
-  logger (= 1.6.5)
   middleman!
   middleman-sprockets
   middleman-syntax
   mini_exiftool
   pry
   rake
-  redcarpet (= 3.6.0)
+  redcarpet
   rmagick
   rspec
   sass
