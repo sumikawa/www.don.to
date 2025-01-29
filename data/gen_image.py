@@ -7,7 +7,11 @@ import pprint
 import hashlib
 import yaml
 
-dbx = dropbox.Dropbox(access_token)
+APP_KEY = os.environ["DROPBOX_APP_KEY"]
+APP_SECRET = os.environ["DROPBOX_APP_SECRET"]
+REFRESH_TOKEN = os.environ["DROPBOX_REFRESH_TOKEN"]
+
+dbx = dropbox.Dropbox(oauth2_refresh_token=REFRESH_TOKEN, app_key=APP_KEY, app_secret=APP_SECRET)
 
 def sharing(path):
   try:
