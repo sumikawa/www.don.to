@@ -30,10 +30,10 @@ module LinkHelpers
 
       raise if imgsrc.nil?
 
-      "<img src=\"#{imgsrc}\" height=\"160\"/>"
-      # "<img src=\"#{imgsrc}\" height=\"160\"/>",
-      #        img,
-      #        class: 'image swipe')
+#      "<img src=\"#{imgsrc}\" height=\"160\"/>"
+      link_to("<img src=\"#{imgsrc}\" height=\"96\"/>",
+              img,
+              class: 'image swipe')
     rescue
       # "Error: #{year}, #{dirname}, #{basename}, #{height}, #{data.image.class}, #{data.image.pretty_inspect}"
       image_tag('under.webp', height: 160)
