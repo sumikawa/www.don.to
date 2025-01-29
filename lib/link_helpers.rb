@@ -83,11 +83,10 @@ module LinkHelpers
       img_name = "#{basename}.#{data.site.videoext}"
       img_url = data.image[year][dirname][img_name]
 
-      # "<video controls height=\"#{data.site.thumbheight}\"><source src=\"#{img_url}\" /></video>"
-      # video_tag(img_url, height: data.site.thumbheight, controls: true, class: 'video swipe')
-      # "<a href=\"#{img_url}\" class=\"video swipe\"><img src=\"#{@@imagesite}#{dir}video/#{data.site.thumbheight}/#{file}.jpg\" height=\"#{data.site.thumbheight}\" alt=\"#{file}\" /></a>"
-      "<a href=\"#{img_url}\" class=\"video swipe\">#{image_tag('under.webp', height: data.site.thumbheight)}</a>"
+      thumb_name = "#{basename}.#{data.site.thumbext}"
+      thumb_url = data.image[year][dirname][thumb_name]
 
+      "<a href=\"#{img_url}\" class=\"video swipe\">#{image_tag(thumb_url, height: data.site.thumbheight)}</a>"
     rescue
       # puts "Error: #{year}, #{dirname}, #{img_name}, #{img_url}"
       image_tag('under.webp', height: data.site.thumbheight)
