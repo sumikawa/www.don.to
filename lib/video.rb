@@ -5,7 +5,7 @@ class Video
       pixel = ''
       prefix = ''
       aspect = ''
-      extops = ''
+      ext_opt = ''
       lines = report.split("\n")
       lines.each do |line|
         if md = line.match(/(rotate\s+:|rotation\s+of)\s+([-\d]+)/)
@@ -46,20 +46,36 @@ class Video
           end
           case line
           when /(120) fps/
-            extops = "-vf 'setpts=4*PTS' -r 30 -filter:a 'atempo=0.5'"
+            ext_opt = "-vf 'setpts=4*PTS' -r 30 -filter:a 'atempo=0.5'"
           when /(239\.98) fps/
-            extops = "-vf 'setpts=4*PTS' -r 30 -filter:a 'atempo=0.5,atempo=0.5'"
+            ext_opt = "-vf 'setpts=4*PTS' -r 30 -filter:a 'atempo=0.5,atempo=0.5'"
           end
         end
       end
-      { rotate: rotate, pixel: pixel, prefix: prefix, aspect: aspect, extops: extops }
+
+      if rotate == 0
+        rotate_opt = ''
+      else
+        # for old ffmpeg
+        # rotateopt = "-vf transpose=1 -metadata:s:v:0 rotate=0"
+        rotate_opt = '-metadata:s:v:0 rotate=0'
+      end
+
+      { rotate: rotate, rotate_opt: rotate_opt, pixel: pixel, prefix: prefix, aspect: aspect, ext_opt: ext_opt }
     end
 
     def cmd_opts(report)
       result = detect(report)
       acodec = 'aac'
       vcodec = 'mp4'
-      "#{result[:rotateopt]} -g 120 -vcodec libx264 -s #{result[:pixel]} -bt 1024k -acodec #{acodec} -ar 32000 -ac 1 -ab 48k -movflags faststart #{result[:extops]} -f #{vcodec}"
+      "#{result[:rotate_opt]} -g 120 -vcodec libx264 -s #{result[:pixel]} -bt 1024k -acodec #{acodec} -ar 32000 -ac 1 -ab 48k -movflags faststart #{result[:ext_opt]} -f #{vcodec}"
+    end
+
+    def convert(original:, target:)
+      probe = `ffmpeg -i #{original} 2>&1 >/dev/null`
+      opts = detect(probe)
+      ffmpeg_cmd = "ffmpeg -i #{original} #{cmd_opts} #{target}"
+      puts ffmpeg_cmd
     end
   end
 end
