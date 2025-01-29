@@ -6,6 +6,6 @@ notitle: "no title"
 imagerootdir: "~/Dropbox/images"
 cacherootdir: "~/Dropbox/.cache"
 heights:
- - 96
  - 600
 thumbext: 'jpg'
+thumbheight: 96
