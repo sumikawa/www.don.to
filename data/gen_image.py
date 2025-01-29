@@ -50,7 +50,7 @@ if __name__ == "__main__":
     if not filename in yml[year][dirname]:
       print("generating url: {year}/{dirname}/{filename}".format(year=year, dirname=dirname, filename=filename))
       url = sharing(file)
-      url = url.replace('https://www.dropbox.com/', 'https://dl.dropboxusercontent.com/').replace('&dl=0', '&dl=1')
+      url = url.replace('https://www.dropbox.com/', 'https://dl.dropboxusercontent.com/')
       yml[year][dirname][filename] = url
     # else:
       # print("skip url: {year}/{dirname}/{filename}".format(year=year, dirname=dirname, filename=filename))
