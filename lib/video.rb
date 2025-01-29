@@ -54,5 +54,12 @@ class Video
       end
       { rotate: rotate, pixel: pixel, prefix: prefix, aspect: aspect, extops: extops }
     end
+
+    def cmd_opts(report)
+      result = detect(report)
+      acodec = 'aac'
+      vcodec = 'mp4'
+      "#{result[:rotateopt]} -g 120 -vcodec libx264 -s #{result[:pixel]} -bt 1024k -acodec #{acodec} -ar 32000 -ac 1 -ab 48k -movflags faststart #{result[:extops]} -f #{vcodec}"
+    end
   end
 end
