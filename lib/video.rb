@@ -64,17 +64,16 @@ class Video
       { rotate: rotate, rotate_opt: rotate_opt, pixel: pixel, prefix: prefix, aspect: aspect, ext_opt: ext_opt }
     end
 
-    def cmd_opts(report)
-      result = detect(report)
+    def cmd_opts(opts)
       acodec = 'aac'
       vcodec = 'mp4'
-      "#{result[:rotate_opt]} -g 120 -vcodec libx264 -s #{result[:pixel]} -bt 1024k -acodec #{acodec} -ar 32000 -ac 1 -ab 48k -movflags faststart #{result[:ext_opt]} -f #{vcodec}"
+      "#{opts[:rotate_opt]} -g 120 -vcodec libx264 -s #{opts[:pixel]} -bt 1024k -acodec #{acodec} -ar 32000 -ac 1 -ab 48k -movflags faststart #{opts[:ext_opt]} -f #{vcodec}"
     end
 
     def convert(original:, target:)
       probe = `ffmpeg -i #{original} 2>&1 >/dev/null`
       opts = detect(probe)
-      ffmpeg_cmd = "ffmpeg -i #{original} #{cmd_opts} #{target}"
+      ffmpeg_cmd = "ffmpeg -i #{original} #{cmd_opts(opts)} #{target}"
       puts ffmpeg_cmd
     end
   end
