@@ -1,6 +1,6 @@
 require 'tempfile'
 require 'rmagick'
-require 'debug'
+# require 'debug'
 
 class Video
   class << self
