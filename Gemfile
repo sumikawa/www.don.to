@@ -8,13 +8,10 @@ gem "middleman-syntax"
 gem "slim"
 gem "redcarpet"
 gem "mini_exiftool"
+gem 'mini_magick'
 gem "sass"
 
 gem "middleman-sprockets"
-
-# gem 'therubyracer', :platforms => :ruby
-
-#gem 'sprockets', '< 4.0.0'
 
 group :development do
   gem 'rmagick'
