@@ -1,4 +1,5 @@
 require 'tempfile'
+require 'rmagick'
 
 class Video
   class << self
