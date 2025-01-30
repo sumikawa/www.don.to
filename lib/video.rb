@@ -1,5 +1,6 @@
 require 'tempfile'
 require 'rmagick'
+require 'debug'
 
 class Video
   class << self
@@ -80,31 +81,24 @@ class Video
       system "#{ffmpeg_cmd} > /dev/null 2>&1"
     end
 
-    # def overlay_playicon(image, size)
-    #  playicon = MiniMagick::Image.open("../source/images/play.png")
-    #  image.resize "x#{size}"
-    # if size.to_i > 100
-    #    image
-    #  else
-    #    composite = image.composite(playicon) do |c|
-    #       c.dissolve "75%"
-    #       c.gravity "center"
-    #     end
-    #     composite
-    #   end
-    # end
+    def overlay_playicon(image, height)
+      playicon = Magick::Image.read("./source/images/play.png").first
+      playicon.resize_to_fit!(0, height)
+      image.resize_to_fit!(0, height)
+      image.dissolve(playicon, 0.75, 1.0, Magick::CenterGravity)
+    end
 
-    def poster(original:, target:)
-      thumb_cmd = "ffmpeg -i #{original} -ss 0.1 -vframes 1 -f image2 #{target}"
+    def poster(original:, target:, height:)
+      temp = "/tmp/poster_#{('a'..'z').to_a.shuffle[0..7].join}.jpg"
 
+      thumb_cmd = "ffmpeg -i #{original} -loglevel quiet -ss 0.1 -update true -frames:v 1 -f image2 #{temp}"
       puts thumb_cmd
       system "#{thumb_cmd} > /dev/null 2>&1"
 
-      # Tempfile.create("thumb") do |temp|
+      image = overlay_playicon(Magick::Image.read(temp).first, height)
+      image.write(target)
 
-        # image = overlay_playicon(MiniMagick::Image.read(temp.path), 600)
-        # image.strip.to_blob
-        # end
+      File.delete(temp)
     end
   end
 end

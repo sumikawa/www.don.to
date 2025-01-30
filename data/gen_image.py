@@ -33,7 +33,7 @@ if __name__ == "__main__":
   currentdir = os.getcwd()
   os.chdir(rootdir + prefix)
 
-  list = glob.glob('*/2024/**/*.*', recursive=True)
+  list = glob.glob('*/202[345]/**/*.*', recursive=True)
   for item in list:
     file = "{prefix}/{item}".format(prefix=prefix, item=item)
     layers = file.replace(prefix, '').split('/')

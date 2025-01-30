@@ -47,7 +47,7 @@ module CustomHelpers
         if localhost?
           FileUtils.mkdir_p(File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}"))
           data.site.heights.each do |height|
-            filepath = File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/#{base}.#{height}.#{data.site.thumbext}")
+            filepath = File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/#{base}.#{data.site.thumbext}")
             unless File.exist?(filepath)
               image = Magick::Image.read(f).first
               image = image.resize_to_fit(0, height)
@@ -72,7 +72,7 @@ module CustomHelpers
           thumbpath = File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/hd#{base}.#{data.site.thumbext}")
 
           Video.convert(original: f, target: filepath, acodec: data.site.acodec, vcodec: data.site.videoext) unless File.exist?(filepath)
-          Video.poster(original: filepath, target: thumbpath) unless File.exist?(thumbpath)
+          Video.poster(original: filepath, target: thumbpath, height: data.site.thumbheight) unless File.exist?(thumbpath)
         end
       when ".avi"
         text = "<%= movie \"#{base}\" %>"

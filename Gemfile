@@ -13,6 +13,7 @@ gem "sass"
 gem "middleman-sprockets"
 
 group :development do
+  gem 'debug'
   gem 'rmagick'
   gem 'pry'
   gem 'rspec'
