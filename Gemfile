@@ -8,7 +8,6 @@ gem "middleman-syntax"
 gem "slim"
 gem "redcarpet"
 gem "mini_exiftool"
-gem 'mini_magick'
 gem "sass"
 
 gem "middleman-sprockets"
