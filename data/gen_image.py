@@ -33,6 +33,7 @@ if __name__ == "__main__":
   currentdir = os.getcwd()
   os.chdir(rootdir + prefix)
 
+  count = 0
   list = glob.glob('*/202[345]/**/*.*', recursive=True)
   for item in list:
     file = "{prefix}/{item}".format(prefix=prefix, item=item)
@@ -55,6 +56,15 @@ if __name__ == "__main__":
     # else:
       # print("skip url: {year}/{dirname}/{filename}".format(year=year, dirname=dirname, filename=filename))
 
+    count = count + 1
+    if count == 10:
+      os.chdir(currentdir)
+      with open('image.yml', mode='w', encoding='utf-8') as new_file:
+        yaml.safe_dump(yml, new_file)
+      os.chdir(rootdir + prefix)
+      count = 0
+
   os.chdir(currentdir)
-  with open('image_new.yml', mode='w', encoding='utf-8') as new_file:
+  with open('image.yml', mode='w', encoding='utf-8') as new_file:
     yaml.safe_dump(yml, new_file)
+  os.chdir(rootdir + prefix)
