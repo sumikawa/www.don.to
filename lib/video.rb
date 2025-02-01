@@ -83,7 +83,7 @@ class Video
 
     def overlay_playicon(image, height)
       playicon = Magick::Image.read("./source/images/play.png").first
-      playicon.resize_to_fit!(0, height)
+      playicon.resize_to_fit!(0, (height * 0.8).to_i)
       image.resize_to_fit!(0, height)
       image.dissolve(playicon, 0.75, 1.0, Magick::CenterGravity)
     end
