@@ -35,7 +35,7 @@ module CustomHelpers
       file = File.basename(f).downcase
       ext = File.extname(file)
       base = File.basename(file, ext)
-      ex = MiniExiftool.new(f) rescue nil
+      ex = MiniExiftool.new(f) rescue {}
       t = now
       text = ""
 
