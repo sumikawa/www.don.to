@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns="http://purl.org/rss/1.0/">
+  <channel rdf:about="https://www.don.to/diary/">
+    <title>すみかわ日記</title>
+    <description>子供ネタ7割、食い物2割、技術1割</description>
+    <link>https://www.don.to/diary/</link>
+    <items>
+      <rdf:Seq>
+          <rdf:li resource="2025/0127-kamakura/"/>
+          <rdf:li resource="2025/0125-nakano/"/>
+          <rdf:li resource="2025/0124-sinagawa/"/>
+          <rdf:li resource="2025/0124-breakfast/"/>
+          <rdf:li resource="2025/0124-amazon/"/>
+          <rdf:li resource="2025/0122-misaki/"/>
+          <rdf:li resource="2025/0120-maitin/"/>
+          <rdf:li resource="2025/0117-party/"/>
+          <rdf:li resource="2025/0117-goodbye/"/>
+          <rdf:li resource="2025/0116-kusatu/"/>
+          <rdf:li resource="2025/0115-kusatu/"/>
+          <rdf:li resource="2025/0114-kusatu/"/>
+          <rdf:li resource="2025/0113-kusatu/"/>
+          <rdf:li resource="2025/0111-kamakura/"/>
+          <rdf:li resource="2025/0110-lunch/"/>
+          <rdf:li resource="2025/0108-lunch/"/>
+          <rdf:li resource="2025/0106-aomono/"/>
+          <rdf:li resource="2025/0105-lunch/"/>
+          <rdf:li resource="2025/0104-hodogaya/"/>
+          <rdf:li resource="2025/0103-hodogaya/"/>
+          <rdf:li resource="2024/1228-kamakura/"/>
+          <rdf:li resource="2024/1227-lunch/"/>
+          <rdf:li resource="2024/1226-osawa/"/>
+          <rdf:li resource="2024/1225-osawa/"/>
+          <rdf:li resource="2024/1224-osawa/"/>
+          <rdf:li resource="2024/1223-osawa/"/>
+          <rdf:li resource="2024/1222-osawa/"/>
+          <rdf:li resource="2024/1219-lunch/"/>
+          <rdf:li resource="2024/1216-hamanako/"/>
+          <rdf:li resource="2024/1214-kamakura/"/>
+      </rdf:Seq>
+    </items>
+  </channel>
+  <item rdf:about="2025/0127-kamakura/">
+            <title>2025/01/27: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2025/0127-kamakura/</link>
+        <description><![CDATA[<p>定点観測。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>明王院ルートで下山。
+まだ捻った右足が若干痛いので、延長ルートには行かずに帰宅。</p>
+
+<p>体が冷えまくって風呂に入ってもまだ寒い。
+体脂肪が増えてるので保冷剤みたいになってると思われる。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0125-nakano/">
+            <title>2025/01/25: 中野</title>
+        <link>https://www.don.to/diary/2025/0125-nakano/</link>
+        <description><![CDATA[<p>宮さんが大阪帰る前に懐かしの8段ソフトクリームに挑戦したいというので中野に集合。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1319/A131902/13001083/">デイリーチコ</a>
+東京都中野区中野5-52-15 中野ブロードウェイ B1F
+03-3386-4461
+</pre>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>軽く食いきってやったわ！</p>
+
+<p>ランチは特に行きたい店もないというので、食べログで適当に調べた店へ。
+ブロードウェイの奥って行ったことなかった。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1319/A131902/13283134/">福籠叉焼</a>
+東京都中野区新井1-14-14
+03-6454-0444
+</pre>
+
+<p>焼きそばセット。チャーシューは4種類全部にして、半分こ。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>品川に移動して解散。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0124-sinagawa/">
+            <title>2025/01/24: 品川飲み 塚田農場</title>
+        <link>https://www.don.to/diary/2025/0124-sinagawa/</link>
+        <description><![CDATA[<p>東京出張の宮さんが珍しく泊まって帰るというので、共通の友人を誘って4人で飲む。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1314/A131403/13174190/">北海道シントク町 塚田農場 品川港南口店</a>
+東京都港区港南2-3-29 シーゲンビル 3F
+050-5600-2500
+</pre>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0124-breakfast/">
+            <title>2025/01/24: メレンゲ</title>
+        <link>https://www.don.to/diary/2025/0124-breakfast/</link>
+        <description><![CDATA[<p>久しぶりに朝パンケーキ食べにメレンゲへ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140102/14067913/">メレンゲ みなとみらい店</a>
+神奈川県横浜市西区みなとみらい4-4-1 横浜野村ビル１F
+050-5593-9994
+</pre>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>値上げのせいか、冬だからか9:00過ぎてもまだ席が開いてた。
+開店直後に行く必要はなくなった。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0124-amazon/">
+            <title>2025/01/24: 最後の出社写真</title>
+        <link>https://www.don.to/diary/2025/0124-amazon/</link>
+        <description><![CDATA[<p>バッジを返却に来たタイミングで記念写真。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>本当にバッジが使えないかどうか試しにゲートに当てたら、退場者が入場しようとしていると一瞬セキュリティがピリついた。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0122-misaki/">
+            <title>2025/01/22: 輪行 久里浜</title>
+        <link>https://www.don.to/diary/2025/0122-misaki/</link>
+        <description><![CDATA[<p>逗子まで電車でいって、そのまま三浦半島の西側を南下。</p>
+
+<p><a href="https://www.komeda.co.jp/shop/detail.html?id=611">三浦のコメダ</a>で一回休憩。
+足がだるくなったので帰宅しようと思ったが、頑張って久里浜までいく。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p><a href="https://onsen.nifty.com/yokosuka-onsen/onsen012422/">海辺の湯</a>でサウナに入ってから、1Fの店でビール飲んで帰宅。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0120-maitin/">
+            <title>2025/01/20: 豚の味珍</title>
+        <link>https://www.don.to/diary/2025/0120-maitin/</link>
+        <description><![CDATA[<p>久しぶりに味珍に来た。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140101/14000643/">豚の味珍</a>
+神奈川県横浜市西区南幸1-2-2
+045-312-4027
+</pre>
+
+<p>16時の開店直後に入店したら、30分ぐらいで満席。
+17時前には酔っ払って帰る人がいる店なので、なかなか来づらい</p>
+
+<p>ラーパーツァイと舌。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>ヤカンと、頭。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>尾。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>ヤカン三杯目。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>18時になる前に既に泥酔。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0117-party/">
+            <title>2025/01/17: 送別会</title>
+        <link>https://www.don.to/diary/2025/0117-party/</link>
+        <description><![CDATA[<p>社内送別会を盛大に開いていただきました。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>二次会は<a href="https://tabelog.com/tokyo/A1315/A131501/13181697/">阿里城</a>。
+さらに<a href="https://tabelog.com/tokyo/A1315/A131501/13232265/">餃子酒場</a>に行って、始発で解散。</p>
+
+<p>ありがとうございました！</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0117-goodbye/">
+            <title>2025/01/17: 退職</title>
+        <link>https://www.don.to/diary/2025/0117-goodbye/</link>
+        <description><![CDATA[<p>(Facebookの<a href="https://www.facebook.com/munechika.sumikawa/posts/pfbid02TfUqdG6rPfr9atj5oXMnFqXa8G2ngtCXhoH3XUxfocd2bb6bhhs5Ve2x8QAPtuMXl">書き込み</a>を転載)</p>
+
+<p>ご報告です。</p>
+
+<p>1月末日をもって、11年間勤めたアマゾンを退職することにしました。</p>
+
+<p>今後ですが、まだ転職活動を始めていません。
+休息の期間を取って、それから次のチャレンジを決めようと思っています。
+意図的に無職の期間を設けて、筋トレ、ハイキング、キャンプ、旅行などをします。
+元気なうちにバケットリスト減らしていかんとね。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>先週の社内での送別会で頂いた花です。盛大にお祝い頂き(朝まで飲んだ)、その後は有休消化モードに入っています。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>急に辞めたように見えますが、前から予定していたものです。特にネガティブな理由で辞めたわけではないので、ご心配なく。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0116-kusatu/">
+            <title>2025/01/16: 草津 その4</title>
+        <link>https://www.don.to/diary/2025/0116-kusatu/</link>
+        <description><![CDATA[<p>朝食は軽くすませる。</p>
+
+<p>スーツケースを宅急便で自宅に送って、チェックアウトして、草津バスターミナルへ移動。
+高速バスの時間まで2時間弱あるのでカフェへ。今回はPC持ってこないで、iPad mini + corp workspacesで過ごしてみた。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/gunma/A1004/A100402/10000987/">TEA ROOM Yuki Usagi</a>
+群馬県吾妻郡草津町大字草津81
+0279-88-3345
+</pre>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>横浜駅西口に18:40ぐらいに着。そのまま関内へ。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0115-kusatu/">
+            <title>2025/01/15: 草津 その3</title>
+        <link>https://www.don.to/diary/2025/0115-kusatu/</link>
+        <description><![CDATA[<p>朝食はヨーグルトだけにした。</p>
+
+<p>別の貸切露天風呂。
+13:00-13:40の時間帯は連泊客に開放されていてる。大浴場が掃除中なのでベストだと思う。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>今日もサウナを三本決める。やっと肩まで浸かれた。でも10秒しか保たない。
+クールダウンしたいけど浴場に椅子がないので、脱衣所で文庫本を読んで過ごす。これもこれで良い。</p>
+
+<p>アレンジメニュー。豆乳にカレールーをぶち込んでカレー鍋。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>明日も明後日も飲む予定が入ってるので、最終日はほどほどにした。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0114-kusatu/">
+            <title>2025/01/14: 草津 その2</title>
+        <link>https://www.don.to/diary/2025/0114-kusatu/</link>
+        <description><![CDATA[<p>朝飯。
+ついガッツリ食べてしまった。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>ビール持ち込んで貸切露天風呂。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>ちょっとだけ外を散歩。
+雪がほとんど降ってないので、地面が凍って怖い。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>サウナを三本決める。水風呂はやっと胸の下まで浸かれた。が、10秒ぐらいで足先が痛くなって飛び出る。</p>
+
+<p>昨日はあごだしだったので、今日は豆乳鍋にしてみる。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>基本、風呂入ってるか、酔っ払ってるか、のぼせてるかのどれか。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0113-kusatu/">
+            <title>2025/01/13: 草津 その1</title>
+        <link>https://www.don.to/diary/2025/0113-kusatu/</link>
+        <description><![CDATA[<p>草津へ湯治に行く。
+横浜から高速バスで草津バスターミナルへ。往復9000円。
+楽だし安い。</p>
+
+<p>ホテルは中心エリアから2km弱離れてるので、無料送迎バスの時間までカフェで過ごす。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/gunma/A1004/A100402/10022203/">カフェ わとわ</a>
+群馬県吾妻郡草津町60
+050-1057-9775
+</pre>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>今回の宿は<a href="https://www.itoenhotel.com/kusatsu/">伊東園ホテル草津</a>。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>ここ何がすごいかって朝夜がビュッフェで、アルコールも飲み放題で9000円。
+帰るまで引きこもり決定というか、仮に湯畑近辺で飲んだら徒歩でホテルまで戻らないといけないので、転んで怪我して凍死する。</p>
+
+<p>晩飯に前にサウナ三本入った。水風呂が冷たすぎて入れないので、露天風呂でクールダウン。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>ビールx4、ハイボール、レモン酎ハイ飲んで泥酔。
+最近、酒量が増えてるので最高すぎる。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0111-kamakura/">
+            <title>2025/01/11: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2025/0111-kamakura/</link>
+        <description><![CDATA[<p>新春鎌倉ハイキング、コーヒータイム。
+軽量ハンモックにしたら、ヘリノックスチェアより荷物が軽くなって快適。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>定点観測。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>この後、また右足を捻った。
+軽いひねりだったのに10日間ぐらい痛みが残った。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0110-lunch/">
+            <title>2025/01/10: アルペンジロー</title>
+        <link>https://www.don.to/diary/2025/0110-lunch/</link>
+        <description><![CDATA[<p>奥さんとランチ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140306/14000553/">アルペンジロー 本店</a>
+神奈川県横浜市中区弥生町3-26
+050-5596-9637
+</pre>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0108-lunch/">
+            <title>2025/01/08: 東品川ごはん 阿里城</title>
+        <link>https://www.don.to/diary/2025/0108-lunch/</link>
+        <description><![CDATA[<p>つむらさんとランチ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1315/A131501/13181697/">阿里城 品川シーサイドオーバルガーデン店</a>
+東京都品川区東品川4-12-6 品川シーサイドフォレストオーバルガーデンショップ＆レストランB1
+03-6718-4278
+</pre>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0106-aomono/">
+            <title>2025/01/06: いさりび</title>
+        <link>https://www.don.to/diary/2025/0106-aomono/</link>
+        <description><![CDATA[<p>出勤日。マネージャー誘って4人でいさりびへ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1315/A131501/13234843/">いさりび 青物横丁店</a>
+東京都品川区南品川2-7-18 TYビル 2F
+03-6718-4920
+</pre>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0105-lunch/">
+            <title>2025/01/05: 豚山</title>
+        <link>https://www.don.to/diary/2025/0105-lunch/</link>
+        <description><![CDATA[<p>娘が豚山食べたいというので横浜へ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140102/14078246/">豚山 横浜西口店</a>
+神奈川県横浜市西区南幸2-9-1
+</pre>
+
+<p>小ぶた味噌山ニンニクなしショウガヤサイ少なめ。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>娘が先に食い終わって、焦ったらむせて死にそうになった。
+ミニとはいえ、なぜ俺より早い。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0104-hodogaya/">
+            <title>2025/01/04: 初詣</title>
+        <link>https://www.don.to/diary/2025/0104-hodogaya/</link>
+        <description><![CDATA[<p>昨日が激混みだったので改めて神明社で初詣。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0103-hodogaya/">
+            <title>2025/01/03: ぶらぶら</title>
+        <link>https://www.don.to/diary/2025/0103-hodogaya/</link>
+        <description><![CDATA[<p>ビックカメラのポイント期限が切れるので娘と横浜へ。
+ちょうど箱根駅伝が来る時間帯だった。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>ゴンチャ寄ったあと後、保土ヶ谷に戻ってさらにぶらぶら。
+神明社がありえないぐらい混んでた。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/1228-kamakura/">
+            <title>2024/12/28: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2024/1228-kamakura/</link>
+        <description><![CDATA[<p>定点観測納め。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+]]></description>
+        <dc:date>2025-2024-12T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/1227-lunch/">
+            <title>2024/12/27: 伊勢屋</title>
+        <link>https://www.don.to/diary/2024/1227-lunch/</link>
+        <description><![CDATA[<p>カツ丼納め。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140301/14013607/">伊勢屋</a>
+神奈川県横浜市保土ケ谷区星川2-5-33
+045-341-7971
+</pre>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+]]></description>
+        <dc:date>2025-2024-12T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/1226-osawa/">
+            <title>2024/12/26: 大沢温泉 湯治旅 その5</title>
+        <link>https://www.don.to/diary/2024/1226-osawa/</link>
+        <description><![CDATA[<p>初めて朝食を食う。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>なお、隙間風言うてますけど、こんな隙間です。
+隣普通に見えとるがな。</p>
+
+<p>空き部屋にしてくれてるんだけど、暖房つけてない分、冷風が吹き込んでくる。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>無料送迎バスに乗って、新花巻から帰宅。</p>
+
+<p>温泉堪能しました。</p>
+]]></description>
+        <dc:date>2025-2024-12T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/1225-osawa/">
+            <title>2024/12/25: 大沢温泉 湯治旅 その4</title>
+        <link>https://www.don.to/diary/2024/1225-osawa/</link>
+        <description><![CDATA[<p>露天風呂を反対側から撮った写真。右側が脱衣所です。着替えるところから丸見え。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>昨夜のコタツの晩酌があまりにも快適だったので、食材を買い出しに行く。
+調べたら新花巻のイトーヨーカドーにいけるバスがあった。</p>
+
+<p>イトーヨーカドーに依存してるがよくわかる時刻表。でも、来年1月に閉店だそうで、付近住民どうするんだ。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>晩酌。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>〆の蕎麦だけ館内の店で食う。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+]]></description>
+        <dc:date>2025-2024-12T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/1224-osawa/">
+            <title>2024/12/24: 大沢温泉 湯治旅 その3</title>
+        <link>https://www.don.to/diary/2024/1224-osawa/</link>
+        <description><![CDATA[<p>昼飯は餃子とイクラ丼。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>夜になってタンパク質をほぼ取ってないことに気づく。
+売店で買った豆腐に味噌なんばんをつけたものをツマミに酒を飲む。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>昨夜の反省を活かし、コタツをフル活用して寝る。</p>
+]]></description>
+        <dc:date>2025-2024-12T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/1223-osawa/">
+            <title>2024/12/23: 大沢温泉 湯治旅 その2</title>
+        <link>https://www.don.to/diary/2024/1223-osawa/</link>
+        <description><![CDATA[<p>昼飯。いわい鶏の石焼きステーキセット。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>雪景色。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>露天風呂はこんな感じ。
+川沿いで外から丸見え。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>足先だけコタツにいれて寝たら、夜寒くて何回も目が覚める。
+結局、体の半分以上をコタツに入れて就寝。</p>
+]]></description>
+        <dc:date>2025-2024-12T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/1222-osawa/">
+            <title>2024/12/22: 大沢温泉 湯治旅 その1</title>
+        <link>https://www.don.to/diary/2024/1222-osawa/</link>
+        <description><![CDATA[<p>前日に検索したら空き部屋があったのでふらっと岩手へ湯治に行く。</p>
+
+<p>東京駅で酒とつまみを入手。本当は豆狸のいなりが食べたかったけど長蛇の列で諦めた。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>新花巻駅着。無料送迎バスで大沢温泉へ。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>今回のお宿は、<a href="https://www.oosawaonsen.com/touji/">大沢温泉 湯治屋</a></p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>自炊設備のある由緒正しい湯治宿です。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>安い代わりに隙間風がエグい。ストーブ切ったら外と気温変わらん。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>一風呂浴びて晩酌。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+]]></description>
+        <dc:date>2025-2024-12T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/1219-lunch/">
+            <title>2024/12/19: 東品川ごはん 裏大輝家</title>
+        <link>https://www.don.to/diary/2024/1219-lunch/</link>
+        <description><![CDATA[<pre class="address">
+<a href="https://tabelog.com/tokyo/A1315/A131501/13289489/">横浜家系ラーメン 裏大輝家 青物横丁店</a>
+東京都品川区南品川5-4-5
+</pre>
+
+<p>煮豚チャーシュー並、油少なめ。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+]]></description>
+        <dc:date>2025-2024-12T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/1216-hamanako/">
+            <title>2024/12/16: 浜名湖</title>
+        <link>https://www.don.to/diary/2024/1216-hamanako/</link>
+        <description><![CDATA[<p>会社イベントで浜名湖の<a href="https://snowpeak-bs.co.jp/solution/human/camping-office/outdoor/hamanako">Snow Peakの施設</a>へ。
+日が落ちるとくっそ寒い。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>部屋。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>BBQ。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+]]></description>
+        <dc:date>2025-2024-12T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2024/1214-kamakura/">
+            <title>2024/12/14: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2024/1214-kamakura/</link>
+        <description><![CDATA[<p>定点観測。家族ハイキングがやたら多い</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>体力やっと戻ってきた。</p>
+]]></description>
+        <dc:date>2025-2024-12T00:00:00+09:00</dc:date>
+
+  </item>
+</rdf:RDF>

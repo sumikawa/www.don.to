@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex" />
+    <title>1999/07/09: DVD-515の改造</title>
+    <link rel="alternate" type="application/rss+xml" title="rss" href="https://www.don.to/diary/index.rdf" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css" />
+    <link href="/stylesheets/application.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Reenie+Beanie" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/images/ipod-icon.png" />
+    <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=2.0000" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="centerblock">
+	  <div class="mainblock">
+        <form role="search">
+          <input type="search" placeholder="検索" id="search" />
+        </form>
+          <h2>1999/07/09: DVD-515の改造</h2>
+          <p>イギリスの通信販売サイトから、
+パイオニアDVD-515をマルチリージョン化する
+<a href="http://www.techtronics.com/ttn/shop/50-dvd-player-pioneer-515.htm">改造キット</a>
+(50ポンド、約1万円)を購入しました。
+このキットはファームウェアを載せ換えが必要なので躊躇してましたが、
+大阪の某計測機器メーカに勤める中学からの友人みゃ氏が遊びに来たので、
+やってもらうことにしました。</p>
+
+<p>作業内容は、</p>
+
+<ul>
+<li>44pinのファームェアの載せ換え</li>
+<li>8pinのMultiModチップのうち、足三本をハンダ付け</li>
+</ul>
+
+<p>です。改造キット添付の説明書以外に、日本語で書かれた<a href="http://hometown.aol.com/dvd9/">改造情報</a>がありましたので、それを参考にしました。</p>
+
+<p>まずは、蓋を開けたとこ。左下のチップが問題のファームウェアです。
+ハンダごても手持ちのものは不安なので、わざわざ持って来てもらいました。
+6時の新幹線に乗る前に会社に寄って取って来てくれました。感謝！</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>チップのはがし方には、二通りのやり方があります。</p>
+
+<ul>
+<li>足を一本ずつをハンダごてで温めながら、ピンセットではがして行く</li>
+<li>二本のハンダごとですべての足を温めて、ひっこ抜く</li>
+</ul>
+
+<p>前者は確実ですが、時間がかかるのと力のかけ具合によってよっては、
+足をはがすときに基盤の線を一緒にはがしてしまう危険性があります。
+後者には、手早くやらないと熱で基盤を痛めてしまったり、
+チップをはがすときに手際が悪いとハンダが周りに飛び散ったりします。
+自信がないときは、マスキングするという方法もあります。
+また、足と足の間隔が広すぎたり、チップが長すぎると後者の方法は使えません。</p>
+
+<p>今回は後者の方法を採用しました。</p>
+
+<p>まず、片方の列にハンダを載せて、足がすべてつながるようにする。
+これで、すべての足が同時に温まるのではがれるようになります。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>しかし、ここですみかわ手持ちのハンダを使って失敗しました。
+このハンダは実は電源ケーブルや端子用で、さらに古くて酸化してるため、
+ハンダのノリが大変悪く、こういう作業には向いていません。
+本当はこんなにハンダを盛る必要はないんだけど、
+うまくいかなくてハンダを足してるうちに山盛りになってしまいました。</p>
+
+<p>仕方がないのでみゃ持参にハンダをつけ足して何とかノリを回復させました。
+ハンダは少ししか持って来てなかったので大変厳しい戦いになってきました。
+また、何度も何度もハンダを温めいるため、基盤に影響が出ないか
+不安になってきました。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>反対側はマトモなハンダを使ってます。
+少量で充分でした。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>二本のハンダで両側の足の上を滑べらせて全体を温めます。
+そして、足がすべて浮き上がった瞬間にエイヤっと引っこ抜きます。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>左上だけくっついたままですが、
+もうここまでくれば温めながらピンセットで引っ張るだけ。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>飛び散ったハンダのカスをピンセットで丹念に除去します。
+これが残ってるとショートする可能性があります。
+また、はがすときに使ったハンダを吸い取り線で除去します。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>購入した改造済ファームウェアを載せます。
+慎重に位置合わせしないとズレてしまうので注意。
+まず、4隅をハンダで固定します。
+そして、少量のハンダを載せつつ、足の上にハンダを滑べらせるだけで、
+すべての足がハンダづけされます。
+ハンダの量が必要最小限であれば、
+表面張力のおかげで足と足の間がブリッジされることもありません。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>テスターを使ってすべての足がきちんとハンダ付けされているかチェック。
+導通してると音が出るタイプのテスターがあると便利。
+若干怪しかったので、さらにハンダを足す。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>次は、MultiModチップの接続。
+8pinのうち使わない5pinは邪魔なのでニッパーで切ってしまう。
+このチップは空中に浮いたままなので、足が出てると危険です。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>MultiModチップのハンダづけ、3本の足のうち、2本は基盤直結。
+1本は遠いのでジャンパ線を使いましたが、これも大阪から持って来てくれました。
+このジャンパ線は一定の熱で融ける特殊な皮膜で覆われており、
+被覆をめくらなくてもハンダづけできるという利点があります。
+ジャンパ線は細いので被覆をめくるのが難しいですが、これなら楽チン。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>このジャンパ線の接続に意外と手間取る。
+ここら辺の手際の悪さがまだまだ素人だそうですが、僕から見たら充分玄人。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>こっちもテスターでチェックして完成。
+しかし、電源をいれると「Flash」の文字が出る。
+一瞬、ビビるが説明書によるとファームウェアのハンダづけが甘いと表示されるらしい、
+もう一度バラして軽くハンダを流して足をこすってやると直りました。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>さて、動作確認。
+まず、リージョン2の状態でアメリカから輸入したDVDをいれる。
+画面には、リージョンが違うよんのメッセージが出る。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>DVD-515のリモコンを操作して、リージョンを変更。
+見事、「RONIN」が再生されました。</p>
+
+<p><img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" />
+<img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>続けて、「Apollo 13」dts版を突っ込む。
+おお、はじめてプレイヤーとアンプのdts機能を使いました。感激！</p>
+
+<p><img src="/images/under.webp" height="96" alt="" /></p>
+
+<p>大変、助かりました。ありがとねー ＞ みゃ</p>
+
+
+        <hr />
+        <div id="name">SUMIKAWA Munechika / Daydreamers On the Net</div>
+	  </div>
+    </div>
+    <div class="leftblock">
+      <div class="eachindexblock nav">
+  <h3>すみかわ日記</h3>
+  <ul id="gray">
+      <li> <a href="/diary/2025.html">2025年</a></li>
+      <li> <a href="/diary/2024.html">2024年</a></li>
+      <li> <a href="/diary/2023.html">2023年</a></li>
+      <li> <a href="/diary/2022.html">2022年</a></li>
+      <li> <a href="/diary/2021.html">2021年</a></li>
+      <li> <a href="/diary/2020.html">2020年</a></li>
+      <li> <a href="/diary/2019.html">2019年</a></li>
+      <li> <a href="/diary/2018.html">2018年</a></li>
+      <li> <a href="/diary/2017.html">2017年</a></li>
+      <li> <a href="/diary/2016.html">2016年</a></li>
+      <li> <a href="/diary/2015.html">2015年</a></li>
+      <li> <a href="/diary/2014.html">2014年</a></li>
+      <li> <a href="/diary/2013.html">2013年</a></li>
+      <li> <a href="/diary/2012.html">2012年</a></li>
+      <li> <a href="/diary/2011.html">2011年</a></li>
+      <li> <a href="/diary/2010.html">2010年</a></li>
+      <li> <a href="/diary/2009.html">2009年</a></li>
+      <li> <a href="/diary/2008.html">2008年</a></li>
+      <li> <a href="/diary/2007.html">2007年</a></li>
+      <li> <a href="/diary/2006.html">2006年</a></li>
+      <li> <a href="/diary/2005.html">2005年</a></li>
+      <li> <a href="/diary/2004.html">2004年</a></li>
+      <li> <a href="/diary/2003.html">2003年</a></li>
+      <li> <a href="/diary/2002.html">2002年</a></li>
+      <li> <a href="/diary/2001.html">2001年</a></li>
+      <li> <a href="/diary/2000.html">2000年</a></li>
+      <li> <a href="/diary/1999.html">1999年</a></li>
+      <li> <a href="/diary/1998.html">1998年</a></li>
+      <li> <a href="/diary/1997.html">1997年</a></li>
+      <li> <a href="/diary/1996.html">1996年</a></li>
+    <li> <a href="/diary/1995.html">1995年以前</a></li>
+  </ul>
+</div>
+
+    </div>
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+  <script src="/javascripts/application.js"></script>
+</html>
