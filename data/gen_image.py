@@ -34,7 +34,7 @@ if __name__ == "__main__":
   os.chdir(rootdir + prefix)
 
   count = 0
-  list = glob.glob('*/201[6-9]/**/*.*', recursive=True)
+  list = glob.glob('**/*.*', recursive=True)
   for item in list:
     file = "{prefix}/{item}".format(prefix=prefix, item=item)
     layers = file.replace(prefix, '').split('/')
