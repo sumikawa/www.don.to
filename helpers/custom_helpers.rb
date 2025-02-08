@@ -62,7 +62,7 @@ module CustomHelpers
           FileUtils.mkdir_p(File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}"))
           FileUtils.copy(f, File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/#{file}"))
         end
-      when ".mov", ".mp4", ".mts"
+      when ".mov", ".mp4", ".mts", ".mpg"
         text = "<%= movie \"hd#{base}\" %>"
         t = ex['CreationDate'] || ex['FileModifyDate'] || now
 
