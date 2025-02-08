@@ -10,7 +10,7 @@ class Video
       prefix = ''
       aspect = ''
       ext_opt = ''
-      lines = report.split("\n")
+      lines = report.encode('UTF-8', :invalid => :replace).split("\n")
       lines.each do |line|
         if md = line.match(/(rotate\s+:|rotation\s+of)\s+([-\d]+)/)
           rotate = md[2].to_i
