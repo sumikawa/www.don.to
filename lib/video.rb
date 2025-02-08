@@ -6,7 +6,7 @@ class Video
   class << self
     def detect(report)
       rotate = 0
-      pixel = ''
+      pixel = 'NO SUITABLE PIXEL'
       prefix = ''
       aspect = ''
       ext_opt = ''
@@ -19,7 +19,7 @@ class Video
       lines.each do |line|
         if line =~ /Stream .*Video/
           case line
-          when / DAR 16:9|960x540|1280x720|1920x1080|3840x2160/
+          when / DAR 16:9|960x540|1280x720|1920x1080|3840x2160|712x480/
             if rotate == 0 || rotate == -180
               pixel = '480x270'
               prefix = 'hd'
