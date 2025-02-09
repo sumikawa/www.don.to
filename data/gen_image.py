@@ -34,7 +34,7 @@ if __name__ == "__main__":
   os.chdir(rootdir + prefix)
 
   count = 0
-  list = glob.glob('*/201[6-9]/**/*.*', recursive=True)
+  list = glob.glob('**/*.*', recursive=True)
   s_list = sorted(list, reverse=True)
   for item in s_list:
     file = "{prefix}/{item}".format(prefix=prefix, item=item)
@@ -54,10 +54,10 @@ if __name__ == "__main__":
       url = sharing(file)
       url = url.replace('https://www.dropbox.com/', 'https://dl.dropboxusercontent.com/')
       yml[year][dirname][filename] = url
-    else:
-      print("  skip url: {year}/{dirname}/{filename}".format(year=year, dirname=dirname, filename=filename), flush=True)
+      count = count + 1
+    # else:
+    #   print("  skip url: {year}/{dirname}/{filename}".format(year=year, dirname=dirname, filename=filename))
 
-    count = count + 1
     if count == 10:
       os.chdir(currentdir)
       with open('image.yml', mode='w', encoding='utf-8') as new_file:
