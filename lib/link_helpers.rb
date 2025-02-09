@@ -5,7 +5,6 @@ module LinkHelpers
   # @@imagesite = "https://www.don.to"
   # end
   @@imagesite = "https://www.don.to"
-  @@imageheight = 600
   @@redirectsite = "https://www.don.to"
 
   def localhost?
@@ -14,6 +13,20 @@ module LinkHelpers
     else
       false
     end
+  end
+
+  def parse_url(file, url)
+    if url =~ /\.html$/
+      dir = url.sub(%r|\.html$|, '/')
+    else
+      dir = url.sub(%r|/[^/]*$|, '/')
+    end
+    layers = dir.split('/')
+    year = layers[2].to_s
+    dirname = layers[3].to_s
+    basename = file.to_s
+
+    return year, dirname, basename
   end
 
   def dropbox_url(year:, dirname:, basename:, ext:)
@@ -64,7 +77,7 @@ module LinkHelpers
       if height == 0
         "<img src=\"#{@@imagesite}#{dir}/#{file}.#{ext}\" alt=\"#{file}\"/>"
       else
-        "<img src=\"#{@@imagesite}#{dir}/#{height}/#{file}.#{ext}\" srcset=\"#{@@imagesite}#{dir}/#{height}/#{file}.#{ext} 1x, #{@@imagesite}#{dir}/#{height.to_i * 2}/#{file}.#{ext} 2x\" height=\"#{height}\" alt=\"#{file}\"/>"
+        "<img src=\"#{@@imagesite}#{dir}/#{file}.#{ext}\" srcset=\"#{@@imagesite}#{dir}/#{height}/#{file}.#{ext} 1x, #{@@imagesite}#{dir}/#{height.to_i * 2}/#{file}.#{ext} 2x\" height=\"#{height}\" alt=\"#{file}\"/>"
       end
     end
   end
