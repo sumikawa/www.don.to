@@ -58,12 +58,14 @@ if __name__ == "__main__":
     # else:
     #   print("  skip url: {year}/{dirname}/{filename}".format(year=year, dirname=dirname, filename=filename))
 
-    if count == 10:
+    if count == 30:
+      print("writing yml", flush=True)
       os.chdir(currentdir)
       with open('image.yml', mode='w', encoding='utf-8') as new_file:
         yaml.safe_dump(yml, new_file)
       os.chdir(rootdir + prefix)
       count = 0
+      print("-> done", flush=True)
 
   os.chdir(currentdir)
   with open('image.yml', mode='w', encoding='utf-8') as new_file:
