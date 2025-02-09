@@ -34,8 +34,9 @@ if __name__ == "__main__":
   os.chdir(rootdir + prefix)
 
   count = 0
-  list = glob.glob('**/*.*', recursive=True)
-  for item in list:
+  list = glob.glob('*/202*/**/*.*', recursive=True)
+  s_list = sorted(list, reverse=True)
+  for item in s_list:
     file = "{prefix}/{item}".format(prefix=prefix, item=item)
     layers = file.replace(prefix, '').split('/')
     year = str(layers[2])
@@ -53,8 +54,8 @@ if __name__ == "__main__":
       url = sharing(file)
       url = url.replace('https://www.dropbox.com/', 'https://dl.dropboxusercontent.com/')
       yml[year][dirname][filename] = url
-    # else:
-      # print("skip url: {year}/{dirname}/{filename}".format(year=year, dirname=dirname, filename=filename))
+    else:
+      print("  skip url: {year}/{dirname}/{filename}".format(year=year, dirname=dirname, filename=filename), flush=True)
 
     count = count + 1
     if count == 10:
