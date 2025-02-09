@@ -46,15 +46,7 @@ module LinkHelpers
   end
 
   def image(file, height: data.site.thumbheight, ext: data.site.thumbext)
-    if current_page.url =~ /\.html$/
-      dir = current_page.url.sub(%r|\.html$|, '/')
-    else
-      dir = current_page.url.sub(%r|/[^/]*$|, '/')
-    end
-    layers = dir.split('/')
-    year = layers[2].to_s
-    dirname = layers[3].to_s
-    basename = file.to_s
+    year, dirname, basename = parse_url(file, current_page.url)
     dropbox_url(year: year, dirname: dirname, basename: basename, ext: ext)
   end
 
@@ -83,15 +75,7 @@ module LinkHelpers
   end
 
   def movie(file)
-    if current_page.url =~ /\.html$/
-      dir = current_page.url.sub(%r|\.html$|, '/')
-    else
-      dir = current_page.url.sub(%r|/[^/]*$|, '/')
-    end
-    layers = dir.split('/')
-    year = layers[2].to_s
-    dirname = layers[3].to_s
-    basename = file.to_s
+    year, dirname, basename = parse_url(file, current_page.url)
     begin
       img_name = "#{basename}.#{data.site.videoext}"
       img_url = data.image[year][dirname][img_name]
