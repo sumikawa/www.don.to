@@ -19,4 +19,10 @@ RSpec.describe do
       expect(basename).to eq('img_1234')
     end
   end
+
+  # describe 'get dropbox url' do
+  #   it 'miyakojima' do
+  #     dropbox_url2(year: '2025', dirname: '0203-miyakojima', basename: 'img_0579', ext: 'jpg')
+  #   end
+  # end
 end
