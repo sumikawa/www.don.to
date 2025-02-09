@@ -34,7 +34,7 @@ if __name__ == "__main__":
   os.chdir(rootdir + prefix)
 
   count = 0
-  list = glob.glob('*/202*/**/*.*', recursive=True)
+  list = glob.glob('*/201[6-9]/**/*.*', recursive=True)
   s_list = sorted(list, reverse=True)
   for item in s_list:
     file = "{prefix}/{item}".format(prefix=prefix, item=item)
@@ -49,7 +49,7 @@ if __name__ == "__main__":
     if not dirname in yml[year]:
       yml[year][dirname] = {}
 
-    if not filename in yml[year][dirname]:
+    if not filename in yml[year][dirname].keys():
       print("generating url: {year}/{dirname}/{filename}".format(year=year, dirname=dirname, filename=filename), flush=True)
       url = sharing(file)
       url = url.replace('https://www.dropbox.com/', 'https://dl.dropboxusercontent.com/')
