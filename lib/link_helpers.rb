@@ -31,46 +31,34 @@ module LinkHelpers
 
   def dropbox_url(year:, dirname:, basename:, ext:)
     begin
-      img_name = "#{basename}.#{ext}"
-      img_url = data.image[year][dirname][img_name]
-
-      raise if img_url.nil?
-
-      link_to(image_tag(img_url, height: data.site.thumbheight),
-              img_url,
-              class: 'image swipe')
+      data.image[year][dirname]["#{basename}.#{ext}"]
     rescue
-      # "Error: #{year}, #{dirname}, #{basename}, #{height}, #{data.image.class}, #{data.image.pretty_inspect}"
-      image_tag('under.webp', height: data.site.thumbheight)
+      nil
     end
   end
 
   def image(file, height: data.site.thumbheight, ext: data.site.thumbext)
     year, dirname, basename = parse_url(file, current_page.url)
-    dropbox_url(year: year, dirname: dirname, basename: basename, ext: ext)
+    img_url = dropbox_url(year: year, dirname: dirname, basename: basename, ext: ext)
+
+    if img_url.nil?
+      # "Error: #{year}, #{dirname}, #{basename}, #{height}, #{data.image.class}, #{data.image.pretty_inspect}"
+      image_tag('under.webp', height: data.site.thumbheight)
+    else
+      link_to(image_tag(img_url, height: data.site.thumbheight),
+              img_url,
+              class: 'image swipe')
+    end
   end
 
   def simage(file, height: 0, ext: 'jpg')
-    if current_page.url =~ /\.html$/
-      dir = File.expand_path(current_page.url.sub(%r|\.html$|, '/') + File.dirname(file))
+    year, dirname, basename = parse_url(file, current_page.url)
+    img_url = dropbox_url(year: year, dirname: dirname, basename: basename, ext: ext) || 'under.webp'
+
+    if height == 0
+      image_tag(img_url)
     else
-      dir = File.expand_path(current_page.url.sub(%r|/[^/]*$|, '/') + File.dirname(file))
-    end
-    file = File.basename(file)
-    if ext == 'jpg'
-      height = 300 if height == 0
-      if localhost?
-        image_tag("#{dir}/#{height}/#{file}.#{ext}")
-      else
-        "<img src=\"#{@@imagesite}#{dir}/#{height}/#{file}.#{ext}\" srcset=\"#{@@imagesite}#{dir}/#{height}/#{file}.#{ext} 1x, #{@@imagesite}#{dir}/#{height.to_i * 2}/#{file}.#{ext} 2x\" height=\"#{height}\" alt=\"#{file}\"/>"
-      end
-    else
-      height = 300 if height == 0 # height = 0 is not working
-      if height == 0
-        "<img src=\"#{@@imagesite}#{dir}/#{file}.#{ext}\" alt=\"#{file}\"/>"
-      else
-        "<img src=\"#{@@imagesite}#{dir}/#{file}.#{ext}\" srcset=\"#{@@imagesite}#{dir}/#{height}/#{file}.#{ext} 1x, #{@@imagesite}#{dir}/#{height.to_i * 2}/#{file}.#{ext} 2x\" height=\"#{height}\" alt=\"#{file}\"/>"
-      end
+      image_tag(img_url, height: height)
     end
   end
 
