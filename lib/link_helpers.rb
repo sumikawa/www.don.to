@@ -31,9 +31,9 @@ module LinkHelpers
 
   def dropbox_url(year:, dirname:, basename:, ext:)
     begin
-      data.image[year][dirname]["#{basename}.#{ext}"]
+      data.image[year][dirname]["#{basename}.#{ext}"] || data.site.error_image
     rescue
-      nil
+      data.site.error_image
     end
   end
 
@@ -41,19 +41,14 @@ module LinkHelpers
     year, dirname, basename = parse_url(file, current_page.url)
     img_url = dropbox_url(year: year, dirname: dirname, basename: basename, ext: ext)
 
-    if img_url.nil?
-      # "Error: #{year}, #{dirname}, #{basename}, #{height}, #{data.image.class}, #{data.image.pretty_inspect}"
-      image_tag('under.webp', height: data.site.thumbheight)
-    else
-      link_to(image_tag(img_url, height: data.site.thumbheight),
-              img_url,
-              class: 'image swipe')
-    end
+    link_to(image_tag(img_url, height: data.site.thumbheight),
+            img_url,
+            class: 'image swipe')
   end
 
   def simage(file, height: 0, ext: 'jpg')
     year, dirname, basename = parse_url(file, current_page.url)
-    img_url = dropbox_url(year: year, dirname: dirname, basename: basename, ext: ext) || 'under.webp'
+    img_url = dropbox_url(year: year, dirname: dirname, basename: basename, ext: ext)
 
     if height == 0
       image_tag(img_url)
@@ -64,18 +59,12 @@ module LinkHelpers
 
   def movie(file)
     year, dirname, basename = parse_url(file, current_page.url)
-    begin
-      img_name = "#{basename}.#{data.site.videoext}"
-      img_url = data.image[year][dirname][img_name]
+    video_url = dropbox_url(year: year, dirname: dirname, basename: basename, ext: data.site.videoext)
+    thumb_url = dropbox_url(year: year, dirname: dirname, basename: basename, ext: data.site.thumbext)
 
-      thumb_name = "#{basename}.#{data.site.thumbext}"
-      thumb_url = data.image[year][dirname][thumb_name] || 'under.webp'
-
-      "<a href=\"#{img_url}\" class=\"video swipe\">#{image_tag(thumb_url, height: data.site.thumbheight)}</a>"
-    rescue
-      # puts "Error: #{year}, #{dirname}, #{img_name}, #{img_url}"
-      image_tag('under.webp', height: data.site.thumbheight)
-    end
+    link_to(image_tag(thumb_url, height: data.site.thumbheight),
+            video_url,
+            class: 'video swipe')
   end
 
   def audio(file)
