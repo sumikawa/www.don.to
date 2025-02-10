@@ -1,10 +1,4 @@
 module LinkHelpers
-  # if localhost?
-  # @@imagesite = "http://localhost:4567/images"
-  # else
-  # @@imagesite = "https://www.don.to"
-  # end
-  @@imagesite = "https://www.don.to"
   @@redirectsite = "https://www.don.to"
 
   def localhost?
