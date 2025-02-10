@@ -62,29 +62,38 @@ module CustomHelpers
           FileUtils.mkdir_p(File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}"))
           FileUtils.copy(f, File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/#{file}"))
         end
-      when ".mov", ".mp4", ".mts", ".mpg"
-        text = "<%= movie \"hd#{base}\" %>"
-        t = ex['CreationDate'] || ex['FileModifyDate'] || now
+      when ".mov", ".mp4", ".mts", ".mpg", '.avi'
+        opts = nil
 
         if localhost?
-          FileUtils.mkdir_p(File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}"))
-          filepath = File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/hd#{base}.#{data.site.videoext}")
-          thumbpath = File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/hd#{base}.#{data.site.thumbext}")
+          # Generate video for external
+          opts = Video.probe(f)
 
-          Video.convert(original: f, target: filepath, acodec: data.site.acodec, vcodec: data.site.videoext) unless File.exist?(filepath)
-          Video.poster(original: filepath, target: thumbpath, height: data.site.thumbheight) unless File.exist?(thumbpath)
+          video_dir = File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}")
+          video_file = "#{opts[:prefix]}#{base}.#{data.site.videoext}"
+          FileUtils.mkdir_p(video_dir)
+
+          thumb_dir = File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/")
+          thumb_file = "#{opts[:prefix]}#{base}.#{data.site.thumbext}"
+
+          Video.convert(src: f, dst_dir: video_dir, dst_file: video_file,
+                        acodec: data.site.acodec, vcodec: data.site.videoext,
+                        opts: opts) unless File.exist?("#{video_dir}/#{video_file}")
+          Video.poster(src: "#{video_dir}/#{video_file}", dst_dir: thumb_dir, dst_file: thumb_file,
+                       height: data.site.thumbheight) unless File.exist?("#{thumb_dir}/#{thumb_file}")
         end
-      when ".avi"
-        if localhost?
-          FileUtils.mkdir_p(File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}"))
-          filepath = File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/#{base}.#{data.site.videoext}")
-          thumbpath = File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/#{base}.#{data.site.thumbext}")
 
-          Video.convert(original: f, target: filepath, acodec: data.site.acodec, vcodec: data.site.videoext) unless File.exist?(filepath)
-          Video.poster(original: filepath, target: thumbpath, height: data.site.thumbheight) unless File.exist?(thumbpath)
+        if ext.downcase == '.avi'
+          text = "<%= movie \"#{base}\" %>"
+        else
+          if opts
+            text = "<%= movie \"#{opts[:prefix]}#{base}\" %>"
+          else
+            # recoginized as HD video if it's already exist
+            text = "<%= movie \"hd#{base}\" %>"
+          end
+          t = ex['CreationDate'] || ex['FileModifyDate'] || now
         end
-
-        text = "<%= movie \"#{base}\" %>"
       when ".m4a"
         text = "<%= audio \"#{base}\" %>"
       when ".aae"

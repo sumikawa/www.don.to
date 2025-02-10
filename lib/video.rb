@@ -72,11 +72,14 @@ class Video
       "#{opts[:rotate_opt]} -g 120 -vcodec libx264 -s #{opts[:pixel]} -bt 1024k -acodec #{acodec} -ar 32000 -ac 1 -ab 48k -movflags faststart #{opts[:ext_opt]} -f #{vcodec}"
     end
 
-    def convert(original:, target:, acodec:, vcodec:)
-      probe = `ffmpeg -i #{original} 2>&1 >/dev/null`
-      opts = detect(probe)
+    def probe(src)
+      report = `ffmpeg -i #{src} 2>&1 >/dev/null`
+      opts = detect(report)
+    end
+
+    def convert(src:, dst_dir:, dst_file:, acodec:, vcodec:, opts:)
       ffmpeg_opts = cmd_opts(opts: opts, acodec: acodec, vcodec: vcodec)
-      ffmpeg_cmd = "ffmpeg -i #{original} #{ffmpeg_opts} #{target}"
+      ffmpeg_cmd = "ffmpeg -i #{src} #{ffmpeg_opts} #{dst_dir}/#{dst_file}"
       puts ffmpeg_cmd
       system "#{ffmpeg_cmd} > /dev/null 2>&1"
     end
@@ -88,15 +91,15 @@ class Video
       image.dissolve(playicon, 0.75, 1.0, Magick::CenterGravity)
     end
 
-    def poster(original:, target:, height:)
+    def poster(src:, dst_dir:, dst_file:, height:)
       temp = "/tmp/poster_#{('a'..'z').to_a.shuffle[0..7].join}.jpg"
 
-      thumb_cmd = "ffmpeg -i #{original} -loglevel quiet -ss 0.1 -update true -frames:v 1 -f image2 #{temp}"
+      thumb_cmd = "ffmpeg -i #{src} -loglevel quiet -ss 0.1 -update true -frames:v 1 -f image2 #{temp}"
       puts thumb_cmd
       system "#{thumb_cmd} > /dev/null 2>&1"
 
       image = overlay_playicon(Magick::Image.read(temp).first, height)
-      image.write(target)
+      image.write("#{dst_dir}/#{dst_file}")
 
       File.delete(temp)
     end
