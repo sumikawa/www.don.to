@@ -55,8 +55,8 @@ module CustomHelpers
             end
           end
         end
-      when ".png"
-        text = "<%= image \"#{base}\", ext: 'png' %>"
+      when ".png", '.pdf'
+        text = "<%= image \"#{base}\", ext: 'png' %>" if ext.downcase == 'png'
 
         if localhost?
           FileUtils.mkdir_p(File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}"))

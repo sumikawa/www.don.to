@@ -9,7 +9,7 @@ module LinkHelpers
     end
   end
 
-  def parse_url(file, url)
+  def parse_url(url)
     if url =~ /\.html$/
       dir = url.sub(%r|\.html$|, '/')
     else
@@ -18,9 +18,8 @@ module LinkHelpers
     layers = dir.split('/')
     year = layers[2].to_s
     dirname = layers[3].to_s
-    basename = file.to_s
 
-    return year, dirname, basename
+    return year, dirname
   end
 
   def dropbox_url(year:, dirname:, basename:, ext:)
@@ -32,8 +31,8 @@ module LinkHelpers
   end
 
   def image(file, height: data.site.thumbheight, ext: data.site.thumbext)
-    year, dirname, basename = parse_url(file, current_page.url)
-    img_url = dropbox_url(year: year, dirname: dirname, basename: basename, ext: ext)
+    year, dirname = parse_url(current_page.url)
+    img_url = dropbox_url(year: year, dirname: dirname, basename: file, ext: ext)
 
     link_to(image_tag(img_url, height: data.site.thumbheight),
             img_url,
@@ -41,8 +40,8 @@ module LinkHelpers
   end
 
   def simage(file, height: 0, ext: 'jpg')
-    year, dirname, basename = parse_url(file, current_page.url)
-    img_url = dropbox_url(year: year, dirname: dirname, basename: basename, ext: ext)
+    year, dirname = parse_url(current_page.url)
+    img_url = dropbox_url(year: year, dirname: dirname, basename: file, ext: ext)
 
     if height == 0
       image_tag(img_url)
@@ -52,9 +51,9 @@ module LinkHelpers
   end
 
   def movie(file)
-    year, dirname, basename = parse_url(file, current_page.url)
-    video_url = dropbox_url(year: year, dirname: dirname, basename: basename, ext: data.site.videoext)
-    thumb_url = dropbox_url(year: year, dirname: dirname, basename: basename, ext: data.site.thumbext)
+    year, dirname = parse_url(current_page.url)
+    video_url = dropbox_url(year: year, dirname: dirname, basename: file, ext: data.site.videoext)
+    thumb_url = dropbox_url(year: year, dirname: dirname, basename: file, ext: data.site.thumbext)
 
     link_to(image_tag(thumb_url, height: data.site.thumbheight),
             video_url,
@@ -71,11 +70,14 @@ module LinkHelpers
   end
 
   def static_to(file, comment)
-    if current_page.url =~ /\.html$/
-      dir = current_page.url.sub(%r|\.html$|, '/')
-    else
-      dir = current_page.url.sub(%r|/[^/]*$|, '/')
-    end
-    "<a href=\"#{@@redirectsite}#{dir}#{file}\">#{comment}</a>"
+    year, dirname = parse_url(current_page.url)
+    basename = File.basename(file, '.*')
+    ext = File.extname(file).sub('.', '')
+
+    puts basename
+    puts ext
+
+    link_url = dropbox_url(year: year, dirname: dirname, basename: basename, ext: ext)
+    link_to(comment, link_url)
   end
 end
