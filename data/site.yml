@@ -10,5 +10,6 @@ heights:
 thumbext: 'jpg'
 thumbheight: 96
 videoext: 'mp4'
+audioext: 'm4a'
 acodec: 'aac'
 error_image: 'under.webp'
