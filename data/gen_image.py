@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import glob, os, re
+import glob, os, re, sys
 import mimetypes
 import dropbox
 import pprint
@@ -34,7 +34,12 @@ if __name__ == "__main__":
   os.chdir(rootdir + prefix)
 
   count = 0
-  list = glob.glob('**/*.*', recursive=True)
+
+  if len(sys.argv) == 2:
+    list = glob.glob('*/{year}/**/*.*'.format(year=sys.argv[1]), recursive=True)
+  else:
+    list = glob.glob('**/*.*', recursive=True)
+
   s_list = sorted(list, reverse=True)
   for item in s_list:
     file = "{prefix}/{item}".format(prefix=prefix, item=item)
