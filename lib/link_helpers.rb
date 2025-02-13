@@ -61,12 +61,10 @@ module LinkHelpers
   end
 
   def audio(file)
-    if current_page.url =~ /\.html$/
-      dir = current_page.url.sub(%r|\.html$|, '/')
-    else
-      dir = current_page.url.sub(%r|/[^/]*$|, '/')
-    end
-    "<audio controls><source src=\"#{@@redirectsite}#{dir}#{file}\.m4a\" type=\"audio/aac\"></audio>"
+    year, dirname = parse_url(current_page.url)
+    audio_url = dropbox_url(year: year, dirname: dirname, basename: file, ext: data.site.audioext)
+    # audio_tag(audio_url, controls: true)
+    "<audio controls><source src=\"#{audio_url}\.#{data.site.audioext}\" type=\"audio/aac\"></audio>"
   end
 
   def static_to(file, comment)

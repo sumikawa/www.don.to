@@ -96,6 +96,11 @@ module CustomHelpers
         end
       when ".m4a"
         text = "<%= audio \"#{base}\" %>"
+
+        if localhost?
+          FileUtils.mkdir_p(File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}"))
+          FileUtils.copy(f, File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/#{file}"))
+        end
       when ".aae"
         File.delete(f)
       else
