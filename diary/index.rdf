@@ -1,0 +1,1016 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns="http://purl.org/rss/1.0/">
+  <channel rdf:about="https://www.don.to/diary/">
+    <title>すみかわ日記</title>
+    <description>子供ネタ7割、食い物2割、技術1割</description>
+    <link>https://www.don.to/diary/</link>
+    <items>
+      <rdf:Seq>
+          <rdf:li resource="2025/0213-donto/"/>
+          <rdf:li resource="2025/0212-yokohama/"/>
+          <rdf:li resource="2025/0209-gundam/"/>
+          <rdf:li resource="2025/0207-miyakojima/"/>
+          <rdf:li resource="2025/0206-miyakojima/"/>
+          <rdf:li resource="2025/0205-miyakojima/"/>
+          <rdf:li resource="2025/0204-miyakojima/"/>
+          <rdf:li resource="2025/0203-miyakojima/"/>
+          <rdf:li resource="2025/0202-miyakojima/"/>
+          <rdf:li resource="2025/0131-yokohama/"/>
+          <rdf:li resource="2025/0131-lunch/"/>
+          <rdf:li resource="2025/0130-lunch/"/>
+          <rdf:li resource="2025/0127-party/"/>
+          <rdf:li resource="2025/0127-kamakura/"/>
+          <rdf:li resource="2025/0125-nakano/"/>
+          <rdf:li resource="2025/0124-sinagawa/"/>
+          <rdf:li resource="2025/0124-breakfast/"/>
+          <rdf:li resource="2025/0124-amazon/"/>
+          <rdf:li resource="2025/0122-misaki/"/>
+          <rdf:li resource="2025/0120-maitin/"/>
+          <rdf:li resource="2025/0117-party/"/>
+          <rdf:li resource="2025/0117-goodbye/"/>
+          <rdf:li resource="2025/0116-kusatu/"/>
+          <rdf:li resource="2025/0115-kusatu/"/>
+          <rdf:li resource="2025/0114-kusatu/"/>
+          <rdf:li resource="2025/0113-kusatu/"/>
+          <rdf:li resource="2025/0111-kamakura/"/>
+          <rdf:li resource="2025/0110-lunch/"/>
+          <rdf:li resource="2025/0108-lunch/"/>
+          <rdf:li resource="2025/0106-aomono/"/>
+      </rdf:Seq>
+    </items>
+  </channel>
+  <item rdf:about="2025/0213-donto/">
+            <title>2025/02/13: don.toだいたい移行完了</title>
+        <link>https://www.don.to/diary/2025/0213-donto/</link>
+        <description><![CDATA[<p>会社退職に伴いDogfoodingをやめたので、Github pages + Dropbox Public linkに変えた。</p>
+
+<h3>Caveats</h3>
+
+<ul>
+<li><a href="https://middlemanapp.com/jp/">middleman</a>の開発が滞っているのでそろそろ別システムに移行したい</li>
+<li>画像はjpgやめて、サイズの小さいwebpに変えたかったが、Dropbox Public linkがwebpのContent-Typeをちゃんと返さないので動かないのでできなかった</li>
+<li>pdfは、HTTP ResponseにContent-Dispositionがつくのでインラインビューアーが使えない</li>
+<li>Basic認証がgithub pagesで動かないので、アクセス制限ページは見えないようにした</li>
+<li>Coffee Scriptはオワコンなので書き直した。jQueryもやめたい</li>
+<li>Saasもそろそろ<a href="https://coliss.com/articles/build-websites/operation/css/goodbye-sass-welcome-back-native-css.html">オワコン</a>らしいので、CSSを学び直す必要あり</li>
+<li>Asset compile周りは相変わらず闇。ネイティブで書き直して、コンパイル不要にするのがHTTP/3時代の正解ではないか。TypeScriptは使いたいけど</li>
+</ul>
+]]></description>
+        <dc:date>2025-2025-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0212-yokohama/">
+            <title>2025/02/12: 豚の味珍</title>
+        <link>https://www.don.to/diary/2025/0212-yokohama/</link>
+        <description><![CDATA[<p>また味珍に来てしまった。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140101/14000643/">豚の味珍</a>
+神奈川県横浜市西区南幸1-2-2
+045-312-4027
+</pre>
+
+<p>ラーパーツァイ、頭、胃、ヤカンx3、烏龍茶。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>泥酔。</p>
+]]></description>
+        <dc:date>2025-2025-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0209-gundam/">
+            <title>2025/02/09: 豚山</title>
+        <link>https://www.don.to/diary/2025/0209-gundam/</link>
+        <description><![CDATA[<p>ガンダムからの豚山。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140102/14078246/">豚山 横浜西口店</a>
+神奈川県横浜市西区南幸2-9-1
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0207-miyakojima/">
+            <title>2025/02/07: 宮古島キャンプ その6</title>
+        <link>https://www.don.to/diary/2025/0207-miyakojima/</link>
+        <description><![CDATA[<p>朝9時から雨の予報だったので、降り出す前に撤収するつもりだったけど、未明から雨が降り出した。
+さらに強風のなか撤収作業。</p>
+
+<p>芝生エリアに自転車で2往復して、テラスにとりあえず荷物を全部移動してから、改めて荷造り完了。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>バスで空港に向かう。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<pre>
+09:08 狩俣 - 09:45 ツタヤ前 09:51 - 10:06 宮古空港
+</pre>
+
+<p>この時点でフライトまでまだ4時間あるけど、外は雨。</p>
+
+<p>空港で自転車含めて荷物を全部チェックインしてから、着替えだけ持ってカーシェア借りて島の南側の風呂に入りに行く(入浴は二日ぶり2回目)。
+みやこ温泉が休業なので風呂入りたかったら、ここしか選択肢がない。</p>
+
+<pre class="address">
+<a href="https://shigira.com/onsen">シギラ黄金温泉</a>
+〒906-0202 沖縄県宮古島市上野新里1405-223
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>屋外温泉プールあり。
+まさか持ってきた水着が役に立つとは思わなんだ。
+寒いけどね。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>サウナx3のあと、プールで少し泳いで満喫した。
+くっさい体も綺麗になった。</p>
+
+<p>少し時間があるので、空港そばでマンゴーパフェ食べる。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47029131/">Blue Turtle Farm Mango Cafe</a>
+沖縄県宮古島市平良松原1760-3
+0980-79-7274
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>空港に戻ったら天候不良で遅延してた。
+A&amp;Wでビール。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<pre>
+2025/2/7 16:15 MMY - NH088 - HND 18:45
+</pre>
+
+<p>横浜戻ってきた。寒波らしいけど、宮古島2日目の夜と体感温度大して変わらない。</p>
+
+<h3>Lesson Learned</h3>
+
+<ul>
+<li>風速は必ずチェックすること。6m/sを超えるとしんどい</li>
+<li>キャンプ初日にレンタカーで買い出ししながら荷物運んだけど、半日潰れて効率が悪い。レンタカーを使わない作戦を考える
+
+<ul>
+<li>宅急便で荷物を事前に宮古島の営業所に送る手がある。クロネコヤマトは<a href="https://faq.kuronekoyamato.co.jp/app/answers/detail/a_id/1395/~/%E8%8D%B7%E7%89%A9%E3%82%92%E9%9B%A2%E5%B3%B6%E3%81%AB%E9%80%81%E3%82%8B%E5%A0%B4%E5%90%88%E3%80%81%E8%BF%BD%E5%8A%A0%E6%96%99%E9%87%91%E3%81%8C%E5%BF%85%E8%A6%81%E3%81%A7%E3%81%99%E3%81%8B%EF%BC%9F">離島料金がかからない</a>ので、消耗材を現地調達せずに家にある使いさしの調味料などを荷物にいれて送れば良い</li>
+<li>朝一の便で宮古島にいって、空港からクロネコヤマトの営業所で荷物を受け取ってバスに乗れば、空港で荷物を受取るより楽。荷物重量が20kgを切るのでANA以外も選択肢に入る</li>
+<li>あとはキャンプ場そばのスーパーでどうにかなるし、初日さえ乗り切れば二日目以降に町に買い出しにいけばいい</li>
+</ul></li>
+<li>ワンポールテントとコットの組み合わせは正解。連泊だとかなり快適。ただし冷気対策をもう少しすべき。まあ気温次第だけど</li>
+<li>Facebookやりすぎない。そんなことしとらんで眼の前の自然に向き合う。旅のメモとしては便利。</li>
+<li>充電をどうするかは課題。デジタルデトックスという手はあるが読書はしたい。紙の書籍を持ってくるのは大変なので、Kindleが欲しくなる。まあ、iPad miniの電池の保ちも優秀なのでこれでいいかも</li>
+<li>帰りの服のことを全く考えていなかった。焚き火臭い服で飛行機に乗りたくない</li>
+<li>米を一合で小分けにしたけど、これは大きすぎる。0.5合ごとでいいのでは。スーパーにごはん売ってるので、そんなに持っていかなくてよい</li>
+</ul>
+
+<p>いい体験にはなったけど、暖かいキャンプ場でダラダラという本来の目的は果たせていない。5月か6月あたりに再挑戦したい。</p>
+]]></description>
+        <dc:date>2025-2025-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0206-miyakojima/">
+            <title>2025/02/06: 宮古島キャンプ その5</title>
+        <link>https://www.don.to/diary/2025/0206-miyakojima/</link>
+        <description><![CDATA[<p>未明に目が覚めたせいで二度寝した。
+朝焼け。キャンプ場のスタッフによると早くに起きればもっと真っ赤に染まって綺麗だったらしい。</p>
+
+<p>風に全部やられてる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>パワースポットの宝庫らしい<a href="https://o-gamijima.com/">大神島</a>へ10:20の船で渡る。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>思い出をサンゴで刻む。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>小さい島なのであっという間に一周した。
+帰りの船までまだ1時間半以上あるので、昼飯。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47012571/">おぷゆう食堂</a>
+沖縄県宮古島市平良大神130
+080-1726-8698
+</pre>
+
+<p>タコのカーキ丼をつまみに、オリオンビール。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>スマホを充電させてもらいながら船を待つ。結局、ビール三杯飲んだ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="https://miyako-island.net/beach_and_spot/beach_spot_021/">島尻のマングローブ林</a>へ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>キャンプ場へ戻る。太陽が出てハンモックが張れる気候になった。
+酔っ払ってるので昼寝。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>冷え込んで目覚める。</p>
+
+<p>この時点で今回一番不要だった水着。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>昨日の鳥鍋の残りを温めて食べたあと、卵と同じくのこった飯で雑炊を作る。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>夕方になって風が強くなったので、テントを締め切って飯食ってたんだけど、ふとテントから出たら景色が違うことに気づく。
+めっちゃ引き潮になってて、今まで行けてないところに行ける。薄暗いので怖い。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>結局、今夜も完ソロ。
+寝る前にシュラフで明日の予定立ててたら、09:00から雨の予報。
+さらに、体がくっさいので飛行機に乗る前に<a href="https://miyakojima-onsen.co.jp/">みやこの湯</a>に行こうと思ってたら、よくみたら長期休業でやんの。</p>
+]]></description>
+        <dc:date>2025-2025-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0205-miyakojima/">
+            <title>2025/02/05: 宮古島キャンプ その4</title>
+        <link>https://www.don.to/diary/2025/0205-miyakojima/</link>
+        <description><![CDATA[<p>宮古島来たからには伊良部大橋渡っとく。
+若干肌寒いけど、運動してる分には温かい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>水出しコーヒーを飲む。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47029847/">1 LAB Hello,VACAY!</a>
+沖縄県宮古島市伊良部仲地96-2
+</pre>
+
+<p>店の人と話してて狩俣のキャンプ場に泊まってることを告げると、近くの<a href="https://tabelog.com/okinawa/A4705/A470503/47028426/">沖縄そば屋</a>が宮古島で一番おいしいとのこと。
+大人気ですぐ埋まるので、予約を受け付ける8:30に名前を書きにいくといいとのことだけど、あとで食べログみたら明日休みですやん。
+いくチャンスがない。次回だな。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>下地島空港の滑走路が正面から見れる17END。ちょうど離陸タイミングだった。</p>
+
+<p><a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>狩俣に戻りたいんだけど、昼間の時間帯だとちょうどいいバスがない。
+結局、自転車で戻ることにする。</p>
+
+<p>糖分が切れたので、休憩。
+マスターの昔の武勇伝を聞きながら、なんちゃってパフェを食う。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47001433/">カフェカラカラ</a>
+沖縄県宮古島市平良字大浦130-32
+0980-73-8385
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>キャンプ場の近くにマングローブ林があった。明日じっくり見よう。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>15:00過ぎにやっとキャンプ場に戻ってきた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>リュックの中にタープがあったのを思い出す。
+シルバーコーティングされているので、コットの上に引けば多少は冷えを食い止めてくれるはず。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>スーパーで買ったバラ焼き肉と鶏肉鍋。あとご飯を炊く。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>この夜は風は比較的おだやかだったけど、20時ぐらいにはシュラフに入って、ゴロゴロする。</p>
+
+<p>未明に風が強くなりぐっと冷え込んで、目が覚める。</p>
+]]></description>
+        <dc:date>2025-2025-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0204-miyakojima/">
+            <title>2025/02/04: 宮古島キャンプ その3</title>
+        <link>https://www.don.to/diary/2025/0204-miyakojima/</link>
+        <description><![CDATA[<p>天気予報見ると今日も早朝から深夜までずっと強風。キャンプ場にいるだけで体温が奪われるので、学生さんに混じって朝イチのバスで町中に来て、ファミレスで今夜をどうすごすか作戦立てる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<ul>
+<li>シュラフに頭から潜り込んでても冷える。追加の防寒対策が必要。肌着がもう一枚と、使い捨てカイロが必要か？</li>
+<li>今日は洗濯したい。想定外の寒さに持ってきた服を全部着込んでいるので、ローテーションで洗濯できない。なので、キャンプ場の洗濯機を使うのは厳しい。</li>
+<li>芝生サイトに移動する選択肢もあるが、見て回って風の強さをチェックしたがあまり状況改善する気がしない</li>
+<li>風が強すぎて焚き火ができない、座ってるだけで体温奪われるので、あまりキャンプが楽しめていない</li>
+</ul>
+
+<p>結論として、今日は中心地に泊まることにして、洗濯機の使える宿を探す。</p>
+
+<p>あと、週末にかけて気温が下がって、風も強くなるので、金曜の夕方の帰国便を押さえる。
+結局、日程的には普通の旅行ですやん。</p>
+
+<p>沖縄そばが体に染みる。これでドリンクバーついて650円て。
+電源席の確保には失敗した。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>バスでキャンプ地に一旦戻る。戻りは貸し切り。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>キャンプ場を散歩。小さい洞窟があって、ここに移動する手もなくはない。風が全然入ってこないけど、地面がでこぼこ。
+電波も入らん。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>キャンプ場の人が「これから街に行く。延泊したけりゃ好きにしろ」といなくなった。完ソロ通り越して真ソロになった</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>やっと晴れてきたので持ってきたソーラー充電器で実験くん。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>前回時間がなくてスクーターでチャチャっと回っただけの池間島に向かう。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>池間座島を一周。カニの標識って初めて見た。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>キャンプ場の手前にあるスーパーで惣菜とビールを買う。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ソーラー充電はバッテリーが全然増えてなかった。こんな日差しじゃあかん。
+買ったのは10Wで、丸一日でiPhoneが満タンになればキャンプ場に無限に住めると思ったんだけど甘かった。</p>
+
+<p>冷え込んできたので街に向かう。
+朝に街に向かう中学生もいれば、夕方に街に戻る中学生もいる。この小さい島でも越境入学あるのかしら。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>楽天トラベルで、ゲストハウス以外で一番安い<a href="https://hotel.travel.rakuten.co.jp/hotelinfo/plan/182696">宿</a>だったんだけど、理想的だった。
+部屋に洗濯機があるので下着姿になって全部洗える！</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>惣菜食ったのが遅い時間だったので、軽く寝てから20:00に遅めの夕食。
+ふらっと行ったら席開いてた。よかった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47000098/">島おでん たから</a>
+沖縄県宮古島市平良字西里172
+0980-72-0671
+</pre>
+
+<p>くっそ寒いので島おでんと豊見親お湯割。
+おかしい、なぜ私は海辺でキャンプをしようなどと思ったのか。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ジーマーミ豆腐としまの風(島限定)。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>今夜と明日の天気。いやいや体感温度こんなもんじゃないだろう。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ビビってコンビニで明日以降に向けて追加のカイロを購入。
+洗濯機回しながら部屋飲み。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0203-miyakojima/">
+            <title>2025/02/03: 宮古島キャンプ その2</title>
+        <link>https://www.don.to/diary/2025/0203-miyakojima/</link>
+        <description><![CDATA[<p>空港そばにあるタイムズでカーシェア借りる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>100円ショップで消耗品とサンエーで酒と食料を買い出ししてからキャンプ場へ。
+肌寒いので温かい肌着も買っておく。</p>
+
+<pre class="address">
+<a href="https://www.nap-camp.com/okinawa/14297">Ysガーデン狩俣キャンプ場</a>
+沖縄県宮古島市平良狩俣1713-1
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>キャンプ場来たらまさかの完ソロ。強風でキャンセル続出らしい。風のチェックなんてしてなかった&hellip;</p>
+
+<p>海辺エリアの木の壁のすぐ横にテントを張る。風を防いでくれてるのできっと大丈夫。
+ヤバくなったら、芝生エリアにある屋根のあるウッドデッキに避難する。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>風吹きすさぶなかビールと、油で軽く温め直して一味をかけた枝豆。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>風速11m/sだった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>風のせいで体感温度は低い。早々とシェラフに潜り込んだ。
+風と海がめっちゃうるさい。冷気がじんわりと下から上がってきて何度も目覚める。</p>
+]]></description>
+        <dc:date>2025-2025-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0202-miyakojima/">
+            <title>2025/02/02: 宮古島キャンプ その1</title>
+        <link>https://www.don.to/diary/2025/0202-miyakojima/</link>
+        <description><![CDATA[<p>昨日から公式に無職。</p>
+
+<p>国民健康保険申請に必要な雇用保険被保険者離職票がすぐに届かないのに気づいて、一昨日にマイルで確保した宮古島に向かう。</p>
+
+<pre>
+2025/02/02(日) 12:00 HND -u NH087 - MMY 15:20
+</pre>
+
+<p>片道切符でいつ戻るか決めてない。</p>
+
+<p>フライト中に供された日本酒が農口尚彦研究所で泥酔する気まんまんだっだけど、3杯目で売り切れたので、スパークリングワインに切り替え。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>宮古島空港到着。自転車いれて荷物が全部で27kgで重い。
+ANA SFCじゃなかったら帰りは超過料金取られるとこだった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>今日はもう遅いので、<a href="https://www.airbnb.jp/rooms/1136832943368496141">Airbnb</a>に泊まる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>荷物置いて、とりあえず海。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>晩飯は本店じゃないほうのでいりぐち。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47028942/">居酒屋でいりぐち 下里通り店</a>
+沖縄県宮古島市平良下里596-1
+0980-79-0197
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>セーイカと琉球王朝(古酒)。セーイカがねっとりしててうまい。鮮魚のヅケと、イカスミ焼きそば。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0131-yokohama/">
+            <title>2025/01/31: 中華街で四川料理</title>
+        <link>https://www.don.to/diary/2025/0131-yokohama/</link>
+        <description><![CDATA[<p>大さん橋にパスポートを取りにいくついでに海を眺める。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>中華街でCloudFront関連メンバーで飲み会。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140105/14002188/">中華第一家 杜記</a>
+神奈川県横浜市中区山下町138-14
+050-5596-5609
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0131-lunch/">
+            <title>2025/01/31: 鎌倉ランチ</title>
+        <link>https://www.don.to/diary/2025/0131-lunch/</link>
+        <description><![CDATA[<p>奥さんと長谷寺ルートで鎌倉ハイキング。</p>
+
+<p>ランチに焼きサケ定食</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1404/A140402/14004274/">朝食屋コバカバ</a>
+神奈川県鎌倉市小町1-13-15
+0467-22-6131
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0130-lunch/">
+            <title>2025/01/30: 伊勢屋</title>
+        <link>https://www.don.to/diary/2025/0130-lunch/</link>
+        <description><![CDATA[<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140301/14013607/">伊勢屋</a>
+神奈川県横浜市保土ケ谷区星川2-5-33
+045-341-7971
+</pre>
+
+<p>カツ丼待ってる間にビール2本目。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>この店、開店直後にカツ丼注文しても低温調理で1時間待ることになるので、社会人だとなかなか食えない。
+量が多いのでツマミも頼めずただただ空きっ腹にビールが進む。</p>
+
+<p>同時に三枚しか揚げれないので四人目は二時間待ち。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0127-party/">
+            <title>2025/01/27: 痛風鍋</title>
+        <link>https://www.don.to/diary/2025/0127-party/</link>
+        <description><![CDATA[<p>新橋で飲み会。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1301/A130103/13033867/">新橋 炉ばたや</a>
+東京都港区新橋3-26-3 会計ビル 1F
+050-5594-6787
+</pre>
+
+<p>痛風鍋。臭みが全く無かった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0127-kamakura/">
+            <title>2025/01/27: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2025/0127-kamakura/</link>
+        <description><![CDATA[<p>定点観測。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>明王院ルートで下山。
+まだ捻った右足が若干痛いので、延長ルートには行かずに帰宅。</p>
+
+<p>体が冷えまくって風呂に入ってもまだ寒い。
+体脂肪が増えてるので保冷剤みたいになってると思われる。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0125-nakano/">
+            <title>2025/01/25: 中野</title>
+        <link>https://www.don.to/diary/2025/0125-nakano/</link>
+        <description><![CDATA[<p>宮さんが大阪帰る前に懐かしの8段ソフトクリームに挑戦したいというので中野に集合。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1319/A131902/13001083/">デイリーチコ</a>
+東京都中野区中野5-52-15 中野ブロードウェイ B1F
+03-3386-4461
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>軽く食いきってやったわ！</p>
+
+<p>ランチは特に行きたい店もないというので、食べログで適当に調べた店へ。
+ブロードウェイの奥って行ったことなかった。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1319/A131902/13283134/">福籠叉焼</a>
+東京都中野区新井1-14-14
+03-6454-0444
+</pre>
+
+<p>焼きそばセット。チャーシューは4種類全部にして、半分こ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>品川に移動して解散。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0124-sinagawa/">
+            <title>2025/01/24: 品川飲み 塚田農場</title>
+        <link>https://www.don.to/diary/2025/0124-sinagawa/</link>
+        <description><![CDATA[<p>東京出張の宮さんが珍しく泊まって帰るというので、共通の友人を誘って4人で飲む。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1314/A131403/13174190/">北海道シントク町 塚田農場 品川港南口店</a>
+東京都港区港南2-3-29 シーゲンビル 3F
+050-5600-2500
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0124-breakfast/">
+            <title>2025/01/24: メレンゲ</title>
+        <link>https://www.don.to/diary/2025/0124-breakfast/</link>
+        <description><![CDATA[<p>久しぶりに朝パンケーキ食べにメレンゲへ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140102/14067913/">メレンゲ みなとみらい店</a>
+神奈川県横浜市西区みなとみらい4-4-1 横浜野村ビル１F
+050-5593-9994
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>値上げのせいか、冬だからか9:00過ぎてもまだ席が開いてた。
+開店直後に行く必要はなくなった。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0124-amazon/">
+            <title>2025/01/24: 最後の出社写真</title>
+        <link>https://www.don.to/diary/2025/0124-amazon/</link>
+        <description><![CDATA[<p>バッジを返却に来たタイミングで記念写真。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>本当にバッジが使えないかどうか試しにゲートに当てたら、退場者が入場しようとしていると一瞬セキュリティがピリついた。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0122-misaki/">
+            <title>2025/01/22: 輪行 久里浜</title>
+        <link>https://www.don.to/diary/2025/0122-misaki/</link>
+        <description><![CDATA[<p>逗子まで電車でいって、そのまま三浦半島の西側を南下。</p>
+
+<p><a href="https://www.komeda.co.jp/shop/detail.html?id=611">三浦のコメダ</a>で一回休憩。
+足がだるくなったので帰宅しようと思ったが、頑張って久里浜までいく。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="https://onsen.nifty.com/yokosuka-onsen/onsen012422/">海辺の湯</a>でサウナに入ってから、1Fの店でビール飲んで帰宅。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0120-maitin/">
+            <title>2025/01/20: 豚の味珍</title>
+        <link>https://www.don.to/diary/2025/0120-maitin/</link>
+        <description><![CDATA[<p>久しぶりに味珍に来た。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140101/14000643/">豚の味珍</a>
+神奈川県横浜市西区南幸1-2-2
+045-312-4027
+</pre>
+
+<p>16時の開店直後に入店したら、30分ぐらいで満席。
+17時前には酔っ払って帰る人がいる店なので、なかなか来づらい</p>
+
+<p>ラーパーツァイと舌。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ヤカンと、頭。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>尾。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ヤカン三杯目。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>18時になる前に既に泥酔。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0117-party/">
+            <title>2025/01/17: 送別会</title>
+        <link>https://www.don.to/diary/2025/0117-party/</link>
+        <description><![CDATA[<p>社内送別会を盛大に開いていただきました。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>二次会は<a href="https://tabelog.com/tokyo/A1315/A131501/13181697/">阿里城</a>。
+さらに<a href="https://tabelog.com/tokyo/A1315/A131501/13232265/">餃子酒場</a>に行って、始発で解散。</p>
+
+<p>ありがとうございました！</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0117-goodbye/">
+            <title>2025/01/17: 退職</title>
+        <link>https://www.don.to/diary/2025/0117-goodbye/</link>
+        <description><![CDATA[<p>(Facebookの<a href="https://www.facebook.com/munechika.sumikawa/posts/pfbid02TfUqdG6rPfr9atj5oXMnFqXa8G2ngtCXhoH3XUxfocd2bb6bhhs5Ve2x8QAPtuMXl">書き込み</a>を転載)</p>
+
+<p>ご報告です。</p>
+
+<p>1月末日をもって、11年間勤めたアマゾンを退職することにしました。</p>
+
+<p>今後ですが、まだ転職活動を始めていません。
+休息の期間を取って、それから次のチャレンジを決めようと思っています。
+意図的に無職の期間を設けて、筋トレ、ハイキング、キャンプ、旅行などをします。
+元気なうちにバケットリスト減らしていかんとね。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>先週の社内での送別会で頂いた花です。盛大にお祝い頂き(朝まで飲んだ)、その後は有休消化モードに入っています。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>急に辞めたように見えますが、前から予定していたものです。特にネガティブな理由で辞めたわけではないので、ご心配なく。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0116-kusatu/">
+            <title>2025/01/16: 草津 その4</title>
+        <link>https://www.don.to/diary/2025/0116-kusatu/</link>
+        <description><![CDATA[<p>朝食は軽くすませる。</p>
+
+<p>スーツケースを宅急便で自宅に送って、チェックアウトして、草津バスターミナルへ移動。
+高速バスの時間まで2時間弱あるのでカフェへ。今回はPC持ってこないで、iPad mini + corp workspacesで過ごしてみた。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/gunma/A1004/A100402/10000987/">TEA ROOM Yuki Usagi</a>
+群馬県吾妻郡草津町大字草津81
+0279-88-3345
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>横浜駅西口に18:40ぐらいに着。そのまま関内へ。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0115-kusatu/">
+            <title>2025/01/15: 草津 その3</title>
+        <link>https://www.don.to/diary/2025/0115-kusatu/</link>
+        <description><![CDATA[<p>朝食はヨーグルトだけにした。</p>
+
+<p>別の貸切露天風呂。
+13:00-13:40の時間帯は連泊客に開放されていてる。大浴場が掃除中なのでベストだと思う。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>今日もサウナを三本決める。やっと肩まで浸かれた。でも10秒しか保たない。
+クールダウンしたいけど浴場に椅子がないので、脱衣所で文庫本を読んで過ごす。これもこれで良い。</p>
+
+<p>アレンジメニュー。豆乳にカレールーをぶち込んでカレー鍋。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>明日も明後日も飲む予定が入ってるので、最終日はほどほどにした。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0114-kusatu/">
+            <title>2025/01/14: 草津 その2</title>
+        <link>https://www.don.to/diary/2025/0114-kusatu/</link>
+        <description><![CDATA[<p>朝飯。
+ついガッツリ食べてしまった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ビール持ち込んで貸切露天風呂。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ちょっとだけ外を散歩。
+雪がほとんど降ってないので、地面が凍って怖い。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>サウナを三本決める。水風呂はやっと胸の下まで浸かれた。が、10秒ぐらいで足先が痛くなって飛び出る。</p>
+
+<p>昨日はあごだしだったので、今日は豆乳鍋にしてみる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>基本、風呂入ってるか、酔っ払ってるか、のぼせてるかのどれか。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0113-kusatu/">
+            <title>2025/01/13: 草津 その1</title>
+        <link>https://www.don.to/diary/2025/0113-kusatu/</link>
+        <description><![CDATA[<p>草津へ湯治に行く。
+横浜から高速バスで草津バスターミナルへ。往復9000円。
+楽だし安い。</p>
+
+<p>ホテルは中心エリアから2km弱離れてるので、無料送迎バスの時間までカフェで過ごす。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/gunma/A1004/A100402/10022203/">カフェ わとわ</a>
+群馬県吾妻郡草津町60
+050-1057-9775
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>今回の宿は<a href="https://www.itoenhotel.com/kusatsu/">伊東園ホテル草津</a>。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ここ何がすごいかって朝夜がビュッフェで、アルコールも飲み放題で9000円。
+帰るまで引きこもり決定というか、仮に湯畑近辺で飲んだら徒歩でホテルまで戻らないといけないので、転んで怪我して凍死する。</p>
+
+<p>晩飯に前にサウナ三本入った。水風呂が冷たすぎて入れないので、露天風呂でクールダウン。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ビールx4、ハイボール、レモン酎ハイ飲んで泥酔。
+最近、酒量が増えてるので最高すぎる。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0111-kamakura/">
+            <title>2025/01/11: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2025/0111-kamakura/</link>
+        <description><![CDATA[<p>新春鎌倉ハイキング、コーヒータイム。
+軽量ハンモックにしたら、ヘリノックスチェアより荷物が軽くなって快適。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>定点観測。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>この後、また右足を捻った。
+軽いひねりだったのに10日間ぐらい痛みが残った。</p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0110-lunch/">
+            <title>2025/01/10: アルペンジロー</title>
+        <link>https://www.don.to/diary/2025/0110-lunch/</link>
+        <description><![CDATA[<p>奥さんとランチ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140306/14000553/">アルペンジロー 本店</a>
+神奈川県横浜市中区弥生町3-26
+050-5596-9637
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0108-lunch/">
+            <title>2025/01/08: 東品川ごはん 阿里城</title>
+        <link>https://www.don.to/diary/2025/0108-lunch/</link>
+        <description><![CDATA[<p>つむらさんとランチ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1315/A131501/13181697/">阿里城 品川シーサイドオーバルガーデン店</a>
+東京都品川区東品川4-12-6 品川シーサイドフォレストオーバルガーデンショップ＆レストランB1
+03-6718-4278
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0106-aomono/">
+            <title>2025/01/06: いさりび</title>
+        <link>https://www.don.to/diary/2025/0106-aomono/</link>
+        <description><![CDATA[<p>出勤日。マネージャー誘って4人でいさりびへ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1315/A131501/13234843/">いさりび 青物横丁店</a>
+東京都品川区南品川2-7-18 TYビル 2F
+03-6718-4920
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-01T00:00:00+09:00</dc:date>
+
+  </item>
+</rdf:RDF>
