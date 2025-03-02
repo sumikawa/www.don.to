@@ -1,6 +1,4 @@
 module LinkHelpers
-  @@redirectsite = "https://www.don.to"
-
   def localhost?
     if `hostname`.strip =~ /mbair/
       true
