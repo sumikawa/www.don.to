@@ -6,14 +6,6 @@ $margin: 5px;
 
 $titlecolor: #2d5ac3;
 
-@mixin vendor-prefix($name, $argument) {
-  #{$name}: $argument;
-}
-
-@mixin vendor-suffix($argument, $name) {
-  #{$argument}: #{$name};
-}
-
 @mixin shadow-inline($height) {
   border-bottom: $height solid rgba(0,0,0,0.4);
 }
@@ -73,7 +65,7 @@ pre.terminal {
   font-family: Ubuntu Mono;
   font-size: smaller;
   width: 90%;
-  @include vendor-prefix(border-radius, 10px);
+  border-radius: 10px;
 }
 
 a {
@@ -118,7 +110,7 @@ div#name {
 
   @mixin hr {
     border-bottom: 1px solid #025;
-    @include vendor-prefix(box-shadow, 0 2px 0 #fcfcfc);
+    box-shadow: 0 2px 0 #fcfcfc;
   }
 
   hr {
