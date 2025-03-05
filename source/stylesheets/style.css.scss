@@ -8,10 +8,18 @@ $titlecolor: #2d5ac3;
 
 @mixin vendor-prefix($name, $argument) {
   #{$name}: $argument;
+  -webkit-#{$name}: $argument;
+  -ms-#{$name}: $argument;
+  -moz-#{$name}: $argument;
+  -o-#{$name}: $argument;
 }
 
 @mixin vendor-suffix($argument, $name) {
   #{$argument}: #{$name};
+  #{$argument}: -webkit-#{$name};
+  #{$argument}: -ms-#{$name};
+  #{$argument}: -moz-#{$name};
+  #{$argument}: -o-#{$name};
 }
 
 @mixin shadow-inline($height) {
