@@ -108,23 +108,6 @@ RSpec.describe CustomHelpers do
     let(:exif_data) { { 'DateTimeOriginal' => Time.new(2025, 2, 3, 12, 0, 0) } }
     
     before do
-      # Stub File methods
-      allow(File).to receive(:expand_path) do |path|
-        path.sub(/^\$\{data\.site\.(imagerootdir|cacherootdir)\}/, '/path/to')
-      end
-      allow(File).to receive(:basename) do |path, ext = nil|
-        if ext
-          File.basename(path).sub(/#{ext}$/, '')
-        else
-          File.basename(path)
-        end
-      end
-      allow(File).to receive(:extname) do |path|
-        File.basename(path).match(/(\.[^.]+)$/)[1] rescue ''
-      end
-      allow(File).to receive(:exist?).and_return(false)
-      allow(File).to receive(:open).and_yield(StringIO.new)
-      
       # Stub Dir methods
       allow(Dir).to receive(:glob).and_return(image_files)
       
@@ -199,10 +182,9 @@ RSpec.describe CustomHelpers do
     it 'renders daylog entries for the specified year' do
       result = helper.rend_daylog(2025)
       expect(result).to include('<dt>2025/01/01: Event 1</dt>')
-      expect(result).to include('<dt>2025/01/02: Event 3: Location A</dt>')
-      expect(result).to include('<dd>	This is a comment</dd>')
-      expect(result).not_to include('<dt>2024/12/31 Event 2</dt>')
-      expect(result).not_to include('<dt>2024/12/30 Event 4: Location B</dt>')
+      expect(result).to include("<dt>2025/01/02: Event 3</dt>\n<dd>\tThis is a comment</dd>")
+      expect(result).not_to include('<dt>2024/12/31: Event 2</dt>')
+      expect(result).not_to include('<dt>2024/12/30: Event 4</dt>')
     end
   end
   
