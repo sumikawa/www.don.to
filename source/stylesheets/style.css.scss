@@ -6,10 +6,6 @@ $margin: 5px;
 
 $titlecolor: #2d5ac3;
 
-@mixin vendor-suffix($argument, $name) {
-  #{$argument}: #{$name};
-}
-
 @mixin shadow-inline($height) {
   border-bottom: $height solid rgba(0,0,0,0.4);
 }
