@@ -1,4 +1,9 @@
 /*
- *= require_self
- *= require_tree .
+ *= require code.css
+ *= require default-skin.css
+ *= require photoswipe.css
+ *= require search.css
+ *= require shared.css
+ *= require mobile.css
+ *= require style.css
 */

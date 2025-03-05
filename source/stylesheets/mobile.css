@@ -1,97 +1,9 @@
-/* -*- coding: utf-8 -*-  */
-@charset "UTF-8";
-
 $leftwidth: 150px;
 $margin: 5px;
-
 $titlecolor: #2d5ac3;
 
 @mixin shadow-inline($height) {
   border-bottom: $height solid rgba(0,0,0,0.4);
-}
-
-body {
-  background-color: #efefef;
-  font-family: "Hiragino Maru Gothic Pro", "ヒラギノ丸ゴ Pro W4", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", Meiryo, "メイリオ", Osaka, Helvetica, Arial, "MS PGothic", sans-serif;
-}
-
-div#krb-amzlt-box {
-  background-color: #ffffff;
-}
-
-%font {
-  font-display: swap;
-  font-style: normal;
-  font-weight: 400;
-  text-shadow: none;
-  text-decoration: none;
-  text-transform: none;
-  letter-spacing: 0;
-  word-spacing: 0;
-  line-height: 1;
-  text-align: center;
-}
-
-div#dayd {
-  @extend %font;
-  margin-top: 20px;
-  font-family: "IM Fell English", serif;
-  font-size: 32pt;
-}
-
-div#doyou {
-  @extend %font;
-  margin-bottom: 20px;
-  font-family: "Reenie Beanie", serif;
-  font-size: 28pt;
-}
-
-pre {
-  border-style: none;
-  border-color: #f06000;
-  border-width: 2px 2px 2px 2px;
-  background-color: #eeeeee;
-  width: 80%;
-  margin-left: 20px;
-}
-
-pre.terminal {
-  padding: 10px;
-  margin-left: 20px;
-  border: 0px ridge;
-  color: white;
-  background-color: black;
-  line-height: normal;
-  font-family: Ubuntu Mono;
-  font-size: smaller;
-  width: 90%;
-  border-radius: 10px;
-}
-
-a {
-  background-color: transparent;
-  text-decoration: none;
-  &:link    { color: #295c72; }
-  &:visited { color: #990419; }
-  &:active  { color: #190466; }
-  &:hover {
-    color: #000000;
-    background-color: #8888ff;
-  }
-}
-
-div#name {
-  font-family: "Reenie Beanie", serif;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  text-shadow: none;
-  text-decoration: none;
-  text-transform: none;
-  letter-spacing: 0;
-  word-spacing: 0;
-  line-height: 1;
-  margin-bottom: 10px;
 }
 
 @media screen and (max-device-width: 480px), screen and (max-width: 480px) {
@@ -152,13 +64,4 @@ div#name {
     margin-bottom: 2px;
     list-style-position: outside;
   }
-
-  .indent { margin-left: 10%; margin-right: 5%; }
-  .filename { font-family: monospace, courier; }
-  img { border: none; }
-
-  span.warning { color: red; }
-  span.fontsizeplus { font-size: x-large; }
-  span.fontsizeplusplus { font-size: xx-large; }
-
 }
