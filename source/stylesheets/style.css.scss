@@ -6,10 +6,6 @@ $margin: 5px;
 
 $titlecolor: #2d5ac3;
 
-@mixin vendor-prefix($name, $argument) {
-  #{$name}: $argument;
-}
-
 @mixin vendor-suffix($argument, $name) {
   #{$argument}: #{$name};
 }
@@ -73,7 +69,7 @@ pre.terminal {
   font-family: Ubuntu Mono;
   font-size: smaller;
   width: 90%;
-  @include vendor-prefix(border-radius, 10px);
+  border-radius: 10px;
 }
 
 a {
@@ -103,8 +99,8 @@ div#name {
 }
 
 @mixin block {
-  @include vendor-prefix(box-shadow, 0px 2px 6px rgba(0,0,0,0.5));
-  @include vendor-prefix(border-radius, 10px);
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.5);
+  border-radius: 10px;
   background: #eeeeee; /* Old browsers */
   background: linear-gradient(-45deg, #eeeeee 0%, #dddddd 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#dddddd',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
@@ -119,14 +115,14 @@ div#name {
   %h {
     color: $titlecolor;
     @include shadow-inline(1px);
-    @include vendor-prefix(box-shadow, 0 1px 0 rgba(255,255,255,0.4));
+    box-shadow: 0 1px 0 rgba(255,255,255,0.4);
     text-shadow: 1px -1px 0px rgba(255,255,255,1);
   }
 
   .container {
     width: 100%;
     display: flex;
-    @include vendor-prefix(box-sizing, border-box);
+    box-sizing: border-box;
   }
 
   .titleblock {
@@ -180,7 +176,7 @@ div#name {
 
   hr {
     @include shadow-inline(0px);
-    @include vendor-prefix(box-shadow, 0 1px 0 rgba(255,255,255,0.4));
+    box-shadow: 0 1px 0 rgba(255,255,255,0.4);
   }
 
   @mixin pre {
@@ -238,8 +234,8 @@ div#name {
     background: linear-gradient(0 0 270deg, #f3f3f3, #f3f3f3 10%, white);
     border-top: 1px solid #ccc;
     border-right: 1px solid #ccc;
-    @include vendor-prefix(border-radius, 10px);
-    @include vendor-prefix(box-shadow, -1px 2px 2px rgba(0, 0, 0, 0.2));
+    border-radius: 10px;
+    box-shadow: -1px 2px 2px rgba(0, 0, 0, 0.2);
   }
 
   /* Media Queries for adapting to various screen widths */
