@@ -8,18 +8,10 @@ $titlecolor: #2d5ac3;
 
 @mixin vendor-prefix($name, $argument) {
   #{$name}: $argument;
-  -webkit-#{$name}: $argument;
-  -ms-#{$name}: $argument;
-  -moz-#{$name}: $argument;
-  -o-#{$name}: $argument;
 }
 
 @mixin vendor-suffix($argument, $name) {
   #{$argument}: #{$name};
-  #{$argument}: -webkit-#{$name};
-  #{$argument}: -ms-#{$name};
-  #{$argument}: -moz-#{$name};
-  #{$argument}: -o-#{$name};
 }
 
 @mixin shadow-inline($height) {
@@ -134,7 +126,6 @@ div#name {
   .container {
     width: 100%;
     display: flex;
-    @include vendor-suffix(display, box);
     @include vendor-prefix(box-sizing, border-box);
   }
 
@@ -149,8 +140,7 @@ div#name {
   }
 
   .centerblock {
-    @include vendor-prefix(box-flex, 1);
-    @include vendor-prefix(box-ordinal-group, 2);
+    flex-grow: 1;
     order: 2
   }
 
@@ -158,7 +148,6 @@ div#name {
     margin-right: $margin;
     width: $leftwidth;
     overflow: hidden;
-    @include vendor-prefix(box-ordinal-group, 1);
     order: 1
   }
 
