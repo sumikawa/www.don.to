@@ -7,10 +7,6 @@ $margin: 5px;
   --titlecolor: #2d5ac3;
 }
 
-@mixin shadow-inline($height) {
-  border-bottom: $height solid rgba(0,0,0,0.4);
-}
-
 body {
   background-color: #efefef;
   font-family: "Hiragino Maru Gothic Pro", "ヒラギノ丸ゴ Pro W4", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", Meiryo, "メイリオ", Osaka, Helvetica, Arial, "MS PGothic", sans-serif;
@@ -184,7 +180,7 @@ span.fontsizeplusplus { font-size: xx-large; }
 
   %h {
     color: var(--titlecolor);
-    @include shadow-inline(1px);
+    border-bottom: 1px solid rgba(0,0,0,0.4);
     box-shadow: 0 1px 0 rgba(255,255,255,0.4);
     text-shadow: 1px -1px 0px rgba(255,255,255,1);
   }
@@ -229,7 +225,7 @@ span.fontsizeplusplus { font-size: xx-large; }
     margin-bottom: 5px;
     font-weight: normal;
     text-align: center;
-    @include shadow-inline(0px);
+    border-bottom: 0px solid rgba(0,0,0,0.4);
   }
 
   h2 {
@@ -245,7 +241,7 @@ span.fontsizeplusplus { font-size: xx-large; }
   }
 
   hr {
-    @include shadow-inline(0px);
+    border-bottom: 0px solid rgba(0,0,0,0.4);
     box-shadow: 0 1px 0 rgba(255,255,255,0.4);
   }
 
@@ -316,5 +312,4 @@ span.fontsizeplusplus { font-size: xx-large; }
       font-size: medium;
     }
   }
-
 }
