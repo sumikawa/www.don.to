@@ -124,17 +124,20 @@ span.fontsizeplusplus { font-size: xx-large; }
   hr {
     @include hr;
   }
+
   h1 {
     @include hr;
     font-size: x-large;
     text-align: center;
     color: var(--titlecolor);
   }
+
   h2 {
     font-size: x-large;
     color: var(--titlecolor);
     margin-top: 0px;
   }
+
   h3 {
     color: var(--titlecolor);
   }
