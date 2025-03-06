@@ -2,7 +2,10 @@
 
 $leftwidth: 150px;
 $margin: 5px;
-$titlecolor: #2d5ac3;
+
+:root {
+  --titlecolor: #2d5ac3;
+}
 
 @mixin shadow-inline($height) {
   border-bottom: $height solid rgba(0,0,0,0.4);
@@ -131,15 +134,15 @@ span.fontsizeplusplus { font-size: xx-large; }
     @include hr;
     font-size: x-large;
     text-align: center;
-    color: $titlecolor;
+    color: var(--titlecolor);
   }
   h2 {
     font-size: x-large;
-    color: $titlecolor;
+    color: var(--titlecolor);
     margin-top: 0px;
   }
   h3 {
-    color: $titlecolor;
+    color: var(--titlecolor);
   }
 
   ul, ol, dl {
@@ -180,7 +183,7 @@ span.fontsizeplusplus { font-size: xx-large; }
 @media screen and (min-device-width: 481px), screen and (min-width: 481px) {
 
   %h {
-    color: $titlecolor;
+    color: var(--titlecolor);
     @include shadow-inline(1px);
     box-shadow: 0 1px 0 rgba(255,255,255,0.4);
     text-shadow: 1px -1px 0px rgba(255,255,255,1);
@@ -237,7 +240,7 @@ span.fontsizeplusplus { font-size: xx-large; }
   }
 
   h3 {
-    color: $titlecolor;
+    color: var(--titlecolor);
     background-color: transparent;
   }
 
