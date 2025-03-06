@@ -1,10 +1,9 @@
 @charset "UTF-8";
 
-$leftwidth: 150px;
-$margin: 5px;
-
 :root {
   --titlecolor: #2d5ac3;
+  --leftwidth: 150px;
+  --margin: 5px;
 }
 
 body {
@@ -193,7 +192,7 @@ span.fontsizeplusplus { font-size: xx-large; }
 
   .titleblock {
     @include block;
-    margin-bottom: $margin;
+    margin-bottom: var(--margin);
   }
 
   .mainblock {
@@ -207,15 +206,15 @@ span.fontsizeplusplus { font-size: xx-large; }
   }
 
   .leftblock {
-    margin-right: $margin;
-    width: $leftwidth;
+    margin-right: var(--margin);
+    width: var(--leftwidth);
     overflow: hidden;
     order: 1
   }
 
   .eachindexblock {
     @include block;
-    margin-bottom: $margin;
+    margin-bottom: var(--margin);
     overflow: hidden;
   }
 
