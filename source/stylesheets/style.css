@@ -3,6 +3,7 @@
 :root {
   --titlecolor: #2d5ac3;
   --margin: 5px;
+  --pre-margin-left: 20px;
 }
 
 body {
@@ -52,7 +53,7 @@ pre {
 
 pre.terminal {
   padding: 10px;
-  margin-left: 20px;
+  margin-left: var(--pre-margin-left);
   border: 0px ridge;
   color: white;
   background-color: black;
@@ -245,16 +246,12 @@ span.fontsizeplusplus { font-size: xx-large; }
     box-shadow: 0 1px 0 rgba(255,255,255,0.4);
   }
 
-  @mixin pre {
-    margin-left: 20px;
-  }
-
   pre {
-    @include pre;
+    margin-left: var(--pre-margin-left);
   }
 
   pre.flight {
-    @include pre;
+    margin-left: var(--pre-margin-left);
     background-color: rgba(196,255,196,0.3);
   }
 
