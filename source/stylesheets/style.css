@@ -2,7 +2,6 @@
 
 :root {
   --titlecolor: #2d5ac3;
-  --leftwidth: 150px;
   --margin: 5px;
 }
 
@@ -207,7 +206,6 @@ span.fontsizeplusplus { font-size: xx-large; }
 
   .leftblock {
     margin-right: var(--margin);
-    width: var(--leftwidth);
     overflow: hidden;
     order: 1
   }
