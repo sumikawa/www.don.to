@@ -97,6 +97,7 @@ img { border: none; }
 span.warning { color: red; }
 span.fontsizeplus { font-size: x-large; }
 span.fontsizeplusplus { font-size: xx-large; }
+
 .algolia-autocomplete {
   margin-top: 10px;
   float: right;
