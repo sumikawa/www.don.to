@@ -2,7 +2,6 @@
 
 $leftwidth: 150px;
 $margin: 5px;
-
 $titlecolor: #2d5ac3;
 
 @mixin shadow-inline($height) {
@@ -105,13 +104,6 @@ span.fontsizeplusplus { font-size: xx-large; }
   margin-top: 10px;
   float: right;
 }
-$leftwidth: 150px;
-$margin: 5px;
-$titlecolor: #2d5ac3;
-
-@mixin shadow-inline($height) {
-  border-bottom: $height solid rgba(0,0,0,0.4);
-}
 
 @media screen and (max-device-width: 480px), screen and (max-width: 480px) {
   .titleblock {
@@ -171,13 +163,6 @@ $titlecolor: #2d5ac3;
     margin-bottom: 2px;
     list-style-position: outside;
   }
-}
-$leftwidth: 150px;
-$margin: 5px;
-$titlecolor: #2d5ac3;
-
-@mixin shadow-inline($height) {
-  border-bottom: $height solid rgba(0,0,0,0.4);
 }
 
 @mixin block {
