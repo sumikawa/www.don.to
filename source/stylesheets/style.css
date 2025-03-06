@@ -178,14 +178,6 @@ span.fontsizeplusplus { font-size: xx-large; }
 }
 
 @media screen and (min-device-width: 481px), screen and (min-width: 481px) {
-
-  %h {
-    color: var(--titlecolor);
-    border-bottom: 1px solid rgba(0,0,0,0.4);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.4);
-    text-shadow: 1px -1px 0px rgba(255,255,255,1);
-  }
-
   .container {
     width: 100%;
     display: flex;
@@ -219,7 +211,10 @@ span.fontsizeplusplus { font-size: xx-large; }
   }
 
   h1 {
-    @extend %h;
+    color: var(--titlecolor);
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.4);
+    text-shadow: 1px -1px 0px rgba(255,255,255,1);
     margin-top: 5px;
     margin-bottom: 5px;
     font-weight: normal;
@@ -228,7 +223,10 @@ span.fontsizeplusplus { font-size: xx-large; }
   }
 
   h2 {
-    @extend %h;
+    color: var(--titlecolor);
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.4);
+    text-shadow: 1px -1px 0px rgba(255,255,255,1);
     margin-top: 5px;
     margin-bottom: 5px;
     font-weight: normal;
