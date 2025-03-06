@@ -1,3 +1,177 @@
+@charset "UTF-8";
+
+$leftwidth: 150px;
+$margin: 5px;
+
+$titlecolor: #2d5ac3;
+
+@mixin shadow-inline($height) {
+  border-bottom: $height solid rgba(0,0,0,0.4);
+}
+
+body {
+  background-color: #efefef;
+  font-family: "Hiragino Maru Gothic Pro", "ヒラギノ丸ゴ Pro W4", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", Meiryo, "メイリオ", Osaka, Helvetica, Arial, "MS PGothic", sans-serif;
+}
+
+div#krb-amzlt-box {
+  background-color: #ffffff;
+}
+
+%font {
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+  text-shadow: none;
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0;
+  word-spacing: 0;
+  line-height: 1;
+  text-align: center;
+}
+
+div#dayd {
+  @extend %font;
+  margin-top: 20px;
+  font-family: "IM Fell English", serif;
+  font-size: 32pt;
+}
+
+div#doyou {
+  @extend %font;
+  margin-bottom: 20px;
+  font-family: "Reenie Beanie", serif;
+  font-size: 28pt;
+}
+
+pre {
+  border-style: none;
+  border-color: #f06000;
+  border-width: 2px 2px 2px 2px;
+  background-color: #eeeeee;
+  width: 80%;
+  margin-left: 20px;
+}
+
+pre.terminal {
+  padding: 10px;
+  margin-left: 20px;
+  border: 0px ridge;
+  color: white;
+  background-color: black;
+  line-height: normal;
+  font-family: Ubuntu Mono;
+  font-size: smaller;
+  width: 90%;
+  border-radius: 10px;
+}
+
+a {
+  background-color: transparent;
+  text-decoration: none;
+  &:link    { color: #295c72; }
+  &:visited { color: #990419; }
+  &:active  { color: #190466; }
+  &:hover {
+    color: #000000;
+    background-color: #8888ff;
+  }
+}
+
+div#name {
+  font-family: "Reenie Beanie", serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  text-shadow: none;
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0;
+  word-spacing: 0;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+/* Common utility classes */
+.indent { margin-left: 10%; margin-right: 5%; }
+.filename { font-family: monospace, courier; }
+img { border: none; }
+
+span.warning { color: red; }
+span.fontsizeplus { font-size: x-large; }
+span.fontsizeplusplus { font-size: xx-large; }
+.algolia-autocomplete {
+  margin-top: 10px;
+  float: right;
+}
+$leftwidth: 150px;
+$margin: 5px;
+$titlecolor: #2d5ac3;
+
+@mixin shadow-inline($height) {
+  border-bottom: $height solid rgba(0,0,0,0.4);
+}
+
+@media screen and (max-device-width: 480px), screen and (max-width: 480px) {
+  .titleblock {
+    display: none;
+  }
+
+  .mainblock {
+    font-size: large;
+  }
+
+  .leftblock {
+    font-size: large;
+    overflow: hidden;
+  }
+
+  @mixin hr {
+    border-bottom: 1px solid #025;
+    box-shadow: 0 2px 0 #fcfcfc;
+  }
+
+  hr {
+    @include hr;
+  }
+  h1 {
+    @include hr;
+    font-size: x-large;
+    text-align: center;
+    color: $titlecolor;
+  }
+  h2 {
+    font-size: x-large;
+    color: $titlecolor;
+    margin-top: 0px;
+  }
+  h3 {
+    color: $titlecolor;
+  }
+
+  ul, ol, dl {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  dt {
+    line-height: 110%;
+  }
+
+  dd {
+    text-indent: 1.0em;
+    margin-left: 1.0em;
+  }
+
+  li {
+    line-height: 110%;
+    margin-top: 2px;
+    margin-left: 0px;
+    margin-bottom: 2px;
+    list-style-position: outside;
+  }
+}
 $leftwidth: 150px;
 $margin: 5px;
 $titlecolor: #2d5ac3;
