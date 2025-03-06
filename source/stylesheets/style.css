@@ -15,7 +15,7 @@ div#krb-amzlt-box {
   background-color: #ffffff;
 }
 
-%font {
+div.titleblock {
   font-display: swap;
   font-style: normal;
   font-weight: 400;
@@ -29,14 +29,12 @@ div#krb-amzlt-box {
 }
 
 div#dayd {
-  @extend %font;
   margin-top: 20px;
   font-family: "IM Fell English", serif;
   font-size: 32pt;
 }
 
 div#doyou {
-  @extend %font;
   margin-bottom: 20px;
   font-family: "Reenie Beanie", serif;
   font-size: 28pt;
