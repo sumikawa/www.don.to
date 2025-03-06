@@ -12,17 +12,23 @@ initPhotoSwipeFromDOM = function(gallerySelector) {
     size = void 0;
     item = void 0;
     i = 0;
-    $('a.swipe').each(function() {
+
+    // Replace jQuery selector with vanilla JS
+    var swipeElements = document.querySelectorAll('a.swipe');
+    for (var j = 0; j < swipeElements.length; j++) {
+      var swipeEl = swipeElements[j];
       var height, href, id, poster, src, width;
-      href = $(this).attr('href');
-      src = $(this).children().attr('src');
-      if ($(this).hasClass('image')) {
+
+      href = swipeEl.getAttribute('href');
+      src = swipeEl.querySelector('img') ? swipeEl.querySelector('img').getAttribute('src') : '';
+
+      if (swipeEl.classList.contains('image')) {
         item = {
           src: href,
-          msrc: $(this).children().attr('src'),
+          msrc: src,
           w: 800,
           h: 600,
-          el: this
+          el: swipeEl
         };
       } else {
         id = href.replace(/.*\//, '').replace('.mp4', '');
@@ -39,14 +45,15 @@ initPhotoSwipeFromDOM = function(gallerySelector) {
         poster = src.replace(/video\/\d+/, 'video/' + height);
         item = {
           html: '<video controls style="padding-top: 40px; background: url(\'' + poster + '\') no-repeat 0 40px;" class="viodebackground"><source src="' + href + '" poster="' + poster + '" width="' + width + '" height="' + height + '" type="video/mp4"></video>',
-          el: this
+          el: swipeEl
         };
       }
       items.push(item);
-      return i++;
-    });
+      i++;
+    }
     return items;
   };
+
   onThumbnailsClick = function(e) {
     var clickedGallery, clickedListItem, eTarget, index;
     e = e || window.event;
@@ -67,6 +74,7 @@ initPhotoSwipeFromDOM = function(gallerySelector) {
     }
     return false;
   };
+
   photoswipeParseHash = function() {
     var hash, i, pair, params, vars;
     hash = window.location.hash.substring(1);
@@ -94,6 +102,7 @@ initPhotoSwipeFromDOM = function(gallerySelector) {
     }
     return params;
   };
+
   openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
     var gallery, items, j, options, pswpElement;
     pswpElement = document.querySelectorAll('.pswp')[0];
@@ -141,18 +150,27 @@ initPhotoSwipeFromDOM = function(gallerySelector) {
     gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
     gallery.init();
   };
+
+  // Set up click handlers for all swipe elements
   i = 0;
-  $('a.swipe').each(function() {
-    this.setAttribute('data-pswp-uid', i + 1);
-    $(this).click(onThumbnailsClick);
-    return i++;
-  });
+  var swipeElements = document.querySelectorAll('a.swipe');
+  for (var j = 0; j < swipeElements.length; j++) {
+    var swipeEl = swipeElements[j];
+    swipeEl.setAttribute('data-pswp-uid', i + 1);
+    swipeEl.addEventListener('click', onThumbnailsClick);
+    i++;
+  }
+
   hashData = photoswipeParseHash();
   if (hashData.pid && hashData.gid) {
-    openPhotoSwipe(hashData.pid, $('a.swipe').eq(hashData.pid)[0], true, true);
+    var swipeElements = document.querySelectorAll('a.swipe');
+    if (hashData.pid < swipeElements.length) {
+      openPhotoSwipe(hashData.pid, swipeElements[hashData.pid], true, true);
+    }
   }
 };
 
-$(function() {
-  return initPhotoSwipeFromDOM('.mainblock');
+// Replace jQuery document ready with vanilla JS
+document.addEventListener('DOMContentLoaded', function() {
+  initPhotoSwipeFromDOM('.mainblock');
 });
