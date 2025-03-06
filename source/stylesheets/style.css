@@ -116,17 +116,14 @@ span.fontsizeplusplus { font-size: xx-large; }
     overflow: hidden;
   }
 
-  @mixin hr {
+  hr {
     border-bottom: 1px solid #025;
     box-shadow: 0 2px 0 #fcfcfc;
   }
 
-  hr {
-    @include hr;
-  }
-
   h1 {
-    @include hr;
+    border-bottom: 1px solid #025;
+    box-shadow: 0 2px 0 #fcfcfc;
     font-size: x-large;
     text-align: center;
     color: var(--titlecolor);
