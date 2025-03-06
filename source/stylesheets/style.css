@@ -167,16 +167,6 @@ span.fontsizeplusplus { font-size: xx-large; }
   }
 }
 
-@mixin block {
-  box-shadow: 0px 2px 6px rgba(0,0,0,0.5);
-  border-radius: 10px;
-  background: linear-gradient(-45deg, #eeeeee 0%, #dddddd 100%);
-  border: 2px solid white;
-  text-align: left;
-  padding-right: 7px;
-  padding-left: 7px;
-}
-
 @media screen and (min-device-width: 481px), screen and (min-width: 481px) {
   .container {
     width: 100%;
@@ -185,12 +175,24 @@ span.fontsizeplusplus { font-size: xx-large; }
   }
 
   .titleblock {
-    @include block;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    background: linear-gradient(-45deg, #eeeeee 0%, #dddddd 100%);
+    border: 2px solid white;
+    text-align: left;
+    padding-right: 7px;
+    padding-left: 7px;
     margin-bottom: var(--margin);
   }
 
   .mainblock {
-    @include block;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    background: linear-gradient(-45deg, #eeeeee 0%, #dddddd 100%);
+    border: 2px solid white;
+    text-align: left;
+    padding-right: 7px;
+    padding-left: 7px;
     min-height: 450px;
   }
 
@@ -205,7 +207,13 @@ span.fontsizeplusplus { font-size: xx-large; }
   }
 
   .eachindexblock {
-    @include block;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    background: linear-gradient(-45deg, #eeeeee 0%, #dddddd 100%);
+    border: 2px solid white;
+    text-align: left;
+    padding-right: 7px;
+    padding-left: 7px;
     margin-bottom: var(--margin);
     overflow: hidden;
   }
