@@ -1,0 +1,31 @@
+%include "../default.mgp"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%size 6, font "thick", back "white", fore "blue4", vgap 20
+%center
+
+
+
+New features in ver 6.04
+
+%size 4, fore "black"
+
+Munechika Sumikawa
+Hitachi Internetworking
+sumikawa@sumikawa.jp
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+New features in ver6.04
+
+	TCP MD5 authentication(BGP4/BGP4+)
+		Used for authenticate BGP session
+		Interoperability issue was with Cisco IOS
+	Packet filtering on tunnel interfaces
+		Ingress filter for configured tunnel users
+	IPv6/IPv4 multicast on VLAN
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
