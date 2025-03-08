@@ -35,18 +35,3 @@ links:
     <%= link_to k, v, { :target => '_blank' } %> /
   <% end %>
 </p>
-
-<form action="#" onsubmit="load_document();return false;">
-  <input type="text" id="keywords" size="15" maxlength="256" placeholder="Amazon" value="" />
-  <select name="search" id="search">
-    <option value="KindleStore">Kindle</option>
-    <option value="Books">Books</option>
-    <option value="DVD">DVD</option>
-    <option value="Music">Music</option>
-  </select>
-  <input type="submit" value="go" />
-</form>
-
-<p id="amazon"></p>
-
-<%= javascript_include_tag "amazon.js" %>
