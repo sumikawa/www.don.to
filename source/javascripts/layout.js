@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Function to equalize heights of centerblock and leftblock
   function equalizeBlockHeights() {
-    const mainBlock = document.querySelector('.mainblock');
-    const eachindexBlock = document.querySelector('.eachindexblock');
+    mainBlock = document.querySelector('.mainblock');
+    eachindexBlock = document.querySelector('.eachindexblock');
 
     if (mainBlock && eachindexBlock) {
       // Reset heights to auto to get their natural heights
@@ -10,11 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
       eachindexBlock.style.height = 'auto';
 
       // Get the computed heights
-      const mainBlockHeight = mainBlock.offsetHeight;
-      const eachindexBlockHeight = eachindexBlock.offsetHeight;
+      mainBlockHeight = mainBlock.offsetHeight;
+      eachindexBlockHeight = eachindexBlock.offsetHeight;
 
       // Set both blocks to the height of the taller one
-      const maxHeight = Math.max(mainBlockHeight, eachindexBlockHeight);
+      maxHeight = Math.max(mainBlockHeight, eachindexBlockHeight);
 	  if (screen.width > 480) {
         mainBlock.style.height = maxHeight + 'px';
         eachindexBlock.style.height = maxHeight + 'px';
