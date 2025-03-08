@@ -19,29 +19,30 @@
   <body>
     <div class="container">
       <div class="centerblock">
-	<% if current_page.data.top == true %>
-      <div class="titleblock">
-        <div id="dayd">Daydreamers On the Net</div>
-        <br />
-        <div id="doyou">- Do you dream a daydream? -</div>
-	  </div>
-	<% end %>
-	  <div class="mainblock">
-        <form role="search">
-          <input type="search" placeholder="検索" id="search" />
-        </form>
-        <% unless current_page.data.top == true %>
+      <% if current_page.data.top == true %>
+        <div class="titleblock">
+          <div id="dayd">Daydreamers On the Net</div>
+          <br />
+          <div id="doyou">- Do you dream a daydream? -</div>
+        </div>
+	  <% end %>
+        <div class="mainblock">
+          <form role="search">
+            <input type="search" placeholder="検索" id="search" />
+          </form>
+          <% unless current_page.data.top == true %>
           <h2><%= gen_title %></h2>
-        <% end %>
-        <%= yield %>
-        <hr />
-        <div id="name">SUMIKAWA Munechika / Daydreamers On the Net</div>
-	  </div>
+          <% end %>
+          <%= yield %>
+          <hr />
+          <div id="name">SUMIKAWA Munechika / Daydreamers On the Net</div>
+        </div>
+      </div>
+      <div class="leftblock">
+        <%= partial "layouts/photofooter" %>
+      </div>
+      <%= partial "layouts/pswp" %>
     </div>
-    <div class="leftblock">
-      <%= partial "layouts/photofooter" %>
-    </div>
-    <%= partial "layouts/pswp" %>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
   <%= javascript_include_tag "application" %>
