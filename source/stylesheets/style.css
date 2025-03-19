@@ -298,6 +298,7 @@ span.fontsizeplusplus { font-size: xx-large; }
     border-right: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: -1px 2px 2px rgba(0, 0, 0, 0.2);
+    white-space: pre-wrap;
   }
 
   /* Media Queries for adapting to various screen widths */
