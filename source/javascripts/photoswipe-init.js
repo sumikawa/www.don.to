@@ -13,13 +13,12 @@ initPhotoSwipeFromDOM = function (gallerySelector) {
     item = void 0;
     i = 0;
 
-    // Replace jQuery selector with vanilla JS
     var swipeElements = document.querySelectorAll('a.swipe');
     for (var j = 0; j < swipeElements.length; j++) {
       var swipeEl = swipeElements[j];
       var height, href, id, poster, src, width;
 
-      href = swipeEl.getAttribute('href');
+      href = swipeEl.getAttribute('href') + '#t=0.001'; // https://stackoverflow.com/questions/18613470/why-safari-on-ios-is-not-showing-my-html5-video-poster
       src = swipeEl.querySelector('img') ? swipeEl.querySelector('img').getAttribute('src') : '';
 
       if (swipeEl.classList.contains('image')) {
@@ -42,7 +41,7 @@ initPhotoSwipeFromDOM = function (gallerySelector) {
         }
         poster = src.replace(/video\/\d+/, 'video/' + height);
         item = {
-          html: '<div class="videoblock"><video controls style="background: url(\'' + poster + '\') no-repeat 0 40px;" class="videobackground"><source src="' + href + '" poster="' + poster + '" width="' + width + '" height="' + height + '" type="video/mp4"></video></div>',
+          html: '<div class="videoblock"><video controls style="background: url(\'' + poster + '\') no-repeat 0 0;" class="videobackground"><source src="' + href + '" poster="' + poster + '" width="' + width + '" height="' + height + '" type="video/mp4"></video></div>',
           el: swipeEl
         };
       }
@@ -157,7 +156,6 @@ initPhotoSwipeFromDOM = function (gallerySelector) {
   }
 };
 
-// Replace jQuery document ready with vanilla JS
 document.addEventListener('DOMContentLoaded', function () {
   initPhotoSwipeFromDOM('.mainblock');
 });
