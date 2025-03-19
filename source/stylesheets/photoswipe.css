@@ -149,6 +149,8 @@
 /* Allow to click through pswp__content element, but not its children */
 .pswp__content {
   pointer-events: none;
+  display: flex; /* don.to: For video block */
+  justify-content: center; /* don.to: For video block */
 }
 .pswp__content > * {
   pointer-events: auto;
