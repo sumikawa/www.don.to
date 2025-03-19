@@ -1,8 +1,8 @@
 var initPhotoSwipeFromDOM;
 
-initPhotoSwipeFromDOM = function(gallerySelector) {
+initPhotoSwipeFromDOM = function (gallerySelector) {
   var hashData, i, onThumbnailsClick, openPhotoSwipe, parseThumbnailElements, photoswipeParseHash;
-  parseThumbnailElements = function(el) {
+  parseThumbnailElements = function (el) {
     var figureEl, i, item, items, linkEl, numNodes, size, thumbElements;
     thumbElements = el.childNodes;
     numNodes = thumbElements.length;
@@ -54,7 +54,7 @@ initPhotoSwipeFromDOM = function(gallerySelector) {
     return items;
   };
 
-  onThumbnailsClick = function(e) {
+  onThumbnailsClick = function (e) {
     var clickedGallery, clickedListItem, eTarget, index;
     e = e || window.event;
     if (e.preventDefault) {
@@ -75,7 +75,7 @@ initPhotoSwipeFromDOM = function(gallerySelector) {
     return false;
   };
 
-  photoswipeParseHash = function() {
+  photoswipeParseHash = function () {
     var hash, i, pair, params, vars;
     hash = window.location.hash.substring(1);
     params = {};
@@ -103,7 +103,7 @@ initPhotoSwipeFromDOM = function(gallerySelector) {
     return params;
   };
 
-  openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+  openPhotoSwipe = function (index, galleryElement, disableAnimation, fromURL) {
     var gallery, items, j, options, pswpElement;
     pswpElement = document.querySelectorAll('.pswp')[0];
     gallery = void 0;
@@ -111,7 +111,7 @@ initPhotoSwipeFromDOM = function(gallerySelector) {
     items = parseThumbnailElements(galleryElement);
     options = {
       galleryUID: galleryElement.getAttribute('data-pswp-uid'),
-      getThumbBoundsFn: function(index) {
+      getThumbBoundsFn: function (index) {
         var pageYScroll, rect, thumbnail;
         thumbnail = items[index].el.getElementsByTagName('img')[0];
         pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
@@ -171,6 +171,6 @@ initPhotoSwipeFromDOM = function(gallerySelector) {
 };
 
 // Replace jQuery document ready with vanilla JS
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   initPhotoSwipeFromDOM('.mainblock');
 });
