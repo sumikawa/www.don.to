@@ -26,8 +26,6 @@ initPhotoSwipeFromDOM = function (gallerySelector) {
         item = {
           src: href,
           msrc: src,
-          w: 800,
-          h: 600,
           el: swipeEl
         };
       } else {
