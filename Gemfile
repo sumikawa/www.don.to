@@ -10,8 +10,6 @@ gem "redcarpet"
 gem "mini_exiftool"
 gem "sass"
 
-gem "middleman-sprockets"
-
 group :development do
   gem 'debug'
   gem 'rmagick'

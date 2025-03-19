@@ -53,18 +53,6 @@ set :slim, { :pretty => true, :sort_attrs => false, :format => :html }
 activate :syntax
 activate :directory_indexes
 #activate :relative_assets
-activate :sprockets
-
-#activate :asset_hash
 
 #activate :livereload, js_host: 'stage.don.to', port: 4567, no_swf: true
 #activate :livereload
-# Build-specific configuration
-configure :build do
-  #activate :minify_css
-  #activate :minify_javascript
-  #activate :asset_hash
-
-  # Or use a different image path
-  # set :http_prefix, "/Content/images/"
-end
