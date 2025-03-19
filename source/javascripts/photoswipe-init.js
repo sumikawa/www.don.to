@@ -121,6 +121,7 @@ initPhotoSwipeFromDOM = function (gallerySelector) {
         };
       },
       shareEl: false,
+      bgOpacity: 1.0,
       dataSource: items,
       preload: [1, 5]
     };
