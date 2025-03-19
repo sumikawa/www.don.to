@@ -123,6 +123,7 @@ initPhotoSwipeFromDOM = function (gallerySelector) {
         };
       },
       shareEl: false,
+      dataSource: items,
       preload: [1, 5]
     };
     if (fromURL) {
@@ -147,7 +148,7 @@ initPhotoSwipeFromDOM = function (gallerySelector) {
     if (disableAnimation) {
       options.showAnimationDuration = 0;
     }
-    gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+    gallery = new PhotoSwipe(options);
     gallery.init();
   };
 
