@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Get the computed heights
       mainBlockHeight = mainBlock.offsetHeight;
       eachindexBlockHeight = eachindexBlock.offsetHeight;
-      screenHeight = screen.availHeight - 30;
+      screenHeight = window.innerHeight - 20;
 
       // Set both blocks to the height of the taller one
       maxHeight = Math.max(mainBlockHeight, eachindexBlockHeight, screenHeight);
