@@ -42,7 +42,7 @@ initPhotoSwipeFromDOM = function (gallerySelector) {
         }
         poster = src.replace(/video\/\d+/, 'video/' + height);
         item = {
-          html: '<video controls style="padding-top: 40px; background: url(\'' + poster + '\') no-repeat 0 40px;" class="viodebackground"><source src="' + href + '" poster="' + poster + '" width="' + width + '" height="' + height + '" type="video/mp4"></video>',
+          html: '<video controls style="padding-top: 40px; background: url(\'' + poster + '\') no-repeat 0 40px;" class="videobackground"><source src="' + href + '" poster="' + poster + '" width="' + width + '" height="' + height + '" type="video/mp4"></video>',
           el: swipeEl
         };
       }
@@ -108,19 +108,6 @@ initPhotoSwipeFromDOM = function (gallerySelector) {
     options = void 0;
     items = parseThumbnailElements(galleryElement);
     options = {
-      galleryUID: galleryElement.getAttribute('data-pswp-uid'),
-      getThumbBoundsFn: function (index) {
-        var pageYScroll, rect, thumbnail;
-        thumbnail = items[index].el.getElementsByTagName('img')[0];
-        pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
-        rect = thumbnail.getBoundingClientRect();
-        return {
-          x: rect.left,
-          y: rect.top + pageYScroll,
-          w: rect.width
-        };
-      },
-      shareEl: false,
       bgOpacity: 1.0,
       dataSource: items,
       preload: [1, 5]
