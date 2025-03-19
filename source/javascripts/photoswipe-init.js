@@ -42,7 +42,7 @@ initPhotoSwipeFromDOM = function (gallerySelector) {
         }
         poster = src.replace(/video\/\d+/, 'video/' + height);
         item = {
-          html: '<div class="videoblock"><video controls style="padding-top: 40px; background: url(\'' + poster + '\') no-repeat 0 40px;" class="videobackground"><source src="' + href + '" poster="' + poster + '" width="' + width + '" height="' + height + '" type="video/mp4"></video></div>',
+          html: '<div class="videoblock"><video controls style="background: url(\'' + poster + '\') no-repeat 0 40px;" class="videobackground"><source src="' + href + '" poster="' + poster + '" width="' + width + '" height="' + height + '" type="video/mp4"></video></div>',
           el: swipeEl
         };
       }
