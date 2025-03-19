@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Function to equalize heights of centerblock and leftblock
   function equalizeBlockHeights() {
     mainBlock = document.querySelector('.mainblock');
@@ -12,10 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
       // Get the computed heights
       mainBlockHeight = mainBlock.offsetHeight;
       eachindexBlockHeight = eachindexBlock.offsetHeight;
+      screenHeight = screen.availHeight - 20;
 
       // Set both blocks to the height of the taller one
-      maxHeight = Math.max(mainBlockHeight, eachindexBlockHeight);
-	  if (screen.width > 480) {
+      maxHeight = Math.max(mainBlockHeight, eachindexBlockHeight, screenHeight);
+      if (screen.width > 480) {
         mainBlock.style.height = maxHeight + 'px';
         eachindexBlock.style.height = maxHeight + 'px';
       }
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
   equalizeBlockHeights();
 
   // Run on window resize
-  window.addEventListener('resize', function() {
+  window.addEventListener('resize', function () {
     // Use debounce to avoid excessive calculations during resize
     clearTimeout(window.resizeTimer);
     window.resizeTimer = setTimeout(equalizeBlockHeights, 250);
