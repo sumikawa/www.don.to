@@ -169,7 +169,7 @@ span.fontsizeplusplus { font-size: xx-large; }
     box-sizing: border-box;
   }
 
-  .titleblock {
+  .titleblock, .mainblock, .eachindexblock {
     box-shadow: 0px 2px 6px rgba(0,0,0,0.5);
     border-radius: 10px;
     background: linear-gradient(-45deg, #eeeeee 0%, #dddddd 100%);
@@ -177,24 +177,15 @@ span.fontsizeplusplus { font-size: xx-large; }
     text-align: left;
     padding-right: 7px;
     padding-left: 7px;
-    margin-bottom: var(--margin);
   }
 
-  .mainblock {
-    box-shadow: 0px 2px 6px rgba(0,0,0,0.5);
-    border-radius: 10px;
-    background: linear-gradient(-45deg, #eeeeee 0%, #dddddd 100%);
-    border: 2px solid white;
-    text-align: left;
-    padding-right: 7px;
-    padding-left: 7px;
-    min-height: 450px;
+  .titleblock {
+    margin-bottom: var(--margin);
   }
 
   .centerblock {
     flex: 1;
     order: 2;
-    min-height: 450px;
     display: flex;
     flex-direction: column;
   }
@@ -202,43 +193,31 @@ span.fontsizeplusplus { font-size: xx-large; }
   .leftblock {
     margin-right: var(--margin);
     order: 1;
-    min-height: 450px;
     display: flex;
     flex-direction: column;
   }
 
   .eachindexblock {
-    box-shadow: 0px 2px 6px rgba(0,0,0,0.5);
-    border-radius: 10px;
-    background: linear-gradient(-45deg, #eeeeee 0%, #dddddd 100%);
-    border: 2px solid white;
-    text-align: left;
-    padding-right: 7px;
-    padding-left: 7px;
     margin-bottom: var(--margin);
     overflow: hidden;
   }
 
-  h1 {
+  h1, h2 {
     color: var(--titlecolor);
-    border-bottom: 1px solid rgba(0,0,0,0.4);
     box-shadow: 0 1px 0 rgba(255,255,255,0.4);
     text-shadow: 1px -1px 0px rgba(255,255,255,1);
     margin-top: 5px;
     margin-bottom: 5px;
     font-weight: normal;
+  }
+
+  h1 {
     text-align: center;
     border-bottom: 0px solid rgba(0,0,0,0.4);
   }
 
   h2 {
-    color: var(--titlecolor);
     border-bottom: 1px solid rgba(0,0,0,0.4);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.4);
-    text-shadow: 1px -1px 0px rgba(255,255,255,1);
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-weight: normal;
   }
 
   h3 {
