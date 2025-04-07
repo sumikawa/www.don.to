@@ -1,16 +1,17 @@
+#!/usr/bin/env python3
+
+import os
 from dropbox import DropboxOAuth2FlowNoRedirect
 
-app_key = 'xxx'
-app_secret = 'xxx'
+APP_KEY = os.environ["DROPBOX_APP_KEY"]
+APP_SECRET = os.environ["DROPBOX_APP_SECRET"]
 
 auth_flow = DropboxOAuth2FlowNoRedirect(
-                        app_key,
-                        consumer_secret=app_secret,
+                        APP_KEY,
+                        consumer_secret=APP_SECRET,
                         use_pkce=False,
                         token_access_type='offline'
 )
-
-# auth_flow = DropboxOAuth2FlowNoRedirect(APP_KEY, APP_SECRET)
 
 authorize_url = auth_flow.start()
 print("1. Go to: " + authorize_url)
