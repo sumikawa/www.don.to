@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns="http://purl.org/rss/1.0/">
+  <channel rdf:about="https://www.don.to/diary/">
+    <title>すみかわ日記</title>
+    <description>子供ネタ7割、食い物2割、技術1割</description>
+    <link>https://www.don.to/diary/</link>
+    <items>
+      <rdf:Seq>
+          <rdf:li resource="2025/0410-license/"/>
+          <rdf:li resource="2025/0408-katsu/"/>
+          <rdf:li resource="2025/0407-riri/"/>
+          <rdf:li resource="2025/0401-taiwan/"/>
+          <rdf:li resource="2025/0328-osaka/"/>
+          <rdf:li resource="2025/0326-yokohama/"/>
+          <rdf:li resource="2025/0325-yokohama/"/>
+          <rdf:li resource="2025/0322-keio/"/>
+          <rdf:li resource="2025/0321-park/"/>
+          <rdf:li resource="2025/0318-potato/"/>
+          <rdf:li resource="2025/0315-kamakura/"/>
+          <rdf:li resource="2025/0314-yokohama/"/>
+          <rdf:li resource="2025/0313-nakasato/"/>
+          <rdf:li resource="2025/0313-dinner/"/>
+          <rdf:li resource="2025/0312-nakasato/"/>
+          <rdf:li resource="2025/0311-nakasato/"/>
+          <rdf:li resource="2025/0310-nakasato/"/>
+          <rdf:li resource="2025/0307-kamakura/"/>
+          <rdf:li resource="2025/0307-donto/"/>
+          <rdf:li resource="2025/0306-sauna/"/>
+          <rdf:li resource="2025/0304-ren/"/>
+          <rdf:li resource="2025/0228-yokohama/"/>
+          <rdf:li resource="2025/0227-niku/"/>
+          <rdf:li resource="2025/0226-kamakura/"/>
+          <rdf:li resource="2025/0222-kamakura/"/>
+      </rdf:Seq>
+    </items>
+  </channel>
+  <item rdf:about="2025/0410-license/">
+            <title>2025/04/10: マイナ免許証攻略最短ルート</title>
+        <link>https://www.don.to/diary/2025/0410-license/</link>
+        <description><![CDATA[<p>免許証の更新時期じゃないけど、マイナ免許証に変更したい人の攻略最短ルート(二俣川編)。</p>
+
+<p>キーワードは「保有状況変更」</p>
+
+<ol>
+<li>正面玄関入って左側の0番窓口でマイナカードにAP(アプリケーション)を書き込む</li>
+<li>1A窓口(1番窓口の一番左の列)で申請書を印刷する</li>
+<li>2番窓口で申請料を払う(1500円)</li>
+<li>3番窓口(視力検査)は行かなくていいのでスキップ</li>
+<li>右奥の保有状況変更の窓口(写真参照)で申請書を提出。しばらく待つと最後のカギを渡される</li>
+<li>もう一度0番窓口にいって、マイナカードに免許情報を書き込む</li>
+<li>ついでに同じ0番窓口でワンストップ申請をしておく。警察に渡すのは住所情報だけで良い(氏名が変わる可能性のある人は除く、生年月日を変更したい人って何やねん)</li>
+<li>ミッションクリアー</li>
+</ol>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>申請書に暗証番号1と2を書く欄があるが記入不要。
+ワンストップ申請にはマイナカードの証明書の暗証番号(英大文字が入った長い方の暗証番号)が必要なので思い出しておくこと。</p>
+
+<p>これ警察が秘密鍵を保持するってこと？
+入力した暗証番号を申請書に印刷したりとか、機密情報の扱いが雑。職員に何か設定させたいんなら一時トークン発行しろよなあ</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-04T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0408-katsu/">
+            <title>2025/04/08: カツ丼</title>
+        <link>https://www.don.to/diary/2025/0408-katsu/</link>
+        <description><![CDATA[<p>朝サウナ行ったあと、ちょうど開店時間だったので伊勢屋へ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140301/14013607/">伊勢屋（いせや）</a>
+神奈川県横浜市保土ケ谷区星川2-5-33
+045-341-7971
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>カツ丼三人目だったのでギリギリ初回ロットに間に合った。
+並んでた五人全員がビール飲んでる。優しい世界。</p>
+
+<p>1:20後に着丼。</p>
+
+<p>そろそろ餃子+チャーハンも試すか。オムライスも食べたい。</p>
+]]></description>
+        <dc:date>2025-2025-04T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0407-riri/">
+            <title>2025/04/07: 娘からの感謝カード</title>
+        <link>https://www.don.to/diary/2025/0407-riri/</link>
+        <description><![CDATA[<p>お、おう。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-04T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0401-taiwan/">
+            <title>2025/04/01: 台湾旅行 その1</title>
+        <link>https://www.don.to/diary/2025/0401-taiwan/</link>
+        <description><![CDATA[<p>春休みの娘と台湾旅行。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>西門へ。お約束の麺線。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/taiwan/A5403/A540305/54000023/">阿宗麺線 西門町店</a>
+台湾台北市萬華區峨眉街8之1號
+(+886) 223888808
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>そのまま歩いて龍山寺。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>宿へ移動。今回は<a href="https://www.airbnb.jp/rooms/1315955345191076785">AirBnB</a>。
+忠孝復興駅に近いのでどこ行くのにも便利。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>難点はシャワーでトイレとの仕切りが短いのでシャワー浴びるとビショビショになる。
+ここには3日間宿泊したけど、バスタオルで都度床を拭かないといけないので、全日洗濯機を回した。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>士林夜市へ。最寄り駅が士林ではなくて、劍潭駅なことをすっかり忘れていた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>洗濯機難しい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-04T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0328-osaka/">
+            <title>2025/03/28: 大阪</title>
+        <link>https://www.don.to/diary/2025/0328-osaka/</link>
+        <description><![CDATA[<p>所用で大阪へ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/osaka/A2701/A270101/27123992/">立呑み やきとり 大富豪 大阪駅前第2ビル店</a>
+大阪府大阪市北区梅田1-2-2 大阪駅前第2ビル B1F
+</pre>
+
+<p>大阪は安いなあ。鳥刺し盛は500円。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>二軒目。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0326-yokohama/">
+            <title>2025/03/26: みなとみらい</title>
+        <link>https://www.don.to/diary/2025/0326-yokohama/</link>
+        <description><![CDATA[<p>今日も今日とてみなとみらい。</p>
+
+<p>朝飯。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140102/14067913/">Merengue みなとみらい店</a>
+神奈川県横浜市西区みなとみらい4-4-1 横浜野村ビル１F
+050-5593-9994
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ハロワのセミナーに出席。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>志望動機は重要、履歴書の写真はちゃんとしたものを。
+髪型、靴、服装は面接でチェックされるなど、アマゾンのバーレイザーと全く異なる世界線の価値観を聞いている</p>
+
+<p>夜は上京してきたkazuさんと久しぶりに飲む。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1314/A131405/13057683/">台湾キッチン榕城</a>
+東京都品川区北品川2-23-5
+03-3450-0028
+</pre>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0325-yokohama/">
+            <title>2025/03/25: みなとみらい読書</title>
+        <link>https://www.don.to/diary/2025/0325-yokohama/</link>
+        <description><![CDATA[<p>ハンモック張ってみた。</p>
+
+<p>暖かいんですが風が強くて背中が冷えてくるので、16時ぐらいに撤退。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>goozで本読んでたら、facebookの投稿を見つけた前職の同僚が連絡してきて合流。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140104/14008322/">gooz いちょう並木通り店</a>
+神奈川県横浜市中区日本大通15 朝日会館ビル 1F
+045-663-6230
+</pre>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0322-keio/">
+            <title>2025/03/22: 修さん最終講義</title>
+        <link>https://www.don.to/diary/2025/0322-keio/</link>
+        <description><![CDATA[<p>日吉で最終講義</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0321-park/">
+            <title>2025/03/21: 陣ケ下渓谷公園</title>
+        <link>https://www.don.to/diary/2025/0321-park/</link>
+        <description><![CDATA[<p>暖かいので陣ケ下渓谷公園で読書してみた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>川から上がってくる冷気で冷える。
+蚊がまだいないのは助かるんだけど、ベストの気候とベストの場所を探すのは難しい。</p>
+
+<p>昼過ぎに<a href="https://mantennoyu.com/">満天の湯</a>に行って、サウナしてビール。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>餃子食って帰る。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140301/14003956/">横浜とんとん</a>
+神奈川県横浜市保土ケ谷区星川1-15-27
+045-331-8735
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0318-potato/">
+            <title>2025/03/18: じゃがバター</title>
+        <link>https://www.don.to/diary/2025/0318-potato/</link>
+        <description><![CDATA[<p>この<a href="https://mangashokudo.net/entry/blog-entry-729.html">レシピ</a>で作ってみた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ジョンソンヴィルを輪切りにしたけど、シャウエッセンを切らずにいれても良かったかも。</p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0315-kamakura/">
+            <title>2025/03/15: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2025/0315-kamakura/</link>
+        <description><![CDATA[<p>高校の友人が四ヶ月だけ東京に滞在しているので、誘って鎌倉ハイキングへ。</p>
+
+<p>定点観測。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>明王院まで歩いて、昼飯。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1404/A140402/14010501/">峰本 朝比奈店</a>
+神奈川県鎌倉市十二所152
+0467-24-5544
+</pre>
+
+<p>雲水そば。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>さらに朝比奈方面を歩く。十二所展望台。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>大船で一風呂浴びて、まだ16時。飲み開始。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1404/A140401/14067389/">大船ホルモンセンター</a>
+神奈川県鎌倉市大船1-10-7
+0467-84-9665
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>三軒目あたりから記憶が怪しい。レシート見ると、四軒目まで行ったようだが記憶がない。</p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0314-yokohama/">
+            <title>2025/03/14: 横浜</title>
+        <link>https://www.don.to/diary/2025/0314-yokohama/</link>
+        <description><![CDATA[<p>ハロワで初回の失業認定。ハロワ行くのに桜木町からゴンドラ(1500円)に乗るべきか悩む。</p>
+
+<p>失業認定申告書出して数分待って、次回用の申告書渡されて終わり。つまらんシステムや。</p>
+
+<p>さらに相談コーナー行って職務経歴書の書き方のしおりをもらって帰る。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ついでにハンモックポイントを調査。ここ良さそう。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0313-nakasato/">
+            <title>2025/03/13: 越後中里 その4</title>
+        <link>https://www.don.to/diary/2025/0313-nakasato/</link>
+        <description><![CDATA[<p>四日目。中級コースを9本含んで、合計20本ぐらい滑った。
+ジャリジャリの雪でも安定してたので、結構上手くなったんじゃないかなあ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>14時頃にケガ無く終了。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ホテル戻って、コインロッカーから荷物だして、風呂に入ってざっと温まって、レンタルショップにウェアとスノボ道具返しにいって、もう一回風呂に戻って、サウナ2本やって、荷物を宅急便に出して、ホテルの無料送迎バスで越後湯沢にいって、新幹線で帰る。</p>
+
+<p>その足で飲む約束してる目黒に向かう。忙しい。</p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0313-dinner/">
+            <title>2025/03/13: セント</title>
+        <link>https://www.don.to/diary/2025/0313-dinner/</link>
+        <description><![CDATA[<p>4日間頑張ったのでビール！</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1316/A131601/13195534/">BeerPub SCENT</a>
+東京都目黒区目黒1-6-15
+03-6417-0806
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>さらにラーメン食って帰った。台無し。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1316/A131601/13020309/">麺家 黒</a>
+東京都目黒区目黒1-6-12 ワンエム目黒 1F
+03-3490-1196
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0312-nakasato/">
+            <title>2025/03/12: 越後中里 その3</title>
+        <link>https://www.don.to/diary/2025/0312-nakasato/</link>
+        <description><![CDATA[<p>三日目。さすがに眼の前のスキー場は飽きたので、隣の湯沢中里スノーリゾートへ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>リフト乗り継いで、第5リフトに来て、さて中級者コースに挑戦しようかと思ったら、ベルトが切れた。
+滑り出す前でよかった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>切れたのが前部だったので、初級コースをダラダラ降りてきて、バスに乗ってレンタル屋で修理してもらう。</p>
+
+<p>ホテルの部屋で休憩したら、戻って来るのに二時間ぐらい経ってしまい、雪が硬くなったので中級コースは諦める。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>グリルチキンとキムチをつまみにビール一杯だけ飲む。</p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0311-nakasato/">
+            <title>2025/03/11: 越後中里 その2</title>
+        <link>https://www.don.to/diary/2025/0311-nakasato/</link>
+        <description><![CDATA[<p>二日目。今回は朝食のみのプラン。
+ビュッフェなので、朝をメインディッシュにして、夜はプロテインだけ摂取するスタイルでいく。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>食いすぎて眠くなってしまい、開始は11時になった。それでも雪硬い。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>このスキー場は、コースは一本しかないので、ひたすらグルグル回る。
+16時ぐらいに冷え込んで来たので終了。</p>
+
+<p>そのあと、ジムいって、プールいって、サウナ三本やったら、いい時間になったので、プロテインとグリーンスムージー飲んで、酒は飲まずに寝る。</p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0310-nakasato/">
+            <title>2025/03/10: 越後中里 その1</title>
+        <link>https://www.don.to/diary/2025/0310-nakasato/</link>
+        <description><![CDATA[<p>寒波で大雪が続いていたので、滑ろうと越後中里に来てみたんだけど、今日から暖かいのな。
+最近、自分の旅行と天気がことごとく合わない。
+キャンセル期限の一週間前の時点では天気予報が雪やったんや。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>宿は<a href="https://www.angel-g.co.jp/">エンゼルグランディア越後中里</a>。
+前回泊まったのは<a href="https://www.don.to/diary/2014/0113-niigata/">2014年</a>か。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ホテルの眼の前の中里スノーウッドスキー場をスノボを二時間ほど滑る。
+平日なのでとても空いている。コケたら痛そうな雪。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>どらぐらい暖かいかというと、リフトの係員がTシャツ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>スノボのあと、サウナ3本キメた。プールとジムも行くつもりだったけど有料だったので今日はやめ。本日終了！</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>来週になったらまた雪が降るんかーい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0307-kamakura/">
+            <title>2025/03/07: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2025/0307-kamakura/</link>
+        <description><![CDATA[<p>定点観測。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>今日もやまなみコースを追加。
+十二所展望台。八景島方面が見える。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>反対側。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>やや調子悪くて息が切れがちだったけど頑張った。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0307-donto/">
+            <title>2025/03/07: すみかわ日記更新作業他</title>
+        <link>https://www.don.to/diary/2025/0307-donto/</link>
+        <description><![CDATA[<p>忙しくて手をつけられなかった技術的宿題を解消中。</p>
+
+<ul>
+<li>Emacs 30.1がリリースされたがAIによるコード支援を試すためにもいい加減VS Codeに乗り換えた。iPad miniから家のMacにremote tunnelできるようにしたので、旅人しながらコーディングできる。</li>
+<li>30年以上使ってたtcshも今度こそ卒業してzshに変えた。これもAIさんが設定ファイル書き換えてくれたので、移行の敷居が下がった。</li>
+<li>CSS/JSをモダン化して、CoffeeScript/jQuery/Sassに依存しないようにした。半分ぐらいはAI AgentのClineがやってくれた。これでassets pipelineの沼から抜け出せる</li>
+<li>ここ数年のCSSの変化を調べている。flexboxは標準化のタイミングで仕様変わりまくってて再学習中</li>
+<li>Railsも6あたりで知識が止まっているので、8のチュートリアルを始めた。Dockerfileが最初から用意されていて、時代の変化を感じる</li>
+</ul>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0306-sauna/">
+            <title>2025/03/06: 朝サウナ</title>
+        <link>https://www.don.to/diary/2025/0306-sauna/</link>
+        <description><![CDATA[<p>朝サウナから大阪王将でせんべろ。昼過ぎの時点で既に本日終了。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140301/14077089/">大阪王将 天王町駅前店</a>
+神奈川県横浜市保土ヶ谷区岩間町1-7-3 1F
+045-298-6006
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0304-ren/">
+            <title>2025/03/04: 卒業式</title>
+        <link>https://www.don.to/diary/2025/0304-ren/</link>
+        <description><![CDATA[<p>早いもんで蓮の卒業式。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>奥さんと昼飯。刺身定食と昼ビー。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140210/14023870/">生麦</a>
+神奈川県横浜市鶴見区生麦5丁目23-9
+045-501-0467
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>国道駅。横浜市内のJR駅とは思えない景色。無人駅だし、入り口怖いし。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0228-yokohama/">
+            <title>2025/02/28: ハマ読書</title>
+        <link>https://www.don.to/diary/2025/0228-yokohama/</link>
+        <description><![CDATA[<p>いい読書ポイント見つけた。
+背後が工事現場でやかましいんだけど、そのおかげで人通りが少なくて落ち着く。
+AirPods Pro使ってれば騒音は問題なし。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>眩しいので木陰にヘリノックスを広げた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>太陽がビルに隠れて寒くなってきたので山下公園へ移動。
+ここにハンモック張りてえ。怒られるだろうなあ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0227-niku/">
+            <title>2025/02/27: 焼肉</title>
+        <link>https://www.don.to/diary/2025/0227-niku/</link>
+        <description><![CDATA[<p>元同僚と焼肉。赤身肉推しの店。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1317/A131712/13187268/">焼肉 鳴尾.b</a>
+東京都品川区荏原4-5-17 ライオンズマンション荏原 2F
+03-5749-3329
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0226-kamakura/">
+            <title>2025/02/26: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2025/0226-kamakura/</link>
+        <description><![CDATA[<p>定点観測。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>暖かいので久しぶりに追加でやまなみルートも歩いた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>二十所果樹園。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>俺は頑張ったよ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1404/A140402/14079639/">腸詰屋 鎌倉小町</a>
+神奈川県鎌倉市雪ノ下1-4-20 アビティ雪ノ下 1F
+0467-33-4986
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>小町通りも空いてた。
+やはり平日は良い。</p>
+]]></description>
+        <dc:date>2025-2025-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0222-kamakura/">
+            <title>2025/02/22: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2025/0222-kamakura/</link>
+        <description><![CDATA[<p>週末はやっぱり混んでるなあ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>定点観測。晴れてたのにいきなり翳りだして雪が降り出した。</p>
+
+<p>足捻ったけど、ここんとこ日常的に足首の柔軟をしてるのでセーフだった。痛みも無し。
+柔軟は重要。</p>
+]]></description>
+        <dc:date>2025-2025-02T00:00:00+09:00</dc:date>
+
+  </item>
+</rdf:RDF>
