@@ -1,0 +1,30 @@
+---
+draft: true
+title: zshのEsc-pを直感的な挙動に変更する
+---
+zshのEmacsモード(```bindkey -e```)で```Esc-p```を入力すると、最初のワードをキーにしてコマンド履歴を検索します。この時、第二ワード以降は無視されます。
+
+例えば、
+
+```
+1. git commit -a
+2. vi file.txt
+3. git diff
+```
+
+とコマンドを実行したあとに、```git c```まで入力して```Esc-p```を押すと、3が選ばれます。元tcshユーザーとしては1にマッチしてほしいし、この挙動の方が自然だと思う。
+
+```Esc-p```に割り当てられているup-line-or-searchをzshcontribに含まれているup-line-or-beginning-searchに変更することでこの問題を解決できます。
+
+```Esc-n```に対しても同様の修正を適用します。
+
+```
+autoload -U up-line-or-beginning-search
+zle -N up-line-or-beginning-search
+bindkey "^[p" up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[n" down-line-or-beginning-search
+```
+
+zshはなんでこんな不可解な挙動がデフォルトなんだ。

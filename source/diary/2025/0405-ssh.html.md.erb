@@ -1,0 +1,34 @@
+---
+draft: true
+title: 1Passwordのssh鍵をローカルマシンでのssh実行時のみに制限する
+---
+sshの鍵をVaultに保管する機能が1Passwordにあります。下記の設定を```~/.ssh/config```に加えるよう[ドキュメント](https://developer.1password.com/docs/ssh/get-started/)に記載されています。
+
+```
+Host *
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+```
+
+Macのローカルマシン上でsshを使う限りは問題ないのですが、例えばiPadからMacにsshでリモートログインしたあと、```git push```コマンドを実行するなどMacから別のサーバに接続すると失敗します。
+
+```mermaid
+graph LR
+    A("クライアント(iPad)") --> |ssh| B("中継ホスト(Mac)")
+    B --> |git push| C("サーバ(github)")
+```
+
+これは1Passwordが認証を実行しようと、ローカルデスクトップ上で1Password GUIを起動するからです。リモートログインしているため当然デスクトップは見えず、ユーザーの反応がないのでタイムアウトしてエラーになります。
+
+iPad側のSSHクライアントアプリ(例えば、[Shelly](https://apps.apple.com/jp/app/shelly-ssh-client/id989642999))にSSHエージェントの転送機能がある場合、Mac側のssh鍵を使わずに、iPad側の鍵情報を利用することでこの問題を回避できます。具体的には、サンプルの```~/.ssh/config```を下記のように書き直します。
+
+```
+Match host * exec "[[ ! -n $SSH_CLIENT ]]"
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+```
+
+Matchを使って分岐ロジックを書くのがポイントです。環境変数```SSH_CLIENT```の有無で現在リモートからログインしている状態がどうかを判定し、```IdentityAgent```オプションを有効にしています。
+
+#### FAQ
+
+Q. ```~/.zshrc```にfunctionとして分岐ロジックを記述する方法は駄目なの？
+A. 駄目です。中継ホスト上のシェルからさらに```ssh```する場合は動作しますが、```git push```の場合にはzsh経由でsshが実行されないので無視されてしまいます。sshクライアントの設定レベルで分岐を記述する必要があります。
