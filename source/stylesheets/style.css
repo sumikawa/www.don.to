@@ -60,6 +60,7 @@ pre.terminal {
   font-size: smaller;
   width: 90%;
   border-radius: 10px;
+  white-space: pre-wrap;
 }
 
 code {
