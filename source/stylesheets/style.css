@@ -56,8 +56,7 @@ pre.terminal {
   color: white;
   background-color: black;
   line-height: normal;
-  font-family: Ubuntu Mono;
-  font-size: smaller;
+  font-faminly: Inconsolata;
   width: 90%;
   border-radius: 10px;
   white-space: pre-wrap;
@@ -65,11 +64,12 @@ pre.terminal {
 
 code {
   display: inline-block;
-  padding: 0.1em 0.25em; /* 文字周りの余白 */
-  color: #444; /* 文字色 */
-  background-color: #e7edf3; /* 背景色 */
-  border-radius: 3px; /* 角丸 */
-  border: solid 1px #d6dde4; /* 枠線 */
+  padding: 0.1em 0.25em;
+  font-faminly: Inconsolata;
+  color: #444;
+  background-color: #e7edf3;
+  border-radius: 3px;
+  border: solid 1px #d6dde4;
 }
 
 a {
