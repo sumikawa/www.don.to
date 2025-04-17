@@ -1,0 +1,1237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns="http://purl.org/rss/1.0/">
+  <channel rdf:about="https://www.don.to/diary/">
+    <title>すみかわ日記</title>
+    <description>子供ネタ7割、食い物2割、技術1割</description>
+    <link>https://www.don.to/diary/</link>
+    <items>
+      <rdf:Seq>
+          <rdf:li resource="2025/0410-license/"/>
+          <rdf:li resource="2025/0409-kamakura/"/>
+          <rdf:li resource="2025/0408-katsu/"/>
+          <rdf:li resource="2025/0407-zsh/"/>
+          <rdf:li resource="2025/0407-riri/"/>
+          <rdf:li resource="2025/0405-taiwan/"/>
+          <rdf:li resource="2025/0405-ssh/"/>
+          <rdf:li resource="2025/0404-taiwan/"/>
+          <rdf:li resource="2025/0403-taiwan/"/>
+          <rdf:li resource="2025/0402-taiwan/"/>
+          <rdf:li resource="2025/0401-taiwan/"/>
+          <rdf:li resource="2025/0328-osaka/"/>
+          <rdf:li resource="2025/0326-yokohama/"/>
+          <rdf:li resource="2025/0325-yokohama/"/>
+          <rdf:li resource="2025/0322-keio/"/>
+          <rdf:li resource="2025/0321-park/"/>
+          <rdf:li resource="2025/0318-potato/"/>
+          <rdf:li resource="2025/0315-kamakura/"/>
+          <rdf:li resource="2025/0314-yokohama/"/>
+          <rdf:li resource="2025/0313-nakasato/"/>
+          <rdf:li resource="2025/0313-dinner/"/>
+          <rdf:li resource="2025/0312-nakasato/"/>
+          <rdf:li resource="2025/0311-nakasato/"/>
+          <rdf:li resource="2025/0310-nakasato/"/>
+          <rdf:li resource="2025/0307-kamakura/"/>
+          <rdf:li resource="2025/0307-donto/"/>
+          <rdf:li resource="2025/0306-sauna/"/>
+          <rdf:li resource="2025/0304-ren/"/>
+          <rdf:li resource="2025/0228-yokohama/"/>
+          <rdf:li resource="2025/0227-niku/"/>
+      </rdf:Seq>
+    </items>
+  </channel>
+  <item rdf:about="2025/0410-license/">
+            <title>2025/04/10: マイナ免許証攻略最短ルート</title>
+        <link>https://www.don.to/diary/2025/0410-license/</link>
+        <description><![CDATA[<p>免許証の更新時期じゃないけど、マイナ免許証に変更したい人の攻略最短ルート(二俣川編)。</p>
+
+<p>キーワードは「保有状況変更」</p>
+
+<ol>
+<li>正面玄関入って左側の0番窓口でマイナカードにAP(アプリケーション)を書き込む</li>
+<li>1A窓口(1番窓口の一番左の列)で申請書を印刷する</li>
+<li>2番窓口で申請料を払う(1500円)</li>
+<li>3番窓口(視力検査)は行かなくていいのでスキップ</li>
+<li>右奥の保有状況変更の窓口(写真参照)で申請書を提出。しばらく待つと「さいごのカギ」を渡される</li>
+<li>もう一度0番窓口にいって、マイナカードに免許情報を書き込む</li>
+<li>ついでに同じ0番窓口でワンストップ申請をしておく。警察に渡すのは住所情報だけで良い(氏名が変わる可能性のある人は除く、生年月日を変更したい人って何やねん)</li>
+<li>ミッションクリアー</li>
+</ol>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>申請書に暗証番号1と2を書く欄があるが記入不要。
+ワンストップ申請にはマイナカードの証明書の暗証番号(英大文字が入った長い方の暗証番号)が必要なので思い出しておくこと。</p>
+
+<p>これ警察が秘密鍵を保持するってこと？
+入力した暗証番号を申請書に印刷したりとか、機密情報の扱いが雑。職員に何か設定させたいんなら一時トークン発行しろよなあ</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-04T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0409-kamakura/">
+            <title>2025/04/09: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2025/0409-kamakura/</link>
+        <description><![CDATA[<p>鎌倉でトカゲを初めて見た。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>定点観測。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>八幡宮前の通りの桜は今日がベストではないか。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>お約束の大船で今日も頑張った会。この時点でまだ15:30。
+昨日もサウナ行ったので銭湯はスキップしてしまった。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1404/A140401/14067389/">大船ホルモンセンター</a>
+神奈川県鎌倉市大船1-10-7
+0467-84-9665
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>メガハイボール4杯目で記憶がなくなった。
+椅子から転げ落ちて目が覚めて、さっきまで財布に入ってたクレカがないことに気づく。
+はていつの間にお会計したのかと思ってしばらく待ってたけど、店員さんに動きがない。
+おかしいなと思い10分ぐらい探し回ったあと、よく見たらテーブルにポンと置いてあった。</p>
+
+<p>たぶん会計しようとカードを出してそのまま記憶がなくなったと思われる。そして、目の前にカードがあるのに10分間気づかない。
+この店のメガハイボールは危険なので3杯でやめておこう心に誓う。</p>
+
+<p>帰りの電車も乗り過ごして横浜経由で帰宅。</p>
+]]></description>
+        <dc:date>2025-2025-04T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0408-katsu/">
+            <title>2025/04/08: カツ丼</title>
+        <link>https://www.don.to/diary/2025/0408-katsu/</link>
+        <description><![CDATA[<p>朝サウナ行ったあと、ちょうど開店時間だったので伊勢屋へ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140301/14013607/">伊勢屋（いせや）</a>
+神奈川県横浜市保土ケ谷区星川2-5-33
+045-341-7971
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>カツ丼三人目だったのでギリギリ初回ロットに間に合った。
+並んでた五人全員がビール飲んでる。優しい世界。</p>
+
+<p>1:20後に着丼。</p>
+
+<p>そろそろ餃子+チャーハンも試すか。オムライスも食べたい。</p>
+]]></description>
+        <dc:date>2025-2025-04T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0407-zsh/">
+            <title>2025/04/07: zshのEsc-pを直感的な挙動に変更する</title>
+        <link>https://www.don.to/diary/2025/0407-zsh/</link>
+        <description><![CDATA[<p>(本ページは<a href="https://qiita.com/sumikawa@github/items/87ed6f0d659e6c7aa893">Qiita記事</a>のバックアップです)</p>
+
+<p>zshのEmacsモード(<code>bindkey -e</code>)で<code>Esc-p</code>を入力すると、最初のワードをキーにしてコマンド履歴を検索します。この時、第二ワード以降は無視されます。</p>
+
+<p>例えば、</p>
+
+<pre class="terminal">
+1. git commit -a
+2. vi file.txt
+3. git diff
+</pre>
+
+<p>とコマンドを実行したあとに、<code>git c</code>まで入力して<code>Esc-p</code>を押すと、3が選ばれます。元tcshユーザーとしては1にマッチしてほしいし、この挙動の方が自然だと思う。</p>
+
+<p><code>Esc-p</code>に割り当てられているup-line-or-searchをzshcontribに含まれているup-line-or-beginning-searchに変更することでこの問題を解決できます。</p>
+
+<p><code>Esc-n</code>に対しても同様の修正を適用します。</p>
+
+<pre class="terminal">
+autoload -U up-line-or-beginning-search
+zle -N up-line-or-beginning-search
+bindkey "^[p" up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[n" down-line-or-beginning-search
+</pre>
+
+<p>zshはなんでこんな不可解な挙動がデフォルトなんだ。</p>
+]]></description>
+        <dc:date>2025-2025-04T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0407-riri/">
+            <title>2025/04/07: 娘からの感謝カード</title>
+        <link>https://www.don.to/diary/2025/0407-riri/</link>
+        <description><![CDATA[<p>お、おう。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-04T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0405-taiwan/">
+            <title>2025/04/05: 台湾旅行 その5</title>
+        <link>https://www.don.to/diary/2025/0405-taiwan/</link>
+        <description><![CDATA[<p>5時に起床して朝ご飯を食べに行く。
+バスが行ってしまったのでUber Taxi。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/taiwan/A5411/A541101/54003360/">阿村牛肉湯</a>
+台湾台南市中西區國華街三段128號
+(+886) 62229446
+</pre>
+
+<p>牛肉湯と白飯。葱爆牛舌も頼むつもりがすっかり忘れてた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>歩いて大天后宮へ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>そのまま宿まで歩いて戻って、チェックアウトして台北に戻る。</p>
+
+<p>桃園駅で下車して、空港へ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>空港でチェックインしたあと、フードコートで牛肉麺。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>帰りまーす。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-04T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0405-ssh/">
+            <title>2025/04/05: 1Passwordのssh鍵をローカルマシンでのssh実行時のみに制限する</title>
+        <link>https://www.don.to/diary/2025/0405-ssh/</link>
+        <description><![CDATA[<p>(本ページは<a href="https://qiita.com/sumikawa@github/items/9aefb8105cdd90b144a7">Qiita記事</a>のバックアップです)</p>
+
+<p>sshの鍵をVaultに保管する機能が1Passwordにあります。下記の設定を<code>~/.ssh/config</code>に加えるよう<a href="https://developer.1password.com/docs/ssh/get-started/">ドキュメント</a>に記載されています。</p>
+
+<pre class="terminal">
+Host *
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+</pre>
+
+<p>Macのローカルマシン上でsshを使う限りは問題ないのですが、例えばiPadからMacにsshでリモートログインしたあと、<code>git push</code>コマンドを実行するなどMacから別のサーバに接続すると失敗します。</p>
+
+<pre class="mermaid">
+graph LR
+    A("クライアント(iPad)") --> |ssh| B("中継ホスト(Mac)")
+    B --> |git push| C("サーバ(github)")
+</pre>
+
+<p>これは1Passwordが認証を実行しようと、ローカルデスクトップ上で1Password GUIを起動するからです。リモートログインしているため当然デスクトップは見えず、ユーザーの反応がないのでタイムアウトしてエラーになります。</p>
+
+<p>iPad側のSSHクライアントアプリ(例えば、<a href="https://apps.apple.com/jp/app/shelly-ssh-client/id989642999">Shelly</a>)にSSHエージェントの転送機能がある場合、Mac側のssh鍵を使わずに、iPad側の鍵情報を利用することでこの問題を回避できます。具体的には、サンプルの<code>~/.ssh/config</code>を下記のように書き直します。</p>
+
+<pre class="terminal">
+Match host * exec "[[ ! -n $SSH_CLIENT ]]"
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+</pre>
+
+<p>Matchを使って分岐ロジックを書くのがポイントです。環境変数<code>SSH_CLIENT</code>の有無で現在リモートからログインしている状態がどうかを判定し、<code>IdentityAgent</code>オプションを有効にしています。</p>
+
+<h4>FAQ</h4>
+
+<p>Q. <code>~/.zshrc</code>にfunctionとして分岐ロジックを記述する方法は駄目なの？
+A. 駄目です。中継ホスト上のシェルからさらに<code>ssh</code>する場合は動作しますが、<code>git push</code>の場合にはzsh経由でsshが実行されないので無視されてしまいます。sshクライアントの設定レベルで分岐を記述する必要があります。</p>
+]]></description>
+        <dc:date>2025-2025-04T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0404-taiwan/">
+            <title>2025/04/04: 台湾旅行 その4</title>
+        <link>https://www.don.to/diary/2025/0404-taiwan/</link>
+        <description><![CDATA[<p>3日泊まった宿をチェックアウト。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>台北駅から新幹線で台南へ向かう。</p>
+
+<p>本当は9時の列車を予約したかったんだけど、連休なことを知らずに5日前まで余裕かましてたら、全部埋まってた。
+なんとか10:11の列車を抑えて、毎日キャンセルが出ないかチェックしてたんだけど、結局駄目だった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>南下しまーす。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>台南到着。暑い！
+こんなに気候違うのか。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>さらにローカル線に乗り換えて台南駅へ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>今日の<a href="https://www.airbnb.jp/rooms/21456538">宿</a>。
+すげえ入り組んだところにあった。迷って近所のお婆ちゃんに道教えてもらう。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ロビーに荷物置かせてもらって移動。
+周囲にめぼしい店が見当たらずバーキンへ。娘さん、人生初バーキン。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ちょうどいいタイミングのバスがないし、時間もあまりないので、Uber Taxiで<a href="https://www.taipeinavi.com/miru/343/">四草緑色隧道</a>へ。
+ツアーを申し込む。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>すぐ乗れるかと思ったら、ここも長蛇の列。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>列に並びながら、付近を眺める。子ども向け遊具の横でライブする人。たぶん従業員。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>展示物。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>雑な大道芸人。客が来るまでポーズ取ってるんだけど全然じっとできない。
+客が来たら来たでバスケットボールを頭に載せようとするんだけどうまくいかない。たぶん従業員。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>眼の前に並んでいた台湾の人と日本語で少し話す。
+ここに日本人が来ることがほとんどないそうです。娘が見つけてきたんすよ。</p>
+
+<p>ツアー開始。中国語オンリー。何度も「ピエン」と言ってるがたぶん「注意しろ」だと思う。
+ネットで裏取りしようとしたが、全然別の意味だった。なんだろ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>大眾廟。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>バスで戻る。これも大渋滞。一度宿に戻るつもりだったけど、途中下車して神農街へ向かう。</p>
+
+<p>娘がスーパー見たいというのでPOYAに寄る。情報量の多いお菓子。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>神農街。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>晩飯に良さそうな店を物色しながら宿に戻る。</p>
+
+<p>今回の宿は和のテイスト。シャワー浴びてもトイレがビショビショにならない！
+トイレットペーパーを流しても良い。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>晩飯。娘が疲れたとのことで、結局、一番近い<a href="https://www.chickenrice2238758.com/">小卒砂鍋鶏米飯成功店</a>にする。</p>
+
+<p>ビールがないというので身振り手振りで、コンビニでビールを買って道混みさせてくれと交渉して、オッケーもらう。
+満面の笑みで500mlを二缶持ち込む。</p>
+
+<p>野菜の酢漬けとおつまみ回鍋肉、砂鍋雞米飯を2つ。父は1辛で、娘はゼロ辛。
+米も含めてうまかった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>戻りの道中で果物屋を見つけていたのでデザートにする。
+果物盛り合わせとかき氷プリン付きと、いちごのスムージー。どっちも美味かった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-04T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0403-taiwan/">
+            <title>2025/04/03: 台湾旅行 その3</title>
+        <link>https://www.don.to/diary/2025/0403-taiwan/</link>
+        <description><![CDATA[<p>朝から動物園。
+台湾に来てから知ったのですが、今日から台湾は4連休。どこも激混み。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>朝食を売っている宿周辺の店はどこも休日で閉まってたので、入園して取り急ぎ動物園内のコンビニで朝食。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>めっちゃ広い。ズーラシアより広いと思う。しかも同じ動物が複数箇所にいるので混乱する。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>昆虫館。娘が擬態した昆虫見つけるの異様に早い。才能あるんじゃないか。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>動物エリア続き。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>まだ半分近く残ってるけど、一旦、外に出て猫空ロープウェイに乗る。
+園内バスでロープウェイの駅へ移動。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>せっかくなので足元が透けてるやつにした。
+長距離のロープウェイで角度もかなり急だった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>到着。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>昼飯で<a href="https://www.taipeinavi.com/food/267/">四爺</a>という店へ。
+おしゃれお茶とパイナップルの入った南洋炒飯。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>付近を軽く散歩して戻る。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>動物園に再入園。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>逃げもせずずっと体かいてる鳥。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>トルコアイス。お約束のやりとり。</p>
+
+<p><a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>帰ります。この光景まんまズーラシアだな。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>台北101。チケットその場で買う。17:15頃に17:00-17:30の時間指定チケットを買ったが、激混みでそのまま1時間半並ぶ。
+なんのための時間指定なのか。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>やっと上へ。夕焼け終わってしまった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>歩いて近くの夜市へ。前回美味かった小籠包の店へ行く。ここも30分ぐらい並んだ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/taiwan/A5403/A540318/54001504/">正好鮮肉小籠湯包</a>
+台湾台北市大安區通化街57巷6號
+(+886) 227076005
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>やはり美味い。お代わりして二人で三人前食べた。
+ビールは自分で冷蔵庫から出すスタイル。店内で俺しか飲んでないけど。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>コンビニで台南行き新幹線の往復チケットを印刷する。
+アプリでもデジタル乗車券を発券できそうだったけど、娘のチケットの扱いが少し不安だったので手堅く発券した。
+仕組み的にはチケットのアプリ間転送機能があるようだけど、初めて使うアプリなので勝手が分からず不安。
+台北駅も連休で混んでそうなのでトラブルは避けたい。手数料取られるけど原始的手法でいく。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-04T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0402-taiwan/">
+            <title>2025/04/02: 台湾旅行 その2</title>
+        <link>https://www.don.to/diary/2025/0402-taiwan/</link>
+        <description><![CDATA[<p>朝食は宿のすぐそばで朝から空いている店があったので、そこで肉まん(鮮肉包)を買う。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>台北101の方向にブラブラ散歩するつもりだったが逆方向に歩いてしまう。
+予定を変えて忠考新生駅から東門駅へ移動。</p>
+
+<p>永康街を歩く。
+混んでる蔥抓餅の店があった。蔥抓餅好きの父としては並ばざるを得ない。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/taiwan/A5403/A540307/54000165/">天津葱抓餅</a>
+台湾台北永康街6巷1号
+(+886) 0223222765
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>大安森林公園。
+<a href="https://zh.wikipedia.org/zh-cn/%E7%89%9B%E8%83%8C%E9%B9%AD">牛背鷺</a>なる鳥が大量にいた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>忠孝復興へ戻る。そごうをブラつく。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>宿のそばで昼飯を調達して、部屋に戻って食べる。
+四海木須麵の木須炒麺。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>休憩してから、忠孝復興駅から出ている九份行きのバスに乗る。
+渋滞で1時間半経ってもまだ到着せず。</p>
+
+<p>外を見てたら、ずっと田舎風景だったのに急に都会エリアになる。
+google mapで調べたら瑞芳という駅で、ここまで鉄道で来れることを知る。
+すると、娘が急にお腹が痛いと言い出し、慌ててその次のバス停で降りる。</p>
+
+<p>「コンビニにトイレがあるはず」と娘が言うので、とりあえず方向に瑞芳駅に歩いて戻る。
+最悪、駅にはトイレあるだろうし。
+一つ目のコンビニにはなかったけど、瑞芳駅そばのコンビニの2Fにイートインスペースがあり、そこにトイレがあった。</p>
+
+<p>途中下車したバス停に戻って、同じ番号のバスに乗ろうとしたんだけど、九份行きのバスが大量に発着していることを知り、一番早いバスで九份に到着。
+細い登り道の両側に観光客向けの店が並んでて、江の島みたい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>山の上にある聖明宮。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>芋圓を食べる。ホット、アイス一つずつ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/taiwan/A5403/A540302/54000050/">阿柑姨芋圓</a>
+台湾新北市瑞芳区福住里豎崎路5号
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>夕焼けまで少しブラつく。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>外を見ながら生ビール飲める店があったので入る。</p>
+
+<pre class="address">
+<a href="https://www.jiufenhotel.com/?page_id=243">山海觀茶坊</a>
+新北市瑞芳區基山街150號
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>雲が多くて夕焼けは微妙。
+ランタンがいい具合に点いたので、ブラつきながら下山する。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>バス停で待ってたら、バスが満車の表示で止まりもしないでスルーしていく。
+おそらく一つ手前のバス停で大量乗車しているものと思われる。
+行きで利用した忠孝復興行きのバスで座って帰れる気がしないので、とにかく瑞芳駅に出てそこから鉄道で帰ることに方針変更。</p>
+
+<p>娘が腹痛で途中下車してなかったら、こんな作戦立てられなかったので結果オーライ。</p>
+
+<p>一本スルーしたあと、座って乗車することに成功。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>瑞芳駅到着。奥にあるのが娘を救ったファミマ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ちょうど松山駅行きの列車が来たのでそれに乗る。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>空いてる席に座ろうとしたら、他の乗客に注意される。どうも指定席に座ろうとしたみたい。
+親切な女性が通訳アプリ使いながら説明してくれたところによると、自由席は満席らしいのでデッキで過ごす。
+特急だったようで、二駅で松山駅についた。激混みの九份から最速で帰ってこれた。</p>
+
+<p>台湾で二番目に大きい饒河街觀光夜市へ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>今日はトータルでラッキーだったねえと話しながら帰路につく。</p>
+
+<p>地下鉄に乗って帰るつもりだったが、酔った父は間違えてバス停に向かってしまう。
+ちょうどバスが来る時間だったので引き続きラッキーと思いながら道路を横断すると、方向を間違えていて今いた方のバス停にバスが来て去ってしまった。</p>
+
+<p>次のバスまでは時間があるのでコンビニに寄ってトイレ借りて水買って出たら、眼の前の青信号があと4秒だったので走り出す。
+渡りきったところで娘が正面にすっ転んで、両手のひらを擦りむいた。
+次のバスまでまだ時間があって全然急ぐ必要ないのにやっちまった。</p>
+
+<p>運の総量一定の法則。</p>
+
+<p>バスで忠考新生駅近くで降りる。駅周辺にあるもう一つのそごう。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>今日は盛りだくさんだった。</p>
+]]></description>
+        <dc:date>2025-2025-04T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0401-taiwan/">
+            <title>2025/04/01: 台湾旅行 その1</title>
+        <link>https://www.don.to/diary/2025/0401-taiwan/</link>
+        <description><![CDATA[<p>春休みの娘と台湾旅行。</p>
+
+<p>ジェットスターで成田空港から桃園空港へ。遠い。</p>
+
+<pre class="flight">
+2025/04/01 09:15 NRT - GK13 - TPE 12:10
+2025/04/05 13:10 TPE - GK14 - NRT 17:35
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>西門へ。お約束の麺線。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/taiwan/A5403/A540305/54000023/">阿宗麺線 西門町店</a>
+台湾台北市萬華區峨眉街8之1號
+(+886) 223888808
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>そのまま歩いて龍山寺。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>宿へ移動。今回は<a href="https://www.airbnb.jp/rooms/1315955345191076785">AirBnB</a>。
+忠孝復興駅に近いのでどこ行くのにも便利。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>難点はシャワーでトイレとの仕切りが短いのでシャワー浴びるとビショビショになる。
+ここには3日間宿泊したけど、バスタオルで都度床を拭かないといけないので、全日洗濯機を回した。</p>
+
+<p>排水管が古いのでトイレットペーパーを流すのは禁止でゴミ箱に捨てるルール。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>士林夜市へ。最寄り駅が士林ではなくて、劍潭駅なことをすっかり忘れてて、遠回りした。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>洗濯機難しい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-04T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0328-osaka/">
+            <title>2025/03/28: 大阪</title>
+        <link>https://www.don.to/diary/2025/0328-osaka/</link>
+        <description><![CDATA[<p>所用で大阪へ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/osaka/A2701/A270101/27123992/">立呑み やきとり 大富豪 大阪駅前第2ビル店</a>
+大阪府大阪市北区梅田1-2-2 大阪駅前第2ビル B1F
+</pre>
+
+<p>大阪は安いなあ。鳥刺し盛は500円。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>二軒目。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0326-yokohama/">
+            <title>2025/03/26: みなとみらい</title>
+        <link>https://www.don.to/diary/2025/0326-yokohama/</link>
+        <description><![CDATA[<p>今日も今日とてみなとみらい。</p>
+
+<p>朝飯。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140102/14067913/">Merengue みなとみらい店</a>
+神奈川県横浜市西区みなとみらい4-4-1 横浜野村ビル１F
+050-5593-9994
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ハロワのセミナーに出席。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>志望動機は重要、履歴書の写真はちゃんとしたものを。
+髪型、靴、服装は面接でチェックされるなど、アマゾンのバーレイザーと全く異なる世界線の価値観を聞いている</p>
+
+<p>夜は上京してきたkazuさんと久しぶりに飲む。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1314/A131405/13057683/">台湾キッチン榕城</a>
+東京都品川区北品川2-23-5
+03-3450-0028
+</pre>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0325-yokohama/">
+            <title>2025/03/25: みなとみらい読書</title>
+        <link>https://www.don.to/diary/2025/0325-yokohama/</link>
+        <description><![CDATA[<p>ハンモック張ってみた。</p>
+
+<p>暖かいんですが風が強くて背中が冷えてくるので、16時ぐらいに撤退。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>goozで本読んでたら、facebookの投稿を見つけた前職の同僚が連絡してきて合流。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140104/14008322/">gooz いちょう並木通り店</a>
+神奈川県横浜市中区日本大通15 朝日会館ビル 1F
+045-663-6230
+</pre>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0322-keio/">
+            <title>2025/03/22: 修さん最終講義</title>
+        <link>https://www.don.to/diary/2025/0322-keio/</link>
+        <description><![CDATA[<p>日吉で最終講義</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0321-park/">
+            <title>2025/03/21: 陣ケ下渓谷公園</title>
+        <link>https://www.don.to/diary/2025/0321-park/</link>
+        <description><![CDATA[<p>暖かいので陣ケ下渓谷公園で読書してみた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>川から上がってくる冷気で冷える。
+蚊がまだいないのは助かるんだけど、ベストの気候とベストの場所を探すのは難しい。</p>
+
+<p>昼過ぎに<a href="https://mantennoyu.com/">満天の湯</a>に行って、サウナしてビール。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>餃子食って帰る。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140301/14003956/">横浜とんとん</a>
+神奈川県横浜市保土ケ谷区星川1-15-27
+045-331-8735
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0318-potato/">
+            <title>2025/03/18: じゃがバター</title>
+        <link>https://www.don.to/diary/2025/0318-potato/</link>
+        <description><![CDATA[<p>この<a href="https://mangashokudo.net/entry/blog-entry-729.html">レシピ</a>で作ってみた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ジョンソンヴィルを輪切りにしたけど、シャウエッセンを切らずにいれても良かったかも。</p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0315-kamakura/">
+            <title>2025/03/15: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2025/0315-kamakura/</link>
+        <description><![CDATA[<p>高校の友人が四ヶ月だけ東京に滞在しているので、誘って鎌倉ハイキングへ。</p>
+
+<p>定点観測。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>明王院まで歩いて、昼飯。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1404/A140402/14010501/">峰本 朝比奈店</a>
+神奈川県鎌倉市十二所152
+0467-24-5544
+</pre>
+
+<p>雲水そば。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>さらに朝比奈方面を歩く。十二所展望台。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>大船で一風呂浴びて、まだ16時。飲み開始。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1404/A140401/14067389/">大船ホルモンセンター</a>
+神奈川県鎌倉市大船1-10-7
+0467-84-9665
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>三軒目あたりから記憶が怪しい。レシート見ると、四軒目まで行ったようだが記憶がない。</p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0314-yokohama/">
+            <title>2025/03/14: 横浜</title>
+        <link>https://www.don.to/diary/2025/0314-yokohama/</link>
+        <description><![CDATA[<p>ハロワで初回の失業認定。ハロワ行くのに桜木町からゴンドラ(1500円)に乗るべきか悩む。</p>
+
+<p>失業認定申告書出して数分待って、次回用の申告書渡されて終わり。つまらんシステムや。</p>
+
+<p>さらに相談コーナー行って職務経歴書の書き方のしおりをもらって帰る。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ついでにハンモックポイントを調査。ここ良さそう。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0313-nakasato/">
+            <title>2025/03/13: 越後中里 その4</title>
+        <link>https://www.don.to/diary/2025/0313-nakasato/</link>
+        <description><![CDATA[<p>四日目。中級コースを9本含んで、合計20本ぐらい滑った。
+ジャリジャリの雪でも安定してたので、結構上手くなったんじゃないかなあ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>14時頃にケガ無く終了。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ホテル戻って、コインロッカーから荷物だして、風呂に入ってざっと温まって、レンタルショップにウェアとスノボ道具返しにいって、もう一回風呂に戻って、サウナ2本やって、荷物を宅急便に出して、ホテルの無料送迎バスで越後湯沢にいって、新幹線で帰る。</p>
+
+<p>その足で飲む約束してる目黒に向かう。忙しい。</p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0313-dinner/">
+            <title>2025/03/13: セント</title>
+        <link>https://www.don.to/diary/2025/0313-dinner/</link>
+        <description><![CDATA[<p>4日間頑張ったのでビール！</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1316/A131601/13195534/">BeerPub SCENT</a>
+東京都目黒区目黒1-6-15
+03-6417-0806
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>さらにラーメン食って帰った。台無し。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1316/A131601/13020309/">麺家 黒</a>
+東京都目黒区目黒1-6-12 ワンエム目黒 1F
+03-3490-1196
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0312-nakasato/">
+            <title>2025/03/12: 越後中里 その3</title>
+        <link>https://www.don.to/diary/2025/0312-nakasato/</link>
+        <description><![CDATA[<p>三日目。さすがに眼の前のスキー場は飽きたので、隣の湯沢中里スノーリゾートへ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>リフト乗り継いで、第5リフトに来て、さて中級者コースに挑戦しようかと思ったら、ベルトが切れた。
+滑り出す前でよかった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>切れたのが前部だったので、初級コースをダラダラ降りてきて、バスに乗ってレンタル屋で修理してもらう。</p>
+
+<p>ホテルの部屋で休憩したら、戻って来るのに二時間ぐらい経ってしまい、雪が硬くなったので中級コースは諦める。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>グリルチキンとキムチをつまみにビール一杯だけ飲む。</p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0311-nakasato/">
+            <title>2025/03/11: 越後中里 その2</title>
+        <link>https://www.don.to/diary/2025/0311-nakasato/</link>
+        <description><![CDATA[<p>二日目。今回は朝食のみのプラン。
+ビュッフェなので、朝をメインディッシュにして、夜はプロテインだけ摂取するスタイルでいく。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>食いすぎて眠くなってしまい、開始は11時になった。それでも雪硬い。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>このスキー場は、コースは一本しかないので、ひたすらグルグル回る。
+16時ぐらいに冷え込んで来たので終了。</p>
+
+<p>そのあと、ジムいって、プールいって、サウナ三本やったら、いい時間になったので、プロテインとグリーンスムージー飲んで、酒は飲まずに寝る。</p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0310-nakasato/">
+            <title>2025/03/10: 越後中里 その1</title>
+        <link>https://www.don.to/diary/2025/0310-nakasato/</link>
+        <description><![CDATA[<p>寒波で大雪が続いていたので、滑ろうと越後中里に来てみたんだけど、今日から暖かいのな。
+最近、自分の旅行と天気がことごとく合わない。
+キャンセル期限の一週間前の時点では天気予報が雪やったんや。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>宿は<a href="https://www.angel-g.co.jp/">エンゼルグランディア越後中里</a>。
+前回泊まったのは<a href="https://www.don.to/diary/2014/0113-niigata/">2014年</a>か。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ホテルの眼の前の中里スノーウッドスキー場をスノボを二時間ほど滑る。
+平日なのでとても空いている。コケたら痛そうな雪。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>どらぐらい暖かいかというと、リフトの係員がTシャツ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>スノボのあと、サウナ3本キメた。プールとジムも行くつもりだったけど有料だったので今日はやめ。本日終了！</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>来週になったらまた雪が降るんかーい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0307-kamakura/">
+            <title>2025/03/07: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2025/0307-kamakura/</link>
+        <description><![CDATA[<p>定点観測。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>今日もやまなみコースを追加。
+十二所展望台。八景島方面が見える。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>反対側。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>やや調子悪くて息が切れがちだったけど頑張った。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0307-donto/">
+            <title>2025/03/07: すみかわ日記更新作業他</title>
+        <link>https://www.don.to/diary/2025/0307-donto/</link>
+        <description><![CDATA[<p>忙しくて手をつけられなかった技術的宿題を解消中。</p>
+
+<ul>
+<li>Emacs 30.1がリリースされたがAIによるコード支援を試すためにもいい加減VS Codeに乗り換えた。iPad miniから家のMacにremote tunnelできるようにしたので、旅人しながらコーディングできる。</li>
+<li>30年以上使ってたtcshも今度こそ卒業してzshに変えた。これもAIさんが設定ファイル書き換えてくれたので、移行の敷居が下がった。</li>
+<li>CSS/JSをモダン化して、CoffeeScript/jQuery/Sassに依存しないようにした。半分ぐらいはAI AgentのClineがやってくれた。これでassets pipelineの沼から抜け出せる</li>
+<li>ここ数年のCSSの変化を調べている。flexboxは標準化のタイミングで仕様変わりまくってて再学習中</li>
+<li>Railsも6あたりで知識が止まっているので、8のチュートリアルを始めた。Dockerfileが最初から用意されていて、時代の変化を感じる</li>
+</ul>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0306-sauna/">
+            <title>2025/03/06: 朝サウナ</title>
+        <link>https://www.don.to/diary/2025/0306-sauna/</link>
+        <description><![CDATA[<p>朝サウナから大阪王将でせんべろ。昼過ぎの時点で既に本日終了。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140301/14077089/">大阪王将 天王町駅前店</a>
+神奈川県横浜市保土ヶ谷区岩間町1-7-3 1F
+045-298-6006
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0304-ren/">
+            <title>2025/03/04: 卒業式</title>
+        <link>https://www.don.to/diary/2025/0304-ren/</link>
+        <description><![CDATA[<p>早いもんで蓮の卒業式。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>奥さんと昼飯。刺身定食と昼ビー。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140210/14023870/">生麦</a>
+神奈川県横浜市鶴見区生麦5丁目23-9
+045-501-0467
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>国道駅。横浜市内のJR駅とは思えない景色。無人駅だし、入り口怖いし。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-03T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0228-yokohama/">
+            <title>2025/02/28: ハマ読書</title>
+        <link>https://www.don.to/diary/2025/0228-yokohama/</link>
+        <description><![CDATA[<p>いい読書ポイント見つけた。
+背後が工事現場でやかましいんだけど、そのおかげで人通りが少なくて落ち着く。
+AirPods Pro使ってれば騒音は問題なし。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>眩しいので木陰にヘリノックスを広げた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>太陽がビルに隠れて寒くなってきたので山下公園へ移動。
+ここにハンモック張りてえ。怒られるだろうなあ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0227-niku/">
+            <title>2025/02/27: 焼肉</title>
+        <link>https://www.don.to/diary/2025/0227-niku/</link>
+        <description><![CDATA[<p>元同僚と焼肉。赤身肉推しの店。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1317/A131712/13187268/">焼肉 鳴尾.b</a>
+東京都品川区荏原4-5-17 ライオンズマンション荏原 2F
+03-5749-3329
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-02T00:00:00+09:00</dc:date>
+
+  </item>
+</rdf:RDF>
