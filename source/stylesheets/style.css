@@ -47,6 +47,7 @@ pre {
   background-color: #eeeeee;
   width: 80%;
   margin-left: 20px;
+  white-space: pre-wrap;
 }
 
 pre.terminal {
@@ -56,16 +57,25 @@ pre.terminal {
   color: white;
   background-color: black;
   line-height: normal;
-  font-faminly: Inconsolata;
-  width: 90%;
+   width: 90%;
   border-radius: 10px;
-  white-space: pre-wrap;
+
+  font-family: "Inconsolata", monospace;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+pre.mermaid {
+  background-color: transparent;
 }
 
 code {
   display: inline-block;
   padding: 0.1em 0.25em;
-  font-faminly: Inconsolata;
+  font-family: "Inconsolata", monospace;
   color: #444;
   background-color: #e7edf3;
   border-radius: 3px;
@@ -247,7 +257,9 @@ span.fontsizeplusplus { font-size: xx-large; }
   }
 
   pre.flight {
-    margin-left: var(--pre-margin-left);
+    margin: 10px;
+    padding: 10px 10px 10px 15px;
+    border-radius: 10px;
     background-color: rgba(196,255,196,0.3);
   }
 
@@ -287,7 +299,6 @@ span.fontsizeplusplus { font-size: xx-large; }
     border-right: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: -1px 2px 2px rgba(0, 0, 0, 0.2);
-    white-space: pre-wrap;
   }
 
   /* Media Queries for adapting to various screen widths */
