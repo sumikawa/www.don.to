@@ -6,7 +6,7 @@ notitle: "no title"
 imagerootdir: "~/Dropbox/images"
 cacherootdir: "~/Dropbox/.cache"
 heights:
- - 600
+ - 1200
 thumbext: 'jpg'
 thumbheight: 96
 videoext: 'mp4'
