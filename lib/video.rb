@@ -69,7 +69,7 @@ class Video
     end
 
     def cmd_opts(opts:, acodec:, vcodec:)
-      "#{opts[:rotate_opt]} -g 120 -vcodec libx264 -s #{opts[:pixel]} -bt 1024k -acodec #{acodec} -ar 32000 -ac 1 -ab 48k -movflags faststart #{opts[:ext_opt]} -f #{vcodec}"
+      "#{opts[:rotate_opt]} -g 120 -vcodec libx264 -s #{opts[:pixel]} -bt 1536k -acodec #{acodec} -ar 32000 -ac 1 -ab 48k -movflags faststart #{opts[:ext_opt]} -f #{vcodec}"
     end
 
     def probe(src)
