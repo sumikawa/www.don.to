@@ -1,7 +1,7 @@
 all::
-	op run --env-file="${HOME}/.env" -- python3 ./gen_image.py
+	python3 ./gen_image.py
 year::
-	op run --env-file="${HOME}/.env" -- python3 ./gen_image.py 2025
+	python3 ./gen_image.py 2025
 
 auth::
-	op run --env-file="${HOME}/.env" -- python3 ./auth.py
+	python3 ./auth.py

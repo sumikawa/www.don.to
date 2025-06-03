@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
 
 import glob, os, re, sys
+from os.path import join, dirname
 import mimetypes
 import dropbox
 import pprint
 import hashlib
 import yaml
+from dotenv import load_dotenv
+
+load_dotenv(verbose=True)
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
 
 APP_KEY = os.environ["DROPBOX_APP_KEY"]
 APP_SECRET = os.environ["DROPBOX_APP_SECRET"]
