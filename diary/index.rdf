@@ -1,0 +1,1476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns="http://purl.org/rss/1.0/">
+  <channel rdf:about="https://www.don.to/diary/">
+    <title>すみかわ日記</title>
+    <description>子供ネタ7割、食い物2割、技術1割</description>
+    <link>https://www.don.to/diary/</link>
+    <items>
+      <rdf:Seq>
+          <rdf:li resource="2025/0606-mm/"/>
+          <rdf:li resource="2025/0605-dinner/"/>
+          <rdf:li resource="2025/0602-mm/"/>
+          <rdf:li resource="2025/0601-kamakura/"/>
+          <rdf:li resource="2025/0529-shoes/"/>
+          <rdf:li resource="2025/0528-shibuya/"/>
+          <rdf:li resource="2025/0527-kamakura/"/>
+          <rdf:li resource="2025/0526-tamati/"/>
+          <rdf:li resource="2025/0525-fruit/"/>
+          <rdf:li resource="2025/0524-miyako/"/>
+          <rdf:li resource="2025/0523-miyako/"/>
+          <rdf:li resource="2025/0522-miyako/"/>
+          <rdf:li resource="2025/0521-miyako/"/>
+          <rdf:li resource="2025/0520-miyako/"/>
+          <rdf:li resource="2025/0519-miyako/"/>
+          <rdf:li resource="2025/0518-miyako/"/>
+          <rdf:li resource="2025/0517-miyako/"/>
+          <rdf:li resource="2025/0516-miyako/"/>
+          <rdf:li resource="2025/0515-miyako/"/>
+          <rdf:li resource="2025/0514-miyako/"/>
+          <rdf:li resource="2025/0513-miyako/"/>
+          <rdf:li resource="2025/0512-miyako/"/>
+          <rdf:li resource="2025/0509-mm/"/>
+          <rdf:li resource="2025/0507-park/"/>
+          <rdf:li resource="2025/0503-yokohama/"/>
+          <rdf:li resource="2025/0502-dinner/"/>
+          <rdf:li resource="2025/0501-kyushu/"/>
+          <rdf:li resource="2025/0430-kyushu/"/>
+          <rdf:li resource="2025/0429-kyushu/"/>
+          <rdf:li resource="2025/0428-kyushu/"/>
+      </rdf:Seq>
+    </items>
+  </channel>
+  <item rdf:about="2025/0606-mm/">
+            <title>2025/06/06: ハロワ</title>
+        <link>https://www.don.to/diary/2025/0606-mm/</link>
+        <description><![CDATA[<p>ハロワ定例出頭日。</p>
+
+<p>ハロワと同じビルにあるコンビニのアルコールが充実している事に気づく。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-06T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0605-dinner/">
+            <title>2025/06/05: OB飲み</title>
+        <link>https://www.don.to/diary/2025/0605-dinner/</link>
+        <description><![CDATA[<p>AWSのOBで飲む。</p>
+
+<p>0次会。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1303/A130302/13236001/">クラフトビアバル IBREW 恵比寿駅前店</a>
+東京都渋谷区恵比寿南1-8-1 STM恵比寿ビル B2F
+050-5597-8505
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>1次会。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1303/A130302/13107302/">ブロッ＆コリー</a>
+東京都渋谷区恵比寿西1-10-16 ウェストパークビル 2F
+03-3476-0613
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>2次会。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1303/A130302/13301479/">餃子専門 八宝亭 恵比寿店</a>
+東京都渋谷区恵比寿南2-1-12 サトウビル 1F
+050-5594-5452
+</pre>
+]]></description>
+        <dc:date>2025-2025-06T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0602-mm/">
+            <title>2025/06/02: ハロワ</title>
+        <link>https://www.don.to/diary/2025/0602-mm/</link>
+        <description><![CDATA[<p>ハロワの2階にゆったりしたテラス席があるのを発見。もちろんガラガラ。</p>
+
+<p>今日は気候がちょうどいいし、せっかくだから活用せんとね。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-06T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0601-kamakura/">
+            <title>2025/06/01: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2025/0601-kamakura/</link>
+        <description><![CDATA[<p>しまった、紫陽花の時期なので、今日は激混みデーだ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>定点観測。
+昨日の雨の影響で足元がぬかるんでいる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>いつものルーチーン。
+大船行って、サウナからの記憶をなくすメガハイボール！</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1404/A140401/14076735/">もつしげ 大船店</a>
+神奈川県鎌倉市大船1-10-7
+0467-81-3548
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>締めは豚山。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-06T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0529-shoes/">
+            <title>2025/05/29: 旅の靴購入</title>
+        <link>https://www.don.to/diary/2025/0529-shoes/</link>
+        <description><![CDATA[<p>旅で使える水陸両用で乾きやすい靴を探してたんだけど、ワークマンに理想的なやつあった
+しかも安い。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0528-shibuya/">
+            <title>2025/05/28: 渋谷でシュラスコ</title>
+        <link>https://www.don.to/diary/2025/0528-shibuya/</link>
+        <description><![CDATA[<p>前職の同僚の送別会に呼んでいただいので参加。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1303/A130301/13161792/">バルバッコア 渋谷店</a>
+東京都渋谷区宇田川町20-15 ヒューマックスパビリオン渋谷公園通り 7F
+050-1807-6960
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>二軒目は三人でパブに行って始発まで飲む。</p>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0527-kamakura/">
+            <title>2025/05/27: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2025/0527-kamakura/</link>
+        <description><![CDATA[<p>定点観測。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>上裸、短パン、裸足の外国人とすれ違う。天狗か。</p>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0526-tamati/">
+            <title>2025/05/26: 大連</title>
+        <link>https://www.don.to/diary/2025/0526-tamati/</link>
+        <description><![CDATA[<p>アラクサラOB三人で同窓会。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1314/A131402/13004557/">中国家庭料理大連</a>
+東京都港区芝5-15-3 大連ビル
+03-5443-0488
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0525-fruit/">
+            <title>2025/05/25: ミズレモン</title>
+        <link>https://www.don.to/diary/2025/0525-fruit/</link>
+        <description><![CDATA[<p>宮古島のお土産に食べたことのないミズレモン買ってみた。</p>
+
+<p>半分に切って、身を種ごと食べる。
+あんまりおいしくなかった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0524-miyako/">
+            <title>2025/05/24: 宮古島キャンプ再挑戦 その13</title>
+        <link>https://www.don.to/diary/2025/0524-miyako/</link>
+        <description><![CDATA[<p>朝、海岸に行ったらデカ目の魚が一杯いた。</p>
+
+<p><a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>フライトまでまだ時間あるので、メロンパフェ食べに来た。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47029131/">Blue Turtle Farm Mango Cafe</a>
+沖縄県宮古島市平良松原1760-3
+0980-79-7274
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>空港のA&amp;W。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>帰りますよー。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>飛行機に乗る直前にヤマト運輸から連絡があって、発送したキャンプ道具に入っていたガスバーナーがX線で引っかかって、船便になったとのこと。
+到着まで最大10日ぐらいかかるらしい。
+ガスボンベは入れてないのになんで引っかかるんだ。まあ、行きにくらわなくて良かった</p>
+
+<h4>Lesson Learned</h4>
+
+<ul>
+<li>ガスバーナーはハンドキャリーすること</li>
+<li>水着兼用の短パンがもう一つ必要</li>
+<li>ユニクロのストレッチドライEXショーツが全然乾かない。もっと乾きやすい短パンを探す</li>
+<li>サンダルも乾かなくて臭くなった。乾きやすいサンダルを探す</li>
+</ul>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0523-miyako/">
+            <title>2025/05/23: 宮古島キャンプ再挑戦 その12</title>
+        <link>https://www.don.to/diary/2025/0523-miyako/</link>
+        <description><![CDATA[<p>夜の雨で濡れたテント外を乾かしながら撤収開始。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>テントに大量の翅がくっついていた。羽アリらしい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>荷物を発送して、朝ご飯。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47026775/">Coffee Barista</a>
+沖縄県宮古島市平良字西里840-2
+0980-79-7866
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>天然温泉にいく。バスでうえのドイツ村。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>そこから自転車で、<a href="https://shigira.com/onsen">シギラ黄金温泉</a>へ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>夜は前職の同僚がちょうど宮古島に来ているので一緒に飲む。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47001059/">ぽうちゃたつや</a>
+沖縄県宮古島市平良字西里275
+0980-73-3931
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>同僚は明日の早朝からダイビングなので早めに解散。一人で二次会へ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47030333/">島おでん ゑびす</a>
+沖縄県宮古島市平良西里259-2
+050-1287-3437
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0522-miyako/">
+            <title>2025/05/22: 宮古島キャンプ再挑戦 その11</title>
+        <link>https://www.don.to/diary/2025/0522-miyako/</link>
+        <description><![CDATA[<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>海岸沿いをブラつく。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>海側にも禁足地あった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>鶏肉とピーマンの味噌炒め。水分が大量に出たのでむしろ味噌煮。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>キャンプ最終夜に初めての雨。撤収面倒だからやめてよー</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0521-miyako/">
+            <title>2025/05/21: 宮古島キャンプ再挑戦 その10</title>
+        <link>https://www.don.to/diary/2025/0521-miyako/</link>
+        <description><![CDATA[<p>にいまそば二回目。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47028426/">にいまそば</a>
+沖縄県宮古島市平良狩俣3
+</pre>
+
+<p>細麺のなんこつそば。細麺の方が好み。じゅーしーがめっちゃ美味かった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>昨日キャンプ場にふらっと来たオーナーの姪が来て、手作りドーナツの差し入れをもらった。おいしい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>日曜日から一度もキャンプ場のオーナーに会えてない。延泊料金(8泊分)踏み倒しまで後二日！</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>夕方海に入ると、お湯。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>デカめのヤドカリがいた。</p>
+
+<p><a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>眼の前の島バナナの木、よくみたら実がなってた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0520-miyako/">
+            <title>2025/05/20: 宮古島キャンプ再挑戦 その9</title>
+        <link>https://www.don.to/diary/2025/0520-miyako/</link>
+        <description><![CDATA[<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>昼はパーントゥ焼きそば。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47025111/">パーントゥ食堂</a>
+沖縄県宮古島市平良字島尻1462
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>今日も焚き火で、火遊び晩酌。</p>
+
+<p>キャンプ場にふらっと来た女の人と話をする。オーナーの姪とのこと。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>19:00ぐらいにキャンプ場に車で乗り付けて、沖の方に1kmぐらい歩いていく二人組がいた。夜釣りかしらね。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0519-miyako/">
+            <title>2025/05/19: 宮古島キャンプ再挑戦 その8</title>
+        <link>https://www.don.to/diary/2025/0519-miyako/</link>
+        <description><![CDATA[<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>昼は、にいまそば。二月の宮古島に来たときに、コーヒーショップで店員さんと話してて、狩俣のキャンプ場に泊まってると言ったら、近くに一番うまい宮古そばの店があるとのこと。今回はヘビロテする気まんまんで初日にいったら「当面の間臨時休業」の看板。
+この話をキャンプ場のオーナーにしたら、「日曜から空いてるよ」とのことなので来た。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47028426/">にいまそば</a>
+沖縄県宮古島市平良狩俣3
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>予約必須の店で、8:30から予約開始なんだけど、8:50の時点で予約簿はこんな感じ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>なぜ、当面臨時休業になったのかキャンプ場のオーナーが知ってた(プレイベート情報なので略)。
+「駐車場は俺がユンボで作った」とのこと</p>
+
+<p>11:00に戻ってきて、ちぢれ麺の三枚肉。優しい味でした。今週もう一度行く。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>暑いのでもう一回ビール飲みに行く。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47028723/">IslandBrewing</a>
+沖縄県宮古島市平良下里615-1
+0980-79-7156
+</pre>
+
+<p>とりあえずのオリオン、島野菜のバーニャカウダと、バッファローウィング。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>Wolf Breu (首里)のAlt。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>Johnny UtahのPale Ale。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0518-miyako/">
+            <title>2025/05/18: 宮古島キャンプ再挑戦 その7</title>
+        <link>https://www.don.to/diary/2025/0518-miyako/</link>
+        <description><![CDATA[<p>朝焼け見ながら30分ほど竿を出したが、さっぱり。
+一匹跳ねてる魚はいた</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>この旅で最も不要だったもの。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>「宮古そば食べに行こう」とキャンプ場のオーナーに連れられて昭和のゲーム喫茶へ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47008234/">とすと</a>
+沖縄県宮古島市平良字西里1327-3
+0980-75-4385
+</pre>
+
+<p>ドアは黒塗りで中は見えない。店内はやたら広くて、全てのテーブル席に間仕切りがある。テーブル筐体は稼働してた。タバコ臭い。そばは普通にうまいし量が二郎。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>チェックアウトから三日経っているが延泊料金はまだ払っていない。「いつでもいいよ」と言われて払うタイミングない。</p>
+
+<p>狩俣集落を探索した。宮古島中央部とは異なる独自のコミュニティで言語も違ってたらしい。石の門と石垣で集落を囲っていた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>禁足地あり。たぶん<a href="https://maps.app.goo.gl/9BqABRDbrszV6P2Z8">この空間</a>。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>狩俣集落の情報は<a href="https://www.city.miyakojima.lg.jp/soshiki/kyouiku/syougaigakusyu/hakubutsukan/files/kiyou09-2.pdf">このpdf</a>にまとまっていた。俺、今たぶん内地で一番狩俣集落に詳しい。</p>
+
+<p>ンナグズグスなる崖下の水場の話を、キャンプ場のオーナーが2回も話すので見に行く。
+足音を聞いて、鳥が逃げてくんだけど、ドタバタ大きな音を立ててドンクサそうに逃げていく。姿は見えないけど、どうも野生のクジャクらしい</p>
+
+<p>これが最後の看板で、この後草木ボウボウの道なき道を進むんだけど、目的地が見つからない。おかしいなあと炎天下をそのまま延々と歩いてたら、キャンプ場のすぐそばの道路に出る。
+以上をオーナーに報告したら、「だよなあ、俺6回ぐらい行ったけど、全然見つけられないもん」
+そういうこと先に言おうや！</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>一休みして2回目の挑戦。たぶんこの下だと思うけど、木が邪魔してて降りれない。集落の人たち、看板立てて名所にしたいんなら整備してくれ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>遠見の石。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>二日ぶり完ソロ記念焼肉。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0517-miyako/">
+            <title>2025/05/17: 宮古島キャンプ再挑戦 その6</title>
+        <link>https://www.don.to/diary/2025/0517-miyako/</link>
+        <description><![CDATA[<p>毎日、夜明け前に起きてます。めっちゃ健康的。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>蚊取り線香が切れた。死活問題なので町に出る。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47000106/">古謝そば屋</a>
+沖縄県宮古島市平良字下里1517-1
+0980-72-8304
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>穴釣りポイントが全然ないので、ついでにルアーもゲット。何の釣りすればいいのか正解がわからんけど。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>干潮時にウロウロしてたら、生き物一杯いた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>生き餌ゲット。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>今日も暑かった。頼むからもうちょっと風吹いてくれ。</p>
+
+<p>ジーマミー豆腐がもっちりしてて美味い。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>分かりづらいけど、小さく聞こえるこの安い電子音の木魚の正体が分からない。一晩中鳴いててうるさい。慣れたけど</p>
+
+<p><a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ChatGPTに相談したら、シロハラクイナと教えてくれた。</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tCM3x49B5kc?si=U9pKUkO1xiLSeRne" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0516-miyako/">
+            <title>2025/05/16: 宮古島キャンプ再挑戦 その5</title>
+        <link>https://www.don.to/diary/2025/0516-miyako/</link>
+        <description><![CDATA[<p>昨夜ははぼ無風。テント全開して、寝袋無しで寝た。それでも寝汗かいた。日焼けで体が火照っているというのもあり。
+オーナーによるともう梅雨の時期なのにこれだけ晴れが続くのは珍しいらしい</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>朝飯。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>晴れてれば5000mAhのモバイルバッテリーを満充電できた。これで生きていける。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>西平安名崎で釣りしてみる。ここも小魚に突かれて終わり。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ちゃんと泳げる深さの西の浜ビーチに来た。雪塩の直売所の横。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ガーリックチキンをテイクアウト。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47028463/">ガーリックチキンチキチキ</a>
+沖縄県宮古島市平良狩俣4451-4
+0980-79-7870
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ガーリックチキンと宮古島産カツオ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>パパイヤターイム。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>今日こそヤシガニを撮影してやろうと身構えてるんだけど、物音すれど姿が見えず。
+結局、最終日まで撮影できず。</p>
+
+<p>星空を見てると海沿いなのにたまにホタルっぽいやつが飛んでる。ミヤコマドボタルという陸ボタルらしい。</p>
+
+<p>今夜は2組泊まりに来てた。</p>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0515-miyako/">
+            <title>2025/05/15: 宮古島キャンプ再挑戦 その4</title>
+        <link>https://www.don.to/diary/2025/0515-miyako/</link>
+        <description><![CDATA[<p>昨夜は微風のため寝苦しくて何度も目が覚める。寝袋なしで寝たけどそれでも暑くて、最後はテントの入り口開けた。温度調整難しい。</p>
+
+<p>キャンプ場の眼の前と浜は遠浅で魚があまり寄ってこないので、夜明けに島尻漁港に釣りに来てみた。
+小魚にエサを突かれるけど釣れず。難しい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>最寄りのスーパーで朝飯買ってキャンプ場に戻る。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>キャンプ場に誰もおらんので洗濯機が使えない。しょうがないので14km離れたコインランドリーへ自転車で向かう、道中の農園の無人販売でパパイヤ売ってた。
+氷をゲットしたタイミングで冷やして食べよう。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>その足で電源のあるビール屋さんへ。充電しながら地ビール。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47028723/">IslandBrewing</a>
+沖縄県宮古島市平良下里615-1
+0980-79-7156
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>シークワーサーセゾン。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>沖縄ソーキのスモークBBQ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>マンゴーIPA。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>クラフトビールお高めだけど、オリオンは安かった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>アイランド・ナチョス。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>最終のバスで戻る。完ソロ三日目。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>毎夜毎夜テントの周囲をガサガサと人が歩く音がするなと思ったらヤシガニだった。
+ハンモックにいたら至近距離で足音すれど姿が見えず。足元を見たらヤシガニがいた。</p>
+
+<p>姿見えたら見えたであのフォルムと色が怖いし。ツメで挟まれたらヤバいし。</p>
+
+<p>素早く逃げられてまた写真撮れなかった。
+ソフトボールぐらいのサイズだった。</p>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0514-miyako/">
+            <title>2025/05/14: 宮古島キャンプ再挑戦 その3</title>
+        <link>https://www.don.to/diary/2025/0514-miyako/</link>
+        <description><![CDATA[<p>日の出を撮影。
+半袖で寝れた。二月はヒートテックとダウンジャケットを着ても、寝袋から腕も出せないぐらい寒かったのに。
+たった三ヶ月で真冬から真夏になった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>足りない物を補充するために、自転車で町に出る。
+とりあえずジョイフルで朝食。</p>
+
+<p><a href="https://tabelog.com/okinawa/A4705/A470503/47004639/">ジョイフル 宮古店</a>
+沖縄県宮古島市平良605
+0980-74-2205
+</pre></p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>釣り道具一式買ってきた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>おやつはスイカ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>今回持ってきた大活躍のガスバーナー。これのせいで、今回の旅では二回しか焚き火をしなかった。
+便利すぎる。お湯がすぐに沸くのよ！</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>今日も誰もいねえ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>何の千切り？と思ったら、裏に書いてあった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>晩飯はソーセージ入焼きそば。こういうのでいいのよ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>例年なら梅雨が始まってるらしいけど、全日晴れの予報！</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0513-miyako/">
+            <title>2025/05/13: 宮古島キャンプ再挑戦 その2</title>
+        <link>https://www.don.to/diary/2025/0513-miyako/</link>
+        <description><![CDATA[<p>ヤマトの営業所でキャンプ道具を受け取って、バスで狩俣へ。</p>
+
+<p>バスの運転手にキャンプ場に行くって言ったら、いつも誰もおらんけど、あそこやってるの？って言われた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>前回の宮古島でカフェの店員さんが一押ししてた、にいまそばへ行ったけど、当面休みだった。
+キャンプ場から近いのでヘビロテする気まんまんだったのに。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>もう夏だった。想定したキャンプがやれる。蝉も鳴いてる</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ここをキャンプ地とする。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>大潮で、干潮の時間なので、遠浅の浜をどこまでも歩いていける。ナマコがごろごろ転がってる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>近所のスーパーで、お惣菜買ってきて昼飲み。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>夜は袋ラーメン。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>こんなにいい天気なのに誰もいない。完ソロ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>うみねこの鳴き声が猫そのまんま。</p>
+
+<p><a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>きれいな満月。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>真っ暗な道を自転車で走ってたら、路上にデカいヤシガニがいてビビる。
+トイレで急いでいたので写真はなし。戻って来たらもういなかった。</p>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0512-miyako/">
+            <title>2025/05/12: 宮古島キャンプ再挑戦 その1</title>
+        <link>https://www.don.to/diary/2025/0512-miyako/</link>
+        <description><![CDATA[<p>前回のキャンプ旅は寒すぎたので宮古島再挑戦。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>今回は、事前に宅急便でキャンプ道具をヤマト営業所に発送してみたので、身軽。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>前回うまかったので、空港そばのマンゴー屋さんへ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47029131/">Blue Turtle Farm Mango Cafe</a>
+沖縄県宮古島市平良松原1760-3
+0980-79-7274
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="https://hpdsp.jp/horinoyado/">今回の宿</a>。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>とりあえず海。最寄りのスーパーにビール買いに行ったら、18時の時点で店やりながら酒盛りしてた。さすがやで。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>晩ごはん。開店直後は満席だったけど、観光地のお約束で20時頃にいけば空いてる。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47030333/">島おでん ゑびす</a>
+沖縄県宮古島市平良西里259-2
+050-1287-3437
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>島おでん。デカいテビチが2つも入ってる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>いかげそ墨炒め。さらに麺を追加。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0509-mm/">
+            <title>2025/05/09: みなとみらい</title>
+        <link>https://www.don.to/diary/2025/0509-mm/</link>
+        <description><![CDATA[<p>ハロワ認定日。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ハンモックポイントで読書。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0507-park/">
+            <title>2025/05/07: 陣ケ下渓谷公園</title>
+        <link>https://www.don.to/diary/2025/0507-park/</link>
+        <description><![CDATA[<p>陣ケ下渓谷公園でハンモックを張る。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>その後、満点の湯でサウナをキメる。</p>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0503-yokohama/">
+            <title>2025/05/03: ハマぶら</title>
+        <link>https://www.don.to/diary/2025/0503-yokohama/</link>
+        <description><![CDATA[<p>娘さんと横浜駅から山下公園まで歩く。</p>
+
+<p>日産本社のスタバ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>テスラのショールームがあったので覗く。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>大桟橋付近では<a href="https://yiff.jp/">映画のイベント</a>やってた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>山下公園。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0502-dinner/">
+            <title>2025/05/02: 蓮くん誕生日</title>
+        <link>https://www.don.to/diary/2025/0502-dinner/</link>
+        <description><![CDATA[<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140102/14085861/">Gastronomia Heritage Yokohama</a>
+神奈川県横浜市西区平沼1-37-15 モンテベルデ第2横浜 102
+050-5890-7724
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0501-kyushu/">
+            <title>2025/05/01: 九州旅行 その12 (フェリー)</title>
+        <link>https://www.don.to/diary/2025/0501-kyushu/</link>
+        <description><![CDATA[<p>朝。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>逆区間の便とすれ違う。</p>
+
+<p><a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>サウナを三本キメたあと、船上BBQ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>船内図。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>横須賀到着。サウナやBBQがあるので、結構時間が潰れます。21時間あっという間だった。
+ローシーズンなら12,000円だし、北九州で飲んでから帰ってこれるし、戻りの移動手段として全然ありだと思う。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>横須賀と言っても京急の中央横須賀駅なので家に帰るのはちと遠い。
+九州を堪能した！</p>
+
+<p>また来て、想像以上に広かった南鹿児島を自転車で巡りたい。</p>
+]]></description>
+        <dc:date>2025-2025-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0430-kyushu/">
+            <title>2025/04/30: 九州旅行 その11 (北九州)</title>
+        <link>https://www.don.to/diary/2025/0430-kyushu/</link>
+        <description><![CDATA[<p>バスで別府に向かい、別府から日豊本線で宇佐へ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>駅を降りたらそこはアメリカだった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="http://www.usajinguu.com/">宇佐神社</a>。八幡宮の総本社。全ての八幡宮の産みの親。八幡宮を愛し八幡宮に愛された八幡宮。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>下宮へ。三神が祀られている。後で気づいたけど、さきに上宮に行くべきっぽい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>若宮神社。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>上宮。こっちも三神。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>亀山神社。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>広い、神社だらけ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>八坂神社。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>国東半島には大量の神社があるようだ。歩いて回っても面白いかも。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>流鏑馬の道を歩く。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>宇佐神宮の外へ。次のバスまでまだ時間があるので、山の中の神社に行ってみる。
+宇佐神宮と同様に二拝四拍二拝するべきかどうか悩む。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>出発時刻が列車より早いバスで中津へ向かう。結構遅れて来た上に到着もさらに遅れた。列車の方が先に着いたかも。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>福澤諭吉先生の<a href="https://fukuzawakyukyo.com/">旧居</a>へ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>中津城はリニューアル(?)のため休館で入れず。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>小倉へ移動。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>九州最後の夜。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/fukuoka/A4004/A400401/40001071/">味楽</a>
+福岡県北九州市小倉北区京町1-6-28
+050-5595-5384
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>駅のホームでかしわうどん。そのまま、ホームに来た列車に乗る。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>門司駅到着。フェリーにはまだ時間があるので、本当は門司港駅近辺を散策するつもりだったんだけど、門司駅と門司港駅という異なる二つの駅があることに気づいておらず、同じ駅だと思い込んでた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>今から門司港駅に向かうのは時間的に微妙なので門司駅周辺をブラつくが何もねえ。
+軽く飲めそうな良さげな飲み屋も無し。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ようやくバスが来て、新門司港のフェリー乗り場へ移動。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>これから<a href="https://tqf.co.jp/">東京九州フェリー</a>で横須賀に向かいます。21時間の船旅。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>乗船。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>部屋は一番安いツーリストA。レギュラーシーズンなので18,000円。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>出航まで時間があるので、急いで風呂に入る。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>出航。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-04T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0429-kyushu/">
+            <title>2025/04/29: 九州旅行 その10 (別府)</title>
+        <link>https://www.don.to/diary/2025/0429-kyushu/</link>
+        <description><![CDATA[<p>鉄輪に行って<a href="https://www.beppu-jigoku.com/">地獄めぐり</a>。共通観覧券を買うと、「各地獄の入口にある受付」にそれぞれの券を入れろと言われる。何そのパワーワード。</p>
+
+<p>まずはかまど地獄。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>鬼山地獄。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>昼飯、だんご汁。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/oita/A4402/A440202/44000227/">湯沢家</a>
+大分県別府市鉄輪御幸5-1
+0977-66-6440
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>白池地獄。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ぶらぶら山を登って温泉神社へ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>つまり他の地獄ならオッケー。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>海地獄。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>鬼石坊主地獄。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>歩いて離れた残りの地獄へ向かう。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>龍巻地獄。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>待ち構えてたらちょうど噴出が始まった。</p>
+
+<p><a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>血の池地獄。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="https://travel.rakuten.co.jp/HOTEL/160771/160771.html">今日の宿</a></p>
+
+<p>古い別館を予約してたんだけど、空いているのか本館に回される。
+しかも一階の玄関に近い部屋なので、冷蔵庫で冷やしたビールを持ち出せるので、この後の地獄蒸しに便利。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>調味料を確認して、スーパーに行って食材を調達する。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>地獄蒸し開始。食材ごとの最適な蒸し時間が書いてあるんだけど、受付の人は全部ぶち込んじゃって20分待てと言われる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>すぐそばに唐揚げ屋さんがあった。注文してから揚げるのでアツアツ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>宴の開始。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>風が強いため、しばらくしたら寒くなってきたので部屋に移動して二次会。</p>
+
+<p>明日は朝から別行動のため、そのまま解散。</p>
+]]></description>
+        <dc:date>2025-2025-04T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0428-kyushu/">
+            <title>2025/04/28: 九州旅行 その9 (宮崎->別府)</title>
+        <link>https://www.don.to/diary/2025/0428-kyushu/</link>
+        <description><![CDATA[<p>朝から結構な雨。7:15にカーシェア借りて<a href="https://takachiho-kanko.info/">高千穂峡</a>へ。
+GWに突入したので、貸しボートの予約が埋まりまくり。何度か試したら8:30の枠でキャンセルが出たので慌てて予約した。</p>
+
+<p>8:15ぐらいに到着。第二駐車場に回されたので、徒歩へ貸しボート乗り場へ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>道がわからなくてちょっと遅れたけど問題なさそう。ボートに乗り始めてから30分カウントするそうだけど、実際はかなり適当。まあ、30分も乗れば充分。雨が降っててiPhoneのタッチ効きづらい。さらに後ろ向きに漕ぎながらの撮影なので忙しい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="https://www.kanko-miyazaki.jp/spot/1032">高千穂神社</a>。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="https://www.kanko-miyazaki.jp/spot/1013">天岩戸神社</a>。
+天岩戸は撮影禁止。自由には行けなくて、無料ガイドについていくと入れてもらえる。神社に着いたらちょうどツアー開始時間だった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>帰り道にクロネコヤマトがあったので、もうこの旅では使わない登山道具を家に発送する。
+妻はマンゴーが送られてきたと勘違いしたらしい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>にちりん10号で大分へ。さらに乗り換えて別府へ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>別府で前職の同僚と合流。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="https://travel.rakuten.co.jp/HOTEL/30130/30130.html">今日の宿</a>。
+せっかくの別府なので、ちょっと奮発して海沿い露天風呂ありにしたら、いい部屋でビビる。カプセルホテルの20倍ぐらい広い。
+同僚は温泉に興味がないので別の宿に宿泊。別府まで来てもったいない。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>露天風呂を堪能したあと、もう一度来たかった店へ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/oita/A4402/A440202/44000327/">チョロ松</a>
+大分県別府市北浜1-4
+050-5594-6232
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>二軒目。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/oita/A4402/A440202/44000332/">ろばた仁</a>
+大分県別府市北浜1丁目15-7
+0977-21-1768
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-04T00:00:00+09:00</dc:date>
+
+  </item>
+</rdf:RDF>
