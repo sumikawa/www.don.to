@@ -1,5 +1,20 @@
 ---
-draft: true
-title: 
+title: 旅先日記環境改善
 ---
+[osxphotos](https://github.com/RhetTbull/osxphotos)というスクリプトを見つけた。
+iCloud経由でファイル名を保持しつつ写真を吸い出せるので、iPhoneをMacに有線接続してイメージキャプチャアプリを使う必要がなくなった。
+
+ただし、権限認証の関係でリモートsshからだとエラーになってしまう。
+Mac OSXはpythonに対してpermanent permissionを付与することができないので、スクリプトをwrapするAutomator Appを[この手順](https://github.com/RhetTbull/osxphotos/discussions/1080#discussioncomment-8561339)で作成する必要あり。
+
+これで、旅先からiPhone + iPad miniで日記更新できるようになった。
+
 <%= image "img_2457" %>
+
+#### 現在の作業手順
+
+- iPhoneで写真撮影して、iCloudにアップロード
+- iPad miniで写真整理や加工
+- iPad mini + 外付けキーボードで、家のMacにsshログイン
+- 上記スクリプトで画像を日単位でまとめたフォルダに吸い出して、Dropboxに置いて、写真ごとにPublic URLを発行する
+- LiquidLogicで日記を書いて、GitHubにcommit。GitHub Actions経由でGitHub pagesを更新
