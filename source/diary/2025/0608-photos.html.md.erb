@@ -11,10 +11,11 @@ Mac OSXはpythonに対してpermanent permissionを付与することができ�
 
 <%= image "img_2457" %>
 
-#### 現在の作業手順
+#### 現在の日記更新作業手順
 
 - iPhoneで写真撮影して、iCloudにアップロード
-- iPad miniで写真整理や加工
+- iPad miniで不要な写真を消したり、回転させたりの写真整理
 - iPad mini + 外付けキーボードで、家のMacにsshログイン
-- 上記スクリプトで画像を日単位でまとめたフォルダに吸い出して、Dropboxに置いて、写真ごとにPublic URLを発行する
-- LiquidLogicで日記を書いて、GitHubにcommit。GitHub Actions経由でGitHub pagesを更新
+- 上記osxphotosスクリプトで画像を日単位でまとめたフォルダに吸い出して、Dropboxに置き、写真ごとにPublic URLを発行する
+- LiquidLogicで日記を書いて、Dropbox経由でMac側に同期
+- ssh経由で家のMacからGitHubにcommit。GitHub Actions経由でGitHub pagesを更新
