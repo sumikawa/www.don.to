@@ -4,6 +4,9 @@ ifndef SSH_CLIENT
 endif
 	bundle exec middleman server --instrument --bind-address=0.0.0.0
 
+year::
+	(cd data ; make year)
+
 build::
 	bundle exec middleman build --verbose
 
