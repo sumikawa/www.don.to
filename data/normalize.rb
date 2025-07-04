@@ -18,4 +18,4 @@ yaml.sort_by! { |i|
   day
 }
 
-YAML.dump(yaml.reverse, File.open('daylog2.yml', 'w'), {line_width: 1000, header: false})
+YAML.dump(yaml.reverse, File.open('daylog2.yml', 'w'), { line_width: 1000, header: false })
