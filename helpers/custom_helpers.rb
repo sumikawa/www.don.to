@@ -5,14 +5,14 @@ module CustomHelpers
   def gen_title
     url = current_page.url
     if current_page.data.title.nil?
-      case url
+      title = case url
       when /1995/
-        title = '1995年以前'
+        '1995年以前'
       when /(\d\d\d\d)(\/|\.html)$/
-        title = "#{::Regexp.last_match(1)}年"
+        "#{::Regexp.last_match(1)}年"
       else
-        title = data.site.notitle
-      end
+        data.site.notitle
+              end
     else
       title = current_page.data.title
       title = data.site.notitle if title == ''
@@ -87,12 +87,12 @@ module CustomHelpers
         if ext.downcase == '.avi'
           text = "<%= movie \"#{base}\" %>"
         else
-          if opts
-            text = "<%= movie \"#{opts[:prefix]}#{base}\" %>"
+          text = if opts
+            "<%= movie \"#{opts[:prefix]}#{base}\" %>"
           else
             # recoginized as HD video if it's already exist
-            text = "<%= movie \"hd#{base}\" %>"
-          end
+            "<%= movie \"hd#{base}\" %>"
+                 end
           t = ex['CreationDate'] || ex['FileModifyDate'] || now
         end
       when '.m4a'
@@ -149,26 +149,26 @@ module CustomHelpers
   end
 
   def gen_link(filename, title, blanks)
-    if filename =~ /secret/
-      secret = " #{data.site.secretmes}"
+    secret = if filename =~ /secret/
+      " #{data.site.secretmes}"
     else
-      secret = ''
-    end
-    if blanks == true
-      target = { target: '_blank' }
+      ''
+             end
+    target = if blanks == true
+      { target: '_blank' }
     else
-      target = {}
-    end
+      {}
+             end
     title = data.site.notitle if title == ''
-    if filename =~ /(\d\d\d\d)(\d\d)(\d\d)-/
-      date = "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}"
+    date = if filename =~ /(\d\d\d\d)(\d\d)(\d\d)-/
+      "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}"
     elsif filename =~ /(\d\d\d\d)(\d\d)-/
-      date = "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/??"
+      "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/??"
     elsif filename =~ /(\d\d\d\d)\/(\d\d)(\d\d)-/
-      date = "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}"
+      "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}"
     else
-      date = 'UNKNOWN'
-    end
+      'UNKNOWN'
+           end
     dir = filename.sub(/^source/, '').sub(/\.md\.erb/, '')
     "<dt>#{date}: " + link_to(title, dir, target) + "#{secret}</dt>"
   end
