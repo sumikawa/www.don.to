@@ -9,6 +9,7 @@ yaml.sort_by! { |i|
   if i.is_a? Hash
     i.each_key { |k|
       next if k == 'comment'
+
       day = k
     }
   else
