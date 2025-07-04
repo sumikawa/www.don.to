@@ -15,6 +15,7 @@ group :development do
   gem 'pry'
   gem 'rspec'
   gem 'rake'
+  gem 'rubocop', require: false
 end
 
 gem 'webrick'
