@@ -23,11 +23,11 @@ RSpec.describe CustomHelpers do
       )
 
       allow(data).to receive(:daylog).and_return([
-        { '2025/01/01' => 'Event 1' },
+                                                   { '2025/01/01' => 'Event 1' },
         { '2024/12/31' => 'Event 2' },
         { '2025/01/02' => 'Event 3', 'comment' => 'This is a comment' },
         { '2024/12/30' => 'Event 4', 'comment' => 'Another comment' },
-      ])
+                                                 ])
     end
   end
 
