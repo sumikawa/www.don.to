@@ -42,7 +42,8 @@ module CustomHelpers
       case ext.downcase
       when ".jpg", ".heic"
         text = "<%= image \"#{base}\" %>"
-        t = ex['DateTimeOriginal'] || now
+        t = ex['SubSecDateTimeOriginal'].to_s.sub(/\.\d\d\d/, '')
+        t = ex['DateTimeOriginal'] || now if t == ''
 
         if localhost?
           FileUtils.mkdir_p(File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}"))
