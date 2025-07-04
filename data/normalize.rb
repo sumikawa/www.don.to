@@ -4,7 +4,7 @@ require 'pp'
 
 yaml = YAML.load_file('daylog.yml')
 
-yaml.sort_by!{ |i|
+yaml.sort_by! { |i|
   day = ''
   if i.is_a? Hash
     i.each_key { |k|
