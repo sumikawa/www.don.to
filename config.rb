@@ -8,9 +8,9 @@
 # end
 
 set :markdown_engine, :redcarpet
-set :markdown, :fenced_code_blocks => true,
-               :autolink => true,
-               :smartypants => true
+set :markdown, fenced_code_blocks: true,
+               autolink: true,
+               smartypants: true
 
 ###
 # Page options, layouts, aliases and proxies
@@ -33,7 +33,7 @@ set :markdown, :fenced_code_blocks => true,
 # proxy "/this-page-has-no-template.html", "/template-file.html", :locals => {
 #  :which_fake_page => "Rendering a fake page with a local variable" }
 for y in data.year.thisyear.downto(1995) do
-  proxy "/diary/#{y}.html", '/diary/yearly.html', :locals => { :year => y }, :ignore => true
+  proxy "/diary/#{y}.html", '/diary/yearly.html', locals: { year: y }, ignore: true
 end
 
 ###
@@ -48,7 +48,7 @@ helpers LinkHelpers
 set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
 set :images_dir, 'images'
-set :slim, { :pretty => true, :sort_attrs => false, :format => :html }
+set :slim, { pretty: true, sort_attrs: false, format: :html }
 
 activate :syntax
 activate :directory_indexes

@@ -155,7 +155,7 @@ module CustomHelpers
       secret = ''
     end
     if blanks == true
-      target = { :target => '_blank' }
+      target = { target: '_blank' }
     else
       target = {}
     end
