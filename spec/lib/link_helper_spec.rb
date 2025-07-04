@@ -147,7 +147,8 @@ RSpec.describe LinkHelpers do
     context 'with specified extension' do
       it 'uses the specified extension' do
         # Mock the dropbox_url method to return a URL with the specified extension
-        allow(helper).to receive(:dropbox_url).with(year: '2025', dirname: '0203-miyakojima', basename: 'img_1234', ext: 'png').and_return('https://example.com/img_1234.png')
+        allow(helper).to receive(:dropbox_url).with(year: '2025', dirname: '0203-miyakojima', basename: 'img_1234',
+ext: 'png').and_return('https://example.com/img_1234.png')
 
         result = helper.simage('img_1234', ext: 'png')
         expect(result).to eq('<img src="https://example.com/img_1234.png" />')
@@ -158,8 +159,10 @@ RSpec.describe LinkHelpers do
   describe '#movie' do
     it 'generates a video link with the correct URL and class' do
       # Mock the dropbox_url method for video and thumbnail
-      allow(helper).to receive(:dropbox_url).with(year: '2025', dirname: '0203-miyakojima', basename: 'img_5678', ext: 'mp4').and_return('https://example.com/img_5678.mp4')
-      allow(helper).to receive(:dropbox_url).with(year: '2025', dirname: '0203-miyakojima', basename: 'img_5678', ext: 'jpg').and_return('https://example.com/img_5678.jpg')
+      allow(helper).to receive(:dropbox_url).with(year: '2025', dirname: '0203-miyakojima', basename: 'img_5678',
+                                                  ext: 'mp4').and_return('https://example.com/img_5678.mp4')
+      allow(helper).to receive(:dropbox_url).with(year: '2025', dirname: '0203-miyakojima', basename: 'img_5678',
+                                                  ext: 'jpg').and_return('https://example.com/img_5678.jpg')
 
       result = helper.movie('img_5678')
       expect(result).to eq('<a href="https://example.com/img_5678.mp4" class="video swipe"><img src="https://example.com/img_5678.jpg" height="200" /></a>')
@@ -169,7 +172,8 @@ RSpec.describe LinkHelpers do
   describe '#audio' do
     it 'generates an audio tag with the correct source' do
       # Mock the dropbox_url method for audio
-      allow(helper).to receive(:dropbox_url).with(year: '2025', dirname: '0203-miyakojima', basename: 'img_9012', ext: 'm4a').and_return('https://example.com/img_9012.m4a')
+      allow(helper).to receive(:dropbox_url).with(year: '2025', dirname: '0203-miyakojima', basename: 'img_9012',
+                                                  ext: 'm4a').and_return('https://example.com/img_9012.m4a')
 
       result = helper.audio('img_9012')
       expect(result).to eq('<audio controls><source src="https://example.com/img_9012.m4a.m4a" type="audio/aac"></audio>')
@@ -188,7 +192,8 @@ RSpec.describe LinkHelpers do
       allow(File).to receive(:extname).with('document.pdf').and_return('.pdf')
 
       # Mock dropbox_url
-      allow(helper).to receive(:dropbox_url).with(year: '2025', dirname: '0203-miyakojima', basename: 'document', ext: 'pdf').and_return('https://example.com/document.pdf')
+      allow(helper).to receive(:dropbox_url).with(year: '2025', dirname: '0203-miyakojima', basename: 'document',
+                                                  ext: 'pdf').and_return('https://example.com/document.pdf')
 
       result = helper.static_to('document.pdf', 'Download PDF')
       expect(result).to eq('<a href="https://example.com/document.pdf" class="">Download PDF</a>')
