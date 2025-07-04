@@ -126,9 +126,7 @@ module CustomHelpers
     data.daylog.each do |i|
       if i.is_a? String
         md = i.match(%r{(\d\d\d\d)/(\d\d)/(\d\d)})
-        if year == md[1].to_i
-          result << "<dt>#{i}</dt>"
-        end
+        result << "<dt>#{i}</dt>" if year == md[1].to_i
       elsif i.is_a? Hash
         log = ''
         comment = ''
@@ -140,9 +138,7 @@ module CustomHelpers
           end
         end
         md = log.match(%r{(\d\d\d\d)/(\d\d)/(\d\d)})
-        if year == md[1].to_i
-          result << "#{log}#{comment}"
-        end
+        result << "#{log}#{comment}" if year == md[1].to_i
       end
     end
     result
