@@ -22,7 +22,7 @@ set :markdown, fenced_code_blocks: true,
 # page "/path/to/file.html", :layout => false
 #
 # With alternative layout
-#page "/presentation/slides/*.html", :layout => :remark
+# page "/presentation/slides/*.html", :layout => :remark
 #
 # A path which all have the same layout
 # with_layout :admin do
@@ -52,7 +52,7 @@ set :slim, { pretty: true, sort_attrs: false, format: :html }
 
 activate :syntax
 activate :directory_indexes
-#activate :relative_assets
+# activate :relative_assets
 
-#activate :livereload, js_host: 'stage.don.to', port: 4567, no_swf: true
-#activate :livereload
+# activate :livereload, js_host: 'stage.don.to', port: 4567, no_swf: true
+# activate :livereload
