@@ -4,17 +4,17 @@ source 'http://rubygems.org'
 
 gem 'middleman'
 gem 'middleman-syntax'
-gem 'slim'
-gem 'redcarpet'
 gem 'mini_exiftool'
+gem 'redcarpet'
 gem 'sass'
+gem 'slim'
 
 group :development do
   gem 'debug'
-  gem 'rmagick'
   gem 'pry'
-  gem 'rspec'
   gem 'rake'
+  gem 'rmagick'
+  gem 'rspec'
   gem 'rubocop', require: false
 end
 
