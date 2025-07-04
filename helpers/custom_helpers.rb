@@ -9,7 +9,7 @@ module CustomHelpers
       when /1995/
         title = '1995年以前'
       when /(\d\d\d\d)(\/|\.html)$/
-        title = "#{$1}年"
+        title = "#{::Regexp.last_match(1)}年"
       else
         title = data.site.notitle
       end
@@ -17,7 +17,7 @@ module CustomHelpers
       title = current_page.data.title
       title = data.site.notitle if title == ''
       if url =~ /\/diary\/(\d+)\/(\d\d)(\d\d)-\w+\//
-        title = "#{$1}\/#{$2}\/#{$3}: #{title}"
+        title = "#{::Regexp.last_match(1)}\/#{::Regexp.last_match(2)}\/#{::Regexp.last_match(3)}: #{title}"
       end
     end
     title
@@ -161,11 +161,11 @@ module CustomHelpers
     end
     title = data.site.notitle if title == ''
     if filename =~ /(\d\d\d\d)(\d\d)(\d\d)-/
-      date = "#{$1}/#{$2}/#{$3}"
+      date = "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}"
     elsif filename =~ /(\d\d\d\d)(\d\d)-/
-      date = "#{$1}/#{$2}/??"
+      date = "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/??"
     elsif filename =~ /(\d\d\d\d)\/(\d\d)(\d\d)-/
-      date = "#{$1}/#{$2}/#{$3}"
+      date = "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}"
     else
       date = 'UNKNOWN'
     end
