@@ -77,11 +77,15 @@ module CustomHelpers
           thumb_dir = File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/")
           thumb_file = "#{opts[:prefix]}#{base}.#{data.site.thumbext}"
 
-          Video.convert(src: f, dst_dir: video_dir, dst_file: video_file,
-                        acodec: data.site.acodec, vcodec: data.site.videoext,
-                        opts: opts) unless File.exist?("#{video_dir}/#{video_file}")
-          Video.poster(src: "#{video_dir}/#{video_file}", dst_dir: thumb_dir, dst_file: thumb_file,
-                       height: data.site.thumbheight) unless File.exist?("#{thumb_dir}/#{thumb_file}")
+          unless File.exist?("#{video_dir}/#{video_file}")
+            Video.convert(src: f, dst_dir: video_dir, dst_file: video_file,
+                          acodec: data.site.acodec, vcodec: data.site.videoext,
+                          opts: opts)
+          end
+          unless File.exist?("#{thumb_dir}/#{thumb_file}")
+            Video.poster(src: "#{video_dir}/#{video_file}", dst_dir: thumb_dir, dst_file: thumb_file,
+                         height: data.site.thumbheight)
+          end
         end
 
         if ext.downcase == '.avi'
