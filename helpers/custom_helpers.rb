@@ -28,7 +28,7 @@ module CustomHelpers
   end
 
   def gen_index(dirpath)
-    body = [ '---', 'draft: true', 'title: ', '---' ]
+    body = ['---', 'draft: true', 'title: ', '---']
     newbody = []
     now = Time.now
     Dir.glob(File.expand_path("#{data.site.imagerootdir}/diary/#{dirpath}/*")).sort.each do |f|
@@ -108,7 +108,7 @@ module CustomHelpers
         text = "debugging: \"#{file}\""
       end
 #      text = "#{t} #{text}<br />"
-      newbody << [ t, text ]
+      newbody << [t, text]
     end
 
     newbody.sort! {|a, b| a[0] <=> b[0]}
