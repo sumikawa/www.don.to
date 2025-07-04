@@ -91,7 +91,7 @@ module CustomHelpers
           text = "<%= movie \"#{base}\" %>"
         else
           text = if opts
-            "<%= movie \"#{opts[:prefix]}#{base}\" %>"
+                   "<%= movie \"#{opts[:prefix]}#{base}\" %>"
           else
             # recoginized as HD video if it's already exist
             "<%= movie \"hd#{base}\" %>"
@@ -149,18 +149,18 @@ module CustomHelpers
 
   def gen_link(filename, title, blanks)
     secret = if filename =~ /secret/
-      " #{data.site.secretmes}"
+               " #{data.site.secretmes}"
     else
       ''
              end
     target = if blanks == true
-      { target: '_blank' }
+               { target: '_blank' }
     else
       {}
              end
     title = data.site.notitle if title == ''
     date = if filename =~ /(\d\d\d\d)(\d\d)(\d\d)-/
-      "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}"
+             "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}"
     elsif filename =~ /(\d\d\d\d)(\d\d)-/
       "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/??"
     elsif filename =~ %r{(\d\d\d\d)/(\d\d)(\d\d)-}

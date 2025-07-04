@@ -57,7 +57,7 @@ class Video
       end
 
       rotate_opt = if rotate == 0
-        ''
+                     ''
       else
         # for old ffmpeg
         # rotateopt = "-vf transpose=1 -metadata:s:v:0 rotate=0"
