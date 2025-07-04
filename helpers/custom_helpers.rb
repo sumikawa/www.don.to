@@ -16,9 +16,7 @@ module CustomHelpers
     else
       title = current_page.data.title
       title = data.site.notitle if title == ''
-      if url =~ %r{/diary/(\d+)/(\d\d)(\d\d)-\w+/}
-        title = "#{::Regexp.last_match(1)}\/#{::Regexp.last_match(2)}\/#{::Regexp.last_match(3)}: #{title}"
-      end
+      title = "#{::Regexp.last_match(1)}\/#{::Regexp.last_match(2)}\/#{::Regexp.last_match(3)}: #{title}" if url =~ %r{/diary/(\d+)/(\d\d)(\d\d)-\w+/}
     end
     title
   end
