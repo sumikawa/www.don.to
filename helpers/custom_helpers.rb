@@ -107,7 +107,7 @@ module CustomHelpers
       else
         text = "debugging: \"#{file}\""
       end
-#      text = "#{t} #{text}<br />"
+      #      text = "#{t} #{text}<br />"
       newbody << [t, text]
     end
 
