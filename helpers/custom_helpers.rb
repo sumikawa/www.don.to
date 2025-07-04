@@ -111,7 +111,7 @@ module CustomHelpers
       newbody << [t, text]
     end
 
-    newbody.sort! {|a, b| a[0] <=> b[0]}
+    newbody.sort! { |a, b| a[0] <=> b[0] }
     newbody.each do |n|
       body << n[1]
     end
