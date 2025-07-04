@@ -17,7 +17,7 @@ module LinkHelpers
     year = layers[2].to_s
     dirname = layers[3].to_s
 
-    return year, dirname
+    [year, dirname]
   end
 
   def dropbox_url(year:, dirname:, basename:, ext:)
