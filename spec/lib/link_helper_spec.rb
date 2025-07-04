@@ -148,7 +148,7 @@ RSpec.describe LinkHelpers do
       it 'uses the specified extension' do
         # Mock the dropbox_url method to return a URL with the specified extension
         allow(helper).to receive(:dropbox_url).with(year: '2025', dirname: '0203-miyakojima', basename: 'img_1234',
-ext: 'png').and_return('https://example.com/img_1234.png')
+                                                    ext: 'png').and_return('https://example.com/img_1234.png')
 
         result = helper.simage('img_1234', ext: 'png')
         expect(result).to eq('<img src="https://example.com/img_1234.png" />')

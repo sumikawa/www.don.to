@@ -10,8 +10,8 @@ module LinkHelpers
   def parse_url(url)
     dir = if url =~ /\.html$/
             url.sub(/\.html$/, '/')
-    else
-      url.sub(%r{/[^/]*$}, '/')
+          else
+            url.sub(%r{/[^/]*$}, '/')
           end
     layers = dir.split('/')
     year = layers[2].to_s
