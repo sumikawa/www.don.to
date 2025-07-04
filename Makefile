@@ -17,5 +17,14 @@ push::
 test::
 	bundle exec rake
 
+rubocop::
+	bundle exec rubocop
+
+autogen::
+	bundle exec rubocop --auto-gen-config
+
+fix::
+	bundle exec rubocop -a
+
 gencss::
 	bundle exec rougify style thankful_eyes > source/stylesheets/code.css
