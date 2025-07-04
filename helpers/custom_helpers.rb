@@ -49,11 +49,10 @@ module CustomHelpers
           FileUtils.mkdir_p(File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}"))
           data.site.heights.each do |height|
             filepath = File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/#{base}.#{data.site.thumbext}")
-            unless File.exist?(filepath)
-              image = Magick::Image.read(f).first
-              image = image.resize_to_fit(0, height)
-              image.write(filepath)
-            end
+            next if File.exist?(filepath)
+            image = Magick::Image.read(f).first
+            image = image.resize_to_fit(0, height)
+            image.write(filepath)
           end
         end
       when '.png', '.pdf'
