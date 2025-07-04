@@ -21,11 +21,9 @@ module LinkHelpers
   end
 
   def dropbox_url(year:, dirname:, basename:, ext:)
-    begin
-      data.image[year][dirname]["#{basename}.#{ext}"] || data.site.error_image
-    rescue
-      data.site.error_image
-    end
+    data.image[year][dirname]["#{basename}.#{ext}"] || data.site.error_image
+  rescue
+    data.site.error_image
   end
 
   def image(file, height: data.site.thumbheight, ext: data.site.thumbext)
