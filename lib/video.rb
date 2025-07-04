@@ -18,6 +18,7 @@ class Video
       end
       lines.each do |line|
         next unless line =~ /Stream .*Video/
+
         case line
         when / DAR 16:9|960x540|1280x720|1920x1080|3840x2160|712x480/
           if [0, -180].include?(rotate)
