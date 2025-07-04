@@ -9,7 +9,7 @@ module LinkHelpers
 
   def parse_url(url)
     dir = if url =~ /\.html$/
-      url.sub(%r|\.html$|, '/')
+      url.sub(/\.html$/, '/')
     else
       url.sub(%r|/[^/]*$|, '/')
           end

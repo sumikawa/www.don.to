@@ -8,7 +8,7 @@ module CustomHelpers
       title = case url
       when /1995/
         '1995年以前'
-      when /(\d\d\d\d)(\/|\.html)$/
+      when %r{(\d\d\d\d)(/|\.html)$}
         "#{::Regexp.last_match(1)}年"
       else
         data.site.notitle
@@ -16,7 +16,7 @@ module CustomHelpers
     else
       title = current_page.data.title
       title = data.site.notitle if title == ''
-      if url =~ /\/diary\/(\d+)\/(\d\d)(\d\d)-\w+\//
+      if url =~ %r{/diary/(\d+)/(\d\d)(\d\d)-\w+/}
         title = "#{::Regexp.last_match(1)}\/#{::Regexp.last_match(2)}\/#{::Regexp.last_match(3)}: #{title}"
       end
     end
@@ -125,7 +125,7 @@ module CustomHelpers
     result = []
     data.daylog.each do |i|
       if i.is_a? String
-        md = i.match(/(\d\d\d\d)\/(\d\d)\/(\d\d)/)
+        md = i.match(%r{(\d\d\d\d)/(\d\d)/(\d\d)})
         if year == md[1].to_i
           result << "<dt>#{i}</dt>"
         end
@@ -139,7 +139,7 @@ module CustomHelpers
             log = "<dt>#{k}: #{v}</dt>"
           end
         end
-        md = log.match(/(\d\d\d\d)\/(\d\d)\/(\d\d)/)
+        md = log.match(%r{(\d\d\d\d)/(\d\d)/(\d\d)})
         if year == md[1].to_i
           result << "#{log}#{comment}"
         end
@@ -164,7 +164,7 @@ module CustomHelpers
       "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}"
     elsif filename =~ /(\d\d\d\d)(\d\d)-/
       "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/??"
-    elsif filename =~ /(\d\d\d\d)\/(\d\d)(\d\d)-/
+    elsif filename =~ %r{(\d\d\d\d)/(\d\d)(\d\d)-}
       "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}"
     else
       'UNKNOWN'
