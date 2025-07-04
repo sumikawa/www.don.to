@@ -2,12 +2,12 @@
 # the following line to use "https"
 source 'http://rubygems.org'
 
-gem "middleman"
-gem "middleman-syntax"
-gem "slim"
-gem "redcarpet"
-gem "mini_exiftool"
-gem "sass"
+gem 'middleman'
+gem 'middleman-syntax'
+gem 'slim'
+gem 'redcarpet'
+gem 'mini_exiftool'
+gem 'sass'
 
 group :development do
   gem 'debug'

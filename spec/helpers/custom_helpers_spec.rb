@@ -23,10 +23,10 @@ RSpec.describe CustomHelpers do
       )
       
       allow(data).to receive(:daylog).and_return([
-        { "2025/01/01" => "Event 1" },
-        { "2024/12/31" => "Event 2" },
-        { "2025/01/02" => "Event 3", "comment" => "This is a comment" },
-        { "2024/12/30" => "Event 4", "comment" => "Another comment" },
+        { '2025/01/01' => 'Event 1' },
+        { '2024/12/31' => 'Event 2' },
+        { '2025/01/02' => 'Event 3', 'comment' => 'This is a comment' },
+        { '2024/12/30' => 'Event 4', 'comment' => 'Another comment' },
       ])
     end
   end
@@ -48,7 +48,7 @@ RSpec.describe CustomHelpers do
     allow(helper).to receive(:data).and_return(data_mock)
     allow(helper).to receive(:current_page).and_return(current_page)
     allow(helper).to receive(:link_to) do |text, url, options = {}|
-      target = options[:target] ? " target=\"#{options[:target]}\"" : ""
+      target = options[:target] ? " target=\"#{options[:target]}\"" : ''
       "<a href=\"#{url}\"#{target}>#{text}</a>"
     end
     allow(helper).to receive(:localhost?).and_return(false)

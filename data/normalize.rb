@@ -2,13 +2,13 @@
 require 'yaml'
 require 'pp'
 
-yaml = YAML.load_file("daylog.yml")
+yaml = YAML.load_file('daylog.yml')
 
 yaml.sort_by!{ |i|
-  day = ""
+  day = ''
   if i.is_a? Hash
     i.each_key { |k|
-      next if k == "comment"
+      next if k == 'comment'
       day = k
     }
   else

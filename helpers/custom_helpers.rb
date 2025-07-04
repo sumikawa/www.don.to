@@ -7,7 +7,7 @@ module CustomHelpers
     if current_page.data.title.nil?
       case url
       when /1995/
-        title = "1995年以前"
+        title = '1995年以前'
       when /(\d\d\d\d)(\/|\.html)$/
         title = "#{$1}年"
       else
@@ -15,7 +15,7 @@ module CustomHelpers
       end
     else
       title = current_page.data.title
-      title = data.site.notitle if title == ""
+      title = data.site.notitle if title == ''
       if url =~ /\/diary\/(\d+)\/(\d\d)(\d\d)-\w+\//
         title = "#{$1}\/#{$2}\/#{$3}: #{title}"
       end
@@ -28,7 +28,7 @@ module CustomHelpers
   end
 
   def gen_index(dirpath)
-    body = [ "---", "draft: true", "title: ", "---" ]
+    body = [ '---', 'draft: true', 'title: ', '---' ]
     newbody = []
     now = Time.now
     Dir.glob(File.expand_path("#{data.site.imagerootdir}/diary/#{dirpath}/*")).sort.each do |f|
@@ -37,10 +37,10 @@ module CustomHelpers
       base = File.basename(file, ext)
       ex = MiniExiftool.new(f) rescue {}
       t = now
-      text = ""
+      text = ''
 
       case ext.downcase
-      when ".jpg", ".heic"
+      when '.jpg', '.heic'
         text = "<%= image \"#{base}\" %>"
         t = ex['SubSecDateTimeOriginal'].to_s.sub(/\.\d\d\d/, '')
         t = ex['DateTimeOriginal'] || now if t == ''
@@ -56,14 +56,14 @@ module CustomHelpers
             end
           end
         end
-      when ".png", '.pdf'
+      when '.png', '.pdf'
         text = "<%= image \"#{base}\", ext: 'png' %>" if ext.downcase == 'png'
 
         if localhost?
           FileUtils.mkdir_p(File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}"))
           FileUtils.copy(f, File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/#{file}"))
         end
-      when ".mov", ".mp4", ".mts", ".mpg", '.avi'
+      when '.mov', '.mp4', '.mts', '.mpg', '.avi'
         opts = nil
 
         if localhost?
@@ -95,14 +95,14 @@ module CustomHelpers
           end
           t = ex['CreationDate'] || ex['FileModifyDate'] || now
         end
-      when ".m4a"
+      when '.m4a'
         text = "<%= audio \"#{base}\" %>"
 
         if localhost?
           FileUtils.mkdir_p(File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}"))
           FileUtils.copy(f, File.expand_path("#{data.site.cacherootdir}/diary/#{dirpath}/#{file}"))
         end
-      when ".aae"
+      when '.aae'
         File.delete(f)
       else
         text = "debugging: \"#{file}\""
@@ -116,7 +116,7 @@ module CustomHelpers
       body << n[1]
     end
 
-    File.open("source/diary/#{dirpath}.html.md.erb", "w") do |f|
+    File.open("source/diary/#{dirpath}.html.md.erb", 'w') do |f|
       f.puts(body.join("\n"))
     end
   end
@@ -130,10 +130,10 @@ module CustomHelpers
           result << "<dt>#{i}</dt>"
         end
       elsif i.is_a? Hash
-        log = ""
-        comment = ""
+        log = ''
+        comment = ''
         i.each do |k, v|
-          if k == "comment"
+          if k == 'comment'
             comment = "\n<dd>\t#{v}</dd>".gsub(/\\n/, "</dd>\n<dd>\t")
           else
             log = "<dt>#{k}: #{v}</dt>"
@@ -159,7 +159,7 @@ module CustomHelpers
     else
       target = {}
     end
-    title = data.site.notitle if title == ""
+    title = data.site.notitle if title == ''
     if filename =~ /(\d\d\d\d)(\d\d)(\d\d)-/
       date = "#{$1}/#{$2}/#{$3}"
     elsif filename =~ /(\d\d\d\d)(\d\d)-/
@@ -167,9 +167,9 @@ module CustomHelpers
     elsif filename =~ /(\d\d\d\d)\/(\d\d)(\d\d)-/
       date = "#{$1}/#{$2}/#{$3}"
     else
-      date = "UNKNOWN"
+      date = 'UNKNOWN'
     end
-    dir = filename.sub(/^source/, "").sub(/\.md\.erb/, "")
+    dir = filename.sub(/^source/, '').sub(/\.md\.erb/, '')
     "<dt>#{date}: " + link_to(title, dir, target) + "#{secret}</dt>"
   end
 end
