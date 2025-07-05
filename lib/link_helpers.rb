@@ -60,7 +60,7 @@ module LinkHelpers
     year, dirname = parse_url(current_page.url)
     audio_url = dropbox_url(year: year, dirname: dirname, basename: file, ext: data.site.audioext)
     # audio_tag(audio_url, controls: true)
-    "<audio controls><source src=\"#{audio_url}\.#{data.site.audioext}\" type=\"audio/aac\"></audio>"
+    "<audio controls><source src=\"#{audio_url}.#{data.site.audioext}\" type=\"audio/aac\"></audio>"
   end
 
   def static_to(file, comment)

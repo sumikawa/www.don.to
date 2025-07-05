@@ -164,13 +164,6 @@ Style/RedundantRegexpArgument:
   Exclude:
     - 'helpers/custom_helpers.rb'
 
-# Offense count: 3
-# This cop supports safe autocorrection (--autocorrect).
-Style/RedundantStringEscape:
-  Exclude:
-    - 'helpers/custom_helpers.rb'
-    - 'lib/link_helpers.rb'
-
 # Offense count: 8
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: AllowHeredoc, AllowURI, AllowQualifiedName, URISchemes, IgnoreCopDirectives, AllowedPatterns, SplitStrings.
