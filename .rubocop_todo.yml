@@ -107,13 +107,6 @@ Style/Documentation:
     - 'lib/video.rb'
 
 # Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowedVars, DefaultToNil.
-Style/FetchEnvVar:
-  Exclude:
-    - 'config.ru'
-
-# Offense count: 1
 # This cop supports unsafe autocorrection (--autocorrect-all).
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: each, for
