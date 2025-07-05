@@ -92,7 +92,7 @@ class Video
     end
 
     def poster(src:, dst_dir:, dst_file:, height:)
-      temp = "/tmp/poster_#{('a'..'z').to_a.shuffle[0..7].join}.jpg"
+      temp = "/tmp/poster_#{('a'..'z').to_a.sample(8).join}.jpg"
 
       thumb_cmd = "ffmpeg -i #{src} -loglevel quiet -ss 0.1 -update true -frames:v 1 -f image2 #{temp}"
       puts thumb_cmd
