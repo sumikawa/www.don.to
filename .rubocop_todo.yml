@@ -144,13 +144,6 @@ Style/NumericPredicate:
     - 'lib/link_helpers.rb'
     - 'lib/video.rb'
 
-# Offense count: 7
-# This cop supports safe autocorrection (--autocorrect).
-Style/RedundantConstantBase:
-  Exclude:
-    - 'config.ru'
-    - 'spec/spec_helper.rb'
-
 # Offense count: 2
 # This cop supports safe autocorrection (--autocorrect).
 Style/RedundantRegexpArgument:
