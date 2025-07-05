@@ -5,7 +5,7 @@ require 'middleman-core'
 require 'middleman-core/rack'
 
 require 'fileutils'
-FileUtils.mkdir('log') unless File.exist?('log')
+FileUtils.mkdir_p('log')
 Middleman::Logger.singleton("log/#{ENV.fetch('RACK_ENV', nil)}.log")
 
 app = Middleman::Application.new
