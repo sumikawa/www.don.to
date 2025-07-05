@@ -12,7 +12,7 @@ class Video
       ext_opt = ''
       lines = report.encode('UTF-8', invalid: :replace).split("\n")
       lines.each do |line|
-        if md = line.match(/(rotate\s+:|rotation\s+of)\s+([-\d]+)/)
+        if (md = line.match(/(rotate\s+:|rotation\s+of)\s+([-\d]+)/))
           rotate = md[2].to_i
         end
       end

@@ -24,7 +24,7 @@ autogen::
 	bundle exec rubocop --auto-gen-config
 
 fix::
-	bundle exec rubocop -a
+	bundle exec rubocop --autocorrect-all
 
 gencss::
 	bundle exec rougify style thankful_eyes > source/stylesheets/code.css
