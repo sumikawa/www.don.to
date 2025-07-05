@@ -138,7 +138,7 @@ module CustomHelpers
         comment = ''
         i.each do |k, v|
           if k == 'comment'
-            comment = "\n<dd>\t#{v}</dd>".gsub(/\\n/, "</dd>\n<dd>\t")
+            comment = "\n<dd>\t#{v}</dd>".gsub('\\n', "</dd>\n<dd>\t")
           else
             log = "<dt>#{k}: #{v}</dt>"
           end
@@ -171,7 +171,7 @@ module CustomHelpers
            else
              'UNKNOWN'
            end
-    dir = filename.sub(/^source/, '').sub(/\.md\.erb/, '')
+    dir = filename.sub(/^source/, '').sub('.md.erb', '')
     "<dt>#{date}: " + link_to(title, dir, target) + "#{secret}</dt>"
   end
 end
