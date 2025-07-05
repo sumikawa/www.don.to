@@ -22,7 +22,7 @@ module LinkHelpers
 
   def dropbox_url(year:, dirname:, basename:, ext:)
     data.image[year][dirname]["#{basename}.#{ext}"] || data.site.error_image
-  rescue
+  rescue StandardError
     data.site.error_image
   end
 
