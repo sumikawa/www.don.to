@@ -20,7 +20,7 @@ class Video
         next unless line =~ /Stream .*Video/
 
         case line
-        when / DAR 16:9|960x540|1280x720|1920x1080|3840x2160|712x480/
+        when / DAR 16:9|960x540|1280x720|1920x1080|3840x2160|1566x880|712x480/
           if [0, -180].include?(rotate)
             pixel = '480x270'
             prefix = 'hd'
