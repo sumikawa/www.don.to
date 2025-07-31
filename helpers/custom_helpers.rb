@@ -162,11 +162,12 @@ module CustomHelpers
                {}
              end
     title = data.site.notitle if title == ''
-    date = if filename =~ /(\d\d\d\d)(\d\d)(\d\d)-/
+    date = case filename
+           when /(\d\d\d\d)(\d\d)(\d\d)-/
              "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}"
-           elsif filename =~ /(\d\d\d\d)(\d\d)-/
+           when /(\d\d\d\d)(\d\d)-/
              "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/??"
-           elsif filename =~ %r{(\d\d\d\d)/(\d\d)(\d\d)-}
+           when %r{(\d\d\d\d)/(\d\d)(\d\d)-}
              "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}"
            else
              'UNKNOWN'

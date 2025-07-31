@@ -50,13 +50,6 @@ Metrics/PerceivedComplexity:
 
 # Offense count: 1
 # This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: MinBranchesCount.
-Style/CaseLikeIf:
-  Exclude:
-    - 'helpers/custom_helpers.rb'
-
-# Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
 Style/CombinableLoops:
   Exclude:
     - 'lib/video.rb'
