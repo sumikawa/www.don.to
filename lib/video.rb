@@ -15,8 +15,6 @@ class Video
         if (md = line.match(/(rotate\s+:|rotation\s+of)\s+([-\d]+)/))
           rotate = md[2].to_i
         end
-      end
-      lines.each do |line|
         next unless line =~ /Stream .*Video/
 
         case line
