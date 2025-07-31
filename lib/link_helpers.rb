@@ -39,7 +39,7 @@ module LinkHelpers
     year, dirname = parse_url(current_page.url)
     img_url = dropbox_url(year: year, dirname: dirname, basename: file, ext: ext)
 
-    if height == 0
+    if height.zero?
       image_tag(img_url)
     else
       image_tag(img_url, height: height)

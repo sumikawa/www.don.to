@@ -57,7 +57,7 @@ class Video
         end
       end
 
-      rotate_opt = if rotate == 0
+      rotate_opt = if rotate.zero?
                      ''
                    else
                      # for old ffmpeg
