@@ -30,7 +30,7 @@ module LinkHelpers
     year, dirname = parse_url(current_page.url)
     img_url = dropbox_url(year: year, dirname: dirname, basename: file, ext: ext)
 
-    link_to(image_tag(img_url, height: data.site.thumbheight),
+    link_to(image_tag(img_url, height: height),
             img_url,
             class: 'image swipe')
   end
