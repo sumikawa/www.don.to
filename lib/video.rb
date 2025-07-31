@@ -74,7 +74,7 @@ class Video
 
     def probe(src)
       report = `ffmpeg -i #{src} 2>&1 >/dev/null`
-      opts = detect(report)
+      detect(report)
     end
 
     def convert(src:, dst_dir:, dst_file:, acodec:, vcodec:, opts:)
