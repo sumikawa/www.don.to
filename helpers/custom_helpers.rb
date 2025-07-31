@@ -5,6 +5,7 @@ module CustomHelpers
   def gen_title
     url = current_page.url
     if current_page.data.title.nil?
+      # For yearly page
       title = case url
               when /1995/
                 '1995年以前'
@@ -167,7 +168,7 @@ module CustomHelpers
              "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}"
            when /(\d\d\d\d)(\d\d)-/
              "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/??"
-           when %r{(\d\d\d\d)/(\d\d)(\d\d)-}
+           when %r{(\d\d\d\d)/(\d\d)(\d\d)-} # For yearly page
              "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}"
            else
              'UNKNOWN'
