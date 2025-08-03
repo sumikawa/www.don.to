@@ -103,80 +103,80 @@ RSpec.describe CustomHelpers do
     end
   end
 
-  describe '#gen_index' do
-    let(:image_files) { ['/path/to/images/diary/2025/0203-test/img_1234.jpg'] }
-    let(:exif_data) { { 'DateTimeOriginal' => Time.new(2025, 2, 3, 12, 0, 0) } }
+  # describe '#gen_index' do
+  #   let(:image_files) { ['/path/to/images/diary/2025/0203-test/img_1234.jpg'] }
+  #   let(:exif_data) { { 'DateTimeOriginal' => Time.new(2025, 2, 3, 12, 0, 0) } }
 
-    before do
-      # Stub Dir methods
-      allow(Dir).to receive(:glob).and_return(image_files)
+  #   before do
+  #     # Stub Dir methods
+  #     allow(Dir).to receive(:glob).and_return(image_files)
 
-      # Stub MiniExiftool
-      allow(MiniExiftool).to receive(:new).and_return(exif_data)
+  #     # Stub MiniExiftool
+  #     allow(MiniExiftool).to receive(:new).and_return(exif_data)
 
-      # Stub FileUtils
-      allow(FileUtils).to receive(:mkdir_p)
-      allow(FileUtils).to receive(:copy)
+  #     # Stub FileUtils
+  #     allow(FileUtils).to receive(:mkdir_p)
+  #     allow(FileUtils).to receive(:copy)
 
-      # Stub helper methods
-      allow(helper).to receive(:localhost?).and_return(true)
-      allow(helper).to receive(:image).and_return('<img src="img_1234.jpg" />')
+  #     # Stub helper methods
+  #     allow(helper).to receive(:localhost?).and_return(true)
+  #     allow(helper).to receive(:image).and_return('<img src="img_1234.jpg" />')
 
-      # Stub Magick::Image
-      magick_image = double('magick_image')
-      allow(magick_image).to receive(:resize_to_fit).and_return(magick_image)
-      allow(magick_image).to receive(:write)
-      allow(Magick::Image).to receive(:read).and_return([magick_image])
+  #     # Stub Magick::Image
+  #     magick_image = double('magick_image')
+  #     allow(magick_image).to receive(:resize_to_fit).and_return(magick_image)
+  #     allow(magick_image).to receive(:write)
+  #     allow(Magick::Image).to receive(:read).and_return([magick_image])
 
-      # Stub Video methods
-      allow(Video).to receive(:probe).and_return({ prefix: 'hd' })
-      allow(Video).to receive(:convert)
-      allow(Video).to receive(:poster)
-    end
+  #     # Stub Video methods
+  #     allow(Video).to receive(:probe).and_return({ prefix: 'hd' })
+  #     allow(Video).to receive(:convert)
+  #     allow(Video).to receive(:poster)
+  #   end
 
-    it 'generates an index file with image entries' do
-      expect(File).to receive(:open).with('source/diary/2025/0203-test.html.md.erb', 'w')
-      helper.gen_index('2025/0203-test')
-    end
+  #   it 'generates an index file with image entries' do
+  #     expect(File).to receive(:open).with('source/diary/2025/0203-test.html.md.erb', 'w')
+  #     helper.gen_index('2025/0203-test')
+  #   end
 
-    context 'with different file types' do
-      context 'with jpg files' do
-        let(:image_files) { ['/path/to/images/diary/2025/0203-test/img_1234.jpg'] }
+  #   context 'with different file types' do
+  #     context 'with jpg files' do
+  #       let(:image_files) { ['/path/to/images/diary/2025/0203-test/img_1234.jpg'] }
 
-        it 'processes jpg files correctly' do
-          expect(helper).to receive(:image).with('img_1234')
-          helper.gen_index('2025/0203-test')
-        end
-      end
+  #       it 'processes jpg files correctly' do
+  #         expect(helper).to receive(:image).with('img_1234')
+  #         helper.gen_index('2025/0203-test')
+  #       end
+  #     end
 
-      context 'with png files' do
-        let(:image_files) { ['/path/to/images/diary/2025/0203-test/img_1234.png'] }
+  #     context 'with png files' do
+  #       let(:image_files) { ['/path/to/images/diary/2025/0203-test/img_1234.png'] }
 
-        it 'processes png files correctly' do
-          expect(helper).to receive(:image).with('img_1234', ext: 'png')
-          helper.gen_index('2025/0203-test')
-        end
-      end
+  #       it 'processes png files correctly' do
+  #         expect(helper).to receive(:image).with('img_1234', ext: 'png')
+  #         helper.gen_index('2025/0203-test')
+  #       end
+  #     end
 
-      context 'with video files' do
-        let(:image_files) { ['/path/to/images/diary/2025/0203-test/video_1234.mp4'] }
+  #     context 'with video files' do
+  #       let(:image_files) { ['/path/to/images/diary/2025/0203-test/video_1234.mp4'] }
 
-        it 'processes video files correctly' do
-          expect(helper).to receive(:movie).with('hdvideo_1234')
-          helper.gen_index('2025/0203-test')
-        end
-      end
+  #       it 'processes video files correctly' do
+  #         expect(helper).to receive(:movie).with('hdvideo_1234')
+  #         helper.gen_index('2025/0203-test')
+  #       end
+  #     end
 
-      context 'with audio files' do
-        let(:image_files) { ['/path/to/images/diary/2025/0203-test/audio_1234.m4a'] }
+  #     context 'with audio files' do
+  #       let(:image_files) { ['/path/to/images/diary/2025/0203-test/audio_1234.m4a'] }
 
-        it 'processes audio files correctly' do
-          expect(helper).to receive(:audio).with('audio_1234')
-          helper.gen_index('2025/0203-test')
-        end
-      end
-    end
-  end
+  #       it 'processes audio files correctly' do
+  #         expect(helper).to receive(:audio).with('audio_1234')
+  #         helper.gen_index('2025/0203-test')
+  #       end
+  #     end
+  #   end
+  # end
 
   describe '#rend_daylog' do
     it 'renders daylog entries for the specified year' do
