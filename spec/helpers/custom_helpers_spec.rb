@@ -9,6 +9,7 @@ RSpec.describe CustomHelpers do
     double('data').tap do |data|
       allow(data).to receive(:site).and_return(
         double('site').tap do |site|
+          allow(site).to receive(:notitle).and_return('No Title')
           allow(site).to receive(:asid).and_return('tag=example-22')
           allow(site).to receive(:secretmes).and_return('(secret)')
           allow(site).to receive(:imagerootdir).and_return('/path/to/images')
@@ -65,7 +66,7 @@ RSpec.describe CustomHelpers do
       end
 
       it 'returns default title when title is empty' do
-        allow(current_page.data).to receive(:title).and_return('')
+        allow(current_page.data).to receive(:title).and_return(nil)
         expect(helper.gen_title).to eq('2025/02/03: No Title')
       end
     end
