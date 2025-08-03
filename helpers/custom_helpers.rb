@@ -4,22 +4,21 @@ require_relative '../lib/video'
 module CustomHelpers
   def gen_title
     url = current_page.url
-    if current_page.data.title.nil?
-      # For yearly page
-      title = case url
-              when /1995/
-                '1995年以前'
-              when %r{(\d\d\d\d)(/|\.html)$}
-                "#{::Regexp.last_match(1)}年"
-              else
-                data.site.notitle
-              end
+
+    case url
+    when %r{/diary/1995/(\d\d\d\d)(\d\d)-\w+/} # Special cases for oldest pages
+      t = current_page.data.title || data.site.notitle
+      "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}: #{t}"
+    when /1995/ # For yearly page
+      '1995年以前'
+    when %r{(\d\d\d\d)(/|\.html)$} # For yearly page
+      "#{::Regexp.last_match(1)}年"
+    when %r{/diary/(\d\d\d\d)/(\d\d)(\d\d)-\w+/}
+      t = current_page.data.title || data.site.notitle
+      "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}: #{t}"
     else
-      title = current_page.data.title
-      title = data.site.notitle if title == ''
-      title = "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}: #{title}" if url =~ %r{/diary/(\d+)/(\d\d)(\d\d)-\w+/}
+      current_page.data.title || data.site.notitle
     end
-    title
   end
 
   def amazon(title, id)

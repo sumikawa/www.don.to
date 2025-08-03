@@ -34,7 +34,7 @@ RSpec.describe CustomHelpers do
   # Mock current_page
   let(:current_page) do
     double('current_page').tap do |page|
-      allow(page).to receive(:url).and_return('/diary/2025/0203-miyakojima/')
+      allow(page).to receive(:url).and_return('/diary/2025/0203-test/')
       allow(page).to receive(:data).and_return(
         double('page_data').tap do |page_data|
           allow(page_data).to receive(:title).and_return('Miyakojima Trip')
@@ -67,7 +67,7 @@ RSpec.describe CustomHelpers do
 
       it 'returns default title when title is empty' do
         allow(current_page.data).to receive(:title).and_return('')
-        expect(helper.gen_title).to eq('No Title')
+        expect(helper.gen_title).to eq('2025/02/03: No Title')
       end
     end
 
