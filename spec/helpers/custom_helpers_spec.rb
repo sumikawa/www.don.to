@@ -104,7 +104,7 @@ RSpec.describe CustomHelpers do
   end
 
   describe '#gen_index' do
-    let(:image_files) { ['/path/to/images/diary/2025/0203-miyakojima/img_1234.jpg'] }
+    let(:image_files) { ['/path/to/images/diary/2025/0203-test/img_1234.jpg'] }
     let(:exif_data) { { 'DateTimeOriginal' => Time.new(2025, 2, 3, 12, 0, 0) } }
 
     before do
@@ -135,44 +135,44 @@ RSpec.describe CustomHelpers do
     end
 
     it 'generates an index file with image entries' do
-      expect(File).to receive(:open).with('source/diary/2025/0203-miyakojima.html.md.erb', 'w')
-      helper.gen_index('2025/0203-miyakojima')
+      expect(File).to receive(:open).with('source/diary/2025/0203-test.html.md.erb', 'w')
+      helper.gen_index('2025/0203-test')
     end
 
     context 'with different file types' do
       context 'with jpg files' do
-        let(:image_files) { ['/path/to/images/diary/2025/0203-miyakojima/img_1234.jpg'] }
+        let(:image_files) { ['/path/to/images/diary/2025/0203-test/img_1234.jpg'] }
 
         it 'processes jpg files correctly' do
           expect(helper).to receive(:image).with('img_1234')
-          helper.gen_index('2025/0203-miyakojima')
+          helper.gen_index('2025/0203-test')
         end
       end
 
       context 'with png files' do
-        let(:image_files) { ['/path/to/images/diary/2025/0203-miyakojima/img_1234.png'] }
+        let(:image_files) { ['/path/to/images/diary/2025/0203-test/img_1234.png'] }
 
         it 'processes png files correctly' do
           expect(helper).to receive(:image).with('img_1234', ext: 'png')
-          helper.gen_index('2025/0203-miyakojima')
+          helper.gen_index('2025/0203-test')
         end
       end
 
       context 'with video files' do
-        let(:image_files) { ['/path/to/images/diary/2025/0203-miyakojima/video_1234.mp4'] }
+        let(:image_files) { ['/path/to/images/diary/2025/0203-test/video_1234.mp4'] }
 
         it 'processes video files correctly' do
           expect(helper).to receive(:movie).with('hdvideo_1234')
-          helper.gen_index('2025/0203-miyakojima')
+          helper.gen_index('2025/0203-test')
         end
       end
 
       context 'with audio files' do
-        let(:image_files) { ['/path/to/images/diary/2025/0203-miyakojima/audio_1234.m4a'] }
+        let(:image_files) { ['/path/to/images/diary/2025/0203-test/audio_1234.m4a'] }
 
         it 'processes audio files correctly' do
           expect(helper).to receive(:audio).with('audio_1234')
-          helper.gen_index('2025/0203-miyakojima')
+          helper.gen_index('2025/0203-test')
         end
       end
     end
@@ -191,8 +191,8 @@ RSpec.describe CustomHelpers do
   describe '#gen_link' do
     context 'with regular filename' do
       it 'generates a link with date information' do
-        result = helper.gen_link('source/diary/20250203-miyakojima.html.md.erb', 'Miyakojima Trip', false)
-        expect(result).to eq('<dt>2025/02/03: <a href="/diary/20250203-miyakojima.html">Miyakojima Trip</a></dt>')
+        result = helper.gen_link('source/diary/20250203-test.html.md.erb', 'Miyakojima Trip', false)
+        expect(result).to eq('<dt>2025/02/03: <a href="/diary/20250203-test.html">Miyakojima Trip</a></dt>')
       end
     end
 
@@ -205,27 +205,27 @@ RSpec.describe CustomHelpers do
 
     context 'with blank target' do
       it 'adds target="_blank" to the link' do
-        result = helper.gen_link('source/diary/20250203-miyakojima.html.md.erb', 'Miyakojima Trip', true)
-        expect(result).to eq('<dt>2025/02/03: <a href="/diary/20250203-miyakojima.html" target="_blank">Miyakojima Trip</a></dt>')
+        result = helper.gen_link('source/diary/20250203-test.html.md.erb', 'Miyakojima Trip', true)
+        expect(result).to eq('<dt>2025/02/03: <a href="/diary/20250203-test.html" target="_blank">Miyakojima Trip</a></dt>')
       end
     end
 
     context 'with empty title' do
       it 'uses default title' do
-        result = helper.gen_link('source/diary/20250203-miyakojima.html.md.erb', '', false)
-        expect(result).to eq('<dt>2025/02/03: <a href="/diary/20250203-miyakojima.html">No Title</a></dt>')
+        result = helper.gen_link('source/diary/20250203-test.html.md.erb', '', false)
+        expect(result).to eq('<dt>2025/02/03: <a href="/diary/20250203-test.html">No Title</a></dt>')
       end
     end
 
     context 'with different date formats' do
       it 'handles YYYYMM format' do
-        result = helper.gen_link('source/diary/202502-miyakojima.html.md.erb', 'Miyakojima Trip', false)
-        expect(result).to eq('<dt>2025/02/??: <a href="/diary/202502-miyakojima.html">Miyakojima Trip</a></dt>')
+        result = helper.gen_link('source/diary/202502-test.html.md.erb', 'Miyakojima Trip', false)
+        expect(result).to eq('<dt>2025/02/??: <a href="/diary/202502-test.html">Miyakojima Trip</a></dt>')
       end
 
       it 'handles YYYY/MMDD format' do
-        result = helper.gen_link('source/diary/2025/0203-miyakojima.html.md.erb', 'Miyakojima Trip', false)
-        expect(result).to eq('<dt>2025/02/03: <a href="/diary/2025/0203-miyakojima.html">Miyakojima Trip</a></dt>')
+        result = helper.gen_link('source/diary/2025/0203-test.html.md.erb', 'Miyakojima Trip', false)
+        expect(result).to eq('<dt>2025/02/03: <a href="/diary/2025/0203-test.html">Miyakojima Trip</a></dt>')
       end
 
       it 'handles unknown format' do
