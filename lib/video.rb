@@ -5,11 +5,15 @@ require 'rmagick'
 class Video
   class << self
     def detect(report)
+      opts = {
+        hd: { pixel: '480x270', prefix: 'hd', aspect: '16:9' },
+        hdtr: { pixel: '270x480', prefix: 'hdtr', aspect: '9:16' },
+        nm: { pixel: '480x360', prefix: '', aspect: '4:3' },
+        nmtr: { pixel: '360x480', prefix: '', aspect: '3:4' }
+      }
       rotate = 0
-      pixel = 'NO SUITABLE PIXEL'
-      prefix = ''
-      aspect = ''
       ext_opt = ''
+      video_type = nil
       lines = report.encode('UTF-8', invalid: :replace).split("\n")
       lines.each do |line|
         if (md = line.match(/(rotate\s+:|rotation\s+of)\s+([-\d]+)/))
@@ -22,35 +26,13 @@ class Video
 
         case line
         when / DAR 16:9|960x540|1280x720|1920x1080|3840x2160|1566x880|712x480/
-          if [0, -180].include?(rotate)
-            pixel = '480x270'
-            prefix = 'hd'
-            aspect = '16:9'
-          else
-            pixel = '270x480'
-            prefix = 'hdtr'
-            aspect = '9:16'
-          end
+          video_type = [0, -180].include?(rotate) ? :hd : :hdtr
         when / DAR 9:16|540x960|720x1280|1080x1920|2160x3840/
-          pixel = '270x480'
-          prefix = 'hdtr'
-          aspect = '9:16'
+          video_type = :hdtr
         when / DAR 4:3|320x240|352x240|640x480|1440x1080/
-          if [0, -180].include?(rotate)
-            pixel = '480x360'
-            prefix = ''
-            aspect = '4:3'
-          else
-            pixel = '360x480'
-            prefix = 'tr'
-            aspect = '3:4'
-          end
+          video_type = [0, -180].include?(rotate) ? :nm : :nmtr
         when / DAR 3:4|240x320/
-          pixel = '360x480'
-          prefix = 'tr'
-          aspect = '3:4'
-        end
-        case line
+          video_type = :nmtr
         when /(120) fps/
           ext_opt = "-vf 'setpts=4*PTS' -r 30 -filter:a 'atempo=0.5'"
         when /(239\.98) fps/
@@ -58,13 +40,9 @@ class Video
         end
       end
 
-      rotate_opt = if rotate.zero?
-                     ''
-                   else
-                     '-metadata:s:v:0 rotate=0'
-                   end
+      rotate_opt = rotate.zero? ? '' : '-metadata:s:v:0 rotate=0'
 
-      { rotate: rotate, rotate_opt: rotate_opt, pixel: pixel, prefix: prefix, aspect: aspect, ext_opt: ext_opt }
+      { rotate: rotate, rotate_opt: rotate_opt, ext_opt: ext_opt, pixel: 'NO SUITABLE PIXEL' }.merge(opts[video_type])
     end
 
     def cmd_opts(opts:, acodec:, vcodec:)
