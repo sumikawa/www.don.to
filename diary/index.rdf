@@ -1,0 +1,2155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns="http://purl.org/rss/1.0/">
+  <channel rdf:about="https://www.don.to/diary/">
+    <title>すみかわ日記</title>
+    <description>子供ネタ7割、食い物2割、技術1割</description>
+    <link>https://www.don.to/diary/</link>
+    <items>
+      <rdf:Seq>
+          <rdf:li resource="2025/0801-mm/"/>
+          <rdf:li resource="2025/0801-dinner/"/>
+          <rdf:li resource="2025/0723-sendagi/"/>
+          <rdf:li resource="2025/0721-mm/"/>
+          <rdf:li resource="2025/0718-kamakura/"/>
+          <rdf:li resource="2025/0716-hodogaya/"/>
+          <rdf:li resource="2025/0711-kamakura/"/>
+          <rdf:li resource="2025/0709-humotoppara/"/>
+          <rdf:li resource="2025/0708-humotoppara/"/>
+          <rdf:li resource="2025/0707-humotoppara/"/>
+          <rdf:li resource="2025/0705-tiger/"/>
+          <rdf:li resource="2025/0704-mm/"/>
+          <rdf:li resource="2025/0703-hodogaya/"/>
+          <rdf:li resource="2025/0702-sake/"/>
+          <rdf:li resource="2025/0702-kamakura/"/>
+          <rdf:li resource="2025/0701-hosikawa/"/>
+          <rdf:li resource="2025/0626-vietnam/"/>
+          <rdf:li resource="2025/0625-vietnam/"/>
+          <rdf:li resource="2025/0624-vietnam/"/>
+          <rdf:li resource="2025/0623-vietnam/"/>
+          <rdf:li resource="2025/0622-vietnam/"/>
+          <rdf:li resource="2025/0621-vietnam/"/>
+          <rdf:li resource="2025/0620-vietnam/"/>
+          <rdf:li resource="2025/0619-vietnam/"/>
+          <rdf:li resource="2025/0618-vietnam/"/>
+          <rdf:li resource="2025/0617-vietnam/"/>
+          <rdf:li resource="2025/0616-vietnam/"/>
+          <rdf:li resource="2025/0615-vietnam/"/>
+      </rdf:Seq>
+    </items>
+  </channel>
+  <item rdf:about="2025/0801-mm/">
+            <title>2025/08/01: ハロワ</title>
+        <link>https://www.don.to/diary/2025/0801-mm/</link>
+        <description><![CDATA[<p>ハロワ出頭のため向かい中。
+出かけに雨が降ってたので電車で移動。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>線路って前からあったっけと思って調べたら、<a href="https://ja.m.wikipedia.org/wiki/%E6%B1%BD%E8%BB%8A%E9%81%93">汽車道</a>の<a href="https://minatomirai21.com/wp-content/uploads/2025/07/102a2c9e82ad23217eaeff17ba2fe63b.pdf">補修工事</a>だった。
+動いてたらハロワ行きやすかったのに。</p>
+
+<p><a href="https://www.welcome.city.yokohama.jp/blog/detail.php?blog_id=127">ゴンドラ</a>を使うという手もあるが、朝9時は動いてなかった。チケット高いけど。</p>
+]]></description>
+        <dc:date>2025-2025-08T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0801-dinner/">
+            <title>2025/08/01: 野毛せんべろ</title>
+        <link>https://www.don.to/diary/2025/0801-dinner/</link>
+        <description><![CDATA[<p>前職の元同僚と野毛でサシ飲み。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-08T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0723-sendagi/">
+            <title>2025/07/23: 鱧しゃぶ</title>
+        <link>https://www.don.to/diary/2025/0723-sendagi/</link>
+        <description><![CDATA[<p>鱧しゃぶの会にご招待いただいた。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1311/A131106/13054593/">谷中 鳥よし</a>
+東京都台東区谷中3-14-6
+03-3823-6298
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>帰りに終電に乗ったはずなのに気がついたら武蔵小杉で降りてた。意味がわからない。</p>
+
+<p>朝まで時間潰して始発で帰る。</p>
+
+<p>なお、翌日も朝帰りという体たらく。
+そのさらに翌日も飲みだったけど、終電までに帰ったら家族に褒められた。</p>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0721-mm/">
+            <title>2025/07/21: 神奈川私学(高校)展</title>
+        <link>https://www.don.to/diary/2025/0721-mm/</link>
+        <description><![CDATA[<p>娘とパシフィコ横浜へ。激混み。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>パンフレット集めて帰宅。</p>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0718-kamakura/">
+            <title>2025/07/18: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2025/0718-kamakura/</link>
+        <description><![CDATA[<p>先週見失った秘密の休憩スポットは、このポイントを右だった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>定点観測。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>鎌倉駅前は人が多い。浴衣の人もちらほら。花火大会が中止になったの知ってるのかしら。</p>
+
+<p>大船駅に移動、暑すぎるのでサウナはパスして、ホルモンセンター。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0716-hodogaya/">
+            <title>2025/07/16: 天たま家</title>
+        <link>https://www.don.to/diary/2025/0716-hodogaya/</link>
+        <description><![CDATA[<p>娘と天丼食べにいく。
+穴子天丼と地魚天丼。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140301/14061348/">天丼 天たま家</a>
+神奈川県横浜市保土ケ谷区岩井町53
+045-872-0206
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0711-kamakura/">
+            <title>2025/07/11: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2025/0711-kamakura/</link>
+        <description><![CDATA[<p>定点観測。
+草が茂りすぎて、秘密の休憩スポットを見失った。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>バッタ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>いつものもつしげ。17時入店なのでメガハイ2杯ぐらいかなあと思ってたら、平日のハッピーアワーは19時までだった。嬉しい誤算。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>締めの豚山。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0709-humotoppara/">
+            <title>2025/07/09: ふもとっぱら その3</title>
+        <link>https://www.don.to/diary/2025/0709-humotoppara/</link>
+        <description><![CDATA[<p>夜明け。結局一度も富士山は見れず。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>前夜は雨が降り出したのでテントで寝た。
+天気予報的には晴れだったけどタープ張っといて良かった。今回はキレイに張れた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>家で寝るよりテントの方がレム睡眠の時間が長くなった
+(後半の赤い部分は夜が明けてからハンモックに移動したので、半分起床している)。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>河口湖駅に戻る。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>河口湖商店街バス停から最寄りの<a href="https://www.yamagisi.jp/hot_spring.html">日帰り温泉</a>へ。
+少し待たせてもらって利用可能になる15時から入るが、エアコンが効いてないので風呂上がりに汗がひかない。
+風呂もイマイチだったので、次回は他の日帰り温泉を探す。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>バス停のすぐそばの店でほうとうを食べる。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/yamanashi/A1903/A190303/19004308/">ほうとう不動 河口湖駅前店</a>
+山梨県南都留郡富士河口湖町船津3631-2
+0555-72-5560
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>バスの発車時間を30分間違えたことに気づいて、ビールをまったり飲みながら長めに滞在しようと思ったんだけど、バス発車までまだ50分あるのにみんな帰っちゃった。早いぞインバウンド。</p>
+
+<p>ビールおかわりしようとしたら断られた。16時前に入店したけど閉店時間聞いてないし、ラストオーダーも聞かれてないんですけど。
+店もやる気ないんなら<a href="http://www.houtou-fudou.jp/location.html">閉店時間</a>を書き換えてくれ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ローソン前で記念撮影者多数。どうも富士山が背景に見えるローソンとしてインバウンドで有名らしいんだけど、今日は曇ってて富士山が全く見えてない。
+ローソン自体が名所化したようだけど、これ撮ってどうすんだ。意味わからん。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>横浜経由で帰宅。何だろうこの外国から帰ってきたみたいな感覚。</p>
+
+<h4>Lesson Learned</h4>
+
+<ul>
+<li>ブヨに刺されるので長ズボンを履く</li>
+<li>上着も忘れるな</li>
+<li>高地で曇りが多いし、木陰にテント張ってるので日差しが弱い。ソーラー充電器は役に立たない</li>
+<li>油ぐらいは持っていこう</li>
+</ul>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0708-humotoppara/">
+            <title>2025/07/08: ふもとっぱら その2</title>
+        <link>https://www.don.to/diary/2025/0708-humotoppara/</link>
+        <description><![CDATA[<p>夜明け。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>昨夜はハンモックとインフレーターマットの組み合わせで寝た。
+曇りだったので星を見ながら眠ることはできなかった。</p>
+
+<p>マットが底冷えを防いでくれるので、夜は肌寒いが半袖短パンで寝袋に潜り込むとちょうどいい感じ。</p>
+
+<p>体勢的には、マットのおかげで体がかなりフラットにはなる。寝れなくはないが頻繁に目が覚めてしまう感じ。
+慣れればもうちょっと熟睡できるかしら。ハンモック泊にすればかなり荷物減らせるけど。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>金山テラスで鹿バーガー。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>夜は自販機で買った餃子を食べながら、持ってきた芋焼酎を飲む。
+油を持ってこなかったせいで餃子が焼き付くので、水餃子にした。</p>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0707-humotoppara/">
+            <title>2025/07/07: ふもとっぱら その1</title>
+        <link>https://www.don.to/diary/2025/0707-humotoppara/</link>
+        <description><![CDATA[<p>ふもとっぱら再訪。高速バスで横浜から河口湖へ。2300円。
+河口湖駅はインバウンドまみれ。外国人しかおらん。各地からの高速バスががんがんやってくる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ローカルバスで朝霧グリーンパーク着。一日2本。1690円。
+高速バスとの格差よ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>20分弱ぐらい歩いてふもとっぱら着。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>荷物はだいぶん軽量化が進んだ。</p>
+
+<p>河口湖のコンビニでちょっとだけ食材買って後はキャンプ場で買えるもので生きていく。
+もうちょっと持ち運べたけど翌日まで保冷する手段がないのでこんなもんで。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>とりビー。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ここをキャンプ地とする。
+ハンモックは必需品。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0705-tiger/">
+            <title>2025/07/05: ハングリータイガー</title>
+        <link>https://www.don.to/diary/2025/0705-tiger/</link>
+        <description><![CDATA[<p>横浜市民のソウルフード。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140302/14000062/">ハングリータイガー 保土ヶ谷本店</a>
+神奈川県横浜市保土ケ谷区星川3-23-13
+045-333-7023
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ステーキよりハンバーグが美味いという結論になった。
+西のさわやか、東のグリタイ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ヨシ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0704-mm/">
+            <title>2025/07/04: みなとみらい</title>
+        <link>https://www.don.to/diary/2025/0704-mm/</link>
+        <description><![CDATA[<p>ハロワ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>認定が早く終わったのでモーニングパンケーキ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140102/14067913/">メレンゲ みなとみらい店</a>
+神奈川県横浜市西区みなとみらい4-4-1 横浜野村ビル１F
+050-5593-9994
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0703-hodogaya/">
+            <title>2025/07/03: 天王町飲み</title>
+        <link>https://www.don.to/diary/2025/0703-hodogaya/</link>
+        <description><![CDATA[<p>新卒時代の上司が完全退職したので、無職同士で昼飲み。
+一軒目はちる酒場(写真なし)。</p>
+
+<pre class="address">
+<a href="https://s.tabelog.com/kanagawa/A1401/A140301/14091052/">炭火やきとり ちる酒場</a>
+神奈川県横浜市保土ヶ谷区天王町1-2-3
+045-442-3440
+</pre>
+
+<p>二軒目は興福寺商店街のカツオの藁焼き屋。うまい。</p>
+
+<pre class="address">
+<a href="https://s.tabelog.com/kanagawa/A1401/A140301/14085498/">日光丸食堂</a>
+神奈川県横浜市保土ケ谷区宮田町1-5-1
+045-453-8989
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0702-sake/">
+            <title>2025/07/02: フラミンゴ オレンジ</title>
+        <link>https://www.don.to/diary/2025/0702-sake/</link>
+        <description><![CDATA[<p>九州で飲んで一番美味かった芋焼酎、<a href="https://note.com/hiro1945/n/n14c63ce987ee?magazine_key=m44772631a14f">フラミンゴオレンジ</a>。
+プレミアついてて入手困難だけど、6月の発売に合わせて正規価格ゲットした。次の入荷は来年の3月</p>
+
+<p>不思議なことに柑橘系の香りがする。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0702-kamakura/">
+            <title>2025/07/02: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2025/0702-kamakura/</link>
+        <description><![CDATA[<p>静寂を求めてハンモックを持って鎌倉山中へ。
+紫陽花はまだ咲いてた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>定点観測。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0701-hosikawa/">
+            <title>2025/07/01: 伊勢屋</title>
+        <link>https://www.don.to/diary/2025/0701-hosikawa/</link>
+        <description><![CDATA[<p>ときどき食べたくなる極厚カツ丼。
+開店10分前に来たら列の先頭だった。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140301/14013607/">伊勢屋</a>
+神奈川県横浜市保土ケ谷区星川2-5-33
+045-341-7971
+</pre>
+
+<p>とはいえカツが揚がるまで一時間待ちなのでビール。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>着丼。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>スタバ行ったら大声で「よだれさまー」と呼ばれた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0626-vietnam/">
+            <title>2025/06/26: ベトナム旅行 その20 (ハノイ)</title>
+        <link>https://www.don.to/diary/2025/0626-vietnam/</link>
+        <description><![CDATA[<p>近所のベーカリー屋へ。</p>
+
+<pre class="address">
+Bánh Sinh Nhật Thu Hương Bakery since 1996
+14B P. Lý Nam Đế, Quán Thánh, Hoàn Kiếm, Hà Nội, Vietnam
+</pre>
+
+<p>Ô long dâu tằm (桑の実ウーロン茶)。45,000ドン。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>昼飯はブンチャー。路地が調理場になってて、その奥に食べるところがある。</p>
+
+<pre class="address">
+Bún Chả Hàng Quạt
+74 P. Hàng Quạt, Hàng Gai, Hoàn Kiếm, Hà Nội, Vietnam
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>炭火で焼いた肉が入ってる。美味い。50,000ドン。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>まだ飲めてない銘柄を店で購入。
+あと、緑のバインバオが売ってたので買ってみた。食べたけど中身が何かわからない。緑豆餡かなあ。</p>
+
+<p>333が11,800ドン。Red Rubyが12,500ドン。バインバオが15,000ドン。ビールのほうが安い。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>聖ヨセフ大聖堂に再挑戦。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>西湖。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>チャンクオック寺。入ろうとしたら、短パン禁止だと言ってオバちゃんが布を売りつけてくる。
+買うのを拒否してたら、そのうち諦めて入れるようになった。
+注意してくるのが物売りだけなのよね。どこまで本当にダメなのかよお分からん。</p>
+
+<p>奥の方は何か行事をしていたので、そっちに立ち入るのはやめた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ブラブラ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>水上Highlands Coffeeを発見。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>Freeze Kem May Dau Tam (Mulberry Freeze)。ミルクフォームはしょっぱい。汗かくのでちょうどいい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>晩飯。18時閉店なので早めに来た。</p>
+
+<pre class="address">
+Miến trộn mực
+2VM3+838, Ngõ, Trung Yên, Hoàn Kiếm, Hà Nội, Vietnam
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>MIẾN TRỘN MỰC(春雨麺汁なし)、Thêm Tôm(エビ)追加。75,000ドン。
+これはちょっと好みの味じゃなかったなあ。
+スープはカニの出汁でうまかった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>Grab Bikeヘルメット売ってた。ちょっと欲しい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>宿に戻ってシャワー浴びてバスターミナルへ。</p>
+
+<p>ネットのバス情報が食い違いがあるので、本当にバスが来るのか不安になってたら、例によって白タク(というか白バイク)のオッサンがやってきて、バスすごい待つことになるよと適当なこと言い出して、200,000ドンでどう？とか言い出す。空港までバイク二人乗りは遠すぎるし、もうキャッシュは残ってないし、それならGrab Car使う。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>一次情報(たぶん)の<a href="https://busnoibai.com/en/lich-xe-chay">時刻表サイト</a>の10分遅れでバスが来た。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>走り出してしばらくしたら、土砂降りの雷雨になった。
+こんなんバイク乗ってたら死んでるぞ。乗らんけどさ。</p>
+
+<p><a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>空港バスなのに、途中で停めさせて降りてった人がいた。カオス。</p>
+
+<p><a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>空港着。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ゲートをくぐると、物価が5倍になっていてビビる。
+マンゴージュース、6 USドルを注文。これなら気分的に何とか。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>現金残高38,000ドン。頑張って使い切った。バス待ち用にコーヒーを一杯買っとけば、ほぼ使い切れたのに。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>成田行きは30分遅れで例によってゲート変更。
+かなり早くにゲート変更が通知されたので問題なし。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>夜明け。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>成田着。そばを食いたくなって乗換の品川駅の13/14番ホームの立ち食いそば屋に入る。イカ天そば620円を見て「えー、12万ドンもするの。ビール6缶飲めるやん」と思ってしまった。</p>
+]]></description>
+        <dc:date>2025-2025-06T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0625-vietnam/">
+            <title>2025/06/25: ベトナム旅行 その19 (ハノイ)</title>
+        <link>https://www.don.to/diary/2025/0625-vietnam/</link>
+        <description><![CDATA[<p>宿を出た途端に雨が降り出した。
+近所のベーカリー屋に逃げ込む。</p>
+
+<pre class="address">
+Bánh Sinh Nhật Thu Hương Bakery since 1996
+14B P. Lý Nam Đế, Quán Thánh, Hoàn Kiếm, Hà Nội, Vietnam
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>イチゴのクロワッサンとアメリカーノ。80,000ドン。
+クロワッサンはカスタードクリームがたっぷり入ってて美味かった。
+ただフォークがしょぼすぎて食べづらい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>晴れたのでブラブラ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ここら辺は仏花屋通り。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>観光情報でよく見る線路沿いの道。店に入らないなら、危険だから立ち入るなと言われる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ちょっと奥に行ったら踏み切り横から普通に入れた。何だったんだ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ガードもしてるんでいきなり列車が突っ込んでくるリスクなさそう。どこが危険なのか。
+さっきコーヒー飲んだとこだし、やってくるのは一昨日に乗った列車だし、時刻表信用できないの知ってるし、距離間は江ノ電とそう変わらんので、店には入らなかった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>聖ヨセフ大聖堂は午前の部が終わりで入れず。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>じゃない方のコンカフェ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>タンロン水上劇場。時間チェックしたけど結局行かなかった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>スピーカー屋さん、まだ需要あるんだろうか。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>フォー界の二郎へ。</p>
+
+<pre class="address">
+Phở Thìn
+13 P. Lò Đúc, Ngô Thì Nhậm, Hai Bà Trưng, Hà Nội, Vietnam
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>卵追加で75,000ドン + 5,000ドン。
+卵を入れ忘れてて別皿で提供された。確かに迫力がある。
+ポーチドエッグとネットには書いてあったが、ほぼ生卵だった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>Grab Bikeにもすっかり慣れたので動画撮ってみた。</p>
+
+<p><a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>宿がある通りはコンピューター街。USBカメラとWiFiルーターしか売ってないように見えるけど、やっていけるのかしら。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>宿でしばらく休んでから、さらにGrab Bikeでボロボロの<a href="https://ja.wikipedia.org/wiki/%E3%83%AD%E3%83%B3%E3%83%93%E3%82%A8%E3%83%B3%E6%A9%8B">ロンビエン橋</a>を渡って寂れたモールへ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>閑散としたスーパーで買い物。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ヨーグルト買ってスプーンちょうだいと言ったらダースでくれた。そんなにいらん。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ドラゴンフルーツ安いので買った。13,700ドン。
+次の日のお通じが真っ赤になってビビった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ゲーセンもガラガラ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>e-Sportsのエリアだけ人が一杯いた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>繁華街エリアに戻る。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>晩飯はバインミー。</p>
+
+<pre class="address">
+BANH MI 25
+25 P. Hàng Cá, Hàng Bồ, Hoàn Kiếm, Hà Nội, Vietnam
+</pre>
+
+<p>ハノイビールは初めて飲む。20,000ドン。ぬるいので氷をもらう。
+Bahn mi Heo quay 50,000ドン。さすが人気店、美味い。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>しばらくしたら激混みになった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ホアンキエム湖周辺をブラブラ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ダンスで運動してるおばちゃん達。
+でも、音楽に乗り切れてない。</p>
+
+<p><a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>玉山祠には時間が遅くて入れず。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-06T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0624-vietnam/">
+            <title>2025/06/24: ベトナム旅行 その18 (ハノイ)</title>
+        <link>https://www.don.to/diary/2025/0624-vietnam/</link>
+        <description><![CDATA[<p>今日はハノイへの移動。
+前日にVietjetから通知がきて、また一時間前の便に勝手に変更された。
+乗客が足りないと便を集約するのかしら。
+さらに朝の時点でフライトが70分遅延とのこと。好きにしてくれ。</p>
+
+<p>とりあえず近所で朝フォー。60,000ドン。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>2時間前に空港着。問題なくセキュリティを越える。</p>
+
+<p>まだバインボーたべてないので空港の売店で買ってみた。
+カボチャのやつで25,000ドン。
+ゲートそばの店でカフェアメリカーノを買う。75,000ドン。空港価格。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>11:40(搭乗開始予定時刻)になってそろそろ列に並ぼうかと思ったらなんか変。
+同じハノイ行きだけど10分早い別の航空会社の便が同じゲートってどういうこと…</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ゲート6のVietnam Airlinesのスタッフに聞いたら、何か変、Vietjetのスタッフに確認してくれと言われる。
+別の同じく困っていた外国人旅行者がVietjetのスタッフ捕まえて聞いたら、ゲート1になったとのこと。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>別フロアのゲート1に急いで来たら閑散としている。画面表示は知らない航空会社(Vietravel Airlines)の14時台のホーチミン行き。
+そこにいるスタッフに聞いたら画面がハノイ行きに変わった。なんだかなあ</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>この時点でほとんどの乗客がゲート難民。
+外国人旅行者っぽいのが続々と集まってくる。ベトナム人はあまり見かけない。</p>
+
+<p>12:01、まだボーディング待ち列が大量に残っているし、バスで移動して飛行機に乗りつけるので、当分離陸出来ないな。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>12:32、ドアクローズ。大量の持ち込み荷物を押し込むイベントは発生しなかった。平和だ。</p>
+
+<p>後から聞くとゲートが直前に変わるのは国内線あるあるらしい。
+なのでベトナム人だけ慌ててないのか。なるほど。</p>
+
+<p>ハノイ着。見慣れた煙幕。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>バスで市内まで行ってみる。45,000ドン。
+86番がエアポートバスらしい。同じ乗り場に68番に停まるバスがある。紛らわしい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>車掌おらんなあと思ったら、運転手が途中で停車して集金に来た。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="https://www.airbnb.jp/rooms/1249823699700552853">今回の宿</a>。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>付近を散策。電線無茶苦茶やなあ。配電盤開いてるし。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>公園歩こうとしたら、立ち入り禁止だった。
+反対側は行政府で銃を持った軍人が見張ってる。
+ひたすら直進する。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>偉そうなホテルだなあと思ったら、Army Hotelだった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>立ち食い串揚げ屋。興味深いが難易度高そう。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>西湖。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>晩飯は日本人がベトナムで経営している有名なピザ屋にした。麻布台ヒルズに支店がある。</p>
+
+<pre class="address">
+<a href="http://pizza4ps.com/">Pizza4Ps Bao Khanh</a>
+11B Bao Khanh Hoan Kiem Ha Noi
+</pre>
+
+<p>なんとかハッピーアワーに滑り込んだので、ビール二杯目タダ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>昨日を超えてさらに最高額達成。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>花屋兼八百屋。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>二軒目はデザート。</p>
+
+<pre class="address">
+Chè Khúc Bạch Phô Mai
+16 P. Nguyễn Trường Tộ, Trúc Bạch, Ba Đình, Hà Nội, Vietnam
+</pre>
+
+<p>Sữa chưa hoa quả (Yogurt, fresh fruits, white pearl, passion fruit sauce)。
+40,000ドン。
+しゅあーちゅあーほあーと片言で料理名を発音してたら、あー分かったからもういいと流された。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>点眼二日目でほぼ目ヤニでなくなった。ありがとうダナンの薬局。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-06T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0623-vietnam/">
+            <title>2025/06/23: ベトナム旅行 その17 (フエ)</title>
+        <link>https://www.don.to/diary/2025/0623-vietnam/</link>
+        <description><![CDATA[<p>フエ日帰りしようと列車の往復チケットを取った。観光バスはつまんないしね。</p>
+
+<pre class="flight">
+HD2 12/06 07:45 Da Nang - Hue 12/06 11:26
+SE7 12/06 19:58 Hue - Da Nang 12/06 22:43
+</pre>
+
+<p>行きは4時間弱、帰りは3時間弱。まず間違いなく遅れるらしい。
+93kmしか離れてないのに遅い。</p>
+
+<p>HDがついてる行きは観光列車、SEがついてる戻りはベトナム南北を走る普通列車。180,000ドン。</p>
+
+<p>普通列車は長距離を走るので半分以上が寝台車で、どうもリネンを交換しないらしい。
+そもそも寝るつもりないけど。上記理由で普通席は数が少ないので予約の時点で最後の一席だった。91,000ドン。</p>
+
+<p>どっちも進行方向でかつ海側の席を押さえた。帰りは真っ暗なので進行方向さえ合ってればどうでもいい。</p>
+
+<p>Grab Bikeでダナン駅。運行情報ディスプレイにフエ行き書いてないんですけど。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>電子チケットを見せたら、待合室で待ってろと言われる。
+しばらくして、電車が来たタイミングでプラットホームに入れてもらえる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>フエ行き乗車開始。すげえオンスケだ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>車内は予想通り過剰エアコン。
+上着持ってきて良かった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>7:45予定通り出発。やるやんけ。席は結構広いし、リクライニングもきいている。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>場所が高すぎて使いづらいが電源もあった。やるやんけ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>移動速度はすごいゆっくり。
+観光列車だからか？ BGM付きで観光案内が始まったりもする。</p>
+
+<p>満席なのにごっそり人がいないのは、たぶん売店車両に人が集中している。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>トートバッグの車内販売。なぜ群がる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>Lang Co駅着。全然発車しない。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>Cau Hai駅。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ずっとダラダラ走ってたのにラスト30分で急にやる気出して飛ばしてる。
+現在のスピードが液晶に表示されている。最初から70km/hなら一時間ちょっとやんけ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>フエ着いた。まさかのオンスケ。
+しかし目の前の別の列車がどかないと駅から出れないけど、一向に発車しない</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>動き出した。
+向かいの普通列車はかなりオンボロだった。</p>
+
+<p><a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>フエ駅。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>現時点で帰りの列車(SE7)は33分遅れ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>駅でさっそく白タクと揉める。桁を勘違いさせるボッタクリだった。</p>
+
+<ul>
+<li>Grab Bike見てたら目的地まで13,000ドンだった</li>
+<li>白タクのオッサンが来て、俺のスマホ見て、これでどう？と、130,000ドン分の札を見せる(一桁多い)</li>
+<li>桁が違うことに気づかないで了承してしまう</li>
+</ul>
+
+<p>降りたときに20,000札を出してお釣りもらおうとしたら、全然足りないと言われる。</p>
+
+<p>スマホのGrabの画面見せて、この値段って言ったよねとゴネる。
+揉めて、なんだかんだで20,000だけ払った。差額の7,000損したけど代わりに車で来れた。
+Grab Carの相場は33,000だったので、向こうも儲かってない。まあ痛み分け。
+みんなちゃんとGrab使おうね！</p>
+
+<p>で、An Dinh Palaceに到着。
+ここに限らず伝統衣装来て写真撮ってる人が多い。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>付近をブラブラ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>昼飯時なのにどの店にも全然客が入ってない。何だこれ。
+しょうがないのでエアコン付きカフェでミルクティー (Thanh Hương Camellia)。
+ミルクティーというかほぼミルク。
+50,000ドン。さっき7,000ドン損してムカついてたのに、金銭感覚狂うわ。</p>
+
+<pre class="address">
+KATINAT
+Số 106- 114 Lê Lợi, Phường Phú Hội, Quận Thuận Hoá, Vietnam
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>Grab Bikeでフエ王宮へ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>デカい。入場料は200,000ドン。
+この旅最も高額な支払いをした。
+2時間ぐらいかけて回る。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>隣の敷地のフエ宮廷美術博物館。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>まだもう一箇所回れるぐらいの時間なので、Grab Bikeでティエンムー寺。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>いい具合に涼しくなってきたので、香水川 (Perfume River)沿いを歩いて街に戻る。香水と言いながら川は真っ茶色。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>フエ駅で最新の遅延情報をチェック。大して変わってなかった。
+運行情報よく見たらただのWebブラウザやんけ。
+店で飲みながら遅延情報わかるがなと思って表示されている<a href="http://ttqc.dsvn.vn/plays/giotaus">URL</a>アクセスしてみたらパスワードかけてやんの。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>いい店が見つからないし、時間もそこまでないし、ヘロヘロになってきたので、晩飯は川沿いおしゃれレストランにした。外のテラスがいいか、空調効いてる中だけど川が見える席がいいか聞かれたけど、スマホのバッテリーがヤバいんで奥まった席で充電もさせてもらった。</p>
+
+<pre class="address">
+Le Cercle Hue
+11 Lê Lợi, Vĩnh Ninh, Huế, Thành phố Huế 530000, Vietnam
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>今まで安い店しか入ってなかったので、いきなり小ちゃいパンが出てきてビビる。
+流石にこのレベルになるとグラスに氷は入れてくれない。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>Banh Uot Thit Nuong。
+盛り付けがすげえオシャレ。そして何より箸をウェットティッシュで拭く必要もない。
+普通に肉も麺も美味い。
+雰囲気もいいし女子連れて旅行するんならオススメ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ビール三杯飲んで260,000ドン。
+最高額支払い更新。初めて見たぞサービスチャージ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>フエ駅に戻る。
+どのホームにいればいいのかさっぱりわからん。
+ホームを間違うと他の列車に通せんぼされて乗れなくなるのでクリティカルなので、売店のおっちゃんに教えてもらった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>やっと列車来たけど見えてからが遅い。</p>
+
+<p><a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>もうビール三杯飲んでるけど、売店で購入した追加の晩酌セット。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>時間も遅いのに何でみんなこの時間に大音量で動画見るの。</p>
+
+<p><a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>頭上には隣のおばちゃんの荷物がぶら下がってる。
+ニョクマムの匂いが漂ってくる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>毛布を配りに来た。貰わないけど。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>荷物置き場がデカい。新幹線も見習え。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>電源もあった。やるやんけ。
+これなら晩飯で充電する必要なかった。テラス席座れたな(結果論)。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>テーブルは前席のリクライニングに合わせて斜めに傾いている。水平にする機能はない。
+俺、油断したら絶対ビールこぼす。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>頭上のビニール袋、お菓子でしたわ。隣のおばちゃん、お菓子を分けてくれた。何その伏線。
+もっと食えもっと食えって言ってくれるんだけど、ポテチ食ってる俺には味が薄い。
+食べるだけ食べたらまた俺の頭上にビニール袋戻された。そういうもんなのね。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ダナン着。Grab Bikeで宿に戻る。
+冷蔵庫にまだビールが1缶残ってたので、飲んで寝る。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-06T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0622-vietnam/">
+            <title>2025/06/22: ベトナム旅行 その16 (ダナン)</title>
+        <link>https://www.don.to/diary/2025/0622-vietnam/</link>
+        <description><![CDATA[<p>ダナン博物館。今度こそ開いてた。
+日曜日なので家族連れが一杯。展示のほとんどがベトナム戦争がらみ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>もうこれで観光したい場所はなくなった。
+川沿いを歩いて戻る。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>昼飯。</p>
+
+<pre class="address">
+Quán phở Hồng
+10 Lý Tự Trọng, Thạch Thang, Hải Châu, Đà Nẵng 550000 Vietnam
+</pre>
+
+<p>Bahn Hoi Thit Quay。120,000ドン。
+とうとうこちらから、グラスとアイスを要求するようになってしまった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>宿そばに空調効いたカフェあった。見逃してた。
+ベトナムコーヒー砂糖抜き。30,000ドン。お茶付き。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>マンゴーかき氷頼んだら、激盛りだった。120,000ドン。
+小豆かき氷の方が高いのな。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>Grab Bikeでジムへ。100,000ドン。
+プレートの単位がLBしかなくてさっぱり分かりません。</p>
+
+<p>20kg x2を両手に持ってダンベルベンチプレスやろうとして寝転んだら、バランスを崩してベンチから落ちそうになった。死ぬかと思った。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ジムでたら隣で炭火で肉を焼いてたので、フラフラと入店。
+タンパク質摂取せんとね。</p>
+
+<pre class="address">
+Quán Phú Hồng
+19 Yên Bái, Hải Châu, Đà Nẵng 550000 Vietnam
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>Bún Thịt Nướng (バーベキューヌードル) とNem Nướng Cuốn (串肉)。
+串肉うまーい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>おじさんが、いったん提供した串肉を取りあげた。何すんねんと思ったら、ハサミで焦げたとこを切ってくれた。何その心遣い。
+ビール缶の口も拭いてから出してくれる。俺、自分でも拭かないのに。
+野菜無くなったら追加してくれた。徹底したホスピタリティ。
+この店、ミシュランの<a href="https://guide.michelin.com/jp/ja/article/features/the-bib-gourmand-JP">ビブグルマン</a>らしい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ビール二杯で175,000ドン。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>帰りは川沿いを徒歩。</p>
+
+<p>目ヤニが治らないので薬局で症状を説明して点眼薬を買った。ありがとうグーグル翻訳。50,000ドン。
+一日4回点眼とのこと。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>宿戻ってシャワー浴びる。窓の外から会話してる声がくっそやかましいので、公園カフェに来た。</p>
+
+<p>ミントソーダ。下の方の死ぬほど濃いミント原液をストローで吸ってしまいむせる。
+ベトナムなんでも濃いのね。
+モヒート的なものを想定していたけど、全然違った。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>隣の席の小型犬が永遠に吠えてた。
+どこ行ってもやかましいのな。</p>
+]]></description>
+        <dc:date>2025-2025-06T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0621-vietnam/">
+            <title>2025/06/21: ベトナム旅行 その15 (ダナン)</title>
+        <link>https://www.don.to/diary/2025/0621-vietnam/</link>
+        <description><![CDATA[<p>宿そばのフォー屋で朝フォー。</p>
+
+<pre class="address">
+Phở Việt Béo
+35 Lý Tự Trọng, Thạch Thang, Hải Châu, Đà Nẵng 550000 Vietnam
+</pre>
+
+<p>60,000ドン。
+メニュー的には5種類ぐらいあるんだけど、何も注文しないのにに出てきた。朝は一種類しかないのかしら。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>支払いになって、財布を忘れて来たことに気づく。身振り手振りで説明して取りに戻る。宿のそばの店でよかった。</p>
+
+<p>引き続き軽い風邪を引いてるので、宿に戻る。
+Netflixが観れるようになってたのでイカゲーム2を視聴。</p>
+
+<p>15:00ぐらいにまあ博物館ぐらい行っとくかあと思って宿でたら、曇りで涼しかったので予定変更してGrab Bikeでマーブルマウンテン(五行山)に向かう。
+今まで通ったことのない川沿いの道だったので観光にもなった。</p>
+
+<p>着いたらすっかり晴れて炎天下。
+エレベーターはゲート2側。知らずにゲート1に来ちゃったので、炎天下に階段を登るハメになる。普通、ゲート1がメインゲートだろうよ…。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>風邪と炎天下のせいで息がすぐ切れる。休み休み歩く。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>市街側展望台。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>洞窟。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>360度展望台。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>向こうの岩の上は洞窟の中を登っていくと出れるらしい。
+元気がないので登らない。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>スイカバー。35,000ドン。観光地値段だけど背に腹は変えられない。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>この背後が岩の上に出る洞窟のはず。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>下山して甘々コーヒーで休憩。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>Grab Bikeで戻る。道中のコムガー屋にもう一度行きたかったので寄る。</p>
+
+<pre class="address">
+Cơm gà bà Buội
+253 Hồ Nghinh, Phước Mỹ, Sơn Trà, Đà Nẵng 550000 Vietnam
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>AirBnBのオーナーから<a href="https://diff.vn/en/">花火大会</a>あって、屋上から見れるよと連絡あったので、ビール持って来てみた。
+よく分からんけど国別対抗で前半はポルトガル。
+めっちゃ豪華。すげえなダナン。</p>
+
+<p>屋上からのビューが最高。
+角度も良くて強めの風が右から左に流れてるので、煙が邪魔しないし。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>公園カフェはオートスケールして最大になってる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>後半戦は我らがUK。
+最後はケイブのラスボス並みにヤケクソだった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-06T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0620-vietnam/">
+            <title>2025/06/20: ベトナム旅行 その14 (ダナン)</title>
+        <link>https://www.don.to/diary/2025/0620-vietnam/</link>
+        <description><![CDATA[<p>気がつけば二週間！</p>
+
+<p>五行山行くつもりで早朝に起きたけど、調子悪いので二度寝。
+目ヤニもそうだけど、エアコンにやられて少し夏風邪気味。</p>
+
+<p>午後から活動開始。昼飯。</p>
+
+<pre class="address">
+Mì Quảng 1A
+5 Hải Phòng, Thạch Thang, Hải Châu, Đà Nẵng 550000 Vietnam
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ダナン博物館に来たら、金曜は午前のみ営業だそうで。やられた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>町をブラつきながら、気になった飯屋をgoogle mapでピンしていく。</p>
+
+<p>こんな低いところにデカい変圧器。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>クレカが使える店が少ない(というか、そういう店を狙って入ってる)ので、手持ちの現金が減ってきた。
+USDを入金してあるWyseカードで現地の現金を引き落とす。提携しているTP Bankを見つけたのでATM利用料金を取られなかった。
+他行だとビール2本分の手数料取られるのに！</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ダナン市街地はエアコンの効いたカフェがほとんどない。絶望的な状況で見つけた俺たちのHighlands Coffee(チェーン店)。
+Ca Phe Phin と店員の言いなりで追加した塩入りのエキストラフォーム。この日差しで塩分は助かるが、くそ濃い甘じょっぱい。3,9000 + 9,000ドン。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>40分経過。一向に減らない。体は充分以上に冷えている。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>100分経過。もう残すわ。何このコスパ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ATMから超高額紙幣が出てきた。露店で拒否されるやつやん。
+銀行があったのでふらっと入って両替してもらう。
+特に申請書を書いたりする必要もなく、窓口の兄ちゃんがささっと替えてくれた。自由度高くて素敵やで。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>月曜日にフエに行くので、ダナン駅を下見。
+まあ当日はGrab Bikeを使うけど。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ベトナムは歩道が広くて整備されてるんだけど、バイクが路駐しまくってて歩けないところがあちこちにある。
+その度に無法地帯の車道を歩かないといけなくなる。
+台湾みたいに整然と停めてくれんものか。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ベトナムで初めてデカいショッピングモール見つけた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>2Fのハイパーマーケット。
+ドリアン安いどうしよう。一つ何kgなのか分からんけど。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>路地の奥にある店で晩飯。</p>
+
+<pre class="address">
+Bánh Xèo Bà Dưỡng
+280/23 Hoàng Diệu, Phước Ninh, Hải Châu, Đà Nẵng 550000 Vietnam
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>店名通りバインセオ屋さん。
+店員さんが一人ならハーフできるよって言ってくれたので、お願いした。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>串焼き美味い。
+最初、箸で一生懸命肉を剥がしてたけど、ライスペーパーでくるんでグッと引っ張ればいいのね。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ビール二杯飲んで150,000ドン。串肉が相対的に高い。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>宿に戻ってシャワー浴びてから、カフェへ。
+今日はもうアルコールは飲まない。</p>
+
+<p>Chanh tươi (レモンジュース、25,000ドン)と、Sữa chua đá(ヨーグルト, 20,000ドン)。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ベトナムは喫煙率が高い。少し咳が出てるので副流煙が厳しい。</p>
+]]></description>
+        <dc:date>2025-2025-06T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0619-vietnam/">
+            <title>2025/06/19: ベトナム旅行 その13 (ダナン)</title>
+        <link>https://www.don.to/diary/2025/0619-vietnam/</link>
+        <description><![CDATA[<p>朝餃子。正確には餃子じゃなくてホワイトローズ(Bánh vạc)。</p>
+
+<pre class="address">
+WHITE ROSE RESTAURANT
+533 Hai Ba Trung - Hoi An
+</pre>
+
+<p>中身は色々入ってる。
+朝ビー飲んで500円ぐらい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>行きつけのカフェでタロ芋ミルクティー。濃ゆい。</p>
+
+<pre class="address">
+SUMMER.BAKE
+V8MJ+5P9, Lý Nam Đế, Sơn Phong, Tp. Hội An, Quảng Nam, Vietnam
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>Grab Carでダナンに戻る。ビーチ側ではなくて市街地側。
+<a href="https://www.airbnb.jp/rooms/1241825367952302531">今回のお宿</a>。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ベランダに洗濯機あった。
+気がつかなくてオーナーにメッセージ送って教えてもらった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>周辺を観光。ダナン大聖堂。
+ちょうど中に入れるようにドアが開くタイミングだった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>晩飯。Com Ga Quay。半身揚げが載ってるのでたっぷり食える。
+ビール一杯プラスして、400円。</p>
+
+<pre class="address">
+Cơm Gà A Hải
+96 Phan Châu Trinh,  Quận Hải Châu, Đà Nẵng
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>宿そばのコーヒー屋をチェックしたが空調の無しの店しかなかった。
+ホイアンではヨーグルトを売ってる店が見つからなかったので、Snow Yogurt w/ Fresh fruits を飲んでヨーグルトを補充。65,000ドン。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>目ヤニがまた出てきて、固形化して眼が痛い。こまめにシャワー浴びて溶かさないとだなあ。さっさと寝る。</p>
+]]></description>
+        <dc:date>2025-2025-06T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0618-vietnam/">
+            <title>2025/06/18: ベトナム旅行 その12 (ホイアン)</title>
+        <link>https://www.don.to/diary/2025/0618-vietnam/</link>
+        <description><![CDATA[<p>自転車乗って旧市街の露天で朝カオラウ。180円。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>行きつけのカフェへ。</p>
+
+<pre class="address">
+SUMMER.BAKE
+V8MJ+5P9, Lý Nam Đế, Sơn Phong, Tp. Hội An, Quảng Nam, Vietnam
+</pre>
+
+<p>今日はミルクティーにしてみた。
+なんか妙に美味い。
+中身はタピオカなのかなあ、四角くてやや固め。わからん</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>なるほどこのためのスプーン。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ホイアン最後の晩飯は宿のそばの繁盛店へ。夜風がちょうどいい。</p>
+
+<pre class="address">
+NHÂY Beer
+12 Lý Nam Đế, Sơn Phong, Hội An, Quảng Nam, Vietnam
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>英語メニューあるんだけど品数少な過ぎて何の役にも立たない。
+食べ物は一割ぐらいしか載ってないので、ベトナム語メニューをもらう。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>豚肉のなんか (Ba chỉ châu riêng)。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>牛肉のなんか (Bò sốt tiêu đen)。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>グループ客は常温のビール缶を段ボールごとと氷の入ったバケツが置かれている。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>Nghêu hấp sả/ Thái (あさりのレモングラス蒸し、タイ風)。今度こそ蒸しを頼んだけど、やっぱりレモングラスは葉っぱじゃなかった。
+やっと蒸しを食えたけど炒めの方が好みだった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>めっちゃ盛り上がってる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>この店、女性オーナーがビール注いで回って、飲ませよう飲ませようとしている。怖い。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>あと道路向こうのバーがすこぶる怪しい。21時前なんですけど…。
+こっちの横には家族連れもいるし。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>5分に一回ぐらい物売りか物乞いがやってくる。この頻度は凄い。なかなかカオス。</p>
+
+<p>三品、ビール4杯で1600円ぐらい。
+後でよく見たら英語メニューとベトナム語メニューで値段が違う。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>締めの麺屋探したけど、周囲にいい店見当たらなかったので宿に戻ってひとりミニミニナイトプール。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>このプールピクリとも塩素の匂いしないんですけど、衛生大丈夫なのかしら。</p>
+]]></description>
+        <dc:date>2025-2025-06T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0617-vietnam/">
+            <title>2025/06/17: ベトナム旅行 その11 (ホイアン)</title>
+        <link>https://www.don.to/diary/2025/0617-vietnam/</link>
+        <description><![CDATA[<p>宿の自転車で旧市街に朝飯食べに行く。
+朝は観光客の人混みがないので楽。</p>
+
+<pre class="address">
+Bánh My Phượng
+2b Đ. Phan Chu Trinh, Cẩm Châu, Hội An, Quảng Nam 560000 Vietnam
+</pre>
+
+<p>店頭で買って店内で食べる。
+名店らしいけど、ホーチミンで食べた方が美味しかったと思う。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>帰る前にちょっとだけ観光。
+日本橋、フーンフンの家他。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>あれだけライトアップされた川も明るいと侘しい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>宿最寄りのコーヒー屋は三軒あるけど全部屋外なので、3分ほど歩いて空調が効いてるコーヒー屋に来た。
+エアコン効きすぎてなくて丁度いい。</p>
+
+<pre class="address">
+SUMMER.BAKE
+V8MJ+5P9, Lý Nam Đế, Sơn Phong, Tp. Hội An, Quảng Nam, Vietnam
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>アメリカーノ。お茶が付いて来た。
+ホーチミンの露店でみんな飲んでたのこれか。
+コーヒーとレッドブル飲んでるのかと思ってた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>少し涼しくなってから、ダナンより空いてるといわれてるアンバンビーチに自転車で行ってみた。
+一緒や。5分見て引き返す。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>田んぼエリアに行ってみる。水牛。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="https://danang.style/tourism/1004">谷弥次郎兵衛の墓</a>。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>晩飯、混んでる露店でCao Lau食った。美味い。150円。
+内容が二郎っぽいので、脳みそが量が求める。これだと足りない！</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>しょうがないので二軒目。宿のそばのここも賑わってるコムガー屋さん。
+席に座るなり注文してないのにCom Ga Xeが置かれた。
+ビールと合わせて260円。Ga Xe (ほぐした鶏肉)は安いけど肉が少ない。筋肉痛なのでもっとタンパク質を摂取したいんだけど、炭水化物と野菜ばっかりなんだよなあ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ミニミニナイトプール。
+もう今日は旧市街には近づかない。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>暗くなったらみんなどっか行った。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-06T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0616-vietnam/">
+            <title>2025/06/16: ベトナム旅行 その10 (ホイアン)</title>
+        <link>https://www.don.to/diary/2025/0616-vietnam/</link>
+        <description><![CDATA[<p>宿をチェックアウト。少し早いので1Fのコーヒー屋へ。
+そういやコンデンスミルクコーヒー飲んでなかった。これには砂糖入ってないとのこと。それでも当然甘い。
+このコーヒー屋、やたらノマドワーカーが多い。1人はマルチディスプレイ持ち込んで一日中仕事してる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>これは相当綺麗なトイレだけど、ベトナムの手動ウォッシュレットも流さないトイレットペーパーにもすっかり慣れた。
+昨日汗だくで駆け込んだ山の上のカフェは桶で水汲んで流すタイプだった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>Grab Carでホイアンへ向かう。
+他の選択肢も調べたけど、手間がかかるわりに余り安くならない。
+20km以上離れてるので流石にバイクはやめた。炎天下だしリュックもあるし。</p>
+
+<p>海沿いの道路を南下する。結構南までリゾートが広がっていて、デカいホテルもチラホラ、リゾートマンションもあるな。凄いなダナン。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>五行山。ダナンに戻ってきたら観光する予定。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ホイアン着。40分ぐらい乗って1938円。</p>
+
+<p><a href="https://www.airbnb.jp/rooms/742455768307975916">今回の宿</a>。AirBnBで取ったけど、ホテルだった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>部屋が空いてたので、広めの部屋に無料アップグレードしてくれた。
+3泊で10,703円。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>小さいけどプール付き。あっついのですぐにでもプール入りたい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ビール買ってこなきゃなあと思ったらミニバーあった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>無料レンタサイクルもあり。
+2人乗りできるようになってるのがベトナムらしい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>とりあえずジム行っとく。
+250円、ダナンの半額。エアコンついてないので、汗がダラダラ流れる。
+休憩いれながらやらんと死ぬ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ジム猫。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>スムージーバーがあった。裏は一面の畑。
+ストロベリーホエイを頼んだらアポロ味。
+なぜチョコ味のプロテインを使おうと思ったのか。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>宿に戻ってプール。いい具合に涼しくなってきた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>プールで濡れたズボンと汗臭いTシャツを洗濯機にぶち込んで旧市街へ。
+この宿は部屋の中に専有洗濯機があるので楽。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>いわゆるホイアン的な景色。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ホイアンはコムガーが名物とのことなので、人気店に来てみた。
+閉店一時間前に到着。めっちゃ並んでる。
+店内は一杯なので路地の席に通される。
+最初は前後にも客いたけど、最後は俺しかおらんかった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>Chan Ga Xao Sa Ot (鶏の足の炒め、レモングラスとチリ)。
+ツマミ的に先に出てきた。美味い。わかってるけど骨だらけ。あと量が多い。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>Com Dui Nguyen。美味い。
+狙ってたCom Ga Xeは売り切れだった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>会計は1,200円ぐらい。おしぼりは使ってないので、引いてもらう。
+まあ5円なんすけど。わざわざ日本から持ってきた100円ショップのウェットティッシュを使いきらんとね。でも、値段差ほとんどないんじゃ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>さらに旧市街をブラつく。思ってた以上に規模がデカい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>帰るつもりだったのに、一目散に逆方向に歩いてしまった。
+Uターンして夜市に戻って来たところ。似たような店ばっかりなので既に夜市に飽きている。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>最初に覚えたベトナム語は「駐車場」。この看板町中にあるんだもん。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-06T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0615-vietnam/">
+            <title>2025/06/15: ベトナム旅行 その9 (ダナン)</title>
+        <link>https://www.don.to/diary/2025/0615-vietnam/</link>
+        <description><![CDATA[<p>四時に起床。今度は喉が痛い。
+なかなか本調子にならんなあ。</p>
+
+<p>暗い中をビーチに向かう。この時間にもかかわらず客引きしてくる。</p>
+
+<p>4:30にビーチ到着、夜明け前なのに照明が点灯していて明るすぎる。散歩してる上裸のオッサンが大量にいる。
+静謐な宮古島が恋しい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>4:39。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>4:57。横で大騒ぎで記念撮影が始まる</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>5:02。ガンガン人が来る。もうあかん。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>見えないけど日の出。芋洗い開始。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>監視員は早朝から勤務開始。お椀型のボートで見張ってる。便利なんだろうか。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>6:25 撤収。どこか朝飯やってるかなあ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>屋台でバインミー売ってた。宿に戻って食う。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ココナッツコーヒー。Less sugarにしてもらった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>昼寝して夕方前にビーチに戻ってきた。
+ビーチ最終日に食事を出す店を発見。ポテチ買ってきちゃったわ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>のり塩。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>週末のせいか、一段と芋洗い。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>マンゴースムージー。子供に注文する。普通に児童労働。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>どローカルのシーフード屋来てみた。</p>
+
+<pre class="address">
+Năm Rảnh Quán
+01 Chương D., Bắc Mỹ Phú, Ngũ Hành Sơn, Đà Nẵng 550000 Vietnam
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ただでさえもシーフード屋は難易度高いのに全然会話が通じない。注文できたと思うけど。
+あと、ビール常温。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>後から出てきたガチメニュー、これ読めるようにならんとなぁ。
+刺身は悩んだが注文するのやめた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>NGHÊU XÀO SẢ ỚT (アサリのレモングラスチリ炒め)。美味い。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>TÔM HẤP (エビ蒸し)。
+シャコ頼んだけど、品切れでこれに変更した。シャコと同じ調理方法(ガーリック炒め)にしてくれと言ったつもりだけど、うまく伝わらなかった。
+ソースは美味い。エビは新鮮で臭みはないけど、まあ普通かなあ。</p>
+
+<p>この店に限らずどの店も注文してから品切れと言われる。店員は欠品を覚える気はない。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>突然の停電。ハッピーバースデーの演出かと思ったけどそうではなかった。
+5分ぐらいで復旧。歓声があがる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ビール常温だし、屋外なので、氷がすごい勢いで溶けるので、氷を山盛りでもらった。ほぼ微アル。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>あさりのソースがめっちゃ美味かったので、CƠM CHIÊN TRỨNG (卵炒飯)を頼んで、ソースかけて食う。美味い。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>お会計。3品とビール2杯で1300円ぐらい。
+飲んでいないミネラルウォーターを請求されていたので引いてもらう。
+おしぼりは有料だった。ベトナムで初めてだ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>初めて川沿い来た。
+電動のバイクのおもちゃ。こうやって子供達を英才教育するのか。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>Grab Bikeで宿に戻る。バイクが大きくて乗りやすかったけど、Uターンが面倒なのでしばらく反対側レーンを逆走してた。</p>
+]]></description>
+        <dc:date>2025-2025-06T00:00:00+09:00</dc:date>
+
+  </item>
+</rdf:RDF>
