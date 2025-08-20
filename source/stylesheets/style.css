@@ -30,7 +30,7 @@ div.titleblock {
 
 div#dayd {
   margin-top: 10px;
-  font-family: "IM Fell English", serif;
+  font-family: "Inconsolata", serif;
   font-size: 32pt;
 }
 
@@ -135,14 +135,15 @@ span.fontsizeplusplus { font-size: xx-large; }
     overflow: hidden;
   }
 
-    .leftblock ul {
-      padding-left: 0;
-    }
-    .leftblock li {
-      display: inline-block;
-      margin-right: 10px;
-      list-style-type: none;
-    }
+  .leftblock ul {
+    padding-left: 0;
+  }
+
+  .leftblock li {
+    display: inline-block;
+    margin-right: 10px;
+    list-style-type: none;
+  }
 
   hr {
     border-bottom: 1px solid #025;
@@ -237,6 +238,12 @@ span.fontsizeplusplus { font-size: xx-large; }
     margin-top: 5px;
     margin-bottom: 5px;
     font-weight: normal;
+  }
+
+  .titleblock h2 {
+    box-shadow: 0 0 0;
+    text-shadow: 0 0 0;
+    border-bottom: 0;
   }
 
   h1 {
