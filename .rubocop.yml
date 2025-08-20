@@ -11,3 +11,7 @@ Style/TrailingCommaInHashLiteral:
 
 Style/TrailingCommaInArrayLiteral:
   Enabled: false
+
+Layout/LineLength:
+  Exclude:
+    - 'spec/**/*'
