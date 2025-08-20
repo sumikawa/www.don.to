@@ -131,7 +131,7 @@ module CustomHelpers
 
     if localhost?
       cache_dir = _ensure_cache_dir(dirpath)
-      if file_info[:ext].downcase == '.jpg' || file_info[:ext].downcase == '.heic'
+      if ['.jpg', '.heic'].include?(file_info[:ext].downcase)
         data.site.heights.each do |height|
           filepath = File.join(cache_dir, "#{file_info[:base]}.#{data.site.thumbext}")
           next if File.exist?(filepath)
