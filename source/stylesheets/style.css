@@ -136,6 +136,15 @@ span.fontsizeplusplus { font-size: xx-large; }
     overflow: hidden;
   }
 
+    .leftblock ul {
+      padding-left: 0;
+    }
+    .leftblock li {
+      display: inline-block;
+      margin-right: 10px;
+      list-style-type: none;
+    }
+
   hr {
     border-bottom: 1px solid #025;
     box-shadow: 0 2px 0 #fcfcfc;
