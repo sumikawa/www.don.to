@@ -136,7 +136,7 @@ RSpec.describe CustomHelpers do
 
     after do
       file_path = 'source/diary/2025/0203-test.html.md.erb'
-      File.delete(file_path) if File.exist?(file_path)
+      FileUtils.rm_f(file_path)
     end
 
     it 'generates an index file with image entries' do
