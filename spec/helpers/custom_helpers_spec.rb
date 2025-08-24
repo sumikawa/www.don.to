@@ -134,6 +134,11 @@ RSpec.describe CustomHelpers do
       allow(Video).to receive(:poster)
     end
 
+    after do
+      file_path = 'source/diary/2025/0203-test.html.md.erb'
+      File.delete(file_path) if File.exist?(file_path)
+    end
+
     it 'generates an index file with image entries' do
       expect(File).to receive(:open).with('source/diary/2025/0203-test.html.md.erb', 'w')
       helper.gen_index('2025/0203-test')
@@ -144,8 +149,12 @@ RSpec.describe CustomHelpers do
         let(:image_files) { ['/path/to/images/diary/2025/0203-test/img_1234.jpg'] }
 
         it 'processes jpg files correctly' do
-          expect(helper).to receive(:image).with('img_1234')
+          io = StringIO.new
+          expect(File).to receive(:open).with('source/diary/2025/0203-test.html.md.erb', 'w').and_yield(io)
           helper.gen_index('2025/0203-test')
+          io.rewind
+          output = io.read
+          expect(output).to include('<%= image "img_1234" %>')
         end
       end
 
@@ -153,8 +162,12 @@ RSpec.describe CustomHelpers do
         let(:image_files) { ['/path/to/images/diary/2025/0203-test/img_1234.png'] }
 
         it 'processes png files correctly' do
-          expect(helper).to receive(:image).with('img_1234', ext: 'png')
+          io = StringIO.new
+          expect(File).to receive(:open).with('source/diary/2025/0203-test.html.md.erb', 'w').and_yield(io)
           helper.gen_index('2025/0203-test')
+          io.rewind
+          output = io.read
+          expect(output).to include('<%= image "img_1234", ext: \'png\' %>')
         end
       end
 
@@ -162,8 +175,12 @@ RSpec.describe CustomHelpers do
         let(:image_files) { ['/path/to/images/diary/2025/0203-test/video_1234.mp4'] }
 
         it 'processes video files correctly' do
-          expect(helper).to receive(:movie).with('hdvideo_1234')
+          io = StringIO.new
+          expect(File).to receive(:open).with('source/diary/2025/0203-test.html.md.erb', 'w').and_yield(io)
           helper.gen_index('2025/0203-test')
+          io.rewind
+          output = io.read
+          expect(output).to include('<%= movie "hdvideo_1234" %>')
         end
       end
 
@@ -171,8 +188,12 @@ RSpec.describe CustomHelpers do
         let(:image_files) { ['/path/to/images/diary/2025/0203-test/audio_1234.m4a'] }
 
         it 'processes audio files correctly' do
-          expect(helper).to receive(:audio).with('audio_1234')
+          io = StringIO.new
+          expect(File).to receive(:open).with('source/diary/2025/0203-test.html.md.erb', 'w').and_yield(io)
           helper.gen_index('2025/0203-test')
+          io.rewind
+          output = io.read
+          expect(output).to include('<%= audio "audio_1234" %>')
         end
       end
     end
