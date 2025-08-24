@@ -81,8 +81,6 @@ module CustomHelpers
              "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}"
            when /(\d\d\d\d)(\d\d)-/
              "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/??"
-           when %r{(\d\d\d\d)/(\d\d)(\d\d)-} # For yearly page
-             "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}"
            else
              'UNKNOWN'
            end
