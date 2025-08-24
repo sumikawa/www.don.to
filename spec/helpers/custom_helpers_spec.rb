@@ -212,36 +212,36 @@ RSpec.describe CustomHelpers do
   describe '#gen_link' do
     context 'with regular filename' do
       it 'generates a link with date information' do
-        result = helper.gen_link('source/diary/20250203-test.html.md.erb', 'Miyakojima Trip', false)
-        expect(result).to eq('<dt>2025/02/03: <a href="/diary/20250203-test.html">Miyakojima Trip</a></dt>')
+        result = helper.gen_link('source/diary/2025/0203-test.html.md.erb', 'Miyakojima Trip', false)
+        expect(result).to eq('<dt>2025/02/03: <a href="/diary/2025/0203-test.html">Miyakojima Trip</a></dt>')
       end
     end
 
     context 'with secret filename' do
       it 'adds secret message to the link' do
-        result = helper.gen_link('source/diary/20250203-secret.html.md.erb', 'Secret Trip', false)
-        expect(result).to eq('<dt>2025/02/03: <a href="/diary/20250203-secret.html">Secret Trip</a> (secret)</dt>')
+        result = helper.gen_link('source/diary/2025/0203-secret.html.md.erb', 'Secret Trip', false)
+        expect(result).to eq('<dt>2025/02/03: <a href="/diary/2025/0203-secret.html">Secret Trip</a> (secret)</dt>')
       end
     end
 
     context 'with blank target' do
       it 'adds target="_blank" to the link' do
-        result = helper.gen_link('source/diary/20250203-test.html.md.erb', 'Miyakojima Trip', true)
-        expect(result).to eq('<dt>2025/02/03: <a href="/diary/20250203-test.html" target="_blank">Miyakojima Trip</a></dt>')
+        result = helper.gen_link('source/diary/2025/0203-test.html.md.erb', 'Miyakojima Trip', true)
+        expect(result).to eq('<dt>2025/02/03: <a href="/diary/2025/0203-test.html" target="_blank">Miyakojima Trip</a></dt>')
       end
     end
 
     context 'with empty title' do
       it 'uses default title' do
-        result = helper.gen_link('source/diary/20250203-test.html.md.erb', '', false)
-        expect(result).to eq('<dt>2025/02/03: <a href="/diary/20250203-test.html">No Title</a></dt>')
+        result = helper.gen_link('source/diary/2025/0203-test.html.md.erb', '', false)
+        expect(result).to eq('<dt>2025/02/03: <a href="/diary/2025/0203-test.html">No Title</a></dt>')
       end
     end
 
     context 'with different date formats' do
       it 'handles YYYYMM format' do
-        result = helper.gen_link('source/diary/202502-test.html.md.erb', 'Miyakojima Trip', false)
-        expect(result).to eq('<dt>2025/02/??: <a href="/diary/202502-test.html">Miyakojima Trip</a></dt>')
+        result = helper.gen_link('source/diary/2025/02-test.html.md.erb', 'Miyakojima Trip', false)
+        expect(result).to eq('<dt>2025/02/??: <a href="/diary/2025/02-test.html">Miyakojima Trip</a></dt>')
       end
 
       it 'handles YYYY/MMDD format' do
@@ -361,6 +361,19 @@ RSpec.describe CustomHelpers do
       it 'returns timestamp and audio tag' do
         _timestamp, text = helper.send(:_process_audio, file_info, dirpath, now)
         expect(text).to eq('<%= audio "audio" %>')
+      end
+    end
+
+    describe '#_extract_date_string' do
+      it 'extracts date from various string formats' do
+        expect(helper.send(:_extract_date_string, '/diary/1995/198508-camp/')).to eq('1985/08')
+        expect(helper.send(:_extract_date_string, '/diary/2025/0101-test/')).to eq('2025/01/01')
+        expect(helper.send(:_extract_date_string, 'source/diary/2025/0101-test.html.md.erb')).to eq('2025/01/01')
+        expect(helper.send(:_extract_date_string, 'source/diary/2025/01-test.html.md.erb')).to eq('2025/01/??')
+        expect(helper.send(:_extract_date_string, '/diary/2025/')).to eq('2025年')
+        expect(helper.send(:_extract_date_string, '/diary/2025.html')).to eq('2025年')
+        expect(helper.send(:_extract_date_string, '/diary/1995/')).to eq('1995年以前')
+        expect(helper.send(:_extract_date_string, 'foobar')).to be_nil
       end
     end
   end

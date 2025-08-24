@@ -1,30 +1,31 @@
+# frozen_string_literal: true
+
 require 'mini_exiftool'
 require_relative '../lib/video'
 
+# Custom helpers for the site
 module CustomHelpers
+  # Generates the title for a page
   def gen_title
     url = current_page.url
+    date_str = _extract_date_string(url)
+    title = current_page.data.title || data.site.notitle
 
-    case url
-    when %r{/diary/1995/(\d\d\d\d)(\d\d)-\w+/} # Special cases for oldest pages
-      t = current_page.data.title || data.site.notitle
-      "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}: #{t}"
-    when /1995/ # For yearly page
-      '1995年以前'
-    when %r{(\d\d\d\d)(/|\.html)$} # For yearly page
-      "#{::Regexp.last_match(1)}年"
-    when %r{/diary/(\d\d\d\d)/(\d\d)(\d\d)-\w+/}
-      t = current_page.data.title || data.site.notitle
-      "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}: #{t}"
+    if date_str.nil?
+      title
+    elsif date_str.end_with?('年') || date_str.end_with?('以前')
+      date_str
     else
-      current_page.data.title || data.site.notitle
+      "#{date_str}: #{title}"
     end
   end
 
+  # Generates an Amazon link
   def amazon(title, id)
     link_to(title, "https://www.amazon.co.jp/dp/#{id}/#{data.site.asid}")
   end
 
+  # Generates an index page for a directory of images
   def gen_index(dirpath)
     now = Time.now
     files_data = Dir.glob(File.expand_path("#{data.site.imagerootdir}/diary/#{dirpath}/*")).sort.map do |f|
@@ -41,6 +42,7 @@ module CustomHelpers
     end
   end
 
+  # Renders the daylog for a given year
   def rend_daylog(year)
     result = []
     data.daylog.each do |i|
@@ -64,6 +66,7 @@ module CustomHelpers
     result
   end
 
+  # Generates a link to a diary entry
   def gen_link(filename, title, blanks)
     secret = if filename =~ /secret/
                " #{data.site.secretmes}"
@@ -76,19 +79,27 @@ module CustomHelpers
                {}
              end
     title = data.site.notitle if title == ''
-    date = case filename
-           when /(\d\d\d\d)(\d\d)(\d\d)-/
-             "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}"
-           when /(\d\d\d\d)(\d\d)-/
-             "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/??"
-           else
-             'UNKNOWN'
-           end
+    date = _extract_date_string(filename) || 'UNKNOWN'
     dir = filename.sub(/^source/, '').sub('.md.erb', '')
     "<dt>#{date}: " + link_to(title, dir, target) + "#{secret}</dt>"
   end
 
   private
+
+  def _extract_date_string(str)
+    case str
+    when %r{/diary/1995/(\d\d\d\d)(\d\d)-\w+/} # Special cases for oldest pages
+      "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}"
+    when /1995/
+      '1995年以前'
+    when %r{/(\d\d\d\d)/(\d\d)(\d\d)-\w+}
+      "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}"
+    when %r{/(\d\d\d\d)/(\d\d)-\w+}
+      "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/??"
+    when %r{(\d\d\d\d)(/|\.html)$}
+      "#{::Regexp.last_match(1)}年"
+    end
+  end
 
   def _process_file(file_path, dirpath, now)
     file_name = File.basename(file_path).downcase
