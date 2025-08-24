@@ -48,7 +48,7 @@ class Video
     def cmd_opts(opts:, acodec:, vcodec:)
       video_opt = "-g 120 -vcodec libx264 -s #{opts[:pixel]} -bt 1536k -movflags faststart -f #{vcodec}"
       audio_opt = "-acodec #{acodec} -ar 32000 -ac 1 -ab 48k"
-      "#{opts[:rotate_opt]} #{video_opt} #{audio_opt} #{opts[:ext_opt]}"
+      "#{opts[:rotate_opt]} #{video_opt} #{audio_opt} #{opts[:ext_opt]}".strip
     end
 
     def probe(src)
