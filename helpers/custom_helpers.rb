@@ -115,7 +115,7 @@ module CustomHelpers
       File.delete(file_info[:path])
       nil
     else
-      [now, "debugging: \"#{file_info[:name]}"]
+      [now, "debugging: \"#{file_info[:name]}\""]
     end
   end
 
