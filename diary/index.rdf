@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns="http://purl.org/rss/1.0/">
+  <channel rdf:about="https://www.don.to/diary/">
+    <title>すみかわ日記</title>
+    <description>子供ネタ7割、食い物2割、技術1割</description>
+    <link>https://www.don.to/diary/</link>
+    <items>
+      <rdf:Seq>
+          <rdf:li resource="2025/0821-kamakura/"/>
+          <rdf:li resource="2025/0813-toeic/"/>
+          <rdf:li resource="2025/0805-sinbasi/"/>
+          <rdf:li resource="2025/0804-camp/"/>
+          <rdf:li resource="2025/0801-mm/"/>
+          <rdf:li resource="2025/0801-dinner/"/>
+          <rdf:li resource="2025/0731-health/"/>
+          <rdf:li resource="2025/0723-sendagi/"/>
+          <rdf:li resource="2025/0721-mm/"/>
+          <rdf:li resource="2025/0718-kamakura/"/>
+          <rdf:li resource="2025/0716-hodogaya/"/>
+          <rdf:li resource="2025/0711-kamakura/"/>
+          <rdf:li resource="2025/0709-humotoppara/"/>
+          <rdf:li resource="2025/0708-humotoppara/"/>
+          <rdf:li resource="2025/0707-humotoppara/"/>
+          <rdf:li resource="2025/0705-tiger/"/>
+      </rdf:Seq>
+    </items>
+  </channel>
+  <item rdf:about="2025/0821-kamakura/">
+            <title>2025/08/21: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2025/0821-kamakura/</link>
+        <description><![CDATA[<p>ハンモックポイント。草が生い茂っていた道がなぜか整備されていた。
+風の通りがいいので快適。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>定点観測。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-08T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0813-toeic/">
+            <title>2025/08/13: TOEIC受験</title>
+        <link>https://www.don.to/diary/2025/0813-toeic/</link>
+        <description><![CDATA[<p>退職してからほぼ英語使わないので、英語力落ちる前に12年振りにTOEIC受けてみた。一応人生最高点にはなった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>試験対策は全くしなかったので、伸び代はあるが集中力が保たんのでこれ以上は厳しい</p>
+]]></description>
+        <dc:date>2025-2025-08T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0805-sinbasi/">
+            <title>2025/08/05: 新橋</title>
+        <link>https://www.don.to/diary/2025/0805-sinbasi/</link>
+        <description><![CDATA[<p>高校の友人が東京に出張で来たので、新橋でハシゴ酒。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>四軒周って解散。</p>
+]]></description>
+        <dc:date>2025-2025-08T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0804-camp/">
+            <title>2025/08/04: 徒歩デイキャン</title>
+        <link>https://www.don.to/diary/2025/0804-camp/</link>
+        <description><![CDATA[<p><a href="https://www.shizenkanizumi.jp/reservation/camping/">ベリーキャンプ場</a>。
+自転車で行くつもりだったけど、猛暑のため電車で行った。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>暑いけどまあ焚き火はする。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-08T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0801-mm/">
+            <title>2025/08/01: ハロワ</title>
+        <link>https://www.don.to/diary/2025/0801-mm/</link>
+        <description><![CDATA[<p>ハロワ出頭のため向かい中。
+出かけに雨が降ってたので電車で移動。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>線路って前からあったっけと思って調べたら、<a href="https://ja.m.wikipedia.org/wiki/%E6%B1%BD%E8%BB%8A%E9%81%93">汽車道</a>の<a href="https://minatomirai21.com/wp-content/uploads/2025/07/102a2c9e82ad23217eaeff17ba2fe63b.pdf">補修工事</a>だった。
+動いてたらハロワ行きやすかったのに。</p>
+
+<p><a href="https://www.welcome.city.yokohama.jp/blog/detail.php?blog_id=127">ゴンドラ</a>を使うという手もあるが、朝9時は動いてなかった。チケット高いけど。</p>
+]]></description>
+        <dc:date>2025-2025-08T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0801-dinner/">
+            <title>2025/08/01: 野毛せんべろ</title>
+        <link>https://www.don.to/diary/2025/0801-dinner/</link>
+        <description><![CDATA[<p>前職の元同僚と野毛でサシ飲み。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-08T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0731-health/">
+            <title>2025/07/31: 横浜市特定健診</title>
+        <link>https://www.don.to/diary/2025/0731-health/</link>
+        <description><![CDATA[<p>住民税の元を取れシリーズ。横浜市特定健診を受診。採尿、身体測定、血圧、胸の聴診、腹の触診、採血して終了。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>15分で終わった。</p>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0723-sendagi/">
+            <title>2025/07/23: 鱧しゃぶ</title>
+        <link>https://www.don.to/diary/2025/0723-sendagi/</link>
+        <description><![CDATA[<p>鱧しゃぶの会にご招待いただいた。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1311/A131106/13054593/">谷中 鳥よし</a>
+東京都台東区谷中3-14-6
+03-3823-6298
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>帰りに終電に乗ったはずなのに気がついたら武蔵小杉で降りてた。意味がわからない。</p>
+
+<p>朝まで時間潰して始発で帰る。</p>
+
+<p>なお、翌日も朝帰りという体たらく。
+そのさらに翌日も飲みだったけど、終電までに帰ったら家族に褒められた。</p>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0721-mm/">
+            <title>2025/07/21: 神奈川私学(高校)展</title>
+        <link>https://www.don.to/diary/2025/0721-mm/</link>
+        <description><![CDATA[<p>娘とパシフィコ横浜へ。激混み。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>パンフレット集めて帰宅。</p>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0718-kamakura/">
+            <title>2025/07/18: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2025/0718-kamakura/</link>
+        <description><![CDATA[<p>先週見失った秘密の休憩スポットは、このポイントを右だった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>定点観測。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>鎌倉駅前は人が多い。浴衣の人もちらほら。花火大会が中止になったの知ってるのかしら。</p>
+
+<p>大船駅に移動、暑すぎるのでサウナはパスして、ホルモンセンター。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0716-hodogaya/">
+            <title>2025/07/16: 天たま家</title>
+        <link>https://www.don.to/diary/2025/0716-hodogaya/</link>
+        <description><![CDATA[<p>娘と天丼食べにいく。
+穴子天丼と地魚天丼。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140301/14061348/">天丼 天たま家</a>
+神奈川県横浜市保土ケ谷区岩井町53
+045-872-0206
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0711-kamakura/">
+            <title>2025/07/11: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2025/0711-kamakura/</link>
+        <description><![CDATA[<p>定点観測。
+草が茂りすぎて、秘密の休憩スポットを見失った。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>バッタ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>いつものもつしげ。17時入店なのでメガハイ2杯ぐらいかなあと思ってたら、平日のハッピーアワーは19時までだった。嬉しい誤算。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>締めの豚山。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0709-humotoppara/">
+            <title>2025/07/09: ふもとっぱら その3</title>
+        <link>https://www.don.to/diary/2025/0709-humotoppara/</link>
+        <description><![CDATA[<p>夜明け。結局一度も富士山は見れず。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>前夜は雨が降り出したのでテントで寝た。
+天気予報的には晴れだったけどタープ張っといて良かった。今回はキレイに張れた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>家で寝るよりテントの方がレム睡眠の時間が長くなった
+(後半の赤い部分は夜が明けてからハンモックに移動したので、半分起床している)。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>河口湖駅に戻る。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>河口湖商店街バス停から最寄りの<a href="https://www.yamagisi.jp/hot_spring.html">日帰り温泉</a>へ。
+少し待たせてもらって利用可能になる15時から入るが、エアコンが効いてないので風呂上がりに汗がひかない。
+風呂もイマイチだったので、次回は他の日帰り温泉を探す。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>バス停のすぐそばの店でほうとうを食べる。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/yamanashi/A1903/A190303/19004308/">ほうとう不動 河口湖駅前店</a>
+山梨県南都留郡富士河口湖町船津3631-2
+0555-72-5560
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>バスの発車時間を30分間違えたことに気づいて、ビールをまったり飲みながら長めに滞在しようと思ったんだけど、バス発車までまだ50分あるのにみんな帰っちゃった。早いぞインバウンド。</p>
+
+<p>ビールおかわりしようとしたら断られた。16時前に入店したけど閉店時間聞いてないし、ラストオーダーも聞かれてないんですけど。
+店もやる気ないんなら<a href="http://www.houtou-fudou.jp/location.html">閉店時間</a>を書き換えてくれ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ローソン前で記念撮影者多数。どうも富士山が背景に見えるローソンとしてインバウンドで有名らしいんだけど、今日は曇ってて富士山が全く見えてない。
+ローソン自体が名所化したようだけど、これ撮ってどうすんだ。意味わからん。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>横浜経由で帰宅。何だろうこの外国から帰ってきたみたいな感覚。</p>
+
+<h4>Lesson Learned</h4>
+
+<ul>
+<li>ブヨに刺されるので長ズボンを履く</li>
+<li>上着も忘れるな</li>
+<li>高地で曇りが多いし、木陰にテント張ってるので日差しが弱い。ソーラー充電器は役に立たない</li>
+<li>油ぐらいは持っていこう</li>
+</ul>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0708-humotoppara/">
+            <title>2025/07/08: ふもとっぱら その2</title>
+        <link>https://www.don.to/diary/2025/0708-humotoppara/</link>
+        <description><![CDATA[<p>夜明け。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>昨夜はハンモックとインフレーターマットの組み合わせで寝た。
+曇りだったので星を見ながら眠ることはできなかった。</p>
+
+<p>マットが底冷えを防いでくれるので、夜は肌寒いが半袖短パンで寝袋に潜り込むとちょうどいい感じ。</p>
+
+<p>体勢的には、マットのおかげで体がかなりフラットにはなる。寝れなくはないが頻繁に目が覚めてしまう感じ。
+慣れればもうちょっと熟睡できるかしら。ハンモック泊にすればかなり荷物減らせるけど。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>金山テラスで鹿バーガー。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>夜は自販機で買った餃子を食べながら、持ってきた芋焼酎を飲む。
+油を持ってこなかったせいで餃子が焼き付くので、水餃子にした。</p>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0707-humotoppara/">
+            <title>2025/07/07: ふもとっぱら その1</title>
+        <link>https://www.don.to/diary/2025/0707-humotoppara/</link>
+        <description><![CDATA[<p>ふもとっぱら再訪。高速バスで横浜から河口湖へ。2300円。
+河口湖駅はインバウンドまみれ。外国人しかおらん。各地からの高速バスががんがんやってくる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ローカルバスで朝霧グリーンパーク着。一日2本。1690円。
+高速バスとの格差よ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>20分弱ぐらい歩いてふもとっぱら着。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>荷物はだいぶん軽量化が進んだ。</p>
+
+<p>河口湖のコンビニでちょっとだけ食材買って後はキャンプ場で買えるもので生きていく。
+もうちょっと持ち運べたけど翌日まで保冷する手段がないのでこんなもんで。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>とりビー。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ここをキャンプ地とする。
+ハンモックは必需品。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/0705-tiger/">
+            <title>2025/07/05: ハングリータイガー</title>
+        <link>https://www.don.to/diary/2025/0705-tiger/</link>
+        <description><![CDATA[<p>横浜市民のソウルフード。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140302/14000062/">ハングリータイガー 保土ヶ谷本店</a>
+神奈川県横浜市保土ケ谷区星川3-23-13
+045-333-7023
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ステーキよりハンバーグが美味いという結論になった。
+西のさわやか、東のグリタイ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>ヨシ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2025-2025-07T00:00:00+09:00</dc:date>
+
+  </item>
+</rdf:RDF>
