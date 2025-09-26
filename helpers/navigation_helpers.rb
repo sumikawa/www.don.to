@@ -8,7 +8,7 @@ module NavigationHelpers
       year = matches[1]
       # sitemap から同じ年（year）のディレクトリ内のページを取得
       pages = sitemap.resources.select do |res|
-        res.path.start_with?("diary/#{year}/") && res.ext == '.html'
+        res.path.start_with?("diary/#{year}/") && res.ext == '.html' && !res.data.draft
       end.sort_by { |res| res.path } # ファイル名でソート
 
       # 現在のページのインデックスを探す
