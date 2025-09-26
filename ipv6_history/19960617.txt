@@ -1,0 +1,50 @@
+Subject: Osaka was connected to the WIDE 6bone
+From: Kazuhiko Yamamoto <kazu@is.aist-nara.ac.jp>
+To: wide at wide.ad.jp, jun at wide.ad.jp, kato at wide.ad.jp,
+        manabu at sigmath.es.osaka-u.ac.jp
+Cc: bound at zk3.dec.com, deering at parc.xerox.com
+Date: Mon, 17 Jun 1996 22:08:16 +0900
+X-Mailer: Mew version 1.06 on Emacs 19.28.500, Mule 2.3
+
+Folks,
+
+I'm happy to report that Osaka has been connected to the WIDE 6bone as
+the fourth physical node. The current topology is as follows:
+
+           133.4.6.34            133.4.21.33        133.4.12.33
+           ntwo0                 ntwo1              ntwo1
+Univ Tokyo ----(64k)---- Iwanami ----(64k)---- Nara ----(64k)---- Osaka
+    | ne0           ntwo1   | ne0        ntwo0  | we0        ntwo0  | ef0
+    |          133.4.6.33   |      133.4.21.34  |      133.4.12.34  |
+----+-----  Ether       ----+---- Ether     ----+---- Ether     ----+---- Ether
+133.4.6.66             133.4.49.30         133.4.23.16        202.233.135.30
+
+Nara v6 kernels are running on all nodes and each serial interface is
+configured with IPv4-compatible IPv6 address corresponding to IPv4
+address up above. (The reason why we don't use test addresses of v6 is
+just for convenience. We are planning to conform the proposal.)
+
+v6 connection between Nara and Osaka was established around "Mon Jun
+17 20:54:18 JST 1996". Since we don't have dynamic routing
+technology(Yusaku, hurry up!), I walked around every node to install
+valid routes. Then a v6 packet traveled from Osaka to Tokyo around
+"Mon Jun 17 21:30:07 JST 1996".
+
+I really appreciated to see the following results where ttl is 253.
+(I'm very sorry for our stereotype ping. I know *hlim* is appropriate
+but our ping is hard to compile....)
+
+Osaka# ping6 ::133.4.6.34
+trying to get source for ::133.4.6.34
+source should be ::8504:c22
+PING ::133.4.6.34 (::8504:622): 56 data bytes
+64 bytes from ::8504:622: icmp6_seq=0 ttl=253 time=121.303 ms
+64 bytes from ::8504:622: icmp6_seq=1 ttl=253 time=121.189 ms
+64 bytes from ::8504:622: icmp6_seq=2 ttl=253 time=121.049 ms
+
+As of today, I try to hack virtual interface called DDT for v4-v6
+tunneling. I hope that my home PC will be connected to the WIDE 6bone
+virtually soon. If possible, my student will connect his PC from New
+Hampshire during v6 interoperability workshop.
+
+--Kazu
