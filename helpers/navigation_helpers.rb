@@ -3,20 +3,19 @@ module NavigationHelpers
     prev_page = nil
     next_page = nil
 
-    # 現在のページのパスが diary/YYYY/ の形式にマッチする場合にのみ実行
-    if matches = current_page.path.match(%r{diary/((19|20)\d{2})/.+})
-      year = matches[1]
-      # sitemap から同じ年（year）のディレクトリ内のページを取得
-      pages = sitemap.resources.select do |res|
-        res.path.start_with?("diary/#{year}/") && res.ext == '.html' && !res.data.draft
-      end.sort_by { |res| res.path } # ファイル名でソート
+    # 現在のページが年号ディレクトリ内の記事であるか確認
+    if current_page.path.match?(%r{diary/(19|20)\d{2}/.+})
+      # すべての年号ディレクトリから記事ページを取得
+      all_pages = sitemap.resources.select do |res|
+        res.path.match?(%r{diary/(19|20)\d{2}/.+}) && res.ext == '.html' && !res.data.draft
+      end.sort_by { |res| res.path } # パスでソート (YYYY/MMDD... 形式なので時系列になる)
 
-      # 現在のページのインデックスを探す
-      current_index = pages.find_index { |p| p.path == current_page.path }
+      # 全体リストの中から現在のページのインデックスを探す
+      current_index = all_pages.find_index { |p| p.path == current_page.path }
 
       if current_index
-        prev_page = pages[current_index - 1] if current_index > 0
-        next_page = pages[current_index + 1] if current_index < pages.size - 1
+        prev_page = all_pages[current_index - 1] if current_index > 0
+        next_page = all_pages[current_index + 1] if current_index < all_pages.size - 1
       end
     end
 
