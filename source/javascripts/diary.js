@@ -25,23 +25,27 @@ docsearch({
 document.addEventListener('DOMContentLoaded', function () {
   // Function to equalize heights of centerblock and leftblock
   function equalizeBlockHeights() {
+    titleBlock = document.querySelector('.titleblock');
     mainBlock = document.querySelector('.mainblock');
     eachindexBlock = document.querySelector('.eachindexblock');
 
     if (mainBlock && eachindexBlock) {
       // Reset heights to auto to get their natural heights
+      titleBlock.style.height = 'auto';
       mainBlock.style.height = 'auto';
       eachindexBlock.style.height = 'auto';
 
       // Get the computed heights
+	  margin = 5;
+      titleBlockHeight = titleBlock.offsetHeight;
       mainBlockHeight = mainBlock.offsetHeight;
       eachindexBlockHeight = eachindexBlock.offsetHeight;
       screenHeight = window.innerHeight - 20;
 
       // Set both blocks to the height of the taller one
-      maxHeight = Math.max(mainBlockHeight, eachindexBlockHeight, screenHeight);
+      maxHeight = Math.max(mainBlockHeight + margin + titleBlock.offsetHeight, eachindexBlockHeight, screenHeight);
       if (screen.width > 480) {
-        mainBlock.style.height = maxHeight + 'px';
+        mainBlock.style.height = (maxHeight - titleBlock.offsetHeight - margin) + 'px';
         eachindexBlock.style.height = maxHeight + 'px';
       }
     }

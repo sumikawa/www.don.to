@@ -107,6 +107,7 @@ initPhotoSwipeFromDOM = function (gallerySelector) {
     options = void 0;
     items = parseThumbnailElements(galleryElement);
     options = {
+      maxZoomLevel: 4,
       bgOpacity: 1.0,
       dataSource: items,
       preload: [1, 5]
