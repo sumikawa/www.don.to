@@ -88,6 +88,8 @@ module CustomHelpers
 
   def _extract_date_string(str)
     case str
+    when %r{/diary/1995/(\d\d\d\d)(\d\d)(\d\d)-\w+} # Special cases for oldest pages
+      "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}"
     when %r{/diary/1995/(\d\d\d\d)(\d\d)-\w+} # Special cases for oldest pages
       "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}"
     when /1995/
