@@ -55,11 +55,6 @@
       <%= partial "layouts/pswp" %>
     </div>
     <script src="/pagefind/pagefind-ui.js"></script>
-    <script>
-      window.addEventListener('DOMContentLoaded', (event) => {
-          new PagefindUI({ element: "#search", showSubResults: true });
-      });
-    </script>
     <%= javascript_include_tag "diary" %>
     <%= javascript_include_tag "photoswipe.umd.min" %>
     <%= javascript_include_tag "photoswipe-init" %>
