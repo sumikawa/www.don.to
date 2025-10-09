@@ -10,6 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: Setup Node.js (for static site generator or PageFind)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
       - name: Build & Deploy to GitHub Pages
         with:
           REMOTE_BRANCH: gh-pages
