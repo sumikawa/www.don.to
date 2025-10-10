@@ -147,7 +147,7 @@ span.fontsizeplusplus { font-size: xx-large; }
   transition: width 0.5s ease-in-out;
 }
 
-#search:focus-within {
+#search:hover {
   width: 50%;
 }
 
