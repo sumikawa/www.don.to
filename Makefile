@@ -10,6 +10,9 @@ year::
 build::
 	bundle exec middleman build --verbose
 
+pagefind: build
+	npx pagefind --source build --glob 'diary/[0-9]*/*/*.html' --serve
+
 push::
 	git commit -m update -a
 	git push
