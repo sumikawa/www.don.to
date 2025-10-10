@@ -142,15 +142,16 @@ span.fontsizeplusplus { font-size: xx-large; }
 #search {
   float: right;
   margin-top: 10px;
-  transition: width 0.5s ease-in-out;
-}
-
-#search:hover {
-  width: 100%;
 }
 
 div.pagefind-ui__drawer {
-  background-color: #ffffff;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.5);
+  border-radius: 10px;
+  background: linear-gradient(-45deg, #eeeeee 0%, #dddddd 100%);
+  border: 2px solid white;
+  text-align: left;
+  padding-right: 7px;
+  padding-left: 7px;
 }
 
 a.pagefind-ui__result-link {
