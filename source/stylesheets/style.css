@@ -166,6 +166,11 @@ p.pagefind-ui__message {
   font-size: small !important;
 }
 
+li.pagefind-ui__result {
+  padding-top: 0px;
+  padding-bottom: 6px;
+}
+
 button.pagefind-ui__button {
   font-size: small !important;
 }
