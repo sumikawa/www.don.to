@@ -149,13 +149,13 @@ div.pagefind-ui__drawer {
   border-radius: 10px;
   background: linear-gradient(-45deg, #eeeeee 0%, #dddddd 100%);
   border: 2px solid white;
-  text-align: left;
   padding-right: 7px;
   padding-left: 7px;
 }
 
 a.pagefind-ui__result-link {
   font-size: small !important;
+  color: var(--titlecolor) !important;
 }
 
 p.pagefind-ui__result-excerpt {
