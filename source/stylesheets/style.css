@@ -167,8 +167,8 @@ p.pagefind-ui__message {
 }
 
 li.pagefind-ui__result {
-  padding-top: 0px;
-  padding-bottom: 6px;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
 }
 
 button.pagefind-ui__button {

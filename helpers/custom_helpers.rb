@@ -8,7 +8,7 @@ module CustomHelpers
   # Generates the title for a page
   def gen_date
     url = current_page.url
-    date_str = _extract_date_string(url)
+    date_str = _extract_date_string(url) || '0000-00-00'
     date_str.gsub('/', '-')
   end
 
