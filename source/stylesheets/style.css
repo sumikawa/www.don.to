@@ -161,6 +161,14 @@ p.pagefind-ui__result-excerpt {
   font-size: small !important;
 }
 
+p.pagefind-ui__message {
+  font-size: small !important;
+}
+
+button.pagefind-ui__button {
+  font-size: small !important;
+}
+
 @media screen and (max-device-width: 480px), screen and (max-width: 480px) {
   .titleblock {
     display: none;

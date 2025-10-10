@@ -6,6 +6,12 @@ require_relative '../lib/video'
 # Custom helpers for the site
 module CustomHelpers
   # Generates the title for a page
+  def gen_date
+    url = current_page.url
+    date_str = _extract_date_string(url)
+    date_str.gsub('/', '-')
+  end
+
   def gen_title
     url = current_page.url
     date_str = _extract_date_string(url)

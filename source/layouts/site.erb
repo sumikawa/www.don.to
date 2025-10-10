@@ -37,9 +37,11 @@
         <div class="mainblock">
           <div id="search"></div>
           <% unless current_page.data.top == true %>
-          <h2><%= gen_title %></h2>
+          <h2 data-pagefind-sort="date:<%= gen_date %>"><%= gen_title %></h2>
           <% end %>
-          <%= yield %>
+          <main data-pagefind-body>
+            <%= yield %>
+          </main>
 
           <%= diary_nav(current_page, sitemap) %>
 
