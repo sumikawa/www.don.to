@@ -127,7 +127,7 @@ span.warning { color: red; }
 span.fontsizeplus { font-size: x-large; }
 span.fontsizeplusplus { font-size: xx-large; }
 
-input#search {
+#search {
   float: right;
   margin-top: 10px;
 }
