@@ -15,7 +15,7 @@ if (RegExp(' AppleWebKit.*Mobile|Opera Mini|Mozilla.*Android').test(navigator.us
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
-  new PagefindUI({ element: "#search", showImages: false });
+  new PagefindUI({ element: "#search", showImages: false, excerptLength: 50, sort: { date: "desc" }});
 });
 
 function resizeBlock() {
