@@ -15,9 +15,7 @@
   --pagefind-ui-border-radius: 8px;
   --pagefind-ui-image-border-radius: 8px;
   --pagefind-ui-image-box-ratio: 3 / 2;
-  --pagefind-ui-font: system, -apple-system, "BlinkMacSystemFont", ".SFNSText-Regular",
-    "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", "Ubuntu",
-    "arial", sans-serif;
+  --pagefind-ui-font: "Hiragino Maru Gothic Pro", "ヒラギノ丸ゴ Pro W4", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", Meiryo, "メイリオ", Osaka, Helvetica, Arial, "MS PGothic", sans-serif;
 }
 
 body {
@@ -148,11 +146,19 @@ span.fontsizeplusplus { font-size: xx-large; }
 }
 
 #search:hover {
-  width: 50%;
+  width: 100%;
 }
 
 div.pagefind-ui__drawer {
   background-color: #ffffff;
+}
+
+a.pagefind-ui__result-link {
+  font-size: small !important;
+}
+
+p.pagefind-ui__result-excerpt {
+  font-size: small !important;
 }
 
 @media screen and (max-device-width: 480px), screen and (max-width: 480px) {
