@@ -2,11 +2,10 @@
 title: 最新日記
 ---
 <%
-year = data.year.thisyear
 limit = data.site.limit
-index = rend_daylog(year) + rend_daylog(year - 1)
+index = rend_daylog(thisyear) + rend_daylog(thisyear - 1)
 
-Dir.glob(["source/diary/{#{year},#{year - 1}}/[01]*.html.md.erb"]).sort.reverse.each do |filename|
+Dir.glob(["source/diary/{#{thisyear},#{thisyear - 1}}/[01]*.html.md.erb"]).sort.reverse.each do |filename|
   header = YAML.load_file(filename)
   if header['draft'].nil?
     index << gen_link(filename, header['title'], false)
