@@ -5,7 +5,10 @@ require_relative '../lib/video'
 
 # Custom helpers for the site
 module CustomHelpers
-  # Generates the title for a page
+  def thisyear
+    Dir.glob(File.expand_path("#{data.site.imagerootdir}/diary/[0-9]*")).sort.last.gsub(/[^0-9]/, '')
+  end
+
   def gen_date
     url = current_page.url
     date_str = _extract_date_string(url) || '0000-00-00'
