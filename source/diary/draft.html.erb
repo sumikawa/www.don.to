@@ -2,7 +2,6 @@
 title: Drafts
 ---
 <%
-year = data.year.thisyear
 index = []
 Dir.glob("source/diary/*/[01]*.html.md.erb").each do |filename|
   header = YAML.load_file(filename)
@@ -18,7 +17,7 @@ end
 <%
 d1 = []
 d2 = []
-for year in (data.year.thisyear - 1)..(data.year.thisyear)
+for year in (thisyear - 1)..(thisyear)
   Dir.glob(File.expand_path("#{data.site.imagerootdir}/diary/#{year}/*")).each do |dirname|
     d1 << "#{year}/#{File.basename(dirname)}"
   end
