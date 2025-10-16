@@ -4,11 +4,10 @@ layout: false
 <%
 item = []
 detail = {}
-year  = data.year.thisyear
 aburl = data.site.aburl
 limit = data.site.limit
 
-Dir.glob(["source/diary/#{year}/[01]*.html.md.erb", "source/diary/#{year - 1}/[01]*.html.md.erb"]).sort.reverse.slice(0, limit).each do |filename|
+Dir.glob(["source/diary/#{thisyear}/[01]*.html.md.erb", "source/diary/#{thisyear - 1}/[01]*.html.md.erb"]).sort.reverse.slice(0, limit).each do |filename|
   next if filename =~ /secret/
   File.open(filename) do |f|
     while line = f.gets
@@ -24,7 +23,7 @@ Dir.glob(["source/diary/#{year}/[01]*.html.md.erb", "source/diary/#{year - 1}/[0
         <title>#{md[1]}/#{md[2]}/#{md[3]}: #{t}</title>
         <link>#{aburl}#{key}</link>
         <description><![CDATA[#{body}]]></description>
-        <dc:date>#{year}-#{md[1]}-#{md[2]}T00:00:00+09:00</dc:date>
+        <dc:date>#{thisyear}-#{md[1]}-#{md[2]}T00:00:00+09:00</dc:date>
         _EOF_
       end
     end
