@@ -36,12 +36,6 @@ data.year.thisyear.downto(1995).each do |y|
   proxy "/diary/#{y}.html", '/diary/yearly.html', locals: { year: y }, ignore: true
 end
 
-###
-# Helpers
-###
-require 'lib/link_helpers'
-helpers LinkHelpers
-
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
 
