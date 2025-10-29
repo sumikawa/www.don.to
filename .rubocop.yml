@@ -22,3 +22,6 @@ Metrics/BlockLength:
 
 Metrics/ModuleLength:
   Max: 200
+
+Style/Documentation:
+  Enabled: false

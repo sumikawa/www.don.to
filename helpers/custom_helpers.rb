@@ -3,7 +3,6 @@
 require 'mini_exiftool'
 require_relative '../lib/video'
 
-# Custom helpers for the site
 module CustomHelpers
   def thisyear
     Dir.glob('source/diary/[0-9]*').max.gsub(/[^0-9]/, '').to_i

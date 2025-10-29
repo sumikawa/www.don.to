@@ -1,4 +1,3 @@
-# NavigationHelpers
 module NavigationHelpers
   def diary_nav(current_page, sitemap)
     prev_page = nil
