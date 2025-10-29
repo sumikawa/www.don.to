@@ -1,3 +1,4 @@
+# LinkHelpers
 module LinkHelpers
   def localhost?
     if `hostname`.strip =~ /mbair/
