@@ -6,7 +6,7 @@ require_relative '../lib/video'
 # Custom helpers for the site
 module CustomHelpers
   def thisyear
-    Dir.glob("source/diary/[0-9]*").sort.last.gsub(/[^0-9]/, '').to_i
+    Dir.glob('source/diary/[0-9]*').max.gsub(/[^0-9]/, '').to_i
   end
 
   def gen_date
