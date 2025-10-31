@@ -64,16 +64,8 @@ module CustomHelpers
 
   # Generates a link to a diary entry
   def gen_link(filename, title, blanks)
-    secret = if filename =~ /secret/
-               " #{data.site.secretmes}"
-             else
-               ''
-             end
-    target = if blanks == true
-               { target: '_blank' }
-             else
-               {}
-             end
+    secret = filename =~ /secret/ ? " #{data.site.secretmes}" : ''
+    target = blanks ? { target: '_blank' } : {}
     title = data.site.notitle if title == ''
     date = _extract_date_string(filename) || 'UNKNOWN'
     dir = filename.sub(/^source/, '').sub('.md.erb', '')
@@ -202,6 +194,11 @@ module CustomHelpers
 
   def _convert_and_create_poster(file_info, opts, dirpath)
     video_dir = _ensure_cache_dir(dirpath)
+    video_path = _convert_video(file_info, opts, video_dir)
+    _create_video_poster(video_path, file_info, opts, video_dir)
+  end
+
+  def _convert_video(file_info, opts, video_dir)
     video_file = "#{opts[:prefix]}#{file_info[:base]}.#{data.site.videoext}"
     video_path = File.join(video_dir, video_file)
 
@@ -209,7 +206,10 @@ module CustomHelpers
       Video.convert(src: file_info[:path], dst_dir: video_dir, dst_file: video_file,
                     opts: opts)
     end
+    video_path
+  end
 
+  def _create_video_poster(video_path, file_info, opts, video_dir)
     thumb_file = "#{opts[:prefix]}#{file_info[:base]}.#{data.site.thumbext}"
     thumb_path = File.join(video_dir, thumb_file)
     return if File.exist?(thumb_path)
