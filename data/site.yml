@@ -12,4 +12,5 @@ thumbheight: 96
 videoext: 'mp4'
 audioext: 'm4a'
 acodec: 'aac'
+vcodec: 'mp4'
 error_image: 'under.webp'

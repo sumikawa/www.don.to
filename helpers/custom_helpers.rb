@@ -176,7 +176,6 @@ module CustomHelpers
 
       unless File.exist?(video_path)
         Video.convert(src: file_info[:path], dst_dir: video_dir, dst_file: video_file,
-                      acodec: data.site.acodec, vcodec: data.site.videoext,
                       opts: opts)
       end
 

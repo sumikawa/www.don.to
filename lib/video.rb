@@ -1,6 +1,5 @@
 require 'tempfile'
 require 'rmagick'
-# require 'debug'
 
 class Video
   class << self
@@ -45,9 +44,9 @@ class Video
       { rotate: rotate, rotate_opt: rotate_opt, ext_opt: ext_opt, pixel: 'NO SUITABLE PIXEL' }.merge(opts[video_type])
     end
 
-    def cmd_opts(opts:, acodec:, vcodec:)
-      video_opt = "-g 120 -vcodec libx264 -s #{opts[:pixel]} -bt 1536k -movflags faststart -f #{vcodec}"
-      audio_opt = "-acodec #{acodec} -ar 32000 -ac 1 -ab 48k"
+    def cmd_opts(opts:)
+      video_opt = "-g 120 -vcodec libx264 -s #{opts[:pixel]} -bt 1536k -movflags faststart -f #{data.site.vcodec}"
+      audio_opt = "-acodec #{data.site.acodec} -ar 32000 -ac 1 -ab 48k"
       "#{opts[:rotate_opt]} #{video_opt} #{audio_opt} #{opts[:ext_opt]}".strip
     end
 
@@ -56,8 +55,8 @@ class Video
       detect(report)
     end
 
-    def convert(src:, dst_dir:, dst_file:, acodec:, vcodec:, opts:)
-      ffmpeg_opts = cmd_opts(opts: opts, acodec: acodec, vcodec: vcodec)
+    def convert(src:, dst_dir:, dst_file:, opts:)
+      ffmpeg_opts = cmd_opts(opts: opts)
       ffmpeg_cmd = "ffmpeg -i #{src} #{ffmpeg_opts} #{dst_dir}/#{dst_file}"
       puts ffmpeg_cmd
       system "#{ffmpeg_cmd} > /dev/null 2>&1"
