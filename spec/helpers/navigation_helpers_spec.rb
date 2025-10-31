@@ -1,24 +1,26 @@
 require 'spec_helper'
 require_relative '../../helpers/navigation_helpers'
-require 'ostruct'
+
+class TestHelper
+  include NavigationHelpers
+end
+
+PageData = Struct.new(:draft)
+Page = Struct.new(:path, :ext, :data, :url)
+Sitemap = Struct.new(:resources)
 
 RSpec.describe NavigationHelpers do
-  let(:helper) do
-    class TestHelper
-      include NavigationHelpers
-    end
-    TestHelper.new
-  end
+  let(:helper) { TestHelper.new }
 
-  let(:sitemap) { OpenStruct.new(resources: pages) }
+  let(:sitemap) { Sitemap.new(pages) }
 
   let(:pages) do
     [
-      OpenStruct.new(path: 'diary/2023/0101-foo.html', ext: '.html', data: OpenStruct.new(draft: false), url: '/diary/2023/0101-foo.html'),
-      OpenStruct.new(path: 'diary/2023/0102-bar.html', ext: '.html', data: OpenStruct.new(draft: false), url: '/diary/2023/0102-bar.html'),
-      OpenStruct.new(path: 'diary/2023/0103-baz.html', ext: '.html', data: OpenStruct.new(draft: false), url: '/diary/2023/0103-baz.html'),
-      OpenStruct.new(path: 'diary/2023/0104-draft.html', ext: '.html', data: OpenStruct.new(draft: true), url: '/diary/2023/0104-draft.html'),
-      OpenStruct.new(path: 'other/page.html', ext: '.html', data: OpenStruct.new(draft: false), url: '/other/page.html')
+      Page.new('diary/2023/0101-foo.html', '.html', PageData.new(false), '/diary/2023/0101-foo.html'),
+      Page.new('diary/2023/0102-bar.html', '.html', PageData.new(false), '/diary/2023/0102-bar.html'),
+      Page.new('diary/2023/0103-baz.html', '.html', PageData.new(false), '/diary/2023/0103-baz.html'),
+      Page.new('diary/2023/0104-draft.html', '.html', PageData.new(true), '/diary/2023/0104-draft.html'),
+      Page.new('other/page.html', '.html', PageData.new(false), '/other/page.html')
     ]
   end
 
