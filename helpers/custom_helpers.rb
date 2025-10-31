@@ -102,7 +102,7 @@ module CustomHelpers
       "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}"
     when /1995/
       '1995年以前'
-    when %r{/(\d\d\d\d)/(\d\d)(\d\d)-\w+}
+    when %r{/(\d\d\d\d)/(\d\d)(\d\d)-\w+} # rubocop:disable Lint/DuplicateBranch
       "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}"
     when %r{/(\d\d\d\d)/(\d\d)-\w+}
       "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/??"
