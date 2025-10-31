@@ -19,6 +19,7 @@ RSpec.describe CustomHelpers do
           allow(site).to receive(:videoext).and_return('mp4')
           allow(site).to receive(:thumbheight).and_return(200)
           allow(site).to receive(:acodec).and_return('aac')
+          allow(site).to receive(:vcodec).and_return('mp4')
         end
       )
 
