@@ -46,11 +46,11 @@ RSpec.describe do
     let(:data_mock) do
       double('data').tap do |data|
         allow(data).to receive(:site).and_return(
-                         double('site').tap do |site|
-                           allow(site).to receive(:acodec).and_return('aac')
-                           allow(site).to receive(:vcodec).and_return('mp4')
-                         end
-                       )
+          double('site').tap do |site|
+            allow(site).to receive(:acodec).and_return('aac')
+            allow(site).to receive(:vcodec).and_return('mp4')
+          end
+        )
       end
     end
 

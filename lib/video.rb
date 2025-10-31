@@ -10,37 +10,10 @@ class Video
         nm: { pixel: '480x360', prefix: '', aspect: '4:3' },
         nmtr: { pixel: '360x480', prefix: '', aspect: '3:4' }
       }
-      rotate = 0
-      ext_opt = ''
-      video_type = nil
       lines = report.encode('UTF-8', invalid: :replace).split("\n")
-      lines.each do |line|
-        if (md = line.match(/(rotate\s+:|rotation\s+of)\s+([-\d]+)/))
-          rotate = md[2].to_i
-        end
-      end
-
-      lines.each do |line| # rubocop:disable Style/CombinableLoops
-        next unless line =~ /Stream .*Video/
-
-        case line
-        when / DAR 16:9|960x540|1280x720|1920x1080|3840x2160|1566x880|712x480/
-          video_type = [0, -180].include?(rotate) ? :hd : :hdtr
-        when / DAR 9:16|540x960|720x1280|1080x1920|2160x3840/
-          video_type = :hdtr
-        when / DAR 4:3|320x240|352x240|640x480|1440x1080/
-          video_type = [0, -180].include?(rotate) ? :nm : :nmtr
-        when / DAR 3:4|240x320/
-          video_type = :nmtr
-        when /(120) fps/
-          ext_opt = "-vf 'setpts=4*PTS' -r 30 -filter:a 'atempo=0.5'"
-        when /(239\.98) fps/
-          ext_opt = "-vf 'setpts=4*PTS' -r 30 -filter:a 'atempo=0.5,atempo=0.5'"
-        end
-      end
-
+      rotate = _extract_rotation(lines)
+      video_type, ext_opt = _extract_video_info(lines, rotate)
       rotate_opt = rotate.zero? ? '' : '-metadata:s:v:0 rotate=0'
-
       { rotate: rotate, rotate_opt: rotate_opt, ext_opt: ext_opt, pixel: 'NO SUITABLE PIXEL' }.merge(opts[video_type])
     end
 
@@ -80,6 +53,55 @@ class Video
       image.write("#{dst_dir}/#{dst_file}")
 
       File.delete(temp)
+    end
+
+    private
+
+    def _extract_rotation(lines)
+      rotate = 0
+      lines.each do |line|
+        if (md = line.match(/(rotate\s+:|rotation\s+of)\s+([-\d]+)/))
+          rotate = md[2].to_i
+        end
+      end
+      rotate
+    end
+
+    def _extract_video_info(lines, rotate)
+      video_type = nil
+      ext_opt = ''
+      lines.each do |line|
+        next unless line =~ /Stream .*Video/
+
+        video_type ||= _get_video_type(line, rotate)
+        current_ext_opt = _get_ext_opt(line)
+        ext_opt = current_ext_opt unless current_ext_opt.empty?
+      end
+      [video_type, ext_opt]
+    end
+
+    def _get_video_type(line, rotate)
+      case line
+      when / DAR 16:9|960x540|1280x720|1920x1080|3840x2160|1566x880|712x480/
+        [0, -180].include?(rotate) ? :hd : :hdtr
+      when / DAR 9:16|540x960|720x1280|1080x1920|2160x3840/
+        :hdtr
+      when / DAR 4:3|320x240|352x240|640x480|1440x1080/
+        [0, -180].include?(rotate) ? :nm : :nmtr
+      when / DAR 3:4|240x320/
+        :nmtr
+      end
+    end
+
+    def _get_ext_opt(line)
+      case line
+      when /(120) fps/
+        "-vf 'setpts=4*PTS' -r 30 -filter:a 'atempo=0.5'"
+      when /(239\.98) fps/
+        "-vf 'setpts=4*PTS' -r 30 -filter:a 'atempo=0.5,atempo=0.5'"
+      else
+        ''
+      end
     end
   end
 end
