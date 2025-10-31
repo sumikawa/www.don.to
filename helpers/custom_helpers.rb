@@ -42,36 +42,24 @@ module CustomHelpers
 
     sorted_files_data = files_data.sort_by { |data| data[0] }
 
-    body = ['---', 'draft: true', 'title: ', '---']
-    body.concat(sorted_files_data.map { |data| data[1] })
+    body = _build_body(sorted_files_data)
 
     File.open("source/diary/#{dirpath}.html.md.erb", 'w') do |f|
-      f.puts(body.join("\n"))
+      f.puts(body)
     end
   end
 
   # Renders the daylog for a given year
   def rend_daylog(year)
-    result = []
-    data.daylog.each do |i|
-      if i.is_a? String
-        md = i.match(%r{(\d\d\d\d)/(\d\d)/(\d\d)})
-        result << "<dt>#{i}</dt>" if year == md[1].to_i
-      elsif i.is_a? Hash
-        log = ''
-        comment = ''
-        i.each do |k, v|
-          if k == 'comment'
-            comment = "\n<dd>\t#{v}</dd>".gsub('\\n', "</dd>\n<dd>\t")
-          else
-            log = "<dt>#{k}: #{v}</dt>"
-          end
-        end
-        md = log.match(%r{(\d\d\d\d)/(\d\d)/(\d\d)})
-        result << "#{log}#{comment}" if year == md[1].to_i
-      end
+    data.daylog.each_with_object([]) do |item, result|
+      entry = case item
+              when String
+                _process_daylog_string(item, year)
+              when Hash
+                _process_daylog_hash(item, year)
+              end
+      result << entry if entry
     end
-    result
   end
 
   # Generates a link to a diary entry
@@ -93,6 +81,31 @@ module CustomHelpers
   end
 
   private
+
+  def _build_body(sorted_files_data)
+    body = ['---', 'draft: true', 'title: ', '---']
+    body.concat(sorted_files_data.map { |data| data[1] })
+    body.join("\n")
+  end
+
+  def _process_daylog_string(item, year)
+    md = item.match(%r{(\d\d\d\d)/(\d\d)/(\d\d)})
+    "<dt>#{item}</dt>" if md && year == md[1].to_i
+  end
+
+  def _process_daylog_hash(item, year)
+    log = ''
+    comment = ''
+    item.each do |k, v|
+      if k == 'comment'
+        comment = "\n<dd>\t#{v}</dd>".gsub('\\n', "</dd>\n<dd>\t")
+      else
+        log = "<dt>#{k}: #{v}</dt>"
+      end
+    end
+    md = log.match(%r{(\d\d\d\d)/(\d\d)/(\d\d)})
+    "#{log}#{comment}" if md && year == md[1].to_i
+  end
 
   def _extract_date_string(str)
     case str
@@ -142,61 +155,76 @@ module CustomHelpers
     timestamp = exif_data['SubSecDateTimeOriginal'].to_s.sub(/\.\d{3}/, '')
     timestamp = exif_data['DateTimeOriginal'] || now if timestamp.empty?
 
-    text = if file_info[:ext].downcase == '.png'
-             "<%= image \"#{file_info[:base]}\", ext: 'png' %>"
-           else
-             "<%= image \"#{file_info[:base]}\" %>"
-           end
+    text = _image_text(file_info)
 
-    if localhost?
-      cache_dir = _ensure_cache_dir(dirpath)
-      if ['.jpg', '.heic'].include?(file_info[:ext].downcase)
-        data.site.heights.each do |height|
-          filepath = File.join(cache_dir, "#{file_info[:base]}.#{data.site.thumbext}")
-          next if File.exist?(filepath)
-
-          image = Magick::Image.read(file_info[:path]).first
-          image.resize_to_fit(0, height).write(filepath)
-        end
-      else # .png, .pdf
-        FileUtils.copy(file_info[:path], File.join(cache_dir, file_info[:name]))
-      end
-    end
+    _cache_image(file_info, dirpath) if localhost?
 
     [timestamp, text]
+  end
+
+  def _image_text(file_info)
+    if file_info[:ext].downcase == '.png'
+      "<%= image \"#{file_info[:base]}\", ext: 'png' %>"
+    else
+      "<%= image \"#{file_info[:base]}\" %>"
+    end
+  end
+
+  def _cache_image(file_info, dirpath)
+    cache_dir = _ensure_cache_dir(dirpath)
+    if ['.jpg', '.heic'].include?(file_info[:ext].downcase)
+      _create_image_resolutions(file_info, cache_dir)
+    else # .png, .pdf
+      FileUtils.copy(file_info[:path], File.join(cache_dir, file_info[:name]))
+    end
+  end
+
+  def _create_image_resolutions(file_info, cache_dir)
+    data.site.heights.each do |height|
+      filepath = File.join(cache_dir, "#{file_info[:base]}.#{data.site.thumbext}")
+      next if File.exist?(filepath)
+
+      image = Magick::Image.read(file_info[:path]).first
+      image.resize_to_fit(0, height).write(filepath)
+    end
   end
 
   def _process_video(file_info, exif_data, dirpath, now)
     opts = localhost? ? Video.probe(file_info[:path]) : nil
 
-    if localhost?
-      video_dir = _ensure_cache_dir(dirpath)
-      video_file = "#{opts[:prefix]}#{file_info[:base]}.#{data.site.videoext}"
-      video_path = File.join(video_dir, video_file)
+    _convert_and_create_poster(file_info, opts, dirpath) if localhost?
 
-      unless File.exist?(video_path)
-        Video.convert(src: file_info[:path], dst_dir: video_dir, dst_file: video_file,
-                      opts: opts)
-      end
-
-      thumb_file = "#{opts[:prefix]}#{file_info[:base]}.#{data.site.thumbext}"
-      thumb_path = File.join(video_dir, thumb_file)
-      unless File.exist?(thumb_path)
-        Video.poster(src: video_path, dst_dir: video_dir, dst_file: thumb_file,
-                     height: data.site.thumbheight)
-      end
-    end
-
-    text = if file_info[:ext].downcase == '.avi'
-             "<%= movie \"#{file_info[:base]}\" %>"
-           else
-             prefix = opts ? opts[:prefix] : 'hd' # Assume hd if not local
-             "<%= movie \"#{prefix}#{file_info[:base]}\" %>"
-           end
-
+    text = _video_text(file_info, opts)
     timestamp = exif_data['CreationDate'] || exif_data['FileModifyDate'] || now
 
     [timestamp, text]
+  end
+
+  def _convert_and_create_poster(file_info, opts, dirpath)
+    video_dir = _ensure_cache_dir(dirpath)
+    video_file = "#{opts[:prefix]}#{file_info[:base]}.#{data.site.videoext}"
+    video_path = File.join(video_dir, video_file)
+
+    unless File.exist?(video_path)
+      Video.convert(src: file_info[:path], dst_dir: video_dir, dst_file: video_file,
+                    opts: opts)
+    end
+
+    thumb_file = "#{opts[:prefix]}#{file_info[:base]}.#{data.site.thumbext}"
+    thumb_path = File.join(video_dir, thumb_file)
+    return if File.exist?(thumb_path)
+
+    Video.poster(src: video_path, dst_dir: video_dir, dst_file: thumb_file,
+                 height: data.site.thumbheight)
+  end
+
+  def _video_text(file_info, opts)
+    if file_info[:ext].downcase == '.avi'
+      "<%= movie \"#{file_info[:base]}\" %>"
+    else
+      prefix = opts ? opts[:prefix] : 'hd' # Assume hd if not local
+      "<%= movie \"#{prefix}#{file_info[:base]}\" %>"
+    end
   end
 
   def _process_audio(file_info, dirpath, now)
