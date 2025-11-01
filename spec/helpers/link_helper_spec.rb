@@ -82,11 +82,11 @@ RSpec.describe LinkHelpers do
   end
 
   describe '#simage' do
-    context 'with default height (0)' do
+    context 'with default height' do
       it 'generates an image tag without height attribute' do
         url = app.data.image['1995']['198508-camp']['001_001.jpg']
         result = helper.simage('001_001')
-        expect(result).to eq("<img src=\"#{url}\" />")
+        expect(result).to eq("<img src=\"#{url}\" height=\"#{app.data.site.simageheight}\" />")
       end
     end
 

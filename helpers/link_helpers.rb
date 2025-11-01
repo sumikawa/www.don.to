@@ -27,15 +27,11 @@ module LinkHelpers
             class: 'image swipe')
   end
 
-  def simage(file, height: 0, ext: 'jpg')
+  def simage(file, height: data.site.simageheight, ext: 'jpg')
     year, dirname = parse_url(current_page.url)
     img_url = dropbox_url(year: year, dirname: dirname, basename: file, ext: ext)
 
-    if height.zero?
-      image_tag(img_url)
-    else
-      image_tag(img_url, height: height)
-    end
+    image_tag(img_url, height: height)
   end
 
   def movie(file)

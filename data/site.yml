@@ -9,6 +9,7 @@ heights:
  - 900
 thumbext: 'jpg'
 thumbheight: 96
+simageheight: 400
 videoext: 'mp4'
 audioext: 'm4a'
 acodec: 'aac'
