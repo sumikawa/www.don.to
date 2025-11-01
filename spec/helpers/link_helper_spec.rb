@@ -27,28 +27,6 @@ RSpec.describe LinkHelpers do
     end
   end
 
-  describe '#localhost?' do
-    context 'when hostname contains mbair' do
-      before do
-        allow(helper).to receive(:`).with('hostname').and_return("mbair.local\n")
-      end
-
-      it 'returns true' do
-        expect(helper.localhost?).to be true
-      end
-    end
-
-    context 'when hostname does not contain mbair' do
-      before do
-        allow(helper).to receive(:`).with('hostname').and_return("server.example.com\n")
-      end
-
-      it 'returns false' do
-        expect(helper.localhost?).to be false
-      end
-    end
-  end
-
   describe '#parse_url' do
     context 'with URL ending in .html' do
       it 'extracts year and dirname correctly' do

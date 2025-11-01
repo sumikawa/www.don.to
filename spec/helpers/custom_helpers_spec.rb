@@ -24,7 +24,28 @@ RSpec.describe CustomHelpers do
       target = options[:target] ? " target=\"#{options[:target]}\"" : ''
       "<a href=\"#{url}\"#{target}>#{text}</a>"
     end
-    allow(helper).to receive(:localhost?).and_return(false)
+  end
+
+  describe '#localhost?' do
+    context 'when hostname contains mbair' do
+      before do
+        allow(helper).to receive(:`).with('hostname').and_return("mbair.local\n")
+      end
+
+      it 'returns true' do
+        expect(helper.localhost?).to be true
+      end
+    end
+
+    context 'when hostname does not contain mbair' do
+      before do
+        allow(helper).to receive(:`).with('hostname').and_return("server.example.com\n")
+      end
+
+      it 'returns false' do
+        expect(helper.localhost?).to be false
+      end
+    end
   end
 
   describe '#gen_title' do

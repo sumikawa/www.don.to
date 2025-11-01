@@ -1,12 +1,4 @@
 module LinkHelpers
-  def localhost?
-    if `hostname`.strip =~ /mbair/
-      true
-    else
-      false
-    end
-  end
-
   def parse_url(url)
     dir = if url =~ /\.html$/
             url.sub(/\.html$/, '/')

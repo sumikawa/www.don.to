@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 module CustomHelpers
+  def localhost?
+    if `hostname`.strip =~ /mbair/
+      true
+    else
+      false
+    end
+  end
+
   def thisyear
     Dir.glob('source/diary/[0-9]*').max.gsub(/[^0-9]/, '').to_i
   end
