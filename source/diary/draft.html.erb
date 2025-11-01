@@ -21,6 +21,7 @@ for year in (thisyear - 1)..(thisyear)
   Dir.glob(File.expand_path("#{data.site.imagerootdir}/diary/#{year}/*")).each do |dirname|
     d1 << "#{year}/#{File.basename(dirname)}"
   end
+  FileUtils.mkdir_p("source/diary/#{year}/*")
   Dir.glob(File.expand_path("source/diary/#{year}/*")).each do |dirname|
     d2 << "#{year}/#{File.basename(dirname)}".sub(/\.html\.md\.erb/, '')
   end
