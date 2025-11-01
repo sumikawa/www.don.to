@@ -34,7 +34,7 @@ module IndexHelpers
     file_name = File.basename(file_path).downcase
     ext = File.extname(file_name)
     base = File.basename(file_name, ext)
-    file_info = { path: file_path, name: file_name, ext: ext, base: base }
+    file_info = { path: file_path, name: file_name, ext: ext.sub('.', ''), base: base }
 
     exif_data = begin
       MiniExiftool.new(file_path)
@@ -61,19 +61,11 @@ module IndexHelpers
     timestamp = exif_data['SubSecDateTimeOriginal'].to_s.sub(/\.\d{3}/, '')
     timestamp = exif_data['DateTimeOriginal'] || now if timestamp.empty?
 
-    text = _image_text(file_info)
+    text = "<%= image \"#{file_info[:base]}\", ext: '#{file_info[:ext]}' %>"
 
     _cache_image(file_info, dirpath) if localhost?
 
     [timestamp, text]
-  end
-
-  def _image_text(file_info)
-    if file_info[:ext].downcase == '.png'
-      "<%= image \"#{file_info[:base]}\", ext: 'png' %>"
-    else
-      "<%= image \"#{file_info[:base]}\" %>"
-    end
   end
 
   def _cache_image(file_info, dirpath)
@@ -133,7 +125,7 @@ module IndexHelpers
   end
 
   def _video_text(file_info, opts)
-    if file_info[:ext].downcase == '.avi'
+    if file_info[:ext].downcase == 'avi'
       "<%= movie \"#{file_info[:base]}\" %>"
     else
       prefix = opts ? opts[:prefix] : 'hd' # Assume hd if not local

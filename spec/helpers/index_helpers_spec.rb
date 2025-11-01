@@ -51,7 +51,7 @@ RSpec.describe IndexHelpers do
           helper.gen_index('2025/0203-test')
           io.rewind
           output = io.read
-          expect(output).to include('<%= image "img_1234" %>')
+          expect(output).to include('<%= image "img_1234", ext: \'jpg\' %>')
         end
       end
 
@@ -124,21 +124,21 @@ RSpec.describe IndexHelpers do
 
       context 'with an image file' do
         it 'calls _process_image' do
-          expect(helper).to receive(:_process_image).with({ path: '/path/to/image.jpg', name: 'image.jpg', ext: '.jpg', base: 'image' }, exif_data, dirpath, now)
+          expect(helper).to receive(:_process_image).with({ path: '/path/to/image.jpg', name: 'image.jpg', ext: 'jpg', base: 'image' }, exif_data, dirpath, now)
           helper.send(:_process_file, '/path/to/image.jpg', dirpath, now)
         end
       end
 
       context 'with a video file' do
         it 'calls _process_video' do
-          expect(helper).to receive(:_process_video).with({ path: '/path/to/video.mov', name: 'video.mov', ext: '.mov', base: 'video' }, exif_data, dirpath, now)
+          expect(helper).to receive(:_process_video).with({ path: '/path/to/video.mov', name: 'video.mov', ext: 'mov', base: 'video' }, exif_data, dirpath, now)
           helper.send(:_process_file, '/path/to/video.mov', dirpath, now)
         end
       end
 
       context 'with an audio file' do
         it 'calls _process_audio' do
-          expect(helper).to receive(:_process_audio).with({ path: '/path/to/audio.m4a', name: 'audio.m4a', ext: '.m4a', base: 'audio' }, dirpath, now)
+          expect(helper).to receive(:_process_audio).with({ path: '/path/to/audio.m4a', name: 'audio.m4a', ext: 'm4a', base: 'audio' }, dirpath, now)
           helper.send(:_process_file, '/path/to/audio.m4a', dirpath, now)
         end
       end
@@ -160,7 +160,7 @@ RSpec.describe IndexHelpers do
     end
 
     describe '#_process_image' do
-      let(:file_info) { { path: '/path/to/image.jpg', name: 'image.jpg', ext: '.jpg', base: 'image' } }
+      let(:file_info) { { path: '/path/to/image.jpg', name: 'image.jpg', ext: 'jpg', base: 'image' } }
       let(:exif_data) { double('exif_data').as_null_object }
       let(:magick_image) { double('magick_image') }
 
@@ -174,7 +174,7 @@ RSpec.describe IndexHelpers do
       it 'returns timestamp and image tag' do
         allow(exif_data).to receive(:[]).with('SubSecDateTimeOriginal').and_return(Time.new(2025, 1, 1, 12, 0, 0).to_s)
         _timestamp, text = helper.send(:_process_image, file_info, exif_data, dirpath, now)
-        expect(text).to eq('<%= image "image" %>')
+        expect(text).to eq('<%= image "image", ext: \'jpg\' %>')
       end
     end
 
