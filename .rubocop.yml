@@ -19,10 +19,10 @@ Metrics/BlockLength:
     - 'spec/**/*'
 
 Metrics/ModuleLength:
-  Max: 200
+  Max: 130
 
 Style/Documentation:
   Enabled: false
 
 Metrics/MethodLength:
-  Max: 30
+  Max: 25
