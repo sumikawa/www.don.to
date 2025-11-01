@@ -4,25 +4,6 @@ require_relative '../../helpers/index_helpers'
 RSpec.describe IndexHelpers do
   let(:helper) { Class.new { include IndexHelpers }.new }
 
-  let(:app) do
-    double('app').tap do |a|
-      allow(a).to receive(:data).and_return(
-        double('data').tap do |d|
-          allow(d).to receive(:site).and_return(
-            double('site').tap do |s|
-              allow(s).to receive(:imagerootdir).and_return('/path/to/images')
-              allow(s).to receive(:cacherootdir).and_return('/path/to/cache')
-              allow(s).to receive(:thumbext).and_return('jpg')
-              allow(s).to receive(:videoext).and_return('mp4')
-              allow(s).to receive(:thumbheight).and_return(400)
-              allow(s).to receive(:heights).and_return([800, 1200])
-            end
-          )
-        end
-      )
-    end
-  end
-
   before do
     allow(helper).to receive(:data).and_return(app.data)
     allow(helper).to receive(:localhost?).and_return(false)
