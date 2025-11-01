@@ -74,7 +74,7 @@ module IndexHelpers
 
   def _cache_image(file_info, dirpath)
     cache_dir = _ensure_cache_dir(dirpath)
-    if ['.jpg', '.heic'].include?(file_info[:ext].downcase)
+    if ['jpg', 'heic'].include?(file_info[:ext].downcase)
       _create_image_resolutions(file_info, cache_dir)
     else # .png, .pdf
       FileUtils.copy(file_info[:path], File.join(cache_dir, file_info[:name]))
