@@ -73,7 +73,7 @@ module CustomHelpers
     comment = ''
     item.each do |k, v|
       if k == 'comment'
-        comment = "\n<dd>\t#{v}</dd>".gsub('\\n', "</dd>\n<dd>\t")
+        comment = "\n<dd>\t#{v}</dd>"
       else
         log = "<dt>#{k}: #{v}</dt>"
       end
