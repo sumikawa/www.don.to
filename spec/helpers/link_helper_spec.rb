@@ -154,11 +154,6 @@ RSpec.describe LinkHelpers do
   # end
 
   describe '#static_to' do
-    before do
-      # Stub puts to avoid output during tests
-      allow(helper).to receive(:puts)
-    end
-
     it 'generates a link to a static file' do
       # Mock File methods
       allow(File).to receive(:basename).with('document.pdf', '.*').and_return('document')
