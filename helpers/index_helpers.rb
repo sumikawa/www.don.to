@@ -61,7 +61,11 @@ module IndexHelpers
     timestamp = exif_data['SubSecDateTimeOriginal'].to_s.sub(/\.\d{3}/, '')
     timestamp = exif_data['DateTimeOriginal'] || now if timestamp.empty?
 
-    text = "<%= image \"#{file_info[:base]}\", ext: '#{file_info[:ext]}' %>"
+    text = if file_info[:ext] == 'png'
+             "<%= image \"#{file_info[:base]}\", ext: '#{file_info[:ext]}' %>"
+           else
+             "<%= image \"#{file_info[:base]}\" %>"
+           end
 
     _cache_image(file_info, dirpath) if localhost?
 

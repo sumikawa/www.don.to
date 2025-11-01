@@ -51,7 +51,7 @@ RSpec.describe IndexHelpers do
           helper.gen_index('2025/0203-test')
           io.rewind
           output = io.read
-          expect(output).to include('<%= image "img_1234", ext: \'jpg\' %>')
+          expect(output).to include('<%= image "img_1234" %>')
         end
       end
 
@@ -174,7 +174,7 @@ RSpec.describe IndexHelpers do
       it 'returns timestamp and image tag' do
         allow(exif_data).to receive(:[]).with('SubSecDateTimeOriginal').and_return(Time.new(2025, 1, 1, 12, 0, 0).to_s)
         _timestamp, text = helper.send(:_process_image, file_info, exif_data, dirpath, now)
-        expect(text).to eq('<%= image "image", ext: \'jpg\' %>')
+        expect(text).to eq('<%= image "image" %>')
       end
     end
 
