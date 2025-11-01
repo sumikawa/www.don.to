@@ -129,36 +129,30 @@ RSpec.describe LinkHelpers do
     end
   end
 
-  # describe '#movie' do
-  #   it 'generates a video link with the correct URL and class' do
-  #     # Mock the dropbox_url method for video and thumbnail
-  #     allow(helper).to receive(:dropbox_url).with(year: '2025', dirname: '0203-miyakojima', basename: 'img_5678',
-  #                                                 ext: 'mp4').and_return('https://example.com/img_5678.mp4')
-  #     allow(helper).to receive(:dropbox_url).with(year: '2025', dirname: '0203-miyakojima', basename: 'img_5678',
-  #                                                 ext: 'jpg').and_return('https://example.com/img_5678.jpg')
-  #
-  #     result = helper.movie('img_5678')
-  #     expect(result).to eq('<a href="https://example.com/img_5678.mp4" class="video swipe"><img src="https://example.com/img_5678.jpg" height="200" /></a>')
-  #   end
-  # end
+  describe '#movie' do
+    it 'generates a video link with the correct URL and class' do
+      # Mock the dropbox_url method for video and thumbnail
+      allow(helper).to receive(:dropbox_url).with(year: '1995', dirname: '198508-camp', basename: 'img_5678',
+                                                  ext: 'mp4').and_return('https://example.com/img_5678.mp4')
 
-  # describe '#audio' do
-  #   it 'generates an audio tag with the correct source' do
-  #     # Mock the dropbox_url method for audio
-  #     allow(helper).to receive(:dropbox_url).with(year: '2025', dirname: '0203-miyakojima', basename: 'img_9012',
-  #                                                 ext: 'm4a').and_return('https://example.com/img_9012.m4a')
-  #
-  #     result = helper.audio('img_9012')
-  #     expect(result).to eq('<audio controls><source src="https://example.com/img_9012.m4a.m4a" type="audio/aac"></audio>')
-  #   end
-  # end
+      result = helper.movie('img_5678')
+      expect(result).to eq('<a href="https://example.com/img_5678.mp4" class="video swipe"><img src="https://example.com/img_5678.jpg" height="200" /></a>')
+    end
+  end
+
+  describe '#audio' do
+    it 'generates an audio tag with the correct source' do
+      # Mock the dropbox_url method for audio
+      allow(helper).to receive(:dropbox_url).with(year: '1995', dirname: '198508-camp', basename: 'img_5678',
+                                                  ext: 'm4a').and_return('https://example.com/img_9012.m4a')
+
+      result = helper.audio('img_5678')
+      expect(result).to eq('<audio controls><source src="https://example.com/img_9012.m4a" type="audio/aac"></audio>')
+    end
+  end
 
   describe '#static_to' do
     it 'generates a link to a static file' do
-      # Mock File methods
-      allow(File).to receive(:basename).with('document.pdf', '.*').and_return('document')
-      allow(File).to receive(:extname).with('document.pdf').and_return('.pdf')
-
       # Mock dropbox_url
       allow(helper).to receive(:dropbox_url).with(year: '1995', dirname: '198508-camp', basename: 'document',
                                                   ext: 'pdf').and_return('https://example.com/document.pdf')
