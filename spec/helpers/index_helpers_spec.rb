@@ -18,7 +18,6 @@ RSpec.describe IndexHelpers do
       allow(MiniExiftool).to receive(:new).and_return(exif_data)
       allow(FileUtils).to receive(:mkdir_p)
       allow(FileUtils).to receive(:copy)
-      allow(helper).to receive(:localhost?).and_return(true)
 
       magick_image = double('magick_image')
       allow(magick_image).to receive(:resize_to_fit).and_return(magick_image)
@@ -102,7 +101,6 @@ RSpec.describe IndexHelpers do
     let(:dirpath) { '2025/0101-test' }
 
     before do
-      allow(helper).to receive(:localhost?).and_return(true)
       allow(FileUtils).to receive(:mkdir_p)
       allow(FileUtils).to receive(:copy)
       allow(File).to receive(:exist?).and_return(false)
