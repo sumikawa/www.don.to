@@ -1,14 +1,22 @@
 module LinkHelpers
   def parse_url(url, file)
-    url = File.expand_path("#{url}#{file}")
+    puts "\n"
+    puts "old_url: #{url}"
+
     dir = if url =~ /\.html$/
             url.sub(/\.html$/, '/')
           else
             url.sub(%r{/[^/]*$}, '/')
           end
-    layers = dir.split('/')
+    url = File.expand_path("#{dir}#{file}")
+    layers = url.split('/')
     year = layers[2]
     dirname = layers[3]
+
+    puts "new_url: #{url}"
+    puts "dirname: #{dirname}"
+    puts "file: #{file}"
+    puts "\n"
 
     [year, dirname, File.basename(file)]
   end

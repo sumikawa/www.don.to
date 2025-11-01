@@ -30,24 +30,43 @@ RSpec.describe LinkHelpers do
   describe '#parse_url' do
     context 'with URL ending in /' do
       it 'extracts year and dirname correctly' do
-        year, dirname, file = helper.parse_url('/diary/1995/198508-camp/', 'file.jpg')
+        year, dirname, file = helper.parse_url('/diary/1995/198508-camp.html', 'file.jpg')
         expect(year).to eq('1995')
         expect(dirname).to eq('198508-camp')
         expect(file).to eq('file.jpg')
       end
-    end
 
-    context 'with URL ending in / with relative path #1' do
-      it 'extracts year and dirname correctly' do
-        year, dirname, file = helper.parse_url('/diary/2004/0508-camp/', '../1223-test/file.jpg')
+      it 'extracts year and dirname correctly with relative path #1' do
+        year, dirname, file = helper.parse_url('/diary/2004/0508-camp.html', '../1223-test/file.jpg')
         expect(year).to eq('2004')
+        expect(dirname).to eq('1223-test')
+        expect(file).to eq('file.jpg')
+      end
+
+      it 'extracts year and dirname correctly with relative path #2' do
+        year, dirname, file = helper.parse_url('/diary/1995/198508-camp.html', '../../2001/1223-test/file.jpg')
+        expect(year).to eq('2001')
         expect(dirname).to eq('1223-test')
         expect(file).to eq('file.jpg')
       end
     end
 
-    context 'with URL ending in / with relative path #2' do
+    context 'with URL ending in /' do
       it 'extracts year and dirname correctly' do
+        year, dirname, file = helper.parse_url('/diary/1995/198508-camp/', 'file.jpg')
+        expect(year).to eq('1995')
+        expect(dirname).to eq('198508-camp')
+        expect(file).to eq('file.jpg')
+      end
+
+      it 'extracts year and dirname correctly with relative path #1' do
+        year, dirname, file = helper.parse_url('/diary/2004/0508-camp/', '../1223-test/file.jpg')
+        expect(year).to eq('2004')
+        expect(dirname).to eq('1223-test')
+        expect(file).to eq('file.jpg')
+      end
+
+      it 'extracts year and dirname correctly with relative path #2' do
         year, dirname, file = helper.parse_url('/diary/1995/198508-camp/', '../../2001/1223-test/file.jpg')
         expect(year).to eq('2001')
         expect(dirname).to eq('1223-test')
