@@ -134,9 +134,11 @@ RSpec.describe LinkHelpers do
       # Mock the dropbox_url method for video and thumbnail
       allow(helper).to receive(:dropbox_url).with(year: '1995', dirname: '198508-camp', basename: 'img_5678',
                                                   ext: 'mp4').and_return('https://example.com/img_5678.mp4')
+      allow(helper).to receive(:dropbox_url).with(year: '1995', dirname: '198508-camp', basename: 'img_5678',
+                                                  ext: 'jpg').and_return('https://example.com/img_5678.jpg')
 
       result = helper.movie('img_5678')
-      expect(result).to eq('<a href="https://example.com/img_5678.mp4" class="video swipe"><img src="https://example.com/img_5678.jpg" height="200" /></a>')
+      expect(result).to eq("<a href=\"https://example.com/img_5678.mp4\" class=\"video swipe\"><img src=\"https://example.com/img_5678.jpg\" height=\"#{app.data.site.thumbheight}\" /></a>")
     end
   end
 
