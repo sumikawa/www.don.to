@@ -34,30 +34,14 @@ sample2 = <<~FFMPEG
   Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 182 kb/s (default)
 FFMPEG
 
-class Video
-  def self.data
-    # This will be mocked in the test
+RSpec.describe Video do
+  include Middleman::RSpec
+
+  before do
+    allow(Video).to receive(:data).and_return(app.data)
   end
-end
 
-RSpec.describe do
   describe 'detect' do
-    # Mock data object
-    let(:data_mock) do
-      double('data').tap do |data|
-        allow(data).to receive(:site).and_return(
-          double('site').tap do |site|
-            allow(site).to receive(:acodec).and_return('aac')
-            allow(site).to receive(:vcodec).and_return('mp4')
-          end
-        )
-      end
-    end
-
-    before do
-      allow(Video).to receive(:data).and_return(data_mock)
-    end
-
     it 'return hdvideo' do
       result = Video.detect(sample1)
       expect(result).to eq({
