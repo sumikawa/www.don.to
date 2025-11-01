@@ -1,0 +1,168 @@
+class: center, middle
+
+# NewHire Personal Project: delaws.rb
+## Munechika Sumikawa
+## Feb 2014
+
+---
+class: left, top
+
+## Quick summary
+
+* delaws.rb
+ - A ruby script
+ - Aim to delete all of resources per region
+ - Kind of Muda buster like AUO
+  - [https://github.com/sumikawa/delaws](https://github.com/sumikawa/delaws)
+
+---
+
+## Demo 1
+
+- Show management console
+- Run scripts
+
+---
+
+## Motivation
+
+- I tend to forget to delete resources after the investigations
+ - It cause just wasting our cost
+- My actual stories
+ - Redshift clusters left for two months ago
+ - Vyatta instances with 1TB volume
+  - [tt/0028357030](https://tt.amazon.com/0028357030)
+ - More than 100 Volumes preserved after the termination of NAT Instances
+
+---
+
+## Example of usage
+
+- Move region biweekly to evaluate cases
+  - ap-southeast-1 -> ap-northeast-1 -> eu-west-1
+  - delete all of resrouces at two regions before
+- Delete all of resources by a person who left an organization
+  - Requre to give the permissions before leaving
+
+---
+
+## Using products
+
+- AWS Ruby SDK ver.2 (development preview)
+- SWF
+
+---
+
+## Supporting Products
+
+- EC2
+- ELB
+- DynamoDB
+- Redshift
+- AutoScaling
+- CloudWatch
+- CloudFormation
+- RDS
+- Elastic Beanstalk
+
+---
+
+## Flow of the script
+
+- Correct resources each products
+- Add resources on the task list of SWF
+- Run workflow
+
+---
+
+## Workflow
+
+- One decider and two type of workers (10 threads)
+  - Check existence of a resource
+  - Delete resource
+  .center[![WF](https://cacoo.com/diagrams/4RLqq79mnM4Rc9Qu-D87DD.png)]
+
+---
+
+## Plugin architecture
+
+- Easy to add new products
+- Each resource defined as class
+- The class provides the following method
+```ruby
+class DelawsDynamoDB < DelawsBase
+  def intialize
+  end
+  def describe_all
+  end
+  def describe(name)
+  end
+  def delete(name)
+  end
+end
+```
+- Look at actual source code
+
+---
+
+## Demo 2
+
+- Show script's output
+- Show management console
+
+---
+
+## TODOs and Issues
+
+- Support environments
+- Cover all of products
+- --global option for deleting S3/IAM/Cloudtrail/Route53
+- Delete only specified resource
+ - e.g. vol-*
+    - Support IAM role
+    - Visualization (GUI version)
+    - Detecting finish of deletion
+      - Check workflow if there is no more task
+    - Correct and Faster deletion
+
+---
+
+## Correct and Faster deletetion
+
+- AutoScale (and other products using AS) may run an instance newly if instances terminated before deleting the AS group
+  - Auto-generating group resources shod be deleted earlier than instances
+- Need to build DAG (Directed acyclic graph)
+  - Delete a node (resource) which is not designated from other nodes
+  - delaws.rb already generates 1 hop dependency (correlation) index from “describe-foo”
+
+---
+
+## Correlation Graph (Parted)
+
+.center[![Correlation](https://cacoo.com/diagrams/4RLqq79mnM4Rc9Qu-8D1E4.png)]
+
+---
+
+## Conclusion
+
+- Developed a practical tool
+   - Not only for AWS, but also for other organizations
+   - Robustness of deletion by SWF
+- Learn all of AWS products from the component point of view
+
+---
+
+## Findings
+
+- Much more complex dependency than I imagine
+- Not unite keywords
+- SWF and the SDK are so good
+  - Easy to write event driven codes
+- I prefer Ruby SDK ver.2 than ver.1
+  - more primitive but better transparency
+
+---
+
+## Thank you!
+
+- Question?
