@@ -4,34 +4,6 @@ require_relative '../../helpers/custom_helpers'
 RSpec.describe CustomHelpers do
   let(:helper) { Class.new { include CustomHelpers }.new }
 
-  # Mock data object
-  let(:data_mock) do
-    double('data').tap do |data|
-      allow(data).to receive(:site).and_return(
-        double('site').tap do |site|
-          allow(site).to receive(:notitle).and_return('No Title')
-          allow(site).to receive(:asid).and_return('tag=example-22')
-          allow(site).to receive(:secretmes).and_return('(secret)')
-          allow(site).to receive(:imagerootdir).and_return('/path/to/images')
-          allow(site).to receive(:cacherootdir).and_return('/path/to/cache')
-          allow(site).to receive(:heights).and_return([200, 400])
-          allow(site).to receive(:thumbext).and_return('jpg')
-          allow(site).to receive(:videoext).and_return('mp4')
-          allow(site).to receive(:thumbheight).and_return(200)
-          allow(site).to receive(:acodec).and_return('aac')
-          allow(site).to receive(:vcodec).and_return('mp4')
-        end
-      )
-
-      allow(data).to receive(:daylog).and_return([
-                                                   { '2025/01/01' => 'Event 1' },
-                                                   { '2024/12/31' => 'Event 2' },
-                                                   { '2025/01/02' => 'Event 3', 'comment' => 'This is a comment' },
-                                                   { '2024/12/30' => 'Event 4', 'comment' => 'Another comment' },
-                                                 ])
-    end
-  end
-
   # Mock current_page
   let(:current_page) do
     double('current_page').tap do |page|
@@ -46,7 +18,7 @@ RSpec.describe CustomHelpers do
 
   before do
     # Stub helper methods to use our mocks
-    allow(helper).to receive(:data).and_return(data_mock)
+    allow(helper).to receive(:data).and_return(app.data)
     allow(helper).to receive(:current_page).and_return(current_page)
     allow(helper).to receive(:link_to) do |text, url, options = {}|
       target = options[:target] ? " target=\"#{options[:target]}\"" : ''
@@ -68,7 +40,7 @@ RSpec.describe CustomHelpers do
 
       it 'returns default title when title is empty' do
         allow(current_page.data).to receive(:title).and_return(nil)
-        expect(helper.gen_title).to eq('2025/02/03: No Title')
+        expect(helper.gen_title).to eq('2025/02/03: no title')
       end
     end
 
@@ -92,7 +64,7 @@ RSpec.describe CustomHelpers do
 
       it 'returns default title for other URLs' do
         allow(current_page).to receive(:url).and_return('/about/')
-        expect(helper.gen_title).to eq('No Title')
+        expect(helper.gen_title).to eq('no title')
       end
     end
   end
@@ -100,7 +72,7 @@ RSpec.describe CustomHelpers do
   describe '#amazon' do
     it 'generates an Amazon link with the correct URL and affiliate ID' do
       result = helper.amazon('Book Title', '1234567890')
-      expect(result).to eq('<a href="https://www.amazon.co.jp/dp/1234567890/tag=example-22">Book Title</a>')
+      expect(result).to eq('<a href="https://www.amazon.co.jp/dp/1234567890/daydreaonthen-22">Book Title</a>')
     end
   end
 
@@ -203,10 +175,9 @@ RSpec.describe CustomHelpers do
   describe '#rend_daylog' do
     it 'renders daylog entries for the specified year' do
       result = helper.rend_daylog(2025)
-      expect(result).to include('<dt>2025/01/01: Event 1</dt>')
-      expect(result).to include("<dt>2025/01/02: Event 3</dt>\n<dd>\tThis is a comment</dd>")
-      expect(result).not_to include('<dt>2024/12/31: Event 2</dt>')
-      expect(result).not_to include('<dt>2024/12/30: Event 4</dt>')
+      expect(result).to include('<dt>2025/10/29: 「<a href="https://www.amazon.co.jp/dp/B08XQ65HP7/daydreaonthen-22">かがみの孤城 上</a>」、辻村深月、ポプラ文庫</dt>')
+      expect(result).to include("<dt>2025/10/10: サイト内検索ライブラリを変更</dt>\n<dd>\t<a href=\"https://www.algolia.com/\">Algolia</a>から<a href=\"https://pagefind.app/\">pagefind</a>に変えた</dd>")
+      expect(result).not_to include('2024')
     end
   end
 
@@ -221,7 +192,7 @@ RSpec.describe CustomHelpers do
     context 'with secret filename' do
       it 'adds secret message to the link' do
         result = helper.gen_link('source/diary/2025/0203-secret.html.md.erb', 'Secret Trip', false)
-        expect(result).to eq('<dt>2025/02/03: <a href="/diary/2025/0203-secret.html">Secret Trip</a> (secret)</dt>')
+        expect(result).to eq('<dt>2025/02/03: <a href="/diary/2025/0203-secret.html">Secret Trip</a> (要パスワード)</dt>')
       end
     end
 
@@ -235,7 +206,7 @@ RSpec.describe CustomHelpers do
     context 'with empty title' do
       it 'uses default title' do
         result = helper.gen_link('source/diary/2025/0203-test.html.md.erb', '', false)
-        expect(result).to eq('<dt>2025/02/03: <a href="/diary/2025/0203-test.html">No Title</a></dt>')
+        expect(result).to eq('<dt>2025/02/03: <a href="/diary/2025/0203-test.html">no title</a></dt>')
       end
     end
 
@@ -270,7 +241,7 @@ RSpec.describe CustomHelpers do
 
     describe '#_ensure_cache_dir' do
       it 'creates cache directory and returns the path' do
-        cache_dir = "/path/to/cache/diary/#{dirpath}"
+        cache_dir = File.expand_path("#{app.data.site.cacherootdir}/diary/#{dirpath}")
         expect(FileUtils).to receive(:mkdir_p).with(cache_dir)
         result = helper.send(:_ensure_cache_dir, dirpath)
         expect(result).to eq(cache_dir)
