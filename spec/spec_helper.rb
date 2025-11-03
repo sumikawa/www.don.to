@@ -7,12 +7,18 @@ Middleman.setup_load_paths
 
 module Middleman
   module RSpec
-    def app
-      @@app ||= ::Middleman::Application.new do
-        set :root, File.expand_path(File.join(File.dirname(__FILE__), '..'))
-        set :environment, :development
-        set :show_exceptions, false
+    class << self
+      def app
+        @app ||= ::Middleman::Application.new do
+          set :root, File.expand_path(File.join(File.dirname(__FILE__), '..'))
+          set :environment, :development
+          set :show_exceptions, false
+        end
       end
+    end
+
+    def app
+      Middleman::RSpec.app
     end
   end
 end
