@@ -18,8 +18,8 @@ class Video
     end
 
     def cmd_opts(opts:)
-      video_opt = "-g 120 -vcodec libx264 -s #{opts[:pixel]} -bt 1536k -movflags faststart -f #{data.site.vcodec}"
-      audio_opt = "-acodec #{data.site.acodec} -ar 32000 -ac 1 -ab 48k"
+      video_opt = "-g 120 -vcodec libx264 -s #{opts[:pixel]} -bt 1536k -movflags faststart -f #{opts[:vcodec]}"
+      audio_opt = "-acodec #{opts[:acodec]} -ar 32000 -ac 1 -ab 48k"
       "#{opts[:rotate_opt]} #{video_opt} #{audio_opt} #{opts[:ext_opt]}".strip
     end
 

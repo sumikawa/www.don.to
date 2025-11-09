@@ -67,12 +67,18 @@ RSpec.describe Video do
     end
 
     it 'return ffmpeg to generate hdvideo' do
-      result = Video.cmd_opts(opts: Video.detect(sample1))
+      opts = Video.detect(sample1)
+      opts[:vcodec] = 'mp4'
+      opts[:acodec] = 'aac'
+      result = Video.cmd_opts(opts: opts)
       expect(result).to eq('-g 120 -vcodec libx264 -s 480x270 -bt 1536k -movflags faststart -f mp4 -acodec aac -ar 32000 -ac 1 -ab 48k')
     end
 
     it 'return ffmpeg to generate hdtrvideo' do
-      result = Video.cmd_opts(opts: Video.detect(sample2))
+      opts = Video.detect(sample2)
+      opts[:vcodec] = 'mp4'
+      opts[:acodec] = 'aac'
+      result = Video.cmd_opts(opts: opts)
       expect(result).to eq('-metadata:s:v:0 rotate=0 -g 120 -vcodec libx264 -s 270x480 -bt 1536k -movflags faststart -f mp4 -acodec aac -ar 32000 -ac 1 -ab 48k')
     end
   end

@@ -103,6 +103,8 @@ module IndexHelpers
   end
 
   def _convert_and_create_poster(file_info, opts, dirpath)
+    opts[:vcodec] = data.site.vcodec
+    opts[:acodec] = data.site.acodec
     video_dir = _ensure_cache_dir(dirpath)
     video_path = _convert_video(file_info, opts, video_dir)
     _create_video_poster(video_path, file_info, opts, video_dir)
