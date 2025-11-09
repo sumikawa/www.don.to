@@ -1,7 +1,4 @@
 all::
-ifndef SSH_CLIENT
-	(cd data ; make year)
-endif
 	bundle exec middleman server --instrument --bind-address=0.0.0.0
 
 year::
