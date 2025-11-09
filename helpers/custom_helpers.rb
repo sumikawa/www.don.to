@@ -58,7 +58,7 @@ module CustomHelpers
     title = data.site.notitle if title == ''
     date = _extract_date_string(filename) || 'UNKNOWN'
     dir = filename.sub(/^source/, '').sub('.md.erb', '')
-    "<dt>#{date}: " + link_to(title, dir, target) + "#{secret}</dt>"
+    "<dt>#{date}: " + link_to(title, dir, target) + "#{secret}</dt><dd></dd>"
   end
 
   private
