@@ -16,8 +16,8 @@ group :development do
   gem 'rmagick'
   gem 'rspec'
   gem 'rubocop', require: false
-  gem 'middleman-livereload'
   gem 'htmlbeautifier'
 end
 
 gem 'webrick'
+gem 'middleman-livereload', git: 'https://github.com/middleman/middleman-livereload.git', branch: 'master'
