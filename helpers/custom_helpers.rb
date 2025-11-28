@@ -45,9 +45,6 @@ module CustomHelpers
           <div class="amaff-info">
             <div class="amaff-name">#{link_to(title, url)}</div>
           </div>
-          <div class="amaff-info">
-            <div class="amaff-link">#{link_to('Amazon.co.jpで詳細を見る', url)}</div>
-          </div>
           <div class="amaff-footer"></div>
         </div>
       </div>
