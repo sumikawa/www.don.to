@@ -149,35 +149,32 @@ div.note {
 }
 
 div.embeded {
-    padding: 10px 10px 10px 10px;
+    padding: 10px 50px 10px 50px;
 }
 
-div.amaff {
+div.amazon {
     clear: both;
     border: 5px solid #ffffff;
     border-radius: 10px 10px 10px 10px;
     background-color: #ffffff;
 }
 
-div.amaff-image {
+div.amazon-image {
     float: left;
     margin: 0px 20px 0px 0px;
     padding: 10px 10px 10px 10px;
     background-color: #ffffff;
 }
 
-div.amaff-info {
+div.amazon-info {
     background-color: #ffffff;
 }
 
-dev.amaff-name {
+a.amazon-link {
+    vertical-align: middle;
 }
 
-dev.amaff-link {
-    margin-top: 5px;
-}
-
-div.amaff-footer {
+div.amazon-footer {
     clear: left;
 }
 

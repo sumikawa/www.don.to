@@ -40,12 +40,12 @@ module CustomHelpers
     img = "<img border=\"0\" src=\"#{image_url}\" height=200></a>"
     <<~HTML.html_safe
       <div class="embeded">
-        <div class="amaff">
-          <div class="amaff-image">#{link_to(img, url)}</div>
-          <div class="amaff-info">
-            <div class="amaff-name">#{link_to(title, url)}</div>
+        <div class="amazon">
+          <div class="amazon-image">#{link_to(img, url)}</div>
+          <div class="amazon-info">
+            <div class="amazon-name">#{link_to(title, url, {class: 'amazon-link'})}</div>
           </div>
-          <div class="amaff-footer"></div>
+          <div class="amazon-footer"></div>
         </div>
       </div>
     HTML
