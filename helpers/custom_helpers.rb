@@ -42,8 +42,7 @@ module CustomHelpers
       <div class="embeded">
         <div class="amazon">
           <div class="amazon-image">#{link_to(img, url)}</div>
-          <div class="amazon-info">#{link_to(title, url, {class: 'amazon-link'})}</div>
-          <div class="amazon-footer"></div>
+          <div class="amazon-info">#{link_to(title, url)}</div>
         </div>
       </div>
     HTML

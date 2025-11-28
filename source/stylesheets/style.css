@@ -170,13 +170,9 @@ div.amazon-image {
 
 div.amazon-info {
     background-color: #ffffff;
-}
-
-a.amazon-link {
-    vertical-align: middle;
-}
-
-div.amazon-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #search {
