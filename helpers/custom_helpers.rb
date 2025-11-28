@@ -42,6 +42,10 @@ module CustomHelpers
     "<div class=\"note\">\n本ドキュメントは#{link_to('Qiita記事', link)}のバックアップです。\n</div>"
   end
 
+  def note(link)
+    "<div class=\"note\">\n本ドキュメントは#{link_to('note記事', link)}のバックアップです。\n</div>"
+  end
+
   # Renders the daylog for a given year
   def rend_daylog(year)
     data.daylog.each_with_object([]) do |item, result|
