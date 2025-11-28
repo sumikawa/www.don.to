@@ -36,7 +36,8 @@ module CustomHelpers
   # Generates an Amazon link
   def amazon(title, id, image)
     url = "https://www.amazon.co.jp/dp/#{id}/#{data.site.asid}"
-    img = "<img border=\"0\" src=\"#{image}\" height=200></a>"
+    image_url = "https://m.media-amazon.com/images/I/#{image}._AC_SL400_.jpg"
+    img = "<img border=\"0\" src=\"#{image_url}\" height=200></a>"
     <<~HTML.html_safe
       <div class="amaff">
         <div class="amaff-image" style="float:left;margin:0px 12px 1px 0px;">
