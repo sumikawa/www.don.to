@@ -38,6 +38,10 @@ module CustomHelpers
     link_to(title, "https://www.amazon.co.jp/dp/#{id}/#{data.site.asid}")
   end
 
+  def qiita(link)
+    "<div class=\"note\">\n本ドキュメントは#{link_to('Qiita記事', link)}のバックアップです。\n</div>"
+  end
+
   # Renders the daylog for a given year
   def rend_daylog(year)
     data.daylog.each_with_object([]) do |item, result|

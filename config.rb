@@ -10,7 +10,8 @@
 set :markdown_engine, :redcarpet
 set :markdown, fenced_code_blocks: true,
                autolink: true,
-               smartypants: true
+               smartypants: true,
+               lax_spacing: true
 
 ###
 # Page options, layouts, aliases and proxies

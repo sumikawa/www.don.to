@@ -138,7 +138,7 @@ span.warning { color: red; }
 span.fontsizeplus { font-size: x-large; }
 span.fontsizeplusplus { font-size: xx-large; }
 
-div.accepted {
+div.note {
     margin: 0 0 1em 0; padding:10px;
     border: 1px solid #76CC0B;
     line-height: 1.5;
