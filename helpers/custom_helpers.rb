@@ -34,8 +34,27 @@ module CustomHelpers
   end
 
   # Generates an Amazon link
-  def amazon(title, id)
-    link_to(title, "https://www.amazon.co.jp/dp/#{id}/#{data.site.asid}")
+  def amazon(title, id, image)
+    url = "https://www.amazon.co.jp/dp/#{id}/#{data.site.asid}"
+    img = "<img border=\"0\" src=\"#{image}\" height=200></a>"
+    <<~HTML.html_safe
+      <div class="amaff">
+        <div class="amaff-image" style="float:left;margin:0px 12px 1px 0px;">
+          #{link_to(img, url)}
+        </div>
+        <div class="amaff-info" style="line-height:120%; margin-bottom: 10px">
+          <div class="amaff-name" style="margin-bottom:10px;line-height:120%">
+            #{link_to(title, url)}
+          </div>
+        <div class="amaff-info" style="float: left;">
+          <div class="amaff-link" style="margin-top: 5px">
+            #{link_to('Amazon.co.jpで詳細を見る', url)}
+          </div>
+        </div>
+        <div class="amaff-footer" style="clear: left"></div>
+      </div>
+    </div>
+    HTML
   end
 
   def qiita(link)
