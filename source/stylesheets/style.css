@@ -157,13 +157,15 @@ div.amazon {
     border: 5px solid #ffffff;
     border-radius: 10px 10px 10px 10px;
     background-color: #ffffff;
+    display: flex;
+    align-items: stretch;
 }
 
 div.amazon-image {
-    float: left;
     margin: 0px 20px 0px 0px;
     padding: 10px 10px 10px 10px;
     background-color: #ffffff;
+    vertical-align: middle;
 }
 
 div.amazon-info {
@@ -175,7 +177,6 @@ a.amazon-link {
 }
 
 div.amazon-footer {
-    clear: left;
 }
 
 #search {
