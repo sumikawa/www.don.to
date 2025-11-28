@@ -1,0 +1,19 @@
+---
+title: Lambda Functionの一覧をランタイムバージョンと共に表示する
+tags: AWS lambda
+code: true
+---
+<%= qiita('https://qiita.com/sumikawa@github/items/83f20f419e38d759e249') %>
+
+古いランタイムバージョンのLambda Functionが残ってると、使ってなくてもAWSからEOL通知のメールが来るので、一覧を表示するスクリプトを書いた。備忘録代わりに投稿します。
+
+``` bash
+#!/bin/bash
+regions=$(aws ec2 describe-regions | jq -r '.Regions[].RegionName')
+for region in $regions
+do
+    aws --region $region lambda list-functions --function-version ALL | jq -r '.Functions[] | [.Runtime, .FunctionArn] | @csv' | sort -V
+done
+```
+
+あとは、消したいものをgrepして、```aws lambda delete-function --function-name ARN```するだけ。Regionごとに消さないといけないので、ちょっと面倒くさいけど。
