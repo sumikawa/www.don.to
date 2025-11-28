@@ -27,4 +27,4 @@ fix::
 	bundle exec rubocop --autocorrect-all
 
 gencss::
-	bundle exec rougify style thankful_eyes > source/stylesheets/code.css
+	bundle exec rougify style github | sed '/\.highlight {/,/}/d' > source/stylesheets/code.css
