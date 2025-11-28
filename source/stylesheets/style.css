@@ -138,6 +138,15 @@ span.warning { color: red; }
 span.fontsizeplus { font-size: x-large; }
 span.fontsizeplusplus { font-size: xx-large; }
 
+div.accepted {
+    margin: 0 0 1em 0; padding:10px;
+    border: 1px solid #76CC0B;
+    line-height: 1.5;
+    clear: both;
+    background-color: #e2ffaa;
+    color: #3A9805;
+}
+
 #search {
   float: right;
   margin-top: 10px;

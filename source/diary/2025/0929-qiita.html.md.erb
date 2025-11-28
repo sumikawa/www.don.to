@@ -1,0 +1,49 @@
+---
+title: Apple Silicon MacにGPU対応のtensorflowとPyTorchをuvを使ってインストールする
+draft: true
+---
+
+<div class="accepted">
+本ドキュメントは下記Qiita記事のコピーです。
+<br />
+https://qiita.com/sumikawa@github/items/8b77b1efe284585403c5
+</div>
+
+uvを使ってなるべく最新の機械学習環境を整える手順です(2025年9月現在)。
+M2 Mac + MacOS Tahoeで動作確認しました。
+
+## インストール手順
+
+これだけです。Python 3.13を指定するとエラーになるので注意。
+
+``` shell
+% uv init -p 3.12 ml_test
+% cd ml_test
+% uv add tensorflow-macos tensorflow-metal tokenizers huggingface transformers torch tf-keras
+```
+
+## PyTorchがGPU(mps)を使っていることを確認する
+
+``` shell
+% uv run python -c "import torch;print(torch.backends.mps.is_available())"
+True
+```
+
+mpsは，Metal Perfomance Shadersの略称です([参考ドキュメント](https://docs.pytorch.org/docs/stable/notes/mps.html))。
+
+## TensorflowがGPUを使っていることを確認する
+
+``` shell
+% uv run python -c "import tensorflow as tf;print(tf.config.experimental.list_physical_devices('GPU'))"
+[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
+```
+
+## Hugging Faceの動作確認
+
+``` shell
+% uv run python -c "from transformers import pipeline; print(pipeline('sentiment-analysis')('I love you'))"
+No model was supplied, defaulted to distilbert/distilbert-base-uncased-finetuned-sst-2-english and revision 714eb0f (https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-sst-2-english).
+Using a pipeline without specifying a model name and revision in production is not recommended.
+Device set to use mps:0
+[{'label': 'POSITIVE', 'score': 0.9996141195297241}]
+```
