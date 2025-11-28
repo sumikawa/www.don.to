@@ -40,19 +40,19 @@ module CustomHelpers
     img = "<img border=\"0\" src=\"#{image_url}\" height=200></a>"
     <<~HTML.html_safe
       <div class="amaff">
-        <div class="amaff-image" style="float:left;margin:0px 12px 1px 0px;">
+        <div class="amaff-image">
           #{link_to(img, url)}
         </div>
-        <div class="amaff-info" style="line-height:120%; margin-bottom: 10px">
-          <div class="amaff-name" style="margin-bottom:10px;line-height:120%">
+        <div class="amaff-info">
+          <div class="amaff-name">
             #{link_to(title, url)}
           </div>
         <div class="amaff-info" style="float: left;">
-          <div class="amaff-link" style="margin-top: 5px">
+          <div class="amaff-link">
             #{link_to('Amazon.co.jpで詳細を見る', url)}
           </div>
         </div>
-        <div class="amaff-footer" style="clear: left"></div>
+        <div class="amaff-footer"></div>
       </div>
     </div>
     HTML

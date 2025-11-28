@@ -155,12 +155,25 @@ div.amaff {
 }
 
 div.amaff-image {
+    float:left;
+    margin:0px 12px 1px 0px;
     padding: 20px 10px 10px 10px;
     background-color: #ffffff;
 }
 
 div.amaff-info {
     background-color: #ffffff;
+}
+
+dev.amaff-name {
+}
+
+dev.amaff-link {
+    margin-top: 5px;
+}
+
+div.amaff-footer {
+    clear: left;
 }
 
 #search {
