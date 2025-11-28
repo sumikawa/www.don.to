@@ -148,15 +148,20 @@ div.note {
     color: #3A9805;
 }
 
-div.amaff {
-    margin: 0 0 0 0;
+div.embeded {
     padding: 10px 10px 10px 10px;
+}
+
+div.amaff {
     clear: both;
+    border: 5px solid #ffffff;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #ffffff;
 }
 
 div.amaff-image {
-    float:left;
-    margin:0px 12px 1px 0px;
+    float: left;
+    margin: 0px 20px 0px 0px;
     padding: 20px 10px 10px 10px;
     background-color: #ffffff;
 }
