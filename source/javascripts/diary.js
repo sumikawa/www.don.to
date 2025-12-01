@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       // Use the source path from the data attribute. The API expects the path relative to the 'source' dir.
       const apiPath = sourcePath.substring(1); // Remove leading '/'
-      const response = await fetch(`http://localhost:9292/${apiPath}`);
+      const response = await fetch(`http://localhost:9292/api/${apiPath}`);
       
       if (!response.ok) {
         const errorData = await response.json();
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
   saveButton.addEventListener('click', async () => {
     const apiPath = sourcePath.substring(1); // Remove leading '/'
     try {
-      const response = await fetch('http://localhost:9292/', {
+      const response = await fetch('http://localhost:9292/api/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
