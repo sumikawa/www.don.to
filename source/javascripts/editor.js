@@ -78,9 +78,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- Event Listeners for buttons ---
-    cancelButton.addEventListener('click', cleanup);
+    cancelButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      cleanup();
+    });
 
-    saveButton.addEventListener('click', async () => {
+    saveButton.addEventListener('click', async (e) => {
+      e.stopPropagation();
       saveButton.disabled = true;
       cancelButton.disabled = true;
       saveButton.textContent = 'Saving...';
