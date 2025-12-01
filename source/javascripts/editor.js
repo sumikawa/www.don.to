@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
       markdownContent = data.content;
     } catch (error) {
       console.error('Error fetching content:', error);
-      alert('Could not load content to edit.');
       isEditing = false;
       mainContent.style.cursor = 'pointer';
       mainContent.title = 'Click to edit';
