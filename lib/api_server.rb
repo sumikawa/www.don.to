@@ -14,7 +14,7 @@ class ApiServer < Sinatra::Base
     content_type :json
     # The path is captured from the URL, remove leading slash
     file_path = params['splat'].first.sub(%r{^/}, '')
-    
+
     # Only allow access to files within the 'source' directory
     source_dir = File.expand_path('source', @root)
     full_path = File.join(source_dir, file_path)
