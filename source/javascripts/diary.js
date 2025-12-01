@@ -14,10 +14,6 @@ if (RegExp(' AppleWebKit.*Mobile|Opera Mini|Mozilla.*Android').test(navigator.us
   });
 }
 
-window.addEventListener('DOMContentLoaded', (event) => {
-  new PagefindUI({ element: "#search", showImages: false, excerptLength: 100, sort: { date: "desc" }});
-});
-
 function resizeBlock() {
   // Function to equalize heights of centerblock and leftblock
   function equalizeBlockHeights() {
