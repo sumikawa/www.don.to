@@ -53,10 +53,11 @@
       </div>
       <%= partial "layouts/pswp" %>
     </div>
-    <script src="/pagefind/pagefind-ui.js"></script>
     <%= javascript_include_tag "diary" %>
     <% if environment?(:development) %>
       <%= javascript_include_tag "editor" %>
+    <% else %>
+      <script src="/pagefind/pagefind-ui.js"></script>
     <% end %>
     <%= javascript_include_tag "photoswipe.umd.min" %>
     <%= javascript_include_tag "photoswipe-init" %>
