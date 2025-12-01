@@ -61,85 +61,117 @@ function resizeBlock() {
 document.addEventListener('DOMContentLoaded', resizeBlock);
 window.addEventListener('load', resizeBlock);
 
-// Simple editor for local development
+// Simple inline editor for local development
 document.addEventListener('DOMContentLoaded', () => {
-  // Elements
-  const editButton = document.getElementById('edit-button');
-  const modal = document.getElementById('edit-modal');
-  const saveButton = document.getElementById('save-button');
-  const cancelButton = document.getElementById('cancel-button');
-  const textarea = document.getElementById('edit-textarea');
   const sourcePath = document.body.dataset.sourcePath;
+  const mainContent = document.querySelector('main[data-pagefind-body]');
+  let isEditing = false;
 
-  // Check if the necessary elements exist
-  if (!editButton || !modal || !sourcePath) {
+  // Check if the page is editable
+  if (!mainContent || !sourcePath || !sourcePath.startsWith('/diary/') || !sourcePath.endsWith('.md.erb')) {
     return;
   }
   
-  // The edit button should only be visible for editable pages.
-  // We can check if the source path points to a file in the diary directory.
-  if (!sourcePath.startsWith('/diary/') || !sourcePath.endsWith('.md.erb')) {
-      editButton.style.display = 'none';
-      return;
-  }
-  
-  // Show Modal
-  editButton.addEventListener('click', async () => {
+  mainContent.style.cursor = 'pointer';
+  mainContent.title = 'Click to edit';
+
+  const showEditor = async () => {
+    if (isEditing) return;
+    isEditing = true;
+    mainContent.style.cursor = 'default';
+    mainContent.title = '';
+
+    const originalHTML = mainContent.innerHTML;
+
+    // Fetch original markdown content
+    let markdownContent = '';
     try {
-      // Use the source path from the data attribute. The API expects the path relative to the 'source' dir.
       const apiPath = sourcePath.substring(1); // Remove leading '/'
       const response = await fetch(`http://localhost:9292/api/${apiPath}`);
-      
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(`Error fetching file: ${errorData.error || response.statusText}`);
-      }
-
+      if (!response.ok) throw new Error('Failed to fetch content');
       const data = await response.json();
-      textarea.value = data.content;
-      modal.style.display = 'flex';
+      markdownContent = data.content;
     } catch (error) {
-      console.error('Error:', error);
-      alert('Failed to load file content.');
+      console.error('Error fetching content:', error);
+      alert('Could not load content to edit.');
+      isEditing = false;
+      mainContent.style.cursor = 'pointer';
+      mainContent.title = 'Click to edit';
+      return;
     }
-  });
+    
+    // Create textarea and buttons
+    const editorWrapper = document.createElement('div');
+    editorWrapper.style.height = `${mainContent.offsetHeight}px`;
+    
+    const textarea = document.createElement('textarea');
+    textarea.value = markdownContent;
+    textarea.style.width = '100%';
+    textarea.style.height = '100%';
+    textarea.style.minHeight = '300px';
+    textarea.style.boxSizing = 'border-box';
+    
+    const buttonContainer = document.createElement('div');
+    buttonContainer.style.marginTop = '10px';
+    buttonContainer.style.textAlign = 'right';
 
-  // Hide Modal
-  cancelButton.addEventListener('click', () => {
-    modal.style.display = 'none';
-  });
+    const saveButton = document.createElement('button');
+    saveButton.textContent = 'Save';
+    saveButton.style.marginLeft = '10px';
 
-  // Save Content
-  saveButton.addEventListener('click', async () => {
-    const apiPath = sourcePath.substring(1); // Remove leading '/'
-    try {
-      const response = await fetch('http://localhost:9292/api/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          path: apiPath,
-          content: textarea.value,
-        }),
-      });
+    const cancelButton = document.createElement('button');
+    cancelButton.textContent = 'Cancel';
+    
+    buttonContainer.appendChild(cancelButton);
+    buttonContainer.appendChild(saveButton);
+    
+    editorWrapper.appendChild(textarea);
+    editorWrapper.appendChild(buttonContainer);
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(`Error saving file: ${errorData.error || response.statusText}`);
-      }
+    // Replace content with editor
+    mainContent.innerHTML = '';
+    mainContent.appendChild(editorWrapper);
+    textarea.focus();
 
-      const result = await response.json();
-      if (result.success) {
+    const cleanup = () => {
+      mainContent.innerHTML = originalHTML;
+      isEditing = false;
+      mainContent.style.cursor = 'pointer';
+      mainContent.title = 'Click to edit';
+    };
+
+    // --- Event Listeners for buttons ---
+    cancelButton.addEventListener('click', cleanup);
+
+    saveButton.addEventListener('click', async () => {
+      saveButton.disabled = true;
+      cancelButton.disabled = true;
+      saveButton.textContent = 'Saving...';
+
+      try {
+        const apiPath = sourcePath.substring(1);
+        const response = await fetch('http://localhost:9292/api/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ path: apiPath, content: textarea.value }),
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Failed to save');
+        }
+
         alert('Saved successfully!');
-        modal.style.display = 'none';
         window.location.reload();
-      } else {
-        throw new Error(result.error || 'Unknown error');
+      } catch (error) {
+        console.error('Error saving:', error);
+        alert(`Failed to save file: ${error.message}`);
+        saveButton.disabled = false;
+        cancelButton.disabled = false;
+        saveButton.textContent = 'Save';
       }
-    } catch (error) {
-      console.error('Error:', error);
-      alert(`Failed to save file: ${error.message}`);
-    }
-  });
+    });
+  };
+
+  mainContent.addEventListener('click', showEditor);
 });
