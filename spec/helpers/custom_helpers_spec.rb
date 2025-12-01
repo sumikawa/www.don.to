@@ -92,8 +92,8 @@ RSpec.describe CustomHelpers do
 
   describe '#amazon' do
     it 'generates an Amazon link with the correct URL and affiliate ID' do
-      result = helper.amazon('Book Title', '1234567890')
-      expect(result).to eq('<a href="https://www.amazon.co.jp/dp/1234567890/daydreaonthen-22">Book Title</a>')
+      result = helper.amazon('Book Title', '1234567890', 'imagepath')
+      expect(result).to eq("<div class=\"embeded\">\n  <div class=\"amazon\">\n    <div class=\"amazon-image\"><a href=\"https://www.amazon.co.jp/dp/1234567890/daydreaonthen-22\"><img border=\"0\" src=\"https://m.media-amazon.com/images/I/imagepath._AC_SL400_.jpg\" height=200></a></a></div>\n    <div class=\"amazon-info\"><a href=\"https://www.amazon.co.jp/dp/1234567890/daydreaonthen-22\">Book Title</a></div>\n  </div>\n</div>\n")
     end
   end
 
@@ -110,45 +110,45 @@ RSpec.describe CustomHelpers do
     context 'with regular filename' do
       it 'generates a link with date information' do
         result = helper.gen_link('source/diary/2025/0203-test.html.md.erb', 'Miyakojima Trip', false)
-        expect(result).to eq('<dt>2025/02/03: <a href="/diary/2025/0203-test.html">Miyakojima Trip</a></dt>')
+        expect(result).to eq('<dt>2025/02/03: <a href="/diary/2025/0203-test.html">Miyakojima Trip</a></dt><dd></dd>')
       end
     end
 
     context 'with secret filename' do
       it 'adds secret message to the link' do
         result = helper.gen_link('source/diary/2025/0203-secret.html.md.erb', 'Secret Trip', false)
-        expect(result).to eq('<dt>2025/02/03: <a href="/diary/2025/0203-secret.html">Secret Trip</a> (要パスワード)</dt>')
+        expect(result).to eq('<dt>2025/02/03: <a href="/diary/2025/0203-secret.html">Secret Trip</a> (要パスワード)</dt><dd></dd>')
       end
     end
 
     context 'with blank target' do
       it 'adds target="_blank" to the link' do
         result = helper.gen_link('source/diary/2025/0203-test.html.md.erb', 'Miyakojima Trip', true)
-        expect(result).to eq('<dt>2025/02/03: <a href="/diary/2025/0203-test.html" target="_blank">Miyakojima Trip</a></dt>')
+        expect(result).to eq('<dt>2025/02/03: <a href="/diary/2025/0203-test.html" target="_blank">Miyakojima Trip</a></dt><dd></dd>')
       end
     end
 
     context 'with empty title' do
       it 'uses default title' do
         result = helper.gen_link('source/diary/2025/0203-test.html.md.erb', '', false)
-        expect(result).to eq('<dt>2025/02/03: <a href="/diary/2025/0203-test.html">no title</a></dt>')
+        expect(result).to eq('<dt>2025/02/03: <a href="/diary/2025/0203-test.html">no title</a></dt><dd></dd>')
       end
     end
 
     context 'with different date formats' do
       it 'handles YYYYMM format' do
         result = helper.gen_link('source/diary/2025/02-test.html.md.erb', 'Miyakojima Trip', false)
-        expect(result).to eq('<dt>2025/02/??: <a href="/diary/2025/02-test.html">Miyakojima Trip</a></dt>')
+        expect(result).to eq('<dt>2025/02/??: <a href="/diary/2025/02-test.html">Miyakojima Trip</a></dt><dd></dd>')
       end
 
       it 'handles YYYY/MMDD format' do
         result = helper.gen_link('source/diary/2025/0203-test.html.md.erb', 'Miyakojima Trip', false)
-        expect(result).to eq('<dt>2025/02/03: <a href="/diary/2025/0203-test.html">Miyakojima Trip</a></dt>')
+        expect(result).to eq('<dt>2025/02/03: <a href="/diary/2025/0203-test.html">Miyakojima Trip</a></dt><dd></dd>')
       end
 
       it 'handles unknown format' do
         result = helper.gen_link('source/diary/miyakojima.html.md.erb', 'Miyakojima Trip', false)
-        expect(result).to eq('<dt>UNKNOWN: <a href="/diary/miyakojima.html">Miyakojima Trip</a></dt>')
+        expect(result).to eq('<dt>UNKNOWN: <a href="/diary/miyakojima.html">Miyakojima Trip</a></dt><dd></dd>')
       end
     end
   end
