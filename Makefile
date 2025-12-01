@@ -1,4 +1,5 @@
 all::
+	bundle exec rackup api.ru &
 	bundle exec middleman server --instrument --bind-address=0.0.0.0
 
 year::
