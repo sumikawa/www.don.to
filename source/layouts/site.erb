@@ -5,7 +5,9 @@
     <meta name="robots" content="noindex">
     <title><%= gen_title %></title>
     <link rel="alternate" type="application/rss+xml" title="rss" href="https://www.don.to/diary/index.rdf">
-    <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <% unless environment?(:development) %>
+      <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <% end %>
     <%= stylesheet_link_tag "code" %>
     <%= stylesheet_link_tag "photoswipe" %>
     <%= stylesheet_link_tag "style" %>
