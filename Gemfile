@@ -17,6 +17,8 @@ group :development do
   gem 'rspec'
   gem 'rubocop', require: false
   gem 'htmlbeautifier'
+  gem 'sinatra', require: false
+  gem 'rack-cors', require: false
 end
 
 gem 'webrick'

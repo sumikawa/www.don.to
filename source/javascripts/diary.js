@@ -60,3 +60,86 @@ function resizeBlock() {
 
 document.addEventListener('DOMContentLoaded', resizeBlock);
 window.addEventListener('load', resizeBlock);
+
+// Simple editor for local development
+document.addEventListener('DOMContentLoaded', () => {
+  // Elements
+  const editButton = document.getElementById('edit-button');
+  const modal = document.getElementById('edit-modal');
+  const saveButton = document.getElementById('save-button');
+  const cancelButton = document.getElementById('cancel-button');
+  const textarea = document.getElementById('edit-textarea');
+  const sourcePath = document.body.dataset.sourcePath;
+
+  // Check if the necessary elements exist
+  if (!editButton || !modal || !sourcePath) {
+    return;
+  }
+  
+  // The edit button should only be visible for editable pages.
+  // We can check if the source path points to a file in the diary directory.
+  if (!sourcePath.startsWith('/diary/') || !sourcePath.endsWith('.md.erb')) {
+      editButton.style.display = 'none';
+      return;
+  }
+  
+  // Show Modal
+  editButton.addEventListener('click', async () => {
+    try {
+      // Use the source path from the data attribute. The API expects the path relative to the 'source' dir.
+      const apiPath = sourcePath.substring(1); // Remove leading '/'
+      const response = await fetch(`http://localhost:9292/${apiPath}`);
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(`Error fetching file: ${errorData.error || response.statusText}`);
+      }
+
+      const data = await response.json();
+      textarea.value = data.content;
+      modal.style.display = 'flex';
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to load file content.');
+    }
+  });
+
+  // Hide Modal
+  cancelButton.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  // Save Content
+  saveButton.addEventListener('click', async () => {
+    const apiPath = sourcePath.substring(1); // Remove leading '/'
+    try {
+      const response = await fetch('http://localhost:9292/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          path: apiPath,
+          content: textarea.value,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(`Error saving file: ${errorData.error || response.statusText}`);
+      }
+
+      const result = await response.json();
+      if (result.success) {
+        alert('Saved successfully!');
+        modal.style.display = 'none';
+        window.location.reload();
+      } else {
+        throw new Error(result.error || 'Unknown error');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert(`Failed to save file: ${error.message}`);
+    }
+  });
+});
