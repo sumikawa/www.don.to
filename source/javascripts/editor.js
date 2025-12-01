@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let markdownContent = '';
     try {
       const apiPath = sourcePath.substring(1); // Remove leading '/'
-      const response = await fetch(`http://localhost:9292/api/${apiPath}`);
+      const response = await fetch(`${window.location.origin}/api/${apiPath}`);
       if (!response.ok) throw new Error('Failed to fetch content');
       const data = await response.json();
       markdownContent = data.content;
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       try {
         const apiPath = sourcePath.substring(1);
-        const response = await fetch('http://localhost:9292/api/', {
+        const response = await fetch(`${window.location.origin}/api/`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ path: apiPath, content: textarea.value }),
