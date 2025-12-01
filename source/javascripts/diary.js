@@ -161,11 +161,11 @@ document.addEventListener('DOMContentLoaded', () => {
           throw new Error(errorData.error || 'Failed to save');
         }
 
-        alert('Saved successfully!');
+        displayTemporaryMessage('Saved successfully!', 2000);
         window.location.reload();
       } catch (error) {
         console.error('Error saving:', error);
-        alert(`Failed to save file: ${error.message}`);
+        displayTemporaryMessage(`Failed to save file: ${error.message}`, 3000); // Display error for 3 seconds
         saveButton.disabled = false;
         cancelButton.disabled = false;
         saveButton.textContent = 'Save';
@@ -175,3 +175,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
   mainContent.addEventListener('click', showEditor);
 });
+
+function displayTemporaryMessage(message, duration) {
+  const messageDiv = document.createElement('div');
+  messageDiv.textContent = message;
+  Object.assign(messageDiv.style, {
+    position: 'fixed',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    color: 'white',
+    padding: '15px 25px',
+    borderRadius: '5px',
+    zIndex: '1000',
+    opacity: '0',
+    transition: 'opacity 0.5s ease-in-out',
+    textAlign: 'center'
+  });
+
+  document.body.appendChild(messageDiv);
+
+  // Fade in
+  setTimeout(() => {
+    messageDiv.style.opacity = '1';
+  }, 10); // Small delay to trigger transition
+
+  // Fade out and remove
+  setTimeout(() => {
+    messageDiv.style.opacity = '0';
+    messageDiv.addEventListener('transitionend', () => {
+      messageDiv.remove();
+    });
+  }, duration);
+}
+
