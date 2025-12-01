@@ -4,6 +4,8 @@ require 'sinatra/base'
 require 'json'
 
 class ApiServer < Sinatra::Base
+  set :host_authorization, { permitted_hosts: ['localhost', 'stage.don.to'] }
+
   def initialize(app = nil, root: Dir.pwd)
     super(app)
     @root = root
