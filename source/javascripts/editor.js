@@ -2,21 +2,37 @@
 document.addEventListener('DOMContentLoaded', () => {
   const sourcePath = document.body.dataset.sourcePath;
   const mainContent = document.querySelector('main[data-pagefind-body]');
+  const editButton = document.createElement('button');
+  editButton.textContent = 'Edit';
+  editButton.style.position = 'fixed';
+  editButton.style.bottom = '10px';
+  editButton.style.right = '10px';
+  editButton.style.zIndex = '1000';
+  editButton.style.padding = '10px 15px';
+  editButton.style.backgroundColor = '#007bff';
+  editButton.style.color = 'white';
+  editButton.style.border = 'none';
+  editButton.style.borderRadius = '5px';
+  editButton.style.cursor = 'pointer';
+  editButton.style.fontSize = '16px';
+
+  document.body.appendChild(editButton);
+
   let isEditing = false;
 
   // Check if the page is editable
   if (!mainContent || !sourcePath || !sourcePath.startsWith('/diary/') || !sourcePath.endsWith('.md.erb')) {
+    editButton.style.display = 'none'; // Hide button if not editable
     return;
   }
 
-  mainContent.style.cursor = 'pointer';
-  mainContent.title = 'Click to edit';
+  // mainContent.style.cursor = 'pointer';
+  // mainContent.title = 'Click to edit';
 
   const showEditor = async () => {
     if (isEditing) return;
     isEditing = true;
-    mainContent.style.cursor = 'default';
-    mainContent.title = '';
+    editButton.style.display = 'none'; // Hide the edit button
 
     const originalHTML = mainContent.innerHTML;
 
@@ -31,8 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
       console.error('Error fetching content:', error);
       isEditing = false;
-      mainContent.style.cursor = 'pointer';
-      mainContent.title = 'Click to edit';
+      editButton.style.display = 'block'; // Show the edit button again if fetching fails
       return;
     }
 
@@ -72,8 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const cleanup = () => {
       mainContent.innerHTML = originalHTML;
       isEditing = false;
-      mainContent.style.cursor = 'pointer';
-      mainContent.title = 'Click to edit';
+      editButton.style.display = 'block'; // Show the edit button again
+      initPhotoSwipeFromDOM('.mainblock');
     };
 
     // --- Event Listeners for buttons ---
@@ -113,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  mainContent.addEventListener('click', showEditor);
+  editButton.addEventListener('click', showEditor);
 });
 
 function displayTemporaryMessage(message, duration) {
