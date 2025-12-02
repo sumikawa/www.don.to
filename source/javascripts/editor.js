@@ -6,31 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const editButton = document.createElement('button');
   editButton.textContent = 'Edit';
-  editButton.style.position = 'absolute';
-  editButton.style.top = '10px';
-  editButton.style.right = '10px';
-  editButton.style.zIndex = '1000';
-  editButton.style.padding = '10px 15px';
-  editButton.style.backgroundColor = '#007bff';
-  editButton.style.color = 'white';
-  editButton.style.border = 'none';
-  editButton.style.borderRadius = '5px';
-  editButton.style.cursor = 'pointer';
-  editButton.style.fontSize = '16px';
+  editButton.classList.add('edit-button');
 
   const githubButton = document.createElement('button');
   githubButton.textContent = 'GitHub';
-  githubButton.style.position = 'absolute';
-  githubButton.style.top = '10px';
-  githubButton.style.right = '90px'; // Adjust position next to Edit button
-  githubButton.style.zIndex = '1000';
-  githubButton.style.padding = '10px 15px';
-  githubButton.style.backgroundColor = '#333'; // GitHub-like color
-  githubButton.style.color = 'white';
-  githubButton.style.border = 'none';
-  githubButton.style.borderRadius = '5px';
-  githubButton.style.cursor = 'pointer';
-  githubButton.style.fontSize = '16px';
+  githubButton.classList.add('github-button');
 
   if (mainBlock) { // Only append if mainBlock exists
     mainBlock.appendChild(editButton);
@@ -82,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Error fetching content:', error);
       isEditing = false;
       editButton.style.display = 'block'; // Show the edit button again if fetching fails
+      githubButton.style.display = 'block'; // Show the github button again if fetching fails
       return;
     }
 

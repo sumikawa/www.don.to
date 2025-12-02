@@ -1,0 +1,21 @@
+.edit-button, .github-button {
+  position: absolute;
+  top: 10px;
+  z-index: 1000;
+  padding: 10px 15px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.edit-button {
+  right: 10px;
+  background-color: #007bff;
+}
+
+.github-button {
+  right: 90px;
+  background-color: #333;
+}
