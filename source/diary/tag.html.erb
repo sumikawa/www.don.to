@@ -1,13 +1,18 @@
 ---
-layout: layout
+layout: site
+title: dummy title as the below line overwrite this line
 ---
-<h1><%= current_page.data.tag_name %></h1>
+<% current_page.data.title = "Tag: #{tag_name}" %>
 
-<ul>
-  <% sitemap.resources.select { |resource|
-    resource.data.tags &&
-    resource.data.tags.split(',').map(&:strip).include?(current_page.data.tag_name)
-  }.each do |article| %>
-    <li><%= link_to article.data.title, article.url %></li>
-  <% end %>
-</ul>
+<%
+    index = []
+    tags_list[tag_name].each do |file_path|
+      header = YAML.load_file(file_path)
+      if header['draft'].nil?
+        index << gen_link(file_path, header['title'], false)
+      end
+    end
+%>
+<dl>
+<%= index.sort.reverse.join("\n") %>
+</dl>

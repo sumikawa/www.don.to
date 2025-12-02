@@ -40,7 +40,7 @@ end
 require_relative 'helpers/tag_helpers'
 include TagHelpers
 
-tags_list.each do |tag|
+tags_list.keys.sort.each do |tag|
   proxy "/diary/tag/#{tag.downcase.gsub(' ', '-')}.html", "/diary/tag.html", locals: { tag_name: tag }, ignore: true
 end
 

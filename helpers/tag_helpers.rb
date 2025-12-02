@@ -3,7 +3,7 @@ require 'yaml'
 
 module TagHelpers
   def tags_list
-    all_tags = Set.new
+    all_tags = {}
 
     # Assuming Middleman's root directory structure
     # Adjust path if necessary
@@ -20,7 +20,10 @@ module TagHelpers
           if data && data['tags']
             # Split tags string by comma and strip whitespace
             tags = data['tags'].split(',').map(&:strip)
-            all_tags.merge(tags)
+            tags.each do |tag|
+              all_tags[tag] ||= []
+              all_tags[tag].push(file_path)
+            end
           end
         rescue Psych::SyntaxError => e
           puts "Error parsing YAML in #{file_path}: #{e.message}"
@@ -28,6 +31,6 @@ module TagHelpers
       end
     end
 
-    all_tags.to_a.sort
+    all_tags
   end
 end
