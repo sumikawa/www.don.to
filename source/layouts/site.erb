@@ -45,6 +45,15 @@
           <% end %>
           <main data-pagefind-body>
             <%= yield %>
+
+            <% if current_page.data.tags %>
+              <div class="tags">
+                Tags:
+                <% current_page.data.tags.split(',').map(&:strip).each do |tag| %>
+                  <span class="tag"><%= tag %></span>
+                <% end %>
+              </div>
+            <% end %>
           </main>
 
           <%= diary_nav(current_page, sitemap) %>
