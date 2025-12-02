@@ -7,7 +7,7 @@ module TagHelpers
 
     # Assuming Middleman's root directory structure
     # Adjust path if necessary
-    diary_files = Dir.glob("source/diary/2025/**/*.html.md.erb")
+    diary_files = Dir.glob("source/diary/[012]*/**/*.html.md.erb")
 
     diary_files.each do |file_path|
       content = File.read(file_path)
