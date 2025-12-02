@@ -2,10 +2,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   const sourcePath = document.body.dataset.sourcePath;
   const mainContent = document.querySelector('main[data-pagefind-body]');
+  const mainBlock = document.querySelector('.mainblock'); // Get a reference to .mainblock
+
   const editButton = document.createElement('button');
   editButton.textContent = 'Edit';
-  editButton.style.position = 'fixed';
-  editButton.style.bottom = '10px';
+  editButton.style.position = 'absolute';
+  editButton.style.top = '10px';
   editButton.style.right = '10px';
   editButton.style.zIndex = '1000';
   editButton.style.padding = '10px 15px';
@@ -16,7 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
   editButton.style.cursor = 'pointer';
   editButton.style.fontSize = '16px';
 
-  document.body.appendChild(editButton);
+  if (mainBlock) { // Only append if mainBlock exists
+    mainBlock.appendChild(editButton);
+  }
+
 
   let isEditing = false;
 

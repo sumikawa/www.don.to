@@ -296,6 +296,7 @@ button.pagefind-ui__button {
     text-align: left;
     padding-right: 7px;
     padding-left: 7px;
+    position: relative; /* Added for positioning child elements */
   }
 
   .titleblock {
