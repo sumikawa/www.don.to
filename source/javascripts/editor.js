@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Create textarea and buttons
     const editorWrapper = document.createElement('div');
-    editorWrapper.style.height = `${mainContent.offsetHeight}px`;
 
     const textarea = document.createElement('textarea');
     textarea.value = markdownContent;
