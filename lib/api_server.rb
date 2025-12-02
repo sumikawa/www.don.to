@@ -2,6 +2,7 @@
 
 require 'sinatra/base'
 require 'json'
+require_relative 'tabelog'
 
 class ApiServer < Sinatra::Base
   set :host_authorization, { permitted_hosts: ['localhost', 'stage.don.to'] }
@@ -44,6 +45,8 @@ class ApiServer < Sinatra::Base
       file_path = request_payload['path'].sub(%r{^/}, '')
       content = request_payload['content']
 
+      content = apply_content_filters(content)
+
       if file_path.nil? || content.nil?
         status 400
         return { error: 'Bad Request: path and content are required.' }.to_json
@@ -68,5 +71,21 @@ class ApiServer < Sinatra::Base
       status 500
       { error: e.message }.to_json
     end
+  end
+
+  private
+
+  def apply_content_filters(content)
+    content.lines.map do |line|
+      if line.strip.start_with?('https://tabelog.com/')
+        begin
+          tabelog(line.strip)
+        rescue
+          line
+        end
+      else
+        line
+      end
+    end.join
   end
 end
