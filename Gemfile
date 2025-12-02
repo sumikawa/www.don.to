@@ -19,6 +19,7 @@ group :development do
   gem 'htmlbeautifier'
   gem 'sinatra', require: false
   gem 'rack-cors', require: false
+  gem 'nokogiri'
 end
 
 gem 'webrick'
