@@ -38,9 +38,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Fetch original markdown content
     let markdownContent = '';
+    const getBaseUrl = () => {
+      if (window.location.hostname === 'localhost') {
+        return `${window.location.protocol}//${window.location.hostname}:9292`;
+      }
+      return window.location.origin;
+    };
+    const baseUrl = getBaseUrl();
     try {
       const apiPath = sourcePath.substring(1); // Remove leading '/'
-      const response = await fetch(`${window.location.origin}/api/${apiPath}`);
+      const response = await fetch(`${baseUrl}/api/${apiPath}`);
       if (!response.ok) throw new Error('Failed to fetch content');
       const data = await response.json();
       markdownContent = data.content;
@@ -105,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       try {
         const apiPath = sourcePath.substring(1);
-        const response = await fetch(`${window.location.origin}/api/`, {
+        const response = await fetch(`${baseUrl}/api/`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ path: apiPath, content: textarea.value }),
