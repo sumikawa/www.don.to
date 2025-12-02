@@ -18,9 +18,29 @@ document.addEventListener('DOMContentLoaded', () => {
   editButton.style.cursor = 'pointer';
   editButton.style.fontSize = '16px';
 
+  const githubButton = document.createElement('button');
+  githubButton.textContent = 'GitHub';
+  githubButton.style.position = 'absolute';
+  githubButton.style.top = '10px';
+  githubButton.style.right = '90px'; // Adjust position next to Edit button
+  githubButton.style.zIndex = '1000';
+  githubButton.style.padding = '10px 15px';
+  githubButton.style.backgroundColor = '#333'; // GitHub-like color
+  githubButton.style.color = 'white';
+  githubButton.style.border = 'none';
+  githubButton.style.borderRadius = '5px';
+  githubButton.style.cursor = 'pointer';
+  githubButton.style.fontSize = '16px';
+
   if (mainBlock) { // Only append if mainBlock exists
     mainBlock.appendChild(editButton);
+    mainBlock.appendChild(githubButton);
   }
+
+  githubButton.addEventListener('click', () => {
+    const githubUrl = `https://github.com/sumikawa/www.don.to/edit/main/source${sourcePath}`;
+    window.open(githubUrl, '_blank');
+  });
 
 
   let isEditing = false;
@@ -28,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Check if the page is editable
   if (!mainContent || !sourcePath || !sourcePath.startsWith('/diary/') || !sourcePath.endsWith('.md.erb')) {
     editButton.style.display = 'none'; // Hide button if not editable
+    githubButton.style.display = 'none'; // Hide button if not editable
     return;
   }
 
@@ -38,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isEditing) return;
     isEditing = true;
     editButton.style.display = 'none'; // Hide the edit button
+    githubButton.style.display = 'none'; // Hide the github button
 
     const originalHTML = mainContent.innerHTML;
 
@@ -99,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mainContent.innerHTML = originalHTML;
       isEditing = false;
       editButton.style.display = 'block'; // Show the edit button again
+      githubButton.style.display = 'block'; // Show the github button again
       initPhotoSwipeFromDOM('.mainblock');
     };
 
