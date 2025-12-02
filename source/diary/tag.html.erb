@@ -1,0 +1,13 @@
+---
+layout: layout
+---
+<h1><%= current_page.data.tag_name %></h1>
+
+<ul>
+  <% sitemap.resources.select { |resource|
+    resource.data.tags &&
+    resource.data.tags.split(',').map(&:strip).include?(current_page.data.tag_name)
+  }.each do |article| %>
+    <li><%= link_to article.data.title, article.url %></li>
+  <% end %>
+</ul>

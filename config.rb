@@ -36,6 +36,14 @@ data.year.thisyear.downto(1995).each do |y|
   proxy "/diary/#{y}.html", '/diary/yearly.html', locals: { year: y }, ignore: true
 end
 
+# Generate tag pages
+require_relative 'helpers/tag_helpers'
+include TagHelpers
+
+tags_list.each do |tag|
+  proxy "/diary/tag/#{tag.downcase.gsub(' ', '-')}.html", "/diary/tag.html", locals: { tag_name: tag }, ignore: true
+end
+
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
 

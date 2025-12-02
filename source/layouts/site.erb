@@ -50,7 +50,7 @@
               <div class="tags">
                 Tags:
                 <% current_page.data.tags.split(',').map(&:strip).each do |tag| %>
-                  <span class="tag"><%= tag %></span>
+                  <a href="/tag/<%= tag.downcase.gsub(' ', '-') %>.html" class="tag"><%= tag %></a>
                 <% end %>
               </div>
             <% end %>
