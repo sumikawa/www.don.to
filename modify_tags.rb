@@ -34,6 +34,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('new year')
         elsif tag.match?(/^newborn$/i)
           new_tags.push('birth')
+        elsif tag.match?(/^potato digging$/i)
+          new_tags.push('potato')
         elsif tag.match?(/^wfh$/i)
           new_tags.push('telework')
         else
