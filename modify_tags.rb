@@ -14,6 +14,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
       tags.each do |tag|
         if tag.match?(/(\w\w*) food/i)
           new_tags.push(tag.sub(/ food/i, ''))
+        elsif tag.match?(/yokohama iekei/i)
+          new_tags.push('iekei')
         else
           new_tags.push(tag)
         end
