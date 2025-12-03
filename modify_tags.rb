@@ -42,6 +42,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('morning')
         elsif tag.match?(/^theme-?park$/i)
           new_tags.push('theme park')
+        elsif tag.match?(/^sports-?day$/i)
+          new_tags.push('sports day')
         elsif tag.match?(/^newborn$/i)
           new_tags.push('birth')
         elsif tag.match?(/^potato digging$/i)
