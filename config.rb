@@ -42,6 +42,7 @@ include TagHelpers
 
 tags_list.keys.sort.each do |tag|
   proxy "/diary/tag/#{tag.downcase.gsub(' ', '-')}.html", "/diary/tag.html", locals: { tag_name: tag }, ignore: true
+  proxy "/diary/tag/#{tag.downcase.gsub(' ', '-')}.json", "/diary/tag.json.erb", locals: { tag_name: tag }, ignore: true, :layout => false
 end
 
 # Automatic image dimensions on image_tag helper
