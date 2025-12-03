@@ -16,3 +16,5 @@ ARGV.each do |file|
     end
   end
 end
+
+exit(1) if limit == 30 # no file without tags
