@@ -1,0 +1,11 @@
+---
+layout: site
+title: Tag list
+---
+<%
+  tags_list.keys.sort.each do |tag|
+%>
+  <%= link_to(tag, "/tag/#{tag}") %>
+<%
+    end
+%>
