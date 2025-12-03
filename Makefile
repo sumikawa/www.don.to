@@ -5,6 +5,9 @@ run:
 	bundle exec middleman server --instrument --bind-address=0.0.0.0
 	wait
 
+tag::
+	kiro-cli-chat chat --no-interactive  -a "`./check_tags.rb source/diary/2018/*`"
+
 year::
 	(cd data ; make year)
 
