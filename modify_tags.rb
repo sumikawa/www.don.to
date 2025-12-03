@@ -18,6 +18,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('iekei')
         elsif tag.match?(/cataract .*/i)
           new_tags.push('cataract')
+        elsif tag.match?(/animals/i)
+          new_tags.push('animal')
         else
           new_tags.push(tag)
         end
