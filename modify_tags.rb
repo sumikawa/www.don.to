@@ -26,7 +26,7 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('walk')
         elsif tag.match?(/^usa$/i)
           new_tags.push('us')
-        elsif tag.match?(/^business trip$/i)
+        elsif tag.match?(/^business[- ]trip$/i)
           new_tags.push('business')
         elsif tag.match?(/^disneyland$/i)
           new_tags.push('disney')
