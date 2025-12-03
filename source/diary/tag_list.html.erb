@@ -2,10 +2,12 @@
 layout: site
 title: Tag list
 ---
+<dt>
 <%
   tags_list.keys.sort.each do |tag|
 %>
-  <%= link_to(tag, "/diary/tag/#{tag}") %>
+  <dd><%= link_to(tag, "/diary/tag/#{tag}") %></dd>
 <%
     end
 %>
+</dt>
