@@ -22,6 +22,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('animal')
         elsif tag.match?(/documents/i)
           new_tags.push('document')
+        elsif tag.match?(/walking/i)
+          new_tags.push('walk')
         elsif tag.match?(/business trip/i)
           new_tags.push('business')
         elsif tag.match?(/disneyland/i)
