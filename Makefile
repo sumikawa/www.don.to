@@ -6,7 +6,7 @@ run:
 	wait
 
 tag::
-	kiro-cli-chat chat --no-interactive  -a "`./check_tags.rb source/diary/2018/*`"
+	kiro-cli-chat chat --no-interactive  -a "`./check_tags.rb source/diary/2013/*`"
 
 year::
 	(cd data ; make year)
