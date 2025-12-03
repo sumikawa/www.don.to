@@ -21,6 +21,7 @@ module TagHelpers
             # Split tags string by comma and strip whitespace
             tags = data['tags'].split(',').map(&:strip)
             tags.each do |tag|
+              tag = tag.downcase
               all_tags[tag] ||= []
               all_tags[tag].push(file_path)
             end
