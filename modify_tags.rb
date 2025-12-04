@@ -94,6 +94,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('mie')
         elsif tag.match?(/^drinking$/i)
           new_tags.push('drink')
+        elsif tag.match?(/^indian$/i)
+          new_tags.push('curry')
         elsif tag.match?(/^children$/i)
           new_tags.push('kids')
         elsif tag.match?(/^miyakojima$/i)
@@ -117,6 +119,7 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
         end
       end
 
+      new_tags = new_tags.sort.uniq
       if tags != new_tags
         puts "#{tags.join(', ')} -> #{new_tags.join(', ')}"
         update_content = content.sub(/^tags: .*$/, "tags: #{new_tags.join(', ')}")
