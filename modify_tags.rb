@@ -197,8 +197,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('playground')
         elsif tag.match?(/^archive$/i)
           new_tags.push('document')
-        elsif tag.match?(/^bonodori$/i)
-          new_tags.push('festival')
+        elsif tag.match?(/^cathedral$/i)
+          new_tags.push('church')
         else
           new_tags.push(tag)
         end
@@ -274,7 +274,7 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
       new_tags = new_tags.sort.uniq
       # if tags != new_tags
         # puts "#{tags.join(', ')} -> #{new_tags.join(', ')}"
-        update_content = content.sub(/^tags: .*$/, "tags: #{new_tags.join(', ')}")
+        update_content = content.sub(/^tags:.*$/, "tags: #{new_tags.join(', ')}")
         File.write(file, update_content)
       # end
     end
