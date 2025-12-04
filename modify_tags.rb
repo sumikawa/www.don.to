@@ -106,6 +106,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('medical')
         elsif tag.match?(/^injury$/i)
           new_tags.push('medical')
+        elsif tag.match?(/^spa$/i)
+          new_tags.push('onsen')
         elsif tag.match?(/^children$/i)
           new_tags.push('kids')
         elsif tag.match?(/^miyakojima$/i)
