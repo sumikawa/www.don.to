@@ -169,6 +169,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('festival')
         elsif tag.match?(/^haloween$/i)
           new_tags.push('halloween')
+        elsif tag.match?(/^sunrize$/i)
+          new_tags.push('sunrise')
         else
           new_tags.push(tag)
         end
@@ -184,6 +186,9 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
       end
       if new_tags.include?('park') & new_tags.include?('outdoor')
         new_tags.delete('outdoor')
+      end
+      if new_tags.include?('park') & new_tags.include?('nature')
+        new_tags.delete('nature')
       end
       if new_tags.include?('camp') & new_tags.include?('outdoor')
         new_tags.delete('outdoor')
