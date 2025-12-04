@@ -4,7 +4,7 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
   content = File.read(file)
 
   if content =~ /\A---\n(.*?)\n---/m
-    md = $1.match(/^tags: (.*)/i)
+    md = $1.match(/^tags:(.*)/i)
     # puts md
     if md
       tags = md[1].split(/,/)
@@ -262,6 +262,7 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
       if new_tags.include?('minatomirai') & new_tags.include?('yokohama')
         new_tags.delete('yokohama')
       end
+      new_tags.delete('action')
 
       new_tags = new_tags.sort.uniq
       # if tags != new_tags
