@@ -181,6 +181,9 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
 
       new_tags = new_tags.map(&:downcase).map(&:strip).delete_if{ |t| t == '' }
 
+      if new_tags.include?('higashi shinagawa') & new_tags.include?('shinagawa')
+        new_tags.delete('shinagawa')
+      end
       if new_tags.include?('trail') & new_tags.include?('nature')
         new_tags.delete('nature')
       end
