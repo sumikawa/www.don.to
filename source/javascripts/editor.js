@@ -72,9 +72,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const textarea = document.createElement('textarea');
     textarea.value = markdownContent;
     textarea.style.width = '100%';
-    textarea.style.height = '100%';
     textarea.style.minHeight = '300px';
+    textarea.style.maxHeight = `${window.innerHeight * 0.8}px`; // Set initial max-height
     textarea.style.boxSizing = 'border-box';
+    textarea.style.resize = 'vertical'; // Allow manual vertical resizing
+    textarea.style.overflowY = 'auto'; // Enable scrollbar when content exceeds height
+
+    // Auto-resize textarea height
+    const adjustTextareaHeight = () => {
+      textarea.style.height = 'auto'; // Reset height to recalculate
+      const newHeight = Math.min(textarea.scrollHeight, window.innerHeight * 0.8); // 80% of window height
+      textarea.style.height = `${newHeight}px`;
+    };
+
+    textarea.addEventListener('input', adjustTextareaHeight);
+    // Adjust height initially in case content is pre-filled
+    adjustTextareaHeight();
+
 
     const buttonContainer = document.createElement('div');
     buttonContainer.style.marginTop = '10px';
