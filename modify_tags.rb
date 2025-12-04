@@ -104,6 +104,12 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push(tag)
         end
       end
+      
+      # Add 'meguro' tag if title is '目黒ごはん' and 'meguro' is not already present
+      if content.match?(/^title: 目黒ごはん/) && !new_tags.include?('meguro')
+        new_tags.push('meguro')
+      end
+
       if tags != new_tags
         puts "#{tags.join(', ')} -> #{new_tags.join(', ')}"
         update_content = content.sub(/^tags: .*$/, "tags: #{new_tags.join(', ')}")
