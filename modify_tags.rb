@@ -160,6 +160,9 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
       if new_tags.include?('park') & new_tags.include?('outdoor')
         new_tags.delete('outdoor')
       end
+      if new_tags.include?('camp') & new_tags.include?('outdoor')
+        new_tags.delete('outdoor')
+      end
       if new_tags.include?('park') & new_tags.include?('playground')
         new_tags.delete('playground')
       end
