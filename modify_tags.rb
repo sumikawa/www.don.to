@@ -136,6 +136,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('dental')
         elsif tag.match?(/^milestone$/i)
           new_tags.push('achievement')
+        elsif tag.match?(/^pub$/i)
+          new_tags.push('bar')
         else
           new_tags.push(tag)
         end
@@ -145,9 +147,6 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
         new_tags.delete('playground')
       end
       if new_tags.include?('food') & new_tags.include?('restaurant')
-        new_tags.delete('food')
-      end
-      if new_tags.include?('food') & new_tags.include?('pub')
         new_tags.delete('food')
       end
       if new_tags.include?('park') & new_tags.include?('play')
