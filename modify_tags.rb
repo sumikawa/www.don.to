@@ -152,6 +152,9 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
       if new_tags.include?('park') & new_tags.include?('play')
         new_tags.delete('play')
       end
+      if new_tags.include?('minatomirai') & new_tags.include?('yokohama')
+        new_tags.delete('yokohama')
+      end
 
       new_tags = new_tags.sort.uniq
       if tags != new_tags
