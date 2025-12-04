@@ -8,7 +8,7 @@ title: Tag list
 <%
   tags_list.keys.sort.each do |tag|
 %>
-  <li><%= link_to(tag, "/diary/tag/#{tag.gsub(' ', '-')}") %> (<%= tags_list[tag].size %>)</li>
+  <li><%= link_to(tag, "/tag/#{tag.gsub(' ', '-')}") %> (<%= tags_list[tag].size %>)</li>
 <%
     end
 %>
