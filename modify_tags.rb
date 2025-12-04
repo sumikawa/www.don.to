@@ -147,6 +147,7 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
       end
 
       new_tags.push('lunch') if content.match?(/^title: 目黒ごはん/) & !new_tags.include?('dinner')
+      new_tags.push('lunch') if content.match?(/^title: 東品川ごはん/) & !new_tags.include?('dinner')
 
       new_tags = new_tags.map(&:downcase)
 
