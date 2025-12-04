@@ -189,6 +189,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('korea')
         elsif tag.match?(/^accident$/i)
           new_tags.push('incident')
+        elsif tag.match?(/^hokuriku$/i)
+          new_tags.push('kanazawa')
         else
           new_tags.push(tag)
         end
