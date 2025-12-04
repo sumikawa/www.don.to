@@ -175,8 +175,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('mie')
         elsif tag.match?(/^jiro$/i)
           new_tags.push('ramen')
-        elsif tag.match?(/^standing$/i)
-          new_tags.push('achievement')
+        elsif tag.match?(/^speeding$/i)
+          new_tags.push('car')
         else
           new_tags.push(tag)
         end
