@@ -4,12 +4,12 @@ title: Tag list
 ---
 <%= tags_list.keys.size %> tags
 
-<dt>
+<ul>
 <%
   tags_list.keys.sort.each do |tag|
 %>
-  <dd><%= link_to(tag, "/diary/tag/#{tag.gsub(' ', '-')}") %> (<%= tags_list[tag].size %>)</dd>
+  <li><%= link_to(tag, "/diary/tag/#{tag.gsub(' ', '-')}") %> (<%= tags_list[tag].size %>)</li>
 <%
     end
 %>
-</dt>
+</ul>
