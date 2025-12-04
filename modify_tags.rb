@@ -203,6 +203,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
 
       new_tags = new_tags.map(&:downcase).map(&:strip).delete_if{ |t| t == '' }
 
+      # puts new_tags
+
       if new_tags.include?('higashi shinagawa') & new_tags.include?('shinagawa')
         new_tags.delete('shinagawa')
       end
@@ -262,11 +264,11 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
       end
 
       new_tags = new_tags.sort.uniq
-      if tags != new_tags
+      # if tags != new_tags
         puts "#{tags.join(', ')} -> #{new_tags.join(', ')}"
         update_content = content.sub(/^tags: .*$/, "tags: #{new_tags.join(', ')}")
         File.write(file, update_content)
-      end
+      # end
     end
   end
 end
