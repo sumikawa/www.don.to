@@ -68,6 +68,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('hot pot')
         elsif tag.match?(/^friends$/i)
           new_tags.push('friend')
+        elsif tag.match?(/^hiking$/i)
+          new_tags.push('trail')
         elsif tag.match?(/^scifi$/i)
           new_tags.push('sci-fi')
         elsif tag.match?(/^morning activity$/i)
