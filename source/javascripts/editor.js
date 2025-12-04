@@ -111,6 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
     mainContent.innerHTML = '';
     mainContent.appendChild(editorWrapper);
     textarea.focus();
+    textarea.setSelectionRange(0, 0); // Move cursor to the beginning
+
 
     const cleanup = () => {
       mainContent.innerHTML = originalHTML;
