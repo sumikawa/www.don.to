@@ -195,6 +195,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('game')
         elsif tag.match?(/^activity$/i)
           new_tags.push('playground')
+        elsif tag.match?(/^archive$/i)
+          new_tags.push('document')
         else
           new_tags.push(tag)
         end
@@ -204,6 +206,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
       new_tags.push('lunch') if content.match?(/^title: 東品川ごはん/) & !new_tags.include?('dinner')
 
       new_tags = new_tags.map(&:downcase).map(&:strip).delete_if{ |t| t == '' }
+
+      new_tags.delete('kidzania')
 
       # puts new_tags
 
@@ -264,8 +268,6 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
       if new_tags.include?('minatomirai') & new_tags.include?('yokohama')
         new_tags.delete('yokohama')
       end
-
-      new_tags.delete('kidzania')
 
       new_tags = new_tags.sort.uniq
       # if tags != new_tags
