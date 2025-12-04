@@ -86,10 +86,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('photo')
         elsif tag.match?(/^children$/i)
           new_tags.push('kids')
-        elsif tag.match?(/^kindergarten$/i)
-          new_tags.push('daycare')
-        elsif tag.match?(/^nursery$/i)
-          new_tags.push('daycare')
+        elsif tag.match?(/^daycare$/i)
+          new_tags.push('hoikuen')
         elsif tag.match?(/^theme-?park$/i)
           new_tags.push('theme park')
         elsif tag.match?(/^sports-?day$/i)
@@ -103,11 +101,6 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
         else
           new_tags.push(tag)
         end
-      end
-      
-      # Add 'meguro' tag if title is '目黒ごはん' and 'meguro' is not already present
-      if content.match?(/^title: 目黒ごはん/) && !new_tags.include?('meguro')
-        new_tags.push('meguro')
       end
 
       if tags != new_tags
