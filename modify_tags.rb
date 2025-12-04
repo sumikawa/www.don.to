@@ -193,6 +193,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('kanazawa')
         elsif tag.match?(/^gaming$/i)
           new_tags.push('game')
+        elsif tag.match?(/^activity$/i)
+          new_tags.push('playground')
         else
           new_tags.push(tag)
         end
@@ -262,11 +264,12 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
       if new_tags.include?('minatomirai') & new_tags.include?('yokohama')
         new_tags.delete('yokohama')
       end
-      new_tags.delete('action')
+
+      new_tags.delete('kidzania')
 
       new_tags = new_tags.sort.uniq
       # if tags != new_tags
-        puts "#{tags.join(', ')} -> #{new_tags.join(', ')}"
+        # puts "#{tags.join(', ')} -> #{new_tags.join(', ')}"
         update_content = content.sub(/^tags: .*$/, "tags: #{new_tags.join(', ')}")
         File.write(file, update_content)
       # end
