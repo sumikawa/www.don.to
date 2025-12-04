@@ -283,11 +283,11 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
       end
 
       new_tags = new_tags.sort.uniq
-      # if tags != new_tags
-        # puts "#{tags.join(', ')} -> #{new_tags.join(', ')}"
+      if tags != new_tags
+        puts "#{tags.join(', ')} -> #{new_tags.join(', ')}"
         update_content = content.sub(/^tags:.*$/, "tags: #{new_tags.join(', ')}")
         File.write(file, update_content)
-      # end
+      end
     end
   end
 end
