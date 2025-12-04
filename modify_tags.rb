@@ -92,6 +92,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('san jose')
         elsif tag.match?(/^hisai$/i)
           new_tags.push('mie')
+        elsif tag.match?(/^drinking$/i)
+          new_tags.push('drink')
         elsif tag.match?(/^children$/i)
           new_tags.push('kids')
         elsif tag.match?(/^miyakojima$/i)
