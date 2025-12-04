@@ -169,7 +169,7 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
       new_tags.push('lunch') if content.match?(/^title: 目黒ごはん/) & !new_tags.include?('dinner')
       new_tags.push('lunch') if content.match?(/^title: 東品川ごはん/) & !new_tags.include?('dinner')
 
-      new_tags = new_tags.map(&:downcase)
+      new_tags = new_tags.map(&:downcase).map(&:strip).delete_if{ |t| t == '' }
 
       if new_tags.include?('park') & new_tags.include?('outdoor')
         new_tags.delete('outdoor')
