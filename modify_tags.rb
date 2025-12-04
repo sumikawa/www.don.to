@@ -181,6 +181,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('noodle')
         elsif tag.match?(/^practice$/i)
           new_tags.push('training')
+        elsif tag.match?(/^maitin$/i)
+          new_tags.push('pork')
         else
           new_tags.push(tag)
         end
