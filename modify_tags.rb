@@ -2,7 +2,6 @@
 
 Dir.glob('source/diary/**/*.md.erb').each do |file|
   content = File.read(file)
-  # next unless content.match?(/^title: 東品川ごはん/)
 
   if content =~ /\A---\n(.*?)\n---/m
     md = $1.match(/^tags: (.*)/i)
@@ -146,6 +145,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push(tag)
         end
       end
+
+      new_tags.push('lunch') if content.match?(/^title: 目黒ごはん/) & !new_tags.include?('dinner')
 
       new_tags = new_tags.map(&:downcase)
 
