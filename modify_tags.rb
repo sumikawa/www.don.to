@@ -201,6 +201,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('church')
         elsif tag.match?(/^cosplay$/i)
           new_tags.push('costume')
+        elsif tag.match?(/^checkup$/i)
+          new_tags.push('health')
         else
           new_tags.push(tag)
         end
@@ -211,7 +213,7 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
 
       new_tags = new_tags.map(&:downcase).map(&:strip).delete_if{ |t| t == '' }
 
-      new_tags.delete('creative')
+      new_tags.delete('cleaning')
 
       # puts new_tags
 
