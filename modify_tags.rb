@@ -74,6 +74,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('sci-fi')
         elsif tag.match?(/^morning activity$/i)
           new_tags.push('morning')
+        elsif tag.match?(/^company event$/i)
+          new_tags.push('event')
         elsif tag.match?(/^kindergarten$/i)
           new_tags.push('daycare')
         elsif tag.match?(/^nursery$/i)
