@@ -179,6 +179,9 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
 
       new_tags = new_tags.map(&:downcase).map(&:strip).delete_if{ |t| t == '' }
 
+      if new_tags.include?('trail') & new_tags.include?('trail')
+        new_tags.delete('nature')
+      end
       if new_tags.include?('park') & new_tags.include?('outdoor')
         new_tags.delete('outdoor')
       end
