@@ -219,7 +219,7 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
 
       new_tags = new_tags.map(&:downcase).map(&:strip).delete_if{ |t| t == '' }
 
-      new_tags.delete('sci-fi')
+      new_tags.delete('hair')
 
       # puts new_tags
 
