@@ -239,6 +239,12 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
       new_tags.push('lunch') if content.match?(/^title: 目黒ごはん/) & !new_tags.include?('dinner')
       new_tags.push('lunch') if content.match?(/^title: 東品川ごはん/) & !new_tags.include?('dinner')
 
+      if content.match?(/^title: .*出張/)
+        new_tags.push('businesstrip')
+        new_tags.delete('business') if new_tags.include?('business')
+        new_tags.delete('travel') if new_tags.include?('travel')
+      end
+
       new_tags = new_tags.map(&:downcase).map(&:strip).delete_if{ |t| t == '' }
 
       new_tags.delete('english')
