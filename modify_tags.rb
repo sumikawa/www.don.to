@@ -211,6 +211,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('tooth')
         elsif tag.match?(/^community$/i)
           new_tags.push('playground')
+        elsif tag.match?(/^minakami$/i)
+          new_tags.push('gunma')
         else
           new_tags.push(tag)
         end
