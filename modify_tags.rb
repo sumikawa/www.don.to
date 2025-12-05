@@ -241,6 +241,9 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
 
       # puts new_tags
 
+      if new_tags.include?('egypt') & new_tags.include?('photo')
+        new_tags.delete('photo')
+      end
       if new_tags.include?('higashi shinagawa') & new_tags.include?('shinagawa')
         new_tags.delete('shinagawa')
       end
