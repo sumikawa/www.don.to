@@ -221,8 +221,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('marriage')
         elsif tag.match?(/^memo$/i)
           new_tags.push('review')
-        elsif tag.match?(/^iol$/i)
-          new_tags.push('interoperability')
+        elsif tag.match?(/^drama$/i)
+          new_tags.push('review')
         elsif tag.match?(/^experiment$/i)
           new_tags.push('science')
         else
