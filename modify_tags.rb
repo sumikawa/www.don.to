@@ -227,8 +227,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('science')
         elsif tag.match?(/^garden$/i)
           new_tags.push('park')
-        elsif tag.match?(/^paris$/i)
-          new_tags.push('france')
+        elsif tag.match?(/^london$/i)
+          new_tags.push('uk')
         else
           new_tags.push(tag)
         end
@@ -243,7 +243,7 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
 
       # puts new_tags
 
-      if new_tags.include?('osaka') & new_tags.include?('photo')
+      if new_tags.include?('uk') & new_tags.include?('photo')
         new_tags.delete('photo')
       end
       if new_tags.include?('higashi shinagawa') & new_tags.include?('shinagawa')
