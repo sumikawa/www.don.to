@@ -48,6 +48,37 @@ RSpec.describe CustomHelpers do
     end
   end
 
+  describe '#thisyear' do
+    it 'returns the latest year from diary directories' do
+      allow(Dir).to receive(:glob).with('source/diary/[0-9]*').and_return(['source/diary/2023', 'source/diary/2025', 'source/diary/2024'])
+      expect(helper.thisyear).to eq(2025)
+    end
+  end
+
+  describe '#gen_date' do
+    it 'returns date string from URL' do
+      expect(helper.gen_date).to eq('2025-02-03')
+    end
+  end
+
+  describe '#qiita' do
+    it 'returns note div with Qiita link' do
+      result = helper.qiita('https://qiita.com/example')
+      expect(result).to include('本ドキュメントは')
+      expect(result).to include('Qiita記事')
+      expect(result).to include('https://qiita.com/example')
+    end
+  end
+
+  describe '#note' do
+    it 'returns note div with note link' do
+      result = helper.note('https://note.com/example')
+      expect(result).to include('本ドキュメントは')
+      expect(result).to include('note記事')
+      expect(result).to include('https://note.com/example')
+    end
+  end
+
   describe '#gen_title' do
     context 'when page has a title' do
       it 'returns the title with date prefix for diary pages' do
