@@ -60,4 +60,9 @@ module LinkHelpers
     link_url = dropbox_url(year: year, dirname: dirname, basename: basename, ext: ext)
     link_to(comment, link_url)
   end
+
+  def tag_to(tag)
+    normalized_tag = tag.downcase.gsub(' ', '-')
+    link_to(tag, "/tag/#{normalized_tag}/") + " (#{tags_list[tag].size})"
+  end
 end
