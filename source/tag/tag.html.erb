@@ -2,7 +2,7 @@
 layout: site
 title: dummy title as the below line overwrite this line
 ---
-<% current_page.data.title = "Tag: #{tag_name}" %>
+<% current_page.data.title = "Tag: #{tag_name} (#{tags_list[tag_name].size})" %>
 
 <%
     index = []
