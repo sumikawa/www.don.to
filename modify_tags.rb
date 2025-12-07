@@ -229,6 +229,7 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('park')
         elsif tag.match?(/^amusement$/i)
           new_tags.push('playground')
+          new_tags.delete('amusement')
         elsif tag.match?(/^watermelon$/i)
           new_tags.delete('watermelon')
           new_tags.push('fruits')
