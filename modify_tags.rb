@@ -251,12 +251,6 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
 
       # puts new_tags
 
-      if new_tags.include?('kids') & new_tags.include?('son')
-        new_tags.delete('kids')
-      end
-      if new_tags.include?('kids') & new_tags.include?('daughter')
-        new_tags.delete('kids')
-      end
       if new_tags.include?('businesstrip') & new_tags.include?('travel')
         new_tags.delete('travel')
       end
