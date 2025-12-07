@@ -232,8 +232,6 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
         end
       end
 
-      new_tags.delete('kids') if new_tags.include?('kids') & new_tags.include?('son')
-
       new_tags.push('lunch') if content.match?(/^title: 目黒ごはん/) & !new_tags.include?('dinner')
       new_tags.push('lunch') if content.match?(/^title: 東品川ごはん/) & !new_tags.include?('dinner')
 
@@ -253,6 +251,12 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
 
       # puts new_tags
 
+      if new_tags.include?('kids') & new_tags.include?('son')
+        new_tags.delete('kids')
+      end
+      if new_tags.include?('kids') & new_tags.include?('daughter')
+        new_tags.delete('kids')
+      end
       if new_tags.include?('businesstrip') & new_tags.include?('travel')
         new_tags.delete('travel')
       end
