@@ -235,6 +235,8 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
       new_tags.push('lunch') if content.match?(/^title: 目黒ごはん/) & !new_tags.include?('dinner')
       new_tags.push('lunch') if content.match?(/^title: 東品川ごはん/) & !new_tags.include?('dinner')
 
+      new_tags.push('tsujido') if content.match?(/辻堂/)
+
       if content.match?(/^title: .*出張/)
         new_tags.push('businesstrip')
         new_tags.delete('business') if new_tags.include?('business')
