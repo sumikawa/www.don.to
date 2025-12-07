@@ -227,16 +227,12 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
           new_tags.push('science')
         elsif tag.match?(/^garden$/i)
           new_tags.push('park')
-        elsif tag.match?(/^amusement$/i)
-          new_tags.push('playground')
-          new_tags.delete('amusement')
-        elsif tag.match?(/^watermelon$/i)
-          new_tags.delete('watermelon')
-          new_tags.push('fruits')
         else
           new_tags.push(tag)
         end
       end
+
+      new_tags.delete('kids') if new_tags.include?('kids') & new_tags.include?('son')
 
       new_tags.push('lunch') if content.match?(/^title: 目黒ごはん/) & !new_tags.include?('dinner')
       new_tags.push('lunch') if content.match?(/^title: 東品川ごはん/) & !new_tags.include?('dinner')
