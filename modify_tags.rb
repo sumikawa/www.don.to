@@ -241,8 +241,9 @@ Dir.glob('source/diary/**/*.md.erb').each do |file|
         new_tags.delete('travel') if new_tags.include?('travel')
       end
 
-      if content.match?(/^title: .*旅行/)
-        new_tags.push('travel')
+      if content.match?(/^title: .*バレエ/) & new_tags.include?('kids')
+        new_tags.push('riri')
+        new_tags.delete('kids')
       end
 
       new_tags = new_tags.map(&:downcase).map(&:strip).delete_if{ |t| t == '' }
