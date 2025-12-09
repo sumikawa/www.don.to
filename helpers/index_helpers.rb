@@ -22,6 +22,15 @@ module IndexHelpers
     end
   end
 
+  def cache_image(file_info, dirpath)
+    cache_dir = _ensure_cache_dir(dirpath)
+    if %w[jpg heic].include?(file_info[:ext].downcase)
+      _create_image_resolutions(file_info, cache_dir)
+    else # .png, .pdf
+      FileUtils.copy(file_info[:path], File.join(cache_dir, file_info[:name]))
+    end
+  end
+
   private
 
   def _build_body(sorted_files_data)
@@ -67,18 +76,9 @@ module IndexHelpers
              "<%= image \"#{file_info[:base]}\" %>"
            end
 
-    _cache_image(file_info, dirpath) if localhost?
+    cache_image(file_info, dirpath) if localhost?
 
     [timestamp, text]
-  end
-
-  def _cache_image(file_info, dirpath)
-    cache_dir = _ensure_cache_dir(dirpath)
-    if %w[jpg heic].include?(file_info[:ext].downcase)
-      _create_image_resolutions(file_info, cache_dir)
-    else # .png, .pdf
-      FileUtils.copy(file_info[:path], File.join(cache_dir, file_info[:name]))
-    end
   end
 
   def _create_image_resolutions(file_info, cache_dir)
