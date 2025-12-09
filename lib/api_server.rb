@@ -1,12 +1,12 @@
-# lib/api_server.rb
-
 require 'sinatra/base'
 require 'json'
+require 'logger'
 require_relative 'tabelog'
 require_relative '../helpers/link_helpers'
-require 'logger' # Add this line
+require_relative '../helpers/index_helpers'
 
 include LinkHelpers
+include IndexHelpers
 
 class ApiServer < Sinatra::Base
   set :host_authorization, { permitted_hosts: ['localhost', 'stage.don.to'] }
