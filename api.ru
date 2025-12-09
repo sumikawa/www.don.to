@@ -14,6 +14,7 @@ app_with_cors = Rack::Builder.new do
                methods: [:get, :post, :options]
     end
   end
+  use Rack::CommonLogger, api_app.settings.logger
 
   # Map /api to the ApiServer
   map '/api' do
