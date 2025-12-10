@@ -107,6 +107,13 @@ class ApiServer < Sinatra::Base
           sips_cmd = "sips -r 270 #{original_dir}/#{file}.heic"
         end
         system "#{sips_cmd} > /dev/null 2>&1"
+
+        cache_dir = dirname.sub('src/www/source', '.cache')
+        if File.exist?("#{cache_dir}/#{file}.jpg")
+          sips_cmd = "sips -r 270 #{cache_dir}/#{file}.jpg"
+        end
+        system "#{sips_cmd} > /dev/null 2>&1"
+
         line.sub(/^l/, '')
       else
         line
