@@ -63,7 +63,7 @@ module LinkHelpers
 
   def tag_to(tag)
     normalized_tag = tag.downcase.gsub(' ', '-')
-    tag_size = tags_list[tag].size rescue '?'
+    tag_size = tags_list[tag].nil? ? '?' : tags_list[tag].size
     link_to(tag, "/tag/#{normalized_tag}/") + " (#{tag_size})"
   end
 end
