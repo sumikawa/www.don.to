@@ -60,11 +60,17 @@ pre {
   white-space: pre-wrap;
 }
 
+pre.flight {
+  margin: 10px;
+  padding: 10px 0px 10px 15px;
+  border-radius: 10px;
+  background-color: rgba(196,255,196,0.3);
+}
+
 pre.address {
   margin: 10px;
-  padding: 10px 10px 10px 15px;
+  padding: 10px 0px 10px 15px;
   background: #f3f3f3;
-  background: linear-gradient(0 0 270deg, #f3f3f3, #f3f3f3 10%, white);
   border-top: 1px solid #ccc;
   border-right: 1px solid #ccc;
   border-radius: 10px;
@@ -78,7 +84,7 @@ pre.terminal {
   color: white;
   background-color: black;
   line-height: normal;
-   width: 90%;
+  width: 90%;
   border-radius: 10px;
 
   font-family: "Inconsolata", monospace;
@@ -258,6 +264,11 @@ button.pagefind-ui__button {
     color: var(--titlecolor);
   }
 
+  pre {
+    margin-left: 5px !important;
+    width: 90% !important;
+  }
+
   ul, ol, dl {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -358,17 +369,6 @@ button.pagefind-ui__button {
     box-shadow: 0 1px 0 rgba(255,255,255,0.4);
   }
 
-  pre {
-    margin-left: var(--pre-margin-left);
-  }
-
-  pre.flight {
-    margin: 10px;
-    padding: 10px 10px 10px 15px;
-    border-radius: 10px;
-    background-color: rgba(196,255,196,0.3);
-  }
-
   ul, ol, dl {
     margin-top: 5px;
     margin-bottom: 5px;
@@ -398,9 +398,6 @@ button.pagefind-ui__button {
 
   /* Media Queries for adapting to various screen widths */
   @media screen and (max-device-width: 800px), screen and (max-width: 800px) {
-    pre.address {
-      width: 80%;
-    }
     .leftblock {
       width: 110px;
     }
