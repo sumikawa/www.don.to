@@ -82,7 +82,7 @@ module CustomHelpers
   private
 
   def _process_amazon(line)
-    line.sub(%r{"(https?://www.amazon.co.jp/.*/)"}) { "#{$1}#{data.site.asid}" }
+    line.sub(%r{"(https://www.amazon.co.jp/.*/)"}) { "#{$1}ref=nosim?tag=#{data.site.asid}" }
   end
 
   def _process_daylog_string(item, year)
