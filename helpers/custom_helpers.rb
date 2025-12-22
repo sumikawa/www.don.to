@@ -81,8 +81,13 @@ module CustomHelpers
 
   private
 
+  def _process_amazon(line)
+    line.sub(%r{"(https?://www.amazon.co.jp/.*/)"}) { "#{$1}#{data.site.asid}" }
+  end
+
   def _process_daylog_string(item, year)
     md = item.match(%r{(\d\d\d\d)/(\d\d)/(\d\d)})
+    item = _process_amazon(item)
     "<dt>#{item}</dt>" if md && year == md[1].to_i
   end
 
@@ -90,6 +95,7 @@ module CustomHelpers
     log = ''
     comment = ''
     item.each do |k, v|
+      v = _process_amazon(v)
       if k == 'comment'
         comment = "\n<dd>\t#{v}</dd>"
       else
