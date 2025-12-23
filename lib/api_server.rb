@@ -5,10 +5,10 @@ require_relative 'tabelog'
 require_relative '../helpers/link_helpers'
 require_relative '../helpers/index_helpers'
 
-include LinkHelpers
-include IndexHelpers
-
 class ApiServer < Sinatra::Base
+  include LinkHelpers
+  include IndexHelpers
+
   set :host_authorization, { permitted_hosts: ['localhost', 'stage.don.to'] }
 
   # Configure logging
@@ -49,6 +49,7 @@ class ApiServer < Sinatra::Base
   end
 
   # Write a file
+  # rubocop:disable Metrics/BlockLength
   post '/' do
     content_type :json
     begin
@@ -86,33 +87,38 @@ class ApiServer < Sinatra::Base
       { error: e.message }.to_json
     end
   end
+  # rubocop:enable Metrics/BlockLength
 
   private
 
+  def handle_image_rotation(line, full_path, file)
+    dirname = full_path.sub('.html.md.erb', '')
+    original_dir = dirname.sub('src/www/source', 'images')
+    sips_cmd = if File.exist?("#{original_dir}/#{file}.jpg")
+                 "sips -r 270 #{original_dir}/#{file}.jpg"
+               else
+                 "sips -r 270 #{original_dir}/#{file}.heic"
+               end
+    system "#{sips_cmd} > /dev/null 2>&1"
+
+    cache_dir = dirname.sub('src/www/source', '.cache')
+    sips_cmd = "sips -r 270 #{cache_dir}/#{file}.jpg" if File.exist?("#{cache_dir}/#{file}.jpg")
+    system sips_cmd.to_s if sips_cmd
+
+    line.sub(/^l/, '')
+  end
+
   def apply_content_filters(content, full_path)
     content.lines.map do |line|
-      if line.strip.start_with?('https://tabelog.com/')
+      stripped_line = line.strip
+      if stripped_line.start_with?('https://tabelog.com/')
         begin
-          tabelog(line.strip)
+          tabelog(stripped_line)
         rescue StandardError
           line
         end
-      elsif line.strip.match(/l<%= image "(.*)" %>/)
-        file = ::Regexp.last_match(1)
-        dirname = full_path.sub('.html.md.erb', '')
-        original_dir = dirname.sub('src/www/source', 'images')
-        sips_cmd = if File.exist?("#{original_dir}/#{file}.jpg")
-                     "sips -r 270 #{original_dir}/#{file}.jpg"
-                   else
-                     "sips -r 270 #{original_dir}/#{file}.heic"
-                   end
-        system "#{sips_cmd} > /dev/null 2>&1"
-
-        cache_dir = dirname.sub('src/www/source', '.cache')
-        sips_cmd = "sips -r 270 #{cache_dir}/#{file}.jpg" if File.exist?("#{cache_dir}/#{file}.jpg")
-        system "#{sips_cmd} > /dev/null 2>&1"
-
-        line.sub(/^l/, '')
+      elsif (match = stripped_line.match(/l<%= image "(.*)" %>/))
+        handle_image_rotation(line, full_path, match[1])
       else
         line
       end

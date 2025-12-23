@@ -3,38 +3,29 @@ require 'yaml'
 
 module TagHelpers
   def tags_list
-    @tags_list ||= begin
-      all_tags = {}
-
-      # Assuming Middleman's root directory structure
-      # Adjust path if necessary
-      diary_files = Dir.glob('source/diary/[012]*/**/*.html.md.erb')
-
-      diary_files.each do |file_path|
-        content = File.read(file_path)
-
-        # Extract YAML front matter
-        next unless content =~ /\A(---\s*\n.*?\n---\s*\n)/m
-
-        front_matter_str = ::Regexp.last_match(1)
-        begin
-          data = YAML.safe_load(front_matter_str)
-          if data && data['tags']
-            # Split tags string by comma and strip whitespace
-            tags = data['tags'].split(',').map(&:strip)
-            tags.each do |tag|
-              tag = tag.downcase
-              all_tags[tag] ||= []
-              all_tags[tag].push(file_path)
-            end
-          end
-        rescue Psych::SyntaxError => e
-          puts "Error parsing YAML in #{file_path}: #{e.message}"
-        end
-      end
-
-      # all_tags.filter { |k, v| v.size < 2 }
-      all_tags
+    @tags_list ||= Dir.glob('source/diary/[012]*/**/*.html.md.erb').each_with_object({}) do |file_path, all_tags|
+      process_file_tags(file_path, all_tags)
     end
+  end
+
+  private
+
+  def process_file_tags(file_path, all_tags)
+    tags_for_file(file_path).each do |tag|
+      all_tags[tag] ||= []
+      all_tags[tag] << file_path
+    end
+  rescue Psych::SyntaxError => e
+    puts "Error parsing YAML in #{file_path}: #{e.message}"
+  end
+
+  def tags_for_file(file_path)
+    content = File.read(file_path)
+    return [] unless content =~ /\A(---\s*\n.*?\n---\s*\n)/m
+
+    front_matter = YAML.safe_load(::Regexp.last_match(1))
+    return [] unless front_matter && front_matter['tags']
+
+    front_matter['tags'].split(',').map(&:strip).map(&:downcase)
   end
 end

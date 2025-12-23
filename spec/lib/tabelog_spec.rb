@@ -28,7 +28,9 @@ RSpec.describe '#tabelog' do
 
   context 'with a valid URL and full information from file' do
     it 'returns formatted address HTML' do
-      allow(URI).to receive(:open).with(valid_url, 'User-Agent' => USER_AGENT).and_return(StringIO.new(tabelog_html))
+      uri_mock = double('uri_mock')
+      allow(URI).to receive(:parse).with(valid_url).and_return(uri_mock)
+      allow(uri_mock).to receive(:open).with('User-Agent' => USER_AGENT).and_return(StringIO.new(tabelog_html))
 
       expected_html = <<~HTML.strip
         <pre class="address">
@@ -44,7 +46,9 @@ RSpec.describe '#tabelog' do
 
   context 'when contact information is missing' do
     it 'returns formatted HTML without the contact line' do
-      allow(URI).to receive(:open).with(valid_url, 'User-Agent' => USER_AGENT).and_return(StringIO.new(html_no_contact))
+      uri_mock = double('uri_mock')
+      allow(URI).to receive(:parse).with(valid_url).and_return(uri_mock)
+      allow(uri_mock).to receive(:open).with('User-Agent' => USER_AGENT).and_return(StringIO.new(html_no_contact))
 
       expected_html = <<~HTML.strip
         <pre class="address">
@@ -59,7 +63,9 @@ RSpec.describe '#tabelog' do
 
   context 'when the information table is not on the page' do
     it 'returns an error message' do
-      allow(URI).to receive(:open).with(valid_url, 'User-Agent' => USER_AGENT).and_return(StringIO.new(html_no_table))
+      uri_mock = double('uri_mock')
+      allow(URI).to receive(:parse).with(valid_url).and_return(uri_mock)
+      allow(uri_mock).to receive(:open).with('User-Agent' => USER_AGENT).and_return(StringIO.new(html_no_table))
       expect(tabelog(valid_url)).to eq('Could not find the information table on the page.')
     end
   end

@@ -1,66 +1,85 @@
 #!/usr/bin/env ruby
 
-Dir.glob('source/diary/**/*.md.erb').each do |file|
-  content = File.read(file)
+require 'set'
 
-  next unless content =~ /\A---\n(.*?)\n---/m
+REDUNDANCY_RULES = {
+  'businesstrip' => %w[business work travel],
+  'higashi shinagawa' => ['shinagawa'],
+  'minatomirai' => ['yokohama'],
+  'trail' => ['nature'],
+  'park' => %w[nature outdoor playground play],
+  'camp' => ['outdoor'],
+  'gyoza' => ['food'],
+  'uk' => ['photo']
+}.freeze
+MEAL_TAGS = %w[breakfast lunch dinner party].freeze
 
-  md = Regexp.last_match(1).match(/^tags:(.*)/i)
-  # puts md
-  next unless md
-
-  tags = md[1].split(',')
-  tags.filter(&:strip!)
-  new_tags = []
-  tags.each do |tag|
+def rename_legacy_tags(tags)
+  tags.map do |tag|
     case tag
-    when /^documents$/i
-      new_tags.push('document')
-    when /^ren$/i
-      new_tags.push('son')
-    when /^riri$/i
-      new_tags.push('daughter')
-    else
-      new_tags.push(tag)
+    when /^documents$/i then 'document'
+    when /^ren$/i then 'son'
+    when /^riri$/i then 'daughter'
+    else tag
     end
   end
+end
 
-  new_tags.push('lunch') if content.match?(/^title: 目黒ごはん/) & !new_tags.include?('dinner')
-  new_tags.push('lunch') if content.match?(/^title: 東品川ごはん/) & !new_tags.include?('dinner')
+def add_contextual_tags(tags, content)
+  new_tags = tags.dup
+  new_tags.push('lunch') if content.match?(/^title: 目黒ごはん/) && !new_tags.include?('dinner')
+  new_tags.push('lunch') if content.match?(/^title: 東品川ごはん/) && !new_tags.include?('dinner')
+  new_tags.push('businesstrip') if content.match?(/^title: .*出張/)
+  new_tags
+end
 
-  if content.match?(/^title: .*出張/)
-    new_tags.push('businesstrip')
-    new_tags.delete('business') if new_tags.include?('business')
-    new_tags.delete('travel') if new_tags.include?('travel')
+def remove_redundant_tags(tags)
+  tags_set = tags.to_set
+
+  REDUNDANCY_RULES.each do |trigger, to_delete|
+    to_delete.each { |tag| tags_set.delete(tag) } if tags_set.include?(trigger)
   end
 
-  new_tags = new_tags.map(&:downcase).map(&:strip).delete_if { |t| t == '' }
+  tags_set.delete('restaurant') if (tags_set & MEAL_TAGS).any?
+  tags_set.delete('theme park')
 
-  new_tags.delete('theme park')
+  tags_set.to_a
+end
 
-  # puts new_tags
+def transform_tags(original_tags, content)
+  tags = rename_legacy_tags(original_tags)
+  tags = add_contextual_tags(tags, content)
+  tags = remove_redundant_tags(tags)
 
-  new_tags.delete('business') if new_tags.include?('businesstrip') & new_tags.include?('business')
-  new_tags.delete('work') if new_tags.include?('businesstrip') & new_tags.include?('work')
-  new_tags.delete('photo') if new_tags.include?('uk') & new_tags.include?('photo')
-  new_tags.delete('shinagawa') if new_tags.include?('higashi shinagawa') & new_tags.include?('shinagawa')
-  new_tags.delete('nature') if new_tags.include?('trail') & new_tags.include?('nature')
-  new_tags.delete('outdoor') if new_tags.include?('park') & new_tags.include?('outdoor')
-  new_tags.delete('nature') if new_tags.include?('park') & new_tags.include?('nature')
-  new_tags.delete('outdoor') if new_tags.include?('camp') & new_tags.include?('outdoor')
-  new_tags.delete('playground') if new_tags.include?('park') & new_tags.include?('playground')
-  new_tags.delete('food') if new_tags.include?('food') & new_tags.include?('gyoza')
-  new_tags.delete('restaurant') if new_tags.include?('restaurant') & new_tags.include?('breakfast')
-  new_tags.delete('restaurant') if new_tags.include?('restaurant') & new_tags.include?('lunch')
-  new_tags.delete('restaurant') if new_tags.include?('restaurant') & new_tags.include?('dinner')
-  new_tags.delete('restaurant') if new_tags.include?('restaurant') & new_tags.include?('party')
-  new_tags.delete('play') if new_tags.include?('park') & new_tags.include?('play')
-  new_tags.delete('yokohama') if new_tags.include?('minatomirai') & new_tags.include?('yokohama')
+  tags.map(&:downcase).map(&:strip).reject(&:empty?).sort.uniq
+end
 
-  new_tags = new_tags.sort.uniq
-  update_content = content.sub(/^tags:.*$/, "tags: #{new_tags.join(', ')}")
-  if content != update_content
-    puts "#{tags.join(', ')} -> #{new_tags.join(', ')}"
-    File.write(file, update_content)
-  end
+def extract_original_tags(content)
+  front_matter_match = content.match(/\A---\n(.*?)\n---/m)
+  return nil unless front_matter_match
+
+  front_matter = front_matter_match[1]
+  tags_match = front_matter.match(/^tags:\s*(.*)/i)
+  return nil unless tags_match
+
+  tags_match[1].split(',').map(&:strip)
+end
+
+def process_file(file)
+  content = File.read(file)
+  original_tags = extract_original_tags(content)
+  return if original_tags.nil?
+
+  new_tags = transform_tags(original_tags.clone, content)
+
+  return if original_tags.sort == new_tags.sort
+
+  new_tags_str = new_tags.join(', ')
+  puts "#{file}: #{original_tags.join(', ')} -> #{new_tags_str}"
+  updated_content = content.sub(/^tags:.*$/i, "tags: #{new_tags_str}")
+  File.write(file, updated_content)
+end
+
+Dir.glob('source/diary/**/*.md.erb').each do |file|
+  process_file(file)
 end

@@ -38,7 +38,7 @@ end
 
 # Generate tag pages
 require_relative 'helpers/tag_helpers'
-include TagHelpers
+include TagHelpers # rubocop:disable Style/MixinUsage
 
 tags_list.keys.sort.each do |tag|
   proxy "/tag/#{tag.downcase.gsub(' ', '-')}.html", '/tag/tag.html', locals: { tag_name: tag }, ignore: true

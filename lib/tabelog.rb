@@ -5,52 +5,70 @@ require 'nokogiri'
 require 'open-uri'
 require 'json'
 
-USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3864.0 Safari/537.36'
+USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) ' \
+             'AppleWebKit/537.36 (KHTML, like Gecko) ' \
+             'Chrome/77.0.3864.0 Safari/537.36'
 
 def tabelog(url)
   raise 'URL parameter is missing' if url.nil? || url.empty?
 
-  html = URI.open(url, 'User-Agent' => USER_AGENT).read
+  html = fetch_tabelog_html(url)
   doc = Nokogiri::HTML(html)
+  info = parse_tabelog_info(doc)
+
+  return 'Could not find the information table on the page.' if info.empty?
+
+  format_tabelog_output(info, url)
+end
+
+def fetch_tabelog_html(url)
+  URI.parse(url).open('User-Agent' => USER_AGENT).read
+end
+
+def parse_tabelog_info(doc)
   table = doc.at_css('table.rstinfo-table__table tbody')
+  return {} unless table
 
-  if table
-    info = {}
-    table.css('tr').each do |row|
-      header_node = row.at_css('th')
-      next unless header_node
+  table.css('tr').each_with_object({}) do |row, info|
+    header_node = row.at_css('th')
+    next unless header_node
 
-      header = header_node.text.strip
-
-      value_node = case header
-                   when /住所/
-                     row.at_css('td p.rstinfo-table__address') || row.at_css('td')
-                   when /お問い合わせ/
-                     row.at_css('td strong.rstinfo-table__tel-num') || row.at_css('td')
-                   else
-                     row.at_css('td')
-                   end
-
-      value = value_node&.text&.strip
-      info[header] = value if value
-    end
-
-    shop_name = info['店名'] || 'N/A'
-    address = info.keys.find { |k| k.include?('住所') }&.then { |k| info[k] } || 'N/A'
-    contact = info.keys.find { |k| k.include?('お問い合わせ') }&.then { |k| info[k] } || 'N/A'
-    contact = 'N/A' if contact.nil? || contact.empty?
-
-    output_html = <<~HTML
-      <pre class="address">
-      <a href="#{url}">#{shop_name}</a>
-      #{address}#{"\n#{contact}" unless contact == 'N/A'}
-      </pre>
-    HTML
-
-    output_html.strip.gsub("\n\n", "\n")
-  else
-    'Could not find the information table on the page.'
+    header = header_node.text.strip
+    value = extract_tabelog_row_value(row, header)&.text&.strip
+    info[header] = value if value
   end
+end
+
+def extract_tabelog_row_value(row, header)
+  case header
+  when /住所/
+    row.at_css('td p.rstinfo-table__address') || row.at_css('td')
+  when /お問い合わせ/
+    row.at_css('td strong.rstinfo-table__tel-num') || row.at_css('td')
+  else
+    row.at_css('td')
+  end
+end
+
+def format_tabelog_output(info, url)
+  shop_name = info['店名'] || 'N/A'
+
+  address_key = info.keys.find { |k| k.include?('住所') }
+  address = address_key ? info[address_key] : 'N/A'
+
+  contact_key = info.keys.find { |k| k.include?('お問い合わせ') }
+  contact = contact_key ? info[contact_key] : ''
+
+  contact_line = contact.to_s.empty? ? '' : "\n#{contact}"
+
+  output_html = <<~HTML
+    <pre class="address">
+    <a href="#{url}">#{shop_name}</a>
+    #{address}#{contact_line}
+    </pre>
+  HTML
+
+  output_html.strip.gsub("\n\n", "\n")
 end
 
 # This block handles command-line execution, mirroring the Python script's `if __name__ == "__main__":`
