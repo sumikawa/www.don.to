@@ -124,14 +124,19 @@ RSpec.describe CustomHelpers do
   describe '#amazon' do
     it 'generates an Amazon link with the correct URL and affiliate ID' do
       result = helper.amazon('Book Title', '1234567890', 'imagepath')
-      expect(result).to eq("<div class=\"embeded\">\n  <div class=\"amazon\">\n    <div class=\"amazon-image\"><a href=\"https://www.amazon.co.jp/dp/1234567890/daydreaonthen-22\"><img border=\"0\" src=\"https://m.media-amazon.com/images/I/imagepath._AC_SL400_.jpg\" height=200></a></a></div>\n    <div class=\"amazon-info\"><a href=\"https://www.amazon.co.jp/dp/1234567890/daydreaonthen-22\">Book Title</a></div>\n  </div>\n</div>\n")
+      expect(result).to eq("<div class=\"embeded\">
+  <div class=\"amazon\">
+    <div class=\"amazon-image\"><a href=\"https://www.amazon.co.jp/dp/1234567890/daydreaonthen-22\"><img border=\"0\" src=\"https://m.media-amazon.com/images/I/imagepath._AC_SL400_.jpg\" height=200></a></a></div>
+    <div class=\"amazon-info\"><a href=\"https://www.amazon.co.jp/dp/1234567890/daydreaonthen-22\">Book Title</a></div>
+  </div>
+</div>\n")
     end
   end
 
   describe '#rend_daylog' do
     it 'renders daylog entries for the specified year' do
       result = helper.rend_daylog(2025)
-      expect(result).to include('<dt>2025/10/29: 「<a href="https://www.amazon.co.jp/dp/B08XQ65HP7/daydreaonthen-22">かがみの孤城 上</a>」、辻村深月、ポプラ文庫</dt>')
+      expect(result).to include('<dt>2025/10/29: 「<a href="https://www.amazon.co.jp/dp/B08XQ65HP7/ref=nosim?tag=daydreaonthen-22">かがみの孤城 上</a>」、辻村深月、ポプラ文庫</dt>')
       expect(result).to include("<dt>2025/10/10: サイト内検索ライブラリを変更</dt>\n<dd>\t<a href=\"https://www.algolia.com/\">Algolia</a>から<a href=\"https://pagefind.app/\">pagefind</a>に変えた</dd>")
       expect(result).not_to include('2024')
     end
@@ -195,6 +200,32 @@ RSpec.describe CustomHelpers do
         expect(helper.send(:_extract_date_string, '/diary/2025.html')).to eq('2025年')
         expect(helper.send(:_extract_date_string, '/diary/1995/')).to eq('1995年以前')
         expect(helper.send(:_extract_date_string, 'foobar')).to be_nil
+      end
+    end
+
+    describe '#_process_amazon' do
+      let(:amazon_line_input) { "「<a href=\"https://www.amazon.co.jp/dp/B0FCJ7H8KD/\">オルクセン王国史～野蛮なオークの国は、如何にして平和なエルフの国を焼き払うに至ったか～ 5</a>」、樽見京一郎、一二三書房" }
+      let(:expected_asid) { 'your-test-asid' }
+
+      before do
+        # Stub the asid for this test context
+        allow(app.data.site).to receive(:asid).and_return(expected_asid)
+      end
+
+      it 'appends Amazon ASID and ref=nosim to the Amazon URL, preserving quotes' do
+        processed_line = helper.send(:_process_amazon, amazon_line_input)
+        expected_url_part = "href=\"https://www.amazon.co.jp/dp/B0FCJ7H8KD/ref=nosim?tag=#{expected_asid}\""
+        expect(processed_line).to include(expected_url_part)
+      end
+
+      it 'does not modify lines without an Amazon URL' do
+        line = "This is a plain line without any amazon link."
+        expect(helper.send(:_process_amazon, line)).to eq(line)
+      end
+
+      it 'does not modify lines with a non-amazon URL' do
+        line = "This is a link to <a href=\"https://example.com\">example.com</a>"
+        expect(helper.send(:_process_amazon, line)).to eq(line)
       end
     end
   end
