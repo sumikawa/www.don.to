@@ -126,4 +126,3 @@ RSpec.describe NavigationHelpers do
     end
   end
 end
-
