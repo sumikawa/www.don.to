@@ -15,16 +15,29 @@ def tabelog(url)
   table = doc.at_css('table.rstinfo-table__table tbody')
 
   if table
-    table.css('br').each(&:remove)
-    list = table.text.split("\n").map(&:strip).reject(&:empty?)
+    info = {}
+    table.css('tr').each do |row|
+      header_node = row.at_css('th')
+      next unless header_node
+      header = header_node.text.strip
 
-    shop_name_index = list.index('店名')
-    address_index = list.index('住所')
-    contact_index = list.index('予約・ お問い合わせ') || list.index('お問い合わせ')
+      value_node = case header
+                   when /住所/
+                     row.at_css('td p.rstinfo-table__address') || row.at_css('td')
+                   when /お問い合わせ/
+                     row.at_css('td strong.rstinfo-table__tel-num') || row.at_css('td')
+                   else
+                     row.at_css('td')
+                   end
 
-    shop_name = shop_name_index ? list[shop_name_index + 1] : 'N/A'
-    address = address_index ? list[address_index + 1] : 'N/A'
-    contact = contact_index ? list[contact_index + 1] : 'N/A'
+      value = value_node&.text&.strip
+      info[header] = value if value
+    end
+
+    shop_name = info['店名'] || 'N/A'
+    address = info.keys.find { |k| k.include?('住所') }&.then { |k| info[k] } || 'N/A'
+    contact = info.keys.find { |k| k.include?('お問い合わせ') }&.then { |k| info[k] } || 'N/A'
+    contact = 'N/A' if contact.nil? || contact.empty?
 
     output_html = <<~HTML
       <pre class="address">
@@ -37,8 +50,6 @@ def tabelog(url)
   else
     'Could not find the information table on the page.'
   end
-
-  output_html
 end
 
 # This block handles command-line execution, mirroring the Python script's `if __name__ == "__main__":`
