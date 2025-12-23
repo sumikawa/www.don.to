@@ -24,12 +24,12 @@ class ApiServer < Sinatra::Base
     @root = root
   end
 
-      # Read a file
-    get '/*' do
-      logger.info "GET request for path: #{params['splat'].first}" # Added log statement
-      content_type :json
-      # The path is captured from the URL, remove leading slash
-      file_path = params['splat'].first.sub(%r{^/}, '')
+  # Read a file
+  get '/*' do
+    logger.info "GET request for path: #{params['splat'].first}" # Added log statement
+    content_type :json
+    # The path is captured from the URL, remove leading slash
+    file_path = params['splat'].first.sub(%r{^/}, '')
     # Only allow access to files within the 'source' directory
     source_dir = File.expand_path('source', @root)
     full_path = File.join(source_dir, file_path)
@@ -79,7 +79,7 @@ class ApiServer < Sinatra::Base
     rescue JSON::ParserError
       status 400
       { error: 'Invalid JSON' }.to_json
-    rescue => e
+    rescue StandardError => e
       logger.error(e.message)
       logger.error(e.backtrace.join("\n"))
       status 500
@@ -94,24 +94,22 @@ class ApiServer < Sinatra::Base
       if line.strip.start_with?('https://tabelog.com/')
         begin
           tabelog(line.strip)
-        rescue
+        rescue StandardError
           line
         end
       elsif line.strip.match(/l<%= image "(.*)" %>/)
-        file = $1
+        file = ::Regexp.last_match(1)
         dirname = full_path.sub('.html.md.erb', '')
         original_dir = dirname.sub('src/www/source', 'images')
-        if File.exist?("#{original_dir}/#{file}.jpg")
-          sips_cmd = "sips -r 270 #{original_dir}/#{file}.jpg"
-        else
-          sips_cmd = "sips -r 270 #{original_dir}/#{file}.heic"
-        end
+        sips_cmd = if File.exist?("#{original_dir}/#{file}.jpg")
+                     "sips -r 270 #{original_dir}/#{file}.jpg"
+                   else
+                     "sips -r 270 #{original_dir}/#{file}.heic"
+                   end
         system "#{sips_cmd} > /dev/null 2>&1"
 
         cache_dir = dirname.sub('src/www/source', '.cache')
-        if File.exist?("#{cache_dir}/#{file}.jpg")
-          sips_cmd = "sips -r 270 #{cache_dir}/#{file}.jpg"
-        end
+        sips_cmd = "sips -r 270 #{cache_dir}/#{file}.jpg" if File.exist?("#{cache_dir}/#{file}.jpg")
         system "#{sips_cmd} > /dev/null 2>&1"
 
         line.sub(/^l/, '')
