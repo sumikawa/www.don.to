@@ -3,333 +3,64 @@
 Dir.glob('source/diary/**/*.md.erb').each do |file|
   content = File.read(file)
 
-  if content =~ /\A---\n(.*?)\n---/m
-    md = $1.match(/^tags:(.*)/i)
-    # puts md
-    if md
-      tags = md[1].split(/,/)
-      tags.filter { |t| t.strip! }
-      new_tags = []
-      tags.each do |tag|
-        if tag.match?(/(\w\w*) food/i)
-          new_tags.push(tag.sub(/ food/i, ''))
-        elsif tag.match?(/^yokohama iekei$/i)
-          new_tags.push('iekei')
-        elsif tag.match?(/^cataract .*$/i)
-          new_tags.push('cataract')
-        elsif tag.match?(/^animals$/i)
-          new_tags.push('animal')
-        elsif tag.match?(/^documents$/i)
-          new_tags.push('document')
-        elsif tag.match?(/^walking$/i)
-          new_tags.push('walk')
-        elsif tag.match?(/^usa$/i)
-          new_tags.push('us')
-        elsif tag.match?(/^business[- ]trip$/i)
-          new_tags.push('business')
-        elsif tag.match?(/^disneyland$/i)
-          new_tags.push('disney')
-        elsif tag.match?(/^newyear$/i)
-          new_tags.push('new year')
-        elsif tag.match?(/^babies$/i)
-          new_tags.push('baby')
-        elsif tag.match?(/^siblings$/i)
-          new_tags.push('sibling')
-        elsif tag.match?(/^bicycle$/i)
-          new_tags.push('bike')
-        elsif tag.match?(/^cycling$/i)
-          new_tags.push('bike')
-        elsif tag.match?(/^bento$/i)
-          new_tags.push('lunchbox')
-        elsif tag.match?(/^camping$/i)
-          new_tags.push('camp')
-        elsif tag.match?(/^solo camp$/i)
-          new_tags.push('solo')
-        elsif tag.match?(/^dogs$/i)
-          new_tags.push('dog')
-        elsif tag.match?(/^insects$/i)
-          new_tags.push('insect')
-        elsif tag.match?(/^noodles$/i)
-          new_tags.push('noodle')
-        elsif tag.match?(/^undoukai$/i)
-          new_tags.push('sports day')
-        elsif tag.match?(/^soccer$/i)
-          new_tags.push('football')
-        elsif tag.match?(/^technical$/i)
-          new_tags.push('tech')
-        elsif tag.match?(/^technology$/i)
-          new_tags.push('tech')
-        elsif tag.match?(/^ren$/i)
-          new_tags.push('son')
-        elsif tag.match?(/^riri$/i)
-          new_tags.push('daughter')
-        elsif tag.match?(/^hotpot$/i)
-          new_tags.push('hot pot')
-        elsif tag.match?(/^friends$/i)
-          new_tags.push('friend')
-        elsif tag.match?(/^hiking$/i)
-          new_tags.push('trail')
-        elsif tag.match?(/^scifi$/i)
-          new_tags.push('sci-fi')
-        elsif tag.match?(/^morning activity$/i)
-          new_tags.push('morning')
-        elsif tag.match?(/^company event$/i)
-          new_tags.push('event')
-        elsif tag.match?(/^skiing$/i)
-          new_tags.push('ski')
-        elsif tag.match?(/^hot spring$/i)
-          new_tags.push('onsen')
-        elsif tag.match?(/^photos$/i)
-          new_tags.push('photo')
-        elsif tag.match?(/^photography$/i)
-          new_tags.push('photo')
-        elsif tag.match?(/^hanami$/i)
-          new_tags.push('cherry blossoms')
-        elsif tag.match?(/^sakura$/i)
-          new_tags.push('cherry blossoms')
-        elsif tag.match?(/^sanfrancisco$/i)
-          new_tags.push('san francisco')
-        elsif tag.match?(/^sanjose$/i)
-          new_tags.push('san jose')
-        elsif tag.match?(/^hisai$/i)
-          new_tags.push('mie')
-        elsif tag.match?(/^drinking$/i)
-          new_tags.push('drink')
-        elsif tag.match?(/^indian$/i)
-          new_tags.push('curry')
-        elsif tag.match?(/^cake$/i)
-          new_tags.push('sweets')
-        elsif tag.match?(/^dessert$/i)
-          new_tags.push('sweets')
-        elsif tag.match?(/^network$/i)
-          new_tags.push('networking')
-        elsif tag.match?(/^sickness$/i)
-          new_tags.push('medical')
-        elsif tag.match?(/^injury$/i)
-          new_tags.push('medical')
-        elsif tag.match?(/^spa$/i)
-          new_tags.push('onsen')
-        elsif tag.match?(/^children$/i)
-          new_tags.push('kids')
-        elsif tag.match?(/^miyakojima$/i)
-          new_tags.push('miyako')
-        elsif tag.match?(/^daycare$/i)
-          new_tags.push('hoikuen')
-        elsif tag.match?(/^daycamp$/i)
-          new_tags.push('day camp')
-        elsif tag.match?(/^theme-?park$/i)
-          new_tags.push('theme park')
-        elsif tag.match?(/^sports-?day$/i)
-          new_tags.push('sports day')
-        elsif tag.match?(/^newborn$/i)
-          new_tags.push('birth')
-        elsif tag.match?(/^potato digging$/i)
-          new_tags.push('potato')
-        elsif tag.match?(/^wfh$/i)
-          new_tags.push('telework')
-        elsif tag.match?(/^show$/i)
-          new_tags.push('entertainment')
-        elsif tag.match?(/^reading$/i)
-          new_tags.push('book')
-        elsif tag.match?(/^orthodontics$/i)
-          new_tags.push('dental')
-        elsif tag.match?(/^milestone$/i)
-          new_tags.push('achievement')
-        elsif tag.match?(/^pub$/i)
-          new_tags.push('bar')
-        elsif tag.match?(/^outlet$/i)
-          new_tags.push('shopping')
-        elsif tag.match?(/^ski$/i)
-          new_tags.push('snowboard')
-        elsif tag.match?(/^playdate$/i)
-          new_tags.push('play')
-        elsif tag.match?(/^eel$/i)
-          new_tags.push('unagi')
-        elsif tag.match?(/^hiking$/i)
-          new_tags.push('trail')
-        elsif tag.match?(/^steakhouse$/i)
-          new_tags.push('steak')
-        elsif tag.match?(/^song$/i)
-          new_tags.push('singing')
-        elsif tag.match?(/^fish$/i)
-          new_tags.push('seafood')
-        elsif tag.match?(/^oyster$/i)
-          new_tags.push('seafood')
-        elsif tag.match?(/^lobster$/i)
-          new_tags.push('seafood')
-        elsif tag.match?(/^crab$/i)
-          new_tags.push('seafood')
-        elsif tag.match?(/^toys$/i)
-          new_tags.push('toy')
-        elsif tag.match?(/^pizza$/i)
-          new_tags.push('italian')
-        elsif tag.match?(/^flamenco$/i)
-          new_tags.push('entertainment')
-        elsif tag.match?(/^tradition$/i)
-          new_tags.push('festival')
-        elsif tag.match?(/^haloween$/i)
-          new_tags.push('halloween')
-        elsif tag.match?(/^sunrize$/i)
-          new_tags.push('sunrise')
-        elsif tag.match?(/^kiinagashima$/i)
-          new_tags.push('mie')
-        elsif tag.match?(/^jiro$/i)
-          new_tags.push('ramen')
-        elsif tag.match?(/^yakisoba$/i)
-          new_tags.push('noodle')
-        elsif tag.match?(/^kishimen$/i)
-          new_tags.push('noodle')
-        elsif tag.match?(/^practice$/i)
-          new_tags.push('training')
-        elsif tag.match?(/^maitin$/i)
-          new_tags.push('pork')
-        elsif tag.match?(/^nakasato$/i)
-          new_tags.push('niigata')
-        elsif tag.match?(/^korean$/i)
-          new_tags.push('korea')
-        elsif tag.match?(/^accident$/i)
-          new_tags.push('incident')
-        elsif tag.match?(/^hokuriku$/i)
-          new_tags.push('kanazawa')
-        elsif tag.match?(/^gaming$/i)
-          new_tags.push('game')
-        elsif tag.match?(/^activity$/i)
-          new_tags.push('playground')
-        elsif tag.match?(/^archive$/i)
-          new_tags.push('document')
-        elsif tag.match?(/^cathedral$/i)
-          new_tags.push('church')
-        elsif tag.match?(/^cosplay$/i)
-          new_tags.push('costume')
-        elsif tag.match?(/^checkup$/i)
-          new_tags.push('health')
-        elsif tag.match?(/^grape$/i)
-          new_tags.push('fruits')
-        elsif tag.match?(/^tonkatsu$/i)
-          new_tags.push('katsu')
-        elsif tag.match?(/^dental$/i)
-          new_tags.push('tooth')
-        elsif tag.match?(/^community$/i)
-          new_tags.push('playground')
-        elsif tag.match?(/^minakami$/i)
-          new_tags.push('gunma')
-        elsif tag.match?(/^insurance$/i)
-          new_tags.push('incident')
-        elsif tag.match?(/^vienna$/i)
-          new_tags.push('austria')
-        elsif tag.match?(/^wedding$/i)
-          new_tags.push('marriage')
-        elsif tag.match?(/^memo$/i)
-          new_tags.push('review')
-        elsif tag.match?(/^drama$/i)
-          new_tags.push('review')
-        elsif tag.match?(/^experiment$/i)
-          new_tags.push('science')
-        elsif tag.match?(/^garden$/i)
-          new_tags.push('park')
-        elsif tag.match?(/^workshop$/i)
-          new_tags.push('education')
-        else
-          new_tags.push(tag)
-        end
-      end
+  next unless content =~ /\A---\n(.*?)\n---/m
 
-      new_tags.push('lunch') if content.match?(/^title: 目黒ごはん/) & !new_tags.include?('dinner')
-      new_tags.push('lunch') if content.match?(/^title: 東品川ごはん/) & !new_tags.include?('dinner')
+  md = Regexp.last_match(1).match(/^tags:(.*)/i)
+  # puts md
+  next unless md
 
-      if content.match?(/^title: .*出張/)
-        new_tags.push('businesstrip')
-        new_tags.delete('business') if new_tags.include?('business')
-        new_tags.delete('travel') if new_tags.include?('travel')
-      end
-
-      if content.match?(/^title: .*息子/) & new_tags.include?('kids')
-        new_tags.push('son')
-        new_tags.delete('kids')
-      end
-
-      new_tags = new_tags.map(&:downcase).map(&:strip).delete_if{ |t| t == '' }
-
-      new_tags.delete('theme park')
-
-      # puts new_tags
-
-      if new_tags.include?('businesstrip') & new_tags.include?('business')
-        new_tags.delete('business')
-      end
-      if new_tags.include?('businesstrip') & new_tags.include?('work')
-        new_tags.delete('work')
-      end
-      if new_tags.include?('uk') & new_tags.include?('photo')
-        new_tags.delete('photo')
-      end
-      if new_tags.include?('higashi shinagawa') & new_tags.include?('shinagawa')
-        new_tags.delete('shinagawa')
-      end
-      if new_tags.include?('trail') & new_tags.include?('nature')
-        new_tags.delete('nature')
-      end
-      if new_tags.include?('park') & new_tags.include?('outdoor')
-        new_tags.delete('outdoor')
-      end
-      if new_tags.include?('park') & new_tags.include?('nature')
-        new_tags.delete('nature')
-      end
-      if new_tags.include?('camp') & new_tags.include?('outdoor')
-        new_tags.delete('outdoor')
-      end
-      if new_tags.include?('park') & new_tags.include?('playground')
-        new_tags.delete('playground')
-      end
-      if new_tags.include?('food') & new_tags.include?('fruits')
-        new_tags.delete('food')
-      end
-      if new_tags.include?('food') & new_tags.include?('restaurant')
-        new_tags.delete('food')
-      end
-      if new_tags.include?('food') & new_tags.include?('breakfast')
-        new_tags.delete('food')
-      end
-      if new_tags.include?('food') & new_tags.include?('lunch')
-        new_tags.delete('food')
-      end
-      if new_tags.include?('food') & new_tags.include?('dinner')
-        new_tags.delete('food')
-      end
-      if new_tags.include?('food') & new_tags.include?('party')
-        new_tags.delete('food')
-      end
-      if new_tags.include?('food') & new_tags.include?('cooking')
-        new_tags.delete('food')
-      end
-      if new_tags.include?('food') & new_tags.include?('gyoza')
-        new_tags.delete('food')
-      end
-      if new_tags.include?('restaurant') & new_tags.include?('breakfast')
-        new_tags.delete('restaurant')
-      end
-      if new_tags.include?('restaurant') & new_tags.include?('lunch')
-        new_tags.delete('restaurant')
-      end
-      if new_tags.include?('restaurant') & new_tags.include?('dinner')
-        new_tags.delete('restaurant')
-      end
-      if new_tags.include?('restaurant') & new_tags.include?('party')
-        new_tags.delete('restaurant')
-      end
-      if new_tags.include?('park') & new_tags.include?('play')
-        new_tags.delete('play')
-      end
-      if new_tags.include?('minatomirai') & new_tags.include?('yokohama')
-        new_tags.delete('yokohama')
-      end
-
-      new_tags = new_tags.sort.uniq
-      update_content = content.sub(/^tags:.*$/, "tags: #{new_tags.join(', ')}")
-      if content != update_content
-        puts "#{tags.join(', ')} -> #{new_tags.join(', ')}"
-        File.write(file, update_content)
-      end
+  tags = md[1].split(',')
+  tags.filter(&:strip!)
+  new_tags = []
+  tags.each do |tag|
+    case tag
+    when /^documents$/i
+      new_tags.push('document')
+    when /^ren$/i
+      new_tags.push('son')
+    when /^riri$/i
+      new_tags.push('daughter')
+    else
+      new_tags.push(tag)
     end
+  end
+
+  new_tags.push('lunch') if content.match?(/^title: 目黒ごはん/) & !new_tags.include?('dinner')
+  new_tags.push('lunch') if content.match?(/^title: 東品川ごはん/) & !new_tags.include?('dinner')
+
+  if content.match?(/^title: .*出張/)
+    new_tags.push('businesstrip')
+    new_tags.delete('business') if new_tags.include?('business')
+    new_tags.delete('travel') if new_tags.include?('travel')
+  end
+
+  new_tags = new_tags.map(&:downcase).map(&:strip).delete_if { |t| t == '' }
+
+  new_tags.delete('theme park')
+
+  # puts new_tags
+
+  new_tags.delete('business') if new_tags.include?('businesstrip') & new_tags.include?('business')
+  new_tags.delete('work') if new_tags.include?('businesstrip') & new_tags.include?('work')
+  new_tags.delete('photo') if new_tags.include?('uk') & new_tags.include?('photo')
+  new_tags.delete('shinagawa') if new_tags.include?('higashi shinagawa') & new_tags.include?('shinagawa')
+  new_tags.delete('nature') if new_tags.include?('trail') & new_tags.include?('nature')
+  new_tags.delete('outdoor') if new_tags.include?('park') & new_tags.include?('outdoor')
+  new_tags.delete('nature') if new_tags.include?('park') & new_tags.include?('nature')
+  new_tags.delete('outdoor') if new_tags.include?('camp') & new_tags.include?('outdoor')
+  new_tags.delete('playground') if new_tags.include?('park') & new_tags.include?('playground')
+  new_tags.delete('food') if new_tags.include?('food') & new_tags.include?('gyoza')
+  new_tags.delete('restaurant') if new_tags.include?('restaurant') & new_tags.include?('breakfast')
+  new_tags.delete('restaurant') if new_tags.include?('restaurant') & new_tags.include?('lunch')
+  new_tags.delete('restaurant') if new_tags.include?('restaurant') & new_tags.include?('dinner')
+  new_tags.delete('restaurant') if new_tags.include?('restaurant') & new_tags.include?('party')
+  new_tags.delete('play') if new_tags.include?('park') & new_tags.include?('play')
+  new_tags.delete('yokohama') if new_tags.include?('minatomirai') & new_tags.include?('yokohama')
+
+  new_tags = new_tags.sort.uniq
+  update_content = content.sub(/^tags:.*$/, "tags: #{new_tags.join(', ')}")
+  if content != update_content
+    puts "#{tags.join(', ')} -> #{new_tags.join(', ')}"
+    File.write(file, update_content)
   end
 end
