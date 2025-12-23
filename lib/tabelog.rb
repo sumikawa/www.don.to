@@ -9,13 +9,10 @@ require 'json'
 # like AWS Lambda, while also being executable from the command line for testing.
 # The _context parameter is unused but included for lambda compatibility.
 def tabelog(url)
-  result_message = ''
+  raise 'URL parameter is missing' if url.nil? || url.empty?
 
-  if url.nil? || url.empty?
-    raise 'URL parameter is missing'
-  end
-
-  html = URI.open(url, 'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3864.0 Safari/537.36').read
+  html = URI.open(url,
+                  'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3864.0 Safari/537.36').read
   doc = Nokogiri::HTML(html)
   table = doc.at_css('table.rstinfo-table__table tbody')
 
@@ -32,15 +29,15 @@ def tabelog(url)
     contact = contact_index ? list[contact_index + 1] : 'N/A'
 
     output_html = <<~HTML
-            <pre class="address">
-            <a href="#{url}">#{shop_name}</a>
-            #{address}#{"\n#{contact}" unless contact == 'N/A'}
-            </pre>
-          HTML
+      <pre class="address">
+      <a href="#{url}">#{shop_name}</a>
+      #{address}#{"\n#{contact}" unless contact == 'N/A'}
+      </pre>
+    HTML
 
-    result_message = output_html.strip.gsub("\n\n", "\n")
+    output_html.strip.gsub("\n\n", "\n")
   else
-    result_message = 'Could not find the information table on the page.'
+    'Could not find the information table on the page.'
   end
 
   output_html
