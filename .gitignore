@@ -21,3 +21,6 @@
 *~
 vendor
 logs
+
+# for test
+spec/lib/tabelog_test.html

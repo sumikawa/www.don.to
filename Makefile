@@ -36,3 +36,6 @@ fix::
 
 gencss::
 	bundle exec rougify style github | sed '/\.highlight {/,/}/d' > source/stylesheets/code.css
+
+fetch::
+	curl -s https://tabelog.com/kanagawa/A1401/A140101/14079506/ > spec/lib/tabelog_test.html
