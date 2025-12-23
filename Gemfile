@@ -11,16 +11,16 @@ gem 'slim'
 
 group :development do
   gem 'debug'
+  gem 'htmlbeautifier'
+  gem 'nokogiri'
   gem 'pry'
+  gem 'rack-cors', require: false
   gem 'rake'
   gem 'rmagick'
   gem 'rspec'
   gem 'rubocop', require: false
-  gem 'htmlbeautifier'
   gem 'sinatra', require: false
-  gem 'rack-cors', require: false
-  gem 'nokogiri'
 end
 
-gem 'webrick'
 gem 'middleman-livereload', git: 'https://github.com/middleman/middleman-livereload.git', branch: 'master'
+gem 'webrick'
