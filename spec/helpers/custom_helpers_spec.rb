@@ -204,7 +204,7 @@ RSpec.describe CustomHelpers do
     end
 
     describe '#_process_amazon' do
-      let(:amazon_line_input) { "「<a href=\"https://www.amazon.co.jp/dp/B0FCJ7H8KD/\">オルクセン王国史～野蛮なオークの国は、如何にして平和なエルフの国を焼き払うに至ったか～ 5</a>」、樽見京一郎、一二三書房" }
+      let(:amazon_line_input) { '「<a href="https://www.amazon.co.jp/dp/B0FCJ7H8KD/">オルクセン王国史～野蛮なオークの国は、如何にして平和なエルフの国を焼き払うに至ったか～ 5</a>」、樽見京一郎、一二三書房' }
       let(:expected_asid) { 'your-test-asid' }
 
       before do
@@ -219,12 +219,12 @@ RSpec.describe CustomHelpers do
       end
 
       it 'does not modify lines without an Amazon URL' do
-        line = "This is a plain line without any amazon link."
+        line = 'This is a plain line without any amazon link.'
         expect(helper.send(:_process_amazon, line)).to eq(line)
       end
 
       it 'does not modify lines with a non-amazon URL' do
-        line = "This is a link to <a href=\"https://example.com\">example.com</a>"
+        line = 'This is a link to <a href="https://example.com">example.com</a>'
         expect(helper.send(:_process_amazon, line)).to eq(line)
       end
     end

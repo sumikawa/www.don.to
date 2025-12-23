@@ -5,7 +5,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'json'
 
-USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3864.0 Safari/537.36'.freeze
+USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3864.0 Safari/537.36'
 
 def tabelog(url)
   raise 'URL parameter is missing' if url.nil? || url.empty?
@@ -19,6 +19,7 @@ def tabelog(url)
     table.css('tr').each do |row|
       header_node = row.at_css('th')
       next unless header_node
+
       header = header_node.text.strip
 
       value_node = case header
