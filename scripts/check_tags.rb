@@ -9,11 +9,9 @@ ARGV.each do |file|
   break if limit < 1
 
   content = File.read(file)
-  if content =~ /\A---\n(.*?)\n---/m
-    unless $1.match?(/^tags:/i)
-      result << file
-      limit = limit - 1
-    end
+  if (content =~ /\A---\n(.*?)\n---/m) && !Regexp.last_match(1).match?(/^tags:/i)
+    result << file
+    limit -= 1
   end
 end
 
