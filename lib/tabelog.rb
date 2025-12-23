@@ -5,14 +5,12 @@ require 'nokogiri'
 require 'open-uri'
 require 'json'
 
-# This function is designed to be compatible with a serverless environment
-# like AWS Lambda, while also being executable from the command line for testing.
-# The _context parameter is unused but included for lambda compatibility.
+USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3864.0 Safari/537.36'.freeze
+
 def tabelog(url)
   raise 'URL parameter is missing' if url.nil? || url.empty?
 
-  html = URI.open(url,
-                  'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3864.0 Safari/537.36').read
+  html = URI.open(url, 'User-Agent' => USER_AGENT).read
   doc = Nokogiri::HTML(html)
   table = doc.at_css('table.rstinfo-table__table tbody')
 
