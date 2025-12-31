@@ -9,7 +9,6 @@ REDUNDANCY_RULES = {
   'trail' => ['nature'],
   'park' => %w[nature outdoor playground play],
   'camp' => ['outdoor'],
-  'gyoza' => ['food'],
   'uk' => ['photo']
 }.freeze
 MEAL_TAGS = %w[breakfast lunch dinner party].freeze
@@ -18,6 +17,7 @@ def rename_legacy_tags(tags)
   tags.map do |tag|
     case tag
     when /^documents$/i then 'document'
+    when /^noto$/i then 'kanazawa'
     when /^ren$/i then 'son'
     when /^riri$/i then 'daughter'
     else tag
