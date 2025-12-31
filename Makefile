@@ -1,9 +1,7 @@
 run:
-	@set -e; \
-	trap 'kill 0' INT; \
-	bundle exec rackup api.ru --host 0.0.0.0 &
-	bundle exec middleman server --instrument --bind-address=0.0.0.0
-	wait
+	parallel --line-buffer ::: \
+	"bundle exec rackup api.ru --host 0.0.0.0" \
+	"bundle exec middleman server --instrument --bind-address=0.0.0.0"
 
 tag::
 	./check_tags.rb source/diary/*/*
