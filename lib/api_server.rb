@@ -91,21 +91,21 @@ class ApiServer < Sinatra::Base
 
   private
 
-  def handle_image_rotation(line, full_path, file)
+  def handle_image_rotation(line, full_path, file, rotate)
     dirname = full_path.sub('.html.md.erb', '')
     original_dir = dirname.sub('src/www/source', 'images')
     sips_cmd = if File.exist?("#{original_dir}/#{file}.jpg")
-                 "sips -r 270 #{original_dir}/#{file}.jpg"
+                 "sips -r #{rotate} #{original_dir}/#{file}.jpg"
                else
-                 "sips -r 270 #{original_dir}/#{file}.heic"
+                 "sips -r #{rotate} #{original_dir}/#{file}.heic"
                end
     system "#{sips_cmd} > /dev/null 2>&1"
 
     cache_dir = dirname.sub('src/www/source', '.cache')
-    sips_cmd = "sips -r 270 #{cache_dir}/#{file}.jpg" if File.exist?("#{cache_dir}/#{file}.jpg")
+    sips_cmd = "sips -r #{rotate} #{cache_dir}/#{file}.jpg" if File.exist?("#{cache_dir}/#{file}.jpg")
     system sips_cmd.to_s if sips_cmd
 
-    line.sub(/^l/, '')
+    line.sub(/^[lr]/, '')
   end
 
   def apply_content_filters(content, full_path)
@@ -117,8 +117,10 @@ class ApiServer < Sinatra::Base
         rescue StandardError
           line
         end
+      elsif (match = stripped_line.match(/r<%= image "(.*)" %>/))
+        handle_image_rotation(line, full_path, match[1], 90)
       elsif (match = stripped_line.match(/l<%= image "(.*)" %>/))
-        handle_image_rotation(line, full_path, match[1])
+        handle_image_rotation(line, full_path, match[1], 270)
       else
         line
       end
