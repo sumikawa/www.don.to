@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <title>2004/01/19: NDISドライバで遊ぶ</title>
+    <link rel="alternate" type="application/rss+xml" title="rss" href="https://www.don.to/diary/index.rdf">
+      <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <link href="/stylesheets/code.css" rel="stylesheet" />
+    <link href="/stylesheets/photoswipe.css" rel="stylesheet" />
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/ipod-icon.png">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=2.0000">
+    <meta property="og:site_name" content="すみかわ日記">
+    <meta property="og:title" content="2004/01/19: NDISドライバで遊ぶ">
+  </head>
+
+  <body data-source-path="/diary/2004/0119-ndis.html.md.erb">
+    <div class="container">
+      <div class="centerblock">
+          <div class="titleblock">
+            <h2><a href="/">すみかわ日記</a></h2>
+          </div>
+        <div class="mainblock">
+          <div id="search"></div>
+          <h2 data-pagefind-sort="date:2004-01-19">2004/01/19: NDISドライバで遊ぶ</h2>
+          <main data-pagefind-body>
+              <p>最近のFreeBSD-currentでは、
+ndis(4)の機能を使うことによってFreeBSDのドライバが存在しないネットワークカードでも、
+Windows 2000/XPのドライバ経由で使えるようになりました。</p>
+
+<p>例えば、手もとの<a href="http://buffalo.melcoinc.co.jp/products/catalog/item/w/wli-cb-g54/index.html">WLI-CB-G54</a>にはFreeBSDのドライバが存在しません。
+とりあえず、WLI-CB-G54をPCカードスロットに差してみても、当然ですが、認識されません。</p>
+
+<pre class="terminal">
+cardbus0: &lt;network&gt; at device 0.0 (no driver attached)
+cbb0: CardBus card activation failed
+</pre>
+
+<p>さて、BUFFALOのホームページに行ってWindows用のドライバを<a href="http://buffalo.melcoinc.co.jp/products/catalog/item/w/wli-cb-g54/index.html">ゲット</a>してきて展開します。</p>
+
+<pre class="terminal">
+% lha x wdrv_392.exe
+</pre>
+
+<p><a href="http://buffalo.melcoinc.co.jp/products/catalog/item/w/wli-cb-g54/index.html">ドライバのページ</a>によると、ドライバのファイル名はBCMWL5.SYSになりますので、
+このファイルをndiscvtを使って、FreeBSD用のデータファイルに変換します。</p>
+
+<pre class="terminal">
+% cd wdrv_392/cbg5
+% ndiscvt -s bcmwl5.sys -i netcbg54.inf -o ndis_driver_data.h
+</pre>
+
+<p>出来上がったndis<em>driver</em>data.hを/sys/modules/if_ndis/ に置いてやり、
+loadble moduleを作り、ロードしてやります。</p>
+
+<pre class="terminal">
+% mv ndis_driver_data.h /sys/modules/if_ndis/
+% cd /sys/modules/if_ndis/
+% make
+% ls *.ko
+if_ndis.ko*
+% su
+% kldload if_ndis.ko
+</pre>
+
+<p>dmesgを見ると、お、認識された。素晴らしい!</p>
+
+<pre class="terminal">
+ndis0: &lt;BUFFALO WLI-CB-G54 Wireless LAN Adapter&gt; mem 0x88000000-0x88001fff irq 10 at device 0.0 on cardbus0
+ndis0: NDIS API version: 5.0
+ndis0: 802.11 address: 00:07:40:79:c2:72
+ndis0: 11b rates: 1Mbps 2Mbps 5.5Mbps 11Mbps
+ndis0: 11g rates: 6Mbps 9Mbps 12Mbps 18Mbps 36Mbps 48Mbps 54Mbps
+</pre>
+
+<p>WEPも動くし、もちろんdhcpでアドレスもとれます。</p>
+
+<pre class="terminal">
+% ifconfig ndis0
+ndis0: flags=8843&lt;UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST&gt; mtu 1500
+        inet6 fe80::207:40ff:fe79:c272%ndis0 prefixlen 64 scopeid 0x6 
+        inet 192.168.0.102 netmask 0xffffff00 broadcast 192.168.0.255
+        ether 00:07:40:79:c2:72
+        media: IEEE 802.11 Wireless Ethernet autoselect
+        status: associated
+        ssid don 1:don
+        channel 9 authmode OPEN powersavemode OFF powersavesleep 100
+        wepmode MIXED weptxkey 1
+        wepkey 1:40-bit
+</pre>
+
+<p>カードの抜き差しもできます。しゃーわせ。</p>
+
+
+
+              <div class="tags">
+                Tags:
+                  <a href="/tag/freebsd/">freebsd</a> (10)
+                  <a href="/tag/tech/">tech</a> (40)
+              </div>
+          </main>
+
+          <nav class="prev_next" style="text-align: center; margin: 1em 0;"><a href="/diary/2004/0116-brussels/">&laquo; prev</a><span style="margin: 0 1em;">|</span><a href="/diary/2004/0124-oden/">next &raquo;</a></nav>
+
+          <hr>
+          <div id="name">SUMIKAWA Munechika / Daydreamers On the Net</div>
+        </div>
+      </div>
+      <div class="leftblock">
+        <div class="eachindexblock nav">
+  <ul id="gray">
+      <li> <a href="/diary/2026.html">2026年</a></li>
+      <li> <a href="/diary/2025.html">2025年</a></li>
+      <li> <a href="/diary/2024.html">2024年</a></li>
+      <li> <a href="/diary/2023.html">2023年</a></li>
+      <li> <a href="/diary/2022.html">2022年</a></li>
+      <li> <a href="/diary/2021.html">2021年</a></li>
+      <li> <a href="/diary/2020.html">2020年</a></li>
+      <li> <a href="/diary/2019.html">2019年</a></li>
+      <li> <a href="/diary/2018.html">2018年</a></li>
+      <li> <a href="/diary/2017.html">2017年</a></li>
+      <li> <a href="/diary/2016.html">2016年</a></li>
+      <li> <a href="/diary/2015.html">2015年</a></li>
+      <li> <a href="/diary/2014.html">2014年</a></li>
+      <li> <a href="/diary/2013.html">2013年</a></li>
+      <li> <a href="/diary/2012.html">2012年</a></li>
+      <li> <a href="/diary/2011.html">2011年</a></li>
+      <li> <a href="/diary/2010.html">2010年</a></li>
+      <li> <a href="/diary/2009.html">2009年</a></li>
+      <li> <a href="/diary/2008.html">2008年</a></li>
+      <li> <a href="/diary/2007.html">2007年</a></li>
+      <li> <a href="/diary/2006.html">2006年</a></li>
+      <li> <a href="/diary/2005.html">2005年</a></li>
+      <li> <a href="/diary/2004.html">2004年</a></li>
+      <li> <a href="/diary/2003.html">2003年</a></li>
+      <li> <a href="/diary/2002.html">2002年</a></li>
+      <li> <a href="/diary/2001.html">2001年</a></li>
+      <li> <a href="/diary/2000.html">2000年</a></li>
+      <li> <a href="/diary/1999.html">1999年</a></li>
+      <li> <a href="/diary/1998.html">1998年</a></li>
+      <li> <a href="/diary/1997.html">1997年</a></li>
+      <li> <a href="/diary/1996.html">1996年</a></li>
+    <li> <a href="/diary/1995.html">1995年以前</a></li>
+    <li> <a href="/tag/tag_list/">Tags</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+    <script src="/javascripts/diary.js"></script>
+      <script src="/pagefind/pagefind-ui.js"></script>
+      <script src="/javascripts/search.js"></script>
+    <script src="/javascripts/photoswipe.umd.min.js"></script>
+    <script src="/javascripts/photoswipe-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
+
+  </body>
+</html>
