@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <title>2002/02/13: X22その後</title>
+    <link rel="alternate" type="application/rss+xml" title="rss" href="https://www.don.to/diary/index.rdf">
+      <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <link href="/stylesheets/code.css" rel="stylesheet" />
+    <link href="/stylesheets/photoswipe.css" rel="stylesheet" />
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/ipod-icon.png">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=2.0000">
+    <meta property="og:site_name" content="すみかわ日記">
+    <meta property="og:title" content="2002/02/13: X22その後">
+  </head>
+
+  <body data-source-path="/diary/2002/0213-x22.html.md.erb">
+    <div class="container">
+      <div class="centerblock">
+          <div class="titleblock">
+            <h2><a href="/">すみかわ日記</a></h2>
+          </div>
+        <div class="mainblock">
+          <div id="search"></div>
+          <h2 data-pagefind-sort="date:2002-02-13">2002/02/13: X22その後</h2>
+          <main data-pagefind-body>
+              <p><a href="http://www-6.ibm.com/jp/shop/tpx22.html">ThinkPad X22</a>の情報更新。
+まず、FreeBSD 4.5-RELEASEをいれましょう。これで全然安定してます。</p>
+
+<p>グラフィックチップはMobile RadionでXree86-4.2.0をいれればOK。
+4.5-RELEASEのportsは4.1.0なので、4.2.0のportsを<a href="https://dl.dropboxusercontent.com/scl/fi/hc7fxqd2wg4mec7qk7m0k/XFree86-4.tar.gz?rlkey=g53pzd9j3d5tjg8lnbqxddcwn&amp;dl=0">ここ</a>に置きます。4.5-RELEASEのリリース直前に一瞬だけcommitされたやつ。
+/etc/X11/XF86Configは<a href="https://gist.github.com/sumikawa/278bd7909d72bfba15f74dabe7363660">これ</a>。</p>
+
+<p>マウスはsysmouse使うとうまくクリックの割り込みが拾えてない感じ。
+Xから直接PS/2を叩くようにすれば解決。
+それから、キーリピート間隔を短くしてもapm suspend後に戻ってしまう。
+xset r rate が何故かcore吐くけど、-DXKDB外してリコンパイルしたら解決。
+真面目に追っかけてません。</p>
+
+<p>内蔵無線LANは、この<a href="https://gist.github.com/sumikawa/471dd52b77b348be7def5e0c2fe2fae9">パッチ</a>で動くようになります。
+freebsd-currentから持ってきたコード。KAMEにはcommit済み。</p>
+
+<p>サウンドはT23と同じcirrus logic cs4299lなんで、
+<a href="http://www.clave.gr.jp/ml/bsd-nomads/200109/msg00028.html">bsd-nomads</a>
+に出てたパッチを当てたけど、初期化処理に失敗。
+bsd-nomadsで聞いたらこの<a href="https://gist.github.com/sumikawa/291988fea2927db01986a7723651a839">パッチ</a>を作って頂きました。素晴らしい。
+こっちはどこまで一般的かよくわからなかったので、kameにはcommitしてません。
+たまに初期化処理に失敗しますが、リブートすれば直ります。
+suspend後に音がでなくなるけど、kldunloadしてkldloadしてやれば、元に戻ります。</p>
+
+<p>内蔵モデムはまだ認識してません。従来のThinkpadに入ってるlucentモデムはports/comm/ltmdmで
+動いてたけど、これはAMRなので駄目らしい。AC97のドライバがいる？
+参考：<a href="http://www.stewartcastle.com/ac97-modem/">LinuxのAC97ドライバ</a></p>
+
+<p>dmesgの結果。</p>
+
+<pre class="terminal">
+Copyright (c) 1992-2002 The FreeBSD Project.
+Copyright (c) 1979, 1980, 1983, 1986, 1988, 1989, 1991, 1992, 1993, 1994
+    The Regents of the University of California. All rights reserved.
+FreeBSD 4.5-RELEASE #11: Mon Feb 11 23:13:03 GMT 2002
+    sumikawa@prince.don.to:/usr/local/src/kame/freebsd4/sys/compile/SUMIKAWA
+Timecounter "i8254"  frequency 1193182 Hz
+CPU: Pentium III/Pentium III Xeon/Celeron (797.35-MHz 686-class CPU)
+  Origin = "GenuineIntel"  Id = 0x6b1  Stepping = 1
+  Features=0x383f9ff&lt;FPU,VME,DE,PSE,TSC,MSR,PAE,MCE,CX8,SEP,MTRR,PGE,MCA,CMOV,PAT,PSE36,MMX,FXSR,SSE&gt;
+real memory  = 670498816 (654784K bytes)
+avail memory = 646664192 (631508K bytes)
+Preloaded elf kernel "kernel" at 0xc04db000.
+Pentium Pro MTRR support enabled
+Using $PIR table, 14 entries at 0xc00fdeb0
+apm0: &lt;APM BIOS&gt; on motherboard
+apm: found APM BIOS v1.2, connected at v1.2
+npx0: &lt;math processor&gt; on motherboard
+npx0: INT 16 interface
+pcib0: &lt;Host to PCI bridge&gt; on motherboard
+pci0: &lt;PCI bus&gt; on pcib0
+pcib1: &lt;PCI to PCI bridge (vendor=8086 device=3576)&gt; at device 1.0 on pci0
+pci1: &lt;PCI bus&gt; on pcib1
+pci1: &lt;ATI model 4c59 graphics accelerator&gt; at 0.0 irq 11
+uhci0: &lt;UHCI (generic) USB controller&gt; port 0x1800-0x181f irq 11 at device 29.0 on pci0
+uhci0: (New UHCI DeviceId=0x24828086)
+usb0: &lt;UHCI (generic) USB controller&gt; on uhci0
+usb0: USB revision 1.0
+uhub0: (0x24828086) UHCI root hub, class 9/0, rev 1.00/1.00, addr 1
+uhub0: 2 ports with 2 removable, self powered
+uhci1: &lt;UHCI (generic) USB controller&gt; port 0x1820-0x183f irq 11 at device 29.1 on pci0
+uhci1: (New UHCI DeviceId=0x24848086)
+usb1: &lt;UHCI (generic) USB controller&gt; on uhci1
+usb1: USB revision 1.0
+uhub1: (0x24848086) UHCI root hub, class 9/0, rev 1.00/1.00, addr 1
+uhub1: 2 ports with 2 removable, self powered
+uhci2: &lt;UHCI (generic) USB controller&gt; port 0x1840-0x185f irq 11 at device 29.2 on pci0
+uhci2: (New UHCI DeviceId=0x24878086)
+usb2: &lt;UHCI (generic) USB controller&gt; on uhci2
+usb2: USB revision 1.0
+uhub2: (0x24878086) UHCI root hub, class 9/0, rev 1.00/1.00, addr 1
+uhub2: 2 ports with 2 removable, self powered
+pcib2: &lt;PCI to PCI bridge (vendor=8086 device=2448)&gt; at device 30.0 on pci0
+pci2: &lt;PCI bus&gt; on pcib2
+pcic0: &lt;Ricoh RL5C476 PCI-CardBus Bridge&gt; mem 0x50000000-0x50000fff irq 11 at device 3.0 on pci2
+pccard0: &lt;PC Card bus (classic)&gt; on pcic0
+pcic1: &lt;Ricoh RL5C476 PCI-CardBus Bridge&gt; mem 0x50100000-0x50100fff irq 9 at device 3.1 on pci2
+pccard1: &lt;PC Card bus (classic)&gt; on pcic1
+pci2: &lt;unknown card&gt; (vendor=0x1180, dev=0x0552) at 3.2 irq 11
+wi0: &lt;Intersil Prism 2.5 PCI IEEE 802.11b&gt; mem 0xf0000000-0xf0000fff irq 11 at device 5.0 on pci2
+wi0: reset prism2.5/PCI.
+wi0: 802.11 address: 00:20:e0:89:41:11
+fxp0: &lt;Intel Pro/100 Ethernet&gt; port 0x8000-0x803f mem 0xc0200000-0xc0200fff irq 11 at device 8.0 on pci2
+fxp0: Ethernet address 00:d0:59:83:62:76
+inphy0: &lt;i82562ET 10/100 media interface&gt; on miibus0
+inphy0:  10baseT, 10baseT-FDX, 100baseTX, 100baseTX-FDX, auto
+isab0: &lt;PCI to ISA bridge (vendor=8086 device=248c)&gt; at device 31.0 on pci0
+isa0: &lt;ISA bus&gt; on isab0
+atapci0: &lt;Intel ICH3 ATA100 controller&gt; port 0x1860-0x186f,0x374-0x377,0x170-0x177,0x3f4-0x3f7,0x1f0-0x1f7 at device 31.1 on pci0
+ata0: at 0x1f0 irq 14 on atapci0
+ata1: at 0x170 irq 15 on atapci0
+pci0: &lt;unknown card&gt; (vendor=0x8086, dev=0x2483) at 31.3 irq 9
+pcm0: &lt;Intel 82801CA (ICH3)&gt; port 0x18c0-0x18ff,0x1c00-0x1cff irq 9 at device 31.5 on pci0
+pci0: &lt;unknown card&gt; (vendor=0x8086, dev=0x2486) at 31.6 irq 9
+orm0: &lt;Option ROMs&gt; at iomem 0xc0000-0xcbfff,0xcc000-0xccfff,0xcd000-0xcdfff,0xdc000-0xdffff,0xe0000-0xeffff on isa0
+fdc0: &lt;NEC 72065B or clone&gt; at port 0x3f0-0x3f5,0x3f7 irq 6 drq 2 on isa0
+fdc0: FIFO enabled, 8 bytes threshold
+fd0: &lt;1440-KB 3.5" drive&gt; on fdc0 drive 0
+atkbdc0: &lt;Keyboard controller (i8042)&gt; at port 0x60,0x64 on isa0
+atkbd0: &lt;AT Keyboard&gt; irq 1 on atkbdc0
+psm0: &lt;PS/2 Mouse&gt; irq 12 on atkbdc0
+psm0: model Generic PS/2 mouse, device ID 0
+vga0: &lt;Generic ISA VGA&gt; at port 0x3c0-0x3df iomem 0xa0000-0xbffff on isa0
+sc0: &lt;System console&gt; on isa0
+sc0: VGA &lt;16 virtual consoles, flags=0x200&gt;
+sio0: configured irq 4 not in bitmap of probed irqs 0
+IPv6 packet filtering initialized, default to accept, unlimited logging
+NATPT initialized
+IPsec: Initialized Security Association Processing.
+IP Filter: v3.4.20 initialized.  Default = pass all, Logging = disabled
+ad0: 38154MB &lt;TOSHIBA MK4018GAP&gt; [77520/16/63] at ata0-master UDMA100
+Mounting root from ufs:/dev/ad0s2a
+</pre>
+
+
+
+              <div class="tags">
+                Tags:
+                  <a href="/tag/freebsd/">freebsd</a> (10)
+                  <a href="/tag/tech/">tech</a> (40)
+                  <a href="/tag/thinkpad/">thinkpad</a> (4)
+              </div>
+          </main>
+
+          <nav class="prev_next" style="text-align: center; margin: 1em 0;"><a href="/diary/2002/0208-channel5/">&laquo; prev</a><span style="margin: 0 1em;">|</span><a href="/diary/2002/0214-pub/">next &raquo;</a></nav>
+
+          <hr>
+          <div id="name">SUMIKAWA Munechika / Daydreamers On the Net</div>
+        </div>
+      </div>
+      <div class="leftblock">
+        <div class="eachindexblock nav">
+  <ul id="gray">
+      <li> <a href="/diary/2026.html">2026年</a></li>
+      <li> <a href="/diary/2025.html">2025年</a></li>
+      <li> <a href="/diary/2024.html">2024年</a></li>
+      <li> <a href="/diary/2023.html">2023年</a></li>
+      <li> <a href="/diary/2022.html">2022年</a></li>
+      <li> <a href="/diary/2021.html">2021年</a></li>
+      <li> <a href="/diary/2020.html">2020年</a></li>
+      <li> <a href="/diary/2019.html">2019年</a></li>
+      <li> <a href="/diary/2018.html">2018年</a></li>
+      <li> <a href="/diary/2017.html">2017年</a></li>
+      <li> <a href="/diary/2016.html">2016年</a></li>
+      <li> <a href="/diary/2015.html">2015年</a></li>
+      <li> <a href="/diary/2014.html">2014年</a></li>
+      <li> <a href="/diary/2013.html">2013年</a></li>
+      <li> <a href="/diary/2012.html">2012年</a></li>
+      <li> <a href="/diary/2011.html">2011年</a></li>
+      <li> <a href="/diary/2010.html">2010年</a></li>
+      <li> <a href="/diary/2009.html">2009年</a></li>
+      <li> <a href="/diary/2008.html">2008年</a></li>
+      <li> <a href="/diary/2007.html">2007年</a></li>
+      <li> <a href="/diary/2006.html">2006年</a></li>
+      <li> <a href="/diary/2005.html">2005年</a></li>
+      <li> <a href="/diary/2004.html">2004年</a></li>
+      <li> <a href="/diary/2003.html">2003年</a></li>
+      <li> <a href="/diary/2002.html">2002年</a></li>
+      <li> <a href="/diary/2001.html">2001年</a></li>
+      <li> <a href="/diary/2000.html">2000年</a></li>
+      <li> <a href="/diary/1999.html">1999年</a></li>
+      <li> <a href="/diary/1998.html">1998年</a></li>
+      <li> <a href="/diary/1997.html">1997年</a></li>
+      <li> <a href="/diary/1996.html">1996年</a></li>
+    <li> <a href="/diary/1995.html">1995年以前</a></li>
+    <li> <a href="/tag/tag_list/">Tags</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+    <script src="/javascripts/diary.js"></script>
+      <script src="/pagefind/pagefind-ui.js"></script>
+      <script src="/javascripts/search.js"></script>
+    <script src="/javascripts/photoswipe.umd.min.js"></script>
+    <script src="/javascripts/photoswipe-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
+
+  </body>
+</html>
