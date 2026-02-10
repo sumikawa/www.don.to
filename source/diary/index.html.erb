@@ -13,5 +13,5 @@ Dir.glob(["source/diary/{#{thisyear},#{thisyear - 1}}/[01]*.html.md.erb"]).sort.
 end
 %>
 <dl>
-<%= index.sort.reverse.slice(0, limit).join("\n") %>
+  <%= index.sort.reverse.slice(0, limit).join("\n") %>
 </dl>
