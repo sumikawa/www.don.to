@@ -11,7 +11,7 @@ Dir.glob("source/diary/*/[01]*.html.md.erb").each do |filename|
 end
 %>
 <dl>
-<%= index.sort.reverse.join("\n") %>
+  <%= index.sort.reverse.join("\n") %>
 </dl>
 
 <%
@@ -29,15 +29,11 @@ end
 d = d1 - d2
 %>
 
-<% unless d.size == 0 %>
-<dl>
-<%
-    d.each do |dir|
-%>
-      <%= "#{dir}.html.md.erb... generated<br />" %>
-<%
-      gen_index "#{dir}"
-    end
-%>
-</dl>
+<% if d.any? %>
+  <dl>
+    <% d.each do |dir| %>
+      <% gen_index dir %>
+      <dt><%= "#{dir}.html.md.erb... generated" %></dt>
+    <% end %>
+  </dl>
 <% end %>
