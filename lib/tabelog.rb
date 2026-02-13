@@ -4,6 +4,7 @@
 require 'nokogiri'
 require 'open-uri'
 require 'json'
+require 'unicode_utils'
 
 USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) ' \
              'AppleWebKit/537.36 (KHTML, like Gecko) ' \
@@ -54,21 +55,19 @@ def format_tabelog_output(info, url)
   shop_name = info['店名'] || 'N/A'
 
   address_key = info.keys.find { |k| k.include?('住所') }
-  address = address_key ? info[address_key] : 'N/A'
+  address = address_key ? UnicodeUtils.nfkd(info[address_key]) : 'N/A'
 
   contact_key = info.keys.find { |k| k.include?('お問い合わせ') }
-  contact = contact_key ? info[contact_key] : ''
+  contact = contact_key ? UnicodeUtils.nfkd(info[contact_key]) : ''
 
   contact_line = contact.to_s.empty? ? '' : "\n#{contact}"
 
-  output_html = <<~HTML
+  <<~HTML
     <pre class="address">
     <a href="#{url}">#{shop_name}</a>
     #{address}#{contact_line}
     </pre>
   HTML
-
-  output_html.strip.gsub("\n\n", "\n")
 end
 
 # This block handles command-line execution, mirroring the Python script's `if __name__ == "__main__":`

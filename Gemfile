@@ -8,6 +8,7 @@ gem 'mini_exiftool'
 gem 'redcarpet'
 gem 'sass'
 gem 'slim'
+gem 'unicode_utils'
 
 group :development do
   gem 'debug'
