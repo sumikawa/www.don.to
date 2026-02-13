@@ -1,0 +1,975 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns="http://purl.org/rss/1.0/">
+  <channel rdf:about="https://www.don.to/diary/">
+    <title>すみかわ日記</title>
+    <description>子供ネタ7割、食い物2割、技術1割</description>
+    <link>https://www.don.to/diary/</link>
+    <items>
+      <rdf:Seq>
+          <rdf:li resource="2026/0212-lunch/"/>
+          <rdf:li resource="2026/0210-nakano/"/>
+          <rdf:li resource="2026/0208-vote/"/>
+          <rdf:li resource="2026/0206-kamakura/"/>
+          <rdf:li resource="2026/0205-movie/"/>
+          <rdf:li resource="2026/0204-tokyo/"/>
+          <rdf:li resource="2026/0126-shoulder/"/>
+          <rdf:li resource="2026/0119-kamakura/"/>
+          <rdf:li resource="2026/0116-lunch/"/>
+          <rdf:li resource="2026/0115-donto/"/>
+          <rdf:li resource="2026/0113-kamakura/"/>
+          <rdf:li resource="2026/0112-ueno/"/>
+          <rdf:li resource="2026/0106-museum/"/>
+          <rdf:li resource="2026/0106-meguro/"/>
+          <rdf:li resource="2026/0103-yokohama/"/>
+          <rdf:li resource="2025/1223-ankou/"/>
+          <rdf:li resource="2025/1219-kamakura/"/>
+          <rdf:li resource="2025/1213-iwate/"/>
+          <rdf:li resource="2025/1212-iwate/"/>
+          <rdf:li resource="2025/1211-iwate/"/>
+          <rdf:li resource="2025/1210-iwate/"/>
+          <rdf:li resource="2025/1209-iwate/"/>
+          <rdf:li resource="2025/1208-iwate/"/>
+          <rdf:li resource="2025/1128-note/"/>
+          <rdf:li resource="2025/1124-qiita/"/>
+          <rdf:li resource="2025/1117-camp/"/>
+          <rdf:li resource="2025/1115-enosima/"/>
+          <rdf:li resource="2025/1114-kamakura/"/>
+          <rdf:li resource="2025/1108-hokuriku/"/>
+          <rdf:li resource="2025/1107-hokuriku/"/>
+      </rdf:Seq>
+    </items>
+  </channel>
+  <item rdf:about="2026/0212-lunch/">
+            <title>2026/02/12: 伊勢屋でオムライス</title>
+        <link>https://www.don.to/diary/2026/0212-lunch/</link>
+        <description><![CDATA[<p>極厚カツ丼食べに伊勢屋にいったら、開店10分前ですでに四人いて、私は五人目。
+そのうち三人がカツ丼頼んだので、私の注文はセカンドロットになるので二時間待ちになる。
+諦めてオムライスにした。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140301/14013607/">伊勢屋</a>
+神奈川県横浜市保土ケ谷区星川2-5-33
+045-341-7971
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>今日は誰もビール頼んでない。傾向が読めん。</p>
+]]></description>
+        <dc:date>2026-2026-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0210-nakano/">
+            <title>2026/02/10: 新中野</title>
+        <link>https://www.don.to/diary/2026/0210-nakano/</link>
+        <description><![CDATA[<p>新中野のカレー居酒屋へ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1319/A131902/13149792/">やるき</a>
+東京都中野区本町4-36-7 1F
+03-6304-8373
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2026-2026-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0208-vote/">
+            <title>2026/02/08: 雪</title>
+        <link>https://www.don.to/diary/2026/0208-vote/</link>
+        <description><![CDATA[<p>投票にいったらイコット広場で雪だるま作りが盛り上がってた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2026-2026-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0206-kamakura/">
+            <title>2026/02/06: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2026/0206-kamakura/</link>
+        <description><![CDATA[<p>定点観測。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2026-2026-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0205-movie/">
+            <title>2026/02/05: 映画</title>
+        <link>https://www.don.to/diary/2026/0205-movie/</link>
+        <description><![CDATA[<p><a href="https://gundam-official.com/hathaway/">機動戦士ガンダム 閃光のハサウェイ キルケーの魔女</a>を見る。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>原作小説(37年前かよ&hellip;)を読んでた当時から、「Ξガンダムもペーネロペーも格好悪くね？ ミノフスキークラフトのためにああいうこんもりしたデザインにせざるを得ないという科学的考察は分かるんだけど」と思いながら映画の暗闇戦闘シーン、「あれ？動いてるペーネロペーを上から見たら意外と格好良くね？」からの「？？？」(ネタバレ自粛)</p>
+]]></description>
+        <dc:date>2026-2026-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0204-tokyo/">
+            <title>2026/02/04: インデアンカレー</title>
+        <link>https://www.don.to/diary/2026/0204-tokyo/</link>
+        <description><![CDATA[<p>東京駅に行ったので、久しぶりのインデアンカレー(目玉)。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1302/A130201/13020091/">インデアンカレー 丸の内店</a>
+東京都千代田区丸の内2-7-3 東京ビルTOKIA B1F
+03-3216-2336
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>記録によると前回食べたのは2008年。
+インデアンスパゲティも食べてみたいがなかなか行くチャンスがない。</p>
+
+<p><a href="https://tcp.saj.or.jp/">技術コンファレンス</a>に参加してきた。基調講演で空いてる席に座ったら、真ん中の最前列だった。
+久しぶりに長崎さんを見るのと、亀田さんに会った。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2026-2026-02T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0126-shoulder/">
+            <title>2026/01/26: 五十肩</title>
+        <link>https://www.don.to/diary/2026/0126-shoulder/</link>
+        <description><![CDATA[<p>20kgダンベルで左腕の筋を痛めたあと、一ヶ月経っても全然痛みがあるので、整形外科にいったら五十肩判定を受けた。
+レントゲンでは何も問題がないので、安静は不要なので、動かせとのこと。</p>
+
+<p>状況的には、</p>
+
+<ol>
+<li>筋を違えた</li>
+<li>左腕をかばったせいか寝違えた</li>
+<li>とにかく左腕が動かせない</li>
+</ol>
+
+<p>のコンボで、左腕が固まってしまったものと思われる。</p>
+
+<p>ジムで痛む方向に無理矢理左腕を動したらだいぶん楽になった。</p>
+
+<p>安静にしても治る見込みがなくむしろ動かさないといけないのに、痛みを感じるのは神経系統のバグじゃね？進化で改善しろよと思ったが、そもそも50才過ぎた人間はEnd of Supportなので、バグ放置でした。そうでした。</p>
+
+<p>とりあえずこれで痛みを感じる方向に無理矢理引っ張ってる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2026-2026-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0119-kamakura/">
+            <title>2026/01/19: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2026/0119-kamakura/</link>
+        <description><![CDATA[<p>寒波が来る前に定点観測。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>大船でサウナきめてから、飲み。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2026-2026-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0116-lunch/">
+            <title>2026/01/16: 鳥山</title>
+        <link>https://www.don.to/diary/2026/0116-lunch/</link>
+        <description><![CDATA[<p>購入した自転車の一ヶ月点検のためみなとみらいへ。</p>
+
+<p>その後、先日もらったランチ無料券が使うため、アソビルへ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140101/14097476/">豚屋 鳥山 よこはま店</a>
+神奈川県横浜市西区高島2-14-9 アソビル 1F
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>Webにはせんべろやって記載があったが、やってなかった。飯だけ食って帰宅。</p>
+]]></description>
+        <dc:date>2026-2026-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0115-donto/">
+            <title>2026/01/15: すみかわ日記Podcast</title>
+        <link>https://www.don.to/diary/2026/0115-donto/</link>
+        <description><![CDATA[<p><a href="https://notebooklm.google.com/">NotebookLM</a>に、すみかわ日記の全テキストを読み込ませて、Podcastを作ってもらった。</p>
+
+<audio controls><source src="under.webp" type="audio/aac"></audio>
+
+<p>聞いたらくっそ恥ずかしい。</p>
+]]></description>
+        <dc:date>2026-2026-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0113-kamakura/">
+            <title>2026/01/13: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2026/0113-kamakura/</link>
+        <description><![CDATA[<p>定点観測。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>いつもの大船ハイボール。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2026-2026-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0112-ueno/">
+            <title>2026/01/12: 上野</title>
+        <link>https://www.don.to/diary/2026/0112-ueno/</link>
+        <description><![CDATA[<p>娘と上野へ。</p>
+
+<p>まずは<a href="https://www.kahaku.go.jp/">国立科学博物館</a>。
+<a href="https://daizetsumetsu.jp/highlights.html">大絶滅展</a>目当てで来たが、9:30の整理券を渡されたので、時間まで地球館で過ごす。
+はじめて来たけど、一日ゆっくり過ごしたい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>大絶滅展へ移動。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>昼前に退館。三連休最終日だけあって、すごい行列になってた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>昼飯で韓国料理。上野駅のこっち側だとあまり選択肢がない。
+なぜか「イングリッシュメニューありますよ」と言われる。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1311/A131101/13271031/">韓国料理bibim' エキュート上野店</a>
+東京都台東区上野7-1-1 エキュート上野 2F 公園口
+050-5589-4064
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>お次は<a href="https://www.nmwa.go.jp/jp/">西洋美術館</a>。ここも特別展の<a href="https://www.nmwa.go.jp/jp/exhibitions/2025orsay.html">印象派</a>目当て。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>特別展もよかったが常設展もレベルが高くてビビる。モネやルノワールが大量にあった。
+<a href="https://ja.wikipedia.org/wiki/%E6%9D%BE%E6%96%B9%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3">Wikipedia</a>によると、寄贈者が生前にモネの自宅に行って直接買い付けてたそうだ。</p>
+]]></description>
+        <dc:date>2026-2026-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0106-museum/">
+            <title>2026/01/06: プラネタリウム</title>
+        <link>https://www.don.to/diary/2026/0106-museum/</link>
+        <description><![CDATA[<p>娘の提案で横浜の<a href="https://planetarium.konicaminolta.jp/planetariayokohama/">プラネタリウム</a>に行ってみる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2026-2026-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0106-meguro/">
+            <title>2026/01/06: 目黒 なっぱごちそう</title>
+        <link>https://www.don.to/diary/2026/0106-meguro/</link>
+        <description><![CDATA[<p>目黒で飲み会。</p>
+
+<p>シュッシャ！ではなくて、伏見眼鏡店に寄ってメガネの調整をしてもらう。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>久しぶりのなっぱごちそうへ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1316/A131601/13143798/">なっぱごちそう 目黒</a>
+東京都品川区上大崎2-26-5 メグロード B1F
+050-5590-8608
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2026-2026-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0103-yokohama/">
+            <title>2026/01/03: ハマぶら</title>
+        <link>https://www.don.to/diary/2026/0103-yokohama/</link>
+        <description><![CDATA[<p>娘とハマぶら。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2026-2026-01T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/1223-ankou/">
+            <title>2025/12/23: 谷中 鳥よし</title>
+        <link>https://www.don.to/diary/2025/1223-ankou/</link>
+        <description><![CDATA[<pre class="address">
+<a href="https://tabelog.com/tokyo/A1311/A131106/13054593/">谷中 鳥よし</a>
+東京都台東区谷中3-14-6
+03-3823-6298
+</pre>
+
+<p>鮟鱇鍋の会に参加。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2026-2025-12T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/1219-kamakura/">
+            <title>2025/12/19: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2025/1219-kamakura/</link>
+        <description><![CDATA[<p>こんなに続けてるのに定点観測取り忘れてた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>いつもの大船でメガハイボール。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>締めの豚山。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2026-2025-12T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/1213-iwate/">
+            <title>2025/12/13: 大沢温泉 湯治旅 その6</title>
+        <link>https://www.don.to/diary/2025/1213-iwate/</link>
+        <description><![CDATA[<p>気分的にはまだまだ滞在したいが、コタツと温泉を往復してるだけなので、そろそろ人間としてヤバい。
+チェックアウトして、送迎バスで新花巻駅へ。</p>
+
+<p>そば食って大谷の展示物見て帰宅。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>昨夜、寝違えたようで左肩がくっそ痛い。</p>
+]]></description>
+        <dc:date>2026-2025-12T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/1212-iwate/">
+            <title>2025/12/12: 大沢温泉 湯治旅 その5</title>
+        <link>https://www.don.to/diary/2025/1212-iwate/</link>
+        <description><![CDATA[<p>食堂で晩飯。餃子とチキンカツ定食。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2026-2025-12T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/1211-iwate/">
+            <title>2025/12/11: 大沢温泉 湯治旅 その4</title>
+        <link>https://www.don.to/diary/2025/1211-iwate/</link>
+        <description><![CDATA[<p>岩手の地ビール。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>今日の晩酌。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2026-2025-12T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/1210-iwate/">
+            <title>2025/12/10: 大沢温泉 湯治旅 その3</title>
+        <link>https://www.don.to/diary/2025/1210-iwate/</link>
+        <description><![CDATA[<p>昼飯は炊事場で焼きそばを作る。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>夜は持ち込んだキャンプ用コンロで鍋。ザ・湯治って感じやね。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>締めにぺろっこうどん。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>うどんは食べ残してしまったので、翌日の朝食になった。</p>
+]]></description>
+        <dc:date>2026-2025-12T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/1209-iwate/">
+            <title>2025/12/09: 大沢温泉 湯治旅 その2</title>
+        <link>https://www.don.to/diary/2025/1209-iwate/</link>
+        <description><![CDATA[<p>無料の送迎バスで花巻駅へ。
+30分ほどぶらぶら歩いてスーパーへ。
+<a href="../../2024/1225-osawa/">去年来たときにあった</a>イトーヨーカドーが潰れてロピアに変わってた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>30分で急いで買い物して、戻りはローカルバス。</p>
+
+<p>コタツで晩酌のあと、食堂でカツ丼。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2026-2025-12T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/1208-iwate/">
+            <title>2025/12/08: 大沢温泉 湯治旅 その1</title>
+        <link>https://www.don.to/diary/2025/1208-iwate/</link>
+        <description><![CDATA[<p>今年も湯治に行くよー。</p>
+
+<p>岩手への安い手段を探したが手頃なのが何も無い。
+ローカル線乗り継ぎだと12時間かかるので送迎バスに間に合わない。
+夜行バスは横浜から出ておらず、東京駅から乗った上に盛岡までしかいかない。早朝にさらに移動しないと受けない上に花巻到着が早すぎて送迎バスを6時間ぐらい待たないといけない。12月はレンタサイクルも貸し出しておらず時間潰しの観光もできない。</p>
+
+<p>ということで、結局、去年と同じ東北新幹線。早めに東京駅に行って、滞在中に飲む日本酒を調達。
+豆狸は今年も混んでたけど時間に余裕があったので買えた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>新花巻駅到着。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>送迎バスまで時間があるので駅のソバ屋で釜石ラーメン。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/iwate/A0302/A030201/3007502/">そば処イーハトーブの里 新花巻駅店</a>
+岩手県花巻市矢沢第10地割87-7 新花巻駅
+0198-31-2784
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>送迎バス。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>やってきました<a href="https://www.oosawaonsen.com/touji/">大沢温泉 湯治屋</a>。
+今回の部屋は前回よりも隙間風が少ない。これは有り難い。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>一風呂浴びて館内の食堂でビール飲んで、部屋でまったり日本酒を飲む。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>寝ようとしたら、青森地震をくらった。めっちゃ揺れた。</p>
+]]></description>
+        <dc:date>2026-2025-12T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/1128-note/">
+            <title>2025/11/28: ダイエット中もお通じをよくしたい</title>
+        <link>https://www.don.to/diary/2025/1128-note/</link>
+        <description><![CDATA[<div class="note">
+本ドキュメントは<a href="https://note.com/yodarez/n/nf39407f00d2c">note記事</a>のバックアップです。
+</div>
+
+<p>旅行にいくとせっかくだからと暴飲暴食して体重が増える。家に帰ってきたら反省して16時間断食をする。16時間ごときで断食を名乗っていいのかどうかはおいといて、食事量を制限するとどうしても便秘気味になる。便が固くなりトイレでもついイキんでしまうので、痔になるリスクも増す。</p>
+
+<p>カロリーを取らずにお通じをよくなるものをということで、最初はイオンの<a href="https://www.topvalu.net/items/detail/4902121395194/">特保の緑茶</a>を飲んでいた。段ボールでまとめて買っておき、家を出るタイミングで水代わりに一本ずつ持ち出して飲んでいたら、便秘が解消された。</p>
+
+<p>一年ぐらいは緑茶を買っていたが、ふと成分表を見たら、難消化性デキストリンというものが含まれている以外はただのお茶だった。お茶じゃなくてこれだけ摂取すればいいんじゃねと調べたら安く売っていたので、これに乗り換えた。</p>
+
+<div class="embeded">
+  <div class="amazon">
+    <div class="amazon-image"><a href="https://www.amazon.co.jp/dp/B00D86V4IA/daydreaonthen-22"><img border="0" src="https://m.media-amazon.com/images/I/713lhVgHN4L._AC_SL400_.jpg" height=200></a></a></div>
+    <div class="amazon-info"><a href="https://www.amazon.co.jp/dp/B00D86V4IA/daydreaonthen-22">ヘルシーカンパニー 難消化性デキストリン 400g</a></div>
+  </div>
+</div>
+
+<p>難消化性デキストリン自体は味がまったくないので何にでも混ぜれる。家で作った麦茶、紅茶、珈琲に混ぜて飲んだり、プロテインスムージーに入れたり、ビールにいれて飲んだりもしている。その時に飲みたいものに合わせられるので選択肢が増えた。</p>
+
+<p>お茶の段ボールと違って場所も取らないのでオススメだ。</p>
+]]></description>
+        <dc:date>2026-2025-11T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/1124-qiita/">
+            <title>2025/11/24: 公衆無線LANに自動ログインするスクリプトを書いた</title>
+        <link>https://www.don.to/diary/2025/1124-qiita/</link>
+        <description><![CDATA[<div class="note">
+本ドキュメントは<a href="https://qiita.com/sumikawa@github/items/1a150990429f5c6bb061">Qiita記事</a>のバックアップです。
+</div>
+
+<p>公衆無線LANに自動ログインするスクリプトを書きました。
+githubにて公開しています。</p>
+
+<p><a href="https://github.com/sumikawa/wifi-login">https://github.com/sumikawa/wifi-login</a></p>
+
+<p>後はgithubのREADMEを読んでくださいというのも何なので、下記にコピペしておきます。</p>
+
+<h2>これは何</h2>
+
+<p>公衆無線LAN(Public WiFi)に自動ログインするスクリプトです。SSIDに接続後、本コマンドを実行してください。</p>
+
+<p>GUIでログイン認証画面をクリックするより素早くログインが完了します。</p>
+
+<h2>対応している公衆無線LAN</h2>
+
+<p>2025/11時点で下記の公衆無線LANに対応しています。</p>
+
+<ul>
+<li>スターバックス</li>
+<li>すかいらーくグループ (ガストで動作確認しました)</li>
+</ul>
+
+<p>これ以外は対応していません。Pull Requestをお待ちしています。</p>
+
+<h2>事前準備</h2>
+
+<p>下記のコマンドを実行してください。システムに対する設定変更のためroot権限が必要です。</p>
+<div class="highlight"><pre class="highlight shell"><code><span class="nb">sudo </span>defaults write /Library/Preferences/SystemConfiguration/com.apple.captive.control Active <span class="nt">-boolean</span> <span class="nb">false</span>
+</code></pre></div>
+<p>これはCaptive Network Assistant (画面中央に認証画面を表示するミニブラウザ)を無効にするためのコマンドです。Captive Network Assistant が有効に場合、無線LANの認証が完了するまで、MacOSは自身以外の通信を全てブロックするため、本スクリプトが動作しません。</p>
+
+<p>また、依存ライブラリを下記のコマンドでインストールしてください。</p>
+<div class="highlight"><pre class="highlight shell"><code>pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt
+</code></pre></div>
+<p>スクリプトを適当な実行パスにコピーしてください</p>
+<div class="highlight"><pre class="highlight shell"><code><span class="nb">cp </span>wifi_login.py /somewhere/path/bin/
+</code></pre></div>
+<h2>使い方</h2>
+
+<p>公衆無線LANに接続したら、下記コマンドを実行してください。公衆無線LAN種別を自動的に検知して、ログインを行います。</p>
+<div class="highlight"><pre class="highlight shell"><code>wifi_login.py
+</code></pre></div>
+<h2>TODO</h2>
+
+<ul>
+<li>対応する公衆無線LANを増やす。特にEメールアドレスの入力を求められるプロバイダ</li>
+<li>SSIDを監視して、このスクリプトを自動実行する仕組み (MacOS Tahoeでは厳しそう)</li>
+<li>有効期間が切れたあと、自動的に再ログインする</li>
+</ul>
+
+<h2>注意</h2>
+
+<p>無効にしたCaptive Network Assistantを再有効したい場合は下記を実行してください。</p>
+<div class="highlight"><pre class="highlight shell"><code><span class="nb">sudo </span>defaults write /Library/Preferences/SystemConfiguration/com.apple.captive.control Active <span class="nt">-boolean</span> <span class="nb">true</span>
+</code></pre></div>]]></description>
+        <dc:date>2026-2025-11T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/1117-camp/">
+            <title>2025/11/17: デイキャン</title>
+        <link>https://www.don.to/diary/2025/1117-camp/</link>
+        <description><![CDATA[<p>天気がいいので<a href="https://www.shizenkanizumi.jp/">ベリーキャンプ場</a>でデイキャン。
+たぶん今年最後。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>華丸鍋。日本酒は熱燗にするまでもなく飲みきってしまった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>だいぶん荷物が最適化されてきたけどまだ減らせるな。</p>
+
+<ul>
+<li>テーブルいらない</li>
+<li>水バッグいらない</li>
+<li>ライトの固定用にリッジリープは欲しい</li>
+</ul>
+]]></description>
+        <dc:date>2026-2025-11T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/1115-enosima/">
+            <title>2025/11/15: 江ノ島水族館</title>
+        <link>https://www.don.to/diary/2025/1115-enosima/</link>
+        <description><![CDATA[<p>江ノ水でイルカ見ながらビール。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>いつの間にかショーが新しくなってる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>夕焼けタイム。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2026-2025-11T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/1114-kamakura/">
+            <title>2025/11/14: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2025/1114-kamakura/</link>
+        <description><![CDATA[<p>今日は妙に人気が少ない。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>定点観測。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>待ち行列がなかったのでパフェを食う。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1404/A140402/14002141/">カフェ・ヴィヴモン・ディモンシュ</a>
+神奈川県鎌倉市小町2-1-5 桜井ビル 1F
+0467-23-9952
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2026-2025-11T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/1108-hokuriku/">
+            <title>2025/11/08: 岐阜から北陸へ その5</title>
+        <link>https://www.don.to/diary/2025/1108-hokuriku/</link>
+        <description><![CDATA[<p>飲みすぎで目覚める。
+朝サウナしたけど、一本でやめといた。</p>
+
+<p>金沢駅の黒百合で金沢おでん食べようとしたけど、まだ食欲がないので富山駅へ移動。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/toyama/A1601/A160101/16000581/">神通町 田村</a>
+富山県富山市神通町2-1-3
+076-432-1505
+</pre>
+
+<p>各地のそばが選べます。越前の新蕎麦と野菜天をいただく。きのこ天は売り切れだった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>一昨日入店しなかった世界で最も美しい(らしい)<a href="https://store.starbucks.co.jp/detail-897/">スタバ</a>へ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>神通川沿いを走りつつ富山空港に向かう。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>早めの晩御飯。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/toyama/A1601/A160101/16006686/">エアポートキッチン</a>
+富山県富山市秋ケ島30 富山空港ターミナル 2F
+076-481-6873
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+]]></description>
+        <dc:date>2026-2025-11T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2025/1107-hokuriku/">
+            <title>2025/11/07: 岐阜から北陸へ その4</title>
+        <link>https://www.don.to/diary/2025/1107-hokuriku/</link>
+        <description><![CDATA[<p>7時頃に宿を出て南条駅へ。湯尾駅より若干遠いがずっと下りなので楽。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>福井は観光地が分散してるので、福井駅に戻ってレンタカーを借りる。カーシェアは全部埋まってた。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>東尋坊へ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>さーねむりなさいーつかれきったー。</p>
+
+<p>「ここが！何百もの殺人犯が無理やり連れてこられた挙句に自供させられるというあの！」</p>
+
+<p>こーのーまちはーせんじょーだからー。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>岩が尖ってないので、登りやすい。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>駐車場代割引に釣られて刺身丼。うまい商売やな。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/fukui/A1801/A180102/18000389/">越前がに やまに水産（えちぜんがにやまにすいさん）</a>
+福井県坂井市三国町安島64-1
+050-5872-4864
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>雄島。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>幼少期のれんくんが大喜びしそうな飛び石がずっと続いてる。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>YAY-HEY-Z!(<a href="https://daihonzan-eiheiji.com/">永平寺</a>)。
+<a href="https://ja.wikipedia.org/wiki/%E9%81%93%E5%85%83">道元禅師</a>の日本一厳しい修行道場。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p><a href="https://www.dinosaur.pref.fukui.jp/">恐竜博物館</a>。デカい。
+種類とか時期とか覚えようとしたけど、進化はランダムでかつ当然だけど絶滅が体系だってないので、全然覚えられない。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>次の電車まで時間があったので、<a href="https://www.fuku-e.com/spot/detail_1016.html">福井城址</a>。暗い。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>福井駅から移動。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>最後の夜は、そりゃあ来とくでしょう金沢。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/ishikawa/A1701/A170101/17013695/">鮨 はち丸 総本店</a>
+石川県金沢市本町2-2-13
+050-5590-5498
+</pre>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>手取川あらばしり大吟醸と刺身。まふぐの若狭焼き。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>香箱。地物の解禁日は昨日で祝儀相場になってて高かすぎるので、他所のやつ。
+黒龍crystal dragon。ほぼ水(ヤバい)。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>加賀蓮根、獅子の里 純米。ガリ美味えぞ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>イカ、地のアラ(クエじゃないらしい)。マグロ系はインバウンドが欲しがるのでメニューに入ってるようだ。
+最初にいらないと言っておけばよかった。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>アジ。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>のどぐろ。かき混ぜてツマミしろと言われた。常山。純米吟醸辛口。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>黒もずくと金時草。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>トロと甘エビ。石川門。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>タイとバイ貝。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>おいしゅうございました。</p>
+
+<p><a href="https://travel.rakuten.co.jp/HOTEL/142640/142640.html">今日の宿</a>。超巨大24hスーパー銭湯に付属のホテル。遠いねん。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a>
+<a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>酔っ払いすぎてこのホテルの全貌が把握できない。</p>
+
+<p><a href="under.webp" class="image swipe"><img src="/images/under.webp" height="96" alt="" /></a></p>
+
+<p>金沢はインバウンドの増加で宿泊費が高騰してるので、旅費をエンゲル係数に全振りするにはどうすればいいか考える。</p>
+
+<ul>
+<li>金沢駅周辺のネカフェに泊まる。<a href="https://www.kaikatsu.jp/shop/detail/20911.html">快活CLUB</a>なら予約ができる。9時間宿泊で2,770円。シャワーも選択もできる</li>
+<li>飲んだあとにインバウンドの少ない富山駅まで移動する。終電は23:00。富山空港はマイルでフライトを取りやすいのであり</li>
+<li>テルメ金沢にドミトリーがあるが、団体客しかダメそう</li>
+</ul>
+]]></description>
+        <dc:date>2026-2025-11T00:00:00+09:00</dc:date>
+
+  </item>
+</rdf:RDF>

@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <title>1999/07/09: DVD-515の改造</title>
+    <link rel="alternate" type="application/rss+xml" title="rss" href="https://www.don.to/diary/index.rdf">
+      <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <link href="/stylesheets/code.css" rel="stylesheet" />
+    <link href="/stylesheets/photoswipe.css" rel="stylesheet" />
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/ipod-icon.png">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=2.0000">
+    <meta property="og:site_name" content="すみかわ日記">
+    <meta property="og:title" content="1999/07/09: DVD-515の改造">
+  </head>
+
+  <body data-source-path="/diary/1999/0709-dvd.html.md.erb">
+    <div class="container">
+      <div class="centerblock">
+          <div class="titleblock">
+            <h2><a href="/">すみかわ日記</a></h2>
+          </div>
+        <div class="mainblock">
+          <div id="search"></div>
+          <h2 data-pagefind-sort="date:1999-07-09">1999/07/09: DVD-515の改造</h2>
+          <main data-pagefind-body>
+              <p>イギリスの通信販売サイトから、
+パイオニアDVD-515をマルチリージョン化する
+<a href="http://www.techtronics.com/ttn/shop/50-dvd-player-pioneer-515.htm">改造キット</a>
+(50ポンド、約1万円)を購入しました。
+このキットはファームウェアを載せ換えが必要なので躊躇してましたが、
+大阪の某計測機器メーカに勤める中学からの友人みゃ氏が遊びに来たので、
+やってもらうことにしました。</p>
+
+<p>作業内容は、</p>
+
+<ul>
+<li>44pinのファームェアの載せ換え</li>
+<li>8pinのMultiModチップのうち、足三本をハンダ付け</li>
+</ul>
+
+<p>です。改造キット添付の説明書以外に、日本語で書かれた<a href="http://hometown.aol.com/dvd9/">改造情報</a>がありましたので、それを参考にしました。</p>
+
+<p>まずは、蓋を開けたとこ。左下のチップが問題のファームウェアです。
+ハンダごても手持ちのものは不安なので、わざわざ持って来てもらいました。
+6時の新幹線に乗る前に会社に寄って取って来てくれました。感謝！</p>
+
+<p><a href="https://dl.dropboxusercontent.com/scl/fi/csz590tzdi2wvu35awhnh/dsc00003.jpg?rlkey=16to4v4c1sds6847nkjczkwvj&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/csz590tzdi2wvu35awhnh/dsc00003.jpg?rlkey=16to4v4c1sds6847nkjczkwvj&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/cu0g0fs8mw5dmi0aldzi8/dsc00012.jpg?rlkey=q76bvtvahl0irelixeets3225&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/cu0g0fs8mw5dmi0aldzi8/dsc00012.jpg?rlkey=q76bvtvahl0irelixeets3225&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/4e5kc8p9n08vx6q0pomcp/dsc00015.jpg?rlkey=3zrtmqzkgzw8yrbmb1a7crun5&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/4e5kc8p9n08vx6q0pomcp/dsc00015.jpg?rlkey=3zrtmqzkgzw8yrbmb1a7crun5&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/vr0jfzvny7iv0f2c72hin/dsc00018.jpg?rlkey=iqraj6ez1n92tp0yqjqakfjda&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/vr0jfzvny7iv0f2c72hin/dsc00018.jpg?rlkey=iqraj6ez1n92tp0yqjqakfjda&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/zsjah1l32wd95wop9e14x/dsc00022.jpg?rlkey=a8sa69kwhdvlz089zkprer07v&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/zsjah1l32wd95wop9e14x/dsc00022.jpg?rlkey=a8sa69kwhdvlz089zkprer07v&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/l94xya87ae4xyew7spn9s/dsc00025.jpg?rlkey=cs1njzaayzceoy7ll7v6gcd5d&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/l94xya87ae4xyew7spn9s/dsc00025.jpg?rlkey=cs1njzaayzceoy7ll7v6gcd5d&amp;dl=0" height="96" alt="" /></a></p>
+
+<p>チップのはがし方には、二通りのやり方があります。</p>
+
+<ul>
+<li>足を一本ずつをハンダごてで温めながら、ピンセットではがして行く</li>
+<li>二本のハンダごとですべての足を温めて、ひっこ抜く</li>
+</ul>
+
+<p>前者は確実ですが、時間がかかるのと力のかけ具合によってよっては、
+足をはがすときに基盤の線を一緒にはがしてしまう危険性があります。
+後者には、手早くやらないと熱で基盤を痛めてしまったり、
+チップをはがすときに手際が悪いとハンダが周りに飛び散ったりします。
+自信がないときは、マスキングするという方法もあります。
+また、足と足の間隔が広すぎたり、チップが長すぎると後者の方法は使えません。</p>
+
+<p>今回は後者の方法を採用しました。</p>
+
+<p>まず、片方の列にハンダを載せて、足がすべてつながるようにする。
+これで、すべての足が同時に温まるのではがれるようになります。</p>
+
+<p><a href="https://dl.dropboxusercontent.com/scl/fi/n4lzppdoqe4p9nxeqsqy0/dsc00034.jpg?rlkey=bisxbiuxuz1d7bfg5yxbov6d2&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/n4lzppdoqe4p9nxeqsqy0/dsc00034.jpg?rlkey=bisxbiuxuz1d7bfg5yxbov6d2&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/2lb67rxrzwr8rzu9w258n/dsc00035.jpg?rlkey=okoacp5abstbpe03gzhe9nwas&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/2lb67rxrzwr8rzu9w258n/dsc00035.jpg?rlkey=okoacp5abstbpe03gzhe9nwas&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/jlx3rbmasvbechbomxglu/dsc00036.jpg?rlkey=ab7d5a067bnbb66jubd3q3wiu&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/jlx3rbmasvbechbomxglu/dsc00036.jpg?rlkey=ab7d5a067bnbb66jubd3q3wiu&amp;dl=0" height="96" alt="" /></a></p>
+
+<p>しかし、ここですみかわ手持ちのハンダを使って失敗しました。
+このハンダは実は電源ケーブルや端子用で、さらに古くて酸化してるため、
+ハンダのノリが大変悪く、こういう作業には向いていません。
+本当はこんなにハンダを盛る必要はないんだけど、
+うまくいかなくてハンダを足してるうちに山盛りになってしまいました。</p>
+
+<p>仕方がないのでみゃ持参にハンダをつけ足して何とかノリを回復させました。
+ハンダは少ししか持って来てなかったので大変厳しい戦いになってきました。
+また、何度も何度もハンダを温めいるため、基盤に影響が出ないか
+不安になってきました。</p>
+
+<p><a href="https://dl.dropboxusercontent.com/scl/fi/fpk77npqp08nj390xcetw/dsc00043.jpg?rlkey=pevz5ecvez5v5tr2806b3jf17&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/fpk77npqp08nj390xcetw/dsc00043.jpg?rlkey=pevz5ecvez5v5tr2806b3jf17&amp;dl=0" height="96" alt="" /></a></p>
+
+<p>反対側はマトモなハンダを使ってます。
+少量で充分でした。</p>
+
+<p><a href="https://dl.dropboxusercontent.com/scl/fi/qwm7zf6716um1o8av64y1/dsc00050.jpg?rlkey=6n8m9d3acghn7iekrtrkn599n&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/qwm7zf6716um1o8av64y1/dsc00050.jpg?rlkey=6n8m9d3acghn7iekrtrkn599n&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/lzbiph8nv55fxztuhhad6/dsc00051.jpg?rlkey=q3mz1iducsz79b8fj3v11bw28&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/lzbiph8nv55fxztuhhad6/dsc00051.jpg?rlkey=q3mz1iducsz79b8fj3v11bw28&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/xfz3sm794hnhplnqd0sfj/dsc00057.jpg?rlkey=iuaax87btbgn7zhh4m39t1u7f&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/xfz3sm794hnhplnqd0sfj/dsc00057.jpg?rlkey=iuaax87btbgn7zhh4m39t1u7f&amp;dl=0" height="96" alt="" /></a></p>
+
+<p>二本のハンダで両側の足の上を滑べらせて全体を温めます。
+そして、足がすべて浮き上がった瞬間にエイヤっと引っこ抜きます。</p>
+
+<p><a href="https://dl.dropboxusercontent.com/scl/fi/6yo4af9djwscsh6hd55rn/dsc00066.jpg?rlkey=0q06dasb6ea9kep5312qnv9ls&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/6yo4af9djwscsh6hd55rn/dsc00066.jpg?rlkey=0q06dasb6ea9kep5312qnv9ls&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/6de30yg76rett532kud7v/dsc00067.jpg?rlkey=okvx11ufubc3k0qnqygfnf7we&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/6de30yg76rett532kud7v/dsc00067.jpg?rlkey=okvx11ufubc3k0qnqygfnf7we&amp;dl=0" height="96" alt="" /></a></p>
+
+<p>左上だけくっついたままですが、
+もうここまでくれば温めながらピンセットで引っ張るだけ。</p>
+
+<p><a href="https://dl.dropboxusercontent.com/scl/fi/nsdhktsgs9gocm46yoo2r/dsc00076.jpg?rlkey=a13dr20pwqlqk31u9bgpyz5r7&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/nsdhktsgs9gocm46yoo2r/dsc00076.jpg?rlkey=a13dr20pwqlqk31u9bgpyz5r7&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/s1p50pkz5r5grut8ee0xe/dsc00080.jpg?rlkey=5v0032ctlw1c5zy5np0ekzg8g&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/s1p50pkz5r5grut8ee0xe/dsc00080.jpg?rlkey=5v0032ctlw1c5zy5np0ekzg8g&amp;dl=0" height="96" alt="" /></a></p>
+
+<p>飛び散ったハンダのカスをピンセットで丹念に除去します。
+これが残ってるとショートする可能性があります。
+また、はがすときに使ったハンダを吸い取り線で除去します。</p>
+
+<p><a href="https://dl.dropboxusercontent.com/scl/fi/33r01yfp0a6ryezl2ktjr/dsc00084.jpg?rlkey=xx6ews8wx553tpjwe5nh78nax&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/33r01yfp0a6ryezl2ktjr/dsc00084.jpg?rlkey=xx6ews8wx553tpjwe5nh78nax&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/sipvw4n3e24v1ahddmadu/dsc00089.jpg?rlkey=ejzk4a0ec2sbx2cxcot60hp3k&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/sipvw4n3e24v1ahddmadu/dsc00089.jpg?rlkey=ejzk4a0ec2sbx2cxcot60hp3k&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/255gcau4mw7z6gluc4tvg/dsc00094.jpg?rlkey=ikuuck7vjf9pl062h2vy5lg4z&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/255gcau4mw7z6gluc4tvg/dsc00094.jpg?rlkey=ikuuck7vjf9pl062h2vy5lg4z&amp;dl=0" height="96" alt="" /></a></p>
+
+<p>購入した改造済ファームウェアを載せます。
+慎重に位置合わせしないとズレてしまうので注意。
+まず、4隅をハンダで固定します。
+そして、少量のハンダを載せつつ、足の上にハンダを滑べらせるだけで、
+すべての足がハンダづけされます。
+ハンダの量が必要最小限であれば、
+表面張力のおかげで足と足の間がブリッジされることもありません。</p>
+
+<p><a href="https://dl.dropboxusercontent.com/scl/fi/2snxkcvhov6h965q72758/dsc00105.jpg?rlkey=zx2zrpshobl9vyn008ktrdmzw&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/2snxkcvhov6h965q72758/dsc00105.jpg?rlkey=zx2zrpshobl9vyn008ktrdmzw&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/lk7w3xdhasamedabc5sjq/dsc00106.jpg?rlkey=svzuydmo7h1h17p3x4y7jtocn&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/lk7w3xdhasamedabc5sjq/dsc00106.jpg?rlkey=svzuydmo7h1h17p3x4y7jtocn&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/kllpqg5z4yfbmlkddmdlm/dsc00109.jpg?rlkey=acaoahsotzydu902t6vemmh4m&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/kllpqg5z4yfbmlkddmdlm/dsc00109.jpg?rlkey=acaoahsotzydu902t6vemmh4m&amp;dl=0" height="96" alt="" /></a></p>
+
+<p>テスターを使ってすべての足がきちんとハンダ付けされているかチェック。
+導通してると音が出るタイプのテスターがあると便利。
+若干怪しかったので、さらにハンダを足す。</p>
+
+<p><a href="https://dl.dropboxusercontent.com/scl/fi/em0mburhp3zk5qs9m1ev8/dsc00118.jpg?rlkey=fr71bn9wd8s3e585u2uv0f63e&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/em0mburhp3zk5qs9m1ev8/dsc00118.jpg?rlkey=fr71bn9wd8s3e585u2uv0f63e&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/t8c82otorzwwpfppem0ym/dsc00119.jpg?rlkey=xf062c78e8fntc76qnexzhq7b&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/t8c82otorzwwpfppem0ym/dsc00119.jpg?rlkey=xf062c78e8fntc76qnexzhq7b&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/wsrd90zpwjrd6rkvvq99e/dsc00129.jpg?rlkey=f6cxtps4aw6chgfkrm0vgkbvg&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/wsrd90zpwjrd6rkvvq99e/dsc00129.jpg?rlkey=f6cxtps4aw6chgfkrm0vgkbvg&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/ccj0qwc2el63mcgxq593f/dsc00134.jpg?rlkey=krcbn3cyyk8bt0plhwwiafhgu&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/ccj0qwc2el63mcgxq593f/dsc00134.jpg?rlkey=krcbn3cyyk8bt0plhwwiafhgu&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/ng4kpv0owkp5g4sa8g46h/dsc00136.jpg?rlkey=pf0ynik66jdeabgypeok6ua2y&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/ng4kpv0owkp5g4sa8g46h/dsc00136.jpg?rlkey=pf0ynik66jdeabgypeok6ua2y&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/9c6bffjsaz36sjbbn16am/dsc00144.jpg?rlkey=2s3tswup789yjg96j7yxkgtic&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/9c6bffjsaz36sjbbn16am/dsc00144.jpg?rlkey=2s3tswup789yjg96j7yxkgtic&amp;dl=0" height="96" alt="" /></a></p>
+
+<p>次は、MultiModチップの接続。
+8pinのうち使わない5pinは邪魔なのでニッパーで切ってしまう。
+このチップは空中に浮いたままなので、足が出てると危険です。</p>
+
+<p><a href="https://dl.dropboxusercontent.com/scl/fi/h952qj5yiknpn9plpioi4/dsc00153.jpg?rlkey=1necpru53q1i9p053bglm4h98&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/h952qj5yiknpn9plpioi4/dsc00153.jpg?rlkey=1necpru53q1i9p053bglm4h98&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/pu0yznh24i5zorxwupzu3/dsc00156.jpg?rlkey=0ryr6o7uh5mvs5i0u60kp54rj&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/pu0yznh24i5zorxwupzu3/dsc00156.jpg?rlkey=0ryr6o7uh5mvs5i0u60kp54rj&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/a33qd5cmvr78gn119o1lo/dsc00158.jpg?rlkey=5jihsns5o48v5557v2oz6zme8&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/a33qd5cmvr78gn119o1lo/dsc00158.jpg?rlkey=5jihsns5o48v5557v2oz6zme8&amp;dl=0" height="96" alt="" /></a></p>
+
+<p>MultiModチップのハンダづけ、3本の足のうち、2本は基盤直結。
+1本は遠いのでジャンパ線を使いましたが、これも大阪から持って来てくれました。
+このジャンパ線は一定の熱で融ける特殊な皮膜で覆われており、
+被覆をめくらなくてもハンダづけできるという利点があります。
+ジャンパ線は細いので被覆をめくるのが難しいですが、これなら楽チン。</p>
+
+<p><a href="https://dl.dropboxusercontent.com/scl/fi/pnoabhzs6q6mpcept9rwk/dsc00160.jpg?rlkey=vpxxqn3fa59r1xmes0n8i8hms&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/pnoabhzs6q6mpcept9rwk/dsc00160.jpg?rlkey=vpxxqn3fa59r1xmes0n8i8hms&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/0dc8nty6xu5dmp02cra2j/dsc00171.jpg?rlkey=2ucux08dt061idqyqn4t87y5i&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/0dc8nty6xu5dmp02cra2j/dsc00171.jpg?rlkey=2ucux08dt061idqyqn4t87y5i&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/4lscqlf9x856u8kpmbomv/dsc00167.jpg?rlkey=nt4lvq4knot5mlopv6rhyr5ew&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/4lscqlf9x856u8kpmbomv/dsc00167.jpg?rlkey=nt4lvq4knot5mlopv6rhyr5ew&amp;dl=0" height="96" alt="" /></a></p>
+
+<p>このジャンパ線の接続に意外と手間取る。
+ここら辺の手際の悪さがまだまだ素人だそうですが、僕から見たら充分玄人。</p>
+
+<p><a href="https://dl.dropboxusercontent.com/scl/fi/cwl5exxc4puji9n1xb2m9/dsc00175.jpg?rlkey=ztt38n7uezvgrhvckdbbxx1yo&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/cwl5exxc4puji9n1xb2m9/dsc00175.jpg?rlkey=ztt38n7uezvgrhvckdbbxx1yo&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/p3349jwxijirfrg37gned/dsc00177.jpg?rlkey=gmi2t5j5hg8lofj4qg6k0ouuq&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/p3349jwxijirfrg37gned/dsc00177.jpg?rlkey=gmi2t5j5hg8lofj4qg6k0ouuq&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/vz77rghx6qr3huhfvxm2b/dsc00182.jpg?rlkey=eae3c4e06u0ixyljgi7315qz3&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/vz77rghx6qr3huhfvxm2b/dsc00182.jpg?rlkey=eae3c4e06u0ixyljgi7315qz3&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/0t1lb0wr0ej8zlfbqcf89/dsc00190.jpg?rlkey=nyn2j121d590b1rja2d4nsj59&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/0t1lb0wr0ej8zlfbqcf89/dsc00190.jpg?rlkey=nyn2j121d590b1rja2d4nsj59&amp;dl=0" height="96" alt="" /></a></p>
+
+<p>こっちもテスターでチェックして完成。
+しかし、電源をいれると「Flash」の文字が出る。
+一瞬、ビビるが説明書によるとファームウェアのハンダづけが甘いと表示されるらしい、
+もう一度バラして軽くハンダを流して足をこすってやると直りました。</p>
+
+<p><a href="https://dl.dropboxusercontent.com/scl/fi/q7ngjto89ibz36v2i43dm/dsc00198.jpg?rlkey=ltw3txoaawthwrru851kqt2za&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/q7ngjto89ibz36v2i43dm/dsc00198.jpg?rlkey=ltw3txoaawthwrru851kqt2za&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/mv632hye2xu3n9vez9l3s/dsc00205.jpg?rlkey=khrf95uaedeo3lbkbixjxoad1&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/mv632hye2xu3n9vez9l3s/dsc00205.jpg?rlkey=khrf95uaedeo3lbkbixjxoad1&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/uiem5otx5b65jovbbdbi4/dsc00207.jpg?rlkey=wvz492jrj5pdqisxwokams9z5&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/uiem5otx5b65jovbbdbi4/dsc00207.jpg?rlkey=wvz492jrj5pdqisxwokams9z5&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/ytiud6i7mc6joe3kv00ui/dsc00212.jpg?rlkey=17fq6nkcrvgehtjvlw22fa2zu&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/ytiud6i7mc6joe3kv00ui/dsc00212.jpg?rlkey=17fq6nkcrvgehtjvlw22fa2zu&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/s87r0ehe0851cfsg7fbte/dsc00220.jpg?rlkey=agcdu1sm0ekaczsf4n7neib0z&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/s87r0ehe0851cfsg7fbte/dsc00220.jpg?rlkey=agcdu1sm0ekaczsf4n7neib0z&amp;dl=0" height="96" alt="" /></a></p>
+
+<p>さて、動作確認。
+まず、リージョン2の状態でアメリカから輸入したDVDをいれる。
+画面には、リージョンが違うよんのメッセージが出る。</p>
+
+<p><a href="https://dl.dropboxusercontent.com/scl/fi/6qtkxtrs75ya0l2g6mz1x/dsc00227.jpg?rlkey=vall5ykyvye1spk6wu3eov32m&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/6qtkxtrs75ya0l2g6mz1x/dsc00227.jpg?rlkey=vall5ykyvye1spk6wu3eov32m&amp;dl=0" height="96" alt="" /></a></p>
+
+<p>DVD-515のリモコンを操作して、リージョンを変更。
+見事、「RONIN」が再生されました。</p>
+
+<p><a href="https://dl.dropboxusercontent.com/scl/fi/h5tr33uyqx4130r2e7xvo/dsc00233.jpg?rlkey=5kw2et9bfww8glseub32ztr3l&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/h5tr33uyqx4130r2e7xvo/dsc00233.jpg?rlkey=5kw2et9bfww8glseub32ztr3l&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/j6q60irm57ciztxo8ezv2/dsc00235.jpg?rlkey=q013hmj9hwf8vl3juwky7jfv8&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/j6q60irm57ciztxo8ezv2/dsc00235.jpg?rlkey=q013hmj9hwf8vl3juwky7jfv8&amp;dl=0" height="96" alt="" /></a>
+<a href="https://dl.dropboxusercontent.com/scl/fi/h4kba9oh19khrod1xjkj0/dsc00245.jpg?rlkey=bxjcs3wmetbmhx547t17d7knf&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/h4kba9oh19khrod1xjkj0/dsc00245.jpg?rlkey=bxjcs3wmetbmhx547t17d7knf&amp;dl=0" height="96" alt="" /></a></p>
+
+<p>続けて、「Apollo 13」dts版を突っ込む。
+おお、はじめてプレイヤーとアンプのdts機能を使いました。感激！</p>
+
+<p><a href="https://dl.dropboxusercontent.com/scl/fi/uz1wooo61l8jm9mi9q1q6/dsc00248.jpg?rlkey=j2178dbeq9myr7ku39m43kkpz&amp;dl=0" class="image swipe"><img src="https://dl.dropboxusercontent.com/scl/fi/uz1wooo61l8jm9mi9q1q6/dsc00248.jpg?rlkey=j2178dbeq9myr7ku39m43kkpz&amp;dl=0" height="96" alt="" /></a></p>
+
+<p>大変、助かりました。ありがとねー ＞ みゃ</p>
+
+
+
+              <div class="tags">
+                Tags:
+                  <a href="/tag/dvd/">dvd</a> (10)
+                  <a href="/tag/hardware/">hardware</a> (3)
+                  <a href="/tag/region-free/">region-free</a> (2)
+              </div>
+          </main>
+
+          <nav class="prev_next" style="text-align: center; margin: 1em 0;"><a href="/diary/1999/0706-misc/">&laquo; prev</a><span style="margin: 0 1em;">|</span><a href="/diary/1999/0716-starwars/">next &raquo;</a></nav>
+
+          <hr>
+          <div id="name">SUMIKAWA Munechika / Daydreamers On the Net</div>
+        </div>
+      </div>
+      <div class="leftblock">
+        <div class="eachindexblock nav">
+  <ul id="gray">
+      <li> <a href="/diary/2026.html">2026年</a></li>
+      <li> <a href="/diary/2025.html">2025年</a></li>
+      <li> <a href="/diary/2024.html">2024年</a></li>
+      <li> <a href="/diary/2023.html">2023年</a></li>
+      <li> <a href="/diary/2022.html">2022年</a></li>
+      <li> <a href="/diary/2021.html">2021年</a></li>
+      <li> <a href="/diary/2020.html">2020年</a></li>
+      <li> <a href="/diary/2019.html">2019年</a></li>
+      <li> <a href="/diary/2018.html">2018年</a></li>
+      <li> <a href="/diary/2017.html">2017年</a></li>
+      <li> <a href="/diary/2016.html">2016年</a></li>
+      <li> <a href="/diary/2015.html">2015年</a></li>
+      <li> <a href="/diary/2014.html">2014年</a></li>
+      <li> <a href="/diary/2013.html">2013年</a></li>
+      <li> <a href="/diary/2012.html">2012年</a></li>
+      <li> <a href="/diary/2011.html">2011年</a></li>
+      <li> <a href="/diary/2010.html">2010年</a></li>
+      <li> <a href="/diary/2009.html">2009年</a></li>
+      <li> <a href="/diary/2008.html">2008年</a></li>
+      <li> <a href="/diary/2007.html">2007年</a></li>
+      <li> <a href="/diary/2006.html">2006年</a></li>
+      <li> <a href="/diary/2005.html">2005年</a></li>
+      <li> <a href="/diary/2004.html">2004年</a></li>
+      <li> <a href="/diary/2003.html">2003年</a></li>
+      <li> <a href="/diary/2002.html">2002年</a></li>
+      <li> <a href="/diary/2001.html">2001年</a></li>
+      <li> <a href="/diary/2000.html">2000年</a></li>
+      <li> <a href="/diary/1999.html">1999年</a></li>
+      <li> <a href="/diary/1998.html">1998年</a></li>
+      <li> <a href="/diary/1997.html">1997年</a></li>
+      <li> <a href="/diary/1996.html">1996年</a></li>
+    <li> <a href="/diary/1995.html">1995年以前</a></li>
+    <li> <a href="/tag/tag_list/">Tags</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+    <script src="/javascripts/diary.js"></script>
+      <script src="/pagefind/pagefind-ui.js"></script>
+      <script src="/javascripts/search.js"></script>
+    <script src="/javascripts/photoswipe.umd.min.js"></script>
+    <script src="/javascripts/photoswipe-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
+
+  </body>
+</html>
