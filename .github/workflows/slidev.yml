@@ -7,18 +7,15 @@ on:
       - completed
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -26,30 +23,34 @@ jobs:
         with:
           node-version: 'lts/*'
 
-      - name: Setup @antfu/ni
-        run: npm i -g @antfu/ni
+      - name: Install npm
+        run: npm install
 
-      - name: Install dependencies
-        run: nci
+      - name: Prepare dist directory
+        run: mkdir -p dist
 
-      - name: Build
-        run: nr build --base /${{github.event.repository.name}}/
+      - name: Build all decks
+        run: |
+          for dir in slides/*; do
+            if [ -d "$dir" ]; then
+              name=$(basename "$dir")
+              echo "Building $name"
+              npx slidev build "$dir/slides.md" \
+                --base "/${{ github.event.repository.name }}/$name/" \
+                --out "dist/$name"
+            fi
+          done
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+      - name: Copy other artifacts
+        run: |
+          if [ -d public ]; then
+            cp -r public/* dist/
+          fi
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: dist
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          keep_files: true
