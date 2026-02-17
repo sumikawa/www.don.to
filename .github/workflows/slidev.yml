@@ -34,11 +34,11 @@ jobs:
 
       - name: Build all decks
         run: |
-          for dir in slides/*; do
-            if [ -d "$dir" ]; then
-              name=$(basename "$dir")
+          for file in slides/*.md; do
+            if [ -f "$file" ]; then
+              name=${file%.*}
               echo "Building $name"
-              npx slidev build "$dir/slides.md" \
+              npx slidev build "$file" \
                 --base "/${{ github.event.repository.name }}/$name/" \
                 --out "dist/$name"
             fi
