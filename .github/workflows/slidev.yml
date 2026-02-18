@@ -56,4 +56,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./slides/dist
           publish_branch: gh-pages
+          destination_dir: slides
           keep_files: true
