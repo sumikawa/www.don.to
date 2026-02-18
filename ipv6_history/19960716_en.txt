@@ -1,0 +1,48 @@
+Subject: Re: IPv6-in-IPv4 tunnel ?
+From: SUMIKAWA Munechika <muneti-s at is.aist-nara.ac.jp>
+To: Craig Metz <cmetz at inner.net>, Pedro Roque Marques <roque at di.fc.ul.pt>,
+        Ran Atkinson <rja at cisco.com>
+Cc: v6 at wide.ad.jp
+Date: Tue, 16 Jul 1996 18:44:07 +0900
+X-Mailer: Mew version 1.06 on Emacs 19.28.2, Mule 2.3
+
+Hi, I'm Munechika.
+
+I confirmed to connect your IPv6 machines.
+
+---- 
+june:~% telnet6 6bone-router.cisco.inner.net
+Trying 5f00:6d00:c01f:700:3::1...
+Connected to 6bone-router.cisco.inner.net.
+Escape character is '^]'.
+
+             -------------------------------------------
+             Welcome to cisco System's first IPv6 router
+             -------------------------------------------
+
+Username: 
+
+----  nrl-beech
+
+june:~% ping6 5F00:3000:84FA::0001
+trying to get source for 5F00:3000:84FA::0001
+source should be 5f09:c400:a3dd:400::1
+PING 5F00:3000:84FA::0001 (5f00:3000:84fa::1): 56 data bytes
+64 bytes from 5f00:3000:84fa::1: icmp6_seq=0 hlim=254 time=339.167 ms
+64 bytes from 5f00:3000:84fa::1: icmp6_seq=1 hlim=254 time=334.417 ms
+64 bytes from 5f00:3000:84fa::1: icmp6_seq=2 hlim=254 time=326.929 ms
+
+----  ul-rifkind
+
+june:~% ping6 5F0C:B300:C043:4C00:0001::0002
+trying to get source for 5F0C:B300:C043:4C00:0001::0002
+source should be 5f09:c400:a3dd:400::1
+PING 5F0C:B300:C043:4C00:0001::0002 (5f0c:b300:c043:4c00:1::2): 56 data bytes
+64 bytes from 5f0c:b300:c043:4c00:1::2: icmp6_seq=0 hlim=62 time=1304.513 ms
+64 bytes from 5f0c:b300:c043:4c00:1::2: icmp6_seq=4 hlim=62 time=1156.313 ms
+64 bytes from 5f0c:b300:c043:4c00:1::2: icmp6_seq=5 hlim=62 time=1753.711 ms
+64 bytes from 5f0c:b300:c043:4c00:1::2: icmp6_seq=6 hlim=62 time=1131.420 ms
+
+---
+SUMIKAWA Munechika @ NAra Institute of Science and Technology
+                     TEL +81-7437-2-5326 FAX +81-7437-2-5329

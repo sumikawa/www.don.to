@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <title>2005/02/11: 飛行機からインターネット</title>
+    <link rel="alternate" type="application/rss+xml" title="rss" href="https://www.don.to/diary/index.rdf">
+      <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <link href="/stylesheets/code.css" rel="stylesheet" />
+    <link href="/stylesheets/photoswipe.css" rel="stylesheet" />
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/ipod-icon.png">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=2.0000">
+    <meta property="og:site_name" content="すみかわ日記">
+    <meta property="og:title" content="2005/02/11: 飛行機からインターネット">
+  </head>
+
+  <body data-source-path="/diary/2005/0211-cbb.html.md.erb">
+    <div class="container">
+      <div class="centerblock">
+          <div class="titleblock">
+            <h2><a href="/">すみかわ日記</a></h2>
+          </div>
+        <div class="mainblock">
+          <div id="search"></div>
+          <h2 data-pagefind-sort="date:2005-02-11">2005/02/11: 飛行機からインターネット</h2>
+          <main data-pagefind-body>
+              <p>飛行機の中から<a href="http://www.jal.co.jp/inflight/internet/">JAL SkyOnine</a>を使って、
+インターネット接続を試す。いやあ、便利な世の中になったもんだ。</p>
+
+<p>問題がひとつ。FreeBSDでサインインしたら、Windows側から使えないみたい。試した手順はこんな感じ。</p>
+
+<ul>
+<li>FreeBSDでサインイン → ちゃんと動く → サインアウト</li>
+<li>Windowsで再起動 → サインイン</li>
+<li>もう一回、料金の支払いをどっちにするか(per minutes or per flight)きいてくる。</li>
+<li>ドキドキしながらクリック → サインイン成功</li>
+<li>でもインターネットに出れない</li>
+</ul>
+
+<p>たぶん、同一ユーザからクッキーが2つ以上来るのが想定外の動作になってるような気がする。
+次回に誰かWindowsでサインインした人はfirefox と IE でサインアウトしたり
+サインインしてみてください。</p>
+
+<p>Live chatでCBBのサポートに症状伝えてみたけど、「VPN clientのせいだ」の一点張りで話にならず。
+一応、状況をdevelopersに報告するようにお願いしといたけど、どこまでやってくれるやら。
+何回かwindowsとFreeBSDを入れ換えたので、料金の多重請求されないかすげえ不安。</p>
+
+<p>しかし、いい時間つぶしですね、これ。結局本の一冊も読まなかった。</p>
+
+<p>色々記録をとってみる。まずはpingの結果。衛星使ってるだけあって、RTTが大きい。</p>
+
+<pre class="terminal">
+% ping don.to
+PING don.to (202.221.217.238): 56 data bytes
+64 bytes from 202.221.217.238: icmp_seq=0 ttl=35 time=1603.848 ms
+64 bytes from 202.221.217.238: icmp_seq=1 ttl=35 time=2027.019 ms
+64 bytes from 202.221.217.238: icmp_seq=2 ttl=35 time=1957.278 ms
+64 bytes from 202.221.217.238: icmp_seq=3 ttl=35 time=2471.531 ms
+^C
+--- don.to ping statistics ---
+6 packets transmitted, 4 packets received, 33% packet loss
+round-trip min/avg/max/stddev = 1603.848/2014.919/2471.531/308.603 ms
+</pre>
+
+<p>traceroute。地上側のプロバイダはエリアによって色々と変わってました。</p>
+
+<pre class="terminal">
+% traceroute don.to
+traceroute to don.to (202.221.217.238), 64 hops max, 40 byte packets
+ 1  172.16.64.1 (172.16.64.1)  1.410 ms  1.276 ms  2.099 ms
+ 2  cbb-cds-psn.by.boeing (172.16.0.18)  1.367 ms  1.149 ms  1.074 ms
+ 3  sbs.by.boeing (172.31.0.1)  1.539 ms  1.821 ms  1.247 ms
+ 4  * * *
+ 5  luk02d24-d.connexionbyboeing.net (10.10.20.24)  610.564 ms  569.731 ms  791.806 ms
+ 6  luk02r03-vlan25.connexionbyboeing.net (10.10.20.2)  583.588 ms  612.286 ms  747.605 ms
+ 7  luk02r21-fe2-9.connexionbyboeing.net (10.10.16.25)  579.998 ms  570.334 ms  582.849 ms
+ 8  10.10.16.33 (10.10.16.33)  580.460 ms  571.744 ms  582.613 ms
+ 9  luk02r01-vlan20.connexionbyboeing.net (10.10.16.130)  582.844 ms  736.327 ms  582.758 ms
+10  sl-gw10-zur-4-0.sprintlink.net (80.93.9.77)  752.642 ms  611.422 ms  584.449 ms
+11  sl-bb20-zur-13-0.sprintlink.net (80.93.8.37)  665.678 ms  605.241 ms  583.744 ms
+12  sl-bb20-par-4-3.sprintlink.net (213.206.129.125)  604.741 ms  652.659 ms  624.626 ms
+13  sl-bb23-lon-13-0.sprintlink.net (213.206.129.85)  713.475 ms  817.509 ms  624.591 ms
+14  sl-bb21-lon-13-0.sprintlink.net (213.206.128.55)  832.918 ms  653.725 ms  623.198 ms
+15  sl-bb21-tuk-10-0.sprintlink.net (144.232.19.69)  816.415 ms  693.733 ms  833.100 ms
+16  sl-bb20-tuk-15-0.sprintlink.net (144.232.20.132)  706.384 ms  701.818 ms  663.951 ms
+17  sl-bb21-rly-14-3.sprintlink.net (144.232.20.122)  669.643 ms  680.020 ms  691.633 ms
+18  sl-bb23-rly-11-0.sprintlink.net (144.232.14.134)  745.356 ms  680.233 ms  774.476 ms
+19  sl-st20-ash-10-0.sprintlink.net (144.232.20.152)  692.936 ms  668.934 ms  691.591 ms
+20  sl-st21-ash-12-0.sprintlink.net (144.232.19.241)  803.298 ms  690.485 ms  771.844 ms
+21  sl-splki-1-0.sprintlink.net (144.223.246.26)  751.442 ms  689.985 ms  775.739 ms
+22  nyc001bb00.IIJ.net (216.98.96.155)  769.678 ms  697.772 ms  692.546 ms
+23  newyork-bb2.IIJ.net (216.98.96.161)  775.634 ms  736.793 ms  915.836 ms
+24  plt001bb00.IIJ.net (216.98.96.156)  966.772 ms  878.805 ms  908.080 ms
+25  otemachi-bb7.IIJ.net (216.98.96.194)  881.626 ms  1024.097 ms  890.053 ms
+26  tky001agr10.IIJ.Net (210.130.143.194)  1111.754 ms  877.786 ms  885.772 ms
+27  210.138.170.2 (210.138.170.2)  885.556 ms  887.339 ms  916.701 ms
+28  210.138.170.54 (210.138.170.54)  915.016 ms  957.084 ms  914.878 ms
+</pre>
+
+<p>pcharは何故かcore吐かれた。ほとんど情報量ありませんが、まあ一応。</p>
+
+<pre class="terminal">
+% pchar -v don.to
+pchar to don.to (202.221.217.238) using UDP/IPv4
+Using raw socket input
+Packet size increments from 32 to 1500 by 32
+46 test(s) per repetition
+32 repetition(s) per hop
+Warning: target host did not respond to initial test.
+ 0: 172.16.67.189 (172.16.67.189)
+    Partial loss:      293 / 1472 (19%)
+    Partial char:      rtt = 1.128240 ms, (b = 0.000289 ms/B), r2 = 0.978346
+                       stddev rtt = 0.007973, stddev b = 0.000006
+    Partial queueing:  avg = 0.000835 ms (2892 bytes)
+    Hop char:          rtt = 1.128240 ms, bw = 27722.425728 Kbps
+    Hop queueing:      avg = 0.000835 ms (2892 bytes)
+ 1: 172.16.64.1 (172.16.64.1)
+    Partial loss:      291 / 1472 (19%)
+    Partial char:      rtt = 1.120202 ms, (b = 0.000339 ms/B), r2 = 0.750499
+                       stddev rtt = 0.036316, stddev b = 0.000029
+    Partial queueing:  avg = 0.002193 ms (29748 bytes)
+    Hop char:          rtt = --.--- ms, bw = 158193.539007 Kbps
+    Hop queueing:      avg = 0.001358 ms (26856 bytes)
+ 2: 172.16.0.18 (cbb-cds-psn.by.boeing)
+    Partial loss:      288 / 1472 (19%)
+    Partial char:      rtt = 1.321589 ms, (b = 0.000804 ms/B), r2 = 0.510164
+                       stddev rtt = 0.146241, stddev b = 0.000119
+    Partial queueing:  avg = 0.002393 ms (30179 bytes)
+    Hop char:          rtt = 0.201387 ms, bw = 17224.188831 Kbps
+    Hop queueing:      avg = 0.000200 ms (431 bytes)
+ 3: 172.31.0.1 (sbs.by.boeing)
+    Partial loss:      1472 / 1472 (100%)
+    Partial char:      rtt = 0.000000 ms, (b = 0.000000 ms/B), r2 = 0.000000
+                       stddev rtt = 0.000000, stddev b = 0.000000
+    Partial queueing:  avg = 0.000000 ms (30179 bytes)
+    Hop char:          rtt = 0.000000 ms, bw = 0.000000 Kbps
+    Hop queueing:      avg = -0.002393 ms (0 bytes)
+Received probe responses but no addresses recorded
+アボート (coreを出力しました)
+</pre>
+
+<p>後でカード明細調べたら、案の定3重に引き落としされてた。でも、その後でメールが来てて、
+「3重引き落とししてすみませんでした、お詫びに全額返金します。」だって。ラッキー。</p>
+
+
+
+              <div class="tags">
+                Tags:
+                  <a href="/tag/airplane/">airplane</a> (3)
+                  <a href="/tag/internet/">internet</a> (2)
+                  <a href="/tag/tech/">tech</a> (40)
+              </div>
+          </main>
+
+          <nav class="prev_next" style="text-align: center; margin: 1em 0;"><a href="/diary/2005/0205-midue/">&laquo; prev</a><span style="margin: 0 1em;">|</span><a href="/diary/2005/0211-present/">next &raquo;</a></nav>
+
+          <hr>
+          <div id="name">SUMIKAWA Munechika / Daydreamers On the Net</div>
+        </div>
+      </div>
+      <div class="leftblock">
+        <div class="eachindexblock nav">
+  <ul id="gray">
+      <li> <a href="/diary/2026.html">2026年</a></li>
+      <li> <a href="/diary/2025.html">2025年</a></li>
+      <li> <a href="/diary/2024.html">2024年</a></li>
+      <li> <a href="/diary/2023.html">2023年</a></li>
+      <li> <a href="/diary/2022.html">2022年</a></li>
+      <li> <a href="/diary/2021.html">2021年</a></li>
+      <li> <a href="/diary/2020.html">2020年</a></li>
+      <li> <a href="/diary/2019.html">2019年</a></li>
+      <li> <a href="/diary/2018.html">2018年</a></li>
+      <li> <a href="/diary/2017.html">2017年</a></li>
+      <li> <a href="/diary/2016.html">2016年</a></li>
+      <li> <a href="/diary/2015.html">2015年</a></li>
+      <li> <a href="/diary/2014.html">2014年</a></li>
+      <li> <a href="/diary/2013.html">2013年</a></li>
+      <li> <a href="/diary/2012.html">2012年</a></li>
+      <li> <a href="/diary/2011.html">2011年</a></li>
+      <li> <a href="/diary/2010.html">2010年</a></li>
+      <li> <a href="/diary/2009.html">2009年</a></li>
+      <li> <a href="/diary/2008.html">2008年</a></li>
+      <li> <a href="/diary/2007.html">2007年</a></li>
+      <li> <a href="/diary/2006.html">2006年</a></li>
+      <li> <a href="/diary/2005.html">2005年</a></li>
+      <li> <a href="/diary/2004.html">2004年</a></li>
+      <li> <a href="/diary/2003.html">2003年</a></li>
+      <li> <a href="/diary/2002.html">2002年</a></li>
+      <li> <a href="/diary/2001.html">2001年</a></li>
+      <li> <a href="/diary/2000.html">2000年</a></li>
+      <li> <a href="/diary/1999.html">1999年</a></li>
+      <li> <a href="/diary/1998.html">1998年</a></li>
+      <li> <a href="/diary/1997.html">1997年</a></li>
+      <li> <a href="/diary/1996.html">1996年</a></li>
+    <li> <a href="/diary/1995.html">1995年以前</a></li>
+    <li> <a href="/tag/tag_list/">Tags</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+    <script src="/javascripts/diary.js"></script>
+      <script src="/pagefind/pagefind-ui.js"></script>
+      <script src="/javascripts/search.js"></script>
+    <script src="/javascripts/photoswipe.umd.min.js"></script>
+    <script src="/javascripts/photoswipe-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
+
+  </body>
+</html>

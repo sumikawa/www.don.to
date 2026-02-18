@@ -1,0 +1,83 @@
+class: center, middle
+
+# Progress bar on wcc
+## Sohgo Takeuchi
+## Munechika Sumikawa
+
+---
+class: left, top
+
+## Current implementation
+
+- Only file_copy support progree bar
+  - copy_vm_image, create_vm, quick_create_vm
+- replacement file_copy()
+- copy chunk(16MB) and update the status via Websocket
+- it's diffict to support ISO uploading with current architecture
+
+```
+def copy_file_progressbar(from, to, channel_name)
+  size_of_source_file = File.size(from)
+  current_size = 0
+  read_chunk_size = 16*1024*1024
+  File.open(from, "rb") do |fd_r|
+    File.open(to, "wb", fd_r.stat.mode) do |fd_w|
+      progressbar(channel_name, size_of_source_file) do
+        current_size += fd_w.syswrite(fd_r.sysread(read_chunk_size))
+      end
+    end
+  end
+end
+```
+
+---
+## def progressbar
+
+```
+def progressbar(channel_name, total_size, &func)
+  prev_percentage = 0
+  current_size = 0
+  wcc_websocket(channel_name) do |client|
+    while current_size < total_size
+      current_size = func.call()
+      percentage = sprintf("%.1f", 100.0 * current_size / total_size)
+      if prev_percentage != percentage
+        client.send(percentage.to_s + "\n")
+        prev_percentage = percentage
+      end
+    end
+  end
+end
+```
+
+---
+## Update status via WebSocket
+
+- Using action and the id for Channel ID
+  - 'copy_vm_100'
+
+.center[![status](https://cacoo.com/diagrams/PqSPjH8mrndTotT1-A9CC2.png)]
+
+---
+## Issues
+
+- <del>file copy stalls if updating server stalls</del>
+- Security issues
+
+---
+## Security issue
+
+- It's progress bar. We don't need to consider it seriously but;
+- No binding mechanism between pre-UPGRADE and post-UPGRADE in server side
+  - Client tell the channel
+  - Can snoop it after the valid authorisation
+
+.center[![](https://cacoo.com/diagrams/PqSPjH8mrndTotT1-698AD.png)]
+
+---
+## How prevent it?
+
+- pusher.com authenticate private channels by oauth
+  - Can spoof my other sessions but seems enough secure in realistic point of view
+  - It seems too much for wcc
+- Randomize channel ID cod be good solution for wcc

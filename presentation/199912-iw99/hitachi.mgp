@@ -1,0 +1,94 @@
+%include "../default.mgp"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%size 6, font "thick", back "white", fore "blue4", vgap 20
+%center
+
+
+
+
+IPv6対応GR2000
+
+%size 6, fore "black"
+
+角川 宗近
+(株)日立製作所 / KAMEプロジェクト
+sumikawa@sumikawa.jp
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+GR2000
+
+	IPv4ルータ
+%size 4, font "typewriter"
+    http://www.hitachi.co.jp/Prod/comp/
+                          network/gr2000.htm
+%center
+%image "gr2000.jpg" 1600x1200
+%left
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+分散アーキテクチャ構造
+
+	RM(Routing Manager)
+		BSD/OS on AMD K6-2
+			アプリの移植が容易
+		自宛のパケットを処理
+		経路制御デーモン, SNMP, httpd等が動作
+	RP(Routing Processor)
+		ハードウェアによるパケット転送処理
+			カスタムLSI(含 経路探索)
+		フィルタリング、QoS制御
+	RMとRPはクロスバー・スイッチで接続
+%center
+%image "arc.eps" 640x480
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+GR2000のIPv6対応化
+
+	KAMEをGR2000のRMに移植
+		1999年9月stableがベース
+		現在はIPv6パケットはすべてソフトウェア処理
+			経路探索、パケット転送
+			経路制御デーモン等
+
+%center
+%image "v6.eps" 400x300
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+現在の実装状況
+
+	対応バージョン
+		1999年9月stable
+	インターフェイス
+		10/100 イーサネット
+		ギガビット・イーサネット
+		ATM(OC-3)
+		POS(OC-3、OC-12)
+		トンネル(gif)
+	アプリ
+		route、ifconfig、sysctl6、ndp、gifconfig、prefix
+		telnet6、ftp6、telnet6d、ftp6d、inet6d
+		ping6、traceroute6、tcpdump、snmpd、rtadvd
+		gated、gdc、pim6sd
+	ユーザ・インターフェイスはKAME(BSD)とほぼ同じ
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+今後の予定
+
+	ベータ配布(2000年4月予定)
+		GR2000ユーザのうち希望者へ配布
+	KAMEの定期的なキャッチアップ
+	IPv4/IPv6のユーザ・インターフェイスの統一
+
+	ハードウェア実装による高速転送

@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <title>2018/11/18: CodeCommitでip-range.jsonの変更履歴を記録する</title>
+    <link rel="alternate" type="application/rss+xml" title="rss" href="https://www.don.to/diary/index.rdf">
+      <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <link href="/stylesheets/code.css" rel="stylesheet" />
+    <link href="/stylesheets/photoswipe.css" rel="stylesheet" />
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/ipod-icon.png">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=2.0000">
+    <meta property="og:site_name" content="すみかわ日記">
+    <meta property="og:title" content="2018/11/18: CodeCommitでip-range.jsonの変更履歴を記録する">
+  </head>
+
+  <body data-source-path="/diary/2018/1118-qiita.html.md.erb">
+    <div class="container">
+      <div class="centerblock">
+          <div class="titleblock">
+            <h2><a href="/">すみかわ日記</a></h2>
+          </div>
+        <div class="mainblock">
+          <div id="search"></div>
+          <h2 data-pagefind-sort="date:2018-11-18">2018/11/18: CodeCommitでip-range.jsonの変更履歴を記録する</h2>
+          <main data-pagefind-body>
+              <div class="note">
+本ドキュメントは<a href="https://qiita.com/sumikawa@github/items/fcef5e384e75cb973353">Qiita記事</a>のバックアップです。
+</div>
+
+<h3>やりたいこと</h3>
+
+<p>AWSは現在利用しているIPアドレスブロックを<a href="https://docs.aws.amazon.com/ja_jp/general/latest/gr/aws-ip-ranges.html">JSONファイル(ip-ranges.json)</a>にして公開していますが、このファイルの過去履歴を知りたいときがあります。
+CodeCommitにはgitプロトコルを使わずにファイルを直接アップロードする<a href="https://aws.amazon.com/jp/about-aws/whats-new/2018/02/aws-codecommit-supports-creating-and-editing-files-via-the-console-editor-and-sdks/">API</a>がありますので、これを使って履歴を追えるようにしましょう。</p>
+
+<h3>事前準備</h3>
+
+<p>履歴を管理するためのCodeCommitリポジトリ(&ldquo;ip-range&rdquo;)を適当なリージョンに用意します。後述のLambda関数と同じリージョンに作成してください。</p>
+
+<p>README.mdなど適当なファイルを作って、initial commitしておいてください。</p>
+
+<h3>Lambda関数の作成</h3>
+
+<p>ip-ranges.jsonは変更があるとSNS通知が飛ぶようになっているので(ARNは<a href="https://docs.aws.amazon.com/ja_jp/general/latest/gr/aws-ip-ranges.html">ドキュメント</a>参照のこと)、この通知をトリガーにして以下のLambdaスクリプト(Python3)を呼び出します。</p>
+
+<div class="highlight"><pre class="highlight python"><code><span class="kn">import</span> <span class="nn">os</span><span class="p">,</span> <span class="n">sys</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">import</span> <span class="nn">boto3</span>
+
+<span class="n">repositroy_name</span> <span class="o">=</span> <span class="s">'ip-range'</span>
+<span class="n">branch_name</span> <span class="o">=</span> <span class="s">'master'</span>
+
+<span class="k">def</span> <span class="nf">upload_file</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">repositroy_name</span><span class="p">,</span> <span class="n">branch_name</span><span class="p">,</span> <span class="n">createDate</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"uploading: "</span> <span class="o">+</span> <span class="n">path</span><span class="p">)</span>
+  <span class="k">try</span><span class="p">:</span>
+    <span class="n">branch</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">get_branch</span><span class="p">(</span>
+      <span class="n">repositoryName</span><span class="o">=</span><span class="n">repositroy_name</span><span class="p">,</span>
+      <span class="n">branchName</span><span class="o">=</span><span class="n">branch_name</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">put_file</span><span class="p">(</span>
+      <span class="n">repositoryName</span><span class="o">=</span><span class="n">repositroy_name</span><span class="p">,</span>
+      <span class="n">branchName</span><span class="o">=</span><span class="n">branch_name</span><span class="p">,</span>
+      <span class="n">fileContent</span><span class="o">=</span><span class="n">content</span><span class="p">,</span>
+      <span class="n">filePath</span><span class="o">=</span><span class="n">path</span><span class="p">,</span>
+      <span class="n">fileMode</span><span class="o">=</span><span class="s">'NORMAL'</span><span class="p">,</span>
+      <span class="n">parentCommitId</span><span class="o">=</span><span class="n">branch</span><span class="p">[</span><span class="s">'branch'</span><span class="p">][</span><span class="s">'commitId'</span><span class="p">],</span>
+      <span class="n">commitMessage</span><span class="o">=</span><span class="n">createDate</span><span class="p">,</span>
+      <span class="n">name</span><span class="o">=</span><span class="s">'autoupload'</span><span class="p">,</span>
+      <span class="n">email</span><span class="o">=</span><span class="s">'auto@example.com'</span><span class="p">,</span>
+    <span class="p">)</span>
+  <span class="k">except</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"failed to upload: "</span> <span class="o">+</span> <span class="n">path</span><span class="p">)</span>
+    <span class="kn">import</span> <span class="nn">traceback</span>
+    <span class="n">traceback</span><span class="p">.</span><span class="n">print_exc</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+  <span class="k">with</span> <span class="n">urllib</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">"https://ip-ranges.amazonaws.com/ip-ranges.json"</span><span class="p">)</span> <span class="k">as</span> <span class="n">res</span><span class="p">:</span>
+    <span class="n">json_data</span> <span class="o">=</span> <span class="n">res</span><span class="p">.</span><span class="n">read</span><span class="p">().</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">)</span>
+
+  <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
+  <span class="n">yaml_data</span> <span class="o">=</span> <span class="n">yaml</span><span class="p">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+  <span class="n">createDate</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">'createDate'</span><span class="p">]</span>
+
+  <span class="n">client</span> <span class="o">=</span> <span class="n">boto3</span><span class="p">.</span><span class="n">client</span><span class="p">(</span><span class="s">'codecommit'</span><span class="p">)</span>
+  <span class="n">upload_file</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">repositroy_name</span><span class="p">,</span> <span class="n">branch_name</span><span class="p">,</span> <span class="n">createDate</span><span class="p">,</span> <span class="n">json_data</span><span class="p">,</span> <span class="s">'original/ip-range.json'</span><span class="p">)</span>
+  <span class="n">upload_file</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">repositroy_name</span><span class="p">,</span> <span class="n">branch_name</span><span class="p">,</span> <span class="n">createDate</span><span class="p">,</span> <span class="n">yaml_data</span><span class="p">,</span> <span class="s">'ip-range.yaml'</span><span class="p">)</span>
+
+  <span class="k">return</span><span class="p">(</span><span class="s">"done"</span><span class="p">)</span>
+</code></pre></div>
+
+<p>要はダウンロードしたjsonファイルをアップロードし直しているだけですが、jsonだと差分が追いにくいので、yamlにフォーマット変換したものものあわせてアップロードしています。</p>
+
+<p>参考までにこの関数を一ヶ月ほど走らせたものを下記のリポジトリに公開しています。
+<a href="https://github.com/sumikawa/ip-range">https://github.com/sumikawa/ip-range</a></p>
+
+<h3>Further Working</h3>
+
+<p>サービス単位やリージョンごとにdataを分割することで、CloudFrontのアドレス履歴や東京リージョンの履歴を追うことも簡単にできるかと思います。</p>
+
+
+
+              <div class="tags">
+                Tags:
+                  <a href="/tag/aws/">aws</a> (19)
+                  <a href="/tag/codecommit/">codecommit</a> (1)
+                  <a href="/tag/lambda/">lambda</a> (4)
+              </div>
+          </main>
+
+          <nav class="prev_next" style="text-align: center; margin: 1em 0;"><a href="/diary/2018/1110-museum/">&laquo; prev</a><span style="margin: 0 1em;">|</span><a href="/diary/2018/1121-dinner/">next &raquo;</a></nav>
+
+          <hr>
+          <div id="name">SUMIKAWA Munechika / Daydreamers On the Net</div>
+        </div>
+      </div>
+      <div class="leftblock">
+        <div class="eachindexblock nav">
+  <ul id="gray">
+      <li> <a href="/diary/2026.html">2026年</a></li>
+      <li> <a href="/diary/2025.html">2025年</a></li>
+      <li> <a href="/diary/2024.html">2024年</a></li>
+      <li> <a href="/diary/2023.html">2023年</a></li>
+      <li> <a href="/diary/2022.html">2022年</a></li>
+      <li> <a href="/diary/2021.html">2021年</a></li>
+      <li> <a href="/diary/2020.html">2020年</a></li>
+      <li> <a href="/diary/2019.html">2019年</a></li>
+      <li> <a href="/diary/2018.html">2018年</a></li>
+      <li> <a href="/diary/2017.html">2017年</a></li>
+      <li> <a href="/diary/2016.html">2016年</a></li>
+      <li> <a href="/diary/2015.html">2015年</a></li>
+      <li> <a href="/diary/2014.html">2014年</a></li>
+      <li> <a href="/diary/2013.html">2013年</a></li>
+      <li> <a href="/diary/2012.html">2012年</a></li>
+      <li> <a href="/diary/2011.html">2011年</a></li>
+      <li> <a href="/diary/2010.html">2010年</a></li>
+      <li> <a href="/diary/2009.html">2009年</a></li>
+      <li> <a href="/diary/2008.html">2008年</a></li>
+      <li> <a href="/diary/2007.html">2007年</a></li>
+      <li> <a href="/diary/2006.html">2006年</a></li>
+      <li> <a href="/diary/2005.html">2005年</a></li>
+      <li> <a href="/diary/2004.html">2004年</a></li>
+      <li> <a href="/diary/2003.html">2003年</a></li>
+      <li> <a href="/diary/2002.html">2002年</a></li>
+      <li> <a href="/diary/2001.html">2001年</a></li>
+      <li> <a href="/diary/2000.html">2000年</a></li>
+      <li> <a href="/diary/1999.html">1999年</a></li>
+      <li> <a href="/diary/1998.html">1998年</a></li>
+      <li> <a href="/diary/1997.html">1997年</a></li>
+      <li> <a href="/diary/1996.html">1996年</a></li>
+    <li> <a href="/diary/1995.html">1995年以前</a></li>
+    <li> <a href="/tag/tag_list/">Tags</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+    <script src="/javascripts/diary.js"></script>
+      <script src="/pagefind/pagefind-ui.js"></script>
+      <script src="/javascripts/search.js"></script>
+    <script src="/javascripts/photoswipe.umd.min.js"></script>
+    <script src="/javascripts/photoswipe-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
+
+  </body>
+</html>

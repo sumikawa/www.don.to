@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <title>2012/05/08: PukiWikiをdotcloud + S3で運用する</title>
+    <link rel="alternate" type="application/rss+xml" title="rss" href="https://www.don.to/diary/index.rdf">
+      <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <link href="/stylesheets/code.css" rel="stylesheet" />
+    <link href="/stylesheets/photoswipe.css" rel="stylesheet" />
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/ipod-icon.png">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=2.0000">
+    <meta property="og:site_name" content="すみかわ日記">
+    <meta property="og:title" content="2012/05/08: PukiWikiをdotcloud + S3で運用する">
+  </head>
+
+  <body data-source-path="/diary/2012/0508-wiki.html.md.erb">
+    <div class="container">
+      <div class="centerblock">
+          <div class="titleblock">
+            <h2><a href="/">すみかわ日記</a></h2>
+          </div>
+        <div class="mainblock">
+          <div id="search"></div>
+          <h2 data-pagefind-sort="date:2012-05-08">2012/05/08: PukiWikiをdotcloud + S3で運用する</h2>
+          <main data-pagefind-body>
+              <p>長期計画ですが、おうちサーバーを無くそうとしています。
+ただし、単純にVPSへ移動するんじゃなくて、OSやミドルウェアのメンテナンスがいらないPaaS/SaaSへの移行が目標です。
+その一貫として<a href="http://pukiwiki.sourceforge.jp/">PukiWiki</a>を<a href="https://www.dotcloud.com/">dotcloud</a>に移しました。</p>
+
+<p>ポイントはWikiデータをローカルディスクではなくs3fs経由でAWS S3に置くこと。
+これにより、デプロイメント(dotcloud push)のタイミングでローカルディスクの内容が消えるdotcloudの仕様を回避できます。
+また、S3上においておけば障害が起こってもデータが消えません。</p>
+
+<p>以下が手順です。dotcloudそのものの設定は済んでいるものとします。
+まだの人は<a href="http://docs.dotcloud.com/firststeps/install/">こちら</a>から。</p>
+
+<h3>AWSコンソールからWiki用のbucketを作る</h3>
+
+<p>ここでは、bucket名は&quot;sumikawa-wiki-test&quot;とします。
+まあ、スクリーンショット貼るほどでもないですが、一応。</p>
+
+<p><img src="https://dl.dropboxusercontent.com/scl/fi/o8icvzyn8i1byfm3m1kpo/s3.png?rlkey=rziiiuxyddubtzxs5zvttxfdb&amp;dl=0" height="600" alt="" /></p>
+
+<h3>素のPukiWikiをデプロイメントする</h3>
+
+<p>systempackagesで指定してるのはfuse-s3fsに必要なパッケージです。ついでにここでインストールしておきます。</p>
+
+<pre class="terminal">
+% mkdir (適当なディレクトリ)
+% cd (適当なディレクトリ)
+% cat > dotcloud.yml
+wiki:
+  approot: pukiwiki-1.4.7_notb_utf8
+  type: php
+  systempackages:
+    - libfuse2
+    - fuse-utils
+(Ctrl+Dを押す)
+% tar zxf ~/Downloads/pukiwiki-1.4.7_notb_utf8.tar.gz
+% dotcloud create test
+Created application "test"
+% dotcloud push test
+(略)
+Deployment finished. Your application is available at the following URLs
+wiki: http://xxxx-xxxxxxxx.dotcloud.com/
+</pre>
+
+<p>最後に出て来たURLにアクセスするとPukiWikiが表示されてると思います。まあ簡単。</p>
+
+<h3>fuse-s3fsの設定をする</h3>
+
+<p>dotcloudの<a href="http://docs.dotcloud.com/guides/s3fs/">この手順</a>に従って、fuse-s3fsの設定をします。</p>
+
+<pre class="terminal">
+% cd pukiwiki-1.4.7_notb_utf8/
+% curl -O http://dotcloud-plugins.s3.amazonaws.com/s3fs
+% chmod +x s3fs
+% curl -O http://docs.dotcloud.com/_downloads/run.s3fs
+% chmod +x run.s3fs
+% cat > supervisord.conf 
+[program:s3fs]
+command=/home/dotcloud/current/run.s3fs
+stdout_logfile=/var/log/supervisor/s3fs.log
+stderr_logfile=/var/log/supervisor/s3fs.log
+(Ctrl+Dを押す)
+% dotcloud var set test \
+           S3FS_BUCKET=sumikawa-wiki-test \
+           S3FS_MOUNTPOINT=/home/dotcloud/s3fs \
+           S3FS_ACCESSKEY=xxxx \
+           S3FS_SECRETKEY=xxxxxxxxxxxxxxxxxxxx
+</pre>
+
+<h3>S3をマウントする</h3>
+
+<p>上記の設定を反映して、S3をマウントするために一旦デプロイメントします。</p>
+
+<pre class="terminal">
+% cd ..
+% dotcloud push test
+</pre>
+
+<h3>Wiki用のデータをS3にコピー</h3>
+
+<p>sshでログインして、(初期状態の)WikiデータをS3にコピーします。</p>
+
+<pre class="terminal">
+% dotcloud ssh test.wiki
+dotcloud@test-default-wiki-0:~$ cd current
+dotcloud@test-default-wiki-0:~/current$ cp -r wiki diff backup cache attach counter traceback ~/s3fs/
+dotcloud@test-default-wiki-0:~/s3fs$ exit
+exit
+</pre>
+
+<h3>PukiWikiの設定を変えてもう一度デプロイメント</h3>
+
+<p>pukiwiki.phpに下記のdiffをあてて、s3fsディレクトリ以下のデータを参照するように変更します。$scriptはdotcloudが決めたURLに変更のこと。
+パスの&quot;/pukiwiki&quot;の部分はいりません。</p>
+<div class="highlight"><pre class="highlight diff"><code><span class="gd">--- pukiwiki.ini.php.orig   2012-05-08 12:38:31.000000000 +0900
+</span><span class="gi">+++ pukiwiki.ini.php    2012-05-08 12:51:10.000000000 +0900
+</span><span class="p">@@ -70,13 +70,13 @@</span>
+ // You may hide these directories (from web browsers)
+ // by setting DATA_HOME at index.php.
+
+-define('DATA_DIR',      DATA_HOME . 'wiki/'     ); // Latest wiki texts
+<span class="gd">-define('DIFF_DIR',      DATA_HOME . 'diff/'     ); // Latest diffs
+-define('BACKUP_DIR',    DATA_HOME . 'backup/'   ); // Backups
+-define('CACHE_DIR',     DATA_HOME . 'cache/'    ); // Some sort of caches
+-define('UPLOAD_DIR',    DATA_HOME . 'attach/'   ); // Attached files and logs
+-define('COUNTER_DIR',   DATA_HOME . 'counter/'  ); // Counter plugin's counts
+-define('TRACKBACK_DIR', DATA_HOME . 'trackback/'); // TrackBack logs
+</span><span class="gi">+define('DATA_DIR',      DATA_HOME . '../../s3fs/wiki/'     ); // Latest wiki texts
++define('DIFF_DIR',      DATA_HOME . '../../s3fs/diff/'     ); // Latest diffs
++define('BACKUP_DIR',    DATA_HOME . '../../s3fs/backup/'   ); // Backups
++define('CACHE_DIR',     DATA_HOME . '../../s3fs/cache/'    ); // Some sort of caches
++define('UPLOAD_DIR',    DATA_HOME . '../../s3fs/attach/'   ); // Attached files and logs
++define('COUNTER_DIR',   DATA_HOME . '../../s3fs/counter/'  ); // Counter plugin's counts
++define('TRACKBACK_DIR', DATA_HOME . '../../s3fs/trackback/'); // TrackBack logs
+</span> define('PLUGIN_DIR',    DATA_HOME . 'plugin/'   ); // Plugin directory
+
+ /////////////////////////////////////////////////
+<span class="p">@@ -114,7 +114,7 @@</span>
+ $page_title = 'PukiWiki';
+
+ // Specify PukiWiki URL (default: auto)
+<span class="gd">-//$script = 'http://example.com/pukiwiki/';
+</span><span class="gi">+$script = 'http://xxxx-xxxxxxxx.dotcloud.com/';
+</span>
+ // Shorten $script: Cut its file name (default: not cut)
+ //$script_directory_index = 'index.php';
+</code></pre></div>
+<p>修正を反映するためにもう一度デプロイメント。</p>
+
+<pre class="terminal">
+% cd ..
+% dotcloud push test
+(略)
+</pre>
+
+<p>これで終わりです。先ほどのURLにアクセスしてWikiを編集すると、S3上のファイルが更新されるかと思います。
+既にPukiWikiのデータを持ってて移行したい人は、適当な手段でS3のデータを上書きしてください。</p>
+
+<p>sshができたりfuseが使えたりなど、かゆいところに手が届くので、dotcloudはお勧めです。</p>
+
+
+
+              <div class="tags">
+                Tags:
+                  <a href="/tag/aws/">aws</a> (19)
+                  <a href="/tag/tech/">tech</a> (40)
+              </div>
+          </main>
+
+          <nav class="prev_next" style="text-align: center; margin: 1em 0;"><a href="/diary/2012/0506-riri/">&laquo; prev</a><span style="margin: 0 1em;">|</span><a href="/diary/2012/0512-zoo/">next &raquo;</a></nav>
+
+          <hr>
+          <div id="name">SUMIKAWA Munechika / Daydreamers On the Net</div>
+        </div>
+      </div>
+      <div class="leftblock">
+        <div class="eachindexblock nav">
+  <ul id="gray">
+      <li> <a href="/diary/2026.html">2026年</a></li>
+      <li> <a href="/diary/2025.html">2025年</a></li>
+      <li> <a href="/diary/2024.html">2024年</a></li>
+      <li> <a href="/diary/2023.html">2023年</a></li>
+      <li> <a href="/diary/2022.html">2022年</a></li>
+      <li> <a href="/diary/2021.html">2021年</a></li>
+      <li> <a href="/diary/2020.html">2020年</a></li>
+      <li> <a href="/diary/2019.html">2019年</a></li>
+      <li> <a href="/diary/2018.html">2018年</a></li>
+      <li> <a href="/diary/2017.html">2017年</a></li>
+      <li> <a href="/diary/2016.html">2016年</a></li>
+      <li> <a href="/diary/2015.html">2015年</a></li>
+      <li> <a href="/diary/2014.html">2014年</a></li>
+      <li> <a href="/diary/2013.html">2013年</a></li>
+      <li> <a href="/diary/2012.html">2012年</a></li>
+      <li> <a href="/diary/2011.html">2011年</a></li>
+      <li> <a href="/diary/2010.html">2010年</a></li>
+      <li> <a href="/diary/2009.html">2009年</a></li>
+      <li> <a href="/diary/2008.html">2008年</a></li>
+      <li> <a href="/diary/2007.html">2007年</a></li>
+      <li> <a href="/diary/2006.html">2006年</a></li>
+      <li> <a href="/diary/2005.html">2005年</a></li>
+      <li> <a href="/diary/2004.html">2004年</a></li>
+      <li> <a href="/diary/2003.html">2003年</a></li>
+      <li> <a href="/diary/2002.html">2002年</a></li>
+      <li> <a href="/diary/2001.html">2001年</a></li>
+      <li> <a href="/diary/2000.html">2000年</a></li>
+      <li> <a href="/diary/1999.html">1999年</a></li>
+      <li> <a href="/diary/1998.html">1998年</a></li>
+      <li> <a href="/diary/1997.html">1997年</a></li>
+      <li> <a href="/diary/1996.html">1996年</a></li>
+    <li> <a href="/diary/1995.html">1995年以前</a></li>
+    <li> <a href="/tag/tag_list/">Tags</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+    <script src="/javascripts/diary.js"></script>
+      <script src="/pagefind/pagefind-ui.js"></script>
+      <script src="/javascripts/search.js"></script>
+    <script src="/javascripts/photoswipe.umd.min.js"></script>
+    <script src="/javascripts/photoswipe-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
+
+  </body>
+</html>

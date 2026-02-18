@@ -1,0 +1,227 @@
+class: center, middle
+
+# FreeBSD with zfs on EC2
+## Munechika Sumikawa
+## Jul 2014
+
+---
+class: left, top
+
+## t2.micro + gp2 volumeでFreeBSD 10が起動!
+
+- マイクロインスタンスでFreeBSDが動く時代が到来
+
+```
+aws ec2 run-instances --image-id ami-bdcda3bc --key-name sumikawa \
+--instance-type t2.micro --block-device-mapping \
+'[{"DeviceName":"/dev/xvda","Ebs":{"VolumeType":"gp2","VolumeSize":10}}]'
+```
+
+---
+
+## Why FreeBSD?
+
+- zfsが安定して使える!!
+- でもzfsはメモリ食い
+- マイクロインスタンスは忘れてt2.mediumで上げ直します
+
+```
+aws ec2 run-instances --image-id ami-bdcda3bc --key-name sumikawa \
+--instance-type t2.medium --block-device-mapping \
+'[{"DeviceName":"/dev/xvda","Ebs":{"VolumeType":"gp2","VolumeSize":10}}]'
+```
+
+---
+
+## 10GBのボリュームを足します
+
+.center[![10G](/presentation/20140703-zfsec2/10g.png)]
+
+---
+
+## 自動的にデバイスが追加された!
+
+```
+# dmesg | tail -1
+xbd5: 10240MB <Virtual Block Device> at device/vbd/51792 on xenbusb_front0
+```
+
+---
+
+## プール(tank)を作って、ボリューム(tank/local)を作ります
+
+```
+# zpool create tank xbd5
+# zpool -st
+NAME   SIZE  ALLOC   FREE    CAP  DEDUP  HEALTH  ALTROOT
+tank  9.94G    92K  9.94G     0%  1.00x  ON-NE  -
+# zfs create tank/local
+# zfs -st
+NAME         USED  AVAIL  REFER  MOUNTPOINT
+tank         149K  9.78G    31K  /tank
+tank/local    31K  9.78G    31K  /tank/local
+```
+
+---
+
+## プールのステータスを確認
+
+```
+# zpool status
+  pool: tank
+ state: ON-NE
+  scan: none requested
+config:
+
+	NAME        STATE     READ WRITE CKSUM
+	tank        ON-NE       0     0     0
+	  xbd5      ON-NE       0     0     0
+
+errors: No known data errors
+```
+
+---
+
+## マウントできました
+
+```
+# zfs set mountpoint=/usr/local tank/local
+# df -m
+Filesystem 1M-blocks Used Avail Capacity  Mounted on
+/dev/ada0a      9905 1986  7126    22%    /
+devfs              0    0     0   100%    /dev
+tank           10016    0 10016     0%    /tank
+tank/local     10016    0 10016     0%    /usr/local
+```
+
+---
+
+## zfsボリュームが溢れそう！
+
+- 100GBのディスクをミラーとして追加しました
+- 勝手にミラーリングが始まります
+
+```
+# dmesg | tail -1
+xbd6: 10240MB <Virtual Block Device> at device/vbd/51808 on xenbusb_front0
+# zpool attach -f tank xbd5 xbd6
+# zpool status
+  pool: tank
+ state: ON-NE
+  scan: resilvered 148K in 0h0m with 0 errors on Wed Jul  2 15:45:34 2014
+config:
+
+	NAME        STATE     READ WRITE CKSUM
+	tank        ON-NE       0     0     0
+	  mirror-0  ON-NE       0     0     0
+	    xbd5    ON-NE       0     0     0
+	    xbd6    ON-NE       0     0     0
+
+errors: No known data errors
+```
+
+---
+
+## ミラーリングが終わったので10GBのディスクを外します
+
+```
+# zpool detach tank xbd5
+# zpool status
+  pool: tank
+ state: ON-NE
+  scan: resilvered 148K in 0h0m with 0 errors on Wed Jul  2 15:45:34 2014
+config:
+
+	NAME        STATE     READ WRITE CKSUM
+	tank        ON-NE       0     0     0
+	  xbd6      ON-NE       0     0     0
+
+errors: No known data errors
+```
+
+---
+
+## まだ/usr/localは10GBのままです
+
+```
+# zfs -st
+NAME         USED  AVAIL  REFER  MOUNTPOINT
+tank         174K  9.78G    31K  /tank
+tank/local    31K  9.78G    31K  /usr/local
+# df -m
+Filesystem 1M-blocks Used Avail Capacity  Mounted on
+/dev/ada0a      9905 1986  7126    22%    /
+devfs              0    0     0   100%    /dev
+tank           10016    0 10016     0%    /tank
+tank/local     10016    0 10016     0%    /usr/local
+```
+
+---
+
+## zfsを有効化して、リブートします
+
+```
+# echo 'zfs_enable="YES"' >> /etc/rc.conf
+# /sbin/shutdown -r now
+```
+
+---
+
+## 100GBキタ!
+
+```
+# zpool -st
+NAME   SIZE  ALLOC   FREE    CAP  DEDUP  HEALTH  ALTROOT
+tank  99.9G   204K  99.9G     0%  1.00x  ON-NE  -
+# df -m
+Filesystem 1M-blocks Used  Avail Capacity  Mounted on
+/dev/ada0a      9905 1986   7126    22%    /
+devfs              0    0      0   100%    /dev
+tank          100736    0 100736     0%    /tank
+tank/local    100736    0 100736     0%    /usr/local
+```
+
+---
+
+## 100GB多すぎた!
+
+- 50GBを追加してデータを移そう
+- newtankを作る
+- 最強コマンド zfs send/recvでsnapshotをコピー
+
+```
+# zpool create newtank xbd7
+# zfs create newtank/local
+# touch /usr/local/hogehoge
+# zfs snapshot tank/local@snap
+# zfs send tank/local@snap | zfs recv -F newtank/local
+```
+
+---
+
+- マウントポイント変更します
+- 100GBボリューム捨てます
+
+```
+# zfs set mountpoint=/usr/oldlocal tank/local
+# zfs set mountpoint=/usr/local newtank/local
+# df -m
+Filesystem 1M-blocks Used  Avail Capacity  Mounted on
+/dev/ada0a      9905 1986   7126    22%    /
+devfs              0    0      0   100%    /dev
+tank          100736    0 100736     0%    /tank
+tank/local    100736    0 100736     0%    /usr/oldlocal
+newtank        50147    0  50147     0%    /usr/local
+# ls -l /usr/local/
+total 1
+-rw-r--r--  1 root  wheel  0 Jul  3 10:02 hogehoge
+# zpool destroy tank
+```
+
+---
+
+# まとめ
+
+- サービスをほとんど止めないで、ボリュームを大きくできました
+- サービスをほとんど止めないで、ボリュームを小さくもできました
+- zfsかわいいよzfs
