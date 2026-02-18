@@ -169,9 +169,6 @@ seriphテーマで使えるcoverレイアウトです。このように背景画
 
 <center>
 
-<logos-chrome class="text-5xl m-12 animate-bounce"/>
-<logos-firefox class="text-5xl m-12 animate-bounce"/>
-<logos-microsoft-edge class="text-5xl m-12 animate-bounce"/>
 
 </center>
 
