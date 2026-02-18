@@ -179,9 +179,7 @@ seriphテーマで使えるcoverレイアウトです。このように背景画
 
 <center>
 
-<twemoji-grinning-face-with-sweat class="text-5xl m-12 animate-pulse"/>
-<twemoji-party-popper class="text-5xl m-12 animate-ping"/>
-<twemoji-cat-with-tears-of-joy class="text-5xl m-12 animate-spin"/>
+
 
 </center>
 
