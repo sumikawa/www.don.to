@@ -10,11 +10,7 @@ module CustomHelpers
   end
 
   def thisyear
-    if localhost?
-      Dir.glob(File.expand_path("#{data.site.imagerootdir}/diary/[0-9]*/")).max.gsub(/[^0-9]/, '').to_i
-    else
-      Dir.glob('source/diary/[0-9]*').max.gsub(/[^0-9]/, '').to_i
-    end
+    data.year.thisyear
   end
 
   def gen_date
