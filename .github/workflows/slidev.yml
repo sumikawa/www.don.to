@@ -46,8 +46,8 @@ jobs:
 
       - name: Copy other artifacts
         run: |
-          if [ -d public ]; then
-            cp -r public/* dist/
+          if [ -d image ]; then
+            cp -r image/* dist/
           fi
 
       - name: Deploy
