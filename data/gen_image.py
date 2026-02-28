@@ -31,8 +31,25 @@ def sharing(path):
   return(links[0].url)
 
 if __name__ == "__main__":
-  with open('image.yml') as original_file:
-    yml = yaml.load(original_file, Loader=yaml.Loader)
+  yml_cache = {}
+
+  def get_yml(year):
+    if year not in yml_cache:
+      path = "image/{year}.yml".format(year=year)
+      if os.path.exists(path):
+        with open(path, 'r') as f:
+          yml_cache[year] = yaml.load(f, Loader=yaml.Loader) or {}
+      else:
+        yml_cache[year] = {}
+    return yml_cache[year]
+
+  def save_yml():
+    os.chdir(currentdir)
+    for year, data in yml_cache.items():
+      path = "image/{year}.yml".format(year=year)
+      with open(path, mode='w', encoding='utf-8') as f:
+        yaml.safe_dump(data, f)
+    os.chdir(rootdir + prefix)
 
   rootdir = "/Users/sumikawa/Dropbox"
   prefix = "/.cache"
@@ -54,31 +71,24 @@ if __name__ == "__main__":
     dirname = layers[3]
     filename = layers[4]
 
-    if not year in yml:
-      yml[year] = {}
+    yml = get_yml(year)
 
-    if not dirname in yml[year]:
-      yml[year][dirname] = {}
+    if not dirname in yml:
+      yml[dirname] = {}
 
-    if not filename in yml[year][dirname].keys():
+    if not filename in yml[dirname].keys():
       print("generating url: {year}/{dirname}/{filename}".format(year=year, dirname=dirname, filename=filename), flush=True)
       url = sharing(file)
       url = url.replace('https://www.dropbox.com/', 'https://dl.dropboxusercontent.com/')
-      yml[year][dirname][filename] = url
+      yml[dirname][filename] = url
       count = count + 1
-    # else:
-    #   print("  skip url: {year}/{dirname}/{filename}".format(year=year, dirname=dirname, filename=filename))
 
     if count == 30:
       print("writing yml", flush=True)
-      os.chdir(currentdir)
-      with open('image.yml', mode='w', encoding='utf-8') as new_file:
-        yaml.safe_dump(yml, new_file)
-      os.chdir(rootdir + prefix)
+      save_yml()
       count = 0
       print("-> done", flush=True)
 
-  os.chdir(currentdir)
-  with open('image.yml', mode='w', encoding='utf-8') as new_file:
-    yaml.safe_dump(yml, new_file)
-  os.chdir(rootdir + prefix)
+  print("writing final yml", flush=True)
+  save_yml()
+  print("-> done", flush=True)
