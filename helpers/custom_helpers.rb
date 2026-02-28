@@ -63,7 +63,10 @@ module CustomHelpers
 
   # Renders the daylog for a given year
   def rend_daylog(year)
-    data.daylog.each_with_object([]) do |item, result|
+    year_data = data.daylog[year.to_s]
+    return [] unless year_data
+
+    year_data.each_with_object([]) do |item, result|
       entry = case item
               when String
                 _process_daylog_string(item, year)
