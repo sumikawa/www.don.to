@@ -56,6 +56,11 @@ module CustomHelpers
     "<div class=\"note\">\n本ドキュメントは#{link_to('note記事', link)}のバックアップです。\n</div>"
   end
 
+  # Returns all daylog entries across all years
+  def all_daylogs
+    data.daylog.values.flatten
+  end
+
   # Renders the daylog for a given year
   def rend_daylog(year)
     data.daylog.each_with_object([]) do |item, result|

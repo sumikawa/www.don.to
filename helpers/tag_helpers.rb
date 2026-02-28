@@ -3,9 +3,7 @@ require 'yaml'
 
 module TagHelpers
   def tags_list
-    @tags_list ||= Dir.glob('source/diary/[012]*/**/*.html.md.erb').each_with_object({}) do |file_path, all_tags|
-      process_file_tags(file_path, all_tags)
-    end
+    data.tags
   end
 
   private
