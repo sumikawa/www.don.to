@@ -20,6 +20,7 @@ end
 untagged_files = []
 
 tags_list = Dir.glob('source/diary/[012]*/**/*.html.md.erb').each_with_object({}) do |file_path, all_tags|
+  next if file_path =~ /-secret/
   tags = tags_for_file(file_path)
   if tags.empty?
     untagged_files << file_path

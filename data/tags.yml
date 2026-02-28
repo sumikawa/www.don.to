@@ -645,22 +645,10 @@ ballet:
 - source/diary/2018/0517-riri.html.md.erb
 - source/diary/2018/0714-vallet.html.md.erb
 - source/diary/2018/0715-ballet.html.md.erb
-- source/diary/2019/0226-secret.html.md.erb
-- source/diary/2019/0416-secret.html.md.erb
 - source/diary/2019/0511-riri.html.md.erb
-- source/diary/2019/0521-secret.html.md.erb
-- source/diary/2019/0528-secret.html.md.erb
-- source/diary/2019/0529-secret.html.md.erb
 - source/diary/2019/0601-riri.html.md.erb
-- source/diary/2019/0601-secret.html.md.erb
 - source/diary/2019/0728-riri.html.md.erb
-- source/diary/2019/1130-secret.html.md.erb
-- source/diary/2019/1225-secret.html.md.erb
-- source/diary/2020/0125-secret.html.md.erb
-- source/diary/2020/0219-secret.html.md.erb
-- source/diary/2020/0918-secret.html.md.erb
 - source/diary/2020/0926-riri.html.md.erb
-- source/diary/2020/1104-secret.html.md.erb
 - source/diary/2021/1204-ballet.html.md.erb
 balloon:
 - source/diary/2007/0924-baloon.html.md.erb
@@ -1294,7 +1282,6 @@ businesstrip:
 - source/diary/2005/0623-ottawa.html.md.erb
 - source/diary/2005/1024-us.html.md.erb
 - source/diary/2005/1026-us.html.md.erb
-- source/diary/2006/0105-secret.html.md.erb
 - source/diary/2006/0517-korea.html.md.erb
 - source/diary/2006/0913-us.html.md.erb
 - source/diary/2006/0914-us.html.md.erb
@@ -1624,7 +1611,6 @@ celebration:
 - source/diary/1999/0729-kame.html.md.erb
 - source/diary/2004/0317-birthday.html.md.erb
 - source/diary/2006/0505-baby.html.md.erb
-- source/diary/2007/0401-secret.html.md.erb
 - source/diary/2007/0422-kanreki.html.md.erb
 - source/diary/2007/0423-jikka.html.md.erb
 - source/diary/2007/0429-anniv.html.md.erb
@@ -1645,7 +1631,6 @@ celebration:
 ceremony:
 - source/diary/2004/0804-graduation.html.md.erb
 - source/diary/2006/0603-baby.html.md.erb
-- source/diary/2007/1118-secret.html.md.erb
 - source/diary/2008/0401-nyuen.html.md.erb
 - source/diary/2010/0401-hoikuen.html.md.erb
 - source/diary/2010/0627-omiyamairi.html.md.erb
@@ -1654,12 +1639,8 @@ ceremony:
 - source/diary/2017/0317-riri.html.md.erb
 - source/diary/2017/0405-riri.html.md.erb
 - source/diary/2019/0320-ren.html.md.erb
-- source/diary/2022/0324-secret.html.md.erb
-- source/diary/2022/0408-secret.html.md.erb
 - source/diary/2023/0215-riri.html.md.erb
-- source/diary/2023/0317-secret.html.md.erb
 - source/diary/2023/0317-sotugyosiki.html.md.erb
-- source/diary/2023/0407-secret.html.md.erb
 certification:
 - source/diary/2024/1130-sap.html.md.erb
 character:
@@ -1685,7 +1666,6 @@ cherry blossoms:
 - source/diary/2001/0402-hanami.html.md.erb
 - source/diary/2002/0330-sakura.html.md.erb
 - source/diary/2007/0331-sakura.html.md.erb
-- source/diary/2007/0401-secret.html.md.erb
 - source/diary/2008/0329-sakura.html.md.erb
 - source/diary/2009/0404-sakura.html.md.erb
 - source/diary/2009/0407-park.html.md.erb
@@ -1957,7 +1937,6 @@ costume:
 - source/diary/2014/0812-ebina.html.md.erb
 - source/diary/2016/0203-riri.html.md.erb
 - source/diary/2016/0415-disney.html.md.erb
-- source/diary/2016/1028-secret.html.md.erb
 - source/diary/2017/0820-riri.html.md.erb
 - source/diary/2017/0901-riri.html.md.erb
 - source/diary/2017/1027-haloween.html.md.erb
@@ -2208,7 +2187,6 @@ daughter:
 - source/diary/2012/0303-hinamaturi.html.md.erb
 - source/diary/2012/0314-hoikuen.html.md.erb
 - source/diary/2012/0317-riri.html.md.erb
-- source/diary/2012/0331-secret.html.md.erb
 - source/diary/2012/0402-riri.html.md.erb
 - source/diary/2012/0428-park.html.md.erb
 - source/diary/2012/0505-park.html.md.erb
@@ -2296,7 +2274,6 @@ daughter:
 - source/diary/2014/0308-ebina.html.md.erb
 - source/diary/2014/0313-children.html.md.erb
 - source/diary/2014/0315-museum.html.md.erb
-- source/diary/2014/0331-secret.html.md.erb
 - source/diary/2014/0405-park.html.md.erb
 - source/diary/2014/0412-park.html.md.erb
 - source/diary/2014/0412-strawberry.html.md.erb
@@ -2343,7 +2320,6 @@ daughter:
 - source/diary/2015/0308-riri.html.md.erb
 - source/diary/2015/0315-children.html.md.erb
 - source/diary/2015/0328-riri.html.md.erb
-- source/diary/2015/0331-secret.html.md.erb
 - source/diary/2015/0429-park.html.md.erb
 - source/diary/2015/0502-osaka.html.md.erb
 - source/diary/2015/0503-osaka.html.md.erb
@@ -2454,20 +2430,13 @@ daughter:
 - source/diary/2019/1203-school.html.md.erb
 - source/diary/2019/1207-kintone.html.md.erb
 - source/diary/2020/0115-puchu.html.md.erb
-- source/diary/2020/0125-secret.html.md.erb
-- source/diary/2020/0219-secret.html.md.erb
 - source/diary/2020/0814-kidzania.html.md.erb
 - source/diary/2021/0427-riri.html.md.erb
 - source/diary/2021/0529-undoukai.html.md.erb
-- source/diary/2021/0915-secret.html.md.erb
-- source/diary/2021/0923-secret.html.md.erb
-- source/diary/2021/0924-secret.html.md.erb
-- source/diary/2021/1003-secret.html.md.erb
 - source/diary/2021/1230-ren.html.md.erb
 - source/diary/2022/0130-hakone.html.md.erb
 - source/diary/2022/0330-family.html.md.erb
 - source/diary/2023/0212-riri.html.md.erb
-- source/diary/2023/0407-secret.html.md.erb
 - source/diary/2023/0527-disney.html.md.erb
 - source/diary/2023/1019-muscle.html.md.erb
 - source/diary/2024/0216-yokohama.html.md.erb
@@ -2642,7 +2611,6 @@ dinosaur:
 - source/diary/2012/1222-chiba.html.md.erb
 - source/diary/2014/0720-yokohama.html.md.erb
 disney:
-- source/diary/2002/0104-secret.html.md.erb
 - source/diary/2008/0528-tdl.html.md.erb
 - source/diary/2008/1106-tdl.html.md.erb
 - source/diary/2008/1225-tds.html.md.erb
@@ -2669,17 +2637,6 @@ diving:
 diy:
 - source/diary/2004/0229-iron.html.md.erb
 - source/diary/2011/0629-roomba.html.md.erb
-document:
-- source/diary/2008/0331-secret.html.md.erb
-- source/diary/2009/0331-secret.html.md.erb
-- source/diary/2010/0331-secret.html.md.erb
-- source/diary/2011/0331-secret.html.md.erb
-- source/diary/2012/0331-secret.html.md.erb
-- source/diary/2013/0331-secret.html.md.erb
-- source/diary/2014/0331-secret.html.md.erb
-- source/diary/2015/0331-secret.html.md.erb
-- source/diary/2016/0331-secret.html.md.erb
-- source/diary/2017/0331-secret.html.md.erb
 dolphin:
 - source/diary/2007/0916-aqua.html.md.erb
 - source/diary/2008/0705-aquarium.html.md.erb
@@ -2904,7 +2861,6 @@ event:
 - source/diary/2004/0829-concert.html.md.erb
 - source/diary/2004/1106-firework.html.md.erb
 - source/diary/2005/0723-jibiki.html.md.erb
-- source/diary/2006/0224-secret.html.md.erb
 - source/diary/2006/0402-matanity.html.md.erb
 - source/diary/2006/0713-debut.html.md.erb
 - source/diary/2007/1215-hogoshakai.html.md.erb
@@ -3020,13 +2976,10 @@ event:
 - source/diary/2019/1203-school.html.md.erb
 - source/diary/2019/1210-party.html.md.erb
 - source/diary/2019/1224-christmas.html.md.erb
-- source/diary/2020/0918-secret.html.md.erb
-- source/diary/2020/1104-secret.html.md.erb
 - source/diary/2021/0704-wedding.html.md.erb
 - source/diary/2022/0528-undokai.html.md.erb
 - source/diary/2022/1029-utgsc.html.md.erb
 - source/diary/2023/0625-festival.html.md.erb
-- source/diary/2023/1013-secret.html.md.erb
 - source/diary/2023/1027-letter.html.md.erb
 - source/diary/2023/1028-haloween.html.md.erb
 - source/diary/2024/0717-odaiba.html.md.erb
@@ -3334,7 +3287,6 @@ family:
 - source/diary/2016/0117-kohoku.html.md.erb
 - source/diary/2016/0207-dinner.html.md.erb
 - source/diary/2016/0313-riri.html.md.erb
-- source/diary/2016/0331-secret.html.md.erb
 - source/diary/2016/0403-park.html.md.erb
 - source/diary/2016/0409-park.html.md.erb
 - source/diary/2016/0410-park.html.md.erb
@@ -3464,10 +3416,6 @@ family:
 - source/diary/2021/0725-fireworks.html.md.erb
 - source/diary/2021/0730-morning.html.md.erb
 - source/diary/2021/0830-yokohama.html.md.erb
-- source/diary/2021/0915-secret.html.md.erb
-- source/diary/2021/0923-secret.html.md.erb
-- source/diary/2021/0924-secret.html.md.erb
-- source/diary/2021/1003-secret.html.md.erb
 - source/diary/2021/1121-odawara.html.md.erb
 - source/diary/2021/1127-hodogaya.html.md.erb
 - source/diary/2021/1218-house.html.md.erb
@@ -3480,7 +3428,6 @@ family:
 - source/diary/2022/0312-hodogaya.html.md.erb
 - source/diary/2022/0313-kamakura.html.md.erb
 - source/diary/2022/0320-yokosuka.html.md.erb
-- source/diary/2022/0324-secret.html.md.erb
 - source/diary/2022/0330-family.html.md.erb
 - source/diary/2022/0605-teamlab.html.md.erb
 - source/diary/2022/0616-riri.html.md.erb
@@ -3502,7 +3449,6 @@ family:
 - source/diary/2023/0218-tazawako.html.md.erb
 - source/diary/2023/0223-enosima.html.md.erb
 - source/diary/2023/0225-izu.html.md.erb
-- source/diary/2023/0317-secret.html.md.erb
 - source/diary/2023/0317-sotugyosiki.html.md.erb
 - source/diary/2023/0325-yokohama.html.md.erb
 - source/diary/2023/0329-maita.html.md.erb
@@ -3511,7 +3457,6 @@ family:
 - source/diary/2023/0427-baseball.html.md.erb
 - source/diary/2023/0527-boat.html.md.erb
 - source/diary/2023/0603-minakami.html.md.erb
-- source/diary/2023/0608-secret.html.md.erb
 - source/diary/2023/0610-dinner.html.md.erb
 - source/diary/2023/0708-pool.html.md.erb
 - source/diary/2023/0716-pool.html.md.erb
@@ -3619,10 +3564,8 @@ festival:
 - source/diary/2023/0625-festival.html.md.erb
 - source/diary/2023/0909-festival.html.md.erb
 - source/diary/2024/0908-festival.html.md.erb
-- source/diary/2024/1018-secret.html.md.erb
 - source/diary/2024/1124-mitasai.html.md.erb
 - source/diary/2025/1012-hodogaya.html.md.erb
-- source/diary/2025/1017-secret.html.md.erb
 fieldtrip:
 - source/diary/2009/0523-ensoku.html.md.erb
 - source/diary/2010/0509-park.html.md.erb
@@ -4065,7 +4008,6 @@ friend:
 - source/diary/1999/0102-oucckun.html.md.erb
 - source/diary/1999/0103-muta.html.md.erb
 - source/diary/1999/0124-karaoke.html.md.erb
-- source/diary/1999/0124-secret.html.md.erb
 - source/diary/1999/0425-wine.html.md.erb
 - source/diary/1999/0918-sadaken.html.md.erb
 - source/diary/1999/1017-tarkun.html.md.erb
@@ -4074,7 +4016,6 @@ friend:
 - source/diary/2000/0103-naist.html.md.erb
 - source/diary/2000/0408-20thanni.html.md.erb
 - source/diary/2000/0429-mya.html.md.erb
-- source/diary/2000/0916-secret.html.md.erb
 - source/diary/2001/0401-hanami.html.md.erb
 - source/diary/2001/0706-sudou.html.md.erb
 - source/diary/2001/0713-shinsairou.html.md.erb
@@ -4158,7 +4099,6 @@ friend:
 - source/diary/2009/1017-romi.html.md.erb
 - source/diary/2009/1103-hodogaya.html.md.erb
 - source/diary/2009/1129-sunami.html.md.erb
-- source/diary/2009/1205-secret.html.md.erb
 - source/diary/2010/0509-park.html.md.erb
 - source/diary/2010/0613-baby.html.md.erb
 - source/diary/2010/0625-nomi.html.md.erb
@@ -4175,7 +4115,6 @@ friend:
 - source/diary/2016/1207-party.html.md.erb
 - source/diary/2017/0609-yokohama.html.md.erb
 - source/diary/2018/0429-billiards.html.md.erb
-- source/diary/2019/0427-secret.html.md.erb
 - source/diary/2022/0716-minako.html.md.erb
 - source/diary/2023/0203-mya.html.md.erb
 - source/diary/2023/0528-kamakura.html.md.erb
@@ -4211,8 +4150,6 @@ fukuoka:
 - source/diary/2011/1209-kyushu.html.md.erb
 - source/diary/2011/1209-kyushu2.html.md.erb
 - source/diary/2011/1210-kyushu.html.md.erb
-funeral:
-- source/diary/2007/1107-secret.html.md.erb
 funny:
 - source/diary/2006/0703-invader.html.md.erb
 - source/diary/2006/0711-raou.html.md.erb
@@ -4339,12 +4276,9 @@ graduation:
 - source/diary/2017/0317-yokohama.html.md.erb
 - source/diary/2017/0331-riri.html.md.erb
 - source/diary/2019/0320-ren.html.md.erb
-- source/diary/2022/0324-secret.html.md.erb
 - source/diary/2023/0215-riri.html.md.erb
-- source/diary/2023/0317-secret.html.md.erb
 - source/diary/2023/0317-sotugyosiki.html.md.erb
 - source/diary/2025/0304-ren.html.md.erb
-- source/diary/2025/0304-secret.html.md.erb
 grandma:
 - source/diary/2006/0510-grandma.html.md.erb
 - source/diary/2007/0429-playland.html.md.erb
@@ -4520,7 +4454,6 @@ halloween:
 - source/diary/2015/1031-haloween.html.md.erb
 - source/diary/2016/1015-party.html.md.erb
 - source/diary/2016/1023-haloween.html.md.erb
-- source/diary/2016/1028-secret.html.md.erb
 - source/diary/2016/1031-haloween.html.md.erb
 - source/diary/2017/1001-riri.html.md.erb
 - source/diary/2017/1027-haloween.html.md.erb
@@ -4738,7 +4671,6 @@ hoikuen:
 - source/diary/2007/1215-hogoshakai.html.md.erb
 - source/diary/2007/1225-christmas.html.md.erb
 - source/diary/2008/0331-hoikuen.html.md.erb
-- source/diary/2008/0331-secret.html.md.erb
 - source/diary/2008/0401-nyuen.html.md.erb
 - source/diary/2008/0502-card.html.md.erb
 - source/diary/2008/0523-ribbon.html.md.erb
@@ -4751,7 +4683,6 @@ hoikuen:
 - source/diary/2009/0303-hinamaturi.html.md.erb
 - source/diary/2009/0321-kaban.html.md.erb
 - source/diary/2009/0331-hoikuen.html.md.erb
-- source/diary/2009/0331-secret.html.md.erb
 - source/diary/2009/0502-birthday.html.md.erb
 - source/diary/2009/0523-ensoku.html.md.erb
 - source/diary/2009/1003-undoukai.html.md.erb
@@ -4760,7 +4691,6 @@ hoikuen:
 - source/diary/2009/1225-christmas.html.md.erb
 - source/diary/2010/0223-picture.html.md.erb
 - source/diary/2010/0331-hoikuen.html.md.erb
-- source/diary/2010/0331-secret.html.md.erb
 - source/diary/2010/0401-hoikuen.html.md.erb
 - source/diary/2010/0525-birthday.html.md.erb
 - source/diary/2010/0701-hoikuen.html.md.erb
@@ -4777,7 +4707,6 @@ hoikuen:
 - source/diary/2011/0105-ren.html.md.erb
 - source/diary/2011/0115-hoikuen.html.md.erb
 - source/diary/2011/0331-picture.html.md.erb
-- source/diary/2011/0331-secret.html.md.erb
 - source/diary/2011/0514-ensoku.html.md.erb
 - source/diary/2011/0827-hoikuen.html.md.erb
 - source/diary/2011/0901-ren.html.md.erb
@@ -4786,7 +4715,6 @@ hoikuen:
 - source/diary/2011/1216-hoikuen.html.md.erb
 - source/diary/2012/0111-hoikuen.html.md.erb
 - source/diary/2012/0314-hoikuen.html.md.erb
-- source/diary/2012/0331-secret.html.md.erb
 - source/diary/2012/0512-zoo.html.md.erb
 - source/diary/2012/0626-hoikuen.html.md.erb
 - source/diary/2012/0922-hoikuen.html.md.erb
@@ -4801,20 +4729,17 @@ hoikuen:
 - source/diary/2013/0329-children.html.md.erb
 - source/diary/2013/0330-ren.html.md.erb
 - source/diary/2013/0331-hoikuen.html.md.erb
-- source/diary/2013/0331-secret.html.md.erb
 - source/diary/2013/0418-riri.html.md.erb
 - source/diary/2013/0810-hoikuen.html.md.erb
 - source/diary/2013/0924-hoikuen.html.md.erb
 - source/diary/2013/1012-undoukai.html.md.erb
 - source/diary/2014/0317-hoikuen.html.md.erb
-- source/diary/2014/0331-secret.html.md.erb
 - source/diary/2014/0510-zoo.html.md.erb
 - source/diary/2014/0527-riri.html.md.erb
 - source/diary/2014/0927-hoikuen.html.md.erb
 - source/diary/2014/1011-undoukai.html.md.erb
 - source/diary/2014/1212-hoikuen.html.md.erb
 - source/diary/2015/0117-riri.html.md.erb
-- source/diary/2015/0331-secret.html.md.erb
 - source/diary/2015/1010-undoukai.html.md.erb
 - source/diary/2015/1211-hoikuen.html.md.erb
 - source/diary/2016/0118-riri.html.md.erb
@@ -4831,8 +4756,6 @@ hoikuen:
 - source/diary/2017/0317-riri.html.md.erb
 - source/diary/2017/0317-yokohama.html.md.erb
 - source/diary/2017/0331-riri.html.md.erb
-- source/diary/2017/0331-secret.html.md.erb
-- source/diary/2019/0427-secret.html.md.erb
 hokkaido:
 - source/diary/2007/0224-kani.html.md.erb
 - source/diary/2017/0106-snow.html.md.erb
@@ -4909,7 +4832,6 @@ home:
 - source/diary/2015/0704-home.html.md.erb
 - source/diary/2015/0705-home.html.md.erb
 - source/diary/2016/0130-succer.html.md.erb
-- source/diary/2016/1010-secret.html.md.erb
 - source/diary/2017/0404-home.html.md.erb
 - source/diary/2017/0415-riri.html.md.erb
 - source/diary/2017/0610-desk.html.md.erb
@@ -5041,7 +4963,6 @@ incident:
 - source/diary/2004/0727-car.html.md.erb
 - source/diary/2010/0430-tooth.html.md.erb
 - source/diary/2011/0502-park.html.md.erb
-- source/diary/2016/1010-secret.html.md.erb
 - source/diary/2024/0528-dallas.html.md.erb
 india:
 - source/diary/2008/0129-india.html.md.erb
@@ -5323,7 +5244,6 @@ kamakura:
 - source/diary/2005/0809-fireworks.html.md.erb
 - source/diary/2005/0918-sangosho.html.md.erb
 - source/diary/2005/1113-kamakura.html.md.erb
-- source/diary/2007/1118-secret.html.md.erb
 - source/diary/2008/0614-kamakura.html.md.erb
 - source/diary/2011/0619-azisai.html.md.erb
 - source/diary/2012/0630-enoden.html.md.erb
@@ -5595,7 +5515,6 @@ kids:
 - source/diary/2007/1027-oji97.html.md.erb
 - source/diary/2007/1118-mona.html.md.erb
 - source/diary/2008/0921-hoikuen.html.md.erb
-- source/diary/2008/1009-secret.html.md.erb
 - source/diary/2011/0331-picture.html.md.erb
 - source/diary/2011/0718-pictures.html.md.erb
 - source/diary/2011/0730-pictures.html.md.erb
@@ -5618,7 +5537,6 @@ kobe:
 - source/diary/2004/0413-kobe.html.md.erb
 - source/diary/2011/0710-ckp.html.md.erb
 kochi:
-- source/diary/2006/0105-secret.html.md.erb
 - source/diary/2006/0203-fujinoya.html.md.erb
 - source/diary/2006/0205-ryoma.html.md.erb
 - source/diary/2006/0206-katusin.html.md.erb
@@ -5632,7 +5550,6 @@ kochi:
 - source/diary/2006/0217-takoyaki.html.md.erb
 - source/diary/2006/0219-kouchi.html.md.erb
 - source/diary/2006/0221-fujinoya.html.md.erb
-- source/diary/2006/0224-secret.html.md.erb
 - source/diary/2006/0301-yururi.html.md.erb
 - source/diary/2025/1003-sikoku.html.md.erb
 - source/diary/2025/1006-sikoku.html.md.erb
@@ -6285,16 +6202,10 @@ manazuru:
 - source/diary/2021/0515-manaduru.html.md.erb
 marriage:
 - source/diary/1998/1010-wedding.html.md.erb
-- source/diary/1999/0124-secret.html.md.erb
-- source/diary/1999/1120-secret.html.md.erb
-- source/diary/2000/0916-secret.html.md.erb
 - source/diary/2001/0804-uchiu.html.md.erb
 - source/diary/2001/1103-wedding.html.md.erb
 - source/diary/2003/0407-kekkon.html.md.erb
 - source/diary/2003/0715-party.html.md.erb
-- source/diary/2007/0401-secret.html.md.erb
-- source/diary/2007/1118-secret.html.md.erb
-- source/diary/2009/1205-secret.html.md.erb
 - source/diary/2021/0704-wedding.html.md.erb
 maternity:
 - source/diary/2010/0526-dish.html.md.erb
@@ -6572,7 +6483,6 @@ meguro:
 - source/diary/2024/1209-lunch.html.md.erb
 - source/diary/2026/0219-scent.html.md.erb
 memorial:
-- source/diary/2007/1107-secret.html.md.erb
 - source/diary/2008/0331-hoikuen.html.md.erb
 - source/diary/2009/0922-hisai.html.md.erb
 - source/diary/2010/0403-hanami.html.md.erb
@@ -6599,7 +6509,6 @@ mie:
 - source/diary/2022/0724-nagasima.html.md.erb
 - source/diary/2022/0725-nagasima.html.md.erb
 - source/diary/2023/0304-mie.html.md.erb
-- source/diary/2023/0305-secret.html.md.erb
 - source/diary/2023/0722-nagasima.html.md.erb
 - source/diary/2023/0723-nagasima.html.md.erb
 - source/diary/2023/0724-nagasima.html.md.erb
@@ -7039,8 +6948,6 @@ new york:
 - source/diary/2025/0916-us.html.md.erb
 - source/diary/2025/0917-us.html.md.erb
 - source/diary/2025/0918-us.html.md.erb
-newspaper:
-- source/diary/2008/1009-secret.html.md.erb
 night:
 - source/diary/2003/0424-dinner.html.md.erb
 - source/diary/2004/0909-london.html.md.erb
@@ -7209,7 +7116,6 @@ oden:
 office:
 - source/diary/2005/0211-present.html.md.erb
 - source/diary/2007/1206-alaxala.html.md.erb
-- source/diary/2016/1028-secret.html.md.erb
 - source/diary/2018/0926-meguro.html.md.erb
 - source/diary/2018/1026-haloween.html.md.erb
 - source/diary/2018/1105-meguro.html.md.erb
@@ -7378,7 +7284,6 @@ osaka:
 - source/diary/1995/198606-zoo.html.md.erb
 - source/diary/1998/1230-tamaichi.html.md.erb
 - source/diary/2002/1226-fugu.html.md.erb
-- source/diary/2002/1226-secret.html.md.erb
 - source/diary/2003/0404-umeda.html.md.erb
 - source/diary/2003/1229-blowfish.html.md.erb
 - source/diary/2003/1230-takoyaki.html.md.erb
@@ -7756,7 +7661,6 @@ party:
 - source/diary/1998/1227-oji97.html.md.erb
 - source/diary/1999/0102-oucckun.html.md.erb
 - source/diary/1999/0121-party.html.md.erb
-- source/diary/1999/0124-secret.html.md.erb
 - source/diary/1999/0606-knc.html.md.erb
 - source/diary/1999/0705-bbq.html.md.erb
 - source/diary/1999/0728-dorami.html.md.erb
@@ -7765,7 +7669,6 @@ party:
 - source/diary/1999/0924-matida.html.md.erb
 - source/diary/1999/1019-kamenabe.html.md.erb
 - source/diary/1999/1031-torinabe.html.md.erb
-- source/diary/1999/1120-secret.html.md.erb
 - source/diary/1999/1123-gr2000.html.md.erb
 - source/diary/1999/1230-kondo.html.md.erb
 - source/diary/2001/0511-hikkoshi.html.md.erb
@@ -7840,7 +7743,6 @@ party:
 - source/diary/2011/1209-kyushu2.html.md.erb
 - source/diary/2011/1218-party.html.md.erb
 - source/diary/2011/1221-party.html.md.erb
-- source/diary/2012/0131-secret.html.md.erb
 - source/diary/2012/0626-hoikuen.html.md.erb
 - source/diary/2012/0818-party.html.md.erb
 - source/diary/2012/1205-party.html.md.erb
@@ -7859,7 +7761,6 @@ party:
 - source/diary/2016/0703-party.html.md.erb
 - source/diary/2016/1005-party.html.md.erb
 - source/diary/2016/1015-party.html.md.erb
-- source/diary/2016/1028-secret.html.md.erb
 - source/diary/2016/1207-party.html.md.erb
 - source/diary/2016/1209-party.html.md.erb
 - source/diary/2017/0317-yokohama.html.md.erb
@@ -7932,13 +7833,9 @@ photo:
 - source/diary/1998/1122-cat.html.md.erb
 - source/diary/1998/1229-myhome.html.md.erb
 - source/diary/1999/1026-sexhur.html.md.erb
-- source/diary/1999/1120-secret.html.md.erb
 - source/diary/2000/0330-nikkei.html.md.erb
-- source/diary/2000/0916-secret.html.md.erb
 - source/diary/2001/1228-sumikawa.html.md.erb
 - source/diary/2003/0521-usagi.html.md.erb
-- source/diary/2006/0105-secret.html.md.erb
-- source/diary/2006/0224-secret.html.md.erb
 - source/diary/2006/0519-fromgp.html.md.erb
 - source/diary/2006/0525-fromgp.html.md.erb
 - source/diary/2006/0623-fromgp.html.md.erb
@@ -7955,7 +7852,6 @@ photo:
 - source/diary/2008/0418-number.html.md.erb
 - source/diary/2008/0701-yokohama.html.md.erb
 - source/diary/2008/0921-hoikuen.html.md.erb
-- source/diary/2008/1009-secret.html.md.erb
 - source/diary/2009/0215-park.html.md.erb
 - source/diary/2009/0222-pokemon.html.md.erb
 - source/diary/2009/0331-hoikuen.html.md.erb
@@ -7992,9 +7888,7 @@ photo:
 - source/diary/2017/0529-making.html.md.erb
 - source/diary/2017/0529-photos.html.md.erb
 - source/diary/2018/0813-home.html.md.erb
-- source/diary/2020/1104-secret.html.md.erb
 - source/diary/2022/0330-family.html.md.erb
-- source/diary/2023/0127-secret.html.md.erb
 - source/diary/2024/1210-riri.html.md.erb
 - source/diary/2025/0608-photos.html.md.erb
 plarail:
@@ -8504,7 +8398,6 @@ restaurant:
 - source/diary/2009/0812-burger.html.md.erb
 - source/diary/2009/1106-nomi.html.md.erb
 - source/diary/2009/1128-park.html.md.erb
-- source/diary/2009/1205-secret.html.md.erb
 - source/diary/2010/0227-sinsairo.html.md.erb
 - source/diary/2010/0419-nomi.html.md.erb
 - source/diary/2010/0702-jiro.html.md.erb
@@ -8557,7 +8450,6 @@ restaurant:
 - source/diary/2020/1107-dinner.html.md.erb
 - source/diary/2020/1206-siodome.html.md.erb
 - source/diary/2021/1027-kagurazaka.html.md.erb
-- source/diary/2022/0408-secret.html.md.erb
 - source/diary/2022/0416-odawara.html.md.erb
 - source/diary/2023/0311-monzya.html.md.erb
 - source/diary/2023/0502-birthday.html.md.erb
@@ -8784,7 +8676,6 @@ school:
 - source/diary/2015/0523-ren.html.md.erb
 - source/diary/2015/0804-totsuka.html.md.erb
 - source/diary/2016/0528-undoukai.html.md.erb
-- source/diary/2016/0712-secret.html.md.erb
 - source/diary/2017/0224-ren.html.md.erb
 - source/diary/2017/0307-ren.html.md.erb
 - source/diary/2017/0405-riri.html.md.erb
@@ -8804,21 +8695,13 @@ school:
 - source/diary/2019/1203-school.html.md.erb
 - source/diary/2020/1121-undoukai.html.md.erb
 - source/diary/2021/0728-biyou.html.md.erb
-- source/diary/2022/0408-secret.html.md.erb
 - source/diary/2022/0528-undokai.html.md.erb
 - source/diary/2022/0616-riri.html.md.erb
 - source/diary/2022/0910-sokosai.html.md.erb
-- source/diary/2023/0127-secret.html.md.erb
-- source/diary/2023/0407-secret.html.md.erb
-- source/diary/2023/0608-secret.html.md.erb
 - source/diary/2023/0625-festival.html.md.erb
 - source/diary/2023/0909-festival.html.md.erb
-- source/diary/2023/1013-secret.html.md.erb
-- source/diary/2024/0515-secret.html.md.erb
 - source/diary/2024/0908-festival.html.md.erb
-- source/diary/2024/1018-secret.html.md.erb
 - source/diary/2025/0721-mm.html.md.erb
-- source/diary/2025/1017-secret.html.md.erb
 science:
 - source/diary/1999/1111-memo.html.md.erb
 - source/diary/2011/0211-ren.html.md.erb
@@ -9585,7 +9468,6 @@ son:
 - source/diary/2012/0314-hoikuen.html.md.erb
 - source/diary/2012/0314-moji.html.md.erb
 - source/diary/2012/0316-plarail.html.md.erb
-- source/diary/2012/0331-secret.html.md.erb
 - source/diary/2012/0505-park.html.md.erb
 - source/diary/2012/0506-park.html.md.erb
 - source/diary/2012/0602-park.html.md.erb
@@ -9785,7 +9667,6 @@ son:
 - source/diary/2024/0908-festival.html.md.erb
 - source/diary/2024/1223-ren.html.md.erb
 - source/diary/2025/0304-ren.html.md.erb
-- source/diary/2025/0304-secret.html.md.erb
 - source/diary/2025/0813-nagasima.html.md.erb
 spain:
 - source/diary/2001/1129-madrid.html.md.erb
@@ -9851,8 +9732,6 @@ sports day:
 - source/diary/2015/1010-undoukai.html.md.erb
 - source/diary/2017/0512-ren.html.md.erb
 - source/diary/2020/1121-undoukai.html.md.erb
-- source/diary/2023/0608-secret.html.md.erb
-- source/diary/2024/0515-secret.html.md.erb
 spring:
 - source/diary/2003/0418-ealing.html.md.erb
 - source/diary/2007/0331-sakura.html.md.erb
@@ -10170,7 +10049,6 @@ temple:
 - source/diary/2021/0504-kyoto.html.md.erb
 - source/diary/2022/1031-nara.html.md.erb
 - source/diary/2022/1119-nikko.html.md.erb
-- source/diary/2023/0305-secret.html.md.erb
 - source/diary/2024/1203-siobara.html.md.erb
 tempura:
 - source/diary/2011/0715-janog.html.md.erb
@@ -10631,9 +10509,6 @@ training:
 - source/diary/2017/0930-riri.html.md.erb
 - source/diary/2018/0515-riri.html.md.erb
 - source/diary/2018/0517-riri.html.md.erb
-- source/diary/2020/0125-secret.html.md.erb
-- source/diary/2020/0219-secret.html.md.erb
-- source/diary/2020/0918-secret.html.md.erb
 travel:
 - source/diary/1995/19870515-shugaku.html.md.erb
 - source/diary/1996/0211-us.html.md.erb
@@ -10862,7 +10737,6 @@ travel:
 - source/diary/2016/0522-odawara.html.md.erb
 - source/diary/2016/0529-tiba.html.md.erb
 - source/diary/2016/0530-tiba.html.md.erb
-- source/diary/2016/0712-secret.html.md.erb
 - source/diary/2016/0805-okinawa.html.md.erb
 - source/diary/2016/0806-okinawa.html.md.erb
 - source/diary/2016/0807-okinawa.html.md.erb
@@ -10994,7 +10868,6 @@ travel:
 - source/diary/2023/0225-izu.html.md.erb
 - source/diary/2023/0226-izu.html.md.erb
 - source/diary/2023/0304-mie.html.md.erb
-- source/diary/2023/0305-secret.html.md.erb
 - source/diary/2023/0617-simanami.html.md.erb
 - source/diary/2023/0618-simanami.html.md.erb
 - source/diary/2023/0722-nagasima.html.md.erb
@@ -11348,7 +11221,6 @@ unh:
 - source/diary/1998/0817-iol.html.md.erb
 - source/diary/1998/0819-iol.html.md.erb
 universal studio:
-- source/diary/2002/1226-secret.html.md.erb
 - source/diary/2010/0423-osaka.html.md.erb
 - source/diary/2017/0711-singapore.html.md.erb
 - source/diary/2024/0402-singapore.html.md.erb
@@ -11883,7 +11755,6 @@ yokohama:
 - source/diary/2011/1113-park.html.md.erb
 - source/diary/2011/1116-dinner.html.md.erb
 - source/diary/2011/1128-party.html.md.erb
-- source/diary/2012/0131-secret.html.md.erb
 - source/diary/2012/0205-yokohama.html.md.erb
 - source/diary/2012/0212-sankeien.html.md.erb
 - source/diary/2012/0311-yokohama.html.md.erb
