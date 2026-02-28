@@ -1,0 +1,14 @@
+body {
+  font-family: "Noto Sans JP", "Meiryo", "Yu Gothic", sans-serif;
+}
+
+.serif {
+  font-family: "Noto Serif JP", serif;
+}
+
+/* two-cols の右側を縦中央にする */
+div.col-right.image-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
