@@ -17,6 +17,7 @@ pagefind: build
 	npx pagefind --source build --glob 'diary/[0-9]*/*/*.html' --serve
 
 push::
+	bundle exec ruby scripts/gen_tags.rb
 	git commit -m update -a
 	git push
 
