@@ -8,8 +8,10 @@
   "dependencies": {
     "@slidev/cli": "*",
     "@slidev/theme-default": "*",
-    "@slidev/theme-seriph": "*",
-    "playwright-chromium": "*"
+    "@slidev/theme-seriph": "*"
   },
-  "name": "slidev"
+  "name": "slidev",
+  "devDependencies": {
+    "vite-svg-loader": "^5.1.0"
+  }
 }
