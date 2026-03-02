@@ -17,6 +17,7 @@ pagefind: build
 	npx pagefind --source build --glob 'diary/[0-9]*/*/*.html' --serve
 
 tags::
+	bundle exec ruby scripts/modify_tags.rb
 	bundle exec ruby scripts/gen_tags.rb
 
 push: tags

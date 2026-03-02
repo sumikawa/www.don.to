@@ -6161,6 +6161,7 @@ lunch:
 - source/diary/2025/0701-hosikawa.html.md.erb
 - source/diary/2025/0716-hodogaya.html.md.erb
 - source/diary/2025/0906-mm.html.md.erb
+- source/diary/2026/0112-ueno.html.md.erb
 - source/diary/2026/0116-lunch.html.md.erb
 - source/diary/2026/0204-tokyo.html.md.erb
 - source/diary/2026/0212-lunch.html.md.erb
@@ -6492,6 +6493,7 @@ meguro:
 - source/diary/2023/0707-lunch.html.md.erb
 - source/diary/2024/0405-meguro.html.md.erb
 - source/diary/2024/1209-lunch.html.md.erb
+- source/diary/2026/0106-meguro.html.md.erb
 - source/diary/2026/0219-scent.html.md.erb
 memorial:
 - source/diary/2008/0331-hoikuen.html.md.erb
@@ -6812,6 +6814,7 @@ museum:
 - source/diary/2022/0515-setagaya.html.md.erb
 - source/diary/2023/0701-museum.html.md.erb
 - source/diary/2024/0504-sydney.html.md.erb
+- source/diary/2026/0106-museum.html.md.erb
 music:
 - source/diary/1998/0815-memo.html.md.erb
 - source/diary/1998/0902-memo.html.md.erb
@@ -7797,6 +7800,7 @@ party:
 - source/diary/2025/0307-dinner.html.md.erb
 - source/diary/2025/0723-sendagi.html.md.erb
 - source/diary/2025/0819-party.html.md.erb
+- source/diary/2026/0106-meguro.html.md.erb
 - source/diary/2026/0210-nakano.html.md.erb
 - source/diary/2026/0219-scent.html.md.erb
 pasta:
@@ -11117,6 +11121,8 @@ udon:
 - source/diary/2020/0912-tumagoi.html.md.erb
 - source/diary/2022/0501-lunch.html.md.erb
 - source/diary/2023/0627-lunch.html.md.erb
+ueno:
+- source/diary/2026/0112-ueno.html.md.erb
 uk:
 - source/diary/1998/1212-flight.html.md.erb
 - source/diary/1998/1216-flight.html.md.erb
@@ -11963,6 +11969,7 @@ yokohama:
 - source/diary/2025/0905-yokohama.html.md.erb
 - source/diary/2025/1017-noge.html.md.erb
 - source/diary/2026/0103-yokohama.html.md.erb
+- source/diary/2026/0106-museum.html.md.erb
 - source/diary/2026/0116-lunch.html.md.erb
 - source/diary/2026/0205-movie.html.md.erb
 yokosuka:
