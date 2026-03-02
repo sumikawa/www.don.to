@@ -1534,6 +1534,7 @@ camp:
 - source/diary/2025/0901-miura.html.md.erb
 - source/diary/2025/0902-miura.html.md.erb
 - source/diary/2025/1117-camp.html.md.erb
+- source/diary/2026/0215-camp.html.md.erb
 canada:
 - source/diary/2005/0622-ottawa.html.md.erb
 - source/diary/2005/0623-ottawa.html.md.erb
@@ -2030,6 +2031,8 @@ curry:
 - source/diary/2024/0721-yokohama.html.md.erb
 - source/diary/2025/0110-lunch.html.md.erb
 - source/diary/2025/0827-ginza.html.md.erb
+- source/diary/2026/0204-tokyo.html.md.erb
+- source/diary/2026/0210-nakano.html.md.erb
 da nang:
 - source/diary/2025/0609-vietnam.html.md.erb
 - source/diary/2025/0610-vietnam.html.md.erb
@@ -4523,6 +4526,7 @@ health:
 - source/diary/2024/1204-siobara.html.md.erb
 - source/diary/2025/0731-health.html.md.erb
 - source/diary/2025/1128-note.html.md.erb
+- source/diary/2026/0126-shoulder.html.md.erb
 higashi shinagawa:
 - source/diary/2021/0914-lunch.html.md.erb
 - source/diary/2021/0921-lunch.html.md.erb
@@ -4662,6 +4666,7 @@ hodogaya:
 - source/diary/2025/0716-hodogaya.html.md.erb
 - source/diary/2025/1012-hodogaya.html.md.erb
 - source/diary/2025/1018-wrestlings.html.md.erb
+- source/diary/2026/0208-vote.html.md.erb
 hoi an:
 - source/diary/2025/0616-vietnam.html.md.erb
 - source/diary/2025/0617-vietnam.html.md.erb
@@ -5387,6 +5392,9 @@ kamakura:
 - source/diary/2025/0930-kamakura.html.md.erb
 - source/diary/2025/1014-kamakura.html.md.erb
 - source/diary/2025/1114-kamakura.html.md.erb
+- source/diary/2026/0113-kamakura.html.md.erb
+- source/diary/2026/0119-kamakura.html.md.erb
+- source/diary/2026/0206-kamakura.html.md.erb
 - source/diary/2026/0223-kamakura.html.md.erb
 kamata:
 - source/diary/2025/1028-kamata.html.md.erb
@@ -5726,6 +5734,7 @@ life:
 - source/diary/2006/0616-yoshikei.html.md.erb
 - source/diary/2006/0714-banshaku.html.md.erb
 - source/diary/2017/0610-desk.html.md.erb
+- source/diary/2026/0126-shoulder.html.md.erb
 literature:
 - source/diary/1998/0918-memo.html.md.erb
 - source/diary/1999/1211-memo.html.md.erb
@@ -6152,6 +6161,7 @@ lunch:
 - source/diary/2025/0701-hosikawa.html.md.erb
 - source/diary/2025/0716-hodogaya.html.md.erb
 - source/diary/2025/0906-mm.html.md.erb
+- source/diary/2026/0204-tokyo.html.md.erb
 - source/diary/2026/0212-lunch.html.md.erb
 - source/diary/2026/0218-lunch.html.md.erb
 - source/diary/2026/0224-lunch.html.md.erb
@@ -6686,6 +6696,7 @@ movie:
 - source/diary/2001/0902-sudou.html.md.erb
 - source/diary/2020/0813-cinema.html.md.erb
 - source/diary/2021/0317-eva.html.md.erb
+- source/diary/2026/0205-movie.html.md.erb
 moving:
 - source/diary/2005/0127-home.html.md.erb
 - source/diary/2010/0922-home.html.md.erb
@@ -6877,6 +6888,7 @@ naist:
 nakano:
 - source/diary/2019/0225-nakano.html.md.erb
 - source/diary/2025/0125-nakano.html.md.erb
+- source/diary/2026/0210-nakano.html.md.erb
 naming:
 - source/diary/2006/0508-ren.html.md.erb
 - source/diary/2010/0608-riri.html.md.erb
@@ -7124,6 +7136,8 @@ office:
 ofuna:
 - source/diary/2016/0321-dinner.html.md.erb
 - source/diary/2025/0601-kamakura.html.md.erb
+- source/diary/2026/0113-kamakura.html.md.erb
+- source/diary/2026/0119-kamakura.html.md.erb
 oiso:
 - source/diary/2017/0827-pool.html.md.erb
 - source/diary/2019/0729-pool.html.md.erb
@@ -7650,6 +7664,7 @@ park:
 - source/diary/2025/0321-park.html.md.erb
 - source/diary/2025/0414-bike.html.md.erb
 - source/diary/2025/0507-park.html.md.erb
+- source/diary/2026/0208-vote.html.md.erb
 party:
 - source/diary/1995/199203-ecc.html.md.erb
 - source/diary/1996/0323-wgp.html.md.erb
@@ -7781,6 +7796,7 @@ party:
 - source/diary/2025/0307-dinner.html.md.erb
 - source/diary/2025/0723-sendagi.html.md.erb
 - source/diary/2025/0819-party.html.md.erb
+- source/diary/2026/0210-nakano.html.md.erb
 - source/diary/2026/0219-scent.html.md.erb
 pasta:
 - source/diary/2007/1215-japone.html.md.erb
@@ -9134,6 +9150,7 @@ snow:
 - source/diary/2017/0212-snow.html.md.erb
 - source/diary/2021/0217-noto.html.md.erb
 - source/diary/2021/0218-noto.html.md.erb
+- source/diary/2026/0208-vote.html.md.erb
 snowboard:
 - source/diary/2000/0210-kameski.html.md.erb
 - source/diary/2004/1223-kitzbuhel.html.md.erb
@@ -10186,6 +10203,7 @@ tokyo:
 - source/diary/2022/1113-hongo.html.md.erb
 - source/diary/2024/0717-odaiba.html.md.erb
 - source/diary/2024/0727-odaiba.html.md.erb
+- source/diary/2026/0204-tokyo.html.md.erb
 tooth:
 - source/diary/2005/0827-tooth.html.md.erb
 - source/diary/2005/0910-tooth.html.md.erb
@@ -10436,6 +10454,9 @@ trail:
 - source/diary/2025/1014-kamakura.html.md.erb
 - source/diary/2025/1105-gifu.html.md.erb
 - source/diary/2025/1114-kamakura.html.md.erb
+- source/diary/2026/0113-kamakura.html.md.erb
+- source/diary/2026/0119-kamakura.html.md.erb
+- source/diary/2026/0206-kamakura.html.md.erb
 - source/diary/2026/0223-kamakura.html.md.erb
 train:
 - source/diary/2003/0606-milan.html.md.erb
@@ -11940,6 +11961,7 @@ yokohama:
 - source/diary/2025/0905-yokohama.html.md.erb
 - source/diary/2025/1017-noge.html.md.erb
 - source/diary/2026/0103-yokohama.html.md.erb
+- source/diary/2026/0205-movie.html.md.erb
 yokosuka:
 - source/diary/2015/1031-haloween.html.md.erb
 - source/diary/2018/0331-yokosuka.html.md.erb
