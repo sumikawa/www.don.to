@@ -6161,6 +6161,7 @@ lunch:
 - source/diary/2025/0701-hosikawa.html.md.erb
 - source/diary/2025/0716-hodogaya.html.md.erb
 - source/diary/2025/0906-mm.html.md.erb
+- source/diary/2026/0116-lunch.html.md.erb
 - source/diary/2026/0204-tokyo.html.md.erb
 - source/diary/2026/0212-lunch.html.md.erb
 - source/diary/2026/0218-lunch.html.md.erb
@@ -10039,6 +10040,7 @@ tech:
 - source/diary/2025/0213-donto.html.md.erb
 - source/diary/2025/0307-donto.html.md.erb
 - source/diary/2025/0608-photos.html.md.erb
+- source/diary/2026/0115-donto.html.md.erb
 teishoku:
 - source/diary/2014/0818-lunch.html.md.erb
 - source/diary/2018/1108-lunch.html.md.erb
@@ -11961,6 +11963,7 @@ yokohama:
 - source/diary/2025/0905-yokohama.html.md.erb
 - source/diary/2025/1017-noge.html.md.erb
 - source/diary/2026/0103-yokohama.html.md.erb
+- source/diary/2026/0116-lunch.html.md.erb
 - source/diary/2026/0205-movie.html.md.erb
 yokosuka:
 - source/diary/2015/1031-haloween.html.md.erb
