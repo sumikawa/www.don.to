@@ -40,10 +40,8 @@ end
 require_relative 'helpers/tag_helpers'
 include TagHelpers # rubocop:disable Style/MixinUsage
 
-tags_list.keys.sort.each do |tag|
-  proxy "/tag/#{tag.downcase.gsub(' ', '-')}.html", '/tag/tag.html', locals: { tag_name: tag }, ignore: true
-  #  proxy "/tag/#{tag.downcase.gsub(' ', '-')}.json", "/tag/tag.json.erb", locals: { tag_name: tag },
-  #    ignore: true, :layout => false
+data.tags.keys.sort.each do |tag|
+  proxy "/tag/#{tag.downcase.gsub(' ', '-')}/index.html", '/tag/tag.html', locals: { tag_name: tag }, ignore: true
 end
 
 # Automatic image dimensions on image_tag helper
