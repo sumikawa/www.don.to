@@ -2854,6 +2854,8 @@ evangelion:
 - source/diary/1999/0704-misc.html.md.erb
 - source/diary/2021/0317-eva.html.md.erb
 event:
+- source/diary/1995/19870121-school.html.md.erb
+- source/diary/1995/19890529-school.html.md.erb
 - source/diary/1995/19900121-ski.html.md.erb
 - source/diary/1997/0405-oji.html.md.erb
 - source/diary/1997/0513-businessshow.html.md.erb
@@ -3522,6 +3524,7 @@ ferry:
 - source/diary/2025/0501-kyushu.html.md.erb
 festival:
 - source/diary/1995/198911-bunkasai.html.md.erb
+- source/diary/1995/19900922-school.html.md.erb
 - source/diary/1995/199011-bunkasai.html.md.erb
 - source/diary/1995/19941103-gakusai.html.md.erb
 - source/diary/1995/19951104-gakusai.html.md.erb
@@ -7853,6 +7856,21 @@ pet:
 - source/diary/1999/0101-myhome.html.md.erb
 - source/diary/2004/1216-canna.html.md.erb
 photo:
+- source/diary/1995/197208-me.html.md.erb
+- source/diary/1995/197210-me.html.md.erb
+- source/diary/1995/197301-me.html.md.erb
+- source/diary/1995/197304-me.html.md.erb
+- source/diary/1995/197308-me.html.md.erb
+- source/diary/1995/19790408-school.html.md.erb
+- source/diary/1995/19850408-school.html.md.erb
+- source/diary/1995/19870121-school.html.md.erb
+- source/diary/1995/19870408-school.html.md.erb
+- source/diary/1995/19880408-school.html.md.erb
+- source/diary/1995/19890408-school.html.md.erb
+- source/diary/1995/19890529-school.html.md.erb
+- source/diary/1995/19900408-school.html.md.erb
+- source/diary/1995/19900922-school.html.md.erb
+- source/diary/1995/19910223-school.html.md.erb
 - source/diary/1995/199203-ecc.html.md.erb
 - source/diary/1997/0405-oji.html.md.erb
 - source/diary/1998/1122-cat.html.md.erb
@@ -8676,10 +8694,20 @@ sauna:
 - source/diary/2025/0507-park.html.md.erb
 - source/diary/2025/0811-nagasima.html.md.erb
 school:
+- source/diary/1995/19790408-school.html.md.erb
+- source/diary/1995/19850408-school.html.md.erb
+- source/diary/1995/19870121-school.html.md.erb
+- source/diary/1995/19870408-school.html.md.erb
 - source/diary/1995/19870515-shugaku.html.md.erb
 - source/diary/1995/198710-taiiku.html.md.erb
+- source/diary/1995/19880408-school.html.md.erb
+- source/diary/1995/19890408-school.html.md.erb
+- source/diary/1995/19890529-school.html.md.erb
 - source/diary/1995/198911-bunkasai.html.md.erb
+- source/diary/1995/19900408-school.html.md.erb
+- source/diary/1995/19900922-school.html.md.erb
 - source/diary/1995/199011-bunkasai.html.md.erb
+- source/diary/1995/19910223-school.html.md.erb
 - source/diary/1995/19941103-gakusai.html.md.erb
 - source/diary/1995/19951104-gakusai.html.md.erb
 - source/diary/1996/1102-gakusai.html.md.erb
