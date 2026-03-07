@@ -31,7 +31,6 @@ def sharing(path):
   return(links[0].url)
 
 if __name__ == "__main__":
-  yml_cache = {}
   yml = {}
 
   def get_yml(year):
@@ -39,14 +38,13 @@ if __name__ == "__main__":
     path = "image/{year}.yml".format(year=year)
     if os.path.exists(path):
       with open(path, 'r') as f:
-        yml_cache[str(year)] = yaml.load(f, Loader=yaml.Loader) or {}
+        yml[str(year)] = yaml.load(f, Loader=yaml.Loader) or {}
     else:
-      yml_cache[str(year)] = {}
-    return yml_cache[year]
+      yml[str(year)] = {}
 
   def save_yml():
     os.chdir(currentdir)
-    for year, data in yml_cache.items():
+    for year, data in yml.items():
       path = "image/{year}.yml".format(year=year)
       with open(path, mode='w', encoding='utf-8') as f:
         yaml.safe_dump(data, f)
@@ -72,9 +70,9 @@ if __name__ == "__main__":
     dirname = layers[3]
     filename = layers[4]
 
-    yml[year] = get_yml(year)
+    get_yml(year)
 
-    if not dirname in yml[str(year)]:
+    if not dirname in yml[year]:
       yml[year][dirname] = {}
 
     if not filename in yml[year][dirname].keys():
