@@ -2459,6 +2459,7 @@ daughter:
 - source/diary/2025/0503-yokohama.html.md.erb
 - source/diary/2026/0103-yokohama.html.md.erb
 - source/diary/2026/0222-succer.html.md.erb
+- source/diary/2026/0306-ikea.html.md.erb
 day camp:
 - source/diary/2019/0804-camp.html.md.erb
 - source/diary/2023/1014-camp.html.md.erb
@@ -5392,10 +5393,12 @@ kamakura:
 - source/diary/2025/0930-kamakura.html.md.erb
 - source/diary/2025/1014-kamakura.html.md.erb
 - source/diary/2025/1114-kamakura.html.md.erb
+- source/diary/2025/1219-kamakura.html.md.erb
 - source/diary/2026/0113-kamakura.html.md.erb
 - source/diary/2026/0119-kamakura.html.md.erb
 - source/diary/2026/0206-kamakura.html.md.erb
 - source/diary/2026/0223-kamakura.html.md.erb
+- source/diary/2026/0305-kamakura.html.md.erb
 kamata:
 - source/diary/2025/1028-kamata.html.md.erb
 kame:
@@ -7800,6 +7803,7 @@ party:
 - source/diary/2025/0307-dinner.html.md.erb
 - source/diary/2025/0723-sendagi.html.md.erb
 - source/diary/2025/0819-party.html.md.erb
+- source/diary/2025/1223-ankou.html.md.erb
 - source/diary/2026/0106-meguro.html.md.erb
 - source/diary/2026/0210-nakano.html.md.erb
 - source/diary/2026/0219-scent.html.md.erb
@@ -8865,6 +8869,7 @@ senbero:
 - source/diary/2025/1017-noge.html.md.erb
 sendagi:
 - source/diary/2025/0723-sendagi.html.md.erb
+- source/diary/2025/1223-ankou.html.md.erb
 server:
 - source/diary/2003/1001-oioi.html.md.erb
 - source/diary/2007/1224-server.html.md.erb
@@ -10460,10 +10465,12 @@ trail:
 - source/diary/2025/1014-kamakura.html.md.erb
 - source/diary/2025/1105-gifu.html.md.erb
 - source/diary/2025/1114-kamakura.html.md.erb
+- source/diary/2025/1219-kamakura.html.md.erb
 - source/diary/2026/0113-kamakura.html.md.erb
 - source/diary/2026/0119-kamakura.html.md.erb
 - source/diary/2026/0206-kamakura.html.md.erb
 - source/diary/2026/0223-kamakura.html.md.erb
+- source/diary/2026/0305-kamakura.html.md.erb
 train:
 - source/diary/2003/0606-milan.html.md.erb
 - source/diary/2007/0826-park.html.md.erb
@@ -11972,6 +11979,7 @@ yokohama:
 - source/diary/2026/0106-museum.html.md.erb
 - source/diary/2026/0116-lunch.html.md.erb
 - source/diary/2026/0205-movie.html.md.erb
+- source/diary/2026/0306-ikea.html.md.erb
 yokosuka:
 - source/diary/2015/1031-haloween.html.md.erb
 - source/diary/2018/0331-yokosuka.html.md.erb
