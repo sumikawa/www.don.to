@@ -71,7 +71,8 @@ if __name__ == "__main__":
     dirname = layers[3]
     filename = layers[4]
 
-    yml.setdefault(year, get_yml(year))
+    if year not in yml:
+      yml[year] = get_yml(year)
 
     if not dirname in yml[year]:
       yml[year][dirname] = {}
