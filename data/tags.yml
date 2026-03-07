@@ -2854,6 +2854,9 @@ evangelion:
 - source/diary/1999/0704-misc.html.md.erb
 - source/diary/2021/0317-eva.html.md.erb
 event:
+- source/diary/1995/198004-event.html.md.erb
+- source/diary/1995/19830725-rinkan.html.md.erb
+- source/diary/1995/19841018-shugaku.html.md.erb
 - source/diary/1995/19870121-school.html.md.erb
 - source/diary/1995/19890529-school.html.md.erb
 - source/diary/1995/19900121-ski.html.md.erb
@@ -3019,6 +3022,7 @@ factory:
 - source/diary/2015/0627-beer.html.md.erb
 - source/diary/2022/0119-morinaga.html.md.erb
 family:
+- source/diary/1995/19831030-osaka.html.md.erb
 - source/diary/1998/1230-tamaichi.html.md.erb
 - source/diary/1999/0101-myhome.html.md.erb
 - source/diary/2002/0613-akkun.html.md.erb
@@ -7862,6 +7866,11 @@ photo:
 - source/diary/1995/197304-me.html.md.erb
 - source/diary/1995/197308-me.html.md.erb
 - source/diary/1995/19790408-school.html.md.erb
+- source/diary/1995/198004-event.html.md.erb
+- source/diary/1995/19830725-rinkan.html.md.erb
+- source/diary/1995/19831030-osaka.html.md.erb
+- source/diary/1995/19841018-shugaku.html.md.erb
+- source/diary/1995/19850319-graduation.html.md.erb
 - source/diary/1995/19850408-school.html.md.erb
 - source/diary/1995/19870121-school.html.md.erb
 - source/diary/1995/19870408-school.html.md.erb
@@ -8695,6 +8704,9 @@ sauna:
 - source/diary/2025/0811-nagasima.html.md.erb
 school:
 - source/diary/1995/19790408-school.html.md.erb
+- source/diary/1995/19830725-rinkan.html.md.erb
+- source/diary/1995/19841018-shugaku.html.md.erb
+- source/diary/1995/19850319-graduation.html.md.erb
 - source/diary/1995/19850408-school.html.md.erb
 - source/diary/1995/19870121-school.html.md.erb
 - source/diary/1995/19870408-school.html.md.erb
