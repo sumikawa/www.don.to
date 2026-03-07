@@ -2,9 +2,9 @@
 layout: site
 title: Tag list
 ---
-<%= tags_list.keys.size %> tags
+<p class="tag-list-count"><%= tags_list.keys.size %> tags</p>
 
-<ul>
+<ul class="tag-list-grid">
 <%
   tags_list.keys.sort.each do |tag|
 %>

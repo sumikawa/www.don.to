@@ -442,6 +442,56 @@ div#name {
   background: rgba(31, 79, 70, 0.06);
 }
 
+.tag-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.7rem;
+  margin-left: 0.45rem;
+  padding: 0.08rem 0.42rem;
+  border-radius: 999px;
+  background: rgba(196, 106, 58, 0.14);
+  color: var(--accent-strong);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.1;
+  vertical-align: middle;
+}
+
+.tag-list-count {
+  margin-bottom: 0.9rem;
+  color: var(--text-soft);
+}
+
+.tag-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 0.45rem 0.8rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.tag-list-grid li {
+  margin: 0;
+}
+
+.tag-list-grid a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid rgba(31, 79, 70, 0.1);
+  border-radius: 12px;
+  background: rgba(31, 79, 70, 0.04);
+}
+
+.tag-list-grid a:hover,
+.tag-list-grid a:focus-visible {
+  background: rgba(196, 106, 58, 0.12);
+  border-color: rgba(196, 106, 58, 0.2);
+}
+
 .prev_next {
   display: flex;
   align-items: center;
