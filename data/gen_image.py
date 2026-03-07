@@ -31,8 +31,6 @@ def sharing(path):
   return(links[0].url)
 
 if __name__ == "__main__":
-  yml = {}
-
   def get_yml(year):
     os.chdir(currentdir)
     path = "image/{year}.yml".format(year=year)
@@ -41,6 +39,7 @@ if __name__ == "__main__":
         yml[str(year)] = yaml.load(f, Loader=yaml.Loader) or {}
     else:
       yml[str(year)] = {}
+    return(yml[str(year)])
 
   def save_yml():
     os.chdir(currentdir)
@@ -49,6 +48,8 @@ if __name__ == "__main__":
       with open(path, mode='w', encoding='utf-8') as f:
         yaml.safe_dump(data, f)
     os.chdir(rootdir + prefix)
+
+  yml = {}
 
   rootdir = "/Users/sumikawa/Dropbox"
   prefix = "/.cache"
@@ -70,7 +71,7 @@ if __name__ == "__main__":
     dirname = layers[3]
     filename = layers[4]
 
-    get_yml(year)
+    yml.setdefault(year, get_yml(year))
 
     if not dirname in yml[year]:
       yml[year][dirname] = {}
