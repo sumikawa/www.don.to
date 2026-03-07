@@ -32,15 +32,16 @@ def sharing(path):
 
 if __name__ == "__main__":
   yml_cache = {}
+  yml = {}
 
   def get_yml(year):
-    if year not in yml_cache:
-      path = "image/{year}.yml".format(year=year)
-      if os.path.exists(path):
-        with open(path, 'r') as f:
-          yml_cache[year] = yaml.load(f, Loader=yaml.Loader) or {}
-      else:
-        yml_cache[year] = {}
+    os.chdir(currentdir)
+    path = "image/{year}.yml".format(year=year)
+    if os.path.exists(path):
+      with open(path, 'r') as f:
+        yml_cache[str(year)] = yaml.load(f, Loader=yaml.Loader) or {}
+    else:
+      yml_cache[str(year)] = {}
     return yml_cache[year]
 
   def save_yml():
@@ -71,16 +72,16 @@ if __name__ == "__main__":
     dirname = layers[3]
     filename = layers[4]
 
-    yml = get_yml(year)
+    yml[year] = get_yml(year)
 
-    if not dirname in yml:
-      yml[dirname] = {}
+    if not dirname in yml[str(year)]:
+      yml[year][dirname] = {}
 
-    if not filename in yml[dirname].keys():
+    if not filename in yml[year][dirname].keys():
       print("generating url: {year}/{dirname}/{filename}".format(year=year, dirname=dirname, filename=filename), flush=True)
       url = sharing(file)
       url = url.replace('https://www.dropbox.com/', 'https://dl.dropboxusercontent.com/')
-      yml[dirname][filename] = url
+      yml[year][dirname][filename] = url
       count = count + 1
 
     if count == 30:
