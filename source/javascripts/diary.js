@@ -14,45 +14,25 @@ if (RegExp(' AppleWebKit.*Mobile|Opera Mini|Mozilla.*Android').test(navigator.us
   });
 }
 
-function resizeBlock() {
-  // Function to equalize heights of centerblock and leftblock
-  function equalizeBlockHeights() {
-    titleBlock = document.querySelector('.titleblock');
-    mainBlock = document.querySelector('.mainblock');
-    eachindexBlock = document.querySelector('.eachindexblock');
+function decorateImageParagraphs() {
+  var paragraphs = document.querySelectorAll('main[data-pagefind-body] p');
 
-    if (mainBlock && eachindexBlock) {
-      // Reset heights to auto to get their natural heights
-      titleBlock.style.height = 'auto';
-      mainBlock.style.height = 'auto';
-      eachindexBlock.style.height = 'auto';
+  paragraphs.forEach(function (paragraph) {
+    var children = Array.from(paragraph.children);
+    if (children.length === 0) return;
 
-      // Get the computed heights
-	  margin = 5;
-      titleBlockHeight = titleBlock.offsetHeight;
-      mainBlockHeight = mainBlock.offsetHeight;
-      eachindexBlockHeight = eachindexBlock.offsetHeight;
-      screenHeight = window.innerHeight - 20;
+    var onlyImages = children.every(function (child) {
+      if (child.tagName === 'IMG') return true;
+      if (child.tagName !== 'A') return false;
 
-      // Set both blocks to the height of the taller one
-      maxHeight = Math.max(mainBlockHeight + margin + titleBlock.offsetHeight, eachindexBlockHeight, screenHeight);
-      if (screen.width > 480) {
-        mainBlock.style.height = (maxHeight - titleBlock.offsetHeight - margin) + 'px';
-        eachindexBlock.style.height = maxHeight + 'px';
-      }
+      var img = child.querySelector('img');
+      return img !== null && child.textContent.trim() === '';
+    });
+
+    if (onlyImages) {
+      paragraph.classList.add('image-grid');
     }
-  }
-
-  // Run on page load
-  equalizeBlockHeights();
-
-  // Run on window resize
-  window.addEventListener('resize', function () {
-    // Use debounce to avoid excessive calculations during resize
-    clearTimeout(window.resizeTimer);
-    window.resizeTimer = setTimeout(equalizeBlockHeights, 250);
   });
 }
 
-document.addEventListener('DOMContentLoaded', resizeBlock);
-window.addEventListener('load', resizeBlock);
+document.addEventListener('DOMContentLoaded', decorateImageParagraphs);

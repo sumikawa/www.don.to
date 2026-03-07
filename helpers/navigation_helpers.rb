@@ -29,10 +29,10 @@ module NavigationHelpers
   def _gen_nav(prev_page, next_page)
     return unless prev_page || next_page
 
-    nav = '<nav class="prev_next" style="text-align: center; margin: 1em 0;">'
-    nav += "<a href=\"#{prev_page.url}\">&laquo; prev</a>" if prev_page
-    nav += '<span style="margin: 0 1em;">|</span>' if prev_page && next_page
-    nav += "<a href=\"#{next_page.url}\">next &raquo;</a>" if next_page
+    nav = '<nav class="prev_next" aria-label="Diary navigation">'
+    nav += "<a class=\"prev_next-link prev\" href=\"#{prev_page.url}\"><span class=\"prev_next-eyebrow\">Previous</span><span class=\"prev_next-label\">&laquo; prev</span></a>" if prev_page
+    nav += '<span class="prev_next-divider" aria-hidden="true"></span>' if prev_page && next_page
+    nav += "<a class=\"prev_next-link next\" href=\"#{next_page.url}\"><span class=\"prev_next-eyebrow\">Next</span><span class=\"prev_next-label\">next &raquo;</span></a>" if next_page
     nav += '</nav>'
     nav
   end

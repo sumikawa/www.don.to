@@ -27,18 +27,11 @@
   <body data-source-path="<%= current_page.source_file.sub(File.expand_path(config[:source]), '') %>">
     <div class="container">
       <div class="centerblock">
-        <% if current_page.data.top == true %>
-          <div class="titleblock">
-            <div id="dayd">Daydreamers On the Net</div>
-            <br />
-            <div id="doyou">- Do you dream a daydream? -</div>
-          </div>
-        <% else %>
-          <div class="titleblock">
-            <h2><a href="/">すみかわ日記</a></h2>
-          </div>
-        <% end %>
         <div class="mainblock">
+          <% if current_page.data.top == true %>
+            <div id="dayd">Daydreamers On the Net</div>
+            <div id="doyou">- Do you dream a daydream? -</div>
+	  <% end %>
           <div id="search"></div>
           <% unless current_page.data.top == true %>
           <h2 data-pagefind-sort="date:<%= gen_date %>"><%= gen_title %></h2>
@@ -63,6 +56,11 @@
         </div>
       </div>
       <div class="leftblock">
+        <% unless current_page.data.top == true %>
+          <div class="titleblock">
+            <h2><a href="/">すみかわ日記</a></h2>
+          </div>
+        <% end %>
         <%= partial "layouts/photofooter" %>
       </div>
       <%= partial "layouts/pswp" %>
