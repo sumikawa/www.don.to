@@ -5,7 +5,9 @@
     <meta name="robots" content="noindex">
     <title><%= gen_title %></title>
     <link rel="alternate" type="application/rss+xml" title="rss" href="https://www.don.to/diary/index.rdf">
-    <% unless environment?(:development) %>
+    <% if environment?(:development) %>
+      <link href="https://www.don.to/pagefind/pagefind-ui.css" rel="stylesheet">
+    <% else %>
       <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
     <% end %>
     <%= stylesheet_link_tag "code" %>
@@ -68,10 +70,11 @@
     <%= javascript_include_tag "diary" %>
     <% if environment?(:development) %>
       <%= javascript_include_tag "editor" %>
+      <script src="https://www.don.to/pagefind/pagefind-ui.js"></script>
     <% else %>
       <script src="/pagefind/pagefind-ui.js"></script>
-      <%= javascript_include_tag "search" %>
     <% end %>
+    <%= javascript_include_tag "search" %>
     <%= javascript_include_tag "photoswipe.umd.min" %>
     <%= javascript_include_tag "photoswipe-init" %>
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
