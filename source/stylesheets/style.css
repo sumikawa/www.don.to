@@ -402,7 +402,10 @@ div#name {
 }
 
 #search .pagefind-ui {
-  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
 }
 
 #search .pagefind-ui__form {
@@ -412,7 +415,13 @@ div#name {
 }
 
 #search:focus-within .pagefind-ui__form {
-  width: min(25rem, 100%);
+  width: 100%;
+}
+
+#search .pagefind-ui__drawer {
+  width: min(32rem, 100%);
+  margin-top: 0.6rem;
+  margin-left: auto;
 }
 
 .tags {
