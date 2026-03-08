@@ -19,7 +19,7 @@
   --margin: 14px;
   --pre-margin-left: 0;
 
-  --pagefind-ui-scale: 0.9;
+  --pagefind-ui-scale: 0.5;
   --pagefind-ui-primary: #1f4f46;
   --pagefind-ui-text: #2b2622;
   --pagefind-ui-background: #fffdf9;
@@ -356,7 +356,7 @@ div.eachindexblock {
 }
 
 .mainblock {
-  padding: 1.5rem 1.8rem 1.3rem;
+  padding: 0.05rem 1.8rem 1.3rem;
   overflow-x: hidden;
   overflow-y: auto;
   scrollbar-gutter: stable;
@@ -407,7 +407,7 @@ div#name {
 
 #search .pagefind-ui__form {
   position: relative;
-  top: 2rem;
+  top: 2.4rem;
   width: 11.5rem;
   max-width: 100%;
   transition: width 220ms ease;
