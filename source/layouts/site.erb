@@ -36,7 +36,7 @@
 	  <% end %>
           <div id="search"></div>
           <% unless current_page.data.top == true %>
-          <h2 data-pagefind-sort="date:<%= gen_date %>"><%= gen_title %></h2>
+            <h2 data-pagefind-meta="title" data-pagefind-sort="date:<%= gen_date %>"><%= gen_title %></h2>
           <% end %>
           <main data-pagefind-body>
             <%= yield %>
