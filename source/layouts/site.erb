@@ -58,13 +58,13 @@
         </div>
       </div>
       <div class="leftblock">
-        <% unless current_page.data.top == true %>
-          <div class="titleblock">
-            <h1><a href="/">すみかわ日記</a></h1>
-          </div>
-        <% end %>
+	<% unless current_page.data.top == true %>
+	  <div class="titleblock">
+	    <h1><a href="/">すみかわ日記</a></h1>
+	  </div>
+	<% end %>
         <%= partial "layouts/photofooter" %>
-      </div>
+      s</div>
       <%= partial "layouts/pswp" %>
     </div>
     <%= javascript_include_tag "diary" %>
@@ -78,6 +78,5 @@
     <%= javascript_include_tag "photoswipe.umd.min" %>
     <%= javascript_include_tag "photoswipe-init" %>
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
-
   </body>
 </html>

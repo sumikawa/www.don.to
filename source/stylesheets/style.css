@@ -314,7 +314,11 @@ tr:nth-child(even) {
   background: rgba(240, 231, 218, 0.45);
 }
 
-div.titleblock,
+.titleblock {
+  margin-bottom: var(--margin);
+  text-align: center;
+}
+
 div.mainblock,
 div.eachindexblock {
   position: relative;
@@ -339,17 +343,6 @@ div.eachindexblock {
   min-width: 0;
 }
 
-.titleblock {
-  margin-bottom: var(--margin);
-  padding: 1.6rem 1.8rem;
-  text-align: center;
-  background:
-    linear-gradient(180deg, rgba(250, 245, 238, 0.92), rgba(242, 234, 225, 0.96));
-  border-color: rgba(255, 255, 255, 0.55);
-  box-shadow: 0 14px 30px rgba(82, 57, 31, 0.1);
-}
-
-.titleblock::after,
 .mainblock::after,
 .eachindexblock::after {
   content: "";
