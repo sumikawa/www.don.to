@@ -323,7 +323,6 @@ aws:
 - source/diary/2015/1007-us.html.md.erb
 - source/diary/2015/1012-us.html.md.erb
 - source/diary/2015/1013-us.html.md.erb
-- source/diary/2017/0415-qiita.html.md.erb
 - source/diary/2018/1118-qiita.html.md.erb
 - source/diary/2019/0614-makuhari.html.md.erb
 - source/diary/2019/1220-qiita.html.md.erb
@@ -2749,6 +2748,7 @@ ebisu:
 ec2:
 - source/diary/2013/1028-sshi.html.md.erb
 - source/diary/2015/0304-qiita.html.md.erb
+- source/diary/2017/0415-qiita.html.md.erb
 eclipse:
 - source/diary/2012/0521-eclipse.html.md.erb
 education:
@@ -5663,7 +5663,6 @@ lamb:
 - source/diary/2002/0809-hitasuji.html.md.erb
 - source/diary/2005/0814-niku.html.md.erb
 lambda:
-- source/diary/2017/0415-qiita.html.md.erb
 - source/diary/2018/1118-qiita.html.md.erb
 - source/diary/2019/1220-qiita.html.md.erb
 las vegas:
@@ -6184,6 +6183,7 @@ mac:
 - source/diary/2009/0225-mac.html.md.erb
 - source/diary/2011/0727-lion.html.md.erb
 - source/diary/2013/1008-ramen.html.md.erb
+- source/diary/2025/0405-qiita.html.md.erb
 - source/diary/2025/0929-qiita.html.md.erb
 machida:
 - source/diary/2008/1229-matida.html.md.erb
@@ -8200,6 +8200,7 @@ qiita:
 - source/diary/2015/0304-qiita.html.md.erb
 - source/diary/2016/0826-qiita.html.md.erb
 - source/diary/2017/0412-qiita.html.md.erb
+- source/diary/2017/0415-qiita.html.md.erb
 - source/diary/2019/1220-qiita.html.md.erb
 - source/diary/2025/0405-qiita.html.md.erb
 - source/diary/2025/0407-qiita.html.md.erb
@@ -9821,6 +9822,7 @@ spring:
 ssh:
 - source/diary/2013/1028-sshi.html.md.erb
 - source/diary/2016/0826-qiita.html.md.erb
+ssh-agent:
 - source/diary/2025/0405-qiita.html.md.erb
 steak:
 - source/diary/2005/0622-ottawa.html.md.erb
