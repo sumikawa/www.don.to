@@ -2290,6 +2290,7 @@ daughter:
 - source/diary/2014/0510-zoo.html.md.erb
 - source/diary/2014/0511-park.html.md.erb
 - source/diary/2014/0520-children.html.md.erb
+- source/diary/2014/0525-party.html.md.erb
 - source/diary/2014/0527-riri.html.md.erb
 - source/diary/2014/0531-miura.html.md.erb
 - source/diary/2014/0628-park.html.md.erb
@@ -2857,9 +2858,12 @@ event:
 - source/diary/1995/198004-event.html.md.erb
 - source/diary/1995/19830725-rinkan.html.md.erb
 - source/diary/1995/19841018-shugaku.html.md.erb
+- source/diary/1995/19860611-iga.html.md.erb
 - source/diary/1995/19870121-school.html.md.erb
+- source/diary/1995/19880528-event.html.md.erb
 - source/diary/1995/19890529-school.html.md.erb
 - source/diary/1995/19900121-ski.html.md.erb
+- source/diary/1995/19941103-doga.html.md.erb
 - source/diary/1997/0405-oji.html.md.erb
 - source/diary/1997/0513-businessshow.html.md.erb
 - source/diary/1998/1027-widesympo.html.md.erb
@@ -3257,6 +3261,7 @@ family:
 - source/diary/2014/0103-pool.html.md.erb
 - source/diary/2014/0222-dinner.html.md.erb
 - source/diary/2014/0520-children.html.md.erb
+- source/diary/2014/0525-party.html.md.erb
 - source/diary/2014/0712-dinner.html.md.erb
 - source/diary/2014/0802-miura.html.md.erb
 - source/diary/2014/0803-miura.html.md.erb
@@ -7310,6 +7315,7 @@ ookurayama:
 - source/diary/2025/0824-ookurayama.html.md.erb
 osaka:
 - source/diary/1995/198606-zoo.html.md.erb
+- source/diary/1995/19890127-skate.html.md.erb
 - source/diary/1998/1230-tamaichi.html.md.erb
 - source/diary/2002/1226-fugu.html.md.erb
 - source/diary/2003/0404-umeda.html.md.erb
@@ -7427,6 +7433,7 @@ otaku:
 - source/diary/1999/1017-tarkun.html.md.erb
 - source/diary/1999/1212-avmania.html.md.erb
 oucc:
+- source/diary/1995/19941030-oucc.html.md.erb
 - source/diary/1995/19950915-namihei.html.md.erb
 - source/diary/1996/0706-oucckun.html.md.erb
 - source/diary/1997/0312-party.html.md.erb
@@ -7681,6 +7688,7 @@ park:
 - source/diary/2026/0208-vote.html.md.erb
 party:
 - source/diary/1995/199203-ecc.html.md.erb
+- source/diary/1995/19950311-sadaken.html.md.erb
 - source/diary/1996/0323-wgp.html.md.erb
 - source/diary/1996/0706-oucckun.html.md.erb
 - source/diary/1996/1225-oikon.html.md.erb
@@ -7784,6 +7792,7 @@ party:
 - source/diary/2013/1116-party.html.md.erb
 - source/diary/2013/1221-party.html.md.erb
 - source/diary/2014/0216-party.html.md.erb
+- source/diary/2014/0525-party.html.md.erb
 - source/diary/2015/0418-party.html.md.erb
 - source/diary/2016/0319-crab.html.md.erb
 - source/diary/2016/0404-party.html.md.erb
@@ -7872,6 +7881,7 @@ photo:
 - source/diary/1995/19841018-shugaku.html.md.erb
 - source/diary/1995/19850319-graduation.html.md.erb
 - source/diary/1995/19850408-school.html.md.erb
+- source/diary/1995/19860408-school.html.md.erb
 - source/diary/1995/19870121-school.html.md.erb
 - source/diary/1995/19870408-school.html.md.erb
 - source/diary/1995/19880408-school.html.md.erb
@@ -8709,11 +8719,14 @@ school:
 - source/diary/1995/19841018-shugaku.html.md.erb
 - source/diary/1995/19850319-graduation.html.md.erb
 - source/diary/1995/19850408-school.html.md.erb
+- source/diary/1995/19860408-school.html.md.erb
+- source/diary/1995/19860611-iga.html.md.erb
 - source/diary/1995/19870121-school.html.md.erb
 - source/diary/1995/19870408-school.html.md.erb
 - source/diary/1995/19870515-shugaku.html.md.erb
 - source/diary/1995/198710-taiiku.html.md.erb
 - source/diary/1995/19880408-school.html.md.erb
+- source/diary/1995/19880528-event.html.md.erb
 - source/diary/1995/19890408-school.html.md.erb
 - source/diary/1995/19890529-school.html.md.erb
 - source/diary/1995/198911-bunkasai.html.md.erb
@@ -11302,6 +11315,8 @@ universal studio:
 - source/diary/2017/0711-singapore.html.md.erb
 - source/diary/2024/0402-singapore.html.md.erb
 university:
+- source/diary/1995/19941103-doga.html.md.erb
+- source/diary/1995/19950202-bread.html.md.erb
 - source/diary/1996/0401-fukudalab.html.md.erb
 - source/diary/1996/0402-museibutu.html.md.erb
 - source/diary/1996/0403-nakasu.html.md.erb
