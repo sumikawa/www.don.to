@@ -6,16 +6,16 @@ tags: rust, cg, raytracing, qiita
 
 フルコードは[github](https://github.com/sumikawa/myraytracing)にあります。
 
-### clippy対応
+## clippy対応
 
 cargo [clippy](https://doc.rust-jp.rs/book-ja/appendix-04-useful-development-tools.html#clippy%E3%81%A7%E3%82%82%E3%81%A3%E3%81%A8lint%E3%82%92)に指摘を受けた部分を[修正](https://github.com/sumikawa/myraytracing/commit/57bb591e93a6c824300b16898db728c58982377d)。
 
-### default()の実装
+## default()の実装
 
 下記によると```new()```はすべからく、Defaultトレイトを使って初期値を```default()```で提供すべしとのことなので、実装した。
 https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default
 
-```rust
+```diff_rust
 impl Default for Vec3 {
     fn default() -> Self {
         Self::new(0.0, 0.0, 0.0)
@@ -28,7 +28,7 @@ impl Default for Vec3 {
 +        let mut attenuation = Color::default();
 ```
 
-### 高速化
+## 高速化
 
 計測したら、最終版の画像を生成するのに192秒かかってた。
 
@@ -75,7 +75,7 @@ fn ray_color(r: &Ray, world: &dyn Hittable, depth: u32) -> Color {
 
 これで27秒になった。やはり再帰は遅い。
 
-### マルチスレッド化
+## マルチスレッド化
 
 さらなる高速化を目指してマルチスレッドにしてみる。
 まず、今の標準出力を扱うコードは当然ながらスレッドセーフじゃないので、Imageクレートを導入。
@@ -147,7 +147,7 @@ fn ray_color(r: &Ray, world: &dyn Hittable, depth: u32) -> Color {
 
 これで6秒になった！
 
-### おしまい
+## おしまい
 
 [第二章](https://inzkyk.xyz/ray_tracing_in_one_weekend/week_2/2_3_bounding_volume_hierarchy/)も始めてはいるんですが、難解な内容でqiitaの記事にしたとしてもコードをひたすらコピペするだけになりそうなので、ここで終了にします。
 

@@ -8,7 +8,7 @@ tags: rust, cg, raytracing, qiita
 
 週末レイトレーシングの[ここ](https://inzkyk.xyz/ray_tracing_in_one_weekend/week_1/1_9_metal_material/)をやります。
 
-### リファクタリング
+## リファクタリング
 
 下記の部分が冗長ではないかとコメントをもらう。
 確かに```hoge.x()```などせずに```hoge.x```で構造体の中身にアクセスできる。
@@ -26,13 +26,13 @@ Rayモジュールにも同様の問題がある。
 
 ```PI```, ```INFINITY```, ```clamp```については、```f64```のものをそのまま使えばよいとこれもコメントをもらった。[f6adf8e](https://github.com/sumikawa/myraytracing/commit/f6adf8e2fb869172fecf79063798b75496ff8762)で修正。
 
-### f64の定数について
+## f64の定数について
 
 ```PI```と```INFINITY```の扱いに差があって気持ち悪い。[ドキュメント](https://doc.rust-jp.rs/the-rust-programming-language-ja/1.9/std/f64/index.html)によると、どちらも定数だけど、数学的な定数は```f64::consts```の下にいくと。なんでやねん。
 
 ちなみにRubyでは[数学関数](https://docs.ruby-lang.org/ja/latest/class/Math.html)はモジュールとして独立している。これなら分かる。
 
-### Gemini.mdとMakefile
+## Gemini.mdとMakefile
 
 今更ながら、```Gemini.md```と```Makefile```を書く。```Makefile```を書く理由は```cargo```コマンドを覚えられないから。
 
@@ -74,7 +74,7 @@ lint::
 	cargo clippy
 ```
 
-### マテリアルを表すモジュール
+## マテリアルを表すモジュール
 
 チュートリアルに戻る。表面の色と質感を扱うマテリアルモジュールの作成。
 
@@ -108,7 +108,7 @@ pub struct HitRecord {
 
 Material側でもHitRecordを参照しているので、循環参照の形になるが、片側がスマートポインタなのでメモリリークは発生しないという理解でいいのかしら。まあ、今のコードだとそもそもメモリを解放するタイミングがないんだけど。
 
-### ランバート反射の抽象化
+## ランバート反射の抽象化
 
 ```main.rs```にあったランバート反射の計算をMaterialモジュールに移動する。
 

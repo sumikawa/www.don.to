@@ -8,7 +8,7 @@ tags: rust, cg, raytracing, qiita
 
 週末レイトレーシングの[ここ](https://inzkyk.xyz/ray_tracing_in_one_weekend/week_1/1_11_positionable_camera/)をやります。
 
-### カメラの視野
+## カメラの視野
 
 カメラを方向を視野角で指定するようにCameraモジュールを修正。aspect_rationは引数として渡されるようになった。
 
@@ -112,7 +112,7 @@ let cam = Camera::new(
 
 ![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/12dfb4e3-a76e-45aa-beaa-0aa61211157e.png)
 
-### 焦点ぼけ
+## 焦点ぼけ
 
 被写界深度に対応。diffを見てなんとなく分かった気になる。
 
@@ -167,7 +167,7 @@ pub fn get_ray(&self, s: f64, t: f64) -> Ray {
 
 ![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/3c1b5cf9-64a0-474d-8fe9-5e9052ae6ddd.png)
 
-### ランダムな球をたくさん配置する
+## ランダムな球をたくさん配置する
 
 第一章の計算周りは終了。```main.rs```側をいじって、ランダムな球をたくさん配置する。
 平面に小さいボールをランダムに置くだけなので、コードは省略。この[commit](https://github.com/sumikawa/myraytracing/commit/a9c111f2ffabaf96869cdf37190a6964d13abc22)です。

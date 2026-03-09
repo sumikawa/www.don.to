@@ -8,7 +8,7 @@ tags: rust, cg, raytracing, qiita
 
 今回は[ここ](https://inzkyk.xyz/ray_tracing_in_one_weekend/week_1/1_4_ray_camera_background/)から
 
-### 前回使ってなかった関数の動作確認
+## 前回使ってなかった関数の動作確認
 
 動作確認も兼ねて単位ベクトルを計算させてみる。はじめて自分でコードを書くw
 
@@ -45,7 +45,7 @@ path = "src/vec3_test.rs"
 0.2672612419124244 0.5345224838248488 0.8017837257372731
 ```
 
-#### 演算子を試す
+## 演算子を試す
 
 その1で出てきたAddやAddAssignの使い方が分からなかったので、動かないコードを書いたあと、Gemini CLIに修正してもらう。
 
@@ -71,12 +71,12 @@ a + b = 0.5 0.7 0.8999999999999999
 a * b = 0.04000000000000001 0.1 0.18
 ```
 
-### テストを書く
+## テストを書く
 
 テストを別プログラムで記述するのはRust流儀ではないので、ソースコードに埋め込む。
 
 ```rust
-##[cfg(test)]
+#[cfg(test)]
 mod tests {
     use super::*;
 
@@ -109,7 +109,7 @@ test tests::test_unit_vector ... ok
 test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 ```
 
-### Rayモジュールの作成
+## Rayモジュールの作成
 
 並行してRustを勉強してるので、横道に逸れたが、次はレイのモジュールを書く。
 例によってGemini CLIさんにお願いした。

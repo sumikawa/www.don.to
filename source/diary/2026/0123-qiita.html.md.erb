@@ -8,7 +8,7 @@ tags: rust, cg, raytracing, qiita
 
 今回は[ここ](https://inzkyk.xyz/ray_tracing_in_one_weekend/week_1/1_6_surface_normal_and_multiple_objects/)の途中から。
 
-#### オブジェクトのリスト
+## オブジェクトのリスト
 
 例によってGemini CLIに書いてもらう。
 
@@ -74,12 +74,12 @@ world.add(Arc::new(Sphere::new(
 
 ![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/6e39f7b1-2bc7-4ff2-abf4-edc1d893c9dd.png)
 
-##### メモ
+## メモ
 
 - 元のC++コードが共有ポインタ使ってたため、Rustも```Arc```を使っているがこれは必要なのか？ ```.add```がスレッドセーフにならない？ 理解が足りてない。なぜ```Box```では駄目なのか
 - ```pi```と```degrees_to_radians```はどこで定義すべきか。今のところ使わないので後で考える。無限大は```f64::INFINITY```を使った
 
-### 共用モジュール
+## 共用モジュール
 
 Gemini CLIが古い表記の ```rand::thread_rng().get_range``` が正しいと信じて上書きしてくるのでなだめる。
 
@@ -104,7 +104,7 @@ pub fn random_double_range(min: f64, max: f64) -> f64 {
 }
 ```
 
-### カメラモジュール
+## カメラモジュール
 
 main.rsのハードコードがどんどん消えてきて気持ちいいすね。```aspect_ratio```は定数にするのを一旦やめた。共有モジュールに移した方がいいかもしれない
 
@@ -155,7 +155,7 @@ originのパラメーター```Y```を```-0.3```にして、少し見上げてみ
 
 GUI足してカメラ視点をグリグリしたくなる。
 
-### 出力メッセージの改善
+## 出力メッセージの改善
 
 実行のたびに```Scanlines remaining ...```の文字が画面を埋め尽くして邪魔なので、上書き表示に変えた。もっと早くやればよかった。
 
@@ -173,12 +173,12 @@ GUI足してカメラ視点をグリグリしたくなる。
              let v: f64 = j as f64 / (IMAGE_HEIGHT - 1) as f64;
 ```
 
-##### メモ
+## メモ
 
 - プログレスバーでもいいかな。後でイケてるライブラリないか探す。
 - Gemini CLIが```.unwrap()```足したけど、ここはつけるべきなのだろうか。```flush()```が失敗したとて問題ないので、エラーを無視して先に進めるべきか。
 
-### アンチエイリアシング
+## アンチエイリアシング
 
 まずは、共有モジュールにclamp関数を追加する。初めてmatchが使える！と思って書いてみた。
 
@@ -246,7 +246,7 @@ for j in (0..IMAGE_HEIGHT).rev() {
 ![ScreenCaptured 2026-01-23 16.26.55.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/5bb2cb26-e6d9-48dc-b495-f5758a903ef5.png)
 
 
-#### メモ
+## メモ
 
 - 計算量が100倍になったので画像生成に時間がかかるようになった。プログレスメッセージの必要性が出た。
 - 平均値を取るために```write_color()```の外で合計値を出して、```write_color()```の中で割り算をするのは、コードとして筋悪に見える。今は色の決定がカラータイルなので、この先に、きちんと計算したときに意味が出てくるかもしれない。修正せずに保留しておく。[追記] その9で対応した。

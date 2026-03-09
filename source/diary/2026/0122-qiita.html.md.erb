@@ -8,7 +8,7 @@ tags: rust, cg, raytracing, qiita
 
 今回は[ここ](https://inzkyk.xyz/ray_tracing_in_one_weekend/week_1/1_5_rendering_a_sphere/)から。
 
-#### 球をレンダリングする
+## 球をレンダリングする
 
 まずはレイと球が衝突したら赤くするだけのコード
 
@@ -37,13 +37,12 @@ fn ray_color(r: Ray) -> Vec3 {
 
 ![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/4cf27a2e-07c4-4c8a-8d74-c77ecd6c3fb0.png)
 
-
-メモ
+## メモ
 
 - 同じベクトルの内積が a.dot(a) という表記方法になってやや気持ち悪い。いい糖衣構文があればいいんだけど、Rubyでも同じ表記か。内積は演算結果が```f64```になって型が変わってしまうので、演算子を使わない方がいいのか。
 - ```&``` の有り無しがまだ腹落ちしてない。コンパイラの言われるがまま修正しているだけ。
 
-#### 法線を使ったシェーディング
+## 法線を使ったシェーディング
 
 コードを書くのはそこまで難しくないが、理論が難しいです。
 
@@ -74,14 +73,13 @@ fn ray_color(r: Ray) -> Vec3 {
     let t: f64 = 0.5 * (unit_direction.y + 1.0);
     return (1.0 - t) * Color::new(1.0, 1.0, 1.0) + t * Color::new(0.5, 0.7, 1.0);
 }
-
 ```
 
 式の簡略化については、そこまで性能に厳しいわけではないのでスキップする。
 
 ![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/edcde608-e9e9-4640-95fa-3bb722c1be19.png)
 
-### Hittable モジュール
+## Hittable モジュール
 
 まるっとGemini CLIに書いてもらった。何も言われてないのにSome()使うの偉い
 
@@ -137,7 +135,7 @@ impl Hittable for Sphere {
 }
 ```
 
-### 法線の向きに対応
+## 法線の向きに対応
 
 commitは[これ](https://github.com/sumikawa/myraytracing/commit/950ee465582834c95794b620376c557e9b02616a)
 

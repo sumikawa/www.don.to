@@ -52,7 +52,7 @@ fn main() {
 
 標準出力をoutput.ppmとしてファイルの書き出せば、プレビューで表示できる。
 
-### メモ
+## メモ
 
 - 行を```rev()```してるのを見て、混乱したが、単に緑を左上にしたかったからのようだ。PPMフォーマットが上下逆なのかと思ってしばらく悩んだ。[追記] 緑の位置は本質ではなくて、この後で3次元計算する空間と、スクリーンのY軸の方向が違うから。
 - ```256```ではなくて、```255.999```を掛けているのは、数値範囲として```0 <= x < 1```を扱うため。なるほどね。
@@ -66,7 +66,7 @@ fn main() {
 下記は関数をかなり省略している。フルソースは[githubを参照](https://github.com/sumikawa/myraytracing/commit/60e7bf8c088da7d9948c41f06c9945c701d8fa20)のこと。
 
 ```rust
-##[derive(Debug, Copy, Clone, PartialEq)]
+#[derive(Debug, Copy, Clone, PartialEq)]
 pub struct Vec3 {
     pub x: f64,
     pub y: f64,
@@ -153,7 +153,7 @@ impl Mul<f64> for Vec3 {
 }
 ```
 
-### メモ
+## メモ
 
 - ~~C++のように```+```オペレーターをそのまま使わないで、```Add```を使っているがRustはそういうもの？~~ [演算子オーバーロードの記法](https://doc.rust-jp.rs/rust-by-example-ja/trait/ops.html)だった。
 - ~~```impl Add```と```impl AddAssign```の2つある。AddAssignが破壊的メソッドという理解でいいのかしら。Rustの世界で破壊的変更を扱うべきなのかどうなのかは今後理解すべき~~ ```+=```の演算子オーバーロードのために[必要](https://doc.rust-lang.org/core/ops/trait.AddAssign.html)。
@@ -197,7 +197,7 @@ fn main() {
 }
 ```
 
-### メモ
+## メモ
 
 - 構造体にアクセスするときにR/G/Bではなく、X/Y/Zと書かないといけないのは分かりづらい。Color型のときは、R/G/Bにしたい(宿題)。
 

@@ -194,7 +194,7 @@ blockquote {
 
 code {
   display: inline-block;
-  padding: 0.08em 0.42em;
+  padding: 0 0.42em;
   border: 1px solid rgba(31, 79, 70, 0.12);
   border-radius: 8px;
   background-color: rgba(31, 79, 70, 0.08);

@@ -8,7 +8,7 @@ tags: rust, cg, raytracing, qiita
 
 週末レイトレーシングの[ここ](https://inzkyk.xyz/ray_tracing_in_one_weekend/week_1/1_8_diffuse_material/)をやります。
 
-### ランダムな vec3 を計算するユーティリティ関数
+## ランダムな vec3 を計算するユーティリティ関数
 
 Vec3モジュールに下記を追加。
 
@@ -39,7 +39,7 @@ pub fn random_in_unit_sphere() -> Vec3 {
 }
 ```
 
-##### メモ
+## メモ
 
 その4の[共有モジュール](https://qiita.com/sumikawa@github/items/cb1ae0a697cea6296b93#%E5%85%B1%E7%94%A8%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB)で見逃していたが、C++では引数が異なる同名の関数を使っていたが、Rustになったタイミングで異なる関数名になっていた。C++のようなことはできないらしい。理屈でいえば、コンパイル時にどちらを使うか判断できるので、静的型付けでもやれそうな気はする。
 
@@ -72,7 +72,7 @@ fn random_point_in_sphere(radius: f64) -> (f64, f64, f64) {
 
 後で差し替えてみる。一旦、保留。
 
-### 拡散マテリアル
+## 拡散マテリアル
 
 ```ray_color()```関数を下記に修正。
 
@@ -97,7 +97,7 @@ fn ray_color(r: &Ray, world: &dyn Hittable) -> Color {
 
 - scanlineが進むとどんどん処理時間が伸びる。どのピクセルでも計算時間は同じはずなのに何故と悩んだが、今の画像の上半分は、オブジェクトが存在するピクセルが少ないので拡散マテリアルの計算が不要になるためだ。試しに下から上へレンダリングするようにコードを変更したら、前半に時間を要するようになった。
 
-### 子レイの数を制限する
+## 子レイの数を制限する
 
 ```ray_color()```関数の再帰呼び出しを最大50回に制限。ちゃんと測ってないけど、そこまで感覚的に早くなったようには思えない。再帰やめてループにしたら早くなるかしらね。これも宿題。
 
@@ -142,7 +142,7 @@ fn ray_color(r: &Ray, world: &dyn Hittable) -> Color {
 
 ![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/e493d5d0-a0fc-478f-a76b-b3952fa0fefa.png)
 
-### ガンマ補正
+## ガンマ補正
 
 ガンマ補正をして、物体が黒くなりすぎる問題を修正。
 
@@ -174,7 +174,7 @@ fn ray_color(r: &Ray, world: &dyn Hittable) -> Color {
 
 ![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/ac512f30-2623-429d-967c-88bc380cc891.png)
 
-### シャドウアクネを消す
+## シャドウアクネを消す
 
 ```diff_rust
 @@ -12,7 +12,7 @@ fn ray_color(r: &Ray, world: &dyn Hittable, depth: u32) -> Color {
@@ -192,7 +192,7 @@ fn ray_color(r: &Ray, world: &dyn Hittable) -> Color {
 
 ![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/03ffab23-b971-4052-8df8-6093a25fb3e7.png)
 
-### 完全なランバート反射
+## 完全なランバート反射
 
 ランバート反射の関数を別に作成
 
@@ -230,7 +230,7 @@ pub fn random_unit_vector() -> Vec3 {
 
 この後、初期に使われていた別アルゴリズムが説明されているが、試すほどでもないのでスキップ。
 
-### 球を増やしてみる
+## 球を増やしてみる
 
 ```diff_rust
      let max_depth: u32 = 50;
