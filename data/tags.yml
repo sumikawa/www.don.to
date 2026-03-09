@@ -303,8 +303,6 @@ austria:
 - source/diary/2004/1225-kitzbuhel.html.md.erb
 - source/diary/2004/1226-kitzbuhel.html.md.erb
 - source/diary/2004/1230-kitzbuhel.html.md.erb
-automation:
-- source/diary/2025/1124-qiita.html.md.erb
 autumn:
 - source/diary/2007/1209-park.html.md.erb
 - source/diary/2010/1127-park.html.md.erb
@@ -8200,7 +8198,10 @@ psychological:
 - source/diary/1998/1122-lain.html.md.erb
 - source/diary/1998/1124-lain.html.md.erb
 - source/diary/1999/0126-memo.html.md.erb
+python:
+- source/diary/2025/1124-qiita.html.md.erb
 qiita:
+- source/diary/2016/0826-qiita.html.md.erb
 - source/diary/2025/0405-qiita.html.md.erb
 - source/diary/2025/0407-qiita.html.md.erb
 - source/diary/2025/0929-qiita.html.md.erb
