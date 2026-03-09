@@ -8201,6 +8201,7 @@ psychological:
 python:
 - source/diary/2025/1124-qiita.html.md.erb
 qiita:
+- source/diary/2015/0304-qiita.html.md.erb
 - source/diary/2016/0826-qiita.html.md.erb
 - source/diary/2025/0405-qiita.html.md.erb
 - source/diary/2025/0407-qiita.html.md.erb
@@ -11635,7 +11636,6 @@ wifi:
 windows:
 - source/diary/2002/0619-winxp.html.md.erb
 - source/diary/2008/0415-microsoft.html.md.erb
-- source/diary/2015/0304-qiita.html.md.erb
 wine:
 - source/diary/1998/0630-kwc.html.md.erb
 - source/diary/1998/0728-kwc.html.md.erb
