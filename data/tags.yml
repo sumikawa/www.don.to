@@ -224,8 +224,6 @@ aone:
 - source/diary/2020/0811-camp.html.md.erb
 apigateway:
 - source/diary/2017/0415-qiita.html.md.erb
-apple silicon:
-- source/diary/2025/0929-qiita.html.md.erb
 aquarium:
 - source/diary/1998/0822-chicago.html.md.erb
 - source/diary/2005/0504-kaiyukan.html.md.erb
@@ -325,7 +323,6 @@ aws:
 - source/diary/2015/1007-us.html.md.erb
 - source/diary/2015/1012-us.html.md.erb
 - source/diary/2015/1013-us.html.md.erb
-- source/diary/2017/0412-qiita.html.md.erb
 - source/diary/2017/0415-qiita.html.md.erb
 - source/diary/2018/1118-qiita.html.md.erb
 - source/diary/2019/0614-makuhari.html.md.erb
@@ -5666,7 +5663,6 @@ lamb:
 - source/diary/2002/0809-hitasuji.html.md.erb
 - source/diary/2005/0814-niku.html.md.erb
 lambda:
-- source/diary/2017/0412-qiita.html.md.erb
 - source/diary/2017/0415-qiita.html.md.erb
 - source/diary/2018/1118-qiita.html.md.erb
 - source/diary/2019/1220-qiita.html.md.erb
@@ -6188,12 +6184,11 @@ mac:
 - source/diary/2009/0225-mac.html.md.erb
 - source/diary/2011/0727-lion.html.md.erb
 - source/diary/2013/1008-ramen.html.md.erb
+- source/diary/2025/0929-qiita.html.md.erb
 machida:
 - source/diary/2008/1229-matida.html.md.erb
 - source/diary/2015/0927-nagatuta.html.md.erb
 - source/diary/2022/0904-bike.html.md.erb
-machine learning:
-- source/diary/2025/0929-qiita.html.md.erb
 madrid:
 - source/diary/2003/0422-spain.html.md.erb
 - source/diary/2003/0426-sightseeing.html.md.erb
@@ -8199,10 +8194,13 @@ psychological:
 - source/diary/1998/1124-lain.html.md.erb
 - source/diary/1999/0126-memo.html.md.erb
 python:
+- source/diary/2025/0929-qiita.html.md.erb
 - source/diary/2025/1124-qiita.html.md.erb
 qiita:
 - source/diary/2015/0304-qiita.html.md.erb
 - source/diary/2016/0826-qiita.html.md.erb
+- source/diary/2017/0412-qiita.html.md.erb
+- source/diary/2019/1220-qiita.html.md.erb
 - source/diary/2025/0405-qiita.html.md.erb
 - source/diary/2025/0407-qiita.html.md.erb
 - source/diary/2025/0929-qiita.html.md.erb
@@ -10036,6 +10034,8 @@ tanabata:
 - source/diary/2010/0707-tanabata.html.md.erb
 - source/diary/2015/0707-tanabata.html.md.erb
 - source/diary/2016/0705-riri.html.md.erb
+tcsh:
+- source/diary/2025/0407-qiita.html.md.erb
 tea:
 - source/diary/2002/1116-afternoontea.html.md.erb
 - source/diary/2006/1221-iemon.html.md.erb
@@ -10147,7 +10147,6 @@ tempura:
 - source/diary/2025/0716-hodogaya.html.md.erb
 terminal:
 - source/diary/2009/0225-mac.html.md.erb
-- source/diary/2025/0407-qiita.html.md.erb
 terrace:
 - source/diary/2020/0909-tumagoi.html.md.erb
 - source/diary/2025/0602-mm.html.md.erb
@@ -12102,3 +12101,5 @@ zushi:
 - source/diary/2015/0529-fireworks.html.md.erb
 - source/diary/2024/0915-sea.html.md.erb
 - source/diary/2025/0412-zusi.html.md.erb
+機械学習:
+- source/diary/2025/0929-qiita.html.md.erb
