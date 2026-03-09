@@ -1,0 +1,248 @@
+---
+title: Rustでポリゴンの基礎を学ぶ その3
+tags: rust, cg, polygon, qiita
+---
+<%= qiita('https://qiita.com/sumikawa@github/items/fc72f3b90fde8eeaef41') %>
+
+フルコードは[github](https://github.com/sumikawa/mypolygon)にあります。
+
+## グラデーション
+
+次の課題はポリゴンをグラデーションで塗ること。このため、三角形の各頂点に色を持つ構造体を作る。
+
+```rust
+use crate::color::Color;
+
+#[derive(Copy, Clone)]
+pub struct Vertex {
+    pub pos: Vec2,
+    pub color: Color,
+}
+
+#[derive(Copy, Clone)]
+pub struct Vec2 {
+    pub x: i32,
+    pub y: i32,
+}
+
+pub struct Triangle {
+    pub v0: Vertex,
+    pub v1: Vertex,
+    pub v2: Vertex,
+}
+```
+
+## 重心座標
+
+色を決定するために重心座標という考え方を導入する。
+これは三角形内の任意の点を選んだときに、```w0 + w1 + w2 = 1``` となる比率を求めることで、各頂点の色をブレンドする割合を算出できる。
+
+![figure02.drawio.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/a0cbe74e-91d7-48ba-96e1-699ee492dde5.png)
+
+外積を計算する```edge()``` と、それを使って重心座標を計算する。与えられた点```p``` が三角形の外にあるときは、```None``` が返る。Rustっぽい！
+
+```rust
+fn edge(a: Vec2, b: Vec2, p: Vec2) -> i32 {
+    (p.x - a.x) * (b.y - a.y) - (p.y - a.y) * (b.x - a.x)
+}
+
+fn barycentric(triangle: &Triangle, p: Vec2) -> Option<(f64, f64, f64)> {
+    let v0 = triangle.v0.pos;
+    let v1 = triangle.v1.pos;
+    let v2 = triangle.v2.pos;
+
+    let area = edge(v0, v1, v2) as f64;
+    if area == 0.0 {
+        return None;
+    }
+
+    let w0 = edge(v1, v2, p) as f64 / area;
+    let w1 = edge(v2, v0, p) as f64 / area;
+    let w2 = 1.0 - w0 - w1; // w2 = edge(v0, v1, p) as f64 / area;
+
+    if w0 >= 0.0 && w1 >= 0.0 && w2 >= 0.0 {
+        Some((w0, w1, w2))
+    } else {
+        None
+    }
+}
+```
+
+```w0, w1, w2``` から色を算出する関数。
+
+```rust
+fn interpolate_color(triangle: &Triangle, w0: f64, w1: f64, w2: f64) -> Color {
+    let v0 = triangle.v0;
+    let v1 = triangle.v1;
+    let v2 = triangle.v2;
+
+    let r = w0 * v0.color.r + w1 * v1.color.r + w2 * v2.color.r;
+    let g = w0 * v0.color.g + w1 * v1.color.g + w2 * v2.color.g;
+    let b = w0 * v0.color.b + w1 * v1.color.b + w2 * v2.color.b;
+
+    Color::new(r, g, b)
+}
+```
+
+以上を使って、ポリゴンを囲う長方形のピクセルを順番に辿って、色を塗っていく。
+
+```rust
+pub fn polygon_fill(
+    fb: &mut ImageBuffer<image::Rgb<u8>, Vec<u8>>,
+    transform: &Transform,
+    triangle: &Triangle,
+) {
+    let min_x = triangle.v0.pos.x.min(triangle.v1.pos.x.min(triangle.v2.pos.x));
+    let max_x = triangle.v0.pos.x.max(triangle.v1.pos.x.max(triangle.v2.pos.x));
+    let min_y = triangle.v0.pos.y.min(triangle.v1.pos.y.min(triangle.v2.pos.y));
+    let max_y = triangle.v0.pos.y.max(triangle.v1.pos.y.max(triangle.v2.pos.y));
+
+    for j in min_y..=max_y {
+        for i in min_x..=max_x {
+            let p = Vec2 { x: i, y: j };
+            if let Some((w0, w1, w2)) = barycentric(triangle, p) {
+                let color = interpolate_color(triangle, w0, w1, w2);
+                let rgb = image::Rgb([
+                    (color.r.clamp(0.0, 1.0) * 255.0) as u8,
+                    (color.g.clamp(0.0, 1.0) * 255.0) as u8,
+                    (color.b.clamp(0.0, 1.0) * 255.0) as u8,
+                ]);
+
+                let (sx, sy) = transform.to_screen(i, j);
+                if sx >= 0 && sx < fb.width() as i32 && sy >= 0 && sy < fb.height() as i32 {
+                    fb.put_pixel(sx as u32, sy as u32, rgb);
+                }
+            }
+        }
+    }
+}
+```
+
+コードを書いたものの、結局、スキャンライン法は使わず。ピクセルを順番に辿っていくレイトレーシングと同じコードになった。
+
+![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/d9171d7b-f1cf-4871-a0b3-445438c0fc8b.png)
+
+## ピクセルの座標系と物体の座標系を分ける
+
+ピクセルの座標系と物体の座標系を分けて、前者を```i32``` 、後者を```f64``` にする。ピクセルの座標を物体の座標に変換するときは、```0.5``` を加えて、ピクセルの中心部として扱う。
+
+```rust
+pub struct Vertex {
+    pub pos: Vec2,
+    pub color: Color,
+}
+
+pub struct Pixel {
+    pub x: i32,
+    pub y: i32,
+}
+
+pub struct Vec2 {
+    pub x: f64,
+    pub y: f64,
+}
+
+pub struct Triangle {
+    pub v0: Vertex,
+    pub v1: Vertex,
+    pub v2: Vertex,
+}
+
+impl From<Pixel> for Vec2 {
+    fn from(item: Pixel) -> Self {
+        Vec2 {
+            // Convert to center pixel by adding 0.5
+            x: item.x as f64 + 0.5,
+            y: item.y as f64 + 0.5,
+        }
+    }
+}
+```
+
+新しいループ。
+
+```rust
+for j in min_y..=max_y {
+    for i in min_x..=max_x {
+        let pixel = Pixel { x: i, y: j };
+        let p = Vec2::from(pixel);
+
+        if let Some((w0, w1, w2)) = barycentric(triangle, p) {
+            let color = interpolate_color(triangle, w0, w1, w2);
+            let rgb = image::Rgb([
+                (color.r.clamp(0.0, 1.0) * 255.0) as u8,
+                (color.g.clamp(0.0, 1.0) * 255.0) as u8,
+                (color.b.clamp(0.0, 1.0) * 255.0) as u8,
+            ]);
+
+            let (sx, sy) = transform.to_screen(i, j);
+            if sx >= 0 && sx < fb.width() as i32 && sy >= 0 && sy < fb.height() as i32 {
+                fb.put_pixel(sx as u32, sy as u32, rgb);
+            }
+        }
+    }
+}
+```
+
+## リファクタリング
+
+サンプルのポリゴンをスクリーンからはみ出させて、かつ小数を使うようにした。
+これでバグを見つけやすくなるはず。ついでに画面サイズを大きく(```1280x720``` )した。
+
+```rust
+let tri = Triangle {
+    v0: Vertex {
+        pos: Vec2 { x: 129.7, y: -26.4 },
+        color: Color::new(0.0, 0.0, 1.0),
+    },
+    v1: Vertex {
+        pos: Vec2 { x: 1327.3, y: 480.1 },
+        color: Color::new(0.0, 1.0, 0.0),
+    },
+    v2: Vertex {
+        pos: Vec2 { x: 524.0, y: 841.0 },
+        color: Color::new(1.0, 0.0, 0.0),
+    },
+};
+polygon_fill(&mut imgbuf, &transform, &tri);
+```
+
+![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/cdcc7474-06da-4ef0-bcb4-d4374eb97bc7.png)
+
+ピクセル空間からスクリーン空間への変換であることを明確にするために、```to_screen()``` を書き換えて、```i32``` から```u32``` への変換にする。また、スクリーン外かどうかの判断もこの関数内で行う。
+
+```rust
+pub struct Transform {
+    width: u32,
+    height: u32,
+}
+
+impl Transform {
+    pub fn new(width: u32, height: u32) -> Self {
+        Self { width, height }
+    }
+
+    pub fn to_screen(&self, x: i32, y: i32) -> Option<(u32, u32)> {
+        if y < 0 || x < 0 || x >= self.width as i32 || y >= self.height as i32 {
+            None
+        } else {
+            let sy: u32 = self.height - 1 - y as u32;
+            Some((x as u32, sy))
+        }
+    }
+}
+```
+
+呼び出し側がすっきりした。俺、```if let``` を使いこなしているわー。
+構文的にはピンと来ないけど、シンプルに記述できる。
+
+```diff_rust
+-    let (sx, sy) = transform.to_screen(i, j);
+-    if sx >= 0 && sx < fb.width() as i32 && sy >= 0 && sy < fb.height() as i32 {
+-        fb.put_pixel(sx as u32, sy as u32, rgb);
++    if let Some((sx, sy)) = transform.to_screen(i, j) {
++        fb.put_pixel(sx, sy, rgb);
+     }
+```
+
+ChatGPTにZバッファー法を習いながらその4に続く。

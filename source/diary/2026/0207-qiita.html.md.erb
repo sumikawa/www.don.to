@@ -1,0 +1,280 @@
+---
+title: Rustでポリゴンの基礎を学ぶ その2
+tags: rust, cg, polygon, qiita
+---
+<%= qiita('https://qiita.com/sumikawa@github/items/7b7bd9b0e4a27c6a4122') %>
+
+フルコードは[github](https://github.com/sumikawa/mypolygon)にあります。
+
+## 右肩下がりの線を引く
+
+その1で書いたブレゼンハムのアルゴリズムは、右肩上がりの線しか動かない。右肩下がりの線を引くためには、絶対値と符号を分けてやる必要がある。
+
+```rust
+let dx = (x1 - x0).abs();
+let dy = (y1 - y0).abs();
+let sx = (x1 - x0).signum();
+let sy = (y1 - y0).signum();
+
+let mut d: i32 = 2 * dy - dx;
+let mut y = y0;
+
+for x in (x0..=x1).step_by(sx as usize) {
+    let (screen_x, screen_y) = transform.to_screen(x, y);
+    fb.put_pixel(
+        screen_x as u32,
+        screen_y as u32,
+        image::Rgb([color.r, color.g, color.b]),
+    );
+
+    if d > 0 {
+        d += 2 * (dy - dx);
+        y += sy;
+    } else {
+        d += 2 * dy;
+    }
+}
+```
+
+![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/19492a19-a078-4d18-8aa5-514b26ee5fec.png)
+
+これだとまだ不十分で、
+
+- 横線は描けるが縦線が描けない。理由は、```step_by(0)``` になってしまうから。
+- 縦に急な線が引けない。yは1ずつしか変動しないので、2ピクセル以上変動する線は引けない
+
+という課題がある。
+
+このため線の傾きに応じて分岐してやる必要がある。修正後の```draw_line()``` は下記。結果的に、始点が右側に来る直線(```x0``` > ``` x1```)にも対応した。
+
+```rust
+fn draw_line(
+    fb: &mut ImageBuffer<image::Rgb<u8>, Vec<u8>>,
+    transform: &Transform,
+    x0: i32,
+    y0: i32,
+    x1: i32,
+    y1: i32,
+    color: Color,
+) {
+    let dx = (x1 - x0).abs();
+    let dy = (y1 - y0).abs();
+    let sx = (x1 - x0).signum();
+    let sy = (y1 - y0).signum();
+
+    let mut x = x0;
+    let mut y = y0;
+
+    if dx >= dy {
+        // x 主軸（横〜斜め）
+        let mut d = 2 * dy - dx;
+
+        for _ in 0..=dx {
+            let (sx2, sy2) = transform.to_screen(x, y);
+            fb.put_pixel(sx2 as u32, sy2 as u32, image::Rgb([color.r, color.g, color.b]));
+
+            if d > 0 {
+                y += sy;
+                d += 2 * (dy - dx);
+            } else {
+                d += 2 * dy;
+            }
+            x += sx;
+        }
+    } else {
+        // y 主軸（縦〜急勾配）
+        let mut d = 2 * dx - dy;
+
+        for _ in 0..=dy {
+            let (sx2, sy2) = transform.to_screen(x, y);
+            fb.put_pixel(sx2 as u32, sy2 as u32, image::Rgb([color.r, color.g, color.b]));
+
+            if d > 0 {
+                x += sx;
+                d += 2 * (dx - dy);
+            } else {
+                d += 2 * dx;
+            }
+            y += sy;
+        }
+    }
+}
+```
+
+これで、すべての角度の線が引ける。
+
+```rust
+for x in 0..image_width {
+    draw_line(
+        &mut imgbuf,
+        &transform,
+        0,
+        0,
+        x as i32,
+        (image_height - 1) as i32,
+        Color::new((255 * x / image_width / 2) as u8, 255 - (255 * x / image_width) as u8, 0),
+    );
+}
+for y in 0..image_height {
+    draw_line(
+        &mut imgbuf,
+        &transform,
+        0,
+        0,
+        (image_width - 1) as i32,
+        y as i32,
+        Color::new(((255 * y / image_width / 2) + 128) as u8, 0, 255 - (255 * y / image_width) as u8),
+    );
+}
+```
+
+![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/5d93c019-ad46-4646-b01d-d45ca8cdeec0.png)
+
+念のためベンチをとって、最初に書いた```f64``` 版の```draw_line()``` と比較してみたら、28秒対41秒で整数の方が早かった(AArch64)。今どきのアーキテクチャだとむしろ浮動小数点の方が早いんじゃないかと思ってたけど、差がでるもんですね。
+
+## Drawモジュールを作る
+
+描画系は色々増えそうなので、crateに昇格。ただのリファクタリングなのでコードは省略。この[commit](https://github.com/sumikawa/mypolygon/commit/8e46db412c0e5d98f0a009db8f1156aebae22225)です。
+
+## ポリゴンの枠だけ書く
+
+渡された二次元座標を、直線でつなぐ関数を書く。イテレータで実装してみた。
+分かりづらいけど、渡されたベクタと、それを一つずらしたベクタを、zip()で一つにまとめている。
+これによって、直線の始点と終点をペアにして、処理している。
+
+```rust
+pub fn polygon_outline(
+    fb: &mut ImageBuffer<image::Rgb<u8>, Vec<u8>>,
+    transform: &Transform,
+    vertices: &[(i32, i32)],
+    color: Color,
+) {
+    if vertices.len() < 2 {
+        return;
+    }
+
+    vertices
+        .iter()
+        .zip(vertices.iter().cycle().skip(1))
+        .for_each(|(a, b)| {
+            line(fb, transform, a.0, a.1, b.0, b.1, color);
+        });
+}
+```
+
+最終的にポリゴンはすべからく三角形になるはずだが、ここでは三角形以外のポリゴンも扱う。三角形、四角形、凹形を書く。
+
+```rust
+    let tri = [(80, 70), (180, 70), (130, 170)];
+    polygon_outline(&mut imgbuf, &transform, &tri, Color::new(0, 0, 255));
+
+    let rect = [(30, 30), (130, 30), (130, 80), (30, 80)];
+    polygon_outline(&mut imgbuf, &transform, &rect, Color::new(255, 0, 255));
+
+    let concave = [ (150, 50), (250, 50), (250, 150), (200, 100), (150, 150)];
+    polygon_outline(&mut imgbuf, &transform, &concave, Color::new(255, 255, 0));
+```
+
+できた。
+
+![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/a0478278-b808-44b7-b924-177145e3849a.png)
+
+## ポリゴンの中を塗り潰す
+
+塗りつぶしは三角形だけを扱うので、三角形のモジュールを作る。
+
+```rust
+struct Vec2 {
+    x: i32,
+    y: i32,
+}
+
+struct Triangle {
+    v0: Vec2,
+    v1: Vec2,
+    v2: Vec2,
+}
+```
+
+```main``` 側を塗りつぶしをさせるコード。デバッグのため枠線も書く。
+2次元ベクトルの型がバラバラなのは後で修正する。どうせ3次元に拡張しないといけないし。
+
+```rust
+fn main() {
+    let settings = Settings::new();
+    let aspect_ratio = settings.aspect_ratio;
+    let image_width = settings.image_width;
+    let image_height = (image_width as f64 / aspect_ratio) as u32;
+    let transform = Transform::new(image_height as i32);
+
+    let mut imgbuf = image::ImageBuffer::new(image_width, image_height);
+
+    let tri = Triangle {
+        v0: Vec2 { x: 80, y: 30 },
+        v1: Vec2 { x: 180, y: 120 },
+        v2: Vec2 { x: 130, y: 210 },
+    };
+    polygon_fill(&mut imgbuf, &transform, &tri, Color::new(0, 0, 255));
+
+    let tri2 = [(80, 30), (180, 120), (130, 210)];
+    polygon_outline(&mut imgbuf, &transform, &tri2, Color::new(0, 255, 255));
+
+    imgbuf.save("output.png").unwrap();
+}
+```
+
+塗りつぶしはスキャンライン法を使う。これは三角形を上下2つに分割して、線分を計算して横線を引くアルゴリズム。Y軸が ```v0 <= v1 <= v2``` とするように頂点はソートする。
+
+![figure01.drawio.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/71616678-5f67-4f42-81f9-787fe5a79d7b.png)
+
+コードは以下。
+
+```rust
+pub fn polygon_fill(
+    fb: &mut ImageBuffer<image::Rgb<u8>, Vec<u8>>,
+    transform: &Transform,
+    triangle: &Triangle,
+    color: Color,
+) {
+    let mut verts = [triangle.v0, triangle.v1, triangle.v2];
+    verts.sort_by_key(|v| v.y); // sort vertex as v0.y <= v1.y <= v2.y
+
+    // scanline for first half
+    for y in verts[0].y..verts[1].y {
+        let dy = y - verts[0].y;
+
+        let x01 = verts[0].x + (verts[1].x - verts[0].x) * dy / (verts[1].y - verts[0].y);
+        let x02 = verts[0].x + (verts[2].x - verts[0].x) * dy / (verts[2].y - verts[0].y);
+
+        let left_x  = x01.min(x02);
+        let right_x = x01.max(x02);
+
+        line(fb, transform, left_x, y, right_x, y, color);
+    }
+
+    // scanline for second half
+    for y in verts[1].y..verts[2].y {
+        let dy = y - verts[2].y;
+
+        let x01 = verts[2].x + (verts[0].x - verts[2].x) * dy / (verts[0].y - verts[2].y);
+        let x02 = verts[2].x + (verts[1].x - verts[2].x) * dy / (verts[1].y - verts[2].y);
+
+        let left_x  = x01.min(x02);
+        let right_x = x01.max(x02);
+
+        line(fb, transform, left_x, y, right_x, y, Color::new(255, 0, 0));
+    }
+}
+```
+
+x01とx02は左右が逆でも```line()``` は問題なく線を引けるけど、たぶんソートされてると都合がいいので、```left_x <= right_x``` にした。
+
+描画結果。本当は青一色ですが、分かりやすいように上半分を青、下半分を赤にしています。座標系は上下逆なことに注意。
+
+![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/db18a388-8fa3-4f0a-af71-e2073b1e3e11.png)
+
+ポリゴンを100個生成してみる。
+
+![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/b53df92b-67d7-4870-8cf9-aff3df887c5b.png)
+
+その3に続く。

@@ -12,7 +12,7 @@ cargo [clippy](https://doc.rust-jp.rs/book-ja/appendix-04-useful-development-too
 
 ## default()の実装
 
-下記によると```new()```はすべからく、Defaultトレイトを使って初期値を```default()```で提供すべしとのことなので、実装した。
+下記によると```new()``` はすべからく、Defaultトレイトを使って初期値を```default()``` で提供すべしとのことなので、実装した。
 https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default
 
 ```diff_rust
@@ -40,7 +40,7 @@ cargo run --release > output.ppm
 
 すると、38秒になった。デバッグシンボルの有無でこんなに性能違うのか！
 
-次に```ray_color()```が再帰を使っていたが、ループに変更する。
+次に```ray_color()``` が再帰を使っていたが、ループに変更する。
 
 ```rust
 fn ray_color(r: &Ray, world: &dyn Hittable, depth: u32) -> Color {
@@ -104,7 +104,7 @@ fn ray_color(r: &Ray, world: &dyn Hittable, depth: u32) -> Color {
     imgbuf.save("output.png").unwrap();
 ```
 
-```(IMAGE_HEIGHT - j)```つまり上下を逆に演算しているのは、レイトレーシングの空間ではY軸は下から上に進むけど、スクリーンのY軸は上から下に進むから。
+```(IMAGE_HEIGHT - j)``` つまり上下を逆に演算しているのは、レイトレーシングの空間ではY軸は下から上に進むけど、スクリーンのY軸は上から下に進むから。
 
 ここにrayonを導入して、並列化する。
 標準エラー出力にプログレスを表示する今のコードも動かないので、ProgressBarクレートを使う。

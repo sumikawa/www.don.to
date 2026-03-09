@@ -11,7 +11,7 @@ tags: rust, cg, raytracing, qiita
 ## リファクタリング
 
 下記の部分が冗長ではないかとコメントをもらう。
-確かに```hoge.x()```などせずに```hoge.x```で構造体の中身にアクセスできる。
+確かに```hoge.x()``` などせずに```hoge.x``` で構造体の中身にアクセスできる。
 
 ```rust
 impl Vec3 {
@@ -24,17 +24,17 @@ impl Vec3 {
 Rayモジュールにも同様の問題がある。
 [74de2cd](https://github.com/sumikawa/myraytracing/commit/74de2cdf52a6213da89e2f27973aa148a5bbb619)と[c776e2a](https://github.com/sumikawa/myraytracing/commit/c776e2a7e3c65be8b6023bb2b73481a3bb1d3984)で修正した。
 
-```PI```, ```INFINITY```, ```clamp```については、```f64```のものをそのまま使えばよいとこれもコメントをもらった。[f6adf8e](https://github.com/sumikawa/myraytracing/commit/f6adf8e2fb869172fecf79063798b75496ff8762)で修正。
+```PI``` , ```INFINITY``` , ```clamp``` については、```f64``` のものをそのまま使えばよいとこれもコメントをもらった。[f6adf8e](https://github.com/sumikawa/myraytracing/commit/f6adf8e2fb869172fecf79063798b75496ff8762)で修正。
 
 ## f64の定数について
 
-```PI```と```INFINITY```の扱いに差があって気持ち悪い。[ドキュメント](https://doc.rust-jp.rs/the-rust-programming-language-ja/1.9/std/f64/index.html)によると、どちらも定数だけど、数学的な定数は```f64::consts```の下にいくと。なんでやねん。
+```PI``` と```INFINITY``` の扱いに差があって気持ち悪い。[ドキュメント](https://doc.rust-jp.rs/the-rust-programming-language-ja/1.9/std/f64/index.html)によると、どちらも定数だけど、数学的な定数は```f64::consts``` の下にいくと。なんでやねん。
 
 ちなみにRubyでは[数学関数](https://docs.ruby-lang.org/ja/latest/class/Math.html)はモジュールとして独立している。これなら分かる。
 
 ## Gemini.mdとMakefile
 
-今更ながら、```Gemini.md```と```Makefile```を書く。```Makefile```を書く理由は```cargo```コマンドを覚えられないから。
+今更ながら、```Gemini.md``` と```Makefile``` を書く。```Makefile``` を書く理由は```cargo``` コマンドを覚えられないから。
 
 ```markdown
 ## Project Overview
@@ -110,7 +110,7 @@ Material側でもHitRecordを参照しているので、循環参照の形にな
 
 ## ランバート反射の抽象化
 
-```main.rs```にあったランバート反射の計算をMaterialモジュールに移動する。
+```main.rs``` にあったランバート反射の計算をMaterialモジュールに移動する。
 
 ```rust
 impl Material for Lambertian {
@@ -129,7 +129,7 @@ impl Material for Lambertian {
 }
 ```
 
-以上を踏まえて```main.rs```を書き直す(関係ない部分は省略しています)。
+以上を踏まえて```main.rs``` を書き直す(関係ない部分は省略しています)。
 
 ```rust
 fn ray_color(r: &Ray, world: &dyn Hittable, depth: u32) -> Color {
@@ -188,7 +188,7 @@ impl Lambertian {
 
 albedoはColor構造体を使っているので、RGBごとに減衰率を指定している。これまではどの色でも50%減衰固定。
 
-```main.rs```の```ray_color()```を修正して、albedoを使う。
+```main.rs``` の```ray_color()``` を修正して、albedoを使う。
 
 ```diff_rust
 -        return 0.5 * ray_color(&Ray::new(rec.p, target - rec.p), world, depth - 1);

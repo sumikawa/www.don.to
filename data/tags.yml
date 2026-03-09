@@ -1648,6 +1648,9 @@ cg:
 - source/diary/2026/0128-qiita.html.md.erb
 - source/diary/2026/0129-qiita.html.md.erb
 - source/diary/2026/0201-qiita.html.md.erb
+- source/diary/2026/0204-qiita.html.md.erb
+- source/diary/2026/0207-qiita.html.md.erb
+- source/diary/2026/0208-qiita.html.md.erb
 character:
 - source/diary/2009/0222-pokemon.html.md.erb
 - source/diary/2009/0306-elmo.html.md.erb
@@ -8127,6 +8130,10 @@ police:
 - source/diary/2003/0805-speed.html.md.erb
 - source/diary/2003/0906-police.html.md.erb
 - source/diary/2003/1116-court.html.md.erb
+polygon:
+- source/diary/2026/0204-qiita.html.md.erb
+- source/diary/2026/0207-qiita.html.md.erb
+- source/diary/2026/0208-qiita.html.md.erb
 pool:
 - source/diary/2007/0721-pool.html.md.erb
 - source/diary/2007/0819-pool.html.md.erb
@@ -8228,6 +8235,9 @@ qiita:
 - source/diary/2026/0128-qiita.html.md.erb
 - source/diary/2026/0129-qiita.html.md.erb
 - source/diary/2026/0201-qiita.html.md.erb
+- source/diary/2026/0204-qiita.html.md.erb
+- source/diary/2026/0207-qiita.html.md.erb
+- source/diary/2026/0208-qiita.html.md.erb
 ramen:
 - source/diary/2005/0505-ippin.html.md.erb
 - source/diary/2006/0209-yasubee.html.md.erb
@@ -8689,6 +8699,9 @@ rust:
 - source/diary/2026/0128-qiita.html.md.erb
 - source/diary/2026/0129-qiita.html.md.erb
 - source/diary/2026/0201-qiita.html.md.erb
+- source/diary/2026/0204-qiita.html.md.erb
+- source/diary/2026/0207-qiita.html.md.erb
+- source/diary/2026/0208-qiita.html.md.erb
 s3:
 - source/diary/2010/0522-amazon.html.md.erb
 safari:

@@ -1,0 +1,157 @@
+---
+title: Rustでポリゴンの基礎を学ぶ その1
+tags: rust, cg, polygon, qiita
+---
+<%= qiita('https://qiita.com/sumikawa@github/items/3efc44a9a6e612d6cf23') %>
+
+フルコードは[github](https://github.com/sumikawa/mypolygon)にあります。
+
+## レイトレーシングを完全に理解した(わかってない)
+
+「[Rustでコンピューターグラフィックスの基礎を学ぶ その9](https://qiita.com/sumikawa@github/items/44adc520ee23762f8141)」のあと、さらにチュートリアルを進めて、テキスチャマッピングまでできたのでここで切り上げた。
+
+![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/6bae7f22-84cc-471e-8734-c2171ab65023.png)
+
+## ポリゴンを学びたい
+
+次はポリゴンを学ぼうということで、[週末レイトレーシング](https://inzkyk.xyz/ray_tracing_in_one_weekend/)のようなチュートリアルを探したけど見つけられず。ChatGPTに相談したら、ステップバイステップの課題を提示されたので、それに従って進めることにする。
+
+フレームバッファは、前回で使ったImageクレートを使うことにした。
+
+方針は下記
+
+- 今回はチュートリアルのサンプルがないので、自分で全体のデザインを考える
+- コードもなるべく自分で書く
+- でも、ハマったらすぐにAIに相談する
+
+まずはたたき台として、直線を一本引くだけのコードを書いた。ビルドエラーを修正するために、Gemini CLIを使ったら```draw_line()``` の中身まで勝手に埋められた。自分でやりたかったのに。
+
+```rust
+use image::ImageBuffer;
+use mypolygon::color::Color;
+
+fn draw_line(
+    fb: &mut ImageBuffer<image::Rgb<u8>, Vec<u8>>,
+    x0: i32,
+    y0: i32,
+    x1: i32,
+    y1: i32,
+    color: Color,
+) {
+    for x in x0..=x1 {
+        let t = (x - x0) as f64 / (x1 - x0) as f64;
+        let y = (y0 as f64 * (1.0 - t) + y1 as f64 * t) as i32;
+        fb.put_pixel(x as u32, y as u32, image::Rgb([color.r, color.g, color.b]));
+    }
+}
+
+fn main() {
+    const ASPECT_RATIO: f64 = 16.0 / 9.0;
+    const IMAGE_WIDTH: u32 = 384;
+    const IMAGE_HEIGHT: u32 = (IMAGE_WIDTH as f64 / ASPECT_RATIO) as u32;
+
+    let mut imgbuf = image::ImageBuffer::new(IMAGE_WIDTH, IMAGE_HEIGHT);
+
+    draw_line(&mut imgbuf, 30, 30, 300, 150, Color::new(255, 255, 0));
+
+    imgbuf.save("output.png").unwrap();
+}
+```
+
+出力結果。またショボい画面からやり直し。
+
+![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/930af6d7-c5d6-4743-bf9e-33ba1b3d42f7.png)
+
+Y軸が、内部的な表現とスクリーンでは逆なので、上下が逆に描画されている。描画時には上下逆転させるいい抽象化方法を考えたい。
+
+レイトレーシングと発想が違うのは、レイトレーシングはピクセルを左上から順番に計算したけど、今回はオブジェクト(まだ線だけど)からどこのピクセルに描画するか計算すること。
+
+Colorモジュールは下記。レイトレーシングではRGBの値は```f64``` にしていたが、```u8``` にしてみた。連続値を扱う必要性があるのであれば今後見直す。
+
+```rust
+pub struct Color {
+    pub r: u8,
+    pub g: u8,
+    pub b: u8,
+}
+
+impl Color {
+    pub fn new(r: u8, g: u8, b: u8) -> Self {
+        Self { r, g, b }
+    }
+}
+```
+
+## ブレゼンハムのアルゴリズム
+
+```draw_line()``` がピクセル位置を決めるときに、```f64``` を使っているが、高速化のために[ブレゼンハムのアルゴリズム](https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AC%E3%82%BC%E3%83%B3%E3%83%8F%E3%83%A0%E3%81%AE%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0)を使って整数演算に書き換える。今どきなら浮動小数点を使い続けても性能あんまり変わらないとは思うけど、まあお勉強なのでやってみる。
+
+```rust
+fn draw_line(
+    fb: &mut ImageBuffer<image::Rgb<u8>, Vec<u8>>,
+    x0: i32,
+    y0: i32,
+    x1: i32,
+    y1: i32,
+    color: Color,
+) {
+    let dx = x1 - x0;
+    let dy = y1 - y0;
+    let mut d: i32 = 2 * dy - dx;
+    let mut y = y0;
+
+    for x in x0..=x1 {
+        fb.put_pixel(
+            x as u32,
+            y as u32,
+            image::Rgb([color.r, color.g, color.b]),
+        );
+
+        if d > 0 {
+            d += 2 * (dy - dx);
+        y += 1;
+        } else {
+            d += 2 * dy;
+        }
+
+    }
+}
+```
+
+今のところ、右肩上がりの直線しか書けない。
+
+## 上下逆転問題の修正
+
+ChatGPTに聞いたら、3D対応(カメラ、拡大、縮小)を踏まえて、Transformモジュールを作れと言われたので従う。
+
+```rust
+pub struct Transform {
+    height: i32,
+}
+
+impl Transform {
+    pub fn new(height: i32) -> Transform {
+        Transform { height }
+    }
+
+    pub fn to_screen(&self, x: i32, y: i32) -> (i32, i32) {
+        (x, self.height - 1 - y)
+    }
+}
+```
+
+```put_pixel()``` の前に座標をスクリーン系に変換する
+
+```rust
+-        fb.put_pixel(x as u32, y as u32, image::Rgb([color.r, color.g, color.b]));
++        let (sx, sy) = transform.to_screen(x, y);
++        fb.put_pixel(
++            sx as u32,
++            sy as u32,
++            image::Rgb([color.r, color.g, color.b]),
++        );
+```
+
+![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/5f3f11cf-1fd3-4844-842c-60d5c1a23da0.png)
+
+今回はゴールが設定されていないので、どこまでたどり着けるのか不明だが、[その2](https://qiita.com/drafts/7b7bd9b0e4a27c6a4122/edit)に続く

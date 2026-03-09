@@ -6,7 +6,7 @@ tags: aws, ipアドレス, lambda, codecommit, qiita
 
 ## やりたいこと
 
-AWSは現在利用しているIPアドレスブロックを[JSONファイル](https://docs.aws.amazon.com/ja_jp/general/latest/gr/aws-ip-ranges.html)(```ip-ranges.json```)にして公開していますが、このファイルの過去履歴を知りたいときがあります。
+AWSは現在利用しているIPアドレスブロックを[JSONファイル](https://docs.aws.amazon.com/ja_jp/general/latest/gr/aws-ip-ranges.html)(```ip-ranges.json``` )にして公開していますが、このファイルの過去履歴を知りたいときがあります。
 CodeCommitにはgitプロトコルを使わずにファイルを直接アップロードする[API](https://aws.amazon.com/jp/about-aws/whats-new/2018/02/aws-codecommit-supports-creating-and-editing-files-via-the-console-editor-and-sdks/)がありますので、これを使って履歴を追えるようにしましょう。
 
 ## 事前準備

@@ -39,7 +39,7 @@ impl Material for Metal {
 }
 ```
 
-反射計算する関数を```Vec3```側に追加。この式難しい。
+反射計算する関数を```Vec3``` 側に追加。この式難しい。
 
 ```rust
     pub fn reflect(v: &Vec3, n: &Vec3) -> Vec3 {
@@ -47,7 +47,7 @@ impl Material for Metal {
     }
 ```
 
-金属球を```main.rs```に追加。
+金属球を```main.rs``` に追加。
 
 ``` rust
 +    let material_left = Arc::new(Metal::new(Color::new(0.8, 0.8, 0.8)));
@@ -112,7 +112,7 @@ impl Material for Metal {
 
 ## ぼやけた反射
 
-反射率にfuzzinessを追加。```new()```するときに、条件付き(```1.0```以上は```1.0```とする)の引数をどう書くのか分からなかったけど、Gemini CLIが教えてくれた。
+反射率にfuzzinessを追加。```new()``` するときに、条件付き(```1.0``` 以上は```1.0``` とする)の引数をどう書くのか分からなかったけど、Gemini CLIが教えてくれた。
 
 ```rust
 @@ -39,11 +39,15 @@ impl Material for Lambertian {
@@ -144,7 +144,7 @@ impl Material for Metal {
      }
 ```
 
-```main.rs```で金属球を作るときにfuziness引数を追加
+```main.rs``` で金属球を作るときにfuziness引数を追加
 
 ```rust
 -    let material_left = Arc::new(Metal::new(Color::new(0.8, 0.8, 0.8)));
@@ -204,7 +204,7 @@ impl Material for Dielectric {
 
 ![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/8c59839d-d687-4d8b-9d8f-2d6ed93a7607.png)
 
-```scatter()```を全反射に対応させる。もはや式の意味は理解できない。写経。
+```scatter()``` を全反射に対応させる。もはや式の意味は理解できない。写経。
 
 ```rust
 @@ -91,6 +91,15 @@ impl Material for Dielectric {
