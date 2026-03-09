@@ -21,7 +21,7 @@ ssh-keygen -b 2048 -t rsa -C "windows only" -N "" -f windows.pem
 作成されたキーを全リージョンにimportする。
 
 ```terminal
-##!/bin/bash
+#!/bin/bash
 for region in $(aws ec2 describe-regions --query 'Regions[].RegionName' --output text); do
   echo $region
   aws --region $region ec2 import-key-pair --key-name windows --public-key-material file://~/.ssh/windows.pub
