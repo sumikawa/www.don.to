@@ -1,0 +1,204 @@
+---
+title: Rustでコンピューターグラフィックスの基礎を学ぶ その1
+tags: rust, cg, raytracing, qiita
+---
+<%= qiita('https://qiita.com/sumikawa@github/items/9093f26b1df1f747f544') %>
+
+## はじめに
+
+学生時代から今まで、CGのアルゴリズムを学ぶ機会がなかったので、Rustの勉強がてらプログラムを書いてみる。
+まずはレイトレーシングを学ぶ。
+
+方針は下記
+- [週末レイトレーシング](https://inzkyk.xyz/ray_tracing_in_one_weekend/week_1/)を順番にやっていく
+- C++の代わりにRustで記述する
+- とにかく最後まで完走し、Rustとレイトレーシングの知識を深める。そのためにはAIに頼ることも厭わない(イケてない)
+- AIに騙されるかもしれないので、試行錯誤の記録は残す。今後に役立つはず
+
+githubリポジトリは[ここ](https://github.com/sumikawa/myraytracing)
+
+なお、Rust初心者なので色々と間違っている可能性があります。学習の過程で間違いに気づけば都度修正しますので、ご容赦ください。
+
+## 画像ファイルの作成
+
+まずは画像ファイルの出力するプログラム。[PPMフォーマット](https://ja.wikipedia.org/wiki/PNM_(%E7%94%BB%E5%83%8F%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88))であれば無圧縮かつテキストで記述できる。
+
+Gemini CLIにC++のコードを渡したらRustに変換してくれた。
+
+```rust
+fn main() {
+    const IMAGE_WIDTH: i32 = 256;
+    const IMAGE_HEIGHT: i32 = 256;
+
+    println!("P3\n{} {}\n255", IMAGE_WIDTH, IMAGE_HEIGHT);
+
+    for j in (0..IMAGE_HEIGHT).rev() {
+        eprintln!("\rScanlines remaining: {} ", j);
+        for i in 0..IMAGE_WIDTH {
+            let r = i as f64 / (IMAGE_WIDTH - 1) as f64;
+            let g = j as f64 / (IMAGE_HEIGHT - 1) as f64;
+            let b = 0.25;
+
+            let ir = (255.999 * r) as i32;
+            let ig = (255.999 * g) as i32;
+            let ib = (255.999 * b) as i32;
+
+            println!("{} {} {}", ir, ig, ib);
+        }
+    }
+    eprintln!("\nDone.");
+}
+```
+
+標準出力をoutput.ppmとしてファイルの書き出せば、プレビューで表示できる。
+
+### メモ
+
+- 行を```rev()```してるのを見て、混乱したが、単に緑を左上にしたかったからのようだ。PPMフォーマットが上下逆なのかと思ってしばらく悩んだ。[追記] 緑の位置は本質ではなくて、この後で3次元計算する空間と、スクリーンのY軸の方向が違うから。
+- ```256```ではなくて、```255.999```を掛けているのは、数値範囲として```0 <= x < 1```を扱うため。なるほどね。
+
+画像バイナリを扱わないで学習を進められるのは助かる。
+当初は[gpui](https://www.gpui.rs/)を使ってGUIでリアルタイム表示しようかと思ったが、Canvas周りの使い方がわからなくて挫折した。gpui自体の仕様変更が激しいらしく、AIにやらせても駄目だった。今後の課題とする。
+
+## Vec3モジュールの作成
+
+3次元のベクトル演算をさせたいのは分かるが、まだRustの書き方に慣れておらず。Gemini CLIに丸投げ。
+下記は関数をかなり省略している。フルソースは[githubを参照](https://github.com/sumikawa/myraytracing/commit/60e7bf8c088da7d9948c41f06c9945c701d8fa20)のこと。
+
+```rust
+##[derive(Debug, Copy, Clone, PartialEq)]
+pub struct Vec3 {
+    pub x: f64,
+    pub y: f64,
+    pub z: f64,
+}
+
+pub type Point3 = Vec3;
+pub type Color = Vec3;
+
+impl Vec3 {
+    pub fn new(x: f64, y: f64, z: f64) -> Self {
+        Self { x, y, z }
+    }
+
+    pub fn x(&self) -> f64 {
+        self.x
+    }
+
+    pub fn length(&self) -> f64 {
+        self.length_squared().sqrt()
+    }
+
+    pub fn dot(&self, other: Self) -> f64 {
+        self.x * other.x + self.y * other.y + self.z * other.z
+    }
+
+    pub fn cross(&self, other: Self) -> Self {
+        Self {
+            x: self.y * other.z - self.z * other.y,
+            y: self.z * other.x - self.x * other.z,
+            z: self.x * other.y - self.y * other.x,
+        }
+    }
+
+    pub fn unit_vector(&self) -> Self {
+        *self / self.length()
+    }
+}
+
+impl Add for Vec3 {
+    type Output = Self;
+
+    fn add(self, other: Self) -> Self::Output {
+        Self {
+            x: self.x + other.x,
+            y: self.y + other.y,
+            z: self.z + other.z,
+        }
+    }
+}
+
+impl AddAssign for Vec3 {
+    fn add_assign(&mut self, other: Self) {
+        *self = Self {
+            x: self.x + other.x,
+            y: self.y + other.y,
+            z: self.z + other.z,
+        };
+    }
+}
+
+impl Mul for Vec3 {
+    type Output = Self;
+
+    fn mul(self, other: Self) -> Self::Output {
+        Self {
+            x: self.x * other.x,
+            y: self.y * other.y,
+            z: self.z * other.z,
+        }
+    }
+}
+
+impl Mul<f64> for Vec3 {
+    type Output = Self;
+
+    fn mul(self, rhs: f64) -> Self::Output {
+        Self {
+            x: self.x * rhs,
+            y: self.y * rhs,
+            z: self.z * rhs,
+        }
+    }
+}
+```
+
+### メモ
+
+- ~~C++のように```+```オペレーターをそのまま使わないで、```Add```を使っているがRustはそういうもの？~~ [演算子オーバーロードの記法](https://doc.rust-jp.rs/rust-by-example-ja/trait/ops.html)だった。
+- ~~```impl Add```と```impl AddAssign```の2つある。AddAssignが破壊的メソッドという理解でいいのかしら。Rustの世界で破壊的変更を扱うべきなのかどうなのかは今後理解すべき~~ ```+=```の演算子オーバーロードのために[必要](https://doc.rust-lang.org/core/ops/trait.AddAssign.html)。
+- ~~```impl Mul for Vec3```と```impl Mul<f64> for Vec3```がなぜ2つ用意されているのか分かっていない。~~ ```Vec3 * X``` の記法で ```Vec3```と```f64```の両方をXとして扱えるようにするため。
+
+## main.rsをColor型を使うように修正
+
+ColorはVec3のエイリアス。
+
+```rust
+use myraytracing::Color;
+
+fn write_color(pixel_color: Color) {
+    // Write the translated [0,255] value of each color component.
+    println!(
+        "{} {} {}",
+        (255.999 * pixel_color.x()) as i32,
+        (255.999 * pixel_color.y()) as i32,
+        (255.999 * pixel_color.z()) as i32
+    );
+}
+
+fn main() {
+    const IMAGE_WIDTH: i32 = 256;
+    const IMAGE_HEIGHT: i32 = 256;
+
+    println!("P3\n{} {}\n255", IMAGE_WIDTH, IMAGE_HEIGHT);
+
+    for j in (0..IMAGE_HEIGHT).rev() {
+        eprintln!("\rScanlines remaining: {} ", j);
+        for i in 0..IMAGE_WIDTH {
+            let pixel_color = Color::new(
+                i as f64 / (IMAGE_WIDTH - 1) as f64,
+                j as f64 / (IMAGE_HEIGHT - 1) as f64,
+                0.25,
+            );
+            write_color(pixel_color);
+        }
+    }
+    eprintln!("\nDone.");
+}
+```
+
+### メモ
+
+- 構造体にアクセスするときにR/G/Bではなく、X/Y/Zと書かないといけないのは分かりづらい。Color型のときは、R/G/Bにしたい(宿題)。
+
+まだレイトレーシングは始まっていない。[その2](https://qiita.com/sumikawa@github/items/3f5762ce0469740e5502)に続く。

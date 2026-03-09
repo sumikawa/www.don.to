@@ -1,0 +1,154 @@
+---
+title: Rustでコンピューターグラフィックスの基礎を学ぶ その9
+tags: rust, cg, raytracing, qiita
+---
+<%= qiita('https://qiita.com/sumikawa@github/items/44adc520ee23762f8141') %>
+
+フルコードは[github](https://github.com/sumikawa/myraytracing)にあります。
+
+### clippy対応
+
+cargo [clippy](https://doc.rust-jp.rs/book-ja/appendix-04-useful-development-tools.html#clippy%E3%81%A7%E3%82%82%E3%81%A3%E3%81%A8lint%E3%82%92)に指摘を受けた部分を[修正](https://github.com/sumikawa/myraytracing/commit/57bb591e93a6c824300b16898db728c58982377d)。
+
+### default()の実装
+
+下記によると```new()```はすべからく、Defaultトレイトを使って初期値を```default()```で提供すべしとのことなので、実装した。
+https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default
+
+```rust
+impl Default for Vec3 {
+    fn default() -> Self {
+        Self::new(0.0, 0.0, 0.0)
+    }
+}
+
+-        let mut scattered = Ray::new(Point3::new(0.0, 0.0, 0.0), Vec3::new(0.0, 0.0, 0.0));
+-        let mut attenuation = Color::new(0.0, 0.0, 0.0);
++        let mut scattered = Ray::new(Point3::default(), Vec3::default());
++        let mut attenuation = Color::default();
+```
+
+### 高速化
+
+計測したら、最終版の画像を生成するのに192秒かかってた。
+
+コメントで指摘を受けたが、debugシンボル付きで実行してるから遅いとのこと。releaseで実行してみる。
+
+```terminal
+cargo run --release > output.ppm
+```
+
+すると、38秒になった。デバッグシンボルの有無でこんなに性能違うのか！
+
+次に```ray_color()```が再帰を使っていたが、ループに変更する。
+
+```rust
+fn ray_color(r: &Ray, world: &dyn Hittable, depth: u32) -> Color {
+    let mut current_ray = Ray::new(r.origin, r.direction);
+    let mut overall_attenuation = Color::new(1.0, 1.0, 1.0);
+
+    for _ in 0..depth {
+        if let Some(rec) = world.hit(&current_ray, 0.001, f64::INFINITY) {
+            let mut scattered = Ray::new(Point3::default(), Vec3::default());
+            let mut attenuation = Color::default();
+            if rec
+                .mat_ptr
+                .scatter(&current_ray, &rec, &mut attenuation, &mut scattered)
+            {
+                overall_attenuation = overall_attenuation * attenuation;
+                current_ray = scattered;
+            } else {
+                return Color::default();
+            }
+        } else {
+            let unit_direction = current_ray.direction.unit_vector();
+            let t = 0.5 * (unit_direction.y + 1.0);
+            let background_color =
+                (1.0 - t) * Color::new(1.0, 1.0, 1.0) + t * Color::new(0.5, 0.7, 1.0);
+            return overall_attenuation * background_color;
+        }
+    }
+
+    Color::default()
+}
+```
+
+これで27秒になった。やはり再帰は遅い。
+
+### マルチスレッド化
+
+さらなる高速化を目指してマルチスレッドにしてみる。
+まず、今の標準出力を扱うコードは当然ながらスレッドセーフじゃないので、Imageクレートを導入。
+
+```rust
+    let mut imgbuf = image::ImageBuffer::new(IMAGE_WIDTH, IMAGE_HEIGHT);
+
+    for (i, j, pixel) in imgbuf.enumerate_pixels_mut() {
+        remaining_pixels -= 1;
+        eprint!("\rPixels remaining: {} ", remaining_pixels);
+        std::io::stderr().flush().unwrap();
+
+        let mut pixel_color = Color::default();
+
+        for _ in 0..samples_per_pixel {
+            let u: f64 = (i as f64 + random_double()) / (IMAGE_WIDTH - 1) as f64;
+            let v: f64 = ((IMAGE_HEIGHT - j) as f64 + random_double()) / (IMAGE_HEIGHT - 1) as f64;
+
+            let r = cam.get_ray(u, v);
+            pixel_color += ray_color(&r, &world, max_depth);
+        }
+        pixel_color /= samples_per_pixel as f64;
+        *pixel = write_color(pixel_color);
+    }
+
+    imgbuf.save("output.png").unwrap();
+```
+
+```(IMAGE_HEIGHT - j)```つまり上下を逆に演算しているのは、レイトレーシングの空間ではY軸は下から上に進むけど、スクリーンのY軸は上から下に進むから。
+
+ここにrayonを導入して、並列化する。
+標準エラー出力にプログレスを表示する今のコードも動かないので、ProgressBarクレートを使う。
+
+```rust
+    let mut imgbuf = image::ImageBuffer::new(IMAGE_WIDTH, IMAGE_HEIGHT);
+
+    let pb = ProgressBar::new((IMAGE_WIDTH * IMAGE_HEIGHT) as u64);
+    pb.set_style(
+        ProgressStyle::default_bar()
+            .template(
+                "{spinner:.green} [{elapsed_precise}] [{bar:40.cyan/blue}] {pos}/{len} ({eta})",
+            )
+            .unwrap()
+            .progress_chars("#>-"),
+    );
+
+    let pixels: Vec<(u32, u32, &mut image::Rgb<u8>)> = imgbuf.enumerate_pixels_mut().collect();
+
+    pixels
+        .into_par_iter()
+        .progress_with(pb)
+        .for_each(|(i, j, pixel)| {
+            let mut pixel_color = Color::default();
+
+            for _ in 0..samples_per_pixel {
+                let u: f64 = (i as f64 + random_double()) / (IMAGE_WIDTH - 1) as f64;
+                let v: f64 =
+                    ((IMAGE_HEIGHT - j - 1) as f64 + random_double()) / (IMAGE_HEIGHT - 1) as f64;
+
+                let r = cam.get_ray(u, v);
+                pixel_color += ray_color(&r, &world, max_depth);
+            }
+            pixel_color /= samples_per_pixel as f64;
+            *pixel = write_color(pixel_color);
+        });
+
+    imgbuf.save("output.png").unwrap();
+```
+
+これで6秒になった！
+
+### おしまい
+
+[第二章](https://inzkyk.xyz/ray_tracing_in_one_weekend/week_2/2_3_bounding_volume_hierarchy/)も始めてはいるんですが、難解な内容でqiitaの記事にしたとしてもコードをひたすらコピペするだけになりそうなので、ここで終了にします。
+
+githubの[リポジトリ](https://github.com/sumikawa/myraytracing)はcommitを続けるので、興味がある人は追っかけてみてください。

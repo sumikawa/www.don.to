@@ -1,0 +1,203 @@
+---
+title: Rustでコンピューターグラフィックスの基礎を学ぶ その6
+tags: rust, cg, raytracing, qiita
+---
+<%= qiita('https://qiita.com/sumikawa@github/items/7aa8708a031dcd8d1a80') %>
+
+フルコードは[github](https://github.com/sumikawa/myraytracing)にあります。
+
+週末レイトレーシングの[ここ](https://inzkyk.xyz/ray_tracing_in_one_weekend/week_1/1_9_metal_material/)をやります。
+
+### リファクタリング
+
+下記の部分が冗長ではないかとコメントをもらう。
+確かに```hoge.x()```などせずに```hoge.x```で構造体の中身にアクセスできる。
+
+```rust
+impl Vec3 {
+    pub fn x(&self) -> f64 {
+        self.x
+    }
+}
+```
+
+Rayモジュールにも同様の問題がある。
+[74de2cd](https://github.com/sumikawa/myraytracing/commit/74de2cdf52a6213da89e2f27973aa148a5bbb619)と[c776e2a](https://github.com/sumikawa/myraytracing/commit/c776e2a7e3c65be8b6023bb2b73481a3bb1d3984)で修正した。
+
+```PI```, ```INFINITY```, ```clamp```については、```f64```のものをそのまま使えばよいとこれもコメントをもらった。[f6adf8e](https://github.com/sumikawa/myraytracing/commit/f6adf8e2fb869172fecf79063798b75496ff8762)で修正。
+
+### f64の定数について
+
+```PI```と```INFINITY```の扱いに差があって気持ち悪い。[ドキュメント](https://doc.rust-jp.rs/the-rust-programming-language-ja/1.9/std/f64/index.html)によると、どちらも定数だけど、数学的な定数は```f64::consts```の下にいくと。なんでやねん。
+
+ちなみにRubyでは[数学関数](https://docs.ruby-lang.org/ja/latest/class/Math.html)はモジュールとして独立している。これなら分かる。
+
+### Gemini.mdとMakefile
+
+今更ながら、```Gemini.md```と```Makefile```を書く。```Makefile```を書く理由は```cargo```コマンドを覚えられないから。
+
+```markdown
+## Project Overview
+
+このプロジェクトは、レイトレーシングの基礎をRustプログラミングを通じて理解するためのものです。
+下記のチュートリアルを通して学んでいます。
+
+https://raytracing.github.io/books/RayTracingInOneWeekend.html
+https://raytracing.github.io/books/RayTracingTheNextWeek.html
+https://raytracing.github.io/books/RayTracingTheRestOfYourLife.html
+
+チュートリアルはC++で書かれていますが、本プロジェクトはRustで記述します
+
+## Tech Stack
+
+- **Languages:** Rust
+- **Libraries:** 基礎を学ぶのが目的なので、ライブラリは極力使いません
+
+## Key Commands
+- Running the app: `make`
+- Building: `cargo check check`
+- Running tests: `make test`
+```
+
+```
+all::
+	cargo run > output.ppm
+	magick convert output.ppm output.png
+	open -W output.ppm
+
+test::
+	cargo check
+	cargo fmt
+	cargo test
+
+lint::
+	cargo clippy
+```
+
+### マテリアルを表すモジュール
+
+チュートリアルに戻る。表面の色と質感を扱うマテリアルモジュールの作成。
+
+```rust
+use crate::hittable::HitRecord;
+use crate::ray::Ray;
+use crate::vec3::Color;
+
+pub trait Material {
+    fn scatter(
+        &self,
+        r_in: &Ray,
+        rec: &HitRecord,
+        attenuation: &mut Color,
+        scattered: &mut Ray,
+    ) -> bool;
+}
+```
+
+HitRecord構造体側を拡張して、Materialのスマートポインタを作る。
+
+```rust
+pub struct HitRecord {
+    pub p: Point3,
+    pub normal: Vec3,
+    pub t: f64,
+    pub mat_ptr: Arc<dyn Material>,
+    pub front_face: bool,
+}
+```
+
+Material側でもHitRecordを参照しているので、循環参照の形になるが、片側がスマートポインタなのでメモリリークは発生しないという理解でいいのかしら。まあ、今のコードだとそもそもメモリを解放するタイミングがないんだけど。
+
+### ランバート反射の抽象化
+
+```main.rs```にあったランバート反射の計算をMaterialモジュールに移動する。
+
+```rust
+impl Material for Lambertian {
+    fn scatter(
+        &self,
+        _r_in: &Ray,
+        rec: &HitRecord,
+        attenuation: &mut Color,
+        scattered: &mut Ray,
+    ) -> bool {
+        let scatter_direction = rec.normal + Vec3::random_unit_vector();
+        *scattered = Ray::new(rec.p, scatter_direction);
+        *attenuation = self.albedo;
+        true
+    }
+}
+```
+
+以上を踏まえて```main.rs```を書き直す(関係ない部分は省略しています)。
+
+```rust
+fn ray_color(r: &Ray, world: &dyn Hittable, depth: u32) -> Color {
+    if depth <= 0 {
+        return Color::new(0.0, 0.0, 0.0);
+    }
+
+    if let Some(rec) = world.hit(r, 0.001, f64::INFINITY) {
+        let mut scattered = Ray::new(Point3::new(0.0, 0.0, 0.0), Vec3::new(0.0, 0.0, 0.0));
+        let mut attenuation = Color::new(0.0, 0.0, 0.0);
+        if rec
+            .mat_ptr
+            .scatter(r, &rec, &mut attenuation, &mut scattered)
+        {
+            return attenuation * ray_color(&scattered, world, depth - 1);
+        }
+        return Color::new(0.0, 0.0, 0.0);
+    } else {
+        let unit_direction = r.direction.unit_vector();
+        let t = 0.5 * (unit_direction.y + 1.0);
+        (1.0 - t) * Color::new(1.0, 1.0, 1.0) + t * Color::new(0.5, 0.7, 1.0)
+    }
+}
+
+fn main() {
+    let material_ground = Arc::new(Lambertian::new(Color::new(0.8, 0.8, 0.0)));
+    let material_center = Arc::new(Lambertian::new(Color::new(0.7, 0.3, 0.3)));
+
+    let mut world = HittableList::new();
+    world.add(Arc::new(Sphere::new(
+        Point3::new(0.0, -100.5, -1.0),
+        100.0,
+        material_ground,
+    )));
+    world.add(Arc::new(Sphere::new(
+        Point3::new(0.0, 0.0, -1.0),
+        0.5,
+        material_center,
+    )));
+}
+```
+
+Lamberian構造体は反射率(albedo)をフィールドに持つ。
+
+``` rust
+pub struct Lambertian {
+    pub albedo: Color,
+}
+
+impl Lambertian {
+    pub fn new(albedo: Color) -> Self {
+        Self { albedo }
+    }
+}
+```
+
+albedoはColor構造体を使っているので、RGBごとに減衰率を指定している。これまではどの色でも50%減衰固定。
+
+```main.rs```の```ray_color()```を修正して、albedoを使う。
+
+```diff_rust
+-        return 0.5 * ray_color(&Ray::new(rec.p, target - rec.p), world, depth - 1);
++        return attenuation * ray_color(&scattered, world, depth - 1);
+```
+
+これで、物体に任意の色をつけることができるようになった。
+
+![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/53650f7b-5e67-4b9b-9705-9e80ee3308ba.png)
+
+チュートリアルではいきなり金属球も描画しているが、ここでは分けて進めた。
+金属マテリアルは[その7](https://qiita.com/sumikawa@github/items/516ccc52dfc07d8a0237)でやる。続く。

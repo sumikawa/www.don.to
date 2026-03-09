@@ -1,0 +1,269 @@
+---
+title: Rustでコンピューターグラフィックスの基礎を学ぶ その4
+tags: rust, cg, raytracing, qiita
+---
+<%= qiita('https://qiita.com/sumikawa@github/items/cb1ae0a697cea6296b93') %>
+
+フルコードは[github](https://github.com/sumikawa/myraytracing)にあります。
+
+今回は[ここ](https://inzkyk.xyz/ray_tracing_in_one_weekend/week_1/1_6_surface_normal_and_multiple_objects/)の途中から。
+
+#### オブジェクトのリスト
+
+例によってGemini CLIに書いてもらう。
+
+```rust
+use crate::hittable::{HitRecord, Hittable};
+use crate::ray::Ray;
+use std::sync::Arc;
+
+pub struct HittableList {
+    pub objects: Vec<Arc<dyn Hittable>>,
+}
+
+impl HittableList {
+    pub fn new() -> Self {
+        Self {
+            objects: Vec::new(),
+        }
+    }
+
+    pub fn with_object(object: Arc<dyn Hittable>) -> Self {
+        let mut list = Self::new();
+        list.add(object);
+        list
+    }
+
+    pub fn add(&mut self, object: Arc<dyn Hittable>) {
+        self.objects.push(object);
+    }
+
+    pub fn clear(&mut self) {
+        self.objects.clear();
+    }
+}
+
+impl Hittable for HittableList {
+    fn hit(&self, r: &Ray, t_min: f64, t_max: f64) -> Option<HitRecord> {
+        let mut temp_rec = None;
+        let mut closest_so_far = t_max;
+
+        for object in &self.objects {
+            if let Some(rec) = object.hit(r, t_min, closest_so_far) {
+                closest_so_far = rec.t;
+                temp_rec = Some(rec);
+            }
+        }
+
+        temp_rec
+    }
+}
+```
+
+呼び出し側であるmain.rs側の抜粋は下記
+
+```rust
+let mut world = HittableList::new();
+world.add(Arc::new(Sphere::new(
+	Point3::new(0.0, 0.0, -1.0), 0.5)));
+world.add(Arc::new(Sphere::new(
+    Point3::new(0.0, -100.5, -1.0), 100.0)));
+```
+
+これで地面(2つ目の球)が描画されるようになった。
+
+![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/6e39f7b1-2bc7-4ff2-abf4-edc1d893c9dd.png)
+
+##### メモ
+
+- 元のC++コードが共有ポインタ使ってたため、Rustも```Arc```を使っているがこれは必要なのか？ ```.add```がスレッドセーフにならない？ 理解が足りてない。なぜ```Box```では駄目なのか
+- ```pi```と```degrees_to_radians```はどこで定義すべきか。今のところ使わないので後で考える。無限大は```f64::INFINITY```を使った
+
+### 共用モジュール
+
+Gemini CLIが古い表記の ```rand::thread_rng().get_range``` が正しいと信じて上書きしてくるのでなだめる。
+
+```rust
+use rand::Rng;
+
+pub const INFINITY: f64 = f64::INFINITY;
+pub const PI: f64 = std::f64::consts::PI;
+
+pub fn degrees_to_radians(degrees: f64) -> f64 {
+    degrees * PI / 180.0
+}
+
+pub fn random_double() -> f64 {
+    // Returns a random real in [0,1).
+    rand::rng().random_range(0.0..1.0)
+}
+
+pub fn random_double_range(min: f64, max: f64) -> f64 {
+    // Returns a random real in [min,max).
+    rand::rng().random_range(min..max)
+}
+```
+
+### カメラモジュール
+
+main.rsのハードコードがどんどん消えてきて気持ちいいすね。```aspect_ratio```は定数にするのを一旦やめた。共有モジュールに移した方がいいかもしれない
+
+```rust
+use crate::ray::Ray;
+use crate::vec3::{Point3, Vec3};
+
+pub struct Camera {
+    origin: Point3,
+    lower_left_corner: Point3,
+    horizontal: Vec3,
+    vertical: Vec3,
+}
+
+impl Camera {
+    pub fn new() -> Camera {
+        let aspect_ratio = 16.0 / 9.0;
+        let viewport_height = 2.0;
+        let viewport_width = aspect_ratio * viewport_height;
+        let focal_length = 1.0;
+
+        let origin = Point3::new(0.0, 0.0, 0.0);
+        let horizontal = Vec3::new(viewport_width, 0.0, 0.0);
+        let vertical = Vec3::new(0.0, viewport_height, 0.0);
+        let lower_left_corner =
+            origin - horizontal / 2.0 - vertical / 2.0 - Vec3::new(0.0, 0.0, focal_length);
+
+        Camera {
+            origin,
+            lower_left_corner,
+            horizontal,
+            vertical,
+        }
+    }
+
+    pub fn get_ray(&self, u: f64, v: f64) -> Ray {
+        Ray::new(
+            self.origin,
+            self.lower_left_corner + u * self.horizontal + v * self.vertical - self.origin,
+        )
+    }
+}
+```
+
+originのパラメーター```Y```を```-0.3```にして、少し見上げてみた。これだけで楽しい。
+
+![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/ae6ba5ce-aa1d-43d6-b5e9-4968e8210e6b.png)
+
+GUI足してカメラ視点をグリグリしたくなる。
+
+### 出力メッセージの改善
+
+実行のたびに```Scanlines remaining ...```の文字が画面を埋め尽くして邪魔なので、上書き表示に変えた。もっと早くやればよかった。
+
+現在は一瞬で画像が生成されてしまうので、そもそもメッセージ出力に意味がないが、これから重くなると信じる。
+
+``` diff_rust
+     println!("P3\n{} {}\n255", IMAGE_WIDTH, IMAGE_HEIGHT);
+
+     for j in (0..IMAGE_HEIGHT).rev() {
+-        eprintln!("\rScanlines remaining: {} ", j);
++        eprint!("\rScanlines remaining: {} ", j);
++        std::io::stderr().flush().unwrap();
+         for i in 0..IMAGE_WIDTH {
+             let u: f64 = i as f64 / (IMAGE_WIDTH - 1) as f64;
+             let v: f64 = j as f64 / (IMAGE_HEIGHT - 1) as f64;
+```
+
+##### メモ
+
+- プログレスバーでもいいかな。後でイケてるライブラリないか探す。
+- Gemini CLIが```.unwrap()```足したけど、ここはつけるべきなのだろうか。```flush()```が失敗したとて問題ないので、エラーを無視して先に進めるべきか。
+
+### アンチエイリアシング
+
+まずは、共有モジュールにclamp関数を追加する。初めてmatchが使える！と思って書いてみた。
+
+``` rust
+pub fn clamp(x: f64, min: f64, max: f64) -> f64 {
+    match x {
+        x < min => min,
+        x > max => max,
+        _ => x,
+    }
+}
+```
+
+が、以下のエラー。
+
+```terminal
+error: generic args in patterns require the turbofish syntax
+  --> src/rtweekend.rs:22:11
+   |
+22 |         x < min => min,
+   |           ^
+```
+
+turbofish syntaxって何やねんと思いながら、```::```を加えてみたが、別のエラーになった。そもそも```=>```の左には条件式を書けないのかしら。サンプルを幾つか読んでみたけど、見当たらない。
+
+Gemini CLIに見せると下記に直された。悲しい。
+これもこれで禅問答のようで分かりづらいと思うが。
+
+``` rust
+pub fn clamp(value: f64, min: f64, max: f64) -> f64 {
+    value.max(min).min(max)
+}
+```
+
+各ピクセルごとに、周辺値(ピクセル位置に1未満の乱数を追加)をランダムで100回抽出して、平均を取るコードを追加。
+
+```rust
+let samples_per_pixel: u32 = 100;
+
+for j in (0..IMAGE_HEIGHT).rev() {
+    eprint!("\rScanlines remaining: {} ", j);
+    std::io::stderr().flush().unwrap();
+
+    for i in 0..IMAGE_WIDTH {
+    let mut pixel_color = Color::new(0.0, 0.0, 0.0);
+
+    for s in 1..samples_per_pixel {
+	let u: f64 = (i as f64 + random_double()) / (IMAGE_WIDTH - 1) as f64;
+	let v: f64 = (j as f64 + random_double()) / (IMAGE_HEIGHT - 1) as f64;
+
+	let r = cam.get_ray(u, v);
+	pixel_color += ray_color(&r, &world);
+    }
+        write_color(pixel_color, samples_per_pixel);
+    }
+}
+```
+
+すごい、滑らかになった。
+
+![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/a6e721b0-8dc1-404d-94ba-5431f9e47148.png)
+
+球面周辺を拡大
+
+![ScreenCaptured 2026-01-23 16.26.55.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/5bb2cb26-e6d9-48dc-b495-f5758a903ef5.png)
+
+
+#### メモ
+
+- 計算量が100倍になったので画像生成に時間がかかるようになった。プログレスメッセージの必要性が出た。
+- 平均値を取るために```write_color()```の外で合計値を出して、```write_color()```の中で割り算をするのは、コードとして筋悪に見える。今は色の決定がカラータイルなので、この先に、きちんと計算したときに意味が出てくるかもしれない。修正せずに保留しておく。[追記] その9で対応した。
+- このコードはサンプリングのために、```0 <= x < 1```を追加してるけど、周辺値であれば、```0.5 <= x < 0.5```を追加した方がいいのかしら。下記のように修正して試してみたけど、感覚的に違いがなかったので、このままでいく。
+
+``` diff_rust
+@@@ -58,8 -58,8 +58,8 @@@ fn main()
+            let mut pixel_color = Color::new(0.0, 0.0, 0.0);
+
+            for _ in 0..samples_per_pixel {
+--              let u: f64 = (i as f64 + random_double()) / (IMAGE_WIDTH - 1) as f64;
+--              let v: f64 = (j as f64 + random_double()) / (IMAGE_HEIGHT - 1) as f64;
+++              let u: f64 = (i as f64 + random_double() - 0.5) / (IMAGE_WIDTH - 1) as f64;
+++              let v: f64 = (j as f64 + random_double() - 0.5) / (IMAGE_HEIGHT - 1) as f64;
+
+                let r = cam.get_ray(u, v);
+                pixel_color += ray_color(&r, &world);
+```
+
+[その5](https://qiita.com/sumikawa@github/items/04488cc9109217dcef0a)に続く。まだレイをトレースしていない。

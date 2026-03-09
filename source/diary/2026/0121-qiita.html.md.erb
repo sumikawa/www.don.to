@@ -1,0 +1,190 @@
+---
+title: Rustでコンピューターグラフィックスの基礎を学ぶ その2
+tags: rust, cg, raytracing, qiita
+---
+<%= qiita('https://qiita.com/sumikawa@github/items/3f5762ce0469740e5502') %>
+
+フルコードは[github](https://github.com/sumikawa/myraytracing)にあります。
+
+今回は[ここ](https://inzkyk.xyz/ray_tracing_in_one_weekend/week_1/1_4_ray_camera_background/)から
+
+### 前回使ってなかった関数の動作確認
+
+動作確認も兼ねて単位ベクトルを計算させてみる。はじめて自分でコードを書くw
+
+```rust
+use myraytracing::Vec3;
+
+fn main() {
+    let a = Vec3::new(0.1, 0.2, 0.3);
+    let unit_direction = a.unit_vector();
+
+    println!("{}", unit_direction);
+}
+```
+
+```terminal
+% cargo run
+0.2672612419124244 0.5345224838248488 0.8017837257372731
+```
+
+おお、これだけでもちょっと感動した。
+
+main.rsを上書きして試して書き直していたが、別```.rs```ファイルから実行できるように```Cargo.toml```に下記を追加。
+
+```toml
+[[bin]]
+name = "vec3_test"
+path = "src/vec3_test.rs"
+```
+
+成功。
+
+```terminal
+% cargo run --bin vec3_test
+0.2672612419124244 0.5345224838248488 0.8017837257372731
+```
+
+#### 演算子を試す
+
+その1で出てきたAddやAddAssignの使い方が分からなかったので、動かないコードを書いたあと、Gemini CLIに修正してもらう。
+
+```rust
+use myraytracing::Vec3;
+
+fn main() {
+    let a = Vec3::new(0.1, 0.2, 0.3);
+    let b = Vec3::new(0.4, 0.5, 0.6);
+
+    println!("-a = {}", -a);
+    println!("a + b = {}", a + b);
+    println!("a * b = {}", a * b);
+}
+```
+
+おお、```+```演算子で記述できるんだ。
+
+```terminal
+% cargo run --bin operators_test
+-a = -0.1 -0.2 -0.3
+a + b = 0.5 0.7 0.8999999999999999
+a * b = 0.04000000000000001 0.1 0.18
+```
+
+### テストを書く
+
+テストを別プログラムで記述するのはRust流儀ではないので、ソースコードに埋め込む。
+
+```rust
+##[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_add() {
+        let v1 = Vec3::new(1.0, 2.0, 3.0);
+        let v2 = Vec3::new(4.0, 5.0, 6.0);
+        let result = v1 + v2;
+        assert_eq!(result, Vec3::new(5.0, 7.0, 9.0));
+    }
+
+    #[test]
+    fn test_unit_vector() {
+        let a = Vec3::new(1.0, 2.0, 3.0);
+        let unit_direction = a.unit_vector();
+        // A simple check to see if the length is close to 1.0
+        assert!((unit_direction.length() - 1.0).abs() < 0.000001);
+    }
+}
+```
+
+```cargo test```を実行してみる。動いた。
+
+```terminal
+% cargo test
+running 2 tests
+test tests::test_add ... ok
+test tests::test_unit_vector ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+```
+
+### Rayモジュールの作成
+
+並行してRustを勉強してるので、横道に逸れたが、次はレイのモジュールを書く。
+例によってGemini CLIさんにお願いした。
+
+これは[C++のコード](https://inzkyk.xyz/ray_tracing_in_one_weekend/week_1/#%E3%83%AC%E3%82%A4%E3%82%92%E8%A1%A8%E3%81%99%E3%82%AF%E3%83%A9%E3%82%B9)よりも読みやすいと思う。
+
+```rust
+pub struct Ray {
+    pub origin: Point3,
+    pub direction: Vec3,
+}
+
+impl Ray {
+    pub fn new(origin: Point3, direction: Vec3) -> Self {
+        Self { origin, direction }
+    }
+
+    pub fn origin(&self) -> Point3 {
+        self.origin
+    }
+
+    pub fn direction(&self) -> Vec3 {
+        self.direction
+    }
+
+    pub fn at(&self, t: f64) -> Point3 {
+        self.origin + self.direction * t
+    }
+}
+```
+
+これで青から白へのグラデーションを描く準備ができたので、メイン関数を書いた。
+
+```rust
+use myraytracing::*;
+
+fn ray_color(r: Ray) -> Vec3 {
+    let unit_direction: Vec3 = r.direction().unit_vector();
+    let t: f64 = 0.5 * (unit_direction.y + 1.0);
+    return (1.0 - t) * Color::new(1.0, 1.0, 1.0) + t * Color::new(0.5, 0.7, 1.0);
+}
+
+fn main() {
+    const ASPECT_RATIO: f64 = 16.0 / 9.0;
+    const IMAGE_WIDTH: i32 = 384;
+    const IMAGE_HEIGHT: i32 = (IMAGE_WIDTH as f64 / ASPECT_RATIO) as i32;
+
+    println!("P3\n{} {}\n255", IMAGE_WIDTH, IMAGE_HEIGHT);
+
+    let viewport_height: f64 = 2.0;
+    let viewport_width: f64 = ASPECT_RATIO * viewport_height;
+    let focal_length: f64 = 1.0;
+
+    let origin: Point3 = Point3::new(0.0, 0.0, 0.0);
+    let horizontal: Vec3 = Vec3::new(viewport_width, 0.0, 0.0);
+    let vertical: Vec3 = Vec3::new(0.0, viewport_height, 0.0);
+    let lower_left_corner: Vec3 =
+	origin - horizontal / 2.0 - vertical / 2.0 - Vec3::new(0.0, 0.0, focal_length);
+
+    for j in (0..IMAGE_HEIGHT).rev() {
+        eprintln!("\rScanlines remaining: {} ", j);
+        for i in 0..IMAGE_WIDTH {
+        let u: f64 = i as f64 / (IMAGE_WIDTH - 1) as f64;
+        let v: f64 = j as f64 / (IMAGE_HEIGHT - 1) as f64;
+        let r: Ray = Ray::new(origin, lower_left_corner + u * horizontal + v * vertical - origin);
+
+            let pixel_color = ray_color(r);
+            write_color(pixel_color);
+        }
+    }
+    eprintln!("\nDone.");
+}
+```
+出力された青と白のグラデーション。
+
+![hoge.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/83a3631c-3bd6-4614-a5b8-e931a9efd0cf.png)
+
+まだレイトレーシングは始まっていない。[その3](https://qiita.com/sumikawa@github/items/3b9acd2ca03948c36fbe)へ続く。

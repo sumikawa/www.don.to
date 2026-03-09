@@ -1,0 +1,267 @@
+---
+title: Rustでコンピューターグラフィックスの基礎を学ぶ その7
+tags: rust, cg, raytracing, qiita
+---
+<%= qiita('https://qiita.com/sumikawa@github/items/516ccc52dfc07d8a0237') %>
+
+フルコードは[github](https://github.com/sumikawa/myraytracing)にあります。
+
+週末レイトレーシングの[ここ](https://inzkyk.xyz/ray_tracing_in_one_weekend/week_1/1_9_metal_material/)をやります。
+
+### 金属マテリアル
+
+Materialモジュールに、Metal構造体を追加する。拡散の代わりに反射する。
+
+```rust
+pub struct Metal {
+    pub albedo: Color,
+}
+
+impl Metal {
+    pub fn new(albedo: Color) -> Self {
+        Self { albedo }
+    }
+}
+
+impl Material for Metal {
+    fn scatter(
+        &self,
+        r_in: &Ray,
+        rec: &HitRecord,
+        attenuation: &mut Color,
+        scattered: &mut Ray,
+    ) -> bool {
+        let reflected = Vec3::reflect(&r_in.direction.unit_vector(), &rec.normal);
+        *scattered = Ray::new(rec.p, reflected);
+        *attenuation = self.albedo;
+        Vec3::dot(&scattered.direction, rec.normal) > 0.0
+    }
+}
+```
+
+反射計算する関数を```Vec3```側に追加。この式難しい。
+
+```rust
+    pub fn reflect(v: &Vec3, n: &Vec3) -> Vec3 {
+        *v - (*n * 2.0 * v.dot(*n))
+    }
+```
+
+金属球を```main.rs```に追加。
+
+``` rust
++    let material_left = Arc::new(Metal::new(Color::new(0.8, 0.8, 0.8)));
++    let material_right = Arc::new(Metal::new(Color::new(0.8, 0.6, 0.2)));
+
+     let mut world = HittableList::new();
+     world.add(Arc::new(Sphere::new(
+@@ -71,6 +73,16 @@ fn main() {
+         0.5,
+         material_center,
+     )));
++    world.add(Arc::new(Sphere::new(
++        Point3::new(-1.0, 0.0, -1.0),
++        0.5,
++        material_left,
++    )));
++    world.add(Arc::new(Sphere::new(
++        Point3::new(1.0, 0.0, -1.0),
++        0.5,
++        material_right,
++    )));
+```
+
+左右に金属球が置かれた。楕円に見えるのはカメラの近くにあるからだよなあ。
+
+![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/0de3a7cc-0247-4f6a-a7e8-488abad1b845.png)
+
+位置を調整してみる。
+
+```rust
+@@ -69,18 +69,18 @@ fn main() {
+         material_ground,
+     )));
+     world.add(Arc::new(Sphere::new(
+-        Point3::new(0.0, 0.0, -1.0),
++        Point3::new(0.0, 0.0, -1.2),
+         0.5,
+         material_center,
+     )));
+     world.add(Arc::new(Sphere::new(
+-        Point3::new(-1.0, 0.0, -1.0),
+-        0.5,
++        Point3::new(-0.7, -0.3, -0.8),
++        0.3,
+         material_left,
+     )));
+     world.add(Arc::new(Sphere::new(
+-        Point3::new(1.0, 0.0, -1.0),
+-        0.5,
++        Point3::new(0.7, -0.3, -0.8),
++        0.3,
+         material_right,
+     )));
+```
+
+![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/1fad66b2-521a-43e0-8955-21553afeab27.png)
+
+余計ひどくなった。うーん、どういうことだ。
+カメラ視点をGUIでグリグリしたい。ただ、今は画像生成に一分ぐらいかかるので視点を変えてもグリグリにはならない。
+
+後で考える。まずは先に進む。
+
+### ぼやけた反射
+
+反射率にfuzzinessを追加。```new()```するときに、条件付き(```1.0```以上は```1.0```とする)の引数をどう書くのか分からなかったけど、Gemini CLIが教えてくれた。
+
+```rust
+@@ -39,11 +39,15 @@ impl Material for Lambertian {
+
+ pub struct Metal {
+     pub albedo: Color,
++    pub fuzz: f64,
+ }
+
+ impl Metal {
+-    pub fn new(albedo: Color) -> Self {
+-        Self { albedo }
++    pub fn new(albedo: Color, fuzz: f64) -> Self {
++        Self {
++            albedo,
++            fuzz: if fuzz < 1.0 { fuzz } else { 1.0 },
++        }
+     }
+ }
+
+@@ -56,7 +60,7 @@ impl Material for Metal {
+         scattered: &mut Ray,
+     ) -> bool {
+         let reflected = Vec3::reflect(&r_in.direction.unit_vector(), &rec.normal);
+-        *scattered = Ray::new(rec.p, reflected);
++        *scattered = Ray::new(rec.p, reflected + self.fuzz * Vec3::random_in_unit_sphere());
+         *attenuation = self.albedo;
+         Vec3::dot(&scattered.direction, rec.normal) > 0.0
+     }
+```
+
+```main.rs```で金属球を作るときにfuziness引数を追加
+
+```rust
+-    let material_left = Arc::new(Metal::new(Color::new(0.8, 0.8, 0.8)));
+-    let material_right = Arc::new(Metal::new(Color::new(0.8, 0.6, 0.2)));
++    let material_left = Arc::new(Metal::new(Color::new(0.8, 0.8, 0.8), 0.3));
++    let material_right = Arc::new(Metal::new(Color::new(0.8, 0.6, 0.2), 1.0));
+```
+
+左右でぼやけ方が違うのが分かる。
+
+![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/bc236245-9d4a-4443-9c7b-874435e1cc0a.png)
+
+### 誘電マテリアル
+
+屈折率を扱うDielectricモジュールを追加。
+
+```rust
+impl Dielectric {
+    pub fn new(ref_idx: f64) -> Self {
+        Self { ref_idx }
+    }
+}
+
+impl Material for Dielectric {
+    fn scatter(
+        &self,
+        r_in: &Ray,
+        rec: &HitRecord,
+        attenuation: &mut Color,
+        scattered: &mut Ray,
+    ) -> bool {
+        *attenuation = Color::new(1.0, 1.0, 1.0);
+        let etai_over_etat = if rec.front_face {
+            1.0 / self.ref_idx
+        } else {
+            self.ref_idx
+        };
+        let unit_direction = r_in.direction.unit_vector();
+        let refracted = Vec3::refract(&unit_direction, &rec.normal, etai_over_etat);
+        *scattered = Ray::new(rec.p, refracted);
+        true
+    }
+}
+
+```
+
+真ん中と左を透明にすると、変な黒点が現れる。
+
+``` rust
+-    let material_center = Arc::new(Lambertian::new(Color::new(0.7, 0.3, 0.3)));
+-    let material_left = Arc::new(Metal::new(Color::new(0.8, 0.8, 0.8), 0.3));
+-    let material_right = Arc::new(Metal::new(Color::new(0.8, 0.6, 0.2), 1.0));
++    let material_center = Arc::new(Dielectric::new(1.5));
++    let material_left = Arc::new(Dielectric::new(1.5));
++    let material_right = Arc::new(Metal::new(Color::new(0.8, 0.6, 0.2), 0.0));
+```
+
+![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/8c59839d-d687-4d8b-9d8f-2d6ed93a7607.png)
+
+```scatter()```を全反射に対応させる。もはや式の意味は理解できない。写経。
+
+```rust
+@@ -91,6 +91,15 @@ impl Material for Dielectric {
+             self.ref_idx
+         };
+         let unit_direction = r_in.direction.unit_vector();
++        let cos_theta = rec.normal.dot(-unit_direction).min(1.0);
++        let sin_theta = (1.0 - cos_theta * cos_theta).sqrt();
++
++        if etai_over_etat * sin_theta > 1.0 {
++            let reflected = Vec3::reflect(&unit_direction, &rec.normal);
++            *scattered = Ray::new(rec.p, reflected);
++            return true;
++        }
++
+         let refracted = Vec3::refract(&unit_direction, &rec.normal, etai_over_etat);
+         *scattered = Ray::new(rec.p, refracted);
+         true
+```
+
+黒点が消えた！
+
+![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/0223aede-7ddd-45f5-8d8c-d1dfc80d0e24.png)
+
+### シュリックの近似
+
+ガラスの反射率の近似値を求める関数を追加
+
+```rust
+    pub fn schlick(cosine: f64, ref_idx: f64) -> f64 {
+        let r0 = (1.0 - ref_idx) / (1.0 + ref_idx);
+        let r0 = r0 * r0;
+        return r0 + (1.0 - r0) * (1.0 - cosine).powf(5.0);
+    }
+```
+
+続写経。
+
+```rust
+@@ -100,6 +101,13 @@ impl Material for Dielectric {
+             return true;
+         }
+
++        let reflect_prob = Vec3::schlick(cos_theta, etai_over_etat);
++        if random_double() < reflect_prob {
++            let reflected = Vec3::reflect(&unit_direction, &rec.normal);
++            *scattered = Ray::new(rec.p, reflected);
++            return true;
++        }
++
+         let refracted = Vec3::refract(&unit_direction, &rec.normal, etai_over_etat);
+         *scattered = Ray::new(rec.p, refracted);
+         true
+```
+
+ガラスも描けるようになった。
+
+![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/7650025e-a34e-4fe0-86d9-abfcb6678c93.png)
+
+[その8](https://qiita.com/sumikawa@github/items/f7a455909fe4596a66bf)に続く。

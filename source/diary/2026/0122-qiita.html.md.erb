@@ -1,0 +1,148 @@
+---
+title: Rustでコンピューターグラフィックスの基礎を学ぶ その3
+tags: rust, cg, raytracing, qiita
+---
+<%= qiita('https://qiita.com/sumikawa@github/items/3b9acd2ca03948c36fbe') %>
+
+フルコードは[github](https://github.com/sumikawa/myraytracing)にあります。
+
+今回は[ここ](https://inzkyk.xyz/ray_tracing_in_one_weekend/week_1/1_5_rendering_a_sphere/)から。
+
+#### 球をレンダリングする
+
+まずはレイと球が衝突したら赤くするだけのコード
+
+```rust
+fn hit_sphere(center: Point3, radius: f64, r: &Ray) -> bool {
+    let oc: Vec3 = r.origin() - center;
+    let di: Vec3 = r.direction();
+    let a: f64 = di.dot(di);
+    let b: f64 = 2.0 * di.dot(oc);
+    let c: f64 = oc.dot(oc) - radius * radius;
+    let discriminant: f64 = b * b - 4.0 * a *c;
+
+    return discriminant > 0.0;
+}
+
+fn ray_color(r: Ray) -> Vec3 {
+    if hit_sphere(Point3::new(0.0, 0.0, -1.0), 0.5, &r) {
+	return Color::new(1.0, 0.0, 0.0);
+    }
+
+    let unit_direction: Vec3 = r.direction().unit_vector();
+    let t: f64 = 0.5 * (unit_direction.y + 1.0);
+    return (1.0 - t) * Color::new(1.0, 1.0, 1.0) + t * Color::new(0.5, 0.7, 1.0);
+}
+```
+
+![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/4cf27a2e-07c4-4c8a-8d74-c77ecd6c3fb0.png)
+
+
+メモ
+
+- 同じベクトルの内積が a.dot(a) という表記方法になってやや気持ち悪い。いい糖衣構文があればいいんだけど、Rubyでも同じ表記か。内積は演算結果が```f64```になって型が変わってしまうので、演算子を使わない方がいいのか。
+- ```&``` の有り無しがまだ腹落ちしてない。コンパイラの言われるがまま修正しているだけ。
+
+#### 法線を使ったシェーディング
+
+コードを書くのはそこまで難しくないが、理論が難しいです。
+
+```rust
+fn hit_sphere(center: Point3, radius: f64, r: &Ray) -> f64 {
+    let oc: Vec3 = r.origin() - center;
+    let di: Vec3 = r.direction();
+    let a: f64 = di.dot(di);
+    let b: f64 = 2.0 * di.dot(oc);
+    let c: f64 = oc.dot(oc) - radius * radius;
+    let discriminant: f64 = b * b - 4.0 * a *c;
+
+    if discriminant < 0.0 {
+	return -1.0;
+    } else {
+	return ( -b - discriminant.sqrt() ) / (2.0 * a);
+    }
+}
+
+fn ray_color(r: Ray) -> Vec3 {
+    let t: f64 = hit_sphere(Point3::new(0.0, 0.0, -1.0), 0.5, &r);
+    if t > 0.0 {
+	let n: Vec3 = (r.at(t) - Vec3::new(0.0, 0.0, -1.0)).unit_vector();
+	return 0.5 * Color::new(n.x() + 1.0, n.y() + 1.0, n.z() + 1.0);
+    }
+
+    let unit_direction: Vec3 = r.direction().unit_vector();
+    let t: f64 = 0.5 * (unit_direction.y + 1.0);
+    return (1.0 - t) * Color::new(1.0, 1.0, 1.0) + t * Color::new(0.5, 0.7, 1.0);
+}
+
+```
+
+式の簡略化については、そこまで性能に厳しいわけではないのでスキップする。
+
+![output.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/edcde608-e9e9-4640-95fa-3bb722c1be19.png)
+
+### Hittable モジュール
+
+まるっとGemini CLIに書いてもらった。何も言われてないのにSome()使うの偉い
+
+```rust
+use crate::ray::Ray;
+use crate::vec3::{Point3, Vec3};
+
+pub struct HitRecord {
+    pub p: Point3,
+    pub normal: Vec3,
+    pub t: f64,
+}
+
+pub trait Hittable {
+    fn hit(&self, r: &Ray, t_min: f64, t_max: f64) -> Option<HitRecord>;
+}
+
+pub struct Sphere {
+    pub center: Point3,
+    pub radius: f64,
+}
+
+impl Sphere {
+    pub fn new(center: Point3, radius: f64) -> Self {
+        Self { center, radius }
+    }
+}
+
+impl Hittable for Sphere {
+    fn hit(&self, r: &Ray, t_min: f64, t_max: f64) -> Option<HitRecord> {
+        let oc = r.origin() - self.center;
+        let a = r.direction().length_squared();
+        let half_b = oc.dot(r.direction());
+        let c = oc.length_squared() - self.radius * self.radius;
+        let discriminant = half_b * half_b - a * c;
+
+        if discriminant > 0.0 {
+            let root = discriminant.sqrt();
+
+            let temp = (-half_b - root) / a;
+            if temp < t_max && temp > t_min {
+                let p = r.at(temp);
+                let normal = (p - self.center) / self.radius;
+                return Some(HitRecord { p, normal, t });
+            } else {
+                let p = r.at(temp);
+                let normal = (p - self.center) / self.radius;
+                return Some(HitRecord { p, normal, t });
+            }
+        }
+        None
+    }
+}
+```
+
+### 法線の向きに対応
+
+commitは[これ](https://github.com/sumikawa/myraytracing/commit/950ee465582834c95794b620376c557e9b02616a)
+
+Gemini CLIに任せたけど、mut周りがややこしくてよく分からない。```normal```への値への代入を無駄に複雑にしてる気もするので、後でリファクタリングできないか考える。
+
+次の章でC++の共有ポインタが出てくる。Rustでは共有所有権になるはず。一旦Rustに戻って勉強しないといけないので、今回はここまで。
+
+[その4](https://qiita.com/sumikawa@github/items/cb1ae0a697cea6296b93)に続く。

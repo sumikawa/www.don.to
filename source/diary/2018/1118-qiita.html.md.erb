@@ -17,7 +17,7 @@ README.mdなど適当なファイルを作って、initial commitしておいて
 
 ## Lambda関数の作成
 
-```ip-ranges.json```は変更があるとSNS通知が飛ぶようになっているので(ARNは[ドキュメント](https://docs.aws.amazon.com/ja_jp/general/latest/gr/aws-ip-ranges.html)参照のこと)、この通知をトリガーにして以下のLambdaスクリプト(Python3)を呼び出します。
+```ip-ranges.json``` は変更があるとSNS通知が飛ぶようになっているので(ARNは[ドキュメント](https://docs.aws.amazon.com/ja_jp/general/latest/gr/aws-ip-ranges.html)参照のこと)、この通知をトリガーにして以下のLambdaスクリプト(Python3)を呼び出します。
 
 ```python
 import os, sys
