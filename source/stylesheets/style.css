@@ -187,6 +187,10 @@ main h2 {
   font-size: clamp(1.18rem, 2.35vw, 1.6rem);
 }
 
+main h3 {
+  font-size: 1.08rem;
+}
+
 blockquote {
   margin-left: 0;
   padding: 0.9rem 1.1rem;
@@ -412,7 +416,7 @@ div#name {
 #search .pagefind-ui__form {
   position: relative;
   top: 2.4rem;
-  width: 11.5rem;
+  width: 8.0rem;
   max-width: 100%;
   transition: width 220ms ease;
 }
