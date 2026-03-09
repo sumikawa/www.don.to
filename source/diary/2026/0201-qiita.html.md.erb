@@ -15,7 +15,7 @@ cargo [clippy](https://doc.rust-jp.rs/book-ja/appendix-04-useful-development-too
 下記によると```new()``` はすべからく、Defaultトレイトを使って初期値を```default()``` で提供すべしとのことなので、実装した。
 https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default
 
-```diff_rust
+```diff
 impl Default for Vec3 {
     fn default() -> Self {
         Self::new(0.0, 0.0, 0.0)

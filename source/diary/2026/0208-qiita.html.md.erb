@@ -236,7 +236,7 @@ impl Transform {
 呼び出し側がすっきりした。俺、```if let``` を使いこなしているわー。
 構文的にはピンと来ないけど、シンプルに記述できる。
 
-```diff_rust
+```diff
 -    let (sx, sy) = transform.to_screen(i, j);
 -    if sx >= 0 && sx < fb.width() as i32 && sy >= 0 && sy < fb.height() as i32 {
 -        fb.put_pixel(sx as u32, sy as u32, rgb);

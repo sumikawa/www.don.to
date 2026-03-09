@@ -171,16 +171,20 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-size: clamp(1.3rem, 2.7vw, 1.8rem);
   margin-bottom: 1rem;
   padding-bottom: 0.65rem;
   border-bottom: 1px solid var(--line);
 }
 
 h3 {
-  font-size: 1.12rem;
+  font-size: 1rem;
   color: var(--accent-strong);
   margin-bottom: 0.7rem;
+}
+
+main h2 {
+  font-size: clamp(1.18rem, 2.35vw, 1.6rem);
 }
 
 blockquote {

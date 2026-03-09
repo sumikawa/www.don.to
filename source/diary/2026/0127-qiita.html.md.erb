@@ -190,7 +190,7 @@ albedoはColor構造体を使っているので、RGBごとに減衰率を指定
 
 ```main.rs``` の```ray_color()``` を修正して、albedoを使う。
 
-```diff_rust
+```diff
 -        return 0.5 * ray_color(&Ray::new(rec.p, target - rec.p), world, depth - 1);
 +        return attenuation * ray_color(&scattered, world, depth - 1);
 ```
