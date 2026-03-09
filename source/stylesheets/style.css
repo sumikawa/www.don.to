@@ -680,6 +680,7 @@ li.pagefind-ui__result {
   .mainblock {
     padding: 1.1rem 1rem 1rem;
     font-size: 1rem;
+    margin-bottom: var(--margin);
   }
 
   #search {
@@ -688,7 +689,16 @@ li.pagefind-ui__result {
 
   #search .pagefind-ui__form,
   #search:focus-within .pagefind-ui__form {
+    top: 0;
     width: 100%;
+  }
+
+  #search .pagefind-ui__search-input {
+    min-height: 2.3rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
   }
 
   h1 {
