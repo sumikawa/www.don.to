@@ -401,24 +401,26 @@ div#name {
 }
 
 #search {
-  display: flex;
-  justify-content: flex-end;
-  margin: 0 0 0.2rem;
+  float: right;
+  width: 8rem;
+  margin: 2.4rem 0 0.2rem 0.9rem;
 }
 
 #search .pagefind-ui {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  display: block;
   width: 100%;
 }
 
 #search .pagefind-ui__form {
   position: relative;
-  top: 2.4rem;
-  width: 8.0rem;
+  top: 0;
+  width: 100%;
   max-width: 100%;
   transition: width 220ms ease;
+}
+
+#search:focus-within {
+  width: min(25rem, 100%);
 }
 
 #search:focus-within .pagefind-ui__form {
@@ -692,7 +694,10 @@ li.pagefind-ui__result {
   }
 
   #search {
+    float: none;
+    width: auto;
     display: block;
+    margin: 0 0 0.2rem;
   }
 
   #search .pagefind-ui__form,
