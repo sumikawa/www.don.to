@@ -46,7 +46,7 @@ body {
   margin: 0;
   color: var(--text);
   font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Yu Gothic UI", Meiryo, sans-serif;
-  line-height: 1.8;
+  line-height: 1.5;
   background:
     radial-gradient(circle at top left, rgba(196, 106, 58, 0.18), transparent 30%),
     radial-gradient(circle at top right, rgba(31, 79, 70, 0.14), transparent 28%),
@@ -207,6 +207,7 @@ code {
   border-radius: 8px;
   background-color: rgba(31, 79, 70, 0.08);
   color: #18463f;
+  line-height: 1.2;
   font-family: "Inconsolata", monospace;
   font-size: 0.95em;
 }
@@ -403,7 +404,7 @@ div#name {
 #search {
   float: right;
   width: 8rem;
-  margin: 2.4rem 0 0.2rem 0.9rem;
+  margin: 1.2rem 0 0.2rem 0.9rem;
 }
 
 #search .pagefind-ui {
