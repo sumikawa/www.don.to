@@ -826,7 +826,7 @@ li.pagefind-ui__result {
 
 @media screen and (min-width: 481px) and (max-width: 800px) {
   .container {
-    grid-template-columns: minmax(0, 1fr) 170px;
+    grid-template-columns: minmax(0, 1fr) 90px;
   }
 
   .mainblock {
@@ -834,7 +834,7 @@ li.pagefind-ui__result {
   }
 
   .leftblock ul {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     column-gap: 0.24rem;
     row-gap: 0.08rem;
   }
