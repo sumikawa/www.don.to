@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <title>2026/01/28: Rustでコンピューターグラフィックスの基礎を学ぶ その7</title>
+    <link rel="alternate" type="application/rss+xml" title="rss" href="https://www.don.to/diary/index.rdf">
+      <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <link href="/stylesheets/code.css" rel="stylesheet" />
+    <link href="/stylesheets/photoswipe.css" rel="stylesheet" />
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/ipod-icon.png">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=2.0000">
+    <meta property="og:site_name" content="すみかわ日記">
+    <meta property="og:title" content="2026/01/28: Rustでコンピューターグラフィックスの基礎を学ぶ その7">
+  </head>
+
+  <body data-source-path="/diary/2026/0128-qiita.html.md.erb">
+    <div class="container">
+      <div class="centerblock">
+        <div class="mainblock">
+          <div id="search"></div>
+            <h2 data-pagefind-meta="title" data-pagefind-sort="date:2026-01-28">2026/01/28: Rustでコンピューターグラフィックスの基礎を学ぶ その7</h2>
+          <main data-pagefind-body>
+              <div class="note">
+本ドキュメントは<a href="https://qiita.com/sumikawa@github/items/516ccc52dfc07d8a0237">Qiita記事</a>のバックアップです。
+</div>
+
+<p>フルコードは<a href="https://github.com/sumikawa/myraytracing">github</a>にあります。</p>
+
+<p>週末レイトレーシングの<a href="https://inzkyk.xyz/ray_tracing_in_one_weekend/week_1/1_9_metal_material/">ここ</a>をやります。</p>
+
+<h2>金属マテリアル</h2>
+
+<p>Materialモジュールに、Metal構造体を追加する。拡散の代わりに反射する。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">pub</span> <span class="k">struct</span> <span class="n">Metal</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="n">albedo</span><span class="p">:</span> <span class="n">Color</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">impl</span> <span class="n">Metal</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">new</span><span class="p">(</span><span class="n">albedo</span><span class="p">:</span> <span class="n">Color</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="k">Self</span> <span class="p">{</span>
+        <span class="k">Self</span> <span class="p">{</span> <span class="n">albedo</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">impl</span> <span class="n">Material</span> <span class="k">for</span> <span class="n">Metal</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">scatter</span><span class="p">(</span>
+        <span class="o">&amp;</span><span class="k">self</span><span class="p">,</span>
+        <span class="n">r_in</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">Ray</span><span class="p">,</span>
+        <span class="n">rec</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">HitRecord</span><span class="p">,</span>
+        <span class="n">attenuation</span><span class="p">:</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="n">Color</span><span class="p">,</span>
+        <span class="n">scattered</span><span class="p">:</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="n">Ray</span><span class="p">,</span>
+    <span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">reflected</span> <span class="o">=</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">reflect</span><span class="p">(</span><span class="o">&amp;</span><span class="n">r_in</span><span class="py">.direction</span><span class="nf">.unit_vector</span><span class="p">(),</span> <span class="o">&amp;</span><span class="n">rec</span><span class="py">.normal</span><span class="p">);</span>
+        <span class="o">*</span><span class="n">scattered</span> <span class="o">=</span> <span class="nn">Ray</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">rec</span><span class="py">.p</span><span class="p">,</span> <span class="n">reflected</span><span class="p">);</span>
+        <span class="o">*</span><span class="n">attenuation</span> <span class="o">=</span> <span class="k">self</span><span class="py">.albedo</span><span class="p">;</span>
+        <span class="nn">Vec3</span><span class="p">::</span><span class="nf">dot</span><span class="p">(</span><span class="o">&amp;</span><span class="n">scattered</span><span class="py">.direction</span><span class="p">,</span> <span class="n">rec</span><span class="py">.normal</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.0</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>反射計算する関数を<code>Vec3</code> 側に追加。この式難しい。</p>
+<div class="highlight"><pre class="highlight rust"><code>    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">reflect</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">Vec3</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">Vec3</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Vec3</span> <span class="p">{</span>
+        <span class="o">*</span><span class="n">v</span> <span class="o">-</span> <span class="p">(</span><span class="o">*</span><span class="n">n</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">v</span><span class="nf">.dot</span><span class="p">(</span><span class="o">*</span><span class="n">n</span><span class="p">))</span>
+    <span class="p">}</span>
+</code></pre></div>
+<p>金属球を<code>main.rs</code> に追加。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="o">+</span>    <span class="k">let</span> <span class="n">material_left</span> <span class="o">=</span> <span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Metal</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)));</span>
+<span class="o">+</span>    <span class="k">let</span> <span class="n">material_right</span> <span class="o">=</span> <span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Metal</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)));</span>
+
+     <span class="k">let</span> <span class="k">mut</span> <span class="n">world</span> <span class="o">=</span> <span class="nn">HittableList</span><span class="p">::</span><span class="nf">new</span><span class="p">();</span>
+     <span class="n">world</span><span class="nf">.add</span><span class="p">(</span><span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Sphere</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span>
+<span class="o">@@</span> <span class="o">-</span><span class="mi">71</span><span class="p">,</span><span class="mi">6</span> <span class="o">+</span><span class="mi">73</span><span class="p">,</span><span class="mi">16</span> <span class="o">@@</span> <span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+         <span class="mf">0.5</span><span class="p">,</span>
+         <span class="n">material_center</span><span class="p">,</span>
+     <span class="p">)));</span>
+<span class="o">+</span>    <span class="n">world</span><span class="nf">.add</span><span class="p">(</span><span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Sphere</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span>
+<span class="o">+</span>        <span class="nn">Point3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
+<span class="o">+</span>        <span class="mf">0.5</span><span class="p">,</span>
+<span class="o">+</span>        <span class="n">material_left</span><span class="p">,</span>
+<span class="o">+</span>    <span class="p">)));</span>
+<span class="o">+</span>    <span class="n">world</span><span class="nf">.add</span><span class="p">(</span><span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Sphere</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span>
+<span class="o">+</span>        <span class="nn">Point3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
+<span class="o">+</span>        <span class="mf">0.5</span><span class="p">,</span>
+<span class="o">+</span>        <span class="n">material_right</span><span class="p">,</span>
+<span class="o">+</span>    <span class="p">)));</span>
+</code></pre></div>
+<p>左右に金属球が置かれた。楕円に見えるのはカメラの近くにあるからだよなあ。</p>
+
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/0de3a7cc-0247-4f6a-a7e8-488abad1b845.png" alt="output.png" /></p>
+
+<p>位置を調整してみる。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="o">@@</span> <span class="o">-</span><span class="mi">69</span><span class="p">,</span><span class="mi">18</span> <span class="o">+</span><span class="mi">69</span><span class="p">,</span><span class="mi">18</span> <span class="o">@@</span> <span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+         <span class="n">material_ground</span><span class="p">,</span>
+     <span class="p">)));</span>
+     <span class="n">world</span><span class="nf">.add</span><span class="p">(</span><span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Sphere</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span>
+<span class="o">-</span>        <span class="nn">Point3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
+<span class="o">+</span>        <span class="nn">Point3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.2</span><span class="p">),</span>
+         <span class="mf">0.5</span><span class="p">,</span>
+         <span class="n">material_center</span><span class="p">,</span>
+     <span class="p">)));</span>
+     <span class="n">world</span><span class="nf">.add</span><span class="p">(</span><span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Sphere</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span>
+<span class="o">-</span>        <span class="nn">Point3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
+<span class="o">-</span>        <span class="mf">0.5</span><span class="p">,</span>
+<span class="o">+</span>        <span class="nn">Point3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">),</span>
+<span class="o">+</span>        <span class="mf">0.3</span><span class="p">,</span>
+         <span class="n">material_left</span><span class="p">,</span>
+     <span class="p">)));</span>
+     <span class="n">world</span><span class="nf">.add</span><span class="p">(</span><span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Sphere</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span>
+<span class="o">-</span>        <span class="nn">Point3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
+<span class="o">-</span>        <span class="mf">0.5</span><span class="p">,</span>
+<span class="o">+</span>        <span class="nn">Point3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">),</span>
+<span class="o">+</span>        <span class="mf">0.3</span><span class="p">,</span>
+         <span class="n">material_right</span><span class="p">,</span>
+     <span class="p">)));</span>
+</code></pre></div>
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/1fad66b2-521a-43e0-8955-21553afeab27.png" alt="output.png" /></p>
+
+<p>余計ひどくなった。うーん、どういうことだ。
+カメラ視点をGUIでグリグリしたい。ただ、今は画像生成に一分ぐらいかかるので視点を変えてもグリグリにはならない。</p>
+
+<p>後で考える。まずは先に進む。</p>
+
+<h2>ぼやけた反射</h2>
+
+<p>反射率にfuzzinessを追加。<code>new()</code> するときに、条件付き(<code>1.0</code> 以上は<code>1.0</code> とする)の引数をどう書くのか分からなかったけど、Gemini CLIが教えてくれた。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="o">@@</span> <span class="o">-</span><span class="mi">39</span><span class="p">,</span><span class="mi">11</span> <span class="o">+</span><span class="mi">39</span><span class="p">,</span><span class="mi">15</span> <span class="o">@@</span> <span class="k">impl</span> <span class="n">Material</span> <span class="k">for</span> <span class="n">Lambertian</span> <span class="p">{</span>
+
+ <span class="k">pub</span> <span class="k">struct</span> <span class="n">Metal</span> <span class="p">{</span>
+     <span class="k">pub</span> <span class="n">albedo</span><span class="p">:</span> <span class="n">Color</span><span class="p">,</span>
+<span class="o">+</span>    <span class="k">pub</span> <span class="n">fuzz</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span>
+ <span class="p">}</span>
+
+ <span class="k">impl</span> <span class="n">Metal</span> <span class="p">{</span>
+<span class="o">-</span>    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">new</span><span class="p">(</span><span class="n">albedo</span><span class="p">:</span> <span class="n">Color</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="k">Self</span> <span class="p">{</span>
+<span class="o">-</span>        <span class="k">Self</span> <span class="p">{</span> <span class="n">albedo</span> <span class="p">}</span>
+<span class="o">+</span>    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">new</span><span class="p">(</span><span class="n">albedo</span><span class="p">:</span> <span class="n">Color</span><span class="p">,</span> <span class="n">fuzz</span><span class="p">:</span> <span class="nb">f64</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="k">Self</span> <span class="p">{</span>
+<span class="o">+</span>        <span class="k">Self</span> <span class="p">{</span>
+<span class="o">+</span>            <span class="n">albedo</span><span class="p">,</span>
+<span class="o">+</span>            <span class="n">fuzz</span><span class="p">:</span> <span class="k">if</span> <span class="n">fuzz</span> <span class="o">&lt;</span> <span class="mf">1.0</span> <span class="p">{</span> <span class="n">fuzz</span> <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="mf">1.0</span> <span class="p">},</span>
+<span class="o">+</span>        <span class="p">}</span>
+     <span class="p">}</span>
+ <span class="p">}</span>
+
+<span class="o">@@</span> <span class="o">-</span><span class="mi">56</span><span class="p">,</span><span class="mi">7</span> <span class="o">+</span><span class="mi">60</span><span class="p">,</span><span class="mi">7</span> <span class="o">@@</span> <span class="k">impl</span> <span class="n">Material</span> <span class="k">for</span> <span class="n">Metal</span> <span class="p">{</span>
+         <span class="n">scattered</span><span class="p">:</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="n">Ray</span><span class="p">,</span>
+     <span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{</span>
+         <span class="k">let</span> <span class="n">reflected</span> <span class="o">=</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">reflect</span><span class="p">(</span><span class="o">&amp;</span><span class="n">r_in</span><span class="py">.direction</span><span class="nf">.unit_vector</span><span class="p">(),</span> <span class="o">&amp;</span><span class="n">rec</span><span class="py">.normal</span><span class="p">);</span>
+<span class="o">-</span>        <span class="o">*</span><span class="n">scattered</span> <span class="o">=</span> <span class="nn">Ray</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">rec</span><span class="py">.p</span><span class="p">,</span> <span class="n">reflected</span><span class="p">);</span>
+<span class="o">+</span>        <span class="o">*</span><span class="n">scattered</span> <span class="o">=</span> <span class="nn">Ray</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">rec</span><span class="py">.p</span><span class="p">,</span> <span class="n">reflected</span> <span class="o">+</span> <span class="k">self</span><span class="py">.fuzz</span> <span class="o">*</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">random_in_unit_sphere</span><span class="p">());</span>
+         <span class="o">*</span><span class="n">attenuation</span> <span class="o">=</span> <span class="k">self</span><span class="py">.albedo</span><span class="p">;</span>
+         <span class="nn">Vec3</span><span class="p">::</span><span class="nf">dot</span><span class="p">(</span><span class="o">&amp;</span><span class="n">scattered</span><span class="py">.direction</span><span class="p">,</span> <span class="n">rec</span><span class="py">.normal</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.0</span>
+     <span class="p">}</span>
+</code></pre></div>
+<p><code>main.rs</code> で金属球を作るときにfuziness引数を追加</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="o">-</span>    <span class="k">let</span> <span class="n">material_left</span> <span class="o">=</span> <span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Metal</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)));</span>
+<span class="o">-</span>    <span class="k">let</span> <span class="n">material_right</span> <span class="o">=</span> <span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Metal</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)));</span>
+<span class="o">+</span>    <span class="k">let</span> <span class="n">material_left</span> <span class="o">=</span> <span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Metal</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">),</span> <span class="mf">0.3</span><span class="p">));</span>
+<span class="o">+</span>    <span class="k">let</span> <span class="n">material_right</span> <span class="o">=</span> <span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Metal</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">));</span>
+</code></pre></div>
+<p>左右でぼやけ方が違うのが分かる。</p>
+
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/bc236245-9d4a-4443-9c7b-874435e1cc0a.png" alt="output.png" /></p>
+
+<h2>誘電マテリアル</h2>
+
+<p>屈折率を扱うDielectricモジュールを追加。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">impl</span> <span class="n">Dielectric</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">new</span><span class="p">(</span><span class="n">ref_idx</span><span class="p">:</span> <span class="nb">f64</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="k">Self</span> <span class="p">{</span>
+        <span class="k">Self</span> <span class="p">{</span> <span class="n">ref_idx</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">impl</span> <span class="n">Material</span> <span class="k">for</span> <span class="n">Dielectric</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">scatter</span><span class="p">(</span>
+        <span class="o">&amp;</span><span class="k">self</span><span class="p">,</span>
+        <span class="n">r_in</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">Ray</span><span class="p">,</span>
+        <span class="n">rec</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">HitRecord</span><span class="p">,</span>
+        <span class="n">attenuation</span><span class="p">:</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="n">Color</span><span class="p">,</span>
+        <span class="n">scattered</span><span class="p">:</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="n">Ray</span><span class="p">,</span>
+    <span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{</span>
+        <span class="o">*</span><span class="n">attenuation</span> <span class="o">=</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+        <span class="k">let</span> <span class="n">etai_over_etat</span> <span class="o">=</span> <span class="k">if</span> <span class="n">rec</span><span class="py">.front_face</span> <span class="p">{</span>
+            <span class="mf">1.0</span> <span class="o">/</span> <span class="k">self</span><span class="py">.ref_idx</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">self</span><span class="py">.ref_idx</span>
+        <span class="p">};</span>
+        <span class="k">let</span> <span class="n">unit_direction</span> <span class="o">=</span> <span class="n">r_in</span><span class="py">.direction</span><span class="nf">.unit_vector</span><span class="p">();</span>
+        <span class="k">let</span> <span class="n">refracted</span> <span class="o">=</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">refract</span><span class="p">(</span><span class="o">&amp;</span><span class="n">unit_direction</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rec</span><span class="py">.normal</span><span class="p">,</span> <span class="n">etai_over_etat</span><span class="p">);</span>
+        <span class="o">*</span><span class="n">scattered</span> <span class="o">=</span> <span class="nn">Ray</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">rec</span><span class="py">.p</span><span class="p">,</span> <span class="n">refracted</span><span class="p">);</span>
+        <span class="k">true</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<p>真ん中と左を透明にすると、変な黒点が現れる。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="o">-</span>    <span class="k">let</span> <span class="n">material_center</span> <span class="o">=</span> <span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Lambertian</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)));</span>
+<span class="o">-</span>    <span class="k">let</span> <span class="n">material_left</span> <span class="o">=</span> <span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Metal</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">),</span> <span class="mf">0.3</span><span class="p">));</span>
+<span class="o">-</span>    <span class="k">let</span> <span class="n">material_right</span> <span class="o">=</span> <span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Metal</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">));</span>
+<span class="o">+</span>    <span class="k">let</span> <span class="n">material_center</span> <span class="o">=</span> <span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Dielectric</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">1.5</span><span class="p">));</span>
+<span class="o">+</span>    <span class="k">let</span> <span class="n">material_left</span> <span class="o">=</span> <span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Dielectric</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">1.5</span><span class="p">));</span>
+<span class="o">+</span>    <span class="k">let</span> <span class="n">material_right</span> <span class="o">=</span> <span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Metal</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">));</span>
+</code></pre></div>
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/8c59839d-d687-4d8b-9d8f-2d6ed93a7607.png" alt="output.png" /></p>
+
+<p><code>scatter()</code> を全反射に対応させる。もはや式の意味は理解できない。写経。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="o">@@</span> <span class="o">-</span><span class="mi">91</span><span class="p">,</span><span class="mi">6</span> <span class="o">+</span><span class="mi">91</span><span class="p">,</span><span class="mi">15</span> <span class="o">@@</span> <span class="k">impl</span> <span class="n">Material</span> <span class="k">for</span> <span class="n">Dielectric</span> <span class="p">{</span>
+             <span class="k">self</span><span class="py">.ref_idx</span>
+         <span class="p">};</span>
+         <span class="k">let</span> <span class="n">unit_direction</span> <span class="o">=</span> <span class="n">r_in</span><span class="py">.direction</span><span class="nf">.unit_vector</span><span class="p">();</span>
+<span class="o">+</span>        <span class="k">let</span> <span class="n">cos_theta</span> <span class="o">=</span> <span class="n">rec</span><span class="py">.normal</span><span class="nf">.dot</span><span class="p">(</span><span class="o">-</span><span class="n">unit_direction</span><span class="p">)</span><span class="nf">.min</span><span class="p">(</span><span class="mf">1.0</span><span class="p">);</span>
+<span class="o">+</span>        <span class="k">let</span> <span class="n">sin_theta</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">cos_theta</span> <span class="o">*</span> <span class="n">cos_theta</span><span class="p">)</span><span class="nf">.sqrt</span><span class="p">();</span>
+<span class="o">+</span>
+<span class="o">+</span>        <span class="k">if</span> <span class="n">etai_over_etat</span> <span class="o">*</span> <span class="n">sin_theta</span> <span class="o">&gt;</span> <span class="mf">1.0</span> <span class="p">{</span>
+<span class="o">+</span>            <span class="k">let</span> <span class="n">reflected</span> <span class="o">=</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">reflect</span><span class="p">(</span><span class="o">&amp;</span><span class="n">unit_direction</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rec</span><span class="py">.normal</span><span class="p">);</span>
+<span class="o">+</span>            <span class="o">*</span><span class="n">scattered</span> <span class="o">=</span> <span class="nn">Ray</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">rec</span><span class="py">.p</span><span class="p">,</span> <span class="n">reflected</span><span class="p">);</span>
+<span class="o">+</span>            <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+<span class="o">+</span>        <span class="p">}</span>
+<span class="o">+</span>
+         <span class="k">let</span> <span class="n">refracted</span> <span class="o">=</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">refract</span><span class="p">(</span><span class="o">&amp;</span><span class="n">unit_direction</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rec</span><span class="py">.normal</span><span class="p">,</span> <span class="n">etai_over_etat</span><span class="p">);</span>
+         <span class="o">*</span><span class="n">scattered</span> <span class="o">=</span> <span class="nn">Ray</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">rec</span><span class="py">.p</span><span class="p">,</span> <span class="n">refracted</span><span class="p">);</span>
+         <span class="k">true</span>
+</code></pre></div>
+<p>黒点が消えた！</p>
+
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/0223aede-7ddd-45f5-8d8c-d1dfc80d0e24.png" alt="output.png" /></p>
+
+<h2>シュリックの近似</h2>
+
+<p>ガラスの反射率の近似値を求める関数を追加</p>
+<div class="highlight"><pre class="highlight rust"><code>    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">schlick</span><span class="p">(</span><span class="n">cosine</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span> <span class="n">ref_idx</span><span class="p">:</span> <span class="nb">f64</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">f64</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">r0</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">ref_idx</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">ref_idx</span><span class="p">);</span>
+        <span class="k">let</span> <span class="n">r0</span> <span class="o">=</span> <span class="n">r0</span> <span class="o">*</span> <span class="n">r0</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">r0</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">r0</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">cosine</span><span class="p">)</span><span class="nf">.powf</span><span class="p">(</span><span class="mf">5.0</span><span class="p">);</span>
+    <span class="p">}</span>
+</code></pre></div>
+<p>続写経。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="o">@@</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">6</span> <span class="o">+</span><span class="mi">101</span><span class="p">,</span><span class="mi">13</span> <span class="o">@@</span> <span class="k">impl</span> <span class="n">Material</span> <span class="k">for</span> <span class="n">Dielectric</span> <span class="p">{</span>
+             <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+         <span class="p">}</span>
+
+<span class="o">+</span>        <span class="k">let</span> <span class="n">reflect_prob</span> <span class="o">=</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">schlick</span><span class="p">(</span><span class="n">cos_theta</span><span class="p">,</span> <span class="n">etai_over_etat</span><span class="p">);</span>
+<span class="o">+</span>        <span class="k">if</span> <span class="nf">random_double</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">reflect_prob</span> <span class="p">{</span>
+<span class="o">+</span>            <span class="k">let</span> <span class="n">reflected</span> <span class="o">=</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">reflect</span><span class="p">(</span><span class="o">&amp;</span><span class="n">unit_direction</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rec</span><span class="py">.normal</span><span class="p">);</span>
+<span class="o">+</span>            <span class="o">*</span><span class="n">scattered</span> <span class="o">=</span> <span class="nn">Ray</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">rec</span><span class="py">.p</span><span class="p">,</span> <span class="n">reflected</span><span class="p">);</span>
+<span class="o">+</span>            <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+<span class="o">+</span>        <span class="p">}</span>
+<span class="o">+</span>
+         <span class="k">let</span> <span class="n">refracted</span> <span class="o">=</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">refract</span><span class="p">(</span><span class="o">&amp;</span><span class="n">unit_direction</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rec</span><span class="py">.normal</span><span class="p">,</span> <span class="n">etai_over_etat</span><span class="p">);</span>
+         <span class="o">*</span><span class="n">scattered</span> <span class="o">=</span> <span class="nn">Ray</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">rec</span><span class="py">.p</span><span class="p">,</span> <span class="n">refracted</span><span class="p">);</span>
+         <span class="k">true</span>
+</code></pre></div>
+<p>ガラスも描けるようになった。</p>
+
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/7650025e-a34e-4fe0-86d9-abfcb6678c93.png" alt="output.png" /></p>
+
+<p><a href="https://qiita.com/sumikawa@github/items/f7a455909fe4596a66bf">その8</a>に続く。</p>
+
+
+
+              <div class="tags">
+                Tags:
+                  <a href="/tag/rust/">rust<span class="tag-count">12</span></a>
+                  <a href="/tag/cg/">cg<span class="tag-count">12</span></a>
+                  <a href="/tag/raytracing/">raytracing<span class="tag-count">9</span></a>
+                  <a href="/tag/qiita/">qiita<span class="tag-count">22</span></a>
+              </div>
+          </main>
+
+          <nav class="prev_next" aria-label="Diary navigation"><a class="prev_next-link prev" href="/diary/2026/0127-qiita/"><span class="prev_next-eyebrow">Previous</span><span class="prev_next-label">&laquo; prev</span></a><span class="prev_next-divider" aria-hidden="true"></span><a class="prev_next-link next" href="/diary/2026/0129-qiita/"><span class="prev_next-eyebrow">Next</span><span class="prev_next-label">next &raquo;</span></a></nav>
+
+          <hr>
+          <div id="name">SUMIKAWA Munechika / Daydreamers On the Net</div>
+        </div>
+      </div>
+      <div class="leftblock">
+	  <div class="titleblock">
+	    <h1><a href="/">すみかわ日記</a></h1>
+	  </div>
+        <div class="eachindexblock nav">
+  <ul id="gray">
+      <li> <a href="/diary/2026.html">2026年</a></li>
+      <li> <a href="/diary/2025.html">2025年</a></li>
+      <li> <a href="/diary/2024.html">2024年</a></li>
+      <li> <a href="/diary/2023.html">2023年</a></li>
+      <li> <a href="/diary/2022.html">2022年</a></li>
+      <li> <a href="/diary/2021.html">2021年</a></li>
+      <li> <a href="/diary/2020.html">2020年</a></li>
+      <li> <a href="/diary/2019.html">2019年</a></li>
+      <li> <a href="/diary/2018.html">2018年</a></li>
+      <li> <a href="/diary/2017.html">2017年</a></li>
+      <li> <a href="/diary/2016.html">2016年</a></li>
+      <li> <a href="/diary/2015.html">2015年</a></li>
+      <li> <a href="/diary/2014.html">2014年</a></li>
+      <li> <a href="/diary/2013.html">2013年</a></li>
+      <li> <a href="/diary/2012.html">2012年</a></li>
+      <li> <a href="/diary/2011.html">2011年</a></li>
+      <li> <a href="/diary/2010.html">2010年</a></li>
+      <li> <a href="/diary/2009.html">2009年</a></li>
+      <li> <a href="/diary/2008.html">2008年</a></li>
+      <li> <a href="/diary/2007.html">2007年</a></li>
+      <li> <a href="/diary/2006.html">2006年</a></li>
+      <li> <a href="/diary/2005.html">2005年</a></li>
+      <li> <a href="/diary/2004.html">2004年</a></li>
+      <li> <a href="/diary/2003.html">2003年</a></li>
+      <li> <a href="/diary/2002.html">2002年</a></li>
+      <li> <a href="/diary/2001.html">2001年</a></li>
+      <li> <a href="/diary/2000.html">2000年</a></li>
+      <li> <a href="/diary/1999.html">1999年</a></li>
+      <li> <a href="/diary/1998.html">1998年</a></li>
+      <li> <a href="/diary/1997.html">1997年</a></li>
+      <li> <a href="/diary/1996.html">1996年</a></li>
+    <li> <a href="/diary/1995.html">1995年以前</a></li>
+    <li> <a href="/tag/tag_list/">Tags</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+    <script src="/javascripts/diary.js"></script>
+      <script src="/pagefind/pagefind-ui.js"></script>
+    <script src="/javascripts/search.js"></script>
+    <script src="/javascripts/photoswipe.umd.min.js"></script>
+    <script src="/javascripts/photoswipe-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
+  </body>
+</html>

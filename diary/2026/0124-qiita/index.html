@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <title>2026/01/24: Rustでコンピューターグラフィックスの基礎を学ぶ その5</title>
+    <link rel="alternate" type="application/rss+xml" title="rss" href="https://www.don.to/diary/index.rdf">
+      <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <link href="/stylesheets/code.css" rel="stylesheet" />
+    <link href="/stylesheets/photoswipe.css" rel="stylesheet" />
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/ipod-icon.png">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=2.0000">
+    <meta property="og:site_name" content="すみかわ日記">
+    <meta property="og:title" content="2026/01/24: Rustでコンピューターグラフィックスの基礎を学ぶ その5">
+  </head>
+
+  <body data-source-path="/diary/2026/0124-qiita.html.md.erb">
+    <div class="container">
+      <div class="centerblock">
+        <div class="mainblock">
+          <div id="search"></div>
+            <h2 data-pagefind-meta="title" data-pagefind-sort="date:2026-01-24">2026/01/24: Rustでコンピューターグラフィックスの基礎を学ぶ その5</h2>
+          <main data-pagefind-body>
+              <div class="note">
+本ドキュメントは<a href="https://qiita.com/sumikawa@github/items/04488cc9109217dcef0a">Qiita記事</a>のバックアップです。
+</div>
+
+<p>フルコードは<a href="https://github.com/sumikawa/myraytracing">github</a>にあります。</p>
+
+<p>週末レイトレーシングの<a href="https://inzkyk.xyz/ray_tracing_in_one_weekend/week_1/1_8_diffuse_material/">ここ</a>をやります。</p>
+
+<h2>ランダムな vec3 を計算するユーティリティ関数</h2>
+
+<p>Vec3モジュールに下記を追加。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">pub</span> <span class="k">fn</span> <span class="nf">random</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="k">Self</span> <span class="p">{</span>
+    <span class="k">Self</span> <span class="p">{</span>
+        <span class="n">x</span><span class="p">:</span> <span class="nf">random_double</span><span class="p">(),</span>
+        <span class="n">y</span><span class="p">:</span> <span class="nf">random_double</span><span class="p">(),</span>
+        <span class="n">z</span><span class="p">:</span> <span class="nf">random_double</span><span class="p">(),</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">pub</span> <span class="k">fn</span> <span class="nf">random_range</span><span class="p">(</span><span class="n">min</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span> <span class="n">max</span><span class="p">:</span> <span class="nb">f64</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="k">Self</span> <span class="p">{</span>
+    <span class="k">Self</span> <span class="p">{</span>
+        <span class="n">x</span><span class="p">:</span> <span class="nf">random_double_range</span><span class="p">(</span><span class="n">min</span><span class="p">,</span> <span class="n">max</span><span class="p">),</span>
+        <span class="n">y</span><span class="p">:</span> <span class="nf">random_double_range</span><span class="p">(</span><span class="n">min</span><span class="p">,</span> <span class="n">max</span><span class="p">),</span>
+        <span class="n">z</span><span class="p">:</span> <span class="nf">random_double_range</span><span class="p">(</span><span class="n">min</span><span class="p">,</span> <span class="n">max</span><span class="p">),</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">pub</span> <span class="k">fn</span> <span class="nf">random_in_unit_sphere</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="n">Vec3</span> <span class="p">{</span>
+    <span class="k">loop</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">p</span> <span class="o">=</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">random_range</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+        <span class="k">if</span> <span class="n">p</span><span class="nf">.length_squared</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mf">1.0</span> <span class="p">{</span>
+        <span class="k">continue</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3>メモ</h3>
+
+<p>その4の<a href="https://qiita.com/sumikawa@github/items/cb1ae0a697cea6296b93#%E5%85%B1%E7%94%A8%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB">共有モジュール</a>で見逃していたが、C++では引数が異なる同名の関数を使っていたが、Rustになったタイミングで異なる関数名になっていた。C++のようなことはできないらしい。理屈でいえば、コンパイル時にどちらを使うか判断できるので、静的型付けでもやれそうな気はする。</p>
+
+<p>Gemini CLIは下記を言ってるが、複雑になりそうなので、宿題とする</p>
+
+<blockquote>
+<p>ユーザーがリネームを望まない場合は、Option型で引数をラップし、Vec3::random(r
+  ange: Option<Range>)のように単一の関数で引数の有無を判定する手法も考えられます。</p>
+</blockquote>
+
+<p><code>random_in_unit_sphere()</code> は立方体で乱数を出して、球の内面になるまで無限ループという雑なコード。成功確率は48%らしい。乱数性を維持しつつ、一発で決められるアルゴリズムはないものかとChatGPTに相談したら、球の内側であることが保証される極座標を乱数で出してから、<code>xyz</code>の座標に変換する方法を教えてくれた。<code>radius</code>は半径で、オリジナルの関数は一辺が<code>2.0</code>の立方体なので、<code>1.0</code>にハードコードすればいいはず。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">fn</span> <span class="nf">random_point_in_sphere</span><span class="p">(</span><span class="n">radius</span><span class="p">:</span> <span class="nb">f64</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="p">(</span><span class="nb">f64</span><span class="p">,</span> <span class="nb">f64</span><span class="p">,</span> <span class="nb">f64</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">rng</span> <span class="o">=</span> <span class="nn">rand</span><span class="p">::</span><span class="nf">thread_rng</span><span class="p">();</span>
+
+    <span class="k">let</span> <span class="n">u</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="n">rng</span><span class="nf">.gen</span><span class="p">();</span>
+    <span class="k">let</span> <span class="n">v</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="n">rng</span><span class="nf">.gen</span><span class="p">();</span>
+    <span class="k">let</span> <span class="n">w</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="n">rng</span><span class="nf">.gen</span><span class="p">();</span>
+
+    <span class="k">let</span> <span class="n">theta</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">PI</span> <span class="o">*</span> <span class="n">u</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">phi</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">v</span><span class="p">)</span><span class="nf">.acos</span><span class="p">();</span>
+    <span class="k">let</span> <span class="n">r</span> <span class="o">=</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">w</span><span class="nf">.cbrt</span><span class="p">();</span> <span class="c1">// ← 重要（立方根）</span>
+
+    <span class="k">let</span> <span class="n">x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">phi</span><span class="nf">.sin</span><span class="p">()</span> <span class="o">*</span> <span class="n">theta</span><span class="nf">.cos</span><span class="p">();</span>
+    <span class="k">let</span> <span class="n">y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">phi</span><span class="nf">.sin</span><span class="p">()</span> <span class="o">*</span> <span class="n">theta</span><span class="nf">.sin</span><span class="p">();</span>
+    <span class="k">let</span> <span class="n">z</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">phi</span><span class="nf">.cos</span><span class="p">();</span>
+
+    <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>後で差し替えてみる。一旦、保留。</p>
+
+<h3>拡散マテリアル</h3>
+
+<p><code>ray_color()</code> 関数を下記に修正。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">fn</span> <span class="nf">ray_color</span><span class="p">(</span><span class="n">r</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">Ray</span><span class="p">,</span> <span class="n">world</span><span class="p">:</span> <span class="o">&amp;</span><span class="k">dyn</span> <span class="n">Hittable</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Color</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="k">let</span> <span class="nf">Some</span><span class="p">(</span><span class="n">rec</span><span class="p">)</span> <span class="o">=</span> <span class="n">world</span><span class="nf">.hit</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">INFINITY</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">target</span><span class="p">:</span> <span class="n">Point3</span> <span class="o">=</span> <span class="n">rec</span><span class="py">.p</span> <span class="o">+</span> <span class="n">rec</span><span class="py">.normal</span> <span class="o">+</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">random_in_unit_sphere</span><span class="p">();</span>
+    <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="nf">ray_color</span><span class="p">(</span><span class="o">&amp;</span><span class="nn">Ray</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">rec</span><span class="py">.p</span><span class="p">,</span> <span class="n">target</span> <span class="o">-</span> <span class="n">rec</span><span class="py">.p</span><span class="p">),</span> <span class="n">world</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">unit_direction</span> <span class="o">=</span> <span class="n">r</span><span class="py">.direction</span><span class="nf">.unit_vector</span><span class="p">();</span>
+        <span class="k">let</span> <span class="n">t</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">unit_direction</span><span class="py">.y</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">);</span>
+        <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>おお、レイがトレーシングされた。</p>
+
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/1497107b-e672-4658-af6d-5b783e3c022e.png" alt="output.png" /></p>
+
+<p>メモ</p>
+
+<ul>
+<li>scanlineが進むとどんどん処理時間が伸びる。どのピクセルでも計算時間は同じはずなのに何故と悩んだが、今の画像の上半分は、オブジェクトが存在するピクセルが少ないので拡散マテリアルの計算が不要になるためだ。試しに下から上へレンダリングするようにコードを変更したら、前半に時間を要するようになった。</li>
+</ul>
+
+<h3>子レイの数を制限する</h3>
+
+<p><code>ray_color()</code> 関数の再帰呼び出しを最大50回に制限。ちゃんと測ってないけど、そこまで感覚的に早くなったようには思えない。再帰やめてループにしたら早くなるかしらね。これも宿題。</p>
+<div class="highlight"><pre class="highlight plaintext"><code>@@ -7,10 +7,14 @@ use myraytracing::vec3::{Color, Point3, Vec3};
+ use std::sync::Arc;
+ use std::io::Write;
+
+-fn ray_color(r: &amp;Ray, world: &amp;dyn Hittable) -&gt; Color {
++fn ray_color(r: &amp;Ray, world: &amp;dyn Hittable, depth: u32) -&gt; Color {
++    if depth &lt;= 0 {
++       return Color::new(0.0, 0.0, 0.0);
++    }
++
+     if let Some(rec) = world.hit(r, 0.0, INFINITY) {
+        let target: Point3 = rec.p + rec.normal + Vec3::random_in_unit_sphere();
+-       return 0.5 * ray_color(&amp;Ray::new(rec.p, target - rec.p), world);
++       return 0.5 * ray_color(&amp;Ray::new(rec.p, target - rec.p), world, depth - 1);
+     } else {
+         let unit_direction = r.direction.unit_vector();
+         let t = 0.5 * (unit_direction.y + 1.0);
+@@ -39,6 +43,7 @@ fn main() {
+     const IMAGE_HEIGHT: i32 = (IMAGE_WIDTH as f64 / ASPECT_RATIO) as i32;
+
+     let samples_per_pixel: u32 = 100;
++    let max_depth: u32 = 50;
+
+     let mut world = HittableList::new();
+     world.add(Arc::new(Sphere::new(Point3::new(0.0, 0.0, -1.0), 0.5)));
+@@ -63,7 +68,7 @@ fn main() {
+                let v: f64 = (j as f64 + random_double()) / (IMAGE_HEIGHT - 1) as f64;
+
+                let r = cam.get_ray(u, v);
+-               pixel_color += ray_color(&amp;r, &amp;world);
++               pixel_color += ray_color(&amp;r, &amp;world, max_depth);
+            }
+             write_color(pixel_color, samples_per_pixel);
+         }
+</code></pre></div>
+<p>画像的にはあまり変わらない。つまり、有限回数で終了しても画像品質に影響はないということか。</p>
+
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/e493d5d0-a0fc-478f-a76b-b3952fa0fefa.png" alt="output.png" /></p>
+
+<h3>ガンマ補正</h3>
+
+<p>ガンマ補正をして、物体が黒くなりすぎる問題を修正。</p>
+<div class="highlight"><pre class="highlight plaintext"><code>@@ -23,11 +23,15 @@ fn ray_color(r: &amp;Ray, world: &amp;dyn Hittable, depth: u32) -&gt; Color {
+ }
+
+ fn write_color(pixel_color: Color, samples_per_pixel: u32) {
+-    // Write the translated [0,255] value of each color component.
+-    let scale: f64 = 1.0 / samples_per_pixel as f64;
+-    let r: f64 = pixel_color.x * scale;
+-    let g: f64 = pixel_color.y * scale;
+-    let b: f64 = pixel_color.z * scale;
++    let r = pixel_color.x;
++    let g = pixel_color.y;
++    let b = pixel_color.z;
++
++    // Divide the color by the number of samples and gamma-correct for gamma=2.0.
++    let scale = 1.0 / samples_per_pixel as f64;
++    let r = (scale * r).sqrt();
++    let g = (scale * g).sqrt();
++    let b = (scale * b).sqrt();
+
+     println!(
+         "{} {} {}",
+</code></pre></div>
+<p>キタっ！ 深夜二時のテンション爆上がり</p>
+
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/ac512f30-2623-429d-967c-88bc380cc891.png" alt="output.png" /></p>
+
+<h3>シャドウアクネを消す</h3>
+<div class="highlight"><pre class="highlight diff"><code><span class="p">@@ -12,7 +12,7 @@</span> fn ray_color(r: &amp;Ray, world: &amp;dyn Hittable, depth: u32) -&gt; Color {
+    return Color::new(0.0, 0.0, 0.0);
+     }
+
+-    if let Some(rec) = world.hit(r, 0.0, INFINITY) {
+<span class="gi">+    if let Some(rec) = world.hit(r, 0.001, INFINITY) {
+</span>    let target: Point3 = rec.p + rec.normal + Vec3::random_in_unit_sphere();
+    return 0.5 * ray_color(&amp;Ray::new(rec.p, target - rec.p), world, depth - 1);
+     } else {
+</code></pre></div>
+<p>ちょっと綺麗になったのか？ まあ浮動小数点の誤差を吸収しないといけないことは理解した。</p>
+
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/03ffab23-b971-4052-8df8-6093a25fb3e7.png" alt="output.png" /></p>
+
+<h3>完全なランバート反射</h3>
+
+<p>ランバート反射の関数を別に作成</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">pub</span> <span class="k">fn</span> <span class="nf">random_unit_vector</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="n">Vec3</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">a</span> <span class="o">=</span> <span class="nf">random_double_range</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">PI</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">z</span> <span class="o">=</span> <span class="nf">random_double_range</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">z</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span><span class="nf">.sqrt</span><span class="p">();</span>
+
+    <span class="k">Self</span> <span class="p">{</span>
+        <span class="n">x</span><span class="p">:</span> <span class="n">r</span> <span class="o">*</span> <span class="n">a</span><span class="nf">.cos</span><span class="p">(),</span>
+        <span class="n">y</span><span class="p">:</span> <span class="n">r</span> <span class="o">*</span> <span class="n">a</span><span class="nf">.sin</span><span class="p">(),</span>
+        <span class="n">z</span><span class="p">:</span> <span class="n">z</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>拡散の関数を差し替える。</p>
+<div class="highlight"><pre class="highlight diff"><code><span class="p">@@ -13,7 +13,7 @@</span> fn ray_color(r: &amp;Ray, world: &amp;dyn Hittable, depth: u32) -&gt; Color {
+     }
+
+     if let Some(rec) = world.hit(r, 0.001, INFINITY) {
+<span class="gd">-       let target: Point3 = rec.p + rec.normal + Vec3::random_in_unit_sphere();
+</span><span class="gi">+       let target: Point3 = rec.p + rec.normal + Vec3::random_unit_vector();
+</span>        return 0.5 * ray_color(&amp;Ray::new(rec.p, target - rec.p), world, depth - 1);
+     } else {
+         let unit_direction = r.direction.unit_vector();
+</code></pre></div>
+<p>全体的に薄くなった。</p>
+
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/9a68d961-26a7-415c-b250-d7a2fc3d5598.png" alt="output.png" /></p>
+
+<p>この後、初期に使われていた別アルゴリズムが説明されているが、試すほどでもないのでスキップ。</p>
+
+<h3>球を増やしてみる</h3>
+<div class="highlight"><pre class="highlight diff"><code>     let max_depth: u32 = 50;
+
+    let mut world = HittableList::new();
+<span class="gd">-    world.add(Arc::new(Sphere::new(Point3::new(0.0, 0.0, -1.0), 0.5)));
+</span><span class="gi">+    world.add(Arc::new(Sphere::new(Point3::new(-0.3, 0.0, -0.6), 0.2)));
++    world.add(Arc::new(Sphere::new(Point3::new(0.0, 0.0, -1.4), 0.5)));
+</span>     world.add(Arc::new(Sphere::new(
+         Point3::new(0.0, -100.5, -1.0),
+         100.0,
+</code></pre></div>
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/911633c7-f6ea-47a1-af35-59fe087ae4da.png" alt="output.png" /></p>
+
+<p>球の色を変えてみようと思ったが、現在、球の色を決めるコードは<code>ray_color()</code> 内の反射率(50%)で記述されている。</p>
+
+<p>まとめて色を変えるのは簡単。<code>f64</code> の代わりに<code>Color</code> を指定してやる。</p>
+<div class="highlight"><pre class="highlight diff"><code><span class="gd">-        return 0.5 * ray_color(&amp;Ray::new(rec.p, target - rec.p), world, depth - 1);
+</span><span class="gi">+        return Color::new(0.8, 0.5, 0.1) * ray_color(&amp;Ray::new(rec.p, target - rec.p), world, depth - 1);
+</span></code></pre></div>
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/19f11db5-6c51-40ac-9d18-07cbc2d4514e.png" alt="output.png" /></p>
+
+<p>物体ごとに色を変えるのは簡単にはできず、次章での抽象化が必要。<a href="https://qiita.com/sumikawa@github/items/7aa8708a031dcd8d1a80">その6</a>に続く。</p>
+
+
+
+              <div class="tags">
+                Tags:
+                  <a href="/tag/rust/">rust<span class="tag-count">12</span></a>
+                  <a href="/tag/cg/">cg<span class="tag-count">12</span></a>
+                  <a href="/tag/raytracing/">raytracing<span class="tag-count">9</span></a>
+                  <a href="/tag/qiita/">qiita<span class="tag-count">22</span></a>
+              </div>
+          </main>
+
+          <nav class="prev_next" aria-label="Diary navigation"><a class="prev_next-link prev" href="/diary/2026/0123-qiita/"><span class="prev_next-eyebrow">Previous</span><span class="prev_next-label">&laquo; prev</span></a><span class="prev_next-divider" aria-hidden="true"></span><a class="prev_next-link next" href="/diary/2026/0126-shoulder/"><span class="prev_next-eyebrow">Next</span><span class="prev_next-label">next &raquo;</span></a></nav>
+
+          <hr>
+          <div id="name">SUMIKAWA Munechika / Daydreamers On the Net</div>
+        </div>
+      </div>
+      <div class="leftblock">
+	  <div class="titleblock">
+	    <h1><a href="/">すみかわ日記</a></h1>
+	  </div>
+        <div class="eachindexblock nav">
+  <ul id="gray">
+      <li> <a href="/diary/2026.html">2026年</a></li>
+      <li> <a href="/diary/2025.html">2025年</a></li>
+      <li> <a href="/diary/2024.html">2024年</a></li>
+      <li> <a href="/diary/2023.html">2023年</a></li>
+      <li> <a href="/diary/2022.html">2022年</a></li>
+      <li> <a href="/diary/2021.html">2021年</a></li>
+      <li> <a href="/diary/2020.html">2020年</a></li>
+      <li> <a href="/diary/2019.html">2019年</a></li>
+      <li> <a href="/diary/2018.html">2018年</a></li>
+      <li> <a href="/diary/2017.html">2017年</a></li>
+      <li> <a href="/diary/2016.html">2016年</a></li>
+      <li> <a href="/diary/2015.html">2015年</a></li>
+      <li> <a href="/diary/2014.html">2014年</a></li>
+      <li> <a href="/diary/2013.html">2013年</a></li>
+      <li> <a href="/diary/2012.html">2012年</a></li>
+      <li> <a href="/diary/2011.html">2011年</a></li>
+      <li> <a href="/diary/2010.html">2010年</a></li>
+      <li> <a href="/diary/2009.html">2009年</a></li>
+      <li> <a href="/diary/2008.html">2008年</a></li>
+      <li> <a href="/diary/2007.html">2007年</a></li>
+      <li> <a href="/diary/2006.html">2006年</a></li>
+      <li> <a href="/diary/2005.html">2005年</a></li>
+      <li> <a href="/diary/2004.html">2004年</a></li>
+      <li> <a href="/diary/2003.html">2003年</a></li>
+      <li> <a href="/diary/2002.html">2002年</a></li>
+      <li> <a href="/diary/2001.html">2001年</a></li>
+      <li> <a href="/diary/2000.html">2000年</a></li>
+      <li> <a href="/diary/1999.html">1999年</a></li>
+      <li> <a href="/diary/1998.html">1998年</a></li>
+      <li> <a href="/diary/1997.html">1997年</a></li>
+      <li> <a href="/diary/1996.html">1996年</a></li>
+    <li> <a href="/diary/1995.html">1995年以前</a></li>
+    <li> <a href="/tag/tag_list/">Tags</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+    <script src="/javascripts/diary.js"></script>
+      <script src="/pagefind/pagefind-ui.js"></script>
+    <script src="/javascripts/search.js"></script>
+    <script src="/javascripts/photoswipe.umd.min.js"></script>
+    <script src="/javascripts/photoswipe-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
+  </body>
+</html>
