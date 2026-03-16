@@ -640,8 +640,8 @@ div.amazon-info {
 }
 
 .leftblock .nav a {
-  padding-top: 0.28rem;
-  padding-bottom: 0.28rem;
+  padding: 0.28rem 0.45rem;
+  text-align: center;
 }
 
 .nav a:hover,
@@ -764,7 +764,7 @@ li.pagefind-ui__result {
   }
 
   .leftblock .nav a {
-    padding: 0.42rem 0.65rem;
+    padding: 0.42rem 0.45rem;
     border: 1px solid rgba(31, 79, 70, 0.12);
     background: rgba(31, 79, 70, 0.05);
     white-space: nowrap;
@@ -826,7 +826,7 @@ li.pagefind-ui__result {
 
 @media screen and (min-width: 481px) and (max-width: 800px) {
   .container {
-    grid-template-columns: minmax(0, 1fr) 90px;
+    grid-template-columns: minmax(0, 1fr) 120px;
   }
 
   .mainblock {
@@ -841,8 +841,9 @@ li.pagefind-ui__result {
 
   .leftblock .nav a {
     white-space: nowrap;
-    padding: 0.22rem 0.28rem;
+    padding: 0.22rem 0.45rem;
     font-size: 0.82rem;
     letter-spacing: -0.01em;
+    text-align: center;
   }
 }
