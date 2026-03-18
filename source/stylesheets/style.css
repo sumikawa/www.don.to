@@ -829,6 +829,10 @@ li.pagefind-ui__result {
     grid-template-columns: minmax(0, 1fr) 120px;
   }
 
+  #search {
+    margin-top: 18px;
+  }
+
   .mainblock {
     font-size: 0.98rem;
   }
