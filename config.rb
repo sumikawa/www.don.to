@@ -60,6 +60,5 @@ activate :syntax
 activate :directory_indexes
 # activate :relative_assets
 
-# activate :livereload, js_host: 'stage.don.to', port: 4567, no_swf: true
 # activate :livereload
-activate :livereload, host: 'localhost', port: 35729, no_swf: true
+# activate :livereload, host: 'localhost', port: 35729, no_swf: true
