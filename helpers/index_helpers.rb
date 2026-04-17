@@ -87,6 +87,7 @@ module IndexHelpers
       next if File.exist?(filepath)
 
       image = Magick::Image.read(file_info[:path]).first
+      image.strip! # Remove EXIF data including GPS
       image.resize_to_fit(0, height).write(filepath)
     end
   end
