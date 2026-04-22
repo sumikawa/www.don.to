@@ -61,4 +61,4 @@ activate :directory_indexes
 # activate :relative_assets
 
 # activate :livereload
-# activate :livereload, host: 'localhost', port: 35729, no_swf: true
+activate :livereload, host: 'localhost', port: 35729, no_swf: true
