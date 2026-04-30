@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <title>2026/01/22: Rustでコンピューターグラフィックスの基礎を学ぶ その3</title>
+    <link rel="alternate" type="application/rss+xml" title="rss" href="https://www.don.to/diary/index.rdf">
+      <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <link href="/stylesheets/code.css" rel="stylesheet" />
+    <link href="/stylesheets/photoswipe.css" rel="stylesheet" />
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/ipod-icon.png">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=2.0000">
+    <meta property="og:site_name" content="すみかわ日記">
+    <meta property="og:title" content="2026/01/22: Rustでコンピューターグラフィックスの基礎を学ぶ その3">
+  </head>
+
+  <body data-source-path="/diary/2026/0122-qiita.html.md.erb">
+    <div class="container">
+      <div class="centerblock">
+        <div class="mainblock">
+          <div id="search"></div>
+          <main data-pagefind-body>
+              <h2 data-pagefind-meta="title" data-pagefind-sort="date:2026-01-22">2026/01/22: Rustでコンピューターグラフィックスの基礎を学ぶ その3</h2>
+              <div class="note">
+本ドキュメントは<a href="https://qiita.com/sumikawa@github/items/3b9acd2ca03948c36fbe">Qiita記事</a>のバックアップです。
+</div>
+
+<p>フルコードは<a href="https://github.com/sumikawa/myraytracing">github</a>にあります。</p>
+
+<p>今回は<a href="https://inzkyk.xyz/ray_tracing_in_one_weekend/week_1/1_5_rendering_a_sphere/">ここ</a>から。</p>
+
+<h2>球をレンダリングする</h2>
+
+<p>まずはレイと球が衝突したら赤くするだけのコード</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">fn</span> <span class="nf">hit_sphere</span><span class="p">(</span><span class="n">center</span><span class="p">:</span> <span class="n">Point3</span><span class="p">,</span> <span class="n">radius</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span> <span class="n">r</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">Ray</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">oc</span><span class="p">:</span> <span class="n">Vec3</span> <span class="o">=</span> <span class="n">r</span><span class="nf">.origin</span><span class="p">()</span> <span class="o">-</span> <span class="n">center</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">di</span><span class="p">:</span> <span class="n">Vec3</span> <span class="o">=</span> <span class="n">r</span><span class="nf">.direction</span><span class="p">();</span>
+    <span class="k">let</span> <span class="n">a</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="n">di</span><span class="nf">.dot</span><span class="p">(</span><span class="n">di</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">b</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">di</span><span class="nf">.dot</span><span class="p">(</span><span class="n">oc</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">c</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="n">oc</span><span class="nf">.dot</span><span class="p">(</span><span class="n">oc</span><span class="p">)</span> <span class="o">-</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">radius</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">discriminant</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="n">b</span> <span class="o">*</span> <span class="n">b</span> <span class="o">-</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span><span class="n">c</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="n">discriminant</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">ray_color</span><span class="p">(</span><span class="n">r</span><span class="p">:</span> <span class="n">Ray</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Vec3</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="nf">hit_sphere</span><span class="p">(</span><span class="nn">Point3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">let</span> <span class="n">unit_direction</span><span class="p">:</span> <span class="n">Vec3</span> <span class="o">=</span> <span class="n">r</span><span class="nf">.direction</span><span class="p">()</span><span class="nf">.unit_vector</span><span class="p">();</span>
+    <span class="k">let</span> <span class="n">t</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">unit_direction</span><span class="py">.y</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/4cf27a2e-07c4-4c8a-8d74-c77ecd6c3fb0.png" alt="output.png" /></p>
+
+<h3>メモ</h3>
+
+<ul>
+<li>同じベクトルの内積が a.dot(a) という表記方法になってやや気持ち悪い。いい糖衣構文があればいいんだけど、Rubyでも同じ表記か。内積は演算結果が<code>f64</code> になって型が変わってしまうので、演算子を使わない方がいいのか。</li>
+<li><code>&amp;</code> の有り無しがまだ腹落ちしてない。コンパイラの言われるがまま修正しているだけ。</li>
+</ul>
+
+<h2>法線を使ったシェーディング</h2>
+
+<p>コードを書くのはそこまで難しくないが、理論が難しいです。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">fn</span> <span class="nf">hit_sphere</span><span class="p">(</span><span class="n">center</span><span class="p">:</span> <span class="n">Point3</span><span class="p">,</span> <span class="n">radius</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span> <span class="n">r</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">Ray</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">f64</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">oc</span><span class="p">:</span> <span class="n">Vec3</span> <span class="o">=</span> <span class="n">r</span><span class="nf">.origin</span><span class="p">()</span> <span class="o">-</span> <span class="n">center</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">di</span><span class="p">:</span> <span class="n">Vec3</span> <span class="o">=</span> <span class="n">r</span><span class="nf">.direction</span><span class="p">();</span>
+    <span class="k">let</span> <span class="n">a</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="n">di</span><span class="nf">.dot</span><span class="p">(</span><span class="n">di</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">b</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">di</span><span class="nf">.dot</span><span class="p">(</span><span class="n">oc</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">c</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="n">oc</span><span class="nf">.dot</span><span class="p">(</span><span class="n">oc</span><span class="p">)</span> <span class="o">-</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">radius</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">discriminant</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="n">b</span> <span class="o">*</span> <span class="n">b</span> <span class="o">-</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span><span class="n">c</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="n">discriminant</span> <span class="o">&lt;</span> <span class="mf">0.0</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span> <span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">discriminant</span><span class="nf">.sqrt</span><span class="p">()</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">a</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">ray_color</span><span class="p">(</span><span class="n">r</span><span class="p">:</span> <span class="n">Ray</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Vec3</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">t</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="nf">hit_sphere</span><span class="p">(</span><span class="nn">Point3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">r</span><span class="p">);</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="mf">0.0</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">n</span><span class="p">:</span> <span class="n">Vec3</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="nf">.at</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">))</span><span class="nf">.unit_vector</span><span class="p">();</span>
+    <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">n</span><span class="nf">.x</span><span class="p">()</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">n</span><span class="nf">.y</span><span class="p">()</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">n</span><span class="nf">.z</span><span class="p">()</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">let</span> <span class="n">unit_direction</span><span class="p">:</span> <span class="n">Vec3</span> <span class="o">=</span> <span class="n">r</span><span class="nf">.direction</span><span class="p">()</span><span class="nf">.unit_vector</span><span class="p">();</span>
+    <span class="k">let</span> <span class="n">t</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">unit_direction</span><span class="py">.y</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>式の簡略化については、そこまで性能に厳しいわけではないのでスキップする。</p>
+
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/edcde608-e9e9-4640-95fa-3bb722c1be19.png" alt="output.png" /></p>
+
+<h2>Hittable モジュール</h2>
+
+<p>まるっとGemini CLIに書いてもらった。何も言われてないのにSome()使うの偉い</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">use</span> <span class="k">crate</span><span class="p">::</span><span class="nn">ray</span><span class="p">::</span><span class="n">Ray</span><span class="p">;</span>
+<span class="k">use</span> <span class="k">crate</span><span class="p">::</span><span class="nn">vec3</span><span class="p">::{</span><span class="n">Point3</span><span class="p">,</span> <span class="n">Vec3</span><span class="p">};</span>
+
+<span class="k">pub</span> <span class="k">struct</span> <span class="n">HitRecord</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="n">p</span><span class="p">:</span> <span class="n">Point3</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">normal</span><span class="p">:</span> <span class="n">Vec3</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">t</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">pub</span> <span class="k">trait</span> <span class="n">Hittable</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">hit</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">,</span> <span class="n">r</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">Ray</span><span class="p">,</span> <span class="n">t_min</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span> <span class="n">t_max</span><span class="p">:</span> <span class="nb">f64</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">Option</span><span class="o">&lt;</span><span class="n">HitRecord</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">pub</span> <span class="k">struct</span> <span class="n">Sphere</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="n">center</span><span class="p">:</span> <span class="n">Point3</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">radius</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">impl</span> <span class="n">Sphere</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">new</span><span class="p">(</span><span class="n">center</span><span class="p">:</span> <span class="n">Point3</span><span class="p">,</span> <span class="n">radius</span><span class="p">:</span> <span class="nb">f64</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="k">Self</span> <span class="p">{</span>
+        <span class="k">Self</span> <span class="p">{</span> <span class="n">center</span><span class="p">,</span> <span class="n">radius</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">impl</span> <span class="n">Hittable</span> <span class="k">for</span> <span class="n">Sphere</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">hit</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">,</span> <span class="n">r</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">Ray</span><span class="p">,</span> <span class="n">t_min</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span> <span class="n">t_max</span><span class="p">:</span> <span class="nb">f64</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">Option</span><span class="o">&lt;</span><span class="n">HitRecord</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">oc</span> <span class="o">=</span> <span class="n">r</span><span class="nf">.origin</span><span class="p">()</span> <span class="o">-</span> <span class="k">self</span><span class="py">.center</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">a</span> <span class="o">=</span> <span class="n">r</span><span class="nf">.direction</span><span class="p">()</span><span class="nf">.length_squared</span><span class="p">();</span>
+        <span class="k">let</span> <span class="n">half_b</span> <span class="o">=</span> <span class="n">oc</span><span class="nf">.dot</span><span class="p">(</span><span class="n">r</span><span class="nf">.direction</span><span class="p">());</span>
+        <span class="k">let</span> <span class="n">c</span> <span class="o">=</span> <span class="n">oc</span><span class="nf">.length_squared</span><span class="p">()</span> <span class="o">-</span> <span class="k">self</span><span class="py">.radius</span> <span class="o">*</span> <span class="k">self</span><span class="py">.radius</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">discriminant</span> <span class="o">=</span> <span class="n">half_b</span> <span class="o">*</span> <span class="n">half_b</span> <span class="o">-</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="n">discriminant</span> <span class="o">&gt;</span> <span class="mf">0.0</span> <span class="p">{</span>
+            <span class="k">let</span> <span class="n">root</span> <span class="o">=</span> <span class="n">discriminant</span><span class="nf">.sqrt</span><span class="p">();</span>
+
+            <span class="k">let</span> <span class="n">temp</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">half_b</span> <span class="o">-</span> <span class="n">root</span><span class="p">)</span> <span class="o">/</span> <span class="n">a</span><span class="p">;</span>
+            <span class="k">if</span> <span class="n">temp</span> <span class="o">&lt;</span> <span class="n">t_max</span> <span class="o">&amp;&amp;</span> <span class="n">temp</span> <span class="o">&gt;</span> <span class="n">t_min</span> <span class="p">{</span>
+                <span class="k">let</span> <span class="n">p</span> <span class="o">=</span> <span class="n">r</span><span class="nf">.at</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+                <span class="k">let</span> <span class="n">normal</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="k">self</span><span class="py">.center</span><span class="p">)</span> <span class="o">/</span> <span class="k">self</span><span class="py">.radius</span><span class="p">;</span>
+                <span class="k">return</span> <span class="nf">Some</span><span class="p">(</span><span class="n">HitRecord</span> <span class="p">{</span> <span class="n">p</span><span class="p">,</span> <span class="n">normal</span><span class="p">,</span> <span class="n">t</span> <span class="p">});</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="k">let</span> <span class="n">p</span> <span class="o">=</span> <span class="n">r</span><span class="nf">.at</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+                <span class="k">let</span> <span class="n">normal</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="k">self</span><span class="py">.center</span><span class="p">)</span> <span class="o">/</span> <span class="k">self</span><span class="py">.radius</span><span class="p">;</span>
+                <span class="k">return</span> <span class="nf">Some</span><span class="p">(</span><span class="n">HitRecord</span> <span class="p">{</span> <span class="n">p</span><span class="p">,</span> <span class="n">normal</span><span class="p">,</span> <span class="n">t</span> <span class="p">});</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="nb">None</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2>法線の向きに対応</h2>
+
+<p>commitは<a href="https://github.com/sumikawa/myraytracing/commit/950ee465582834c95794b620376c557e9b02616a">これ</a></p>
+
+<p>Gemini CLIに任せたけど、mut周りがややこしくてよく分からない。<code>normal</code> への値への代入を無駄に複雑にしてる気もするので、後でリファクタリングできないか考える。</p>
+
+<p>次の章でC++の共有ポインタが出てくる。Rustでは共有所有権になるはず。一旦Rustに戻って勉強しないといけないので、今回はここまで。</p>
+
+<p><a href="https://qiita.com/sumikawa@github/items/cb1ae0a697cea6296b93">その4</a>に続く。</p>
+
+
+
+              <div class="tags">
+                Tags:
+                  <a href="/tag/rust/">rust<span class="tag-count">12</span></a>
+                  <a href="/tag/cg/">cg<span class="tag-count">12</span></a>
+                  <a href="/tag/raytracing/">raytracing<span class="tag-count">9</span></a>
+                  <a href="/tag/qiita/">qiita<span class="tag-count">22</span></a>
+              </div>
+          </main>
+
+          <nav class="prev_next" aria-label="Diary navigation"><a class="prev_next-link prev" href="/diary/2026/0121-qiita/"><span class="prev_next-eyebrow">Previous</span><span class="prev_next-label">&laquo; prev</span></a><span class="prev_next-divider" aria-hidden="true"></span><a class="prev_next-link next" href="/diary/2026/0123-qiita/"><span class="prev_next-eyebrow">Next</span><span class="prev_next-label">next &raquo;</span></a></nav>
+
+          <hr>
+          <div id="name">Daydreamers On the Net</div>
+        </div>
+      </div>
+      <div class="leftblock">
+	  <div class="titleblock">
+	    <h1><a href="/">すみかわ日記</a></h1>
+	  </div>
+        <div class="eachindexblock nav">
+  <ul id="gray">
+      <li> <a href="/diary/2026.html">2026年</a></li>
+      <li> <a href="/diary/2025.html">2025年</a></li>
+      <li> <a href="/diary/2024.html">2024年</a></li>
+      <li> <a href="/diary/2023.html">2023年</a></li>
+      <li> <a href="/diary/2022.html">2022年</a></li>
+      <li> <a href="/diary/2021.html">2021年</a></li>
+      <li> <a href="/diary/2020.html">2020年</a></li>
+      <li> <a href="/diary/2019.html">2019年</a></li>
+      <li> <a href="/diary/2018.html">2018年</a></li>
+      <li> <a href="/diary/2017.html">2017年</a></li>
+      <li> <a href="/diary/2016.html">2016年</a></li>
+      <li> <a href="/diary/2015.html">2015年</a></li>
+      <li> <a href="/diary/2014.html">2014年</a></li>
+      <li> <a href="/diary/2013.html">2013年</a></li>
+      <li> <a href="/diary/2012.html">2012年</a></li>
+      <li> <a href="/diary/2011.html">2011年</a></li>
+      <li> <a href="/diary/2010.html">2010年</a></li>
+      <li> <a href="/diary/2009.html">2009年</a></li>
+      <li> <a href="/diary/2008.html">2008年</a></li>
+      <li> <a href="/diary/2007.html">2007年</a></li>
+      <li> <a href="/diary/2006.html">2006年</a></li>
+      <li> <a href="/diary/2005.html">2005年</a></li>
+      <li> <a href="/diary/2004.html">2004年</a></li>
+      <li> <a href="/diary/2003.html">2003年</a></li>
+      <li> <a href="/diary/2002.html">2002年</a></li>
+      <li> <a href="/diary/2001.html">2001年</a></li>
+      <li> <a href="/diary/2000.html">2000年</a></li>
+      <li> <a href="/diary/1999.html">1999年</a></li>
+      <li> <a href="/diary/1998.html">1998年</a></li>
+      <li> <a href="/diary/1997.html">1997年</a></li>
+      <li> <a href="/diary/1996.html">1996年</a></li>
+    <li> <a href="/diary/1995.html">1995年以前</a></li>
+    <li> <a href="/tag/tag_list/">Tags</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+    <script src="/javascripts/diary.js"></script>
+      <script src="/pagefind/pagefind-ui.js"></script>
+    <script src="/javascripts/search.js"></script>
+    <script src="/javascripts/photoswipe.umd.min.js"></script>
+    <script src="/javascripts/photoswipe-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
+  </body>
+</html>

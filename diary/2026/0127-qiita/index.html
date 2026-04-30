@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <title>2026/01/27: Rustでコンピューターグラフィックスの基礎を学ぶ その6</title>
+    <link rel="alternate" type="application/rss+xml" title="rss" href="https://www.don.to/diary/index.rdf">
+      <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <link href="/stylesheets/code.css" rel="stylesheet" />
+    <link href="/stylesheets/photoswipe.css" rel="stylesheet" />
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/ipod-icon.png">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=2.0000">
+    <meta property="og:site_name" content="すみかわ日記">
+    <meta property="og:title" content="2026/01/27: Rustでコンピューターグラフィックスの基礎を学ぶ その6">
+  </head>
+
+  <body data-source-path="/diary/2026/0127-qiita.html.md.erb">
+    <div class="container">
+      <div class="centerblock">
+        <div class="mainblock">
+          <div id="search"></div>
+          <main data-pagefind-body>
+              <h2 data-pagefind-meta="title" data-pagefind-sort="date:2026-01-27">2026/01/27: Rustでコンピューターグラフィックスの基礎を学ぶ その6</h2>
+              <div class="note">
+本ドキュメントは<a href="https://qiita.com/sumikawa@github/items/7aa8708a031dcd8d1a80">Qiita記事</a>のバックアップです。
+</div>
+
+<p>フルコードは<a href="https://github.com/sumikawa/myraytracing">github</a>にあります。</p>
+
+<p>週末レイトレーシングの<a href="https://inzkyk.xyz/ray_tracing_in_one_weekend/week_1/1_9_metal_material/">ここ</a>をやります。</p>
+
+<h2>リファクタリング</h2>
+
+<p>下記の部分が冗長ではないかとコメントをもらう。
+確かに<code>hoge.x()</code> などせずに<code>hoge.x</code> で構造体の中身にアクセスできる。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">impl</span> <span class="n">Vec3</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">x</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">f64</span> <span class="p">{</span>
+        <span class="k">self</span><span class="py">.x</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Rayモジュールにも同様の問題がある。
+<a href="https://github.com/sumikawa/myraytracing/commit/74de2cdf52a6213da89e2f27973aa148a5bbb619">74de2cd</a>と<a href="https://github.com/sumikawa/myraytracing/commit/c776e2a7e3c65be8b6023bb2b73481a3bb1d3984">c776e2a</a>で修正した。</p>
+
+<p><code>PI</code> , <code>INFINITY</code> , <code>clamp</code> については、<code>f64</code> のものをそのまま使えばよいとこれもコメントをもらった。<a href="https://github.com/sumikawa/myraytracing/commit/f6adf8e2fb869172fecf79063798b75496ff8762">f6adf8e</a>で修正。</p>
+
+<h2>f64の定数について</h2>
+
+<p><code>PI</code> と<code>INFINITY</code> の扱いに差があって気持ち悪い。<a href="https://doc.rust-jp.rs/the-rust-programming-language-ja/1.9/std/f64/index.html">ドキュメント</a>によると、どちらも定数だけど、数学的な定数は<code>f64::consts</code> の下にいくと。なんでやねん。</p>
+
+<p>ちなみにRubyでは<a href="https://docs.ruby-lang.org/ja/latest/class/Math.html">数学関数</a>はモジュールとして独立している。これなら分かる。</p>
+
+<h2>Gemini.mdとMakefile</h2>
+
+<p>今更ながら、<code>Gemini.md</code> と<code>Makefile</code> を書く。<code>Makefile</code> を書く理由は<code>cargo</code> コマンドを覚えられないから。</p>
+<div class="highlight"><pre class="highlight markdown"><code><span class="gu">## Project Overview</span>
+
+このプロジェクトは、レイトレーシングの基礎をRustプログラミングを通じて理解するためのものです。
+下記のチュートリアルを通して学んでいます。
+
+https://raytracing.github.io/books/RayTracingInOneWeekend.html
+https://raytracing.github.io/books/RayTracingTheNextWeek.html
+https://raytracing.github.io/books/RayTracingTheRestOfYourLife.html
+
+チュートリアルはC++で書かれていますが、本プロジェクトはRustで記述します
+
+<span class="gu">## Tech Stack</span>
+<span class="p">
+-</span> <span class="gs">**Languages:**</span> Rust
+<span class="p">-</span> <span class="gs">**Libraries:**</span> 基礎を学ぶのが目的なので、ライブラリは極力使いません
+
+<span class="gu">## Key Commands</span>
+<span class="p">-</span> Running the app: <span class="sb">`make`</span>
+<span class="p">-</span> Building: <span class="sb">`cargo check check`</span>
+<span class="p">-</span> Running tests: <span class="sb">`make test`</span>
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>all::
+    cargo run &gt; output.ppm
+    magick convert output.ppm output.png
+    open -W output.ppm
+
+test::
+    cargo check
+    cargo fmt
+    cargo test
+
+lint::
+    cargo clippy
+</code></pre></div>
+<h2>マテリアルを表すモジュール</h2>
+
+<p>チュートリアルに戻る。表面の色と質感を扱うマテリアルモジュールの作成。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">use</span> <span class="k">crate</span><span class="p">::</span><span class="nn">hittable</span><span class="p">::</span><span class="n">HitRecord</span><span class="p">;</span>
+<span class="k">use</span> <span class="k">crate</span><span class="p">::</span><span class="nn">ray</span><span class="p">::</span><span class="n">Ray</span><span class="p">;</span>
+<span class="k">use</span> <span class="k">crate</span><span class="p">::</span><span class="nn">vec3</span><span class="p">::</span><span class="n">Color</span><span class="p">;</span>
+
+<span class="k">pub</span> <span class="k">trait</span> <span class="n">Material</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">scatter</span><span class="p">(</span>
+        <span class="o">&amp;</span><span class="k">self</span><span class="p">,</span>
+        <span class="n">r_in</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">Ray</span><span class="p">,</span>
+        <span class="n">rec</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">HitRecord</span><span class="p">,</span>
+        <span class="n">attenuation</span><span class="p">:</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="n">Color</span><span class="p">,</span>
+        <span class="n">scattered</span><span class="p">:</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="n">Ray</span><span class="p">,</span>
+    <span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>HitRecord構造体側を拡張して、Materialのスマートポインタを作る。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">pub</span> <span class="k">struct</span> <span class="n">HitRecord</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="n">p</span><span class="p">:</span> <span class="n">Point3</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">normal</span><span class="p">:</span> <span class="n">Vec3</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">t</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">mat_ptr</span><span class="p">:</span> <span class="nb">Arc</span><span class="o">&lt;</span><span class="k">dyn</span> <span class="n">Material</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">front_face</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Material側でもHitRecordを参照しているので、循環参照の形になるが、片側がスマートポインタなのでメモリリークは発生しないという理解でいいのかしら。まあ、今のコードだとそもそもメモリを解放するタイミングがないんだけど。</p>
+
+<h2>ランバート反射の抽象化</h2>
+
+<p><code>main.rs</code> にあったランバート反射の計算をMaterialモジュールに移動する。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">impl</span> <span class="n">Material</span> <span class="k">for</span> <span class="n">Lambertian</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">scatter</span><span class="p">(</span>
+        <span class="o">&amp;</span><span class="k">self</span><span class="p">,</span>
+        <span class="n">_r_in</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">Ray</span><span class="p">,</span>
+        <span class="n">rec</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">HitRecord</span><span class="p">,</span>
+        <span class="n">attenuation</span><span class="p">:</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="n">Color</span><span class="p">,</span>
+        <span class="n">scattered</span><span class="p">:</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="n">Ray</span><span class="p">,</span>
+    <span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">scatter_direction</span> <span class="o">=</span> <span class="n">rec</span><span class="py">.normal</span> <span class="o">+</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">random_unit_vector</span><span class="p">();</span>
+        <span class="o">*</span><span class="n">scattered</span> <span class="o">=</span> <span class="nn">Ray</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">rec</span><span class="py">.p</span><span class="p">,</span> <span class="n">scatter_direction</span><span class="p">);</span>
+        <span class="o">*</span><span class="n">attenuation</span> <span class="o">=</span> <span class="k">self</span><span class="py">.albedo</span><span class="p">;</span>
+        <span class="k">true</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>以上を踏まえて<code>main.rs</code> を書き直す(関係ない部分は省略しています)。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">fn</span> <span class="nf">ray_color</span><span class="p">(</span><span class="n">r</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">Ray</span><span class="p">,</span> <span class="n">world</span><span class="p">:</span> <span class="o">&amp;</span><span class="k">dyn</span> <span class="n">Hittable</span><span class="p">,</span> <span class="n">depth</span><span class="p">:</span> <span class="nb">u32</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Color</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="n">depth</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="k">let</span> <span class="nf">Some</span><span class="p">(</span><span class="n">rec</span><span class="p">)</span> <span class="o">=</span> <span class="n">world</span><span class="nf">.hit</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="nn">f64</span><span class="p">::</span><span class="n">INFINITY</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="k">mut</span> <span class="n">scattered</span> <span class="o">=</span> <span class="nn">Ray</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Point3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">));</span>
+        <span class="k">let</span> <span class="k">mut</span> <span class="n">attenuation</span> <span class="o">=</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+        <span class="k">if</span> <span class="n">rec</span>
+            <span class="py">.mat_ptr</span>
+            <span class="nf">.scatter</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rec</span><span class="p">,</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="n">attenuation</span><span class="p">,</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="n">scattered</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">attenuation</span> <span class="o">*</span> <span class="nf">ray_color</span><span class="p">(</span><span class="o">&amp;</span><span class="n">scattered</span><span class="p">,</span> <span class="n">world</span><span class="p">,</span> <span class="n">depth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">unit_direction</span> <span class="o">=</span> <span class="n">r</span><span class="py">.direction</span><span class="nf">.unit_vector</span><span class="p">();</span>
+        <span class="k">let</span> <span class="n">t</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">unit_direction</span><span class="py">.y</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">);</span>
+        <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">material_ground</span> <span class="o">=</span> <span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Lambertian</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)));</span>
+    <span class="k">let</span> <span class="n">material_center</span> <span class="o">=</span> <span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Lambertian</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)));</span>
+
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">world</span> <span class="o">=</span> <span class="nn">HittableList</span><span class="p">::</span><span class="nf">new</span><span class="p">();</span>
+    <span class="n">world</span><span class="nf">.add</span><span class="p">(</span><span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Sphere</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span>
+        <span class="nn">Point3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">100.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
+        <span class="mf">100.0</span><span class="p">,</span>
+        <span class="n">material_ground</span><span class="p">,</span>
+    <span class="p">)));</span>
+    <span class="n">world</span><span class="nf">.add</span><span class="p">(</span><span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Sphere</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span>
+        <span class="nn">Point3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
+        <span class="mf">0.5</span><span class="p">,</span>
+        <span class="n">material_center</span><span class="p">,</span>
+    <span class="p">)));</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Lamberian構造体は反射率(albedo)をフィールドに持つ。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">pub</span> <span class="k">struct</span> <span class="n">Lambertian</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="n">albedo</span><span class="p">:</span> <span class="n">Color</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">impl</span> <span class="n">Lambertian</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">new</span><span class="p">(</span><span class="n">albedo</span><span class="p">:</span> <span class="n">Color</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="k">Self</span> <span class="p">{</span>
+        <span class="k">Self</span> <span class="p">{</span> <span class="n">albedo</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>albedoはColor構造体を使っているので、RGBごとに減衰率を指定している。これまではどの色でも50%減衰固定。</p>
+
+<p><code>main.rs</code> の<code>ray_color()</code> を修正して、albedoを使う。</p>
+<div class="highlight"><pre class="highlight diff"><code><span class="gd">-        return 0.5 * ray_color(&amp;Ray::new(rec.p, target - rec.p), world, depth - 1);
+</span><span class="gi">+        return attenuation * ray_color(&amp;scattered, world, depth - 1);
+</span></code></pre></div>
+<p>これで、物体に任意の色をつけることができるようになった。</p>
+
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/53650f7b-5e67-4b9b-9705-9e80ee3308ba.png" alt="output.png" /></p>
+
+<p>チュートリアルではいきなり金属球も描画しているが、ここでは分けて進めた。
+金属マテリアルは<a href="https://qiita.com/sumikawa@github/items/516ccc52dfc07d8a0237">その7</a>でやる。続く。</p>
+
+
+
+              <div class="tags">
+                Tags:
+                  <a href="/tag/rust/">rust<span class="tag-count">12</span></a>
+                  <a href="/tag/cg/">cg<span class="tag-count">12</span></a>
+                  <a href="/tag/raytracing/">raytracing<span class="tag-count">9</span></a>
+                  <a href="/tag/qiita/">qiita<span class="tag-count">22</span></a>
+              </div>
+          </main>
+
+          <nav class="prev_next" aria-label="Diary navigation"><a class="prev_next-link prev" href="/diary/2026/0126-shoulder/"><span class="prev_next-eyebrow">Previous</span><span class="prev_next-label">&laquo; prev</span></a><span class="prev_next-divider" aria-hidden="true"></span><a class="prev_next-link next" href="/diary/2026/0128-qiita/"><span class="prev_next-eyebrow">Next</span><span class="prev_next-label">next &raquo;</span></a></nav>
+
+          <hr>
+          <div id="name">Daydreamers On the Net</div>
+        </div>
+      </div>
+      <div class="leftblock">
+	  <div class="titleblock">
+	    <h1><a href="/">すみかわ日記</a></h1>
+	  </div>
+        <div class="eachindexblock nav">
+  <ul id="gray">
+      <li> <a href="/diary/2026.html">2026年</a></li>
+      <li> <a href="/diary/2025.html">2025年</a></li>
+      <li> <a href="/diary/2024.html">2024年</a></li>
+      <li> <a href="/diary/2023.html">2023年</a></li>
+      <li> <a href="/diary/2022.html">2022年</a></li>
+      <li> <a href="/diary/2021.html">2021年</a></li>
+      <li> <a href="/diary/2020.html">2020年</a></li>
+      <li> <a href="/diary/2019.html">2019年</a></li>
+      <li> <a href="/diary/2018.html">2018年</a></li>
+      <li> <a href="/diary/2017.html">2017年</a></li>
+      <li> <a href="/diary/2016.html">2016年</a></li>
+      <li> <a href="/diary/2015.html">2015年</a></li>
+      <li> <a href="/diary/2014.html">2014年</a></li>
+      <li> <a href="/diary/2013.html">2013年</a></li>
+      <li> <a href="/diary/2012.html">2012年</a></li>
+      <li> <a href="/diary/2011.html">2011年</a></li>
+      <li> <a href="/diary/2010.html">2010年</a></li>
+      <li> <a href="/diary/2009.html">2009年</a></li>
+      <li> <a href="/diary/2008.html">2008年</a></li>
+      <li> <a href="/diary/2007.html">2007年</a></li>
+      <li> <a href="/diary/2006.html">2006年</a></li>
+      <li> <a href="/diary/2005.html">2005年</a></li>
+      <li> <a href="/diary/2004.html">2004年</a></li>
+      <li> <a href="/diary/2003.html">2003年</a></li>
+      <li> <a href="/diary/2002.html">2002年</a></li>
+      <li> <a href="/diary/2001.html">2001年</a></li>
+      <li> <a href="/diary/2000.html">2000年</a></li>
+      <li> <a href="/diary/1999.html">1999年</a></li>
+      <li> <a href="/diary/1998.html">1998年</a></li>
+      <li> <a href="/diary/1997.html">1997年</a></li>
+      <li> <a href="/diary/1996.html">1996年</a></li>
+    <li> <a href="/diary/1995.html">1995年以前</a></li>
+    <li> <a href="/tag/tag_list/">Tags</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+    <script src="/javascripts/diary.js"></script>
+      <script src="/pagefind/pagefind-ui.js"></script>
+    <script src="/javascripts/search.js"></script>
+    <script src="/javascripts/photoswipe.umd.min.js"></script>
+    <script src="/javascripts/photoswipe-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
+  </body>
+</html>

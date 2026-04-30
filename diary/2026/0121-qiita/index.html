@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <title>2026/01/21: Rustでコンピューターグラフィックスの基礎を学ぶ その2</title>
+    <link rel="alternate" type="application/rss+xml" title="rss" href="https://www.don.to/diary/index.rdf">
+      <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <link href="/stylesheets/code.css" rel="stylesheet" />
+    <link href="/stylesheets/photoswipe.css" rel="stylesheet" />
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/ipod-icon.png">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=2.0000">
+    <meta property="og:site_name" content="すみかわ日記">
+    <meta property="og:title" content="2026/01/21: Rustでコンピューターグラフィックスの基礎を学ぶ その2">
+  </head>
+
+  <body data-source-path="/diary/2026/0121-qiita.html.md.erb">
+    <div class="container">
+      <div class="centerblock">
+        <div class="mainblock">
+          <div id="search"></div>
+          <main data-pagefind-body>
+              <h2 data-pagefind-meta="title" data-pagefind-sort="date:2026-01-21">2026/01/21: Rustでコンピューターグラフィックスの基礎を学ぶ その2</h2>
+              <div class="note">
+本ドキュメントは<a href="https://qiita.com/sumikawa@github/items/3f5762ce0469740e5502">Qiita記事</a>のバックアップです。
+</div>
+
+<p>フルコードは<a href="https://github.com/sumikawa/myraytracing">github</a>にあります。</p>
+
+<p>今回は<a href="https://inzkyk.xyz/ray_tracing_in_one_weekend/week_1/1_4_ray_camera_background/">ここ</a>から</p>
+
+<h2>前回使ってなかった関数の動作確認</h2>
+
+<p>動作確認も兼ねて単位ベクトルを計算させてみる。はじめて自分でコードを書くw</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">use</span> <span class="nn">myraytracing</span><span class="p">::</span><span class="n">Vec3</span><span class="p">;</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">a</span> <span class="o">=</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">unit_direction</span> <span class="o">=</span> <span class="n">a</span><span class="nf">.unit_vector</span><span class="p">();</span>
+
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n">unit_direction</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight console"><code><span class="go">% cargo run
+0.2672612419124244 0.5345224838248488 0.8017837257372731
+</span></code></pre></div>
+<p>おお、これだけでもちょっと感動した。</p>
+
+<p>main.rsを上書きして試して書き直していたが、別<code>.rs</code> ファイルから実行できるように<code>Cargo.toml</code> に下記を追加。</p>
+<div class="highlight"><pre class="highlight toml"><code><span class="nn">[[bin]]</span>
+<span class="py">name</span> <span class="p">=</span> <span class="s">"vec3_test"</span>
+<span class="py">path</span> <span class="p">=</span> <span class="s">"src/vec3_test.rs"</span>
+</code></pre></div>
+<p>成功。</p>
+<div class="highlight"><pre class="highlight console"><code><span class="go">% cargo run --bin vec3_test
+0.2672612419124244 0.5345224838248488 0.8017837257372731
+</span></code></pre></div>
+<h2>演算子を試す</h2>
+
+<p>その1で出てきたAddやAddAssignの使い方が分からなかったので、動かないコードを書いたあと、Gemini CLIに修正してもらう。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">use</span> <span class="nn">myraytracing</span><span class="p">::</span><span class="n">Vec3</span><span class="p">;</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">a</span> <span class="o">=</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">b</span> <span class="o">=</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">);</span>
+
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"-a = {}"</span><span class="p">,</span> <span class="o">-</span><span class="n">a</span><span class="p">);</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"a + b = {}"</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"a * b = {}"</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>おお、<code>+</code> 演算子で記述できるんだ。</p>
+<div class="highlight"><pre class="highlight console"><code><span class="go">% cargo run --bin operators_test
+-a = -0.1 -0.2 -0.3
+a + b = 0.5 0.7 0.8999999999999999
+a * b = 0.04000000000000001 0.1 0.18
+</span></code></pre></div>
+<h2>テストを書く</h2>
+
+<p>テストを別プログラムで記述するのはRust流儀ではないので、ソースコードに埋め込む。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="nd">#[cfg(test)]</span>
+<span class="k">mod</span> <span class="n">tests</span> <span class="p">{</span>
+    <span class="k">use</span> <span class="k">super</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
+
+    <span class="nd">#[test]</span>
+    <span class="k">fn</span> <span class="nf">test_add</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">v1</span> <span class="o">=</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">);</span>
+        <span class="k">let</span> <span class="n">v2</span> <span class="o">=</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">);</span>
+        <span class="k">let</span> <span class="n">result</span> <span class="o">=</span> <span class="n">v1</span> <span class="o">+</span> <span class="n">v2</span><span class="p">;</span>
+        <span class="nd">assert_eq!</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="nd">#[test]</span>
+    <span class="k">fn</span> <span class="nf">test_unit_vector</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">a</span> <span class="o">=</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">);</span>
+        <span class="k">let</span> <span class="n">unit_direction</span> <span class="o">=</span> <span class="n">a</span><span class="nf">.unit_vector</span><span class="p">();</span>
+        <span class="c1">// A simple check to see if the length is close to 1.0</span>
+        <span class="nd">assert!</span><span class="p">((</span><span class="n">unit_direction</span><span class="nf">.length</span><span class="p">()</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span><span class="nf">.abs</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.000001</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><code>cargo test</code> を実行してみる。動いた。</p>
+<div class="highlight"><pre class="highlight console"><code><span class="go">% cargo test
+running 2 tests
+test tests::test_add ... ok
+test tests::test_unit_vector ... ok
+
+</span><span class="gp">test result: ok. 2 passed;</span><span class="w"> </span>0 failed<span class="p">;</span> 0 ignored<span class="p">;</span> 0 measured<span class="p">;</span> 0 filtered out<span class="p">;</span> finished <span class="k">in </span>0.00s
+</code></pre></div>
+<h2>Rayモジュールの作成</h2>
+
+<p>並行してRustを勉強してるので、横道に逸れたが、次はレイのモジュールを書く。
+例によってGemini CLIさんにお願いした。</p>
+
+<p>これは<a href="https://inzkyk.xyz/ray_tracing_in_one_weekend/week_1/#%E3%83%AC%E3%82%A4%E3%82%92%E8%A1%A8%E3%81%99%E3%82%AF%E3%83%A9%E3%82%B9">C++のコード</a>よりも読みやすいと思う。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">pub</span> <span class="k">struct</span> <span class="n">Ray</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="n">origin</span><span class="p">:</span> <span class="n">Point3</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">direction</span><span class="p">:</span> <span class="n">Vec3</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">impl</span> <span class="n">Ray</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">new</span><span class="p">(</span><span class="n">origin</span><span class="p">:</span> <span class="n">Point3</span><span class="p">,</span> <span class="n">direction</span><span class="p">:</span> <span class="n">Vec3</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="k">Self</span> <span class="p">{</span>
+        <span class="k">Self</span> <span class="p">{</span> <span class="n">origin</span><span class="p">,</span> <span class="n">direction</span> <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">origin</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Point3</span> <span class="p">{</span>
+        <span class="k">self</span><span class="py">.origin</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">direction</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Vec3</span> <span class="p">{</span>
+        <span class="k">self</span><span class="py">.direction</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">at</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="nb">f64</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Point3</span> <span class="p">{</span>
+        <span class="k">self</span><span class="py">.origin</span> <span class="o">+</span> <span class="k">self</span><span class="py">.direction</span> <span class="o">*</span> <span class="n">t</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>これで青から白へのグラデーションを描く準備ができたので、メイン関数を書いた。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">use</span> <span class="nn">myraytracing</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
+
+<span class="k">fn</span> <span class="nf">ray_color</span><span class="p">(</span><span class="n">r</span><span class="p">:</span> <span class="n">Ray</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Vec3</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">unit_direction</span><span class="p">:</span> <span class="n">Vec3</span> <span class="o">=</span> <span class="n">r</span><span class="nf">.direction</span><span class="p">()</span><span class="nf">.unit_vector</span><span class="p">();</span>
+    <span class="k">let</span> <span class="n">t</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">unit_direction</span><span class="py">.y</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="n">ASPECT_RATIO</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="mf">16.0</span> <span class="o">/</span> <span class="mf">9.0</span><span class="p">;</span>
+    <span class="k">const</span> <span class="n">IMAGE_WIDTH</span><span class="p">:</span> <span class="nb">i32</span> <span class="o">=</span> <span class="mi">384</span><span class="p">;</span>
+    <span class="k">const</span> <span class="n">IMAGE_HEIGHT</span><span class="p">:</span> <span class="nb">i32</span> <span class="o">=</span> <span class="p">(</span><span class="n">IMAGE_WIDTH</span> <span class="k">as</span> <span class="nb">f64</span> <span class="o">/</span> <span class="n">ASPECT_RATIO</span><span class="p">)</span> <span class="k">as</span> <span class="nb">i32</span><span class="p">;</span>
+
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"P3</span><span class="se">\n</span><span class="s">{} {}</span><span class="se">\n</span><span class="s">255"</span><span class="p">,</span> <span class="n">IMAGE_WIDTH</span><span class="p">,</span> <span class="n">IMAGE_HEIGHT</span><span class="p">);</span>
+
+    <span class="k">let</span> <span class="n">viewport_height</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">viewport_width</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="n">ASPECT_RATIO</span> <span class="o">*</span> <span class="n">viewport_height</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">focal_length</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+
+    <span class="k">let</span> <span class="n">origin</span><span class="p">:</span> <span class="n">Point3</span> <span class="o">=</span> <span class="nn">Point3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">horizontal</span><span class="p">:</span> <span class="n">Vec3</span> <span class="o">=</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">viewport_width</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">vertical</span><span class="p">:</span> <span class="n">Vec3</span> <span class="o">=</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">viewport_height</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">lower_left_corner</span><span class="p">:</span> <span class="n">Vec3</span> <span class="o">=</span>
+    <span class="n">origin</span> <span class="o">-</span> <span class="n">horizontal</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">-</span> <span class="n">vertical</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">-</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">focal_length</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="k">in</span> <span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="n">IMAGE_HEIGHT</span><span class="p">)</span><span class="nf">.rev</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nd">eprintln!</span><span class="p">(</span><span class="s">"</span><span class="se">\r</span><span class="s">Scanlines remaining: {} "</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span><span class="o">..</span><span class="n">IMAGE_WIDTH</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">u</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="n">i</span> <span class="k">as</span> <span class="nb">f64</span> <span class="o">/</span> <span class="p">(</span><span class="n">IMAGE_WIDTH</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="nb">f64</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">v</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="n">j</span> <span class="k">as</span> <span class="nb">f64</span> <span class="o">/</span> <span class="p">(</span><span class="n">IMAGE_HEIGHT</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="nb">f64</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">r</span><span class="p">:</span> <span class="n">Ray</span> <span class="o">=</span> <span class="nn">Ray</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">lower_left_corner</span> <span class="o">+</span> <span class="n">u</span> <span class="o">*</span> <span class="n">horizontal</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">vertical</span> <span class="o">-</span> <span class="n">origin</span><span class="p">);</span>
+
+            <span class="k">let</span> <span class="n">pixel_color</span> <span class="o">=</span> <span class="nf">ray_color</span><span class="p">(</span><span class="n">r</span><span class="p">);</span>
+            <span class="nf">write_color</span><span class="p">(</span><span class="n">pixel_color</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nd">eprintln!</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Done."</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>出力された青と白のグラデーション。</p>
+
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/83a3631c-3bd6-4614-a5b8-e931a9efd0cf.png" alt="hoge.png" /></p>
+
+<p>まだレイトレーシングは始まっていない。<a href="https://qiita.com/sumikawa@github/items/3b9acd2ca03948c36fbe">その3</a>へ続く。</p>
+
+
+
+              <div class="tags">
+                Tags:
+                  <a href="/tag/rust/">rust<span class="tag-count">12</span></a>
+                  <a href="/tag/cg/">cg<span class="tag-count">12</span></a>
+                  <a href="/tag/raytracing/">raytracing<span class="tag-count">9</span></a>
+                  <a href="/tag/qiita/">qiita<span class="tag-count">22</span></a>
+              </div>
+          </main>
+
+          <nav class="prev_next" aria-label="Diary navigation"><a class="prev_next-link prev" href="/diary/2026/0120-qiita/"><span class="prev_next-eyebrow">Previous</span><span class="prev_next-label">&laquo; prev</span></a><span class="prev_next-divider" aria-hidden="true"></span><a class="prev_next-link next" href="/diary/2026/0122-qiita/"><span class="prev_next-eyebrow">Next</span><span class="prev_next-label">next &raquo;</span></a></nav>
+
+          <hr>
+          <div id="name">Daydreamers On the Net</div>
+        </div>
+      </div>
+      <div class="leftblock">
+	  <div class="titleblock">
+	    <h1><a href="/">すみかわ日記</a></h1>
+	  </div>
+        <div class="eachindexblock nav">
+  <ul id="gray">
+      <li> <a href="/diary/2026.html">2026年</a></li>
+      <li> <a href="/diary/2025.html">2025年</a></li>
+      <li> <a href="/diary/2024.html">2024年</a></li>
+      <li> <a href="/diary/2023.html">2023年</a></li>
+      <li> <a href="/diary/2022.html">2022年</a></li>
+      <li> <a href="/diary/2021.html">2021年</a></li>
+      <li> <a href="/diary/2020.html">2020年</a></li>
+      <li> <a href="/diary/2019.html">2019年</a></li>
+      <li> <a href="/diary/2018.html">2018年</a></li>
+      <li> <a href="/diary/2017.html">2017年</a></li>
+      <li> <a href="/diary/2016.html">2016年</a></li>
+      <li> <a href="/diary/2015.html">2015年</a></li>
+      <li> <a href="/diary/2014.html">2014年</a></li>
+      <li> <a href="/diary/2013.html">2013年</a></li>
+      <li> <a href="/diary/2012.html">2012年</a></li>
+      <li> <a href="/diary/2011.html">2011年</a></li>
+      <li> <a href="/diary/2010.html">2010年</a></li>
+      <li> <a href="/diary/2009.html">2009年</a></li>
+      <li> <a href="/diary/2008.html">2008年</a></li>
+      <li> <a href="/diary/2007.html">2007年</a></li>
+      <li> <a href="/diary/2006.html">2006年</a></li>
+      <li> <a href="/diary/2005.html">2005年</a></li>
+      <li> <a href="/diary/2004.html">2004年</a></li>
+      <li> <a href="/diary/2003.html">2003年</a></li>
+      <li> <a href="/diary/2002.html">2002年</a></li>
+      <li> <a href="/diary/2001.html">2001年</a></li>
+      <li> <a href="/diary/2000.html">2000年</a></li>
+      <li> <a href="/diary/1999.html">1999年</a></li>
+      <li> <a href="/diary/1998.html">1998年</a></li>
+      <li> <a href="/diary/1997.html">1997年</a></li>
+      <li> <a href="/diary/1996.html">1996年</a></li>
+    <li> <a href="/diary/1995.html">1995年以前</a></li>
+    <li> <a href="/tag/tag_list/">Tags</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+    <script src="/javascripts/diary.js"></script>
+      <script src="/pagefind/pagefind-ui.js"></script>
+    <script src="/javascripts/search.js"></script>
+    <script src="/javascripts/photoswipe.umd.min.js"></script>
+    <script src="/javascripts/photoswipe-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
+  </body>
+</html>

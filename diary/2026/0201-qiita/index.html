@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <title>2026/02/01: Rustでコンピューターグラフィックスの基礎を学ぶ その9</title>
+    <link rel="alternate" type="application/rss+xml" title="rss" href="https://www.don.to/diary/index.rdf">
+      <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <link href="/stylesheets/code.css" rel="stylesheet" />
+    <link href="/stylesheets/photoswipe.css" rel="stylesheet" />
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/ipod-icon.png">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=2.0000">
+    <meta property="og:site_name" content="すみかわ日記">
+    <meta property="og:title" content="2026/02/01: Rustでコンピューターグラフィックスの基礎を学ぶ その9">
+  </head>
+
+  <body data-source-path="/diary/2026/0201-qiita.html.md.erb">
+    <div class="container">
+      <div class="centerblock">
+        <div class="mainblock">
+          <div id="search"></div>
+          <main data-pagefind-body>
+              <h2 data-pagefind-meta="title" data-pagefind-sort="date:2026-02-01">2026/02/01: Rustでコンピューターグラフィックスの基礎を学ぶ その9</h2>
+              <div class="note">
+本ドキュメントは<a href="https://qiita.com/sumikawa@github/items/44adc520ee23762f8141">Qiita記事</a>のバックアップです。
+</div>
+
+<p>フルコードは<a href="https://github.com/sumikawa/myraytracing">github</a>にあります。</p>
+
+<h2>clippy対応</h2>
+
+<p>cargo <a href="https://doc.rust-jp.rs/book-ja/appendix-04-useful-development-tools.html#clippy%E3%81%A7%E3%82%82%E3%81%A3%E3%81%A8lint%E3%82%92">clippy</a>に指摘を受けた部分を<a href="https://github.com/sumikawa/myraytracing/commit/57bb591e93a6c824300b16898db728c58982377d">修正</a>。</p>
+
+<h2>default()の実装</h2>
+
+<p>下記によると<code>new()</code> はすべからく、Defaultトレイトを使って初期値を<code>default()</code> で提供すべしとのことなので、実装した。
+<a href="https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default">https://rust-lang.github.io/rust-clippy/master/index.html#new_without_default</a></p>
+<div class="highlight"><pre class="highlight diff"><code><span class="p">impl Default for Vec3 {
+</span>    fn default() -&gt; Self {
+        Self::new(0.0, 0.0, 0.0)
+    }
+<span class="err">}</span>
+
+<span class="gd">-        let mut scattered = Ray::new(Point3::new(0.0, 0.0, 0.0), Vec3::new(0.0, 0.0, 0.0));
+-        let mut attenuation = Color::new(0.0, 0.0, 0.0);
+</span><span class="gi">+        let mut scattered = Ray::new(Point3::default(), Vec3::default());
++        let mut attenuation = Color::default();
+</span></code></pre></div>
+<h2>高速化</h2>
+
+<p>計測したら、最終版の画像を生成するのに192秒かかってた。</p>
+
+<p>コメントで指摘を受けたが、debugシンボル付きで実行してるから遅いとのこと。releaseで実行してみる。</p>
+<div class="highlight"><pre class="highlight console"><code><span class="gp">cargo run --release &gt;</span><span class="w"> </span>output.ppm
+</code></pre></div>
+<p>すると、38秒になった。デバッグシンボルの有無でこんなに性能違うのか！</p>
+
+<p>次に<code>ray_color()</code> が再帰を使っていたが、ループに変更する。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">fn</span> <span class="nf">ray_color</span><span class="p">(</span><span class="n">r</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">Ray</span><span class="p">,</span> <span class="n">world</span><span class="p">:</span> <span class="o">&amp;</span><span class="k">dyn</span> <span class="n">Hittable</span><span class="p">,</span> <span class="n">depth</span><span class="p">:</span> <span class="nb">u32</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Color</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">current_ray</span> <span class="o">=</span> <span class="nn">Ray</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">r</span><span class="py">.origin</span><span class="p">,</span> <span class="n">r</span><span class="py">.direction</span><span class="p">);</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">overall_attenuation</span> <span class="o">=</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="k">in</span> <span class="mi">0</span><span class="o">..</span><span class="n">depth</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="k">let</span> <span class="nf">Some</span><span class="p">(</span><span class="n">rec</span><span class="p">)</span> <span class="o">=</span> <span class="n">world</span><span class="nf">.hit</span><span class="p">(</span><span class="o">&amp;</span><span class="n">current_ray</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="nn">f64</span><span class="p">::</span><span class="n">INFINITY</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">let</span> <span class="k">mut</span> <span class="n">scattered</span> <span class="o">=</span> <span class="nn">Ray</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Point3</span><span class="p">::</span><span class="nf">default</span><span class="p">(),</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">default</span><span class="p">());</span>
+            <span class="k">let</span> <span class="k">mut</span> <span class="n">attenuation</span> <span class="o">=</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">default</span><span class="p">();</span>
+            <span class="k">if</span> <span class="n">rec</span>
+                <span class="py">.mat_ptr</span>
+                <span class="nf">.scatter</span><span class="p">(</span><span class="o">&amp;</span><span class="n">current_ray</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rec</span><span class="p">,</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="n">attenuation</span><span class="p">,</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="n">scattered</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">overall_attenuation</span> <span class="o">=</span> <span class="n">overall_attenuation</span> <span class="o">*</span> <span class="n">attenuation</span><span class="p">;</span>
+                <span class="n">current_ray</span> <span class="o">=</span> <span class="n">scattered</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">default</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">let</span> <span class="n">unit_direction</span> <span class="o">=</span> <span class="n">current_ray</span><span class="py">.direction</span><span class="nf">.unit_vector</span><span class="p">();</span>
+            <span class="k">let</span> <span class="n">t</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">unit_direction</span><span class="py">.y</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">);</span>
+            <span class="k">let</span> <span class="n">background_color</span> <span class="o">=</span>
+                <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+            <span class="k">return</span> <span class="n">overall_attenuation</span> <span class="o">*</span> <span class="n">background_color</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nn">Color</span><span class="p">::</span><span class="nf">default</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>これで27秒になった。やはり再帰は遅い。</p>
+
+<h2>マルチスレッド化</h2>
+
+<p>さらなる高速化を目指してマルチスレッドにしてみる。
+まず、今の標準出力を扱うコードは当然ながらスレッドセーフじゃないので、Imageクレートを導入。</p>
+<div class="highlight"><pre class="highlight rust"><code>    <span class="k">let</span> <span class="k">mut</span> <span class="n">imgbuf</span> <span class="o">=</span> <span class="nn">image</span><span class="p">::</span><span class="nn">ImageBuffer</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">IMAGE_WIDTH</span><span class="p">,</span> <span class="n">IMAGE_HEIGHT</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">pixel</span><span class="p">)</span> <span class="k">in</span> <span class="n">imgbuf</span><span class="nf">.enumerate_pixels_mut</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">remaining_pixels</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="nd">eprint!</span><span class="p">(</span><span class="s">"</span><span class="se">\r</span><span class="s">Pixels remaining: {} "</span><span class="p">,</span> <span class="n">remaining_pixels</span><span class="p">);</span>
+        <span class="nn">std</span><span class="p">::</span><span class="nn">io</span><span class="p">::</span><span class="nf">stderr</span><span class="p">()</span><span class="nf">.flush</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">();</span>
+
+        <span class="k">let</span> <span class="k">mut</span> <span class="n">pixel_color</span> <span class="o">=</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">default</span><span class="p">();</span>
+
+        <span class="k">for</span> <span class="n">_</span> <span class="k">in</span> <span class="mi">0</span><span class="o">..</span><span class="n">samples_per_pixel</span> <span class="p">{</span>
+            <span class="k">let</span> <span class="n">u</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="k">as</span> <span class="nb">f64</span> <span class="o">+</span> <span class="nf">random_double</span><span class="p">())</span> <span class="o">/</span> <span class="p">(</span><span class="n">IMAGE_WIDTH</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="nb">f64</span><span class="p">;</span>
+            <span class="k">let</span> <span class="n">v</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="p">((</span><span class="n">IMAGE_HEIGHT</span> <span class="o">-</span> <span class="n">j</span><span class="p">)</span> <span class="k">as</span> <span class="nb">f64</span> <span class="o">+</span> <span class="nf">random_double</span><span class="p">())</span> <span class="o">/</span> <span class="p">(</span><span class="n">IMAGE_HEIGHT</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="nb">f64</span><span class="p">;</span>
+
+            <span class="k">let</span> <span class="n">r</span> <span class="o">=</span> <span class="n">cam</span><span class="nf">.get_ray</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
+            <span class="n">pixel_color</span> <span class="o">+=</span> <span class="nf">ray_color</span><span class="p">(</span><span class="o">&amp;</span><span class="n">r</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">world</span><span class="p">,</span> <span class="n">max_depth</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">pixel_color</span> <span class="o">/=</span> <span class="n">samples_per_pixel</span> <span class="k">as</span> <span class="nb">f64</span><span class="p">;</span>
+        <span class="o">*</span><span class="n">pixel</span> <span class="o">=</span> <span class="nf">write_color</span><span class="p">(</span><span class="n">pixel_color</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">imgbuf</span><span class="nf">.save</span><span class="p">(</span><span class="s">"output.png"</span><span class="p">)</span><span class="nf">.unwrap</span><span class="p">();</span>
+</code></pre></div>
+<p><code>(IMAGE_HEIGHT - j)</code> つまり上下を逆に演算しているのは、レイトレーシングの空間ではY軸は下から上に進むけど、スクリーンのY軸は上から下に進むから。</p>
+
+<p>ここにrayonを導入して、並列化する。
+標準エラー出力にプログレスを表示する今のコードも動かないので、ProgressBarクレートを使う。</p>
+<div class="highlight"><pre class="highlight rust"><code>    <span class="k">let</span> <span class="k">mut</span> <span class="n">imgbuf</span> <span class="o">=</span> <span class="nn">image</span><span class="p">::</span><span class="nn">ImageBuffer</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">IMAGE_WIDTH</span><span class="p">,</span> <span class="n">IMAGE_HEIGHT</span><span class="p">);</span>
+
+    <span class="k">let</span> <span class="n">pb</span> <span class="o">=</span> <span class="nn">ProgressBar</span><span class="p">::</span><span class="nf">new</span><span class="p">((</span><span class="n">IMAGE_WIDTH</span> <span class="o">*</span> <span class="n">IMAGE_HEIGHT</span><span class="p">)</span> <span class="k">as</span> <span class="nb">u64</span><span class="p">);</span>
+    <span class="n">pb</span><span class="nf">.set_style</span><span class="p">(</span>
+        <span class="nn">ProgressStyle</span><span class="p">::</span><span class="nf">default_bar</span><span class="p">()</span>
+            <span class="nf">.template</span><span class="p">(</span>
+                <span class="s">"{spinner:.green} [{elapsed_precise}] [{bar:40.cyan/blue}] {pos}/{len} ({eta})"</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="nf">.unwrap</span><span class="p">()</span>
+            <span class="nf">.progress_chars</span><span class="p">(</span><span class="s">"#&gt;-"</span><span class="p">),</span>
+    <span class="p">);</span>
+
+    <span class="k">let</span> <span class="n">pixels</span><span class="p">:</span> <span class="nb">Vec</span><span class="o">&lt;</span><span class="p">(</span><span class="nb">u32</span><span class="p">,</span> <span class="nb">u32</span><span class="p">,</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="nn">image</span><span class="p">::</span><span class="n">Rgb</span><span class="o">&lt;</span><span class="nb">u8</span><span class="o">&gt;</span><span class="p">)</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">imgbuf</span><span class="nf">.enumerate_pixels_mut</span><span class="p">()</span><span class="nf">.collect</span><span class="p">();</span>
+
+    <span class="n">pixels</span>
+        <span class="nf">.into_par_iter</span><span class="p">()</span>
+        <span class="nf">.progress_with</span><span class="p">(</span><span class="n">pb</span><span class="p">)</span>
+        <span class="nf">.for_each</span><span class="p">(|(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">pixel</span><span class="p">)|</span> <span class="p">{</span>
+            <span class="k">let</span> <span class="k">mut</span> <span class="n">pixel_color</span> <span class="o">=</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">default</span><span class="p">();</span>
+
+            <span class="k">for</span> <span class="n">_</span> <span class="k">in</span> <span class="mi">0</span><span class="o">..</span><span class="n">samples_per_pixel</span> <span class="p">{</span>
+                <span class="k">let</span> <span class="n">u</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="k">as</span> <span class="nb">f64</span> <span class="o">+</span> <span class="nf">random_double</span><span class="p">())</span> <span class="o">/</span> <span class="p">(</span><span class="n">IMAGE_WIDTH</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="nb">f64</span><span class="p">;</span>
+                <span class="k">let</span> <span class="n">v</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span>
+                    <span class="p">((</span><span class="n">IMAGE_HEIGHT</span> <span class="o">-</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="nb">f64</span> <span class="o">+</span> <span class="nf">random_double</span><span class="p">())</span> <span class="o">/</span> <span class="p">(</span><span class="n">IMAGE_HEIGHT</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="nb">f64</span><span class="p">;</span>
+
+                <span class="k">let</span> <span class="n">r</span> <span class="o">=</span> <span class="n">cam</span><span class="nf">.get_ray</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
+                <span class="n">pixel_color</span> <span class="o">+=</span> <span class="nf">ray_color</span><span class="p">(</span><span class="o">&amp;</span><span class="n">r</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">world</span><span class="p">,</span> <span class="n">max_depth</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">pixel_color</span> <span class="o">/=</span> <span class="n">samples_per_pixel</span> <span class="k">as</span> <span class="nb">f64</span><span class="p">;</span>
+            <span class="o">*</span><span class="n">pixel</span> <span class="o">=</span> <span class="nf">write_color</span><span class="p">(</span><span class="n">pixel_color</span><span class="p">);</span>
+        <span class="p">});</span>
+
+    <span class="n">imgbuf</span><span class="nf">.save</span><span class="p">(</span><span class="s">"output.png"</span><span class="p">)</span><span class="nf">.unwrap</span><span class="p">();</span>
+</code></pre></div>
+<p>これで6秒になった！</p>
+
+<h2>おしまい</h2>
+
+<p><a href="https://inzkyk.xyz/ray_tracing_in_one_weekend/week_2/2_3_bounding_volume_hierarchy/">第二章</a>も始めてはいるんですが、難解な内容でqiitaの記事にしたとしてもコードをひたすらコピペするだけになりそうなので、ここで終了にします。</p>
+
+<p>githubの<a href="https://github.com/sumikawa/myraytracing">リポジトリ</a>はcommitを続けるので、興味がある人は追っかけてみてください。</p>
+
+
+
+              <div class="tags">
+                Tags:
+                  <a href="/tag/rust/">rust<span class="tag-count">12</span></a>
+                  <a href="/tag/cg/">cg<span class="tag-count">12</span></a>
+                  <a href="/tag/raytracing/">raytracing<span class="tag-count">9</span></a>
+                  <a href="/tag/qiita/">qiita<span class="tag-count">22</span></a>
+              </div>
+          </main>
+
+          <nav class="prev_next" aria-label="Diary navigation"><a class="prev_next-link prev" href="/diary/2026/0129-qiita/"><span class="prev_next-eyebrow">Previous</span><span class="prev_next-label">&laquo; prev</span></a><span class="prev_next-divider" aria-hidden="true"></span><a class="prev_next-link next" href="/diary/2026/0204-qiita/"><span class="prev_next-eyebrow">Next</span><span class="prev_next-label">next &raquo;</span></a></nav>
+
+          <hr>
+          <div id="name">Daydreamers On the Net</div>
+        </div>
+      </div>
+      <div class="leftblock">
+	  <div class="titleblock">
+	    <h1><a href="/">すみかわ日記</a></h1>
+	  </div>
+        <div class="eachindexblock nav">
+  <ul id="gray">
+      <li> <a href="/diary/2026.html">2026年</a></li>
+      <li> <a href="/diary/2025.html">2025年</a></li>
+      <li> <a href="/diary/2024.html">2024年</a></li>
+      <li> <a href="/diary/2023.html">2023年</a></li>
+      <li> <a href="/diary/2022.html">2022年</a></li>
+      <li> <a href="/diary/2021.html">2021年</a></li>
+      <li> <a href="/diary/2020.html">2020年</a></li>
+      <li> <a href="/diary/2019.html">2019年</a></li>
+      <li> <a href="/diary/2018.html">2018年</a></li>
+      <li> <a href="/diary/2017.html">2017年</a></li>
+      <li> <a href="/diary/2016.html">2016年</a></li>
+      <li> <a href="/diary/2015.html">2015年</a></li>
+      <li> <a href="/diary/2014.html">2014年</a></li>
+      <li> <a href="/diary/2013.html">2013年</a></li>
+      <li> <a href="/diary/2012.html">2012年</a></li>
+      <li> <a href="/diary/2011.html">2011年</a></li>
+      <li> <a href="/diary/2010.html">2010年</a></li>
+      <li> <a href="/diary/2009.html">2009年</a></li>
+      <li> <a href="/diary/2008.html">2008年</a></li>
+      <li> <a href="/diary/2007.html">2007年</a></li>
+      <li> <a href="/diary/2006.html">2006年</a></li>
+      <li> <a href="/diary/2005.html">2005年</a></li>
+      <li> <a href="/diary/2004.html">2004年</a></li>
+      <li> <a href="/diary/2003.html">2003年</a></li>
+      <li> <a href="/diary/2002.html">2002年</a></li>
+      <li> <a href="/diary/2001.html">2001年</a></li>
+      <li> <a href="/diary/2000.html">2000年</a></li>
+      <li> <a href="/diary/1999.html">1999年</a></li>
+      <li> <a href="/diary/1998.html">1998年</a></li>
+      <li> <a href="/diary/1997.html">1997年</a></li>
+      <li> <a href="/diary/1996.html">1996年</a></li>
+    <li> <a href="/diary/1995.html">1995年以前</a></li>
+    <li> <a href="/tag/tag_list/">Tags</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+    <script src="/javascripts/diary.js"></script>
+      <script src="/pagefind/pagefind-ui.js"></script>
+    <script src="/javascripts/search.js"></script>
+    <script src="/javascripts/photoswipe.umd.min.js"></script>
+    <script src="/javascripts/photoswipe-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
+  </body>
+</html>

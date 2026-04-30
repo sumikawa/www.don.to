@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <title>2026/02/07: Rustでポリゴンの基礎を学ぶ その2</title>
+    <link rel="alternate" type="application/rss+xml" title="rss" href="https://www.don.to/diary/index.rdf">
+      <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <link href="/stylesheets/code.css" rel="stylesheet" />
+    <link href="/stylesheets/photoswipe.css" rel="stylesheet" />
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/ipod-icon.png">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=2.0000">
+    <meta property="og:site_name" content="すみかわ日記">
+    <meta property="og:title" content="2026/02/07: Rustでポリゴンの基礎を学ぶ その2">
+  </head>
+
+  <body data-source-path="/diary/2026/0207-qiita.html.md.erb">
+    <div class="container">
+      <div class="centerblock">
+        <div class="mainblock">
+          <div id="search"></div>
+          <main data-pagefind-body>
+              <h2 data-pagefind-meta="title" data-pagefind-sort="date:2026-02-07">2026/02/07: Rustでポリゴンの基礎を学ぶ その2</h2>
+              <div class="note">
+本ドキュメントは<a href="https://qiita.com/sumikawa@github/items/7b7bd9b0e4a27c6a4122">Qiita記事</a>のバックアップです。
+</div>
+
+<p>フルコードは<a href="https://github.com/sumikawa/mypolygon">github</a>にあります。</p>
+
+<h2>右肩下がりの線を引く</h2>
+
+<p>その1で書いたブレゼンハムのアルゴリズムは、右肩上がりの線しか動かない。右肩下がりの線を引くためには、絶対値と符号を分けてやる必要がある。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">let</span> <span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span><span class="nf">.abs</span><span class="p">();</span>
+<span class="k">let</span> <span class="n">dy</span> <span class="o">=</span> <span class="p">(</span><span class="n">y1</span> <span class="o">-</span> <span class="n">y0</span><span class="p">)</span><span class="nf">.abs</span><span class="p">();</span>
+<span class="k">let</span> <span class="n">sx</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span><span class="nf">.signum</span><span class="p">();</span>
+<span class="k">let</span> <span class="n">sy</span> <span class="o">=</span> <span class="p">(</span><span class="n">y1</span> <span class="o">-</span> <span class="n">y0</span><span class="p">)</span><span class="nf">.signum</span><span class="p">();</span>
+
+<span class="k">let</span> <span class="k">mut</span> <span class="n">d</span><span class="p">:</span> <span class="nb">i32</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">dy</span> <span class="o">-</span> <span class="n">dx</span><span class="p">;</span>
+<span class="k">let</span> <span class="k">mut</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y0</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="p">(</span><span class="n">x0</span><span class="o">..=</span><span class="n">x1</span><span class="p">)</span><span class="nf">.step_by</span><span class="p">(</span><span class="n">sx</span> <span class="k">as</span> <span class="nb">usize</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="p">(</span><span class="n">screen_x</span><span class="p">,</span> <span class="n">screen_y</span><span class="p">)</span> <span class="o">=</span> <span class="n">transform</span><span class="nf">.to_screen</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+    <span class="n">fb</span><span class="nf">.put_pixel</span><span class="p">(</span>
+        <span class="n">screen_x</span> <span class="k">as</span> <span class="nb">u32</span><span class="p">,</span>
+        <span class="n">screen_y</span> <span class="k">as</span> <span class="nb">u32</span><span class="p">,</span>
+        <span class="nn">image</span><span class="p">::</span><span class="nf">Rgb</span><span class="p">([</span><span class="n">color</span><span class="py">.r</span><span class="p">,</span> <span class="n">color</span><span class="py">.g</span><span class="p">,</span> <span class="n">color</span><span class="py">.b</span><span class="p">]),</span>
+    <span class="p">);</span>
+
+    <span class="k">if</span> <span class="n">d</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+        <span class="n">d</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">dy</span> <span class="o">-</span> <span class="n">dx</span><span class="p">);</span>
+        <span class="n">y</span> <span class="o">+=</span> <span class="n">sy</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">d</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">dy</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/19492a19-a078-4d18-8aa5-514b26ee5fec.png" alt="output.png" /></p>
+
+<p>これだとまだ不十分で、</p>
+
+<ul>
+<li>横線は描けるが縦線が描けない。理由は、<code>step_by(0)</code> になってしまうから。</li>
+<li>縦に急な線が引けない。yは1ずつしか変動しないので、2ピクセル以上変動する線は引けない</li>
+</ul>
+
+<p>という課題がある。</p>
+
+<p>このため線の傾きに応じて分岐してやる必要がある。修正後の<code>draw_line()</code> は下記。結果的に、始点が右側に来る直線(<code>x0</code> &gt; <code>x1</code>)にも対応した。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">fn</span> <span class="nf">draw_line</span><span class="p">(</span>
+    <span class="n">fb</span><span class="p">:</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="n">ImageBuffer</span><span class="o">&lt;</span><span class="nn">image</span><span class="p">::</span><span class="n">Rgb</span><span class="o">&lt;</span><span class="nb">u8</span><span class="o">&gt;</span><span class="p">,</span> <span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">u8</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+    <span class="n">transform</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">Transform</span><span class="p">,</span>
+    <span class="n">x0</span><span class="p">:</span> <span class="nb">i32</span><span class="p">,</span>
+    <span class="n">y0</span><span class="p">:</span> <span class="nb">i32</span><span class="p">,</span>
+    <span class="n">x1</span><span class="p">:</span> <span class="nb">i32</span><span class="p">,</span>
+    <span class="n">y1</span><span class="p">:</span> <span class="nb">i32</span><span class="p">,</span>
+    <span class="n">color</span><span class="p">:</span> <span class="n">Color</span><span class="p">,</span>
+<span class="p">)</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span><span class="nf">.abs</span><span class="p">();</span>
+    <span class="k">let</span> <span class="n">dy</span> <span class="o">=</span> <span class="p">(</span><span class="n">y1</span> <span class="o">-</span> <span class="n">y0</span><span class="p">)</span><span class="nf">.abs</span><span class="p">();</span>
+    <span class="k">let</span> <span class="n">sx</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span><span class="nf">.signum</span><span class="p">();</span>
+    <span class="k">let</span> <span class="n">sy</span> <span class="o">=</span> <span class="p">(</span><span class="n">y1</span> <span class="o">-</span> <span class="n">y0</span><span class="p">)</span><span class="nf">.signum</span><span class="p">();</span>
+
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span><span class="p">;</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y0</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="n">dx</span> <span class="o">&gt;=</span> <span class="n">dy</span> <span class="p">{</span>
+        <span class="c1">// x 主軸（横〜斜め）</span>
+        <span class="k">let</span> <span class="k">mut</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">dy</span> <span class="o">-</span> <span class="n">dx</span><span class="p">;</span>
+
+        <span class="k">for</span> <span class="n">_</span> <span class="k">in</span> <span class="mi">0</span><span class="o">..=</span><span class="n">dx</span> <span class="p">{</span>
+            <span class="k">let</span> <span class="p">(</span><span class="n">sx2</span><span class="p">,</span> <span class="n">sy2</span><span class="p">)</span> <span class="o">=</span> <span class="n">transform</span><span class="nf">.to_screen</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+            <span class="n">fb</span><span class="nf">.put_pixel</span><span class="p">(</span><span class="n">sx2</span> <span class="k">as</span> <span class="nb">u32</span><span class="p">,</span> <span class="n">sy2</span> <span class="k">as</span> <span class="nb">u32</span><span class="p">,</span> <span class="nn">image</span><span class="p">::</span><span class="nf">Rgb</span><span class="p">([</span><span class="n">color</span><span class="py">.r</span><span class="p">,</span> <span class="n">color</span><span class="py">.g</span><span class="p">,</span> <span class="n">color</span><span class="py">.b</span><span class="p">]));</span>
+
+            <span class="k">if</span> <span class="n">d</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+                <span class="n">y</span> <span class="o">+=</span> <span class="n">sy</span><span class="p">;</span>
+                <span class="n">d</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">dy</span> <span class="o">-</span> <span class="n">dx</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">d</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">dy</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">x</span> <span class="o">+=</span> <span class="n">sx</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// y 主軸（縦〜急勾配）</span>
+        <span class="k">let</span> <span class="k">mut</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">dx</span> <span class="o">-</span> <span class="n">dy</span><span class="p">;</span>
+
+        <span class="k">for</span> <span class="n">_</span> <span class="k">in</span> <span class="mi">0</span><span class="o">..=</span><span class="n">dy</span> <span class="p">{</span>
+            <span class="k">let</span> <span class="p">(</span><span class="n">sx2</span><span class="p">,</span> <span class="n">sy2</span><span class="p">)</span> <span class="o">=</span> <span class="n">transform</span><span class="nf">.to_screen</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+            <span class="n">fb</span><span class="nf">.put_pixel</span><span class="p">(</span><span class="n">sx2</span> <span class="k">as</span> <span class="nb">u32</span><span class="p">,</span> <span class="n">sy2</span> <span class="k">as</span> <span class="nb">u32</span><span class="p">,</span> <span class="nn">image</span><span class="p">::</span><span class="nf">Rgb</span><span class="p">([</span><span class="n">color</span><span class="py">.r</span><span class="p">,</span> <span class="n">color</span><span class="py">.g</span><span class="p">,</span> <span class="n">color</span><span class="py">.b</span><span class="p">]));</span>
+
+            <span class="k">if</span> <span class="n">d</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+                <span class="n">x</span> <span class="o">+=</span> <span class="n">sx</span><span class="p">;</span>
+                <span class="n">d</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">dx</span> <span class="o">-</span> <span class="n">dy</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">d</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">dx</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">y</span> <span class="o">+=</span> <span class="n">sy</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>これで、すべての角度の線が引ける。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="mi">0</span><span class="o">..</span><span class="n">image_width</span> <span class="p">{</span>
+    <span class="nf">draw_line</span><span class="p">(</span>
+        <span class="o">&amp;</span><span class="k">mut</span> <span class="n">imgbuf</span><span class="p">,</span>
+        <span class="o">&amp;</span><span class="n">transform</span><span class="p">,</span>
+        <span class="mi">0</span><span class="p">,</span>
+        <span class="mi">0</span><span class="p">,</span>
+        <span class="n">x</span> <span class="k">as</span> <span class="nb">i32</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">image_height</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="nb">i32</span><span class="p">,</span>
+        <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">((</span><span class="mi">255</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="n">image_width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="k">as</span> <span class="nb">u8</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="p">(</span><span class="mi">255</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="n">image_width</span><span class="p">)</span> <span class="k">as</span> <span class="nb">u8</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+<span class="k">for</span> <span class="n">y</span> <span class="k">in</span> <span class="mi">0</span><span class="o">..</span><span class="n">image_height</span> <span class="p">{</span>
+    <span class="nf">draw_line</span><span class="p">(</span>
+        <span class="o">&amp;</span><span class="k">mut</span> <span class="n">imgbuf</span><span class="p">,</span>
+        <span class="o">&amp;</span><span class="n">transform</span><span class="p">,</span>
+        <span class="mi">0</span><span class="p">,</span>
+        <span class="mi">0</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">image_width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="nb">i32</span><span class="p">,</span>
+        <span class="n">y</span> <span class="k">as</span> <span class="nb">i32</span><span class="p">,</span>
+        <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(((</span><span class="mi">255</span> <span class="o">*</span> <span class="n">y</span> <span class="o">/</span> <span class="n">image_width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">128</span><span class="p">)</span> <span class="k">as</span> <span class="nb">u8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="p">(</span><span class="mi">255</span> <span class="o">*</span> <span class="n">y</span> <span class="o">/</span> <span class="n">image_width</span><span class="p">)</span> <span class="k">as</span> <span class="nb">u8</span><span class="p">),</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/5d93c019-ad46-4646-b01d-d45ca8cdeec0.png" alt="output.png" /></p>
+
+<p>念のためベンチをとって、最初に書いた<code>f64</code> 版の<code>draw_line()</code> と比較してみたら、28秒対41秒で整数の方が早かった(AArch64)。今どきのアーキテクチャだとむしろ浮動小数点の方が早いんじゃないかと思ってたけど、差がでるもんですね。</p>
+
+<h2>Drawモジュールを作る</h2>
+
+<p>描画系は色々増えそうなので、crateに昇格。ただのリファクタリングなのでコードは省略。この<a href="https://github.com/sumikawa/mypolygon/commit/8e46db412c0e5d98f0a009db8f1156aebae22225">commit</a>です。</p>
+
+<h2>ポリゴンの枠だけ書く</h2>
+
+<p>渡された二次元座標を、直線でつなぐ関数を書く。イテレータで実装してみた。
+分かりづらいけど、渡されたベクタと、それを一つずらしたベクタを、zip()で一つにまとめている。
+これによって、直線の始点と終点をペアにして、処理している。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">pub</span> <span class="k">fn</span> <span class="nf">polygon_outline</span><span class="p">(</span>
+    <span class="n">fb</span><span class="p">:</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="n">ImageBuffer</span><span class="o">&lt;</span><span class="nn">image</span><span class="p">::</span><span class="n">Rgb</span><span class="o">&lt;</span><span class="nb">u8</span><span class="o">&gt;</span><span class="p">,</span> <span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">u8</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+    <span class="n">transform</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">Transform</span><span class="p">,</span>
+    <span class="n">vertices</span><span class="p">:</span> <span class="o">&amp;</span><span class="p">[(</span><span class="nb">i32</span><span class="p">,</span> <span class="nb">i32</span><span class="p">)],</span>
+    <span class="n">color</span><span class="p">:</span> <span class="n">Color</span><span class="p">,</span>
+<span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="n">vertices</span><span class="nf">.len</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">vertices</span>
+        <span class="nf">.iter</span><span class="p">()</span>
+        <span class="nf">.zip</span><span class="p">(</span><span class="n">vertices</span><span class="nf">.iter</span><span class="p">()</span><span class="nf">.cycle</span><span class="p">()</span><span class="nf">.skip</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+        <span class="nf">.for_each</span><span class="p">(|(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)|</span> <span class="p">{</span>
+            <span class="nf">line</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="n">transform</span><span class="p">,</span> <span class="n">a</span><span class="na">.0</span><span class="p">,</span> <span class="n">a</span><span class="na">.1</span><span class="p">,</span> <span class="n">b</span><span class="na">.0</span><span class="p">,</span> <span class="n">b</span><span class="na">.1</span><span class="p">,</span> <span class="n">color</span><span class="p">);</span>
+        <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>最終的にポリゴンはすべからく三角形になるはずだが、ここでは三角形以外のポリゴンも扱う。三角形、四角形、凹形を書く。</p>
+<div class="highlight"><pre class="highlight rust"><code>    <span class="k">let</span> <span class="n">tri</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">70</span><span class="p">),</span> <span class="p">(</span><span class="mi">180</span><span class="p">,</span> <span class="mi">70</span><span class="p">),</span> <span class="p">(</span><span class="mi">130</span><span class="p">,</span> <span class="mi">170</span><span class="p">)];</span>
+    <span class="nf">polygon_outline</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="n">imgbuf</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">transform</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">tri</span><span class="p">,</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">));</span>
+
+    <span class="k">let</span> <span class="n">rect</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="p">(</span><span class="mi">130</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="p">(</span><span class="mi">130</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">80</span><span class="p">)];</span>
+    <span class="nf">polygon_outline</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="n">imgbuf</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">transform</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rect</span><span class="p">,</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">));</span>
+
+    <span class="k">let</span> <span class="n">concave</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">)];</span>
+    <span class="nf">polygon_outline</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="n">imgbuf</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">transform</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">concave</span><span class="p">,</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+</code></pre></div>
+<p>できた。</p>
+
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/a0478278-b808-44b7-b924-177145e3849a.png" alt="output.png" /></p>
+
+<h2>ポリゴンの中を塗り潰す</h2>
+
+<p>塗りつぶしは三角形だけを扱うので、三角形のモジュールを作る。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">struct</span> <span class="n">Vec2</span> <span class="p">{</span>
+    <span class="n">x</span><span class="p">:</span> <span class="nb">i32</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="nb">i32</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">struct</span> <span class="n">Triangle</span> <span class="p">{</span>
+    <span class="n">v0</span><span class="p">:</span> <span class="n">Vec2</span><span class="p">,</span>
+    <span class="n">v1</span><span class="p">:</span> <span class="n">Vec2</span><span class="p">,</span>
+    <span class="n">v2</span><span class="p">:</span> <span class="n">Vec2</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><code>main</code> 側を塗りつぶしをさせるコード。デバッグのため枠線も書く。
+2次元ベクトルの型がバラバラなのは後で修正する。どうせ3次元に拡張しないといけないし。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">settings</span> <span class="o">=</span> <span class="nn">Settings</span><span class="p">::</span><span class="nf">new</span><span class="p">();</span>
+    <span class="k">let</span> <span class="n">aspect_ratio</span> <span class="o">=</span> <span class="n">settings</span><span class="py">.aspect_ratio</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">image_width</span> <span class="o">=</span> <span class="n">settings</span><span class="py">.image_width</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">image_height</span> <span class="o">=</span> <span class="p">(</span><span class="n">image_width</span> <span class="k">as</span> <span class="nb">f64</span> <span class="o">/</span> <span class="n">aspect_ratio</span><span class="p">)</span> <span class="k">as</span> <span class="nb">u32</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">transform</span> <span class="o">=</span> <span class="nn">Transform</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">image_height</span> <span class="k">as</span> <span class="nb">i32</span><span class="p">);</span>
+
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">imgbuf</span> <span class="o">=</span> <span class="nn">image</span><span class="p">::</span><span class="nn">ImageBuffer</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">image_width</span><span class="p">,</span> <span class="n">image_height</span><span class="p">);</span>
+
+    <span class="k">let</span> <span class="n">tri</span> <span class="o">=</span> <span class="n">Triangle</span> <span class="p">{</span>
+        <span class="n">v0</span><span class="p">:</span> <span class="n">Vec2</span> <span class="p">{</span> <span class="n">x</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">30</span> <span class="p">},</span>
+        <span class="n">v1</span><span class="p">:</span> <span class="n">Vec2</span> <span class="p">{</span> <span class="n">x</span><span class="p">:</span> <span class="mi">180</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">120</span> <span class="p">},</span>
+        <span class="n">v2</span><span class="p">:</span> <span class="n">Vec2</span> <span class="p">{</span> <span class="n">x</span><span class="p">:</span> <span class="mi">130</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">210</span> <span class="p">},</span>
+    <span class="p">};</span>
+    <span class="nf">polygon_fill</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="n">imgbuf</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">transform</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">tri</span><span class="p">,</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">));</span>
+
+    <span class="k">let</span> <span class="n">tri2</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="p">(</span><span class="mi">180</span><span class="p">,</span> <span class="mi">120</span><span class="p">),</span> <span class="p">(</span><span class="mi">130</span><span class="p">,</span> <span class="mi">210</span><span class="p">)];</span>
+    <span class="nf">polygon_outline</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="n">imgbuf</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">transform</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">tri2</span><span class="p">,</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">));</span>
+
+    <span class="n">imgbuf</span><span class="nf">.save</span><span class="p">(</span><span class="s">"output.png"</span><span class="p">)</span><span class="nf">.unwrap</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>塗りつぶしはスキャンライン法を使う。これは三角形を上下2つに分割して、線分を計算して横線を引くアルゴリズム。Y軸が <code>v0 &lt;= v1 &lt;= v2</code> とするように頂点はソートする。</p>
+
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/71616678-5f67-4f42-81f9-787fe5a79d7b.png" alt="figure01.drawio.png" /></p>
+
+<p>コードは以下。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">pub</span> <span class="k">fn</span> <span class="nf">polygon_fill</span><span class="p">(</span>
+    <span class="n">fb</span><span class="p">:</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="n">ImageBuffer</span><span class="o">&lt;</span><span class="nn">image</span><span class="p">::</span><span class="n">Rgb</span><span class="o">&lt;</span><span class="nb">u8</span><span class="o">&gt;</span><span class="p">,</span> <span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">u8</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+    <span class="n">transform</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">Transform</span><span class="p">,</span>
+    <span class="n">triangle</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">Triangle</span><span class="p">,</span>
+    <span class="n">color</span><span class="p">:</span> <span class="n">Color</span><span class="p">,</span>
+<span class="p">)</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">verts</span> <span class="o">=</span> <span class="p">[</span><span class="n">triangle</span><span class="py">.v0</span><span class="p">,</span> <span class="n">triangle</span><span class="py">.v1</span><span class="p">,</span> <span class="n">triangle</span><span class="py">.v2</span><span class="p">];</span>
+    <span class="n">verts</span><span class="nf">.sort_by_key</span><span class="p">(|</span><span class="n">v</span><span class="p">|</span> <span class="n">v</span><span class="py">.y</span><span class="p">);</span> <span class="c1">// sort vertex as v0.y &lt;= v1.y &lt;= v2.y</span>
+
+    <span class="c1">// scanline for first half</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="k">in</span> <span class="n">verts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="py">.y</span><span class="o">..</span><span class="n">verts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="py">.y</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">verts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="py">.y</span><span class="p">;</span>
+
+        <span class="k">let</span> <span class="n">x01</span> <span class="o">=</span> <span class="n">verts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="py">.x</span> <span class="o">+</span> <span class="p">(</span><span class="n">verts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="py">.x</span> <span class="o">-</span> <span class="n">verts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="py">.x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dy</span> <span class="o">/</span> <span class="p">(</span><span class="n">verts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="py">.y</span> <span class="o">-</span> <span class="n">verts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="py">.y</span><span class="p">);</span>
+        <span class="k">let</span> <span class="n">x02</span> <span class="o">=</span> <span class="n">verts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="py">.x</span> <span class="o">+</span> <span class="p">(</span><span class="n">verts</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="py">.x</span> <span class="o">-</span> <span class="n">verts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="py">.x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dy</span> <span class="o">/</span> <span class="p">(</span><span class="n">verts</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="py">.y</span> <span class="o">-</span> <span class="n">verts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="py">.y</span><span class="p">);</span>
+
+        <span class="k">let</span> <span class="n">left_x</span>  <span class="o">=</span> <span class="n">x01</span><span class="nf">.min</span><span class="p">(</span><span class="n">x02</span><span class="p">);</span>
+        <span class="k">let</span> <span class="n">right_x</span> <span class="o">=</span> <span class="n">x01</span><span class="nf">.max</span><span class="p">(</span><span class="n">x02</span><span class="p">);</span>
+
+        <span class="nf">line</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="n">transform</span><span class="p">,</span> <span class="n">left_x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">right_x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// scanline for second half</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="k">in</span> <span class="n">verts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="py">.y</span><span class="o">..</span><span class="n">verts</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="py">.y</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">verts</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="py">.y</span><span class="p">;</span>
+
+        <span class="k">let</span> <span class="n">x01</span> <span class="o">=</span> <span class="n">verts</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="py">.x</span> <span class="o">+</span> <span class="p">(</span><span class="n">verts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="py">.x</span> <span class="o">-</span> <span class="n">verts</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="py">.x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dy</span> <span class="o">/</span> <span class="p">(</span><span class="n">verts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="py">.y</span> <span class="o">-</span> <span class="n">verts</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="py">.y</span><span class="p">);</span>
+        <span class="k">let</span> <span class="n">x02</span> <span class="o">=</span> <span class="n">verts</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="py">.x</span> <span class="o">+</span> <span class="p">(</span><span class="n">verts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="py">.x</span> <span class="o">-</span> <span class="n">verts</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="py">.x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dy</span> <span class="o">/</span> <span class="p">(</span><span class="n">verts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="py">.y</span> <span class="o">-</span> <span class="n">verts</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="py">.y</span><span class="p">);</span>
+
+        <span class="k">let</span> <span class="n">left_x</span>  <span class="o">=</span> <span class="n">x01</span><span class="nf">.min</span><span class="p">(</span><span class="n">x02</span><span class="p">);</span>
+        <span class="k">let</span> <span class="n">right_x</span> <span class="o">=</span> <span class="n">x01</span><span class="nf">.max</span><span class="p">(</span><span class="n">x02</span><span class="p">);</span>
+
+        <span class="nf">line</span><span class="p">(</span><span class="n">fb</span><span class="p">,</span> <span class="n">transform</span><span class="p">,</span> <span class="n">left_x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">right_x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>x01とx02は左右が逆でも<code>line()</code> は問題なく線を引けるけど、たぶんソートされてると都合がいいので、<code>left_x &lt;= right_x</code> にした。</p>
+
+<p>描画結果。本当は青一色ですが、分かりやすいように上半分を青、下半分を赤にしています。座標系は上下逆なことに注意。</p>
+
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/db18a388-8fa3-4f0a-af71-e2073b1e3e11.png" alt="output.png" /></p>
+
+<p>ポリゴンを100個生成してみる。</p>
+
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/b53df92b-67d7-4870-8cf9-aff3df887c5b.png" alt="output.png" /></p>
+
+<p>その3に続く。</p>
+
+
+
+              <div class="tags">
+                Tags:
+                  <a href="/tag/rust/">rust<span class="tag-count">12</span></a>
+                  <a href="/tag/cg/">cg<span class="tag-count">12</span></a>
+                  <a href="/tag/polygon/">polygon<span class="tag-count">3</span></a>
+                  <a href="/tag/qiita/">qiita<span class="tag-count">22</span></a>
+              </div>
+          </main>
+
+          <nav class="prev_next" aria-label="Diary navigation"><a class="prev_next-link prev" href="/diary/2026/0206-kamakura/"><span class="prev_next-eyebrow">Previous</span><span class="prev_next-label">&laquo; prev</span></a><span class="prev_next-divider" aria-hidden="true"></span><a class="prev_next-link next" href="/diary/2026/0208-qiita/"><span class="prev_next-eyebrow">Next</span><span class="prev_next-label">next &raquo;</span></a></nav>
+
+          <hr>
+          <div id="name">Daydreamers On the Net</div>
+        </div>
+      </div>
+      <div class="leftblock">
+	  <div class="titleblock">
+	    <h1><a href="/">すみかわ日記</a></h1>
+	  </div>
+        <div class="eachindexblock nav">
+  <ul id="gray">
+      <li> <a href="/diary/2026.html">2026年</a></li>
+      <li> <a href="/diary/2025.html">2025年</a></li>
+      <li> <a href="/diary/2024.html">2024年</a></li>
+      <li> <a href="/diary/2023.html">2023年</a></li>
+      <li> <a href="/diary/2022.html">2022年</a></li>
+      <li> <a href="/diary/2021.html">2021年</a></li>
+      <li> <a href="/diary/2020.html">2020年</a></li>
+      <li> <a href="/diary/2019.html">2019年</a></li>
+      <li> <a href="/diary/2018.html">2018年</a></li>
+      <li> <a href="/diary/2017.html">2017年</a></li>
+      <li> <a href="/diary/2016.html">2016年</a></li>
+      <li> <a href="/diary/2015.html">2015年</a></li>
+      <li> <a href="/diary/2014.html">2014年</a></li>
+      <li> <a href="/diary/2013.html">2013年</a></li>
+      <li> <a href="/diary/2012.html">2012年</a></li>
+      <li> <a href="/diary/2011.html">2011年</a></li>
+      <li> <a href="/diary/2010.html">2010年</a></li>
+      <li> <a href="/diary/2009.html">2009年</a></li>
+      <li> <a href="/diary/2008.html">2008年</a></li>
+      <li> <a href="/diary/2007.html">2007年</a></li>
+      <li> <a href="/diary/2006.html">2006年</a></li>
+      <li> <a href="/diary/2005.html">2005年</a></li>
+      <li> <a href="/diary/2004.html">2004年</a></li>
+      <li> <a href="/diary/2003.html">2003年</a></li>
+      <li> <a href="/diary/2002.html">2002年</a></li>
+      <li> <a href="/diary/2001.html">2001年</a></li>
+      <li> <a href="/diary/2000.html">2000年</a></li>
+      <li> <a href="/diary/1999.html">1999年</a></li>
+      <li> <a href="/diary/1998.html">1998年</a></li>
+      <li> <a href="/diary/1997.html">1997年</a></li>
+      <li> <a href="/diary/1996.html">1996年</a></li>
+    <li> <a href="/diary/1995.html">1995年以前</a></li>
+    <li> <a href="/tag/tag_list/">Tags</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+    <script src="/javascripts/diary.js"></script>
+      <script src="/pagefind/pagefind-ui.js"></script>
+    <script src="/javascripts/search.js"></script>
+    <script src="/javascripts/photoswipe.umd.min.js"></script>
+    <script src="/javascripts/photoswipe-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
+  </body>
+</html>

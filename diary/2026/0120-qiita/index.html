@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <title>2026/01/20: Rustでコンピューターグラフィックスの基礎を学ぶ その1</title>
+    <link rel="alternate" type="application/rss+xml" title="rss" href="https://www.don.to/diary/index.rdf">
+      <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <link href="/stylesheets/code.css" rel="stylesheet" />
+    <link href="/stylesheets/photoswipe.css" rel="stylesheet" />
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/ipod-icon.png">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=2.0000">
+    <meta property="og:site_name" content="すみかわ日記">
+    <meta property="og:title" content="2026/01/20: Rustでコンピューターグラフィックスの基礎を学ぶ その1">
+  </head>
+
+  <body data-source-path="/diary/2026/0120-qiita.html.md.erb">
+    <div class="container">
+      <div class="centerblock">
+        <div class="mainblock">
+          <div id="search"></div>
+          <main data-pagefind-body>
+              <h2 data-pagefind-meta="title" data-pagefind-sort="date:2026-01-20">2026/01/20: Rustでコンピューターグラフィックスの基礎を学ぶ その1</h2>
+              <div class="note">
+本ドキュメントは<a href="https://qiita.com/sumikawa@github/items/9093f26b1df1f747f544">Qiita記事</a>のバックアップです。
+</div>
+
+<h2>はじめに</h2>
+
+<p>学生時代から今まで、CGのアルゴリズムを学ぶ機会がなかったので、Rustの勉強がてらプログラムを書いてみる。
+まずはレイトレーシングを学ぶ。</p>
+
+<p>方針は下記
+- <a href="https://inzkyk.xyz/ray_tracing_in_one_weekend/week_1/">週末レイトレーシング</a>を順番にやっていく
+- C++の代わりにRustで記述する
+- とにかく最後まで完走し、Rustとレイトレーシングの知識を深める。そのためにはAIに頼ることも厭わない(イケてない)
+- AIに騙されるかもしれないので、試行錯誤の記録は残す。今後に役立つはず</p>
+
+<p>githubリポジトリは<a href="https://github.com/sumikawa/myraytracing">ここ</a></p>
+
+<p>なお、Rust初心者なので色々と間違っている可能性があります。学習の過程で間違いに気づけば都度修正しますので、ご容赦ください。</p>
+
+<h2>画像ファイルの作成</h2>
+
+<p>まずは画像ファイルの出力するプログラム。<a href="https://ja.wikipedia.org/wiki/PNM_(%E7%94%BB%E5%83%8F%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88)">PPMフォーマット</a>であれば無圧縮かつテキストで記述できる。</p>
+
+<p>Gemini CLIにC++のコードを渡したらRustに変換してくれた。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="n">IMAGE_WIDTH</span><span class="p">:</span> <span class="nb">i32</span> <span class="o">=</span> <span class="mi">256</span><span class="p">;</span>
+    <span class="k">const</span> <span class="n">IMAGE_HEIGHT</span><span class="p">:</span> <span class="nb">i32</span> <span class="o">=</span> <span class="mi">256</span><span class="p">;</span>
+
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"P3</span><span class="se">\n</span><span class="s">{} {}</span><span class="se">\n</span><span class="s">255"</span><span class="p">,</span> <span class="n">IMAGE_WIDTH</span><span class="p">,</span> <span class="n">IMAGE_HEIGHT</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="k">in</span> <span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="n">IMAGE_HEIGHT</span><span class="p">)</span><span class="nf">.rev</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nd">eprintln!</span><span class="p">(</span><span class="s">"</span><span class="se">\r</span><span class="s">Scanlines remaining: {} "</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span><span class="o">..</span><span class="n">IMAGE_WIDTH</span> <span class="p">{</span>
+            <span class="k">let</span> <span class="n">r</span> <span class="o">=</span> <span class="n">i</span> <span class="k">as</span> <span class="nb">f64</span> <span class="o">/</span> <span class="p">(</span><span class="n">IMAGE_WIDTH</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="nb">f64</span><span class="p">;</span>
+            <span class="k">let</span> <span class="n">g</span> <span class="o">=</span> <span class="n">j</span> <span class="k">as</span> <span class="nb">f64</span> <span class="o">/</span> <span class="p">(</span><span class="n">IMAGE_HEIGHT</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="nb">f64</span><span class="p">;</span>
+            <span class="k">let</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">;</span>
+
+            <span class="k">let</span> <span class="n">ir</span> <span class="o">=</span> <span class="p">(</span><span class="mf">255.999</span> <span class="o">*</span> <span class="n">r</span><span class="p">)</span> <span class="k">as</span> <span class="nb">i32</span><span class="p">;</span>
+            <span class="k">let</span> <span class="n">ig</span> <span class="o">=</span> <span class="p">(</span><span class="mf">255.999</span> <span class="o">*</span> <span class="n">g</span><span class="p">)</span> <span class="k">as</span> <span class="nb">i32</span><span class="p">;</span>
+            <span class="k">let</span> <span class="n">ib</span> <span class="o">=</span> <span class="p">(</span><span class="mf">255.999</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span> <span class="k">as</span> <span class="nb">i32</span><span class="p">;</span>
+
+            <span class="nd">println!</span><span class="p">(</span><span class="s">"{} {} {}"</span><span class="p">,</span> <span class="n">ir</span><span class="p">,</span> <span class="n">ig</span><span class="p">,</span> <span class="n">ib</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nd">eprintln!</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Done."</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>標準出力をoutput.ppmとしてファイルの書き出せば、プレビューで表示できる。</p>
+
+<h3>メモ</h3>
+
+<ul>
+<li>行を<code>rev()</code> してるのを見て、混乱したが、単に緑を左上にしたかったからのようだ。PPMフォーマットが上下逆なのかと思ってしばらく悩んだ。[追記] 緑の位置は本質ではなくて、この後で3次元計算する空間と、スクリーンのY軸の方向が違うから。</li>
+<li><code>256</code> ではなくて、<code>255.999</code> を掛けているのは、数値範囲として<code>0 &lt;= x &lt; 1</code> を扱うため。なるほどね。</li>
+</ul>
+
+<p>画像バイナリを扱わないで学習を進められるのは助かる。
+当初は<a href="https://www.gpui.rs/">gpui</a>を使ってGUIでリアルタイム表示しようかと思ったが、Canvas周りの使い方がわからなくて挫折した。gpui自体の仕様変更が激しいらしく、AIにやらせても駄目だった。今後の課題とする。</p>
+
+<h2>Vec3モジュールの作成</h2>
+
+<p>3次元のベクトル演算をさせたいのは分かるが、まだRustの書き方に慣れておらず。Gemini CLIに丸投げ。
+下記は関数をかなり省略している。フルソースは<a href="https://github.com/sumikawa/myraytracing/commit/60e7bf8c088da7d9948c41f06c9945c701d8fa20">githubを参照</a>のこと。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="nd">#[derive(Debug,</span> <span class="nd">Copy,</span> <span class="nd">Clone,</span> <span class="nd">PartialEq)]</span>
+<span class="k">pub</span> <span class="k">struct</span> <span class="n">Vec3</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="n">x</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">y</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">z</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">pub</span> <span class="k">type</span> <span class="n">Point3</span> <span class="o">=</span> <span class="n">Vec3</span><span class="p">;</span>
+<span class="k">pub</span> <span class="k">type</span> <span class="n">Color</span> <span class="o">=</span> <span class="n">Vec3</span><span class="p">;</span>
+
+<span class="k">impl</span> <span class="n">Vec3</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">new</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="nb">f64</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="k">Self</span> <span class="p">{</span>
+        <span class="k">Self</span> <span class="p">{</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">x</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">f64</span> <span class="p">{</span>
+        <span class="k">self</span><span class="py">.x</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">length</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">f64</span> <span class="p">{</span>
+        <span class="k">self</span><span class="nf">.length_squared</span><span class="p">()</span><span class="nf">.sqrt</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">dot</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="k">Self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">f64</span> <span class="p">{</span>
+        <span class="k">self</span><span class="py">.x</span> <span class="o">*</span> <span class="n">other</span><span class="py">.x</span> <span class="o">+</span> <span class="k">self</span><span class="py">.y</span> <span class="o">*</span> <span class="n">other</span><span class="py">.y</span> <span class="o">+</span> <span class="k">self</span><span class="py">.z</span> <span class="o">*</span> <span class="n">other</span><span class="py">.z</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">cross</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="k">Self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="k">Self</span> <span class="p">{</span>
+        <span class="k">Self</span> <span class="p">{</span>
+            <span class="n">x</span><span class="p">:</span> <span class="k">self</span><span class="py">.y</span> <span class="o">*</span> <span class="n">other</span><span class="py">.z</span> <span class="o">-</span> <span class="k">self</span><span class="py">.z</span> <span class="o">*</span> <span class="n">other</span><span class="py">.y</span><span class="p">,</span>
+            <span class="n">y</span><span class="p">:</span> <span class="k">self</span><span class="py">.z</span> <span class="o">*</span> <span class="n">other</span><span class="py">.x</span> <span class="o">-</span> <span class="k">self</span><span class="py">.x</span> <span class="o">*</span> <span class="n">other</span><span class="py">.z</span><span class="p">,</span>
+            <span class="n">z</span><span class="p">:</span> <span class="k">self</span><span class="py">.x</span> <span class="o">*</span> <span class="n">other</span><span class="py">.y</span> <span class="o">-</span> <span class="k">self</span><span class="py">.y</span> <span class="o">*</span> <span class="n">other</span><span class="py">.x</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">unit_vector</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="k">Self</span> <span class="p">{</span>
+        <span class="o">*</span><span class="k">self</span> <span class="o">/</span> <span class="k">self</span><span class="nf">.length</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">impl</span> <span class="nb">Add</span> <span class="k">for</span> <span class="n">Vec3</span> <span class="p">{</span>
+    <span class="k">type</span> <span class="n">Output</span> <span class="o">=</span> <span class="k">Self</span><span class="p">;</span>
+
+    <span class="k">fn</span> <span class="nf">add</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="k">Self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="k">Self</span><span class="p">::</span><span class="n">Output</span> <span class="p">{</span>
+        <span class="k">Self</span> <span class="p">{</span>
+            <span class="n">x</span><span class="p">:</span> <span class="k">self</span><span class="py">.x</span> <span class="o">+</span> <span class="n">other</span><span class="py">.x</span><span class="p">,</span>
+            <span class="n">y</span><span class="p">:</span> <span class="k">self</span><span class="py">.y</span> <span class="o">+</span> <span class="n">other</span><span class="py">.y</span><span class="p">,</span>
+            <span class="n">z</span><span class="p">:</span> <span class="k">self</span><span class="py">.z</span> <span class="o">+</span> <span class="n">other</span><span class="py">.z</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">impl</span> <span class="n">AddAssign</span> <span class="k">for</span> <span class="n">Vec3</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">add_assign</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="k">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="k">Self</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">*</span><span class="k">self</span> <span class="o">=</span> <span class="k">Self</span> <span class="p">{</span>
+            <span class="n">x</span><span class="p">:</span> <span class="k">self</span><span class="py">.x</span> <span class="o">+</span> <span class="n">other</span><span class="py">.x</span><span class="p">,</span>
+            <span class="n">y</span><span class="p">:</span> <span class="k">self</span><span class="py">.y</span> <span class="o">+</span> <span class="n">other</span><span class="py">.y</span><span class="p">,</span>
+            <span class="n">z</span><span class="p">:</span> <span class="k">self</span><span class="py">.z</span> <span class="o">+</span> <span class="n">other</span><span class="py">.z</span><span class="p">,</span>
+        <span class="p">};</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">impl</span> <span class="nb">Mul</span> <span class="k">for</span> <span class="n">Vec3</span> <span class="p">{</span>
+    <span class="k">type</span> <span class="n">Output</span> <span class="o">=</span> <span class="k">Self</span><span class="p">;</span>
+
+    <span class="k">fn</span> <span class="nf">mul</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="k">Self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="k">Self</span><span class="p">::</span><span class="n">Output</span> <span class="p">{</span>
+        <span class="k">Self</span> <span class="p">{</span>
+            <span class="n">x</span><span class="p">:</span> <span class="k">self</span><span class="py">.x</span> <span class="o">*</span> <span class="n">other</span><span class="py">.x</span><span class="p">,</span>
+            <span class="n">y</span><span class="p">:</span> <span class="k">self</span><span class="py">.y</span> <span class="o">*</span> <span class="n">other</span><span class="py">.y</span><span class="p">,</span>
+            <span class="n">z</span><span class="p">:</span> <span class="k">self</span><span class="py">.z</span> <span class="o">*</span> <span class="n">other</span><span class="py">.z</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">impl</span> <span class="nb">Mul</span><span class="o">&lt;</span><span class="nb">f64</span><span class="o">&gt;</span> <span class="k">for</span> <span class="n">Vec3</span> <span class="p">{</span>
+    <span class="k">type</span> <span class="n">Output</span> <span class="o">=</span> <span class="k">Self</span><span class="p">;</span>
+
+    <span class="k">fn</span> <span class="nf">mul</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="n">rhs</span><span class="p">:</span> <span class="nb">f64</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="k">Self</span><span class="p">::</span><span class="n">Output</span> <span class="p">{</span>
+        <span class="k">Self</span> <span class="p">{</span>
+            <span class="n">x</span><span class="p">:</span> <span class="k">self</span><span class="py">.x</span> <span class="o">*</span> <span class="n">rhs</span><span class="p">,</span>
+            <span class="n">y</span><span class="p">:</span> <span class="k">self</span><span class="py">.y</span> <span class="o">*</span> <span class="n">rhs</span><span class="p">,</span>
+            <span class="n">z</span><span class="p">:</span> <span class="k">self</span><span class="py">.z</span> <span class="o">*</span> <span class="n">rhs</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3>メモ</h3>
+
+<ul>
+<li><del>C++のように<code>+</code> オペレーターをそのまま使わないで、<code>Add</code> を使っているがRustはそういうもの？</del> <a href="https://doc.rust-jp.rs/rust-by-example-ja/trait/ops.html">演算子オーバーロードの記法</a>だった。</li>
+<li><del><code>impl Add</code> と<code>impl AddAssign</code> の2つある。AddAssignが破壊的メソッドという理解でいいのかしら。Rustの世界で破壊的変更を扱うべきなのかどうなのかは今後理解すべき</del> <code>+=</code> の演算子オーバーロードのために<a href="https://doc.rust-lang.org/core/ops/trait.AddAssign.html">必要</a>。</li>
+<li><del><code>impl Mul for Vec3</code> と<code>impl Mul&lt;f64&gt; for Vec3</code> がなぜ2つ用意されているのか分かっていない。</del> <code>Vec3 * X</code> の記法で <code>Vec3</code>と<code>f64</code>の両方をXとして扱えるようにするため。</li>
+</ul>
+
+<h2>main.rsをColor型を使うように修正</h2>
+
+<p>ColorはVec3のエイリアス。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">use</span> <span class="nn">myraytracing</span><span class="p">::</span><span class="n">Color</span><span class="p">;</span>
+
+<span class="k">fn</span> <span class="nf">write_color</span><span class="p">(</span><span class="n">pixel_color</span><span class="p">:</span> <span class="n">Color</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Write the translated [0,255] value of each color component.</span>
+    <span class="nd">println!</span><span class="p">(</span>
+        <span class="s">"{} {} {}"</span><span class="p">,</span>
+        <span class="p">(</span><span class="mf">255.999</span> <span class="o">*</span> <span class="n">pixel_color</span><span class="nf">.x</span><span class="p">())</span> <span class="k">as</span> <span class="nb">i32</span><span class="p">,</span>
+        <span class="p">(</span><span class="mf">255.999</span> <span class="o">*</span> <span class="n">pixel_color</span><span class="nf">.y</span><span class="p">())</span> <span class="k">as</span> <span class="nb">i32</span><span class="p">,</span>
+        <span class="p">(</span><span class="mf">255.999</span> <span class="o">*</span> <span class="n">pixel_color</span><span class="nf">.z</span><span class="p">())</span> <span class="k">as</span> <span class="nb">i32</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="n">IMAGE_WIDTH</span><span class="p">:</span> <span class="nb">i32</span> <span class="o">=</span> <span class="mi">256</span><span class="p">;</span>
+    <span class="k">const</span> <span class="n">IMAGE_HEIGHT</span><span class="p">:</span> <span class="nb">i32</span> <span class="o">=</span> <span class="mi">256</span><span class="p">;</span>
+
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"P3</span><span class="se">\n</span><span class="s">{} {}</span><span class="se">\n</span><span class="s">255"</span><span class="p">,</span> <span class="n">IMAGE_WIDTH</span><span class="p">,</span> <span class="n">IMAGE_HEIGHT</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="k">in</span> <span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="n">IMAGE_HEIGHT</span><span class="p">)</span><span class="nf">.rev</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nd">eprintln!</span><span class="p">(</span><span class="s">"</span><span class="se">\r</span><span class="s">Scanlines remaining: {} "</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span><span class="o">..</span><span class="n">IMAGE_WIDTH</span> <span class="p">{</span>
+            <span class="k">let</span> <span class="n">pixel_color</span> <span class="o">=</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span>
+                <span class="n">i</span> <span class="k">as</span> <span class="nb">f64</span> <span class="o">/</span> <span class="p">(</span><span class="n">IMAGE_WIDTH</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="nb">f64</span><span class="p">,</span>
+                <span class="n">j</span> <span class="k">as</span> <span class="nb">f64</span> <span class="o">/</span> <span class="p">(</span><span class="n">IMAGE_HEIGHT</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="nb">f64</span><span class="p">,</span>
+                <span class="mf">0.25</span><span class="p">,</span>
+            <span class="p">);</span>
+            <span class="nf">write_color</span><span class="p">(</span><span class="n">pixel_color</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nd">eprintln!</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Done."</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3>メモ</h3>
+
+<ul>
+<li>構造体にアクセスするときにR/G/Bではなく、X/Y/Zと書かないといけないのは分かりづらい。Color型のときは、R/G/Bにしたい(宿題)。</li>
+</ul>
+
+<p>まだレイトレーシングは始まっていない。<a href="https://qiita.com/sumikawa@github/items/3f5762ce0469740e5502">その2</a>に続く。</p>
+
+
+
+              <div class="tags">
+                Tags:
+                  <a href="/tag/rust/">rust<span class="tag-count">12</span></a>
+                  <a href="/tag/cg/">cg<span class="tag-count">12</span></a>
+                  <a href="/tag/raytracing/">raytracing<span class="tag-count">9</span></a>
+                  <a href="/tag/qiita/">qiita<span class="tag-count">22</span></a>
+              </div>
+          </main>
+
+          <nav class="prev_next" aria-label="Diary navigation"><a class="prev_next-link prev" href="/diary/2026/0119-kamakura/"><span class="prev_next-eyebrow">Previous</span><span class="prev_next-label">&laquo; prev</span></a><span class="prev_next-divider" aria-hidden="true"></span><a class="prev_next-link next" href="/diary/2026/0121-qiita/"><span class="prev_next-eyebrow">Next</span><span class="prev_next-label">next &raquo;</span></a></nav>
+
+          <hr>
+          <div id="name">Daydreamers On the Net</div>
+        </div>
+      </div>
+      <div class="leftblock">
+	  <div class="titleblock">
+	    <h1><a href="/">すみかわ日記</a></h1>
+	  </div>
+        <div class="eachindexblock nav">
+  <ul id="gray">
+      <li> <a href="/diary/2026.html">2026年</a></li>
+      <li> <a href="/diary/2025.html">2025年</a></li>
+      <li> <a href="/diary/2024.html">2024年</a></li>
+      <li> <a href="/diary/2023.html">2023年</a></li>
+      <li> <a href="/diary/2022.html">2022年</a></li>
+      <li> <a href="/diary/2021.html">2021年</a></li>
+      <li> <a href="/diary/2020.html">2020年</a></li>
+      <li> <a href="/diary/2019.html">2019年</a></li>
+      <li> <a href="/diary/2018.html">2018年</a></li>
+      <li> <a href="/diary/2017.html">2017年</a></li>
+      <li> <a href="/diary/2016.html">2016年</a></li>
+      <li> <a href="/diary/2015.html">2015年</a></li>
+      <li> <a href="/diary/2014.html">2014年</a></li>
+      <li> <a href="/diary/2013.html">2013年</a></li>
+      <li> <a href="/diary/2012.html">2012年</a></li>
+      <li> <a href="/diary/2011.html">2011年</a></li>
+      <li> <a href="/diary/2010.html">2010年</a></li>
+      <li> <a href="/diary/2009.html">2009年</a></li>
+      <li> <a href="/diary/2008.html">2008年</a></li>
+      <li> <a href="/diary/2007.html">2007年</a></li>
+      <li> <a href="/diary/2006.html">2006年</a></li>
+      <li> <a href="/diary/2005.html">2005年</a></li>
+      <li> <a href="/diary/2004.html">2004年</a></li>
+      <li> <a href="/diary/2003.html">2003年</a></li>
+      <li> <a href="/diary/2002.html">2002年</a></li>
+      <li> <a href="/diary/2001.html">2001年</a></li>
+      <li> <a href="/diary/2000.html">2000年</a></li>
+      <li> <a href="/diary/1999.html">1999年</a></li>
+      <li> <a href="/diary/1998.html">1998年</a></li>
+      <li> <a href="/diary/1997.html">1997年</a></li>
+      <li> <a href="/diary/1996.html">1996年</a></li>
+    <li> <a href="/diary/1995.html">1995年以前</a></li>
+    <li> <a href="/tag/tag_list/">Tags</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+    <script src="/javascripts/diary.js"></script>
+      <script src="/pagefind/pagefind-ui.js"></script>
+    <script src="/javascripts/search.js"></script>
+    <script src="/javascripts/photoswipe.umd.min.js"></script>
+    <script src="/javascripts/photoswipe-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
+  </body>
+</html>

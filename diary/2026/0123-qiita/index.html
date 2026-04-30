@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <title>2026/01/23: Rustでコンピューターグラフィックスの基礎を学ぶ その4</title>
+    <link rel="alternate" type="application/rss+xml" title="rss" href="https://www.don.to/diary/index.rdf">
+      <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <link href="/stylesheets/code.css" rel="stylesheet" />
+    <link href="/stylesheets/photoswipe.css" rel="stylesheet" />
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/ipod-icon.png">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=2.0000">
+    <meta property="og:site_name" content="すみかわ日記">
+    <meta property="og:title" content="2026/01/23: Rustでコンピューターグラフィックスの基礎を学ぶ その4">
+  </head>
+
+  <body data-source-path="/diary/2026/0123-qiita.html.md.erb">
+    <div class="container">
+      <div class="centerblock">
+        <div class="mainblock">
+          <div id="search"></div>
+          <main data-pagefind-body>
+              <h2 data-pagefind-meta="title" data-pagefind-sort="date:2026-01-23">2026/01/23: Rustでコンピューターグラフィックスの基礎を学ぶ その4</h2>
+              <div class="note">
+本ドキュメントは<a href="https://qiita.com/sumikawa@github/items/cb1ae0a697cea6296b93">Qiita記事</a>のバックアップです。
+</div>
+
+<p>フルコードは<a href="https://github.com/sumikawa/myraytracing">github</a>にあります。</p>
+
+<p>今回は<a href="https://inzkyk.xyz/ray_tracing_in_one_weekend/week_1/1_6_surface_normal_and_multiple_objects/">ここ</a>の途中から。</p>
+
+<h2>オブジェクトのリスト</h2>
+
+<p>例によってGemini CLIに書いてもらう。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">use</span> <span class="k">crate</span><span class="p">::</span><span class="nn">hittable</span><span class="p">::{</span><span class="n">HitRecord</span><span class="p">,</span> <span class="n">Hittable</span><span class="p">};</span>
+<span class="k">use</span> <span class="k">crate</span><span class="p">::</span><span class="nn">ray</span><span class="p">::</span><span class="n">Ray</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="nn">sync</span><span class="p">::</span><span class="nb">Arc</span><span class="p">;</span>
+
+<span class="k">pub</span> <span class="k">struct</span> <span class="n">HittableList</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="n">objects</span><span class="p">:</span> <span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">Arc</span><span class="o">&lt;</span><span class="k">dyn</span> <span class="n">Hittable</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">impl</span> <span class="n">HittableList</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">new</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="k">Self</span> <span class="p">{</span>
+        <span class="k">Self</span> <span class="p">{</span>
+            <span class="n">objects</span><span class="p">:</span> <span class="nn">Vec</span><span class="p">::</span><span class="nf">new</span><span class="p">(),</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">with_object</span><span class="p">(</span><span class="n">object</span><span class="p">:</span> <span class="nb">Arc</span><span class="o">&lt;</span><span class="k">dyn</span> <span class="n">Hittable</span><span class="o">&gt;</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="k">Self</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="k">mut</span> <span class="n">list</span> <span class="o">=</span> <span class="k">Self</span><span class="p">::</span><span class="nf">new</span><span class="p">();</span>
+        <span class="n">list</span><span class="nf">.add</span><span class="p">(</span><span class="n">object</span><span class="p">);</span>
+        <span class="n">list</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">add</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="k">self</span><span class="p">,</span> <span class="n">object</span><span class="p">:</span> <span class="nb">Arc</span><span class="o">&lt;</span><span class="k">dyn</span> <span class="n">Hittable</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="py">.objects</span><span class="nf">.push</span><span class="p">(</span><span class="n">object</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">clear</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="k">self</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="py">.objects</span><span class="nf">.clear</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">impl</span> <span class="n">Hittable</span> <span class="k">for</span> <span class="n">HittableList</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">hit</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">,</span> <span class="n">r</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">Ray</span><span class="p">,</span> <span class="n">t_min</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span> <span class="n">t_max</span><span class="p">:</span> <span class="nb">f64</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">Option</span><span class="o">&lt;</span><span class="n">HitRecord</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="k">mut</span> <span class="n">temp_rec</span> <span class="o">=</span> <span class="nb">None</span><span class="p">;</span>
+        <span class="k">let</span> <span class="k">mut</span> <span class="n">closest_so_far</span> <span class="o">=</span> <span class="n">t_max</span><span class="p">;</span>
+
+        <span class="k">for</span> <span class="n">object</span> <span class="k">in</span> <span class="o">&amp;</span><span class="k">self</span><span class="py">.objects</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="k">let</span> <span class="nf">Some</span><span class="p">(</span><span class="n">rec</span><span class="p">)</span> <span class="o">=</span> <span class="n">object</span><span class="nf">.hit</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t_min</span><span class="p">,</span> <span class="n">closest_so_far</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">closest_so_far</span> <span class="o">=</span> <span class="n">rec</span><span class="py">.t</span><span class="p">;</span>
+                <span class="n">temp_rec</span> <span class="o">=</span> <span class="nf">Some</span><span class="p">(</span><span class="n">rec</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="n">temp_rec</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>呼び出し側であるmain.rs側の抜粋は下記</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">let</span> <span class="k">mut</span> <span class="n">world</span> <span class="o">=</span> <span class="nn">HittableList</span><span class="p">::</span><span class="nf">new</span><span class="p">();</span>
+<span class="n">world</span><span class="nf">.add</span><span class="p">(</span><span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Sphere</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span>
+    <span class="nn">Point3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span> <span class="mf">0.5</span><span class="p">)));</span>
+<span class="n">world</span><span class="nf">.add</span><span class="p">(</span><span class="nn">Arc</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="nn">Sphere</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span>
+    <span class="nn">Point3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">100.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span> <span class="mf">100.0</span><span class="p">)));</span>
+</code></pre></div>
+<p>これで地面(2つ目の球)が描画されるようになった。</p>
+
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/6e39f7b1-2bc7-4ff2-abf4-edc1d893c9dd.png" alt="output.png" /></p>
+
+<h3>メモ</h3>
+
+<ul>
+<li>元のC++コードが共有ポインタ使ってたため、Rustも<code>Arc</code> を使っているがこれは必要なのか？ <code>.add</code> がスレッドセーフにならない？ 理解が足りてない。なぜ<code>Box</code> では駄目なのか</li>
+<li><code>pi</code> と<code>degrees_to_radians</code> はどこで定義すべきか。今のところ使わないので後で考える。無限大は<code>f64::INFINITY</code> を使った</li>
+</ul>
+
+<h2>共用モジュール</h2>
+
+<p>Gemini CLIが古い表記の <code>rand::thread_rng().get_range</code> が正しいと信じて上書きしてくるのでなだめる。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">use</span> <span class="nn">rand</span><span class="p">::</span><span class="n">Rng</span><span class="p">;</span>
+
+<span class="k">pub</span> <span class="k">const</span> <span class="n">INFINITY</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="nn">f64</span><span class="p">::</span><span class="n">INFINITY</span><span class="p">;</span>
+<span class="k">pub</span> <span class="k">const</span> <span class="n">PI</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="nn">std</span><span class="p">::</span><span class="nn">f64</span><span class="p">::</span><span class="nn">consts</span><span class="p">::</span><span class="n">PI</span><span class="p">;</span>
+
+<span class="k">pub</span> <span class="k">fn</span> <span class="nf">degrees_to_radians</span><span class="p">(</span><span class="n">degrees</span><span class="p">:</span> <span class="nb">f64</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">f64</span> <span class="p">{</span>
+    <span class="n">degrees</span> <span class="o">*</span> <span class="n">PI</span> <span class="o">/</span> <span class="mf">180.0</span>
+<span class="p">}</span>
+
+<span class="k">pub</span> <span class="k">fn</span> <span class="nf">random_double</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="nb">f64</span> <span class="p">{</span>
+    <span class="c1">// Returns a random real in [0,1).</span>
+    <span class="nn">rand</span><span class="p">::</span><span class="nf">rng</span><span class="p">()</span><span class="nf">.random_range</span><span class="p">(</span><span class="mf">0.0</span><span class="o">..</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">pub</span> <span class="k">fn</span> <span class="nf">random_double_range</span><span class="p">(</span><span class="n">min</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span> <span class="n">max</span><span class="p">:</span> <span class="nb">f64</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">f64</span> <span class="p">{</span>
+    <span class="c1">// Returns a random real in [min,max).</span>
+    <span class="nn">rand</span><span class="p">::</span><span class="nf">rng</span><span class="p">()</span><span class="nf">.random_range</span><span class="p">(</span><span class="n">min</span><span class="o">..</span><span class="n">max</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2>カメラモジュール</h2>
+
+<p>main.rsのハードコードがどんどん消えてきて気持ちいいすね。<code>aspect_ratio</code> は定数にするのを一旦やめた。共有モジュールに移した方がいいかもしれない</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">use</span> <span class="k">crate</span><span class="p">::</span><span class="nn">ray</span><span class="p">::</span><span class="n">Ray</span><span class="p">;</span>
+<span class="k">use</span> <span class="k">crate</span><span class="p">::</span><span class="nn">vec3</span><span class="p">::{</span><span class="n">Point3</span><span class="p">,</span> <span class="n">Vec3</span><span class="p">};</span>
+
+<span class="k">pub</span> <span class="k">struct</span> <span class="n">Camera</span> <span class="p">{</span>
+    <span class="n">origin</span><span class="p">:</span> <span class="n">Point3</span><span class="p">,</span>
+    <span class="n">lower_left_corner</span><span class="p">:</span> <span class="n">Point3</span><span class="p">,</span>
+    <span class="n">horizontal</span><span class="p">:</span> <span class="n">Vec3</span><span class="p">,</span>
+    <span class="n">vertical</span><span class="p">:</span> <span class="n">Vec3</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">impl</span> <span class="n">Camera</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">new</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="n">Camera</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">aspect_ratio</span> <span class="o">=</span> <span class="mf">16.0</span> <span class="o">/</span> <span class="mf">9.0</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">viewport_height</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">viewport_width</span> <span class="o">=</span> <span class="n">aspect_ratio</span> <span class="o">*</span> <span class="n">viewport_height</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">focal_length</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+
+        <span class="k">let</span> <span class="n">origin</span> <span class="o">=</span> <span class="nn">Point3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+        <span class="k">let</span> <span class="n">horizontal</span> <span class="o">=</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">viewport_width</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+        <span class="k">let</span> <span class="n">vertical</span> <span class="o">=</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">viewport_height</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+        <span class="k">let</span> <span class="n">lower_left_corner</span> <span class="o">=</span>
+            <span class="n">origin</span> <span class="o">-</span> <span class="n">horizontal</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">-</span> <span class="n">vertical</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">-</span> <span class="nn">Vec3</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">focal_length</span><span class="p">);</span>
+
+        <span class="n">Camera</span> <span class="p">{</span>
+            <span class="n">origin</span><span class="p">,</span>
+            <span class="n">lower_left_corner</span><span class="p">,</span>
+            <span class="n">horizontal</span><span class="p">,</span>
+            <span class="n">vertical</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">get_ray</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="nb">f64</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Ray</span> <span class="p">{</span>
+        <span class="nn">Ray</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span>
+            <span class="k">self</span><span class="py">.origin</span><span class="p">,</span>
+            <span class="k">self</span><span class="py">.lower_left_corner</span> <span class="o">+</span> <span class="n">u</span> <span class="o">*</span> <span class="k">self</span><span class="py">.horizontal</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="k">self</span><span class="py">.vertical</span> <span class="o">-</span> <span class="k">self</span><span class="py">.origin</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>originのパラメーター<code>Y</code> を<code>-0.3</code> にして、少し見上げてみた。これだけで楽しい。</p>
+
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/ae6ba5ce-aa1d-43d6-b5e9-4968e8210e6b.png" alt="output.png" /></p>
+
+<p>GUI足してカメラ視点をグリグリしたくなる。</p>
+
+<h2>出力メッセージの改善</h2>
+
+<p>実行のたびに<code>Scanlines remaining ...</code> の文字が画面を埋め尽くして邪魔なので、上書き表示に変えた。もっと早くやればよかった。</p>
+
+<p>現在は一瞬で画像が生成されてしまうので、そもそもメッセージ出力に意味がないが、これから重くなると信じる。</p>
+<div class="highlight"><pre class="highlight plaintext"><code>     println!("P3\n{} {}\n255", IMAGE_WIDTH, IMAGE_HEIGHT);
+
+     for j in (0..IMAGE_HEIGHT).rev() {
+-        eprintln!("\rScanlines remaining: {} ", j);
++        eprint!("\rScanlines remaining: {} ", j);
++        std::io::stderr().flush().unwrap();
+         for i in 0..IMAGE_WIDTH {
+             let u: f64 = i as f64 / (IMAGE_WIDTH - 1) as f64;
+             let v: f64 = j as f64 / (IMAGE_HEIGHT - 1) as f64;
+</code></pre></div>
+<h3>メモ</h3>
+
+<ul>
+<li>プログレスバーでもいいかな。後でイケてるライブラリないか探す。</li>
+<li>Gemini CLIが<code>.unwrap()</code> 足したけど、ここはつけるべきなのだろうか。<code>flush()</code> が失敗したとて問題ないので、エラーを無視して先に進めるべきか。</li>
+</ul>
+
+<h2>アンチエイリアシング</h2>
+
+<p>まずは、共有モジュールにclamp関数を追加する。初めてmatchが使える！と思って書いてみた。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">pub</span> <span class="k">fn</span> <span class="nf">clamp</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span> <span class="n">min</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span> <span class="n">max</span><span class="p">:</span> <span class="nb">f64</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">f64</span> <span class="p">{</span>
+    <span class="k">match</span> <span class="n">x</span> <span class="p">{</span>
+        <span class="n">x</span> <span class="o">&lt;</span> <span class="n">min</span> <span class="k">=&gt;</span> <span class="n">min</span><span class="p">,</span>
+        <span class="n">x</span> <span class="o">&gt;</span> <span class="n">max</span> <span class="k">=&gt;</span> <span class="n">max</span><span class="p">,</span>
+        <span class="n">_</span> <span class="k">=&gt;</span> <span class="n">x</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>が、以下のエラー。</p>
+<div class="highlight"><pre class="highlight console"><code><span class="go">error: generic args in patterns require the turbofish syntax
+</span><span class="gp">  --&gt;</span><span class="w"> </span>src/rtweekend.rs:22:11
+<span class="go">   |
+</span><span class="gp">22 |         x &lt; min =&gt;</span><span class="w"> </span>min,
+<span class="go">   |           ^
+</span></code></pre></div>
+<p>turbofish syntaxって何やねんと思いながら、<code>::</code> を加えてみたが、別のエラーになった。そもそも<code>=&gt;</code> の左には条件式を書けないのかしら。サンプルを幾つか読んでみたけど、見当たらない。</p>
+
+<p>Gemini CLIに見せると下記に直された。悲しい。
+これもこれで禅問答のようで分かりづらいと思うが。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">pub</span> <span class="k">fn</span> <span class="nf">clamp</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span> <span class="n">min</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span> <span class="n">max</span><span class="p">:</span> <span class="nb">f64</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">f64</span> <span class="p">{</span>
+    <span class="n">value</span><span class="nf">.max</span><span class="p">(</span><span class="n">min</span><span class="p">)</span><span class="nf">.min</span><span class="p">(</span><span class="n">max</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>各ピクセルごとに、周辺値(ピクセル位置に1未満の乱数を追加)をランダムで100回抽出して、平均を取るコードを追加。</p>
+<div class="highlight"><pre class="highlight rust"><code><span class="k">let</span> <span class="n">samples_per_pixel</span><span class="p">:</span> <span class="nb">u32</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="n">j</span> <span class="k">in</span> <span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="n">IMAGE_HEIGHT</span><span class="p">)</span><span class="nf">.rev</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nd">eprint!</span><span class="p">(</span><span class="s">"</span><span class="se">\r</span><span class="s">Scanlines remaining: {} "</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
+    <span class="nn">std</span><span class="p">::</span><span class="nn">io</span><span class="p">::</span><span class="nf">stderr</span><span class="p">()</span><span class="nf">.flush</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">();</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span><span class="o">..</span><span class="n">IMAGE_WIDTH</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">pixel_color</span> <span class="o">=</span> <span class="nn">Color</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="n">s</span> <span class="k">in</span> <span class="mi">1</span><span class="o">..</span><span class="n">samples_per_pixel</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">u</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="k">as</span> <span class="nb">f64</span> <span class="o">+</span> <span class="nf">random_double</span><span class="p">())</span> <span class="o">/</span> <span class="p">(</span><span class="n">IMAGE_WIDTH</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="nb">f64</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">v</span><span class="p">:</span> <span class="nb">f64</span> <span class="o">=</span> <span class="p">(</span><span class="n">j</span> <span class="k">as</span> <span class="nb">f64</span> <span class="o">+</span> <span class="nf">random_double</span><span class="p">())</span> <span class="o">/</span> <span class="p">(</span><span class="n">IMAGE_HEIGHT</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="nb">f64</span><span class="p">;</span>
+
+    <span class="k">let</span> <span class="n">r</span> <span class="o">=</span> <span class="n">cam</span><span class="nf">.get_ray</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
+    <span class="n">pixel_color</span> <span class="o">+=</span> <span class="nf">ray_color</span><span class="p">(</span><span class="o">&amp;</span><span class="n">r</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">world</span><span class="p">);</span>
+    <span class="p">}</span>
+        <span class="nf">write_color</span><span class="p">(</span><span class="n">pixel_color</span><span class="p">,</span> <span class="n">samples_per_pixel</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>すごい、滑らかになった。</p>
+
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/a6e721b0-8dc1-404d-94ba-5431f9e47148.png" alt="output.png" /></p>
+
+<p>球面周辺を拡大</p>
+
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/13400/5bb2cb26-e6d9-48dc-b495-f5758a903ef5.png" alt="ScreenCaptured 2026-01-23 16.26.55.png" /></p>
+
+<h3>メモ</h3>
+
+<ul>
+<li>計算量が100倍になったので画像生成に時間がかかるようになった。プログレスメッセージの必要性が出た。</li>
+<li>平均値を取るために<code>write_color()</code> の外で合計値を出して、<code>write_color()</code> の中で割り算をするのは、コードとして筋悪に見える。今は色の決定がカラータイルなので、この先に、きちんと計算したときに意味が出てくるかもしれない。修正せずに保留しておく。[追記] その9で対応した。</li>
+<li>このコードはサンプリングのために、<code>0 &lt;= x &lt; 1</code> を追加してるけど、周辺値であれば、<code>0.5 &lt;= x &lt; 0.5</code> を追加した方がいいのかしら。下記のように修正して試してみたけど、感覚的に違いがなかったので、このままでいく。</li>
+</ul>
+<div class="highlight"><pre class="highlight plaintext"><code>@@@ -58,8 -58,8 +58,8 @@@ fn main()
+            let mut pixel_color = Color::new(0.0, 0.0, 0.0);
+
+            for _ in 0..samples_per_pixel {
+--              let u: f64 = (i as f64 + random_double()) / (IMAGE_WIDTH - 1) as f64;
+--              let v: f64 = (j as f64 + random_double()) / (IMAGE_HEIGHT - 1) as f64;
+++              let u: f64 = (i as f64 + random_double() - 0.5) / (IMAGE_WIDTH - 1) as f64;
+++              let v: f64 = (j as f64 + random_double() - 0.5) / (IMAGE_HEIGHT - 1) as f64;
+
+                let r = cam.get_ray(u, v);
+                pixel_color += ray_color(&amp;r, &amp;world);
+</code></pre></div>
+<p><a href="https://qiita.com/sumikawa@github/items/04488cc9109217dcef0a">その5</a>に続く。まだレイをトレースしていない。</p>
+
+
+
+              <div class="tags">
+                Tags:
+                  <a href="/tag/rust/">rust<span class="tag-count">12</span></a>
+                  <a href="/tag/cg/">cg<span class="tag-count">12</span></a>
+                  <a href="/tag/raytracing/">raytracing<span class="tag-count">9</span></a>
+                  <a href="/tag/qiita/">qiita<span class="tag-count">22</span></a>
+              </div>
+          </main>
+
+          <nav class="prev_next" aria-label="Diary navigation"><a class="prev_next-link prev" href="/diary/2026/0122-qiita/"><span class="prev_next-eyebrow">Previous</span><span class="prev_next-label">&laquo; prev</span></a><span class="prev_next-divider" aria-hidden="true"></span><a class="prev_next-link next" href="/diary/2026/0124-qiita/"><span class="prev_next-eyebrow">Next</span><span class="prev_next-label">next &raquo;</span></a></nav>
+
+          <hr>
+          <div id="name">Daydreamers On the Net</div>
+        </div>
+      </div>
+      <div class="leftblock">
+	  <div class="titleblock">
+	    <h1><a href="/">すみかわ日記</a></h1>
+	  </div>
+        <div class="eachindexblock nav">
+  <ul id="gray">
+      <li> <a href="/diary/2026.html">2026年</a></li>
+      <li> <a href="/diary/2025.html">2025年</a></li>
+      <li> <a href="/diary/2024.html">2024年</a></li>
+      <li> <a href="/diary/2023.html">2023年</a></li>
+      <li> <a href="/diary/2022.html">2022年</a></li>
+      <li> <a href="/diary/2021.html">2021年</a></li>
+      <li> <a href="/diary/2020.html">2020年</a></li>
+      <li> <a href="/diary/2019.html">2019年</a></li>
+      <li> <a href="/diary/2018.html">2018年</a></li>
+      <li> <a href="/diary/2017.html">2017年</a></li>
+      <li> <a href="/diary/2016.html">2016年</a></li>
+      <li> <a href="/diary/2015.html">2015年</a></li>
+      <li> <a href="/diary/2014.html">2014年</a></li>
+      <li> <a href="/diary/2013.html">2013年</a></li>
+      <li> <a href="/diary/2012.html">2012年</a></li>
+      <li> <a href="/diary/2011.html">2011年</a></li>
+      <li> <a href="/diary/2010.html">2010年</a></li>
+      <li> <a href="/diary/2009.html">2009年</a></li>
+      <li> <a href="/diary/2008.html">2008年</a></li>
+      <li> <a href="/diary/2007.html">2007年</a></li>
+      <li> <a href="/diary/2006.html">2006年</a></li>
+      <li> <a href="/diary/2005.html">2005年</a></li>
+      <li> <a href="/diary/2004.html">2004年</a></li>
+      <li> <a href="/diary/2003.html">2003年</a></li>
+      <li> <a href="/diary/2002.html">2002年</a></li>
+      <li> <a href="/diary/2001.html">2001年</a></li>
+      <li> <a href="/diary/2000.html">2000年</a></li>
+      <li> <a href="/diary/1999.html">1999年</a></li>
+      <li> <a href="/diary/1998.html">1998年</a></li>
+      <li> <a href="/diary/1997.html">1997年</a></li>
+      <li> <a href="/diary/1996.html">1996年</a></li>
+    <li> <a href="/diary/1995.html">1995年以前</a></li>
+    <li> <a href="/tag/tag_list/">Tags</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+    <script src="/javascripts/diary.js"></script>
+      <script src="/pagefind/pagefind-ui.js"></script>
+    <script src="/javascripts/search.js"></script>
+    <script src="/javascripts/photoswipe.umd.min.js"></script>
+    <script src="/javascripts/photoswipe-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
+  </body>
+</html>
