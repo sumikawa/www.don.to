@@ -1028,6 +1028,11 @@ boat:
 - source/diary/2023/0625-boat.html.md.erb
 - source/diary/2025/1004-sikoku.html.md.erb
 - source/diary/2025/1005-sikoku.html.md.erb
+bolivia:
+- source/diary/2026/0331-bolivia.html.md.erb
+- source/diary/2026/0401-bolivia.html.md.erb
+- source/diary/2026/0402-bolivia.html.md.erb
+- source/diary/2026/0403-bolivia.html.md.erb
 book:
 - source/diary/1998/0806-book.html.md.erb
 - source/diary/1998/0814-memo.html.md.erb
@@ -2040,6 +2045,11 @@ curry:
 - source/diary/2025/0827-ginza.html.md.erb
 - source/diary/2026/0204-tokyo.html.md.erb
 - source/diary/2026/0210-nakano.html.md.erb
+czech:
+- source/diary/2026/0418-prague.html.md.erb
+- source/diary/2026/0419-prague.html.md.erb
+- source/diary/2026/0420-prague.html.md.erb
+- source/diary/2026/0421-moving.html.md.erb
 da nang:
 - source/diary/2025/0609-vietnam.html.md.erb
 - source/diary/2025/0610-vietnam.html.md.erb
@@ -3596,6 +3606,10 @@ fieldtrip:
 - source/diary/2013/1023-ren.html.md.erb
 - source/diary/2014/0510-zoo.html.md.erb
 - source/diary/2016/0521-riri.html.md.erb
+fiji:
+- source/diary/2026/0324-fiji.html.md.erb
+- source/diary/2026/0325-fiji.html.md.erb
+- source/diary/2026/0326-fiji.html.md.erb
 fireworks:
 - source/diary/2004/0815-party.html.md.erb
 - source/diary/2004/1106-firework.html.md.erb
@@ -4375,6 +4389,10 @@ grave:
 - source/diary/2012/0406-tokyo.html.md.erb
 - source/diary/2012/0501-mie.html.md.erb
 - source/diary/2023/0102-osaka.html.md.erb
+greece:
+- source/diary/2026/0416-greece.html.md.erb
+- source/diary/2026/0417-greece.html.md.erb
+- source/diary/2026/0418-prague.html.md.erb
 growth:
 - source/diary/2006/0618-baby.html.md.erb
 - source/diary/2006/0620-baby.html.md.erb
@@ -6675,6 +6693,10 @@ morning:
 - source/diary/2024/0707-kamakura.html.md.erb
 - source/diary/2024/0911-kamakura.html.md.erb
 - source/diary/2025/0826-morning.html.md.erb
+morocco:
+- source/diary/2026/0408-marrakech.html.md.erb
+- source/diary/2026/0409-marrakech.html.md.erb
+- source/diary/2026/0410-moving.html.md.erb
 mount fuji:
 - source/diary/2024/1115-humotoppara.html.md.erb
 - source/diary/2024/1116-humotoppara.html.md.erb
@@ -6988,6 +7010,9 @@ new york:
 - source/diary/2025/0916-us.html.md.erb
 - source/diary/2025/0917-us.html.md.erb
 - source/diary/2025/0918-us.html.md.erb
+newzealand:
+- source/diary/2026/0322-auckland.html.md.erb
+- source/diary/2026/0323-auckland.html.md.erb
 night:
 - source/diary/2003/0424-dinner.html.md.erb
 - source/diary/2004/0909-london.html.md.erb
@@ -7874,6 +7899,13 @@ perl:
 personal:
 - source/diary/2001/1228-sumikawa.html.md.erb
 - source/diary/2016/1115-myself.html.md.erb
+peru:
+- source/diary/2026/0329-peru.html.md.erb
+- source/diary/2026/0330-peru.html.md.erb
+- source/diary/2026/0331-bolivia.html.md.erb
+- source/diary/2026/0403-bolivia.html.md.erb
+- source/diary/2026/0404-lima.html.md.erb
+- source/diary/2026/0405-moving.html.md.erb
 pet:
 - source/diary/1999/0101-myhome.html.md.erb
 - source/diary/2004/1216-canna.html.md.erb
@@ -8172,6 +8204,10 @@ pork:
 - source/diary/2025/0120-maitin.html.md.erb
 - source/diary/2025/0212-yokohama.html.md.erb
 - source/diary/2025/0415-yokohama.html.md.erb
+portugal:
+- source/diary/2026/0406-lisbon.html.md.erb
+- source/diary/2026/0407-lisbon.html.md.erb
+- source/diary/2026/0408-marrakech.html.md.erb
 potato:
 - source/diary/2023/1125-field.html.md.erb
 - source/diary/2025/0318-potato.html.md.erb
@@ -8691,6 +8727,38 @@ router:
 - source/diary/2002/1031-btbroadband.html.md.erb
 - source/diary/2006/0223-lamb.html.md.erb
 - source/diary/2011/0514-wifi.html.md.erb
+rtw:
+- source/diary/2026/0321-moving.html.md.erb
+- source/diary/2026/0322-auckland.html.md.erb
+- source/diary/2026/0323-auckland.html.md.erb
+- source/diary/2026/0324-fiji.html.md.erb
+- source/diary/2026/0325-fiji.html.md.erb
+- source/diary/2026/0326-fiji.html.md.erb
+- source/diary/2026/0328-moving.html.md.erb
+- source/diary/2026/0329-peru.html.md.erb
+- source/diary/2026/0330-peru.html.md.erb
+- source/diary/2026/0331-bolivia.html.md.erb
+- source/diary/2026/0401-bolivia.html.md.erb
+- source/diary/2026/0402-bolivia.html.md.erb
+- source/diary/2026/0403-bolivia.html.md.erb
+- source/diary/2026/0404-lima.html.md.erb
+- source/diary/2026/0405-moving.html.md.erb
+- source/diary/2026/0406-lisbon.html.md.erb
+- source/diary/2026/0407-lisbon.html.md.erb
+- source/diary/2026/0408-marrakech.html.md.erb
+- source/diary/2026/0409-marrakech.html.md.erb
+- source/diary/2026/0410-moving.html.md.erb
+- source/diary/2026/0411-istanbul.html.md.erb
+- source/diary/2026/0412-istanbul.html.md.erb
+- source/diary/2026/0413-istanbul.html.md.erb
+- source/diary/2026/0414-nevsehir.html.md.erb
+- source/diary/2026/0415-nevsehir.html.md.erb
+- source/diary/2026/0416-greece.html.md.erb
+- source/diary/2026/0417-greece.html.md.erb
+- source/diary/2026/0418-prague.html.md.erb
+- source/diary/2026/0419-prague.html.md.erb
+- source/diary/2026/0420-prague.html.md.erb
+- source/diary/2026/0421-moving.html.md.erb
 rust:
 - source/diary/2026/0120-qiita.html.md.erb
 - source/diary/2026/0121-qiita.html.md.erb
@@ -11169,6 +11237,37 @@ travel:
 - source/diary/2025/1211-iwate.html.md.erb
 - source/diary/2025/1212-iwate.html.md.erb
 - source/diary/2025/1213-iwate.html.md.erb
+- source/diary/2026/0321-moving.html.md.erb
+- source/diary/2026/0322-auckland.html.md.erb
+- source/diary/2026/0323-auckland.html.md.erb
+- source/diary/2026/0324-fiji.html.md.erb
+- source/diary/2026/0325-fiji.html.md.erb
+- source/diary/2026/0326-fiji.html.md.erb
+- source/diary/2026/0328-moving.html.md.erb
+- source/diary/2026/0329-peru.html.md.erb
+- source/diary/2026/0330-peru.html.md.erb
+- source/diary/2026/0331-bolivia.html.md.erb
+- source/diary/2026/0401-bolivia.html.md.erb
+- source/diary/2026/0402-bolivia.html.md.erb
+- source/diary/2026/0403-bolivia.html.md.erb
+- source/diary/2026/0404-lima.html.md.erb
+- source/diary/2026/0405-moving.html.md.erb
+- source/diary/2026/0406-lisbon.html.md.erb
+- source/diary/2026/0407-lisbon.html.md.erb
+- source/diary/2026/0408-marrakech.html.md.erb
+- source/diary/2026/0409-marrakech.html.md.erb
+- source/diary/2026/0410-moving.html.md.erb
+- source/diary/2026/0411-istanbul.html.md.erb
+- source/diary/2026/0412-istanbul.html.md.erb
+- source/diary/2026/0413-istanbul.html.md.erb
+- source/diary/2026/0414-nevsehir.html.md.erb
+- source/diary/2026/0415-nevsehir.html.md.erb
+- source/diary/2026/0416-greece.html.md.erb
+- source/diary/2026/0417-greece.html.md.erb
+- source/diary/2026/0418-prague.html.md.erb
+- source/diary/2026/0419-prague.html.md.erb
+- source/diary/2026/0420-prague.html.md.erb
+- source/diary/2026/0421-moving.html.md.erb
 travelk:
 - source/diary/2005/0621-beer.html.md.erb
 tshirt:
@@ -11205,6 +11304,14 @@ tumagoi:
 - source/diary/2020/0909-tumagoi.html.md.erb
 - source/diary/2020/0911-tumagoi.html.md.erb
 - source/diary/2020/0912-tumagoi.html.md.erb
+turkey:
+- source/diary/2026/0410-moving.html.md.erb
+- source/diary/2026/0411-istanbul.html.md.erb
+- source/diary/2026/0412-istanbul.html.md.erb
+- source/diary/2026/0413-istanbul.html.md.erb
+- source/diary/2026/0414-nevsehir.html.md.erb
+- source/diary/2026/0415-nevsehir.html.md.erb
+- source/diary/2026/0416-greece.html.md.erb
 turkish:
 - source/diary/2017/0120-dinner.html.md.erb
 tv:
