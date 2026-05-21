@@ -123,21 +123,21 @@ RSpec.describe DiaryIndexHelpers do
       end
 
       context 'with an image file' do
-        it 'calls _process_image' do
+        it 'calls process_image_entry' do
           expect(helper).to receive(:process_image_entry).with({ path: '/path/to/image.jpg', name: 'image.jpg', ext: 'jpg', base: 'image' }, exif_data, dirpath, now)
           helper.send(:process_index_file, '/path/to/image.jpg', dirpath, now)
         end
       end
 
       context 'with a video file' do
-        it 'calls _process_video' do
+        it 'calls process_video_entry' do
           expect(helper).to receive(:process_video_entry).with({ path: '/path/to/video.mov', name: 'video.mov', ext: 'mov', base: 'video' }, exif_data, dirpath, now)
           helper.send(:process_index_file, '/path/to/video.mov', dirpath, now)
         end
       end
 
       context 'with an audio file' do
-        it 'calls _process_audio' do
+        it 'calls process_audio_entry' do
           expect(helper).to receive(:process_audio_entry).with({ path: '/path/to/audio.m4a', name: 'audio.m4a', ext: 'm4a', base: 'audio' }, dirpath, now)
           helper.send(:process_index_file, '/path/to/audio.m4a', dirpath, now)
         end
