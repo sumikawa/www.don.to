@@ -1533,6 +1533,7 @@ camp:
 - source/diary/2025/0901-miura.html.md.erb
 - source/diary/2025/0902-miura.html.md.erb
 - source/diary/2025/1117-camp.html.md.erb
+- source/diary/2025/1124-note.html.md.erb
 - source/diary/2026/0215-camp.html.md.erb
 - source/diary/2026/0508-miyako.html.md.erb
 - source/diary/2026/0509-miyako.html.md.erb
@@ -4241,6 +4242,12 @@ gadget:
 - source/diary/2018/0711-gemini.html.md.erb
 - source/diary/2019/1207-kintone.html.md.erb
 - source/diary/2020/0415-work.html.md.erb
+- source/diary/2025/1119-note.html.md.erb
+- source/diary/2025/1121-note.html.md.erb
+- source/diary/2025/1123-note.html.md.erb
+- source/diary/2025/1213-note.html.md.erb
+- source/diary/2026/0212-note.html.md.erb
+- source/diary/2026/0316-note.html.md.erb
 game:
 - source/diary/1999/0819-mania.html.md.erb
 - source/diary/1999/1125-memo.html.md.erb
@@ -4639,6 +4646,8 @@ higashi shinagawa:
 - source/diary/2024/1219-lunch.html.md.erb
 - source/diary/2025/0106-aomono.html.md.erb
 - source/diary/2025/0108-lunch.html.md.erb
+hiking:
+- source/diary/2025/1124-note.html.md.erb
 himeji:
 - source/diary/2018/0506-kobe.html.md.erb
 hinamatsuri:
@@ -5790,6 +5799,8 @@ life:
 - source/diary/2006/0616-yoshikei.html.md.erb
 - source/diary/2006/0714-banshaku.html.md.erb
 - source/diary/2017/0610-desk.html.md.erb
+- source/diary/2025/1115-note.html.md.erb
+- source/diary/2025/1224-note.html.md.erb
 - source/diary/2026/0126-shoulder.html.md.erb
 literature:
 - source/diary/1998/0918-memo.html.md.erb
@@ -6234,6 +6245,7 @@ mac:
 - source/diary/2013/1008-ramen.html.md.erb
 - source/diary/2025/0405-qiita.html.md.erb
 - source/diary/2025/0929-qiita.html.md.erb
+- source/diary/2025/1217-note.html.md.erb
 machida:
 - source/diary/2008/1229-matida.html.md.erb
 - source/diary/2015/0927-nagatuta.html.md.erb
@@ -7103,6 +7115,7 @@ note:
 - source/diary/2025/1121-note.html.md.erb
 - source/diary/2025/1123-note.html.md.erb
 - source/diary/2025/1124-note.html.md.erb
+- source/diary/2025/1128-note.html.md.erb
 - source/diary/2025/1213-note.html.md.erb
 - source/diary/2025/1217-note.html.md.erb
 - source/diary/2025/1224-note.html.md.erb
@@ -11305,6 +11318,7 @@ travel:
 - source/diary/2026/0409-marrakech.html.md.erb
 - source/diary/2026/0410-moving.html.md.erb
 - source/diary/2026/0411-istanbul.html.md.erb
+- source/diary/2026/0411-note.html.md.erb
 - source/diary/2026/0412-istanbul.html.md.erb
 - source/diary/2026/0413-istanbul.html.md.erb
 - source/diary/2026/0414-nevsehir.html.md.erb
@@ -11954,6 +11968,10 @@ writing:
 xiaolongbao:
 - source/diary/2016/0308-taiwan.html.md.erb
 - source/diary/2016/0310-taiwan.html.md.erb
+xreal:
+- source/diary/2025/1121-note.html.md.erb
+- source/diary/2025/1213-note.html.md.erb
+- source/diary/2025/1217-note.html.md.erb
 yakiniku:
 - source/diary/1996/0706-oucckun.html.md.erb
 - source/diary/1998/1106-zanmai.html.md.erb
