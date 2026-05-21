@@ -32,7 +32,7 @@ RSpec.describe '#tabelog' do
       allow(URI).to receive(:parse).with(valid_url).and_return(uri_mock)
       allow(uri_mock).to receive(:open).with('User-Agent' => USER_AGENT).and_return(StringIO.new(tabelog_html))
 
-      expected_html = <<~HTML.strip
+      expected_html = <<~HTML
         <pre class="address">
         <a href="#{valid_url}">COMEDOR DE MARGARITA MODERN MEXICANO</a>
         神奈川県横浜市西区南幸1-1‐1 ニュウマン横浜店 9F
@@ -50,10 +50,10 @@ RSpec.describe '#tabelog' do
       allow(URI).to receive(:parse).with(valid_url).and_return(uri_mock)
       allow(uri_mock).to receive(:open).with('User-Agent' => USER_AGENT).and_return(StringIO.new(html_no_contact))
 
-      expected_html = <<~HTML.strip
+      expected_html = <<~HTML
         <pre class="address">
         <a href="#{valid_url}">サンプルレストラン</a>
-        東京都サンプル区サンプル 1-2-3
+        #{UnicodeUtils.nfkd('東京都サンプル区サンプル 1-2-3')}
         </pre>
       HTML
 
