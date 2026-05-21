@@ -7096,6 +7096,20 @@ non-fiction:
 noodle:
 - source/diary/2007/1218-kisimen.html.md.erb
 - source/diary/2014/1222-lunch.html.md.erb
+note:
+- source/diary/2025/1113-note.html.md.erb
+- source/diary/2025/1115-note.html.md.erb
+- source/diary/2025/1119-note.html.md.erb
+- source/diary/2025/1121-note.html.md.erb
+- source/diary/2025/1123-note.html.md.erb
+- source/diary/2025/1124-note.html.md.erb
+- source/diary/2025/1213-note.html.md.erb
+- source/diary/2025/1217-note.html.md.erb
+- source/diary/2025/1224-note.html.md.erb
+- source/diary/2025/1225-note.html.md.erb
+- source/diary/2026/0212-note.html.md.erb
+- source/diary/2026/0316-note.html.md.erb
+- source/diary/2026/0411-note.html.md.erb
 novel:
 - source/diary/1999/0622-memo.html.md.erb
 - source/diary/1999/1011-memo.html.md.erb
