@@ -30,9 +30,13 @@ module NavigationHelpers
     return unless prev_page || next_page
 
     nav = '<nav class="prev_next" aria-label="Diary navigation">'
-    nav += "<a class=\"prev_next-link prev\" href=\"#{prev_page.url}\"><span class=\"prev_next-eyebrow\">Previous</span><span class=\"prev_next-label\">&laquo; prev</span></a>" if prev_page
+    if prev_page
+      nav += "<a class=\"prev_next-link prev\" href=\"#{prev_page.url}\"><span class=\"prev_next-eyebrow\">Previous</span><span class=\"prev_next-label\">&laquo; prev</span></a>"
+    end
     nav += '<span class="prev_next-divider" aria-hidden="true"></span>' if prev_page && next_page
-    nav += "<a class=\"prev_next-link next\" href=\"#{next_page.url}\"><span class=\"prev_next-eyebrow\">Next</span><span class=\"prev_next-label\">next &raquo;</span></a>" if next_page
+    if next_page
+      nav += "<a class=\"prev_next-link next\" href=\"#{next_page.url}\"><span class=\"prev_next-eyebrow\">Next</span><span class=\"prev_next-label\">next &raquo;</span></a>"
+    end
     nav += '</nav>'
     nav
   end
