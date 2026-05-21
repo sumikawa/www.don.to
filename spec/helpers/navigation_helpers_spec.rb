@@ -29,9 +29,10 @@ RSpec.describe NavigationHelpers do
       let(:current_page) { pages[1] }
       it 'returns links to both prev and next pages' do
         nav = helper.diary_nav(current_page, sitemap)
-        expect(nav).to include('<a href="/diary/2023/0101-foo.html">&laquo; prev</a>')
-        expect(nav).to include('<a href="/diary/2023/0103-baz.html">next &raquo;</a>')
-        expect(nav).to include('<span style="margin: 0 1em;">|</span>')
+        expect(nav).to include('<nav class="prev_next" aria-label="Diary navigation">')
+        expect(nav).to include('<a class="prev_next-link prev" href="/diary/2023/0101-foo.html"><span class="prev_next-eyebrow">Previous</span><span class="prev_next-label">&laquo; prev</span></a>')
+        expect(nav).to include('<a class="prev_next-link next" href="/diary/2023/0103-baz.html"><span class="prev_next-eyebrow">Next</span><span class="prev_next-label">next &raquo;</span></a>')
+        expect(nav).to include('<span class="prev_next-divider" aria-hidden="true"></span>')
       end
     end
 
@@ -39,9 +40,9 @@ RSpec.describe NavigationHelpers do
       let(:current_page) { pages[0] }
       it 'returns a link to only the next page' do
         nav = helper.diary_nav(current_page, sitemap)
-        expect(nav).not_to include('&laquo; prev</a>')
-        expect(nav).to include('<a href="/diary/2023/0102-bar.html">next &raquo;</a>')
-        expect(nav).not_to include('<span style="margin: 0 1em;">|</span>')
+        expect(nav).not_to include('class="prev_next-link prev"')
+        expect(nav).to include('<a class="prev_next-link next" href="/diary/2023/0102-bar.html"><span class="prev_next-eyebrow">Next</span><span class="prev_next-label">next &raquo;</span></a>')
+        expect(nav).not_to include('class="prev_next-divider"')
       end
     end
 
@@ -49,9 +50,9 @@ RSpec.describe NavigationHelpers do
       let(:current_page) { pages[2] }
       it 'returns a link to only the prev page' do
         nav = helper.diary_nav(current_page, sitemap)
-        expect(nav).to include('<a href="/diary/2023/0102-bar.html">&laquo; prev</a>')
-        expect(nav).not_to include('next &raquo;</a>')
-        expect(nav).not_to include('<span style="margin: 0 1em;">|</span>')
+        expect(nav).to include('<a class="prev_next-link prev" href="/diary/2023/0102-bar.html"><span class="prev_next-eyebrow">Previous</span><span class="prev_next-label">&laquo; prev</span></a>')
+        expect(nav).not_to include('class="prev_next-link next"')
+        expect(nav).not_to include('class="prev_next-divider"')
       end
     end
 

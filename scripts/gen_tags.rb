@@ -8,7 +8,7 @@ def tags_for_file(file_path)
 ---\s*
 )/m
 
-  front_matter = YAML.safe_load(::Regexp.last_match(1))
+  front_matter = YAML.safe_load(Regexp.last_match(1))
   return [] unless front_matter && front_matter['tags']
 
   front_matter['tags'].split(',').map(&:strip).map(&:downcase)
@@ -21,6 +21,7 @@ untagged_files = []
 
 tags_list = Dir.glob('source/diary/[012]*/**/*.html.md.erb').each_with_object({}) do |file_path, all_tags|
   next if file_path =~ /-secret/
+
   tags = tags_for_file(file_path)
   if tags.empty?
     untagged_files << file_path
@@ -35,7 +36,7 @@ end
 unless untagged_files.empty?
   puts "Untagged files found (#{untagged_files.size}):"
   untagged_files.each { |f| puts "  #{f}" }
-  puts "-" * 20
+  puts '-' * 20
 end
 
 # Sort by tag name
