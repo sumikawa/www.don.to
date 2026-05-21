@@ -15,6 +15,18 @@ module EmbedHelpers
     HTML
   end
 
+  def product(title, url, image_url)
+    img = "<img border=\"0\" src=\"#{image_url}\" height=200></a>"
+    <<~HTML.html_safe
+      <div class="embeded">
+        <div class="amazon">
+          <div class="amazon-image">#{link_to(img, url)}</div>
+          <div class="amazon-info">#{link_to(title, url)}</div>
+        </div>
+      </div>
+    HTML
+  end
+
   def qiita(link)
     "<div class=\"note\">\n本ドキュメントは#{link_to('Qiita記事', link)}のバックアップです。\n</div>"
   end

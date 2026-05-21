@@ -609,8 +609,16 @@ div.amazon {
 
 div.amazon-image {
   flex: 0 0 auto;
+  max-height: 160px;
   margin: 0;
+  overflow: hidden;
   padding: 0;
+}
+
+div.amazon-image img {
+  display: block;
+  max-height: 100%;
+  width: auto;
 }
 
 div.amazon-info {
