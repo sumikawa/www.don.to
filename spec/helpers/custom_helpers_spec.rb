@@ -1,8 +1,18 @@
 require 'spec_helper'
-require_relative '../../helpers/custom_helpers'
+require_relative '../../helpers/site_helpers'
+require_relative '../../helpers/page_metadata_helpers'
+require_relative '../../helpers/embed_helpers'
+require_relative '../../helpers/daylog_helpers'
 
-RSpec.describe CustomHelpers do
-  let(:helper) { Class.new { include CustomHelpers }.new }
+RSpec.describe 'split helper modules' do
+  let(:helper) do
+    Class.new do
+      include SiteHelpers
+      include PageMetadataHelpers
+      include EmbedHelpers
+      include DaylogHelpers
+    end.new
+  end
 
   # Mock current_page
   let(:current_page) do
@@ -45,13 +55,6 @@ RSpec.describe CustomHelpers do
       it 'returns false' do
         expect(helper.localhost?).to be false
       end
-    end
-  end
-
-  describe '#thisyear' do
-    it 'returns the latest year from diary directories' do
-      allow(Dir).to receive(:glob).with('source/diary/[0-9]*').and_return(['source/diary/2023', 'source/diary/2025', 'source/diary/2024'])
-      expect(helper.thisyear).to eq(2025)
     end
   end
 
@@ -190,20 +193,20 @@ RSpec.describe CustomHelpers do
   end
 
   describe 'private methods' do
-    describe '#_extract_date_string' do
+    describe '#extract_date_string' do
       it 'extracts date from various string formats' do
-        expect(helper.send(:_extract_date_string, '/diary/1995/198508-camp/')).to eq('1985/08')
-        expect(helper.send(:_extract_date_string, '/diary/2025/0101-test/')).to eq('2025/01/01')
-        expect(helper.send(:_extract_date_string, 'source/diary/2025/0101-test.html.md.erb')).to eq('2025/01/01')
-        expect(helper.send(:_extract_date_string, 'source/diary/2025/01-test.html.md.erb')).to eq('2025/01/??')
-        expect(helper.send(:_extract_date_string, '/diary/2025/')).to eq('2025年')
-        expect(helper.send(:_extract_date_string, '/diary/2025.html')).to eq('2025年')
-        expect(helper.send(:_extract_date_string, '/diary/1995/')).to eq('1995年以前')
-        expect(helper.send(:_extract_date_string, 'foobar')).to be_nil
+        expect(helper.send(:extract_date_string, '/diary/1995/198508-camp/')).to eq('1985/08')
+        expect(helper.send(:extract_date_string, '/diary/2025/0101-test/')).to eq('2025/01/01')
+        expect(helper.send(:extract_date_string, 'source/diary/2025/0101-test.html.md.erb')).to eq('2025/01/01')
+        expect(helper.send(:extract_date_string, 'source/diary/2025/01-test.html.md.erb')).to eq('2025/01/??')
+        expect(helper.send(:extract_date_string, '/diary/2025/')).to eq('2025年')
+        expect(helper.send(:extract_date_string, '/diary/2025.html')).to eq('2025年')
+        expect(helper.send(:extract_date_string, '/diary/1995/')).to eq('1995年以前')
+        expect(helper.send(:extract_date_string, 'foobar')).to be_nil
       end
     end
 
-    describe '#_process_amazon' do
+    describe '#process_amazon' do
       let(:amazon_line_input) { '「<a href="https://www.amazon.co.jp/dp/B0FCJ7H8KD/">オルクセン王国史～野蛮なオークの国は、如何にして平和なエルフの国を焼き払うに至ったか～ 5</a>」、樽見京一郎、一二三書房' }
       let(:expected_asid) { 'your-test-asid' }
 
@@ -213,19 +216,19 @@ RSpec.describe CustomHelpers do
       end
 
       it 'appends Amazon ASID and ref=nosim to the Amazon URL, preserving quotes' do
-        processed_line = helper.send(:_process_amazon, amazon_line_input)
+        processed_line = helper.send(:process_amazon, amazon_line_input)
         expected_url_part = "href=\"https://www.amazon.co.jp/dp/B0FCJ7H8KD/ref=nosim?tag=#{expected_asid}\""
         expect(processed_line).to include(expected_url_part)
       end
 
       it 'does not modify lines without an Amazon URL' do
         line = 'This is a plain line without any amazon link.'
-        expect(helper.send(:_process_amazon, line)).to eq(line)
+        expect(helper.send(:process_amazon, line)).to eq(line)
       end
 
       it 'does not modify lines with a non-amazon URL' do
         line = 'This is a link to <a href="https://example.com">example.com</a>'
-        expect(helper.send(:_process_amazon, line)).to eq(line)
+        expect(helper.send(:process_amazon, line)).to eq(line)
       end
     end
   end

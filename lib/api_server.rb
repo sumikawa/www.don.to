@@ -3,11 +3,11 @@ require 'json'
 require 'logger'
 require_relative 'tabelog'
 require_relative '../helpers/link_helpers'
-require_relative '../helpers/index_helpers'
+require_relative '../helpers/diary_index_helpers'
 
 class ApiServer < Sinatra::Base
   include LinkHelpers
-  include IndexHelpers
+  include DiaryIndexHelpers
 
   set :host_authorization, { permitted_hosts: ['localhost', 'stage.don.to'] }
 

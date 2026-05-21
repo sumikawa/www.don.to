@@ -5,17 +5,16 @@ RSpec.describe TagHelpers do
   let(:helper) { Class.new { include TagHelpers }.new }
 
   describe '#tags_list' do
-    let(:test_files) do
+    let(:tags_data) do
       {
-        'source/diary/2025/0101-test.html.md.erb' => "---\ntitle: Test\ntags: ruby, rails\n---\nContent",
-        'source/diary/2025/0102-test.html.md.erb' => "---\ntitle: Test2\ntags: ruby, python\n---\nContent",
-        'source/diary/2025/0103-test.html.md.erb' => "---\ntitle: Test3\n---\nContent"
+        'ruby' => ['source/diary/2025/0101-test.html.md.erb', 'source/diary/2025/0102-test.html.md.erb'],
+        'rails' => ['source/diary/2025/0101-test.html.md.erb'],
+        'python' => ['source/diary/2025/0102-test.html.md.erb']
       }
     end
 
     before do
-      allow(Dir).to receive(:glob).with('source/diary/[012]*/**/*.html.md.erb').and_return(test_files.keys)
-      allow(File).to receive(:read) { |path| test_files[path] }
+      allow(helper).to receive(:data).and_return(double('data', tags: tags_data))
     end
 
     it 'returns a hash of tags with file paths' do
@@ -26,29 +25,28 @@ RSpec.describe TagHelpers do
       expect(tags['python']).to contain_exactly('source/diary/2025/0102-test.html.md.erb')
     end
 
+    it 'returns the tags data from Middleman data' do
+      expect(helper.tags_list).to eq(tags_data)
+    end
+  end
+
+  describe '#tags_for_file' do
     it 'normalizes tags to lowercase' do
       allow(File).to receive(:read).and_return("---\ntitle: Test\ntags: Ruby, RAILS\n---\nContent")
-      tags = helper.tags_list
-      expect(tags).to have_key('ruby')
-      expect(tags).to have_key('rails')
+      tags = helper.send(:tags_for_file, 'source/diary/2025/0101-test.html.md.erb')
+      expect(tags).to eq(%w[ruby rails])
     end
 
     it 'strips whitespace from tags' do
       allow(File).to receive(:read).and_return("---\ntitle: Test\ntags:  ruby  ,  rails  \n---\nContent")
-      tags = helper.tags_list
-      expect(tags).to have_key('ruby')
-      expect(tags).to have_key('rails')
+      tags = helper.send(:tags_for_file, 'source/diary/2025/0101-test.html.md.erb')
+      expect(tags).to eq(%w[ruby rails])
     end
 
-    it 'skips files without tags' do
-      tags = helper.tags_list
-      expect(tags.values.flatten).not_to include('source/diary/2025/0103-test.html.md.erb')
-    end
-
-    it 'caches the result' do
-      expect(Dir).to receive(:glob).once.and_return([])
-      helper.tags_list
-      helper.tags_list
+    it 'returns an empty array for files without tags' do
+      allow(File).to receive(:read).and_return("---\ntitle: Test\n---\nContent")
+      tags = helper.send(:tags_for_file, 'source/diary/2025/0103-test.html.md.erb')
+      expect(tags).to eq([])
     end
   end
 end

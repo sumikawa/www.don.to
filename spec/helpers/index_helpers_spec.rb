@@ -1,8 +1,8 @@
 require 'spec_helper'
-require_relative '../../helpers/index_helpers'
+require_relative '../../helpers/diary_index_helpers'
 
-RSpec.describe IndexHelpers do
-  let(:helper) { Class.new { include IndexHelpers }.new }
+RSpec.describe DiaryIndexHelpers do
+  let(:helper) { Class.new { include DiaryIndexHelpers }.new }
 
   before do
     allow(helper).to receive(:data).and_return(app.data)
@@ -106,16 +106,16 @@ RSpec.describe IndexHelpers do
       allow(File).to receive(:exist?).and_return(false)
     end
 
-    describe '#_ensure_cache_dir' do
+    describe '#ensure_cache_dir' do
       it 'creates cache directory and returns the path' do
         cache_dir = File.expand_path("#{app.data.site.cacherootdir}/diary/#{dirpath}")
         expect(FileUtils).to receive(:mkdir_p).with(cache_dir)
-        result = helper.send(:_ensure_cache_dir, dirpath)
+        result = helper.send(:ensure_cache_dir, dirpath)
         expect(result).to eq(cache_dir)
       end
     end
 
-    describe '#_process_file' do
+    describe '#process_index_file' do
       let(:exif_data) { double('exif_data').as_null_object }
 
       before do
@@ -124,42 +124,42 @@ RSpec.describe IndexHelpers do
 
       context 'with an image file' do
         it 'calls _process_image' do
-          expect(helper).to receive(:_process_image).with({ path: '/path/to/image.jpg', name: 'image.jpg', ext: 'jpg', base: 'image' }, exif_data, dirpath, now)
-          helper.send(:_process_file, '/path/to/image.jpg', dirpath, now)
+          expect(helper).to receive(:process_image_entry).with({ path: '/path/to/image.jpg', name: 'image.jpg', ext: 'jpg', base: 'image' }, exif_data, dirpath, now)
+          helper.send(:process_index_file, '/path/to/image.jpg', dirpath, now)
         end
       end
 
       context 'with a video file' do
         it 'calls _process_video' do
-          expect(helper).to receive(:_process_video).with({ path: '/path/to/video.mov', name: 'video.mov', ext: 'mov', base: 'video' }, exif_data, dirpath, now)
-          helper.send(:_process_file, '/path/to/video.mov', dirpath, now)
+          expect(helper).to receive(:process_video_entry).with({ path: '/path/to/video.mov', name: 'video.mov', ext: 'mov', base: 'video' }, exif_data, dirpath, now)
+          helper.send(:process_index_file, '/path/to/video.mov', dirpath, now)
         end
       end
 
       context 'with an audio file' do
         it 'calls _process_audio' do
-          expect(helper).to receive(:_process_audio).with({ path: '/path/to/audio.m4a', name: 'audio.m4a', ext: 'm4a', base: 'audio' }, dirpath, now)
-          helper.send(:_process_file, '/path/to/audio.m4a', dirpath, now)
+          expect(helper).to receive(:process_audio_entry).with({ path: '/path/to/audio.m4a', name: 'audio.m4a', ext: 'm4a', base: 'audio' }, dirpath, now)
+          helper.send(:process_index_file, '/path/to/audio.m4a', dirpath, now)
         end
       end
 
       context 'with an AAE file' do
         it 'deletes the file and returns nil' do
           expect(File).to receive(:delete).with('/path/to/image.aae')
-          result = helper.send(:_process_file, '/path/to/image.aae', dirpath, now)
+          result = helper.send(:process_index_file, '/path/to/image.aae', dirpath, now)
           expect(result).to be_nil
         end
       end
 
       context 'with an unsupported file' do
         it 'returns a debug message' do
-          _timestamp, text = helper.send(:_process_file, '/path/to/unsupported.txt', dirpath, now)
+          _timestamp, text = helper.send(:process_index_file, '/path/to/unsupported.txt', dirpath, now)
           expect(text).to eq('debugging: "unsupported.txt"')
         end
       end
     end
 
-    describe '#_process_image' do
+    describe '#process_image_entry' do
       let(:file_info) { { path: '/path/to/image.jpg', name: 'image.jpg', ext: 'jpg', base: 'image' } }
       let(:exif_data) { double('exif_data').as_null_object }
       let(:magick_image) { double('magick_image') }
@@ -173,12 +173,12 @@ RSpec.describe IndexHelpers do
 
       it 'returns timestamp and image tag' do
         allow(exif_data).to receive(:[]).with('SubSecDateTimeOriginal').and_return(Time.new(2025, 1, 1, 12, 0, 0).to_s)
-        _timestamp, text = helper.send(:_process_image, file_info, exif_data, dirpath, now)
+        _timestamp, text = helper.send(:process_image_entry, file_info, exif_data, dirpath, now)
         expect(text).to eq('<%= image "image" %>')
       end
     end
 
-    describe '#_process_video' do
+    describe '#process_video_entry' do
       let(:file_info) { { path: '/path/to/video.mov', name: 'video.mov', ext: '.mov', base: 'video' } }
       let(:exif_data) { double('exif_data').as_null_object }
 
@@ -191,16 +191,16 @@ RSpec.describe IndexHelpers do
 
       it 'returns timestamp and movie tag' do
         allow(exif_data).to receive(:[]).with('CreationDate').and_return(Time.new(2025, 1, 1, 12, 0, 0))
-        _timestamp, text = helper.send(:_process_video, file_info, exif_data, dirpath, now)
+        _timestamp, text = helper.send(:process_video_entry, file_info, exif_data, dirpath, now)
         expect(text).to eq('<%= movie "hdvideo" %>')
       end
     end
 
-    describe '#_process_audio' do
+    describe '#process_audio_entry' do
       let(:file_info) { { path: '/path/to/audio.m4a', name: 'audio.m4a', ext: '.m4a', base: 'audio' } }
 
       it 'returns timestamp and audio tag' do
-        _timestamp, text = helper.send(:_process_audio, file_info, dirpath, now)
+        _timestamp, text = helper.send(:process_audio_entry, file_info, dirpath, now)
         expect(text).to eq('<%= audio "audio" %>')
       end
     end
