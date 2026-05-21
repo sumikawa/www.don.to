@@ -116,7 +116,7 @@ RSpec.describe LinkHelpers do
       it 'generates an image tag without height attribute' do
         url = app.data.image['1995']['198508-camp']['001_001.jpg']
         result = helper.simage('001_001')
-        expect(result).to eq("<img src=\"#{url}\" height=\"#{app.data.site.simageheight}\" />")
+        expect(result).to eq("<img src=\"#{url}\" height=\"#{app.data.site.simageheight}\" class=\"simage\" />")
       end
     end
 
@@ -124,7 +124,15 @@ RSpec.describe LinkHelpers do
       it 'generates an image tag with height attribute' do
         url = app.data.image['1995']['198508-camp']['001_001.jpg']
         result = helper.simage('001_001', height: 300)
-        expect(result).to eq("<img src=\"#{url}\" height=\"300\" />")
+        expect(result).to eq("<img src=\"#{url}\" height=\"300\" class=\"simage\" />")
+      end
+    end
+
+    context 'with align option' do
+      it 'generates a centered image tag' do
+        url = app.data.image['1995']['198508-camp']['001_001.jpg']
+        result = helper.simage('001_001', align: 'center')
+        expect(result).to eq("<img src=\"#{url}\" height=\"#{app.data.site.simageheight}\" class=\"simage align-center\" />")
       end
     end
   end

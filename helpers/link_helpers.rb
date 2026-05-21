@@ -28,11 +28,30 @@ module LinkHelpers
             class: 'image swipe')
   end
 
-  def simage(file, height: data.site.simageheight, ext: 'jpg')
+  def simage(file, height: data.site.simageheight, ext: 'jpg', align: nil)
     year, dirname, file = parse_url(current_page.url, file)
     img_url = dropbox_url(year: year, dirname: dirname, basename: file, ext: ext)
 
-    image_tag(img_url, height: height)
+    attributes = { src: img_url, height: height }
+    classes = ['simage']
+    classes << simage_align_class(align) if align
+    attributes[:class] = classes.join(' ')
+
+    attrs = attributes.map { |key, value| %(#{key}="#{value}") }.join(' ')
+    "<img #{attrs} />"
+  end
+
+  private def simage_align_class(align)
+    case align
+    when 'center'
+      'align-center'
+    when 'right'
+      'align-right'
+    when 'left'
+      'align-left'
+    else
+      nil
+    end
   end
 
   def movie(file)

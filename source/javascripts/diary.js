@@ -29,8 +29,22 @@ function decorateImageParagraphs() {
       return img !== null && child.textContent.trim() === '';
     });
 
-    if (onlyImages) {
+    if (!onlyImages) return;
+
+    if (children.length > 1) {
       paragraph.classList.add('image-grid');
+      return;
+    }
+
+    var image = children[0].tagName === 'IMG' ? children[0] : children[0].querySelector('img');
+    if (image === null) return;
+
+    if (image.classList.contains('align-center')) {
+      paragraph.classList.add('image-grid', 'image-grid-single', 'image-grid-single-center');
+    } else if (image.classList.contains('align-right')) {
+      paragraph.classList.add('image-grid', 'image-grid-single', 'image-grid-single-right');
+    } else if (image.classList.contains('align-left')) {
+      paragraph.classList.add('image-grid', 'image-grid-single', 'image-grid-single-left');
     }
   });
 }
