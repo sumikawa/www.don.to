@@ -19,7 +19,7 @@ module EmbedHelpers
     "<div class=\"note\">\n本ドキュメントは#{link_to('Qiita記事', link)}のバックアップです。\n</div>"
   end
 
-  def note(link)
-    "<div class=\"note\">\n本ドキュメントは#{link_to('note記事', link)}のバックアップです。\n</div>"
+  def note
+    "<div class=\"note\">\n本ドキュメントは#{link_to('note記事', current_page.data.note_url)}のバックアップです。\n</div>"
   end
 end

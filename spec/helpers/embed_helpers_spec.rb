@@ -3,9 +3,13 @@ require_relative '../../helpers/embed_helpers'
 
 RSpec.describe EmbedHelpers do
   let(:helper) { Class.new { include EmbedHelpers }.new }
+  let(:current_page) do
+    double('current_page', data: double('page_data', note_url: 'https://note.com/example'))
+  end
 
   before do
     allow(helper).to receive(:data).and_return(app.data)
+    allow(helper).to receive(:current_page).and_return(current_page)
     allow(helper).to receive(:link_to) do |text, url, _options = {}|
       "<a href=\"#{url}\">#{text}</a>"
     end
@@ -22,7 +26,7 @@ RSpec.describe EmbedHelpers do
 
   describe '#note' do
     it 'returns note div with note link' do
-      result = helper.note('https://note.com/example')
+      result = helper.note
       expect(result).to include('本ドキュメントは')
       expect(result).to include('note記事')
       expect(result).to include('https://note.com/example')
