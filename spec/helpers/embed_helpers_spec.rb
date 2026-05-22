@@ -4,7 +4,14 @@ require_relative '../../helpers/embed_helpers'
 RSpec.describe EmbedHelpers do
   let(:helper) { Class.new { include EmbedHelpers }.new }
   let(:current_page) do
-    double('current_page', data: double('page_data', note_url: 'https://note.com/example'))
+    double(
+      'current_page',
+      data: double(
+        'page_data',
+        note_url: 'https://note.com/example',
+        qiita_url: 'https://qiita.com/example'
+      )
+    )
   end
 
   before do
@@ -17,7 +24,7 @@ RSpec.describe EmbedHelpers do
 
   describe '#qiita' do
     it 'returns note div with Qiita link' do
-      result = helper.qiita('https://qiita.com/example')
+      result = helper.qiita
       expect(result).to include('本ドキュメントは')
       expect(result).to include('Qiita記事')
       expect(result).to include('https://qiita.com/example')

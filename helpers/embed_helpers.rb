@@ -27,8 +27,8 @@ module EmbedHelpers
     HTML
   end
 
-  def qiita(link)
-    "<div class=\"note\">\n本ドキュメントは#{link_to('Qiita記事', link)}のバックアップです。\n</div>"
+  def qiita
+    "<div class=\"note\">\n本ドキュメントは#{link_to('Qiita記事', current_page.data.qiita_url)}のバックアップです。\n</div>"
   end
 
   def note
