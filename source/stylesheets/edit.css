@@ -21,6 +21,6 @@
   background-color: #333;
 }
 
-main[data-pagefind-body] p.image-grid {
+main p.image-grid {
   grid-template-columns: repeat(6, minmax(0, 1fr));
 }

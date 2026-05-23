@@ -15,7 +15,7 @@ if (RegExp(' AppleWebKit.*Mobile|Opera Mini|Mozilla.*Android').test(navigator.us
 }
 
 function decorateImageParagraphs() {
-  var paragraphs = document.querySelectorAll('main[data-pagefind-body] p');
+  var paragraphs = document.querySelectorAll('main p');
 
   paragraphs.forEach(function (paragraph) {
     var children = Array.from(paragraph.children);

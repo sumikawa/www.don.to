@@ -1,7 +1,7 @@
 // Simple inline editor for local development
 document.addEventListener('DOMContentLoaded', () => {
   const sourcePath = document.body.dataset.sourcePath;
-  const mainContent = document.querySelector('main[data-pagefind-body]');
+  const mainContent = document.querySelector('main');
   const mainBlock = document.querySelector('.mainblock'); // Get a reference to .mainblock
 
   const editButton = document.createElement('button');
