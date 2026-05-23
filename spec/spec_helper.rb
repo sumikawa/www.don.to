@@ -3,6 +3,8 @@ require 'middleman-core'
 require 'middleman-core/load_paths'
 require 'middleman-core/rack'
 
+ENV['DISABLE_LIVERELOAD'] = '1'
+
 Middleman.setup_load_paths
 
 module Middleman
