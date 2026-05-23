@@ -128,11 +128,11 @@ RSpec.describe LinkHelpers do
       end
     end
 
-    context 'with align option' do
-      it 'generates a centered image tag' do
+    context 'with grid disabled' do
+      it 'generates an image tag excluded from image-grid' do
         url = app.data.image['1995']['198508-camp']['001_001.jpg']
-        result = helper.simage('001_001', align: 'center')
-        expect(result).to eq("<img src=\"#{url}\" height=\"#{app.data.site.simageheight}\" class=\"simage align-center\" />")
+        result = helper.simage('001_001', grid: false)
+        expect(result).to eq("<img src=\"#{url}\" height=\"#{app.data.site.simageheight}\" class=\"simage no-image-grid\" />")
       end
     end
   end

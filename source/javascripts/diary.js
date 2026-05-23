@@ -21,6 +21,16 @@ function decorateImageParagraphs() {
     var children = Array.from(paragraph.children);
     if (children.length === 0) return;
 
+    var images = children.map(function (child) {
+      if (child.tagName === 'IMG') return child;
+      if (child.tagName !== 'A') return null;
+      return child.querySelector('img');
+    }).filter(function (img) {
+      return img !== null;
+    });
+
+    if (images.some(function (image) { return image.classList.contains('no-image-grid'); })) return;
+
     var onlyImages = children.every(function (child) {
       if (child.tagName === 'IMG') return true;
       if (child.tagName !== 'A') return false;
@@ -33,18 +43,6 @@ function decorateImageParagraphs() {
 
     if (children.length > 1) {
       paragraph.classList.add('image-grid');
-      return;
-    }
-
-    var image = children[0].tagName === 'IMG' ? children[0] : children[0].querySelector('img');
-    if (image === null) return;
-
-    if (image.classList.contains('align-center')) {
-      paragraph.classList.add('image-grid', 'image-grid-single', 'image-grid-single-center');
-    } else if (image.classList.contains('align-right')) {
-      paragraph.classList.add('image-grid', 'image-grid-single', 'image-grid-single-right');
-    } else if (image.classList.contains('align-left')) {
-      paragraph.classList.add('image-grid', 'image-grid-single', 'image-grid-single-left');
     }
   });
 }

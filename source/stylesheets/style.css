@@ -83,22 +83,9 @@ img.simage {
   max-width: 100%;
 }
 
-img.simage.align-center,
-img.simage.align-right,
-img.simage.align-left {
+img.simage.no-image-grid {
   display: block;
-}
-
-img.simage.align-center {
   margin-left: auto;
-  margin-right: auto;
-}
-
-img.simage.align-right {
-  margin-left: auto;
-}
-
-img.simage.align-left {
   margin-right: auto;
 }
 
@@ -120,27 +107,6 @@ main[data-pagefind-body] p.image-grid > img {
   width: 100%;
   max-width: 100%;
   height: auto;
-}
-
-main[data-pagefind-body] p.image-grid.image-grid-single > a,
-main[data-pagefind-body] p.image-grid.image-grid-single > img {
-  grid-column: 1 / -1;
-  width: calc((100% - 1rem) / 2);
-}
-
-main[data-pagefind-body] p.image-grid.image-grid-single.image-grid-single-center > a,
-main[data-pagefind-body] p.image-grid.image-grid-single.image-grid-single-center > img {
-  justify-self: center;
-}
-
-main[data-pagefind-body] p.image-grid.image-grid-single.image-grid-single-right > a,
-main[data-pagefind-body] p.image-grid.image-grid-single.image-grid-single-right > img {
-  justify-self: end;
-}
-
-main[data-pagefind-body] p.image-grid.image-grid-single.image-grid-single-left > a,
-main[data-pagefind-body] p.image-grid.image-grid-single.image-grid-single-left > img {
-  justify-self: start;
 }
 
 a {
@@ -791,11 +757,6 @@ li.pagefind-ui__result {
 
   main[data-pagefind-body] p.image-grid {
     grid-template-columns: 1fr;
-  }
-
-  main[data-pagefind-body] p.image-grid.image-grid-single > a,
-  main[data-pagefind-body] p.image-grid.image-grid-single > img {
-    width: 100%;
   }
 
   .prev_next {
