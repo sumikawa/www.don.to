@@ -15,6 +15,10 @@ function decorateAddresses() {
     var fragment = document.createDocumentFragment();
     var firstLineLink = element.querySelector('a');
     if (firstLineLink) {
+      var firstLineText = firstLineLink.parentNode.firstChild;
+      if (firstLineText && firstLineText.nodeType === Node.TEXT_NODE && firstLineText.textContent !== '') {
+        fragment.appendChild(document.createTextNode(firstLineText.textContent));
+      }
       fragment.appendChild(firstLineLink.cloneNode(true));
     } else {
       fragment.appendChild(document.createTextNode(lines[0]));

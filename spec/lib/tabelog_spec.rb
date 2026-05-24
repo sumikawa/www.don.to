@@ -25,6 +25,22 @@ RSpec.describe '#tabelog' do
     HTML
   end
   let(:html_no_table) { '<html><body><h1>No table here</h1></body></html>' }
+  let(:html_multiline_address) do
+    <<~HTML
+      <html>
+        <body>
+          <table class="rstinfo-table__table">
+            <tbody>
+              <tr><th>店名</th><td><p>サンプルレストラン</p></td></tr>
+              <tr><th>住所</th><td><p class="rstinfo-table__address">東京都サンプル区
+      サンプル 1-2-3</p></td></tr>
+              <tr><th>お問い合わせ</th><td><strong class="rstinfo-table__tel-num">03-1234-5678</strong></td></tr>
+            </tbody>
+          </table>
+        </body>
+      </html>
+    HTML
+  end
 
   context 'with a valid URL and full information from file' do
     it 'returns formatted address HTML' do
@@ -67,6 +83,24 @@ RSpec.describe '#tabelog' do
       allow(URI).to receive(:parse).with(valid_url).and_return(uri_mock)
       allow(uri_mock).to receive(:open).with('User-Agent' => USER_AGENT).and_return(StringIO.new(html_no_table))
       expect(tabelog(valid_url)).to eq('Could not find the information table on the page.')
+    end
+  end
+
+  context 'when the address spans multiple lines' do
+    it 'replaces line breaks with spaces' do
+      uri_mock = double('uri_mock')
+      allow(URI).to receive(:parse).with(valid_url).and_return(uri_mock)
+      allow(uri_mock).to receive(:open).with('User-Agent' => USER_AGENT).and_return(StringIO.new(html_multiline_address))
+
+      expected_html = <<~HTML
+        <pre class="address">
+        <a href="#{valid_url}">サンプルレストラン</a>
+        #{UnicodeUtils.nfkd('東京都サンプル区 サンプル 1-2-3')}
+        03-1234-5678
+        </pre>
+      HTML
+
+      expect(tabelog(valid_url)).to eq(expected_html)
     end
   end
 

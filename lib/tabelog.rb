@@ -35,7 +35,7 @@ def parse_tabelog_info(doc)
     next unless header_node
 
     header = header_node.text.strip
-    value = extract_tabelog_row_value(row, header)&.text&.strip
+    value = normalize_tabelog_text(extract_tabelog_row_value(row, header)&.text)
     info[header] = value if value
   end
 end
@@ -49,6 +49,11 @@ def extract_tabelog_row_value(row, header)
   else
     row.at_css('td')
   end
+end
+
+def normalize_tabelog_text(text)
+  normalized = text.to_s.gsub(/\R+/, ' ').strip.gsub(/[[:space:]]+/, ' ')
+  normalized.empty? ? nil : normalized
 end
 
 def format_tabelog_output(info, url)
