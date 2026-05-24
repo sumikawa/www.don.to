@@ -128,8 +128,13 @@ initPhotoSwipeFromDOM = function (gallerySelector) {
   var swipeElements = getSwipeElements();
   for (var j = 0; j < swipeElements.length; j++) {
     var swipeEl = swipeElements[j];
+    if (swipeEl.dataset.pswpInitialized === 'true') {
+      continue;
+    }
+
     swipeEl.setAttribute('data-pswp-uid', j + 1);
     swipeEl.addEventListener('click', onThumbnailsClick);
+    swipeEl.dataset.pswpInitialized = 'true';
   }
 
   var hashData = photoswipeParseHash();
