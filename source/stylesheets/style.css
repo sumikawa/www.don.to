@@ -274,6 +274,7 @@ pre.address {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.82),
     0 10px 22px rgba(48, 67, 63, 0.08);
+  padding-left: 2rem;
 }
 
 pre.address::before {
@@ -286,10 +287,6 @@ pre.address::before {
   border-radius: 999px;
   background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.9), rgba(196, 106, 58, 0.95) 45%, rgba(167, 77, 38, 1) 100%);
   box-shadow: 0 0 0 4px rgba(196, 106, 58, 0.12);
-}
-
-pre.address {
-  padding-left: 2rem;
 }
 
 pre.terminal {
