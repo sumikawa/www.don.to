@@ -7,12 +7,30 @@ function decorateAddresses() {
 
   var addressElements = document.querySelectorAll('pre.address');
   addressElements.forEach(function (element) {
-    var re = /(.*\n)([\u0041-\u005A\u0061-\u007A\u00C0-\u00FF\u0102\u0103\u0110\u0111\u1EA0-\u1EF9ĩưũơäöüÄÖÜßÇçĞğÖöŞşÜüİıΓΔΘΛΞΠΣΦΨΩαβγδεζηθλξπσςφψωÁČĎÉĚÍŇÓŘŠŤÚŮÝŽáčďéěíňóřšťúůýž\w :,./+-]+|.*市[^\n]*|.*町[^\n]*|.*県[^\n]*|.*区[^\n]*|.*号[^\n]*)(\n.*)?/;
-    var matched = element.innerHTML.match(re);
-    if (matched != null && matched[2] != undefined) {
-      element.innerHTML = matched[1] + '<a href="http://maps.google.co.jp/?q=' + matched[2] + '">'
-        + matched[2] + '</a>' + matched[3];
+    var lines = element.textContent.split('\n');
+    if (lines.length < 2 || lines[1].trim() === '') {
+      return;
     }
+
+    var fragment = document.createDocumentFragment();
+    var firstLineLink = element.querySelector('a');
+    if (firstLineLink) {
+      fragment.appendChild(firstLineLink.cloneNode(true));
+    } else {
+      fragment.appendChild(document.createTextNode(lines[0]));
+    }
+    fragment.appendChild(document.createTextNode('\n'));
+
+    var addressLink = document.createElement('a');
+    addressLink.href = 'https://maps.google.co.jp/?q=' + encodeURIComponent(lines[1]);
+    addressLink.textContent = lines[1];
+    fragment.appendChild(addressLink);
+
+    if (lines.length > 2) {
+      fragment.appendChild(document.createTextNode('\n' + lines.slice(2).join('\n')));
+    }
+
+    element.replaceChildren(fragment);
   });
 }
 
