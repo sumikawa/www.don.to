@@ -682,7 +682,7 @@ div.amazon-info {
   background: var(--title-tint);
 }
 
-div.pagefind-ui__drawer {
+#search .pagefind-ui .pagefind-ui__drawer {
   padding: 0.45rem;
   border: 1px solid var(--line);
   border-radius: 18px;
@@ -690,20 +690,20 @@ div.pagefind-ui__drawer {
   box-shadow: var(--shadow-lg);
 }
 
-a.pagefind-ui__result-link {
-  font-size: 0.92rem !important;
-  color: var(--titlecolor) !important;
+#search .pagefind-ui .pagefind-ui__result-link {
+  font-size: 0.92rem;
+  color: var(--titlecolor);
 }
 
-p.pagefind-ui__result-excerpt,
-p.pagefind-ui__message,
-button.pagefind-ui__button {
-  font-size: 0.9rem !important;
+#search .pagefind-ui .pagefind-ui__result-excerpt,
+#search .pagefind-ui .pagefind-ui__message,
+#search .pagefind-ui .pagefind-ui__button {
+  font-size: 0.9rem;
 }
 
-li.pagefind-ui__result {
-  padding-top: 0.35rem !important;
-  padding-bottom: 0.35rem !important;
+#search .pagefind-ui .pagefind-ui__result {
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
 }
 
 /* Responsive layout */

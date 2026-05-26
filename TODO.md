@@ -38,9 +38,6 @@
 - [ ] `source/stylesheets/style.css`
   `#search` の `float` ベースのレイアウトをやめて、周辺と同じく flex / grid に寄せる。
 
-- [ ] `source/stylesheets/style.css`
-  Pagefind 上書きの `!important` を減らす。`#search .pagefind-ui ...` のように詳細度で勝つ形へ寄せたい。
-
 ### Medium
 
 - [ ] `source/stylesheets/style.css`
