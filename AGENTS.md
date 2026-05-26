@@ -68,7 +68,7 @@ Use this file as the default operating guide when making changes in this repo.
 - Prefer small helper modules over growing catch-all helper files.
 - Use `git mv` for renames so helper/spec history stays traceable.
 - Do not assume `slides/` uses the same tooling as the main site; use Node commands there and Ruby commands in the repo root.
-- Do not embed inline `style` attributes in generated HTML; add classes and define presentation in `source/stylesheets/style.css`.  Only exception is editor.js because it's loaded only in staging mode.
+- Do not embed inline `style` attributes in generated HTML; add classes and define presentation in `source/stylesheets/style.css`.
 
 ## Style
 

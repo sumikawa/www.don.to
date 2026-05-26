@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Check if the page is editable
   if (!mainContent || !sourcePath || !sourcePath.startsWith('/diary/') || !sourcePath.endsWith('.md.erb')) {
-    editButton.style.display = 'none'; // Hide button if not editable
-    githubButton.style.display = 'none'; // Hide button if not editable
+    editButton.hidden = true;
+    githubButton.hidden = true;
     return;
   }
 
@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const showEditor = async () => {
     if (isEditing) return;
     isEditing = true;
-    editButton.style.display = 'none'; // Hide the edit button
-    githubButton.style.display = 'none'; // Hide the github button
+    editButton.hidden = true;
+    githubButton.hidden = true;
 
     const originalHTML = mainContent.innerHTML;
 
@@ -61,27 +61,23 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
       console.error('Error fetching content:', error);
       isEditing = false;
-      editButton.style.display = 'block'; // Show the edit button again if fetching fails
-      githubButton.style.display = 'block'; // Show the github button again if fetching fails
+      editButton.hidden = false;
+      githubButton.hidden = false;
       return;
     }
 
     // Create textarea and buttons
     const editorWrapper = document.createElement('div');
+    editorWrapper.classList.add('editor-wrapper');
 
     const textarea = document.createElement('textarea');
+    textarea.classList.add('editor-textarea');
     textarea.value = markdownContent;
-    textarea.style.width = '100%';
-    textarea.style.minHeight = '300px';
-    textarea.style.maxHeight = `${window.innerHeight * 0.8}px`; // Set initial max-height
-    textarea.style.boxSizing = 'border-box';
-    textarea.style.resize = 'vertical'; // Allow manual vertical resizing
-    textarea.style.overflowY = 'auto'; // Enable scrollbar when content exceeds height
 
     // Auto-resize textarea height
     const adjustTextareaHeight = () => {
-      textarea.style.height = 'auto'; // Reset height to recalculate
-      const newHeight = Math.min(textarea.scrollHeight, window.innerHeight * 0.8); // 80% of window height
+      textarea.style.height = 'auto';
+      const newHeight = Math.min(textarea.scrollHeight, window.innerHeight * 0.8);
       textarea.style.height = `${newHeight}px`;
     };
 
@@ -91,12 +87,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     const buttonContainer = document.createElement('div');
-    buttonContainer.style.marginTop = '10px';
-    buttonContainer.style.textAlign = 'right';
+    buttonContainer.classList.add('editor-actions');
 
     const saveButton = document.createElement('button');
     saveButton.textContent = 'Save';
-    saveButton.style.marginLeft = '10px';
+    saveButton.classList.add('editor-save-button');
 
     const cancelButton = document.createElement('button');
     cancelButton.textContent = 'Cancel';
@@ -117,8 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const cleanup = () => {
       mainContent.innerHTML = originalHTML;
       isEditing = false;
-      editButton.style.display = 'block'; // Show the edit button again
-      githubButton.style.display = 'block'; // Show the github button again
+      editButton.hidden = false;
+      githubButton.hidden = false;
       initPhotoSwipeFromDOM('.mainblock');
     };
 
@@ -164,32 +159,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function displayTemporaryMessage(message, duration) {
   const messageDiv = document.createElement('div');
+  messageDiv.classList.add('editor-toast');
   messageDiv.textContent = message;
-  Object.assign(messageDiv.style, {
-    position: 'fixed',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    color: 'white',
-    padding: '15px 25px',
-    borderRadius: '5px',
-    zIndex: '1000',
-    opacity: '0',
-    transition: 'opacity 0.5s ease-in-out',
-    textAlign: 'center'
-  });
 
   document.body.appendChild(messageDiv);
 
   // Fade in
   setTimeout(() => {
-    messageDiv.style.opacity = '1';
-  }, 10); // Small delay to trigger transition
+    messageDiv.classList.add('is-visible');
+  }, 10);
 
   // Fade out and remove
   setTimeout(() => {
-    messageDiv.style.opacity = '0';
+    messageDiv.classList.remove('is-visible');
     messageDiv.addEventListener('transitionend', () => {
       messageDiv.remove();
     });
