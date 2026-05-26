@@ -25,9 +25,6 @@
 
 ### Low
 
-- [ ] `source/javascripts/search.js`
-  未使用の引数や細かな書式を整理する。
-
 - [ ] `source/javascripts/diary.js`
   `decorateImageParagraphs()` の条件判定が今後増えそうなら、小さな helper 関数に分ける。
 
