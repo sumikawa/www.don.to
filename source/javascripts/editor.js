@@ -2,7 +2,18 @@
 document.addEventListener('DOMContentLoaded', () => {
   const sourcePath = document.body.dataset.sourcePath;
   const mainContent = document.querySelector('main');
-  const mainBlock = document.querySelector('.mainblock'); // Get a reference to .mainblock
+  const mainBlock = document.querySelector('.mainblock');
+
+  let isEditing = false;
+
+  if (
+    !mainBlock ||
+    !mainContent ||
+    !sourcePath ||
+    !sourcePath.startsWith('/diary/')
+  ) {
+    return;
+  }
 
   const editButton = document.createElement('button');
   editButton.textContent = 'Edit';
@@ -12,28 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
   githubButton.textContent = 'GitHub';
   githubButton.classList.add('github-button');
 
-  if (mainBlock) { // Only append if mainBlock exists
-    mainBlock.appendChild(editButton);
-    mainBlock.appendChild(githubButton);
-  }
+  mainBlock.appendChild(editButton);
+  mainBlock.appendChild(githubButton);
 
   githubButton.addEventListener('click', () => {
     const githubUrl = `https://github.com/sumikawa/www.don.to/edit/main/source${sourcePath}`;
     window.open(githubUrl, '_blank');
   });
-
-
-  let isEditing = false;
-
-  // Check if the page is editable
-  if (!mainContent || !sourcePath || !sourcePath.startsWith('/diary/') || !sourcePath.endsWith('.md.erb')) {
-    editButton.hidden = true;
-    githubButton.hidden = true;
-    return;
-  }
-
-  // mainContent.style.cursor = 'pointer';
-  // mainContent.title = 'Click to edit';
 
   const showEditor = async () => {
     if (isEditing) return;
