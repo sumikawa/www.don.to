@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/* Theme tokens */
 :root {
   --titlecolor: #1f4f46;
   --accent: #c46a3a;
@@ -36,6 +37,7 @@
   --pagefind-ui-font: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Yu Gothic UI", Meiryo, sans-serif;
 }
 
+/* Global reset and page background */
 *,
 *::before,
 *::after {
@@ -74,6 +76,7 @@ div#krb-amzlt-box {
   background-color: transparent;
 }
 
+/* Media and rich content primitives */
 img {
   max-width: 100%;
   border: none;
@@ -113,6 +116,7 @@ main p.image-grid > img {
   height: auto;
 }
 
+/* Links and typography */
 a {
   color: var(--titlecolor);
   text-decoration: none;
@@ -217,6 +221,7 @@ blockquote {
   color: var(--text-soft);
 }
 
+/* Code, preformatted blocks, and tables */
 code {
   display: inline-block;
   padding: 0 0.42em;
@@ -337,6 +342,7 @@ tr:nth-child(even) {
   background: rgba(240, 231, 218, 0.45);
 }
 
+/* Page layout shell */
 .titleblock {
   margin-bottom: var(--margin);
   text-align: center;
@@ -415,6 +421,7 @@ div#name {
   text-align: right;
 }
 
+/* Search UI */
 #search {
   float: right;
   width: 8rem;
@@ -455,6 +462,7 @@ div#name {
   margin-left: auto;
 }
 
+/* Tags and taxonomy */
 .tags {
   margin-top: 1rem;
   padding-top: 0.7rem;
@@ -523,6 +531,7 @@ div#name {
   border-color: rgba(196, 106, 58, 0.2);
 }
 
+/* Pager and inline utility classes */
 .prev_next {
   display: flex;
   align-items: center;
@@ -597,6 +606,7 @@ span.fontsizeplusplus {
   font-size: 1.4em;
 }
 
+/* Custom content blocks */
 div.note {
   margin: 0 0 1.2rem;
   padding: 1rem 1.1rem;
@@ -641,6 +651,7 @@ div.amazon-info {
   min-width: 0;
 }
 
+/* Navigation and Pagefind result styling */
 .nav ul {
   margin: 0;
   padding-left: 0;
@@ -695,6 +706,8 @@ li.pagefind-ui__result {
   padding-bottom: 0.35rem !important;
 }
 
+/* Responsive layout */
+/* Phones up to 480px: single-column layout and larger touch targets */
 @media screen and (max-width: 480px) {
   .container {
     width: min(100% - 20px, 100%);
@@ -797,6 +810,7 @@ li.pagefind-ui__result {
   }
 }
 
+/* Tablets and desktops from 481px: two-column shell with sidebar navigation */
 @media screen and (min-width: 481px) {
   .container {
     display: grid;
@@ -846,6 +860,7 @@ li.pagefind-ui__result {
   }
 }
 
+/* Small tablets 481px-800px: narrower sidebar and tighter navigation spacing */
 @media screen and (min-width: 481px) and (max-width: 800px) {
   .container {
     grid-template-columns: minmax(0, 1fr) 120px;
