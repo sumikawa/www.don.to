@@ -69,6 +69,8 @@ Use this file as the default operating guide when making changes in this repo.
 - Use `git mv` for renames so helper/spec history stays traceable.
 - Do not assume `slides/` uses the same tooling as the main site; use Node commands there and Ruby commands in the repo root.
 - Do not embed inline `style` attributes in generated HTML; add classes and define presentation in `source/stylesheets/style.css`.
+- Treat image-grid decoration as a diary rendering convention: image-only paragraphs in article bodies should receive `p.image-grid` from `source/javascripts/diary.js`.
+- Use `grid: false` on `simage(...)` only when an image must be excluded from that decoration; this maps to `class="simage no-image-grid"` and should remain the opt-out path.
 
 ## Style
 

@@ -65,9 +65,8 @@ function decorateImageParagraphs() {
 
     if (!onlyImages) return;
 
-    if (children.length > 1) {
-      paragraph.classList.add('image-grid');
-    }
+    paragraph.classList.add('image-grid');
+
   });
 }
 
