@@ -1547,6 +1547,7 @@ camp:
 - source/diary/2026/0517-miyako.html.md.erb
 - source/diary/2026/0518-miyako.html.md.erb
 - source/diary/2026/0519-miyako.html.md.erb
+- source/diary/2026/0524-note.html.md.erb
 canada:
 - source/diary/2005/0622-ottawa.html.md.erb
 - source/diary/2005/0623-ottawa.html.md.erb
@@ -7128,6 +7129,7 @@ note:
 - source/diary/2026/0316-note.html.md.erb
 - source/diary/2026/0411-note.html.md.erb
 - source/diary/2026/0523-note.html.md.erb
+- source/diary/2026/0524-note.html.md.erb
 novel:
 - source/diary/1999/0622-memo.html.md.erb
 - source/diary/1999/1011-memo.html.md.erb
@@ -7918,6 +7920,8 @@ party:
 - source/diary/2026/0106-meguro.html.md.erb
 - source/diary/2026/0210-nakano.html.md.erb
 - source/diary/2026/0219-scent.html.md.erb
+- source/diary/2026/0502-birthday.html.md.erb
+- source/diary/2026/0523-birthday.html.md.erb
 pasta:
 - source/diary/2007/1215-japone.html.md.erb
 - source/diary/2014/0221-lunch.html.md.erb
@@ -8665,7 +8669,6 @@ restaurant:
 - source/diary/2024/0809-dinner.html.md.erb
 - source/diary/2024/0820-lunch.html.md.erb
 - source/diary/2024/1027-lunch.html.md.erb
-- source/diary/2026/0523-birthday.html.md.erb
 retinal detachment:
 - source/diary/2024/0730-hospital.html.md.erb
 - source/diary/2024/0731-hospital.html.md.erb
