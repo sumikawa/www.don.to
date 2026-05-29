@@ -1,4 +1,13 @@
+require 'uri'
+
 module LinkHelpers
+  def image_alt_from_url(url)
+    path = URI.parse(url).path
+    File.basename(path, '.*')
+  rescue URI::InvalidURIError
+    File.basename(url, '.*')
+  end
+
   def parse_url(url, file)
     dir = if url =~ /\.html$/
             url.sub(/\.html$/, '/')
@@ -23,7 +32,7 @@ module LinkHelpers
     year, dirname, file = parse_url(current_page.url, file)
     img_url = dropbox_url(year: year, dirname: dirname, basename: file, ext: ext)
 
-    link_to(image_tag(img_url, height: height),
+    link_to(image_tag(img_url, alt: image_alt_from_url(img_url), height: height),
             img_url,
             class: 'image swipe')
   end
@@ -32,7 +41,7 @@ module LinkHelpers
     year, dirname, file = parse_url(current_page.url, file)
     img_url = dropbox_url(year: year, dirname: dirname, basename: file, ext: ext)
 
-    attributes = { src: img_url, height: height }
+    attributes = { src: img_url, alt: image_alt_from_url(img_url), height: height }
     classes = ['simage']
     classes << 'no-image-grid' unless grid
     attributes[:class] = classes.join(' ')

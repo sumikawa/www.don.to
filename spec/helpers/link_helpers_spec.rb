@@ -19,11 +19,10 @@ RSpec.describe LinkHelpers do
       "<a href=\"#{url}\" class=\"#{options[:class]}\">#{text}</a>"
     end
     allow(helper).to receive(:image_tag) do |url, options = {}|
-      if options[:height]
-        "<img src=\"#{url}\" height=\"#{options[:height]}\" />"
-      else
-        "<img src=\"#{url}\" />"
-      end
+      attributes = ["src=\"#{url}\""]
+      attributes << "alt=\"#{options[:alt]}\"" if options[:alt]
+      attributes << "height=\"#{options[:height]}\"" if options[:height]
+      "<img #{attributes.join(' ')} />"
     end
   end
 
@@ -102,12 +101,12 @@ RSpec.describe LinkHelpers do
     it 'generates an image link with the correct URL and class' do
       url = app.data.image['1995']['198508-camp']['001_001.jpg']
       result = helper.image('001_001')
-      expect(result).to eq("<a href=\"#{url}\" class=\"image swipe\"><img src=\"#{url}\" height=\"#{app.data.site.thumbheight}\" /></a>")
+      expect(result).to eq("<a href=\"#{url}\" class=\"image swipe\"><img src=\"#{url}\" alt=\"001_001\" height=\"#{app.data.site.thumbheight}\" /></a>")
     end
 
     it 'uses the error image when the image does not exist' do
       result = helper.image('nonexistent')
-      expect(result).to eq("<a href=\"#{app.data.site.error_image}\" class=\"image swipe\"><img src=\"#{app.data.site.error_image}\" height=\"#{app.data.site.thumbheight}\" /></a>")
+      expect(result).to eq("<a href=\"#{app.data.site.error_image}\" class=\"image swipe\"><img src=\"#{app.data.site.error_image}\" alt=\"under\" height=\"#{app.data.site.thumbheight}\" /></a>")
     end
   end
 
@@ -116,7 +115,7 @@ RSpec.describe LinkHelpers do
       it 'generates an image tag without height attribute' do
         url = app.data.image['1995']['198508-camp']['001_001.jpg']
         result = helper.simage('001_001')
-        expect(result).to eq("<img src=\"#{url}\" height=\"#{app.data.site.simageheight}\" class=\"simage\" />")
+        expect(result).to eq("<img src=\"#{url}\" alt=\"001_001\" height=\"#{app.data.site.simageheight}\" class=\"simage\" />")
       end
     end
 
@@ -124,7 +123,7 @@ RSpec.describe LinkHelpers do
       it 'generates an image tag with height attribute' do
         url = app.data.image['1995']['198508-camp']['001_001.jpg']
         result = helper.simage('001_001', height: 300)
-        expect(result).to eq("<img src=\"#{url}\" height=\"300\" class=\"simage\" />")
+        expect(result).to eq("<img src=\"#{url}\" alt=\"001_001\" height=\"300\" class=\"simage\" />")
       end
     end
 
@@ -132,7 +131,7 @@ RSpec.describe LinkHelpers do
       it 'generates an image tag excluded from image-grid' do
         url = app.data.image['1995']['198508-camp']['001_001.jpg']
         result = helper.simage('001_001', grid: false)
-        expect(result).to eq("<img src=\"#{url}\" height=\"#{app.data.site.simageheight}\" class=\"simage no-image-grid\" />")
+        expect(result).to eq("<img src=\"#{url}\" alt=\"001_001\" height=\"#{app.data.site.simageheight}\" class=\"simage no-image-grid\" />")
       end
     end
   end
