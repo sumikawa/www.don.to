@@ -8,7 +8,9 @@ Use this file as the default operating guide when making changes in this repo.
 
 ## Environment
 
-- Run Ruby commands with the Homebrew Ruby environment loaded:
+- Run Ruby commands with Bundler using the repo's configured bundle path:
+  - `bundle exec ...`
+- In Codex's sandbox, load the Homebrew Ruby environment first:
   - `source ~/.zshrc && bundle exec ...`
 - The system Ruby may not have the right Bundler version from `Gemfile.lock`.
 - The main app root is this directory.
@@ -41,13 +43,15 @@ Use this file as the default operating guide when making changes in this repo.
 ## Common Commands
 
 - Run all tests:
-  - `source ~/.zshrc && bundle exec rspec`
+  - `bundle exec rspec`
 - Run helper specs only:
-  - `source ~/.zshrc && bundle exec rspec spec/helpers`
+  - `bundle exec rspec spec/helpers`
 - Run the default rake task:
-  - `source ~/.zshrc && bundle exec rake`
+  - `bundle exec rake`
+- Run tests from Codex without the Bundler home warning:
+  - `make test-codex`
 - Run RuboCop:
-  - `source ~/.zshrc && bundle exec rubocop`
+  - `bundle exec rubocop`
 - Start the site and API together:
   - `make run`
 - Build the site:
@@ -84,7 +88,8 @@ Use this file as the default operating guide when making changes in this repo.
 For Ruby changes:
 
 - Run targeted specs first.
-- Then run `source ~/.zshrc && bundle exec rspec` if the change could affect shared behavior.
+- Then run `bundle exec rspec` if the change could affect shared behavior.
+- When running from Codex's sandbox, prefer `make test-codex` to keep Bundler's writable home under `/private/tmp`.
 
 For `slides/` changes:
 

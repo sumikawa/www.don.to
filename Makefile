@@ -3,7 +3,10 @@ THEME=github
 USER_HOME := $(HOME)
 BUNDLE_USER_HOME=$(USER_HOME)/tmp
 BUNDLE_PATH=$(USER_HOME)/tmp/bundle
-RUBY_BUNDLE=source ~/.zshrc && mkdir -p "$(BUNDLE_USER_HOME)" "$(BUNDLE_PATH)" && BUNDLE_USER_HOME="$(BUNDLE_USER_HOME)" BUNDLE_PATH="$(BUNDLE_PATH)" bundle exec
+RUBY_BUNDLE_ENV=mkdir -p "$(BUNDLE_USER_HOME)" "$(BUNDLE_PATH)" && BUNDLE_USER_HOME="$(BUNDLE_USER_HOME)" BUNDLE_PATH="$(BUNDLE_PATH)"
+RUBY_BUNDLE=$(RUBY_BUNDLE_ENV) bundle exec
+CODEX_BUNDLE_USER_HOME=/private/tmp/bundle
+CODEX_RUBY_BUNDLE=source ~/.zshrc && mkdir -p "$(CODEX_BUNDLE_USER_HOME)" "$(BUNDLE_PATH)" && BUNDLE_USER_HOME="$(CODEX_BUNDLE_USER_HOME)" BUNDLE_PATH="$(BUNDLE_PATH)" bundle exec
 
 run:
 	parallel --line-buffer ::: \
@@ -33,6 +36,9 @@ push: tags
 
 test::
 	$(RUBY_BUNDLE) rake
+
+test-codex::
+	$(CODEX_RUBY_BUNDLE) rake
 
 rubocop::
 	$(RUBY_BUNDLE) rubocop
