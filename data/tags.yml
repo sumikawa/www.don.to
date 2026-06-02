@@ -4545,6 +4545,7 @@ hammock:
 - source/diary/2025/0930-kamakura.html.md.erb
 - source/diary/2025/1014-kamakura.html.md.erb
 - source/diary/2026/0528-park.html.md.erb
+- source/diary/2026/0530-park.html.md.erb
 hanoi:
 - source/diary/2025/0624-vietnam.html.md.erb
 - source/diary/2025/0625-vietnam.html.md.erb
@@ -7785,6 +7786,7 @@ park:
 - source/diary/2025/0507-park.html.md.erb
 - source/diary/2026/0208-vote.html.md.erb
 - source/diary/2026/0528-park.html.md.erb
+- source/diary/2026/0530-park.html.md.erb
 party:
 - source/diary/1995/199203-ecc.html.md.erb
 - source/diary/1995/19950311-sadaken.html.md.erb
