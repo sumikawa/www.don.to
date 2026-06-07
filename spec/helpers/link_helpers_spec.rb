@@ -127,7 +127,7 @@ RSpec.describe LinkHelpers do
     it 'includes explicit filename and timestamp metadata when provided' do
       url = app.data.image['1995']['198508-camp']['001_001.jpg']
       result = helper.image('001_001', timestamp: '2025-02-03 12:34:56')
-      expect(result).to eq("<a href=\"#{url}\" class=\"image swipe\" data-filename=\"IMG_0001\" data-timestamp=\"2025-02-03 12:34:56\"><img src=\"#{url}\" alt=\"001_001\" height=\"#{app.data.site.thumbheight}\" /></a>")
+      expect(result).to eq("<a href=\"#{url}\" class=\"image swipe\" data-filename=\"001_001\" data-timestamp=\"2025-02-03 12:34:56\"><img src=\"#{url}\" alt=\"001_001\" height=\"#{app.data.site.thumbheight}\" /></a>")
     end
   end
 

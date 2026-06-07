@@ -2,6 +2,9 @@ var initPhotoSwipeFromDOM;
 
 initPhotoSwipeFromDOM = function (gallerySelector) {
   var scope = document.querySelector(gallerySelector) || document;
+  var showMetadata = false;
+  var activeGallery = null;
+  var activeItems = null;
   var escapeHtml = function (value) {
     return String(value)
       .replace(/&/g, '&amp;')
@@ -52,7 +55,7 @@ initPhotoSwipeFromDOM = function (gallerySelector) {
     var html = buildCaptionHtml(item);
 
     content.innerHTML = html;
-    caption.hidden = html === '';
+    caption.hidden = !showMetadata || html === '';
   };
   var getSwipeElements = function () {
     return scope.querySelectorAll('a.swipe');
@@ -131,11 +134,17 @@ initPhotoSwipeFromDOM = function (gallerySelector) {
     }
 
     var gallery = new PhotoSwipe(options);
+    activeGallery = gallery;
+    activeItems = items;
     gallery.on('afterInit', function () {
       updateCaption(gallery, items);
     });
     gallery.on('change', function () {
       updateCaption(gallery, items);
+    });
+    gallery.on('destroy', function () {
+      activeGallery = null;
+      activeItems = null;
     });
     gallery.init();
   };
@@ -186,6 +195,20 @@ initPhotoSwipeFromDOM = function (gallerySelector) {
     }
     return params;
   };
+
+  document.addEventListener('keydown', function (e) {
+    if (!activeGallery) {
+      return;
+    }
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) {
+      return;
+    }
+
+    if (e.key === 'x' || e.key === 'X') {
+      showMetadata = !showMetadata;
+      updateCaption(activeGallery, activeItems);
+    }
+  });
 
   // Set up click handlers for all swipe elements
   var swipeElements = getSwipeElements();
