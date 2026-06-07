@@ -28,7 +28,7 @@ module LinkHelpers
     data.site.error_image
   end
 
-  def image(file, height: data.site.thumbheight, ext: data.site.thumbext)
+  def image(file, height: data.site.thumbheight, ext: data.site.thumbext, timestamp: nil)
     year, dirname, file = parse_url(current_page.url, file)
     img_url = dropbox_url(year: year, dirname: dirname, basename: file, ext: ext)
 
