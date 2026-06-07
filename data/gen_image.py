@@ -63,8 +63,7 @@ if __name__ == "__main__":
   else:
     list = glob.glob('**/*.*', recursive=True)
 
-  s_list = sorted(list, reverse=True)
-  for item in s_list:
+  for item in list:
     file = "{prefix}/{item}".format(prefix=prefix, item=item)
     layers = file.replace(prefix, '').split('/')
     year = str(layers[2])
