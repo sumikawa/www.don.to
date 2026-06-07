@@ -34,7 +34,8 @@ module LinkHelpers
 
     link_to(image_tag(img_url, alt: image_alt_from_url(img_url), height: height),
             img_url,
-            class: 'image swipe')
+            class: 'image swipe',
+            data: { filename: file, timestamp: timestamp } )
   end
 
   def simage(file, height: data.site.simageheight, ext: 'jpg', grid: true)

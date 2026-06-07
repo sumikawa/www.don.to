@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'cgi'
 require_relative '../../helpers/link_helpers'
 
 RSpec.describe LinkHelpers do
@@ -16,7 +17,21 @@ RSpec.describe LinkHelpers do
     allow(helper).to receive(:data).and_return(app.data)
     allow(helper).to receive(:current_page).and_return(current_page)
     allow(helper).to receive(:link_to) do |text, url, options = {}|
-      "<a href=\"#{url}\" class=\"#{options[:class]}\">#{text}</a>"
+      attributes = ["href=\"#{url}\""]
+      options.each do |key, value|
+        next if value.nil?
+        next if key == :data
+
+        attributes << "#{key}=\"#{value}\""
+      end
+      if options[:data]
+        options[:data].each do |data_key, data_value|
+          next if data_value.nil?
+
+          attributes << "data-#{data_key.to_s.tr('_', '-')}=\"#{data_value}\""
+        end
+      end
+      "<a #{attributes.join(' ')}>#{text}</a>"
     end
     allow(helper).to receive(:image_tag) do |url, options = {}|
       attributes = ["src=\"#{url}\""]
@@ -101,12 +116,18 @@ RSpec.describe LinkHelpers do
     it 'generates an image link with the correct URL and class' do
       url = app.data.image['1995']['198508-camp']['001_001.jpg']
       result = helper.image('001_001')
-      expect(result).to eq("<a href=\"#{url}\" class=\"image swipe\"><img src=\"#{url}\" alt=\"001_001\" height=\"#{app.data.site.thumbheight}\" /></a>")
+      expect(result).to eq("<a href=\"#{url}\" class=\"image swipe\" data-filename=\"001_001\"><img src=\"#{url}\" alt=\"001_001\" height=\"#{app.data.site.thumbheight}\" /></a>")
     end
 
     it 'uses the error image when the image does not exist' do
       result = helper.image('nonexistent')
-      expect(result).to eq("<a href=\"#{app.data.site.error_image}\" class=\"image swipe\"><img src=\"#{app.data.site.error_image}\" alt=\"under\" height=\"#{app.data.site.thumbheight}\" /></a>")
+      expect(result).to eq("<a href=\"#{app.data.site.error_image}\" class=\"image swipe\" data-filename=\"nonexistent\"><img src=\"#{app.data.site.error_image}\" alt=\"under\" height=\"#{app.data.site.thumbheight}\" /></a>")
+    end
+
+    it 'includes explicit filename and timestamp metadata when provided' do
+      url = app.data.image['1995']['198508-camp']['001_001.jpg']
+      result = helper.image('001_001', timestamp: '2025-02-03 12:34:56')
+      expect(result).to eq("<a href=\"#{url}\" class=\"image swipe\" data-filename=\"IMG_0001\" data-timestamp=\"2025-02-03 12:34:56\"><img src=\"#{url}\" alt=\"001_001\" height=\"#{app.data.site.thumbheight}\" /></a>")
     end
   end
 
@@ -167,7 +188,7 @@ RSpec.describe LinkHelpers do
                                                   ext: 'pdf').and_return('https://example.com/document.pdf')
 
       result = helper.static_to('document.pdf', 'Download PDF')
-      expect(result).to eq('<a href="https://example.com/document.pdf" class="">Download PDF</a>')
+      expect(result).to eq('<a href="https://example.com/document.pdf">Download PDF</a>')
     end
   end
 end

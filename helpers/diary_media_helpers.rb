@@ -1,16 +1,29 @@
 # frozen_string_literal: true
 
+require 'time'
+
 module DiaryIndexHelpers
   private
 
+  def normalized_media_timestamp(timestamp, fallback)
+    value = timestamp || fallback
+    return value.strftime('%Y-%m-%d %H:%M:%S') if value.respond_to?(:strftime)
+
+    string = value.to_s.sub(/\.\d{3}/, '').sub(/\A(\d{4}):(\d{2}):(\d{2})/, '\1-\2-\3')
+    Time.parse(string).strftime('%Y-%m-%d %H:%M:%S')
+  rescue ArgumentError
+    string
+  end
+
   def process_image_entry(file_info, exif_data, dirpath, now)
-    timestamp = exif_data['SubSecDateTimeOriginal'].to_s.sub(/\.\d{3}/, '')
-    timestamp = exif_data['DateTimeOriginal'] || now if timestamp.empty?
+    timestamp = exif_data['SubSecDateTimeOriginal']
+    timestamp = exif_data['DateTimeOriginal'] || now if timestamp.to_s.empty?
+    timestamp = normalized_media_timestamp(timestamp, now)
 
     text = if file_info[:ext] == 'png'
-             "<%= image \"#{file_info[:base]}\", ext: '#{file_info[:ext]}' %>"
+             "<%= image \"#{file_info[:base]}\", ext: '#{file_info[:ext]}', timestamp: '#{timestamp}' %>"
            else
-             "<%= image \"#{file_info[:base]}\" %>"
+             "<%= image \"#{file_info[:base]}\", timestamp: '#{timestamp}' %>"
            end
 
     cache_image(file_info, dirpath) if localhost?

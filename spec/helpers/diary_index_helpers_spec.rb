@@ -51,7 +51,7 @@ RSpec.describe DiaryIndexHelpers do
           helper.gen_index('2025/0203-test')
           io.rewind
           output = io.read
-          expect(output).to include('<%= image "img_1234" %>')
+          expect(output).to include('<%= image "img_1234", timestamp: \'2025-02-03 12:00:00\' %>')
         end
       end
 
@@ -64,7 +64,7 @@ RSpec.describe DiaryIndexHelpers do
           helper.gen_index('2025/0203-test')
           io.rewind
           output = io.read
-          expect(output).to include('<%= image "img_1234", ext: \'png\' %>')
+          expect(output).to include('<%= image "img_1234", ext: \'png\', timestamp: \'2025-02-03 12:00:00\' %>')
         end
       end
 
@@ -174,7 +174,14 @@ RSpec.describe DiaryIndexHelpers do
       it 'returns timestamp and image tag' do
         allow(exif_data).to receive(:[]).with('SubSecDateTimeOriginal').and_return(Time.new(2025, 1, 1, 12, 0, 0).to_s)
         _timestamp, text = helper.send(:process_image_entry, file_info, exif_data, dirpath, now)
-        expect(text).to eq('<%= image "image" %>')
+        expect(text).to eq('<%= image "image", timestamp: \'2025-01-01 12:00:00\' %>')
+      end
+
+      it 'falls back to DateTimeOriginal and normalizes EXIF-style timestamps' do
+        allow(exif_data).to receive(:[]).with('SubSecDateTimeOriginal').and_return(nil)
+        allow(exif_data).to receive(:[]).with('DateTimeOriginal').and_return('2025:01:01 12:34:56')
+        _timestamp, text = helper.send(:process_image_entry, file_info, exif_data, dirpath, now)
+        expect(text).to eq('<%= image "image", timestamp: \'2025-01-01 12:34:56\' %>')
       end
     end
 

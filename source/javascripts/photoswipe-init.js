@@ -2,8 +2,69 @@ var initPhotoSwipeFromDOM;
 
 initPhotoSwipeFromDOM = function (gallerySelector) {
   var scope = document.querySelector(gallerySelector) || document;
+  var escapeHtml = function (value) {
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  };
+  var deriveFilenameFromHref = function (href) {
+    if (!href) {
+      return '';
+    }
+
+    var cleanHref = href.split('#')[0].split('?')[0];
+    return cleanHref.replace(/.*\//, '');
+  };
+  var buildCaptionHtml = function (item) {
+    if (!item) {
+      return '';
+    }
+
+    var parts = [];
+    if (item.filename) {
+      parts.push('<span class="pswp__custom-caption-filename">' + escapeHtml(item.filename) + '</span>');
+    }
+    if (item.timestamp) {
+      parts.push('<span class="pswp__custom-caption-timestamp">' + escapeHtml(item.timestamp) + '</span>');
+    }
+
+    return parts.join('');
+  };
+  var ensureCaptionElement = function (gallery) {
+    var existing = gallery.element.querySelector('.pswp__custom-caption');
+    if (existing) {
+      return existing;
+    }
+
+    var caption = document.createElement('div');
+    caption.className = 'pswp__custom-caption';
+    caption.innerHTML = '<div class="pswp__custom-caption-content"></div>';
+    gallery.scrollWrap.appendChild(caption);
+    return caption;
+  };
+  var updateCaption = function (gallery, items) {
+    var caption = ensureCaptionElement(gallery);
+    var content = caption.querySelector('.pswp__custom-caption-content');
+    var item = items[gallery.currIndex];
+    var html = buildCaptionHtml(item);
+
+    content.innerHTML = html;
+    caption.hidden = html === '';
+  };
   var getSwipeElements = function () {
     return scope.querySelectorAll('a.swipe');
+  };
+  var buildImageItem = function (swipeEl, href, src) {
+    return {
+      src: href,
+      msrc: src,
+      el: swipeEl,
+      filename: swipeEl.dataset.filename || deriveFilenameFromHref(href),
+      timestamp: swipeEl.dataset.timestamp || ''
+    };
   };
 
   var buildVideoItem = function (swipeEl, href, src) {
@@ -39,11 +100,7 @@ initPhotoSwipeFromDOM = function (gallerySelector) {
       var src = image ? image.getAttribute('src') : '';
 
       if (swipeEl.classList.contains('image')) {
-        items.push({
-          src: href,
-          msrc: src,
-          el: swipeEl
-        });
+        items.push(buildImageItem(swipeEl, href, src));
       } else {
         items.push(buildVideoItem(swipeEl, href, src));
       }
@@ -74,6 +131,12 @@ initPhotoSwipeFromDOM = function (gallerySelector) {
     }
 
     var gallery = new PhotoSwipe(options);
+    gallery.on('afterInit', function () {
+      updateCaption(gallery, items);
+    });
+    gallery.on('change', function () {
+      updateCaption(gallery, items);
+    });
     gallery.init();
   };
 
