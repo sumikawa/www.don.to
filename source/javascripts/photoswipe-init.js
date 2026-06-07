@@ -118,7 +118,11 @@ initPhotoSwipeFromDOM = function (gallerySelector) {
       maxZoomLevel: 4,
       bgOpacity: 1.0,
       dataSource: items,
-      preload: [1, 5]
+      preload: [1, 5],
+      doubleTapAction: function (releasePoint, e) {
+        showMetadata = !showMetadata;
+        updateCaption(activeGallery, activeItems);
+      }
     };
 
     if (fromURL) {
