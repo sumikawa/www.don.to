@@ -1,0 +1,1012 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns="http://purl.org/rss/1.0/">
+  <channel rdf:about="https://www.don.to/diary/">
+    <title>すみかわ日記</title>
+    <description>子供ネタ7割、食い物2割、技術1割</description>
+    <link>https://www.don.to/diary/</link>
+    <items>
+      <rdf:Seq>
+          <rdf:li resource="2026/0605-dinner/"/>
+          <rdf:li resource="2026/0603-aomono/"/>
+          <rdf:li resource="2026/0601-musakosu/"/>
+          <rdf:li resource="2026/0531-camp/"/>
+          <rdf:li resource="2026/0531-banana/"/>
+          <rdf:li resource="2026/0530-park/"/>
+          <rdf:li resource="2026/0530-aws/"/>
+          <rdf:li resource="2026/0528-park/"/>
+          <rdf:li resource="2026/0528-note/"/>
+          <rdf:li resource="2026/0525-kamakura/"/>
+          <rdf:li resource="2026/0524-note/"/>
+          <rdf:li resource="2026/0523-note/"/>
+          <rdf:li resource="2026/0523-birthday/"/>
+          <rdf:li resource="2026/0519-miyako/"/>
+          <rdf:li resource="2026/0518-miyako/"/>
+          <rdf:li resource="2026/0517-miyako/"/>
+          <rdf:li resource="2026/0516-miyako/"/>
+          <rdf:li resource="2026/0515-miyako/"/>
+          <rdf:li resource="2026/0514-miyako/"/>
+          <rdf:li resource="2026/0513-miyako/"/>
+          <rdf:li resource="2026/0512-miyako/"/>
+          <rdf:li resource="2026/0511-miyako/"/>
+          <rdf:li resource="2026/0510-miyako/"/>
+          <rdf:li resource="2026/0509-miyako/"/>
+          <rdf:li resource="2026/0508-miyako/"/>
+          <rdf:li resource="2026/0506-nagasima/"/>
+          <rdf:li resource="2026/0505-nagasima/"/>
+          <rdf:li resource="2026/0504-nagasima/"/>
+          <rdf:li resource="2026/0503-nagasima/"/>
+      </rdf:Seq>
+    </items>
+  </channel>
+  <item rdf:about="2026/0605-dinner/">
+            <title>2026/06/05: 横浜飲み</title>
+        <link>https://www.don.to/diary/2026/0605-dinner/</link>
+        <description><![CDATA[<p>アラクサラ時代の辞めてから会っていない同僚と飲み。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140101/14086486/">おもてなしとりよし 横浜西口店</a>
+神奈川県横浜市西区北幸1-1-13 Comfort178横浜駅前ビル 7F
+045-322-3833
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1255" data-timestamp="2026-06-05 18:31:32"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1256" data-timestamp="2026-06-05 18:53:48"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1257" data-timestamp="2026-06-05 19:07:39"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1258" data-timestamp="2026-06-05 19:21:17"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1259" data-timestamp="2026-06-05 19:36:06"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1260" data-timestamp="2026-06-05 20:34:22"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1261" data-timestamp="2026-06-05 20:47:50"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-06T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0603-aomono/">
+            <title>2026/06/03: 青物横丁</title>
+        <link>https://www.don.to/diary/2026/0603-aomono/</link>
+        <description><![CDATA[<p>久しぶりのいさりび。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/tokyo/A1315/A131501/13234843/">いさりび 青物横丁店</a>
+東京都品川区南品川2-7-18 TYビル 2F
+03-6718-4920
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1230" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1231" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1233" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1235" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1237" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1238" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-06T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0601-musakosu/">
+            <title>2026/06/01: 武蔵小杉</title>
+        <link>https://www.don.to/diary/2026/0601-musakosu/</link>
+        <description><![CDATA[<p>武蔵小杉でアラクサラ時代の同僚と飲む。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1405/A140504/14005058">Tosaka-na Dining Gosso 武蔵小杉店</a>
+神奈川県川崎市中原区小杉町3-441
+050-5592-6312
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1209" data-timestamp="2026-06-01 19:01:48"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1210" data-timestamp="2026-06-01 19:06:43"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1211" data-timestamp="2026-06-01 19:20:05"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1212" data-timestamp="2026-06-01 19:29:14"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1213" data-timestamp="2026-06-01 19:45:54"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1214" data-timestamp="2026-06-01 20:01:54"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1215" data-timestamp="2026-06-01 20:06:30"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1217" data-timestamp="2026-06-01 20:07:01"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1219" data-timestamp="2026-06-01 20:08:30"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1220" data-timestamp="2026-06-01 20:19:37"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1221" data-timestamp="2026-06-01 20:29:20"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1222" data-timestamp="2026-06-01 20:31:16"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1223" data-timestamp="2026-06-01 20:34:01"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1224" data-timestamp="2026-06-01 20:39:54"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1226" data-timestamp="2026-06-01 21:27:27"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>みんなからRSUだの確定申告だのという外資的な会話を聞く時代になった。感無量です。</p>
+]]></description>
+        <dc:date>2026-2026-06T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0531-camp/">
+            <title>2026/05/31: 二人ソロキャン</title>
+        <link>https://www.don.to/diary/2026/0531-camp/</link>
+        <description><![CDATA[<p>娘と二人ソロキャン。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1205" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1206" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1208" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>ソロキャンということで最初は焚き火を分けてたけど、途中で面倒になって合流。</p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0531-banana/">
+            <title>2026/05/31: 島バナナ</title>
+        <link>https://www.don.to/diary/2026/0531-banana/</link>
+        <description><![CDATA[<p>宮古島のキャンプ場でもらった大量の島バナナがようやく黄色くなった。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1203" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>そして、どんどん食べんと腐ってしまう。</p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0530-park/">
+            <title>2026/05/30: 陣ケ下渓谷公園</title>
+        <link>https://www.don.to/diary/2026/0530-park/</link>
+        <description><![CDATA[<p>今日も陣ケ下渓谷公園でハンモック。読書が捗る季節になりました。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1200" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0530-aws/">
+            <title>2026/05/30: AWS同窓会</title>
+        <link>https://www.don.to/diary/2026/0530-aws/</link>
+        <description><![CDATA[<p>同窓会に参加。
+みんな働いている！</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1201" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1202" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>二軒目はサポートメンバーだけでアイリッシュパブで情報交換。</p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0528-park/">
+            <title>2026/05/28: 陣ケ下渓谷公園</title>
+        <link>https://www.don.to/diary/2026/0528-park/</link>
+        <description><![CDATA[<p>陣ケ下渓谷公園でハンモックを張る。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1195" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0528-note/">
+            <title>2026/05/28: 何かと便利なアウトドアマット</title>
+        <link>https://www.don.to/diary/2026/0528-note/</link>
+        <description><![CDATA[<p><img src="under.webp" alt="under" height="400" class="simage no-image-grid" /></p>
+
+<div class="note">
+本ドキュメントは<a href="#">note記事</a>のバックアップです。
+</div>
+
+<p>キャンプやハイキングで使える小型のアウトドアマットを買ったものの、ヘリノックスの軽い椅子を持ち歩くことが多く、あまり出番がなかった。</p>
+
+<div class="embeded">
+  <div class="amazon">
+    <div class="amazon-image"><a href="https://amzn.to/4xarGGm"><img border="0" src="https://m.media-amazon.com/images/I/41xHjxLSioL._SL500_.jpg" height=200></a></a></div>
+    <div class="amazon-info"><a href="https://amzn.to/4xarGGm">Mozambique(モザンビーク) アウトドアマット 登山 キャンプ 座布団 アルミ レジャーマット コンパクト 折りたたみシート</a></div>
+  </div>
+</div>
+
+<p>しかし意外と用途が広いことに気づいた。</p>
+
+<p>まず公園のテーブルやテラス席などで椅子が硬いときに座布団代わりに使える。長時間座っててもお尻が痛くならない。</p>
+
+<p><img src="under.webp" alt="under" height="400" class="simage no-image-grid" /></p>
+
+<p>ハンモックでは枕代わりに使える。後頭部が固定されるので体がずり落ちる防止にもなる。</p>
+
+<p><img src="under.webp" alt="under" height="400" class="simage no-image-grid" /></p>
+
+<p>場所もそこまでとらず重量も軽いので公園にフラっと行くときに持っていくと良い。</p>
+
+<p>試していないけど、サウナマット代わりにもなると思う。</p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0525-kamakura/">
+            <title>2026/05/25: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2026/0525-kamakura/</link>
+        <description><![CDATA[<p>定点観測。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1189" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>いつもの大船。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1190" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1192" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0524-note/">
+            <title>2026/05/24: 何泊でも使えるキャンプ用ランタン</title>
+        <link>https://www.don.to/diary/2026/0524-note/</link>
+        <description><![CDATA[<p><img src="under.webp" alt="under" height="400" class="simage no-image-grid" /></p>
+
+<div class="note">
+本ドキュメントは<a href="#">note記事</a>のバックアップです。
+</div>
+
+<p>キャンプ用のランタンとして、最初は充電式を使っていたが太陽光充電のランタンに買い替えた。</p>
+
+<div class="embeded">
+  <div class="amazon">
+    <div class="amazon-image"><a href="https://amzn.to/4f2pDgX"><img border="0" src="https://m.media-amazon.com/images/I/41GOqNEvMCL._SL500_.jpg" height=200></a></a></div>
+    <div class="amazon-info"><a href="https://amzn.to/4f2pDgX">キャリー・ザ・サン(CARRY THE SUN) ソーラーランタン ウォームライト ホワイトベルト スモールサイズ CTSW-WHS</a></div>
+  </div>
+</div>
+
+<p>充電式だと1〜2泊しかバッテリーが保たないが、朝になったら太陽がでるところにこのランタンを置いておくことで、何泊でも使い続けれるので自由度が大きい。充電式よりも軽いのもメリットだ。</p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0523-note/">
+            <title>2026/05/23: 海外旅行で役に立たないNetflix</title>
+        <link>https://www.don.to/diary/2026/0523-note/</link>
+        <description><![CDATA[<p><img src="under.webp" alt="under" height="400" class="simage no-image-grid" /></p>
+
+<div class="note">
+本ドキュメントは<a href="#">note記事</a>のバックアップです。
+</div>
+
+<p>Netflixは「事前にダウンロードしておけば、飛行機や海外でも観れる」というイメージがある。
+だが、実際に試してみると、国をまたいだ瞬間にダウンロード済みコンテンツが消えてしまった。</p>
+
+<p>今回は「葬送のフリーレン」を使って検証した結果を書く。</p>
+
+<h2>検証した内容</h2>
+
+<p>「葬送のフリーレン」第二期は、日本では配信されているが、南米では第一期しか配信対象になっていない(2026年4月時点)。つまり、地域によってライセンス状況が異なる。</p>
+
+<p>検証手順は以下の通り。</p>
+
+<ol>
+<li>ペルー滞在時に日本へのVPNを有効化</li>
+<li>Netflixで「葬送のフリーレン」第二期をダウンロード</li>
+<li>VPNをオフ</li>
+<li>Netflixアプリの状態を確認</li>
+</ol>
+
+<h2>結果</h2>
+
+<p>VPNをオフにした瞬間、ダウンロード済みコンテンツが一覧から消えた。
+さらに、日本VPNを再度有効化してもコンテンツは復活しない。</p>
+
+<p>加えて、作品ごとの「ダウンロード済み」アイコンも消えていた。表示が隠されたのでなく、ローカル保存データ自体が削除されていることが分かる。</p>
+
+<h2>つまり何が起きるのか</h2>
+
+<p>例えば日本出発前にアニメをダウンロードしていても、</p>
+
+<ul>
+<li>日本発の最初のフライトでは観られる</li>
+<li>到着後にネット接続した時点でライセンス地域が更新される</li>
+<li>現地国に到着するともう観られない</li>
+</ul>
+
+<p>ということが起きる。到着後に続きを観ようと思ったら消えていたという状況だ。</p>
+
+<h2>オフラインなら回避できる？</h2>
+
+<p>完全オフライン状態なら、日本から出ていないことになるので、コンテンツは削除されない。</p>
+
+<p>ただし、現実問題として</p>
+
+<ul>
+<li>空港Wi-Fi</li>
+<li>モバイル通信</li>
+<li>ホテルWi-Fi</li>
+</ul>
+
+<p>を一切使わずにいるのは海外旅行を続けるのは無理がある。Netflix専用のデバイスを別に持ち歩かないといけなくなってしまう。</p>
+
+<p>つまり、「海外旅行時のオフライン視聴」という用途では、地域ライセンス差がある作品はかなり使いにくい、という結論になった。</p>
+
+<p>Netflixのダウンロード機能は、「保存した動画ファイルをそのまま持ち歩ける」というより、「現在のライセンス状態に従って一時キャッシュを維持している」という理解の方が実態に近そうだ。</p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0523-birthday/">
+            <title>2026/05/23: 誕生日パーティー</title>
+        <link>https://www.don.to/diary/2026/0523-birthday/</link>
+        <description><![CDATA[<p>ステーキ屋で誕生日パーティー。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1408/A140801/14001205/">アウトバック ステーキハウス 海老名店</a>
+神奈川県海老名市中央1-18-1 ビナウォーク6番館 1F
+050-5868-2713
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_8547" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1173" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1174" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1175" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1176" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1177" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1179" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1180" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1181" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1183" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1186" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0519-miyako/">
+            <title>2026/05/19: 宮古島キャンプ その12</title>
+        <link>https://www.don.to/diary/2026/0519-miyako/</link>
+        <description><![CDATA[<p>朝焼けを見て撤収開始。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1160" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1162" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>すっかり片付いた。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1164" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1166" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>オーナーさんが車出してくれて、クロネコヤマトの営業に寄ったあと、いつものとすとへ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47008234/">とすと</a>
+沖縄県宮古島市平良字西里1327-3
+0980-75-4385
+</pre>
+
+<p>和食モーニング。朝から量が多いねん。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1167" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>さらに空港まで送ってもらう。持ってけと言われて渡されたキャンプ場の島バナナを大量に持って帰宅。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1168" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<h4>Lesson Learned</h4>
+
+<ul>
+<li>サンダルはどうしても生乾きで臭くなる。キャンドゥでビーサンをゲットするか事前に送ること</li>
+<li>着いたらとにかくカセット缶を買う。サンエーで一本単位で売っている</li>
+<li>金鳥の蚊取り線香は保ちがいいし、折れない。100均一とは比べ物にならない</li>
+<li>LEDランタンとコンロは宅急便で送れないので注意</li>
+<li>バックパックは不要だった</li>
+</ul>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0518-miyako/">
+            <title>2026/05/18: 宮古島キャンプ その11</title>
+        <link>https://www.don.to/diary/2026/0518-miyako/</link>
+        <description><![CDATA[<p>朝焼け。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1150" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>昼飯。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47025111/">パーントゥ食堂</a>
+沖縄県宮古島市平良字島尻1462
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1151" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>これが<a href="https://www.city.miyakojima.lg.jp/soshiki/kyouiku/syougaigakusyu/syougaikakusyu/bunkazai-PantuShimajiri.html">パーントゥ</a>。島尻の奇祭。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1152" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>カツ丼とミニ宮古そばのセット。カツ丼だけで十分だった。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1153" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>パパイヤ畑。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1154" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>キャンプ場で最後の晩飯。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1155" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1157" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1158" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1159" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0517-miyako/">
+            <title>2026/05/17: 宮古島キャンプ その10</title>
+        <link>https://www.don.to/diary/2026/0517-miyako/</link>
+        <description><![CDATA[<p>おはようございます。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1134" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1135" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>メインサイトのパパイヤがやや黄色くなっていた。食べていいよと言われたがまだ早そう。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1136" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>まったく観光をしていないので池間島を一周することにする。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1137" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1139" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>昼飯。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47028898/">Ikemajima gelato cafe Ninufa</a>
+沖縄県宮古島市平良前里976-1
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1144" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1140" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1143" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1141" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>なまり節チーズとジーマミ豆腐のピザのハーフ&amp;ハーフ。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1142" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1146" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1147" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="900" alt="" /></a></p>
+
+<p>海のサイトの眺めのいい芝生にテーブル持ち込んでオーナーさんと晩飯。あとからメインサイトに宿泊していたお客さんも合流。
+いままで何か分からくて手を出してなかったけど、中身って豚の内臓肉のことなのね。温めて食べる。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1149" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>写真はないけどあとはカルビ肉と焼きそばを調理した。</p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0516-miyako/">
+            <title>2026/05/16: 宮古島キャンプ その9</title>
+        <link>https://www.don.to/diary/2026/0516-miyako/</link>
+        <description><![CDATA[<p>朝焼け。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1100" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>メインサイト。先日持って帰ってきた鉢植えの木を植えないといけないので、ひたすら土を掘るのを手伝う。
+筋肉痛になった。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1101" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1102" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>昼飯を買いに刺身屋へ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47033062/">与那原鮮魚店 東店</a>
+沖縄県宮古島市平良東仲宗根919-13
+090-6857-3739
+</pre>
+
+<p>恐ろしいほど愛想が悪い。話しかけても返事がない。
+キャンプ場のオーナーが注文すると、その場で切ったやつをくれた。これで1000円。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1103" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1104" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>じゅーしーおにぎりと一緒に食べる。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1106" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>今は大潮なので干潮もすごい。歩けるだけ沖に歩いてみる。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1107_edited" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1109" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1111" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1113" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="900" alt="" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1117" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>キャンプ場の浜は泳げる深さがないので、教えてもらった西側の浜に来た。ここは砂浜が綺麗。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1119" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>ひと泳ぎしてから、スーパーで晩飯を買って西側の浜に戻る。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1120" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1121" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1122" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1123" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>生姜焼き弁当がやたら重いなと思ったら、肉の下にスパゲッティがごっそり敷かれてた。残しまくる。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1125" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1126" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1127" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>暗くなるまで泡盛をチビチビやる。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1130" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1132" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1133" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0515-miyako/">
+            <title>2026/05/15: 宮古島キャンプ その8</title>
+        <link>https://www.don.to/diary/2026/0515-miyako/</link>
+        <description><![CDATA[<p>今日もにいまそば。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47028426/">にいまそば</a>
+沖縄県宮古島市平良狩俣3
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1089" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1091" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1092" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>スーパーいったら島ダコが売ってた。買わんけど。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1093" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>今日は浜で晩酌。こういうのでいいんです。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1095" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1096" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>テントに戻って締めのじーまみー豆腐。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1098_edited" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>今日も星空が綺麗。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1099" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0514-miyako/">
+            <title>2026/05/14: 宮古島キャンプ その7</title>
+        <link>https://www.don.to/diary/2026/0514-miyako/</link>
+        <description><![CDATA[<p>中学生からの友達である<a href="https://www.instagram.com/miyako_meshi/">宮古メシ</a>がタイミング良く宮古島に来てるので、狩俣に迎えに来てもらって一緒に飯を食う。</p>
+
+<p>まずは一押しのパン屋へ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47013565/">モジャのパン</a>
+沖縄県宮古島市平良字東仲宗根20
+</pre>
+
+<p>出来立てのチョコパンがうまいらしいが品切れだったので、ぶどうパンを食べる。モチモチでうまい。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1053" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1054" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>宮古メシがデザインしたTシャツが売られているくじら食堂へ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47032491/">くじら食堂</a>
+沖縄県宮古島市平良下里220-1 ウッドヴィレッジA棟 1F
+080-6483-6865
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1056" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1055" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>渡口の浜。キャンプ場の海より全然キレイ。羨ましい。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1057" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>下地島空港にもTシャツが売られている。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1061" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>ランチはニューウェイブ宮古そば。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47030798/">燦 伊良部島店</a>
+沖縄県宮古島市伊良部長浜1643-1 フェリスヴィラスイート伊良部島・長浜ベイ
+050-5456-8004
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1066" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1065" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>さらに寄りたいところがあると言われて着いたのが去年の2月に行った店だった。レモンスカッシュを飲む。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47029847/">1 LAB Hello,VACAY!</a>
+沖縄県宮古島市伊良部仲地96-2
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1068" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1067" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>町中で降ろしてもらって、コインランドリーに行ったあと、早くから空いてる串カツの店へ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47031112/">宮古島食材串かつ 串んちゅ</a>
+沖縄県宮古島市平良字西里824-1
+050-5869-5591
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1082" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1077" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>島民割を用意して観光公害対策をしている。正しい。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1069" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1070" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1071" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1072" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1073" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1075" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1076" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1078" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1079" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1080" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>例によってのづ文具前のバス停から戻るが、向かいののづ文具さん、平日の19:00前でこれってことは、またバス停の名前変わるんじゃないか。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1083" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>野良の扇風機がいた。ちゃんと左右を見ないと危ないよ！</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1084" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>バスでキャンプ場へ戻る。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1085" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1086" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0513-miyako/">
+            <title>2026/05/13: 宮古島キャンプ その6</title>
+        <link>https://www.don.to/diary/2026/0513-miyako/</link>
+        <description><![CDATA[<p>今日も朝焼けはイマイチ。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1041" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>浜辺へ。去年より海が汚れてる気がする。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1042" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1043" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1044" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>隣の浜は漂流ゴミだらけ。車が入れないのでどうしようもない。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1045" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>自転車で10分ぐらい離れた食堂へ昼飯。パーントゥ焼きそば。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47025111/">パーントゥ食堂</a>
+沖縄県宮古島市平良字島尻1462
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1046" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1047" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>晩飯は豆腐とキムチ。焼売。量が多い。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1048" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1049" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1050" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>ゴミ掃除も兼ねて流木を燃やす。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1052" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0512-miyako/">
+            <title>2026/05/12: 宮古島キャンプ その5</title>
+        <link>https://www.don.to/diary/2026/0512-miyako/</link>
+        <description><![CDATA[<p>ようやく朝焼けが見れた。ショボいけど。
+5日目の今日までずっと完ソロ。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1022" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>生物観察。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1024" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1027" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="900" alt="" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1031" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1032" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>晴れというほどではないが、今日は雨が降らない予報なので大天日干し大会。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1033" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>昨日の食べ残しを朝ごはんにする。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1034" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>タープ張ってみた(が、翌日夜の強風で吹っ飛ぶ)。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1035" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>晩飯。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1036" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1037_edited" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1038_edited" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>飲んでたらオーナーに誘われてメインサイトへ移動。
+去年も来てた沖縄の電気業者さんの飲み会に混ぜていただく。</p>
+
+<p>メインサイトからの夕焼け。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1039" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>海サイトに戻る。やっと星空見れた。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1040" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0511-miyako/">
+            <title>2026/05/11: 宮古島キャンプ その4</title>
+        <link>https://www.don.to/diary/2026/0511-miyako/</link>
+        <description><![CDATA[<p>土砂降りの中、にいまそばへ。細麺のなんこつとじゅーしー。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47028426/">にいまそば</a>
+沖縄県宮古島市平良狩俣3
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1001" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>財布を忘れてきたことに気づき、土砂降りの中を二往復する。</p>
+
+<p>さらに雨がひどくなりテントの中にいれないので、街へ出る。</p>
+
+<p>カフェで拠点にしながら、近くのコインランドリーで洗濯。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47026775/">Coffee Barista</a>
+沖縄県宮古島市平良字西里840-2
+0980-79-7866
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1005" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1008" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1006" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1007" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>このタイミングでがっつり晴れやんの。夕焼けを見たいが戻りのバスは一時間後。
+Blue Sealで時間潰そうと思ったが、まさかの臨時休業。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1009" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1011" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>19時頃の最終バスに乗る。この車両はクレカが使えなかった。海へ！早く！</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1012" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1014" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>間に合わず。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1016" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>オリオンのピルスナーをゲットしたので良しとする。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_1019" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_1017_edited" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>AM4:00にテント越しのすぐ横で何かが動く気配がした。ヤシガニを撮るシャッターチャンスだと思うんだけど、眠くて動けなんだ。</p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0510-miyako/">
+            <title>2026/05/10: 宮古島キャンプ その3</title>
+        <link>https://www.don.to/diary/2026/0510-miyako/</link>
+        <description><![CDATA[<p>相変わらず晴れないが今日は雨も風も穏やか。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0987" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>キャンプ場のオーナーに連れられて、去年も行った入りづらい食堂へ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47008234/">とすと</a>
+沖縄県宮古島市平良字西里1327-3
+0980-75-4385
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0989" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>まだテーブル筐体が動いてる。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0990" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>ランチ定食950円。量が多いし炭水化物x3。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0991" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>その後、暇なら手伝えと、鉢植えや砂利を運ばされる。</p>
+
+<p>雨が止んだので肉を焼く。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0992" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_0993" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_0994" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>地元のピーマン、肉厚で甘くてうまい。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0996" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0509-miyako/">
+            <title>2026/05/09: 宮古島キャンプ その2</title>
+        <link>https://www.don.to/diary/2026/0509-miyako/</link>
+        <description><![CDATA[<p>夜から一向に雨がやまないので、街に出る。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0977" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_0978" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>ジョイフルで朝食。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47004639/">ジョイフル 宮古店</a>
+沖縄県宮古島市平良605
+0980-74-2205
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0979" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>サンエーで買い出しをしたあと、ランチ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/okinawa/A4705/A470503/47033838/">島の鉄板居酒屋ぼぶり</a>
+沖縄県宮古島市平良下里576-4 1F
+050-1288-1059
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0980" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_0981" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>幻の島カルニタス。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0983" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_0982" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>バスの時間になったのでキャンプ場に戻る。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0985" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0508-miyako/">
+            <title>2026/05/08: 宮古島キャンプ その1</title>
+        <link>https://www.don.to/diary/2026/0508-miyako/</link>
+        <description><![CDATA[<p>今年も来てしまった宮古島。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0960" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>荷物は事前にヤマト運輸の営業所に送付済。早めに送りすぎたせいか何故か「調査中」のステータスに変わってて焦るが無事受け取りに成功。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0961" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_0958_edited" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>去年は空梅雨で連日晴れだったけど、今年は厳しそう。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0959_edited" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>最寄りのバス停から狩俣に向かう。
+去年はツタヤ前だったけど、TSUTAYAが閉店したのでバス停の名前が変わってた。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0962" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>バスもクレカが使えるようになっている。進化している。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0963" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>キャンプ場着。バナナがなってた。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0964" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_0969" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_0970" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>いつもの海サイトでテントを張る。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0966" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_0986" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>テントを張り終わったら小雨が降ってきた。
+近くのスーパーで買い物して、オーナーさんが来たので雑談しながらとりビーと昼飯。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0967" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_0968" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>晩飯。じーまみ豆腐あった。美味い。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0971" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_0972" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_0974" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_0976" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0506-nagasima/">
+            <title>2026/05/06: 紀伊長島 その4</title>
+        <link>https://www.don.to/diary/2026/0506-nagasima/</link>
+        <description><![CDATA[<p>南紀で帰宅。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0939" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0505-nagasima/">
+            <title>2026/05/05: 紀伊長島 その3</title>
+        <link>https://www.don.to/diary/2026/0505-nagasima/</link>
+        <description><![CDATA[<p>テラス席。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0933" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_3682" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>良い夕方。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0934" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0504-nagasima/">
+            <title>2026/05/04: 紀伊長島 その2</title>
+        <link>https://www.don.to/diary/2026/0504-nagasima/</link>
+        <description><![CDATA[<p>道の駅へ。観光客がめっちゃいた。何をしに来てるんだ。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0922" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_0924" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_0927" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_3658" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>雨続きだったらしく川が増水している。
+去年の読書ポイントが腰まで浸かるので使えないので、川沿いで読書をするが足が冷たくて退散。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0928" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="video swipe"><img src="/images/under.webp" height="900" alt="" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_0930" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_0931" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0503-nagasima/">
+            <title>2026/05/03: 紀伊長島 その1</title>
+        <link>https://www.don.to/diary/2026/0503-nagasima/</link>
+        <description><![CDATA[<p>娘と二人で紀伊長島駅へ。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0914" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>サウナが完成していた。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0916" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_0917" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_0919" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>離れも建設中。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0920" data-timestamp=""><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-05T00:00:00+09:00</dc:date>
+
+  </item>
+</rdf:RDF>
