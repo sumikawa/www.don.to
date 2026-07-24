@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+
+
+
+
+
+<html>
+
+	<head>
+
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<title>engineer's voice:オープンソースの製品化</title>
+
+
+
+
+<STYLE type="text/css">
+<!--
+.titlefont{ font-style:normal; font-size:large; font-weight:bold; }
+.large{ font-size:18px; }
+
+.normal{ font-size:16px; }
+.normal2{ font-size:14px; }
+.small{ font-size:12px; }
+.verysmall{ font-size:10px; }
+.menunormal{ color:#cccccc;background-color:#221155;font-weight:bold; font-size:14px;padding: 0px 5px 5px 5px; }
+.menusmall{ color:#cccccc;background-color:#221155;font-size:12px; }
+.menukijilist{ color:#000000;background-color:#221155;font-wight:normal;font-size:12px;padding-left:3px;padding-right:3px; }
+.keyword{ color:#11194A;font-size:12px; }
+
+H1{
+	font-weight:normal;
+}
+
+H2{
+	font-weight:normal;
+}
+
+/*
+P{
+   font-size:8px;
+}
+*/
+
+a { text-decoration: none }
+a:hover { color: rgb(0,0,255); text-decoration: underline }
+-->
+</STYLE>
+
+
+
+
+
+
+
+	</head>
+
+	<body bgcolor="#ffffff" leftmargin="0" marginwidth="0" topmargin="0" marginheight="0">
+		<div align="center">
+				<table border="0" cellpadding="0" cellspacing="0" width="704">
+					<tr valign="top">
+						<td width="342" rowspan="2"><img src="cont_voice.jpg" width="342" height="50" border="0" alt="v6word"></td>
+						<td width="274"><img src="cont_bar.jpg" width="274" height="22" border="0"></td>
+						<td><img src="cont_v6logo.jpg" width="144" height="39" border="0" alt="v6 logo"></td>
+					</tr>
+					<tr valign="top">
+						<td width="274"></td>
+						<td align="center">
+<a href="http://v6start.net/" target="_self"><img src="cont_toTop.gif" width="47" height="30" border="0"></a></td>
+					</tr>
+					<tr>
+						<td colspan="3"><br>
+						</td>
+					</tr>
+				</table>
+			
+
+				<!-- begin 記事 -->
+							<table border="0" cellpadding="4" cellspacing="2" width="760">
+				<tr valign="middle">
+					<td width="20"></td>
+					<td align="center" width="388"><img src="title.gif" width="369" height="111" border="0"></td>
+					<td width="20"></td>
+					<td width="260">
+						<table border="0" cellpadding="0" cellspacing="0" width="260">
+							<tr>
+								<td  width="116"><img src="face.jpg" width="116" height="130" border="0"></td>
+								<td width="8"><br></td>
+								<td width="225"><img src="name.gif" width="145" height="127" border="0"></td>
+							</tr>
+						</table>
+					</td>
+					<td width="20"></td>
+				</tr>
+				<tr valign="top">
+					<td width="20" rowspan="2"><br>
+					</td>
+					<td class="normal2" rowspan="2" width="388">
+						<p>　1998年にKAME Projectが始まったとき，1つ決めていたことがある。それは，日立が参加するにあたって，KAMEの成果を必ず製品に反映させようということだ。
+</p>
+						<p>　「世界一のオープンIPv6ソフトウェアを作ろう」というKAMEの野望は，そのまま企業利益には結びつくわけではない。会社の宣伝にはなるだろうが，エンジニアにとって宣伝効果というのはなかなか評価されにくいものだ。やはり，製品を作り，その売り上げを伸ばした方が結果はわかりやすい。
+</p>
+<p>　良い結果を出せば，企業はまた別の<A HREF="commentary.shtml#a01" target=_window onClick="return comment_open('commentary.shtml#a01')">オープンソース</a>・プロジェクトに参加しようとするだろう。オープンソースの世界で育った僕にとって，その世界の裾野が企業にまで広がっていくのは嬉しい。
+</p>
+<p>　KAMEに参加して3年後，KAMEは野望を果たし，一方で日立もKAME入りの製品を作り上げることができた。今年の初めに出荷された「GR2000」というルーターがそれである。KAMEの評判の助けもあって，ルーター市場には好意的に受け入れらているようだ。
+</p>
+<p>　KAMEをルーターに移植したと言っても，ただ<A HREF="commentary.shtml#a02" target=_window onClick="return comment_open('commentary.shtml#a02')">ソースコード</a>を持ってきてお終いというわけではない。移植で最も時間がかかった部分は<A HREF="commentary.shtml#a03" target=_window onClick="return comment_open('commentary.shtml#a03')">ユーザー・インタフェース</a>の統一だ。KAMEも含めてUNIX上のソフトウェアはテキスト形式で設定を記述するが，その記述方式はソフトウエアごとに異なっている。無数に存在するソフトウエア間で書式を統一するなどできないからだ。その代わり，テキスト処理ツールやスクリプトを提供することによって，柔軟性を持たせている。
+</p>
+<p>　ルーターの場合，メーカーが選んだ少数のソフトウエアだけが導入されている。ユーザーは必ずしもUNIXが使えるわけではないので，ソフトウエアごとに設定方法がバラバラだとユーザーは混乱する。設定ファイルがソフトウエアごとに分かれているのも問題。たとえばネットワーク回線を1つ増やしたいときに，何をどれだけ変更すればいいのかがわからない。GR2000では，1つの統一された設定ファイルですべてを変更できるようにした。
+</p>
+<p>　両者の違いは，どちらが良い悪いというのではなく，ルーターという単一目的の製品と，汎用性を重視したUNIXとの性格の差だと思っている。
+</p>
+<p>　品質管理，ひらたく言うとバグ取りの手法も両者で大きく異なる。KAMEは世界中のユーザーに利用され，動作報告や問題報告が数多く届けられる。ユーザー環境も多岐に渡り，作者が予想もしなかった使われ方がされ，バグが発見されることもある。実ネットワークを使った多様な動作チェックはオープン・ソフトウエアの最も得意とするところだ。
+</p>
+<p>　逆にメーカー内で実施されるテストでは，構築できるネットワークの大きさはどうしても制限される。その代わりメーカーは，IPアドレスの設定を何度も変更し，ソフトウェアを再設定させるといったような繰り返しのテストを行う。その結果，<A HREF="commentary.shtml#a04" target=_window onClick="return comment_open('commentary.shtml#a04')">メモリーの解放漏れ</a>が発見されたり，特殊な条件が組み合わされた環境下で無限ループに陥るバグが見つかったりする。一年間ノンストップで動かしたような環境を，人工的に作りだすわけだ。
+
+</p><p>　この違いも，オープン・ソフトウエアと製品との役割分担のようなものではないかと思う。それぞれの得意な点を組み合わせていけば，より品質の高いものを生み出すことができる。</p>
+
+<p>　製品とオープン・ソフトウェアの境界を歩いていると，いろいろなものが見えてくる。これからも両者の橋渡しをしながら，開発を続けていこうと思っている。
+</p>					</td>
+					<td width="20" rowspan="2"><br>
+					</td>
+					<td width="260" class="ccaption">
+						<table border="0" cellpadding="8" cellspacing="0" width="100%">
+							<tr>
+								<td class="normal2" background="/images/background.gif">
+									<p>大学院生時代からIPv6で遊んでいた勢いで，97年に日立製作所に入社。日本初のIPv6対応ルーター「NR60」の開発を担当する。産学協同プロジェクト「KAME Project」の開発メンバーを経て，現在はギガ・ビット級の大型ルーター「GR2000」のIPv6機能を開発している。
+</p>
+								</td>
+							</tr>
+						</table>
+						<p></p>
+					</td>
+					<td width="20" class="normal2" rowspan="2"><br>
+					</td>
+				</tr>
+				<tr valign="bottom">
+					<td width="260" class="small">
+						<dl>
+							<dt>オープンソース
+							<dd>ソフトウエアの発展と技術の共有を目的に，プログラムのソースコードを公開し，知識を共有しようという考え方。プログラムの再配布やソースコードから製品を販売することも認めている。詳しい定義は，<a href="http://www.opensource.gr.jp/osd-ja.html" target="_blank">http://www.opensource.gr.jp/osd-ja.html</a> に記されている。
+
+						</dl>
+						<dl>
+							<dt>ソースコード
+							<dd>プログラムの元となる設計図のようなもの。ソースコードから，動かしたい機械に応じたプログラムが生成される。
+
+						</dl>
+						<dl>
+							<dt>ユーザー・インタフェース
+							<dd>ソフトウエアに対して，ユーザーが自分のやりたいことを伝える方法。例えば，Webのリンクをたどるためにマウスをクリックすることも，ユーザー・インタフェースの一つである。
+
+						</dl>
+						<dl>
+							<dt>メモリーの解放漏れ
+							<dd>ソフトウエアはあるデータを蓄積するときに，メモリーと呼ばれるコンピュータの記憶領域のうち，使われていない部分から必要な容量を確保する。そのデータが不要になったときに領域を解放し忘れると，未使用領域がどんどん減っていく。これをメモリーの解放漏れと呼ぶ。
+						</dl>
+
+					</td>
+				</tr>
+			</table>
+
+				<!-- end 記事-->
+
+			<br>
+
+			
+
+
+	<table width="760" border="0" cellspacing="0" cellpadding="0">
+		<tr> 
+			<td><img name="ipv6p12_r28_c1" src="footer.jpg" width="760" height="23" border="0"></td>
+		</tr>
+
+<!-- begin copyright -->
+	
+
+
+		<tr> 
+			<td> 
+				<div align="center"><A HREF="http://www.nikkeibp.co.jp/" target=_blank><img name="nikkeibp" src="nikkeibp.gif" width="68" height="20" border="0" alt="日経BP社"></A></div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div align="center" class="small"><font color="#999999">Copyright (C) 2000-2001 
+          Nikkei Business Publications, Inc. All rights reserved.<br>
+          記事中の情報は、記事執筆時点または雑誌掲載時点のものです。<br>
+          このサイトに掲載されている記事，写真，図表などの無断転載を禁じます。<br>
+          詳しくは<A HREF="http://www.nikkeibp.co.jp/info/copyright/" target=_blank>こちら</A>をご覧ください。<br>
+          e-mail address : <a href="mailto:v6start@nikkeibp.co.jp">v6start@nikkeibp.co.jp </a></font></div>
+			</td>
+		</tr>
+
+<!-- end copyright -->
+
+
+	</table>
+
+
+			</div>
+	</body>
+</html>

@@ -1,0 +1,3 @@
+<Files ~ "\.mgp$">
+  deny from all 
+</Files>
