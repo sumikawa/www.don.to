@@ -15,7 +15,7 @@ run:
 
 ai:: tags
 	./scripts/check_tags.rb source/diary/*/*
-	agy -i "`./scripts/check_tags.rb source/diary/*/*`"
+	agy -i --dangerously-skip-permissions "`./scripts/check_tags.rb source/diary/*/*`"
 
 year::
 	(cd data ; make year)
