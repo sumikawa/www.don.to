@@ -13,9 +13,9 @@ run:
 	"$(RUBY_BUNDLE) rackup api.ru --host 0.0.0.0" \
 	"$(RUBY_BUNDLE) middleman server --instrument --bind-address=0.0.0.0"
 
-tag::
-	./check_tags.rb source/diary/*/*
-	kiro-cli-chat chat --no-interactive  -a "`./check_tags.rb source/diary/*/*`"
+ai:: tags
+	./scripts/check_tags.rb source/diary/*/*
+	agy -i "`./scripts/check_tags.rb source/diary/*/*`"
 
 year::
 	(cd data ; make year)
