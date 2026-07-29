@@ -49,8 +49,10 @@ module DaylogHelpers
     item.each do |k, v|
       v = process_amazon(v)
       if k == 'comment'
-        v = v.gsub("\n", "</dd>\n\t<dd>　")
-        comment = "\n\t<dd>　#{v}</dd>"
+        comment_lines = v.split("\n").map do |line|
+          %(\n    <p>#{line}</p>)
+        end
+        comment = %(\n  <dd>#{comment_lines.join}\n  </dd>)
       else
         log = "<dt>#{k}: #{v}</dt>"
       end

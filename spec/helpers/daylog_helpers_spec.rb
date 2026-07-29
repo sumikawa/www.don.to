@@ -22,8 +22,29 @@ RSpec.describe DaylogHelpers do
     it 'renders daylog entries for the specified year' do
       result = helper.rend_daylog(2025)
       expect(result).to include('<dt>2025/10/29: 「<a href="https://www.amazon.co.jp/dp/B08XQ65HP7/ref=nosim?tag=daydreaonthen-22">かがみの孤城 上</a>」、辻村深月、ポプラ文庫</dt>')
-      expect(result).to include("<dt>2025/10/10: サイト内検索ライブラリを変更</dt>\n<dd>\t<a href=\"https://www.algolia.com/\">Algolia</a>から<a href=\"https://pagefind.app/\">pagefind</a>に変えた</dd>")
+      expect(result).to include("<dt>2025/10/10: サイト内検索ライブラリを変更</dt>\n\t<dd>\n\t\t<p><a href=\"https://www.algolia.com/\">Algolia</a>から<a href=\"https://pagefind.app/\">pagefind</a>に変えた</p>\n\t</dd>")
       expect(result).not_to include('2024')
+    end
+  end
+
+  describe 'comment formatting' do
+    it 'renders explicit comment lines as paragraphs inside one dd without full-width spaces' do
+      result = helper.send(
+        :process_daylog_hash,
+        {
+          '2025/07/29' => 'Example',
+          'comment' => "first line\nsecond line"
+        },
+        2025
+      )
+
+      expect(result).to eq(
+        "<dt>2025/07/29: Example</dt>\n" \
+        "\t<dd>\n" \
+        "\t\t<p>first line</p>\n" \
+        "\t\t<p>second line</p>\n" \
+        "\t</dd>"
+      )
     end
   end
 
