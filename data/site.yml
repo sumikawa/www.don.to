@@ -1,6 +1,9 @@
 aburl: "https://www.don.to/diary/"
 limit: 30
 secretmes: "(要パスワード)"
+# SHA-256 digest for client-side password checks on pages tagged with `secret`.
+# Example: `echo -n 'your-password' | shasum -a 256`
+secret_password_sha256: "4eee152e216ab259da5e06df280b122a6bb24ea5a91c1dde9247135b43d1d0ae"
 asid: daydreaonthen-22
 notitle: "no title"
 imagerootdir: "~/Dropbox/images"

@@ -9162,6 +9162,8 @@ seattle:
 - source/diary/2023/1002-seattle.html.md.erb
 - source/diary/2023/1004-seattle.html.md.erb
 - source/diary/2023/1005-seattle.html.md.erb
+secret:
+- source/diary/2026/0727-gyoza.html.md.erb
 security:
 - source/diary/2016/0826-qiita.html.md.erb
 senbero:

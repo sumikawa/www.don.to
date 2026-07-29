@@ -26,7 +26,31 @@
     <meta property="og:title" content="<%= gen_title %>">
   </head>
 
-  <body data-source-path="<%= current_page.source_file.sub(File.expand_path(config[:source]), '') %>">
+  <body
+    class="<%= 'secret-page secret-locked' if secret_page? %>"
+    data-source-path="<%= current_page.source_file.sub(File.expand_path(config[:source]), '') %>"
+    <% if secret_page? %>
+      data-secret-page="true"
+      data-secret-password-sha256="<%= secret_password_sha256 %>"
+    <% end %>
+  >
+    <% if secret_page? %>
+      <div class="secret-gate" id="secret-gate" role="dialog" aria-modal="true" aria-labelledby="secret-gate-title">
+        <div class="secret-gate__panel">
+          <h1 id="secret-gate-title">Password Required</h1>
+          <p>This page is protected. Enter the password to view its contents.</p>
+          <form id="secret-gate-form" class="secret-gate__form">
+            <label class="secret-gate__label" for="secret-gate-password">Password</label>
+            <input id="secret-gate-password" class="secret-gate__input" type="password" autocomplete="current-password" required>
+            <button class="secret-gate__submit" type="submit">Open Page</button>
+            <p id="secret-gate-message" class="secret-gate__message" aria-live="polite"></p>
+          </form>
+          <noscript>
+            <p class="secret-gate__message secret-gate__message--visible">JavaScript is required to open this page.</p>
+          </noscript>
+        </div>
+      </div>
+    <% end %>
     <div class="container">
       <div class="centerblock">
         <div class="mainblock">
@@ -68,6 +92,7 @@
       <%= partial "layouts/pswp" %>
     </div>
     <%= javascript_include_tag "diary" %>
+    <%= javascript_include_tag "secret-gate" %>
     <% if environment?(:development) %>
       <%= javascript_include_tag "editor" %>
       <script src="https://www.don.to/pagefind/pagefind-ui.js"></script>
