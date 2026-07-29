@@ -5,7 +5,7 @@ RSpec.describe SecretPageHelpers do
   let(:helper) { Class.new { include SecretPageHelpers }.new }
 
   around do |example|
-    previous = ENV['SECRET_PAGE_PASSWORD']
+    previous = ENV.fetch('SECRET_PAGE_PASSWORD', nil)
     ENV['SECRET_PAGE_PASSWORD'] = 'test-password'
     example.run
     ENV['SECRET_PAGE_PASSWORD'] = previous

@@ -27,9 +27,9 @@ module PageMetadataHelpers
 
     case raw_tags
     when String
-      raw_tags.split(',').map(&:strip).reject(&:empty?)
+      normalize_page_tags(raw_tags.split(','))
     when Array
-      raw_tags.map(&:to_s).map(&:strip).reject(&:empty?)
+      normalize_page_tags(raw_tags)
     else
       []
     end
@@ -75,5 +75,9 @@ module PageMetadataHelpers
 
   def extract_pre_1995_title(str)
     '1995年以前' if str.match?(/1995/)
+  end
+
+  def normalize_page_tags(tags)
+    tags.map(&:to_s).map(&:strip).reject(&:empty?)
   end
 end
