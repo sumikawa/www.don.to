@@ -31,13 +31,29 @@ module NavigationHelpers
 
     nav = '<nav class="prev_next" aria-label="Diary navigation">'
     if prev_page
-      nav += "<a class=\"prev_next-link prev\" href=\"#{prev_page.url}\"><span class=\"prev_next-eyebrow\">Previous</span><span class=\"prev_next-label\">&laquo; prev</span></a>"
+      nav += nav_link_html(
+        direction: 'prev',
+        url: prev_page.url,
+        eyebrow: 'Previous',
+        label: '&laquo; prev'
+      )
     end
     nav += '<span class="prev_next-divider" aria-hidden="true"></span>' if prev_page && next_page
     if next_page
-      nav += "<a class=\"prev_next-link next\" href=\"#{next_page.url}\"><span class=\"prev_next-eyebrow\">Next</span><span class=\"prev_next-label\">next &raquo;</span></a>"
+      nav += nav_link_html(
+        direction: 'next',
+        url: next_page.url,
+        eyebrow: 'Next',
+        label: 'next &raquo;'
+      )
     end
     nav += '</nav>'
     nav
+  end
+
+  def nav_link_html(direction:, url:, eyebrow:, label:)
+    "<a class=\"prev_next-link #{direction}\" href=\"#{url}\">" \
+      "<span class=\"prev_next-eyebrow\">#{eyebrow}</span>" \
+      "<span class=\"prev_next-label\">#{label}</span></a>"
   end
 end
