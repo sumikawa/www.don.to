@@ -39,14 +39,6 @@ module PageMetadataHelpers
     current_page_tags.include?('secret')
   end
 
-  def secret_password_sha256
-    value = data.site.secret_password_sha256
-    return nil if value.nil?
-
-    normalized = value.to_s.strip.downcase
-    normalized.match?(/\A\h{64}\z/) ? normalized : nil
-  end
-
   private
 
   def extract_date_string(str)

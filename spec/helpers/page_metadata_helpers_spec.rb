@@ -104,18 +104,6 @@ RSpec.describe PageMetadataHelpers do
     end
   end
 
-  describe '#secret_password_sha256' do
-    it 'returns a normalized SHA-256 digest when configured' do
-      allow(app.data.site).to receive(:secret_password_sha256).and_return(' ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890 ')
-      expect(helper.secret_password_sha256).to eq('abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890')
-    end
-
-    it 'returns nil when the configured value is invalid' do
-      allow(app.data.site).to receive(:secret_password_sha256).and_return('not-a-digest')
-      expect(helper.secret_password_sha256).to be_nil
-    end
-  end
-
   describe 'private methods' do
     describe '#extract_date_string' do
       it 'extracts date from various string formats' do

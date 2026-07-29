@@ -26,12 +26,26 @@
     <meta property="og:title" content="<%= gen_title %>">
   </head>
 
+  <% page_body = yield.to_s %>
+  <% page_tags = current_page_tags %>
+  <% tags_markup = if page_tags.any?
+    capture_html do %>
+      <div class="tags">
+        Tags:
+        <% page_tags.each do |tag| %>
+          <%= tag_to(tag) %>
+        <% end %>
+      </div>
+    <% end
+  else
+    ''
+  end %>
+  <% secret_payload_json = secret_page? ? encrypted_secret_page_payload_json(page_body + tags_markup) : nil %>
   <body
     class="<%= 'secret-page secret-locked' if secret_page? %>"
     data-source-path="<%= current_page.source_file.sub(File.expand_path(config[:source]), '') %>"
     <% if secret_page? %>
       data-secret-page="true"
-      data-secret-password-sha256="<%= secret_password_sha256 %>"
     <% end %>
   >
     <% if secret_page? %>
@@ -50,6 +64,7 @@
           </noscript>
         </div>
       </div>
+      <script id="secret-page-payload" type="application/json"><%= secret_payload_json %></script>
     <% end %>
     <div class="container">
       <div class="centerblock">
@@ -63,15 +78,11 @@
             <% unless current_page.data.top == true %>
               <h2 data-pagefind-meta="title" data-pagefind-sort="date:<%= gen_date %>"><%= gen_title %></h2>
             <% end %>
-            <%= yield %>
-
-            <% if current_page.data.tags %>
-              <div class="tags">
-                Tags:
-                <% current_page.data.tags.split(',').map(&:strip).each do |tag| %>
-                  <%= tag_to(tag) %>
-                <% end %>
-              </div>
+            <% if secret_page? %>
+              <div id="secret-page-content"></div>
+            <% else %>
+              <%= page_body %>
+              <%= tags_markup %>
             <% end %>
           </main>
 

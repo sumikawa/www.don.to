@@ -1,3 +1,5 @@
+include ~/.env
+
 SHELL := /bin/zsh
 THEME=github
 USER_HOME := $(HOME)
@@ -20,6 +22,7 @@ ai:: tags
 year::
 	(cd data ; make year)
 
+build:: export SECRET_PAGE_PASSWORD := $(SECRET_PAGE_PASSWORD)
 build::
 	$(RUBY_BUNDLE) middleman build --verbose
 
