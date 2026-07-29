@@ -14,4 +14,5 @@ jobs:
         with:
           REMOTE_BRANCH: gh-pages
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SECRET_PAGE_PASSWORD: ${{ secrets.SECRET_PAGE_PASSWORD }}
         uses: sumikawa/middleman-gh-pages-action@master
