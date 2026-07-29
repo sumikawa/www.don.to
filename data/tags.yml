@@ -162,24 +162,12 @@ animal:
 - source/diary/2023/0404-hodogaya.html.md.erb
 anime:
 - source/diary/1998/0812-video.html.md.erb
-- source/diary/1998/0927-memo.html.md.erb
-- source/diary/1998/1011-memo.html.md.erb
-- source/diary/1998/1012-memo.html.md.erb
-- source/diary/1998/1031-memo.html.md.erb
 - source/diary/1998/1122-lain.html.md.erb
 - source/diary/1998/1124-lain.html.md.erb
 - source/diary/1998/1204-boa.html.md.erb
-- source/diary/1998/1206-memo.html.md.erb
 - source/diary/1998/1219-dvd.html.md.erb
-- source/diary/1999/0126-memo.html.md.erb
-- source/diary/1999/0411-memo.html.md.erb
-- source/diary/1999/0620-memo.html.md.erb
 - source/diary/1999/0627-yoshidak.html.md.erb
-- source/diary/1999/0904-memo.html.md.erb
-- source/diary/1999/1007-memo.html.md.erb
 - source/diary/1999/1011-dvd.html.md.erb
-- source/diary/2000/0123-memo.html.md.erb
-- source/diary/2000/0423-memo.html.md.erb
 anniversary:
 - source/diary/2000/0408-20thanni.html.md.erb
 - source/diary/2006/0407-lawrys.html.md.erb
@@ -1054,70 +1042,16 @@ bolivia:
 - source/diary/2026/0403-bolivia.html.md.erb
 book:
 - source/diary/1998/0806-book.html.md.erb
-- source/diary/1998/0814-memo.html.md.erb
-- source/diary/1998/0815-memo.html.md.erb
-- source/diary/1998/0816-memo.html.md.erb
-- source/diary/1998/0913-memo.html.md.erb
-- source/diary/1998/0918-memo.html.md.erb
-- source/diary/1998/0924-memo.html.md.erb
-- source/diary/1998/0925-memo.html.md.erb
 - source/diary/1998/1003-book.html.md.erb
-- source/diary/1998/1004-memo.html.md.erb
 - source/diary/1998/1009-book.html.md.erb
-- source/diary/1998/1019-memo.html.md.erb
-- source/diary/1998/1029-memo.html.md.erb
-- source/diary/1998/1204-memo.html.md.erb
 - source/diary/1998/1219-book.html.md.erb
-- source/diary/1998/1219-memo.html.md.erb
-- source/diary/1998/1220-memo.html.md.erb
-- source/diary/1998/1222-memo.html.md.erb
-- source/diary/1999/0107-memo.html.md.erb
-- source/diary/1999/0111-memo.html.md.erb
-- source/diary/1999/0131-memo.html.md.erb
 - source/diary/1999/0210-book.html.md.erb
-- source/diary/1999/0222-memo.html.md.erb
-- source/diary/1999/0303-memo.html.md.erb
-- source/diary/1999/0304-memo.html.md.erb
 - source/diary/1999/0313-book.html.md.erb
-- source/diary/1999/0320-memo.html.md.erb
-- source/diary/1999/0414-memo.html.md.erb
-- source/diary/1999/0514-memo.html.md.erb
 - source/diary/1999/0523-book.html.md.erb
-- source/diary/1999/0527-memo.html.md.erb
-- source/diary/1999/0622-memo.html.md.erb
 - source/diary/1999/0728-book.html.md.erb
-- source/diary/1999/0814-memo.html.md.erb
-- source/diary/1999/0828-memo.html.md.erb
-- source/diary/1999/0830-memo.html.md.erb
-- source/diary/1999/0904-memo.html.md.erb
-- source/diary/1999/1011-memo.html.md.erb
-- source/diary/1999/1021-memo.html.md.erb
-- source/diary/1999/1102-memo.html.md.erb
 - source/diary/1999/1106-book.html.md.erb
 - source/diary/1999/1106-book2.html.md.erb
-- source/diary/1999/1106-memo.html.md.erb
-- source/diary/1999/1107-memo.html.md.erb
-- source/diary/1999/1111-memo.html.md.erb
-- source/diary/1999/1115-memo.html.md.erb
 - source/diary/1999/1124-book.html.md.erb
-- source/diary/1999/1127-memo.html.md.erb
-- source/diary/1999/1211-memo.html.md.erb
-- source/diary/1999/1213-memo.html.md.erb
-- source/diary/1999/1215-memo.html.md.erb
-- source/diary/2000/0101-memo.html.md.erb
-- source/diary/2000/0105-memo.html.md.erb
-- source/diary/2000/0111-memo.html.md.erb
-- source/diary/2000/0122-memo.html.md.erb
-- source/diary/2000/0308-memo.html.md.erb
-- source/diary/2000/0404-memo.html.md.erb
-- source/diary/2000/0410-memo.html.md.erb
-- source/diary/2000/0416-memo.html.md.erb
-- source/diary/2000/0608-memo.html.md.erb
-- source/diary/2000/0610-memo.html.md.erb
-- source/diary/2000/0801-memo.html.md.erb
-- source/diary/2000/0905-memo.html.md.erb
-- source/diary/2000/1102-memo.html.md.erb
-- source/diary/2000/1104-memo.html.md.erb
 - source/diary/2006/0612-ehon.html.md.erb
 - source/diary/2006/0928-ehon.html.md.erb
 - source/diary/2007/0430-ehon.html.md.erb
@@ -1911,7 +1845,6 @@ coffee:
 - source/diary/2024/0209-kusatu.html.md.erb
 - source/diary/2025/0111-kamakura.html.md.erb
 comedy:
-- source/diary/1998/0919-memo.html.md.erb
 - source/diary/1998/1101-monty.html.md.erb
 - source/diary/1998/1124-dvd.html.md.erb
 - source/diary/1999/1124-book.html.md.erb
@@ -1942,7 +1875,6 @@ conference:
 - source/diary/2012/0905-wide.html.md.erb
 - source/diary/2019/0707-ckp.html.md.erb
 cooking:
-- source/diary/1999/0111-memo.html.md.erb
 - source/diary/2003/0128-meshi.html.md.erb
 - source/diary/2003/0129-meshi.html.md.erb
 - source/diary/2003/0130-meshi.html.md.erb
@@ -2808,7 +2740,6 @@ dvd:
 - source/diary/1999/0123-dvd.html.md.erb
 - source/diary/1999/0327-muthu.html.md.erb
 - source/diary/1999/0709-dvd.html.md.erb
-- source/diary/1999/0911-memo.html.md.erb
 - source/diary/1999/1011-dvd.html.md.erb
 ebina:
 - source/diary/1997/0405-oji.html.md.erb
@@ -2934,10 +2865,7 @@ entertainment:
 - source/diary/2023/0616-alegria.html.md.erb
 - source/diary/2025/1115-enosima.html.md.erb
 essay:
-- source/diary/1998/1004-memo.html.md.erb
-- source/diary/1999/0107-memo.html.md.erb
 - source/diary/1999/0210-book.html.md.erb
-- source/diary/1999/1111-memo.html.md.erb
 - source/diary/2003/0325-nomi.html.md.erb
 - source/diary/2004/0723-ana.html.md.erb
 - source/diary/2005/0211-uk.html.md.erb
@@ -2947,7 +2875,6 @@ europe:
 - source/diary/2004/1231-ipv6eu.html.md.erb
 evangelion:
 - source/diary/1998/0812-video.html.md.erb
-- source/diary/1998/0927-memo.html.md.erb
 - source/diary/1999/0704-misc.html.md.erb
 - source/diary/2021/0317-eva.html.md.erb
 event:
@@ -4342,7 +4269,6 @@ gadget:
 - source/diary/2026/0316-note.html.md.erb
 game:
 - source/diary/1999/0819-mania.html.md.erb
-- source/diary/1999/1125-memo.html.md.erb
 - source/diary/2003/0414-daioujou.html.md.erb
 - source/diary/2004/1207-wine.html.md.erb
 - source/diary/2007/0920-psp.html.md.erb
@@ -4536,9 +4462,6 @@ guam:
 - source/diary/2002/0420-guam.html.md.erb
 - source/diary/2002/0421-guam.html.md.erb
 gundam:
-- source/diary/1998/1206-memo.html.md.erb
-- source/diary/2000/0123-memo.html.md.erb
-- source/diary/2000/0423-memo.html.md.erb
 - source/diary/2012/0829-gundam.html.md.erb
 - source/diary/2023/0601-yokohama.html.md.erb
 - source/diary/2024/0717-odaiba.html.md.erb
@@ -5167,10 +5090,8 @@ india:
 - source/diary/2012/1005-india.html.md.erb
 indian cinema:
 - source/diary/1998/1108-muthu.html.md.erb
-- source/diary/1998/1114-memo.html.md.erb
 - source/diary/1998/1114-muthu.html.md.erb
 - source/diary/1998/1202-muthu.html.md.erb
-- source/diary/1999/0105-memo.html.md.erb
 - source/diary/1999/0327-muthu.html.md.erb
 indoor:
 - source/diary/2007/0716-daiei.html.md.erb
@@ -5877,7 +5798,6 @@ learning:
 - source/diary/2025/0813-toeic.html.md.erb
 legal:
 - source/diary/1998/0806-book.html.md.erb
-- source/diary/1998/0913-memo.html.md.erb
 lego:
 - source/diary/2008/0114-lego.html.md.erb
 - source/diary/2008/0328-lego.html.md.erb
@@ -5930,10 +5850,6 @@ life:
 - source/diary/2025/1115-note.html.md.erb
 - source/diary/2025/1224-note.html.md.erb
 - source/diary/2026/0126-shoulder.html.md.erb
-literature:
-- source/diary/1998/0918-memo.html.md.erb
-- source/diary/1999/1211-memo.html.md.erb
-- source/diary/1999/1215-memo.html.md.erb
 local:
 - source/diary/2013/1103-festival.html.md.erb
 - source/diary/2020/0517-coffee.html.md.erb
@@ -6893,38 +6809,23 @@ movement:
 - source/diary/2006/0606-baby.html.md.erb
 - source/diary/2010/1228-riri.html.md.erb
 movie:
-- source/diary/1998/0902-memo.html.md.erb
-- source/diary/1998/0919-memo.html.md.erb
 - source/diary/1998/1002-bb.html.md.erb
-- source/diary/1998/1011-memo.html.md.erb
-- source/diary/1998/1013-memo.html.md.erb
-- source/diary/1998/1031-memo.html.md.erb
 - source/diary/1998/1108-muthu.html.md.erb
-- source/diary/1998/1114-memo.html.md.erb
 - source/diary/1998/1114-muthu.html.md.erb
 - source/diary/1998/1115-fifth.html.md.erb
 - source/diary/1998/1116-dvd.html.md.erb
 - source/diary/1998/1124-dvd.html.md.erb
 - source/diary/1998/1202-muthu.html.md.erb
 - source/diary/1998/1219-dvd.html.md.erb
-- source/diary/1999/0105-memo.html.md.erb
 - source/diary/1999/0116-avamp.html.md.erb
 - source/diary/1999/0123-dvd.html.md.erb
-- source/diary/1999/0207-memo.html.md.erb
 - source/diary/1999/0327-muthu.html.md.erb
 - source/diary/1999/0615-muthu.html.md.erb
-- source/diary/1999/0620-memo.html.md.erb
 - source/diary/1999/0716-starwars.html.md.erb
 - source/diary/1999/0904-dvd.html.md.erb
-- source/diary/1999/0911-memo.html.md.erb
 - source/diary/1999/0922-matrix.html.md.erb
 - source/diary/1999/1006-book.html.md.erb
-- source/diary/1999/1007-memo.html.md.erb
-- source/diary/1999/1103-memo.html.md.erb
 - source/diary/1999/1127-dvd.html.md.erb
-- source/diary/1999/1129-memo.html.md.erb
-- source/diary/1999/1223-memo.html.md.erb
-- source/diary/2000/0109-memo.html.md.erb
 - source/diary/2001/0902-sudou.html.md.erb
 - source/diary/2020/0813-cinema.html.md.erb
 - source/diary/2021/0317-eva.html.md.erb
@@ -7044,16 +6945,12 @@ museum:
 - source/diary/2026/0106-museum.html.md.erb
 - source/diary/2026/0707-ueno.html.md.erb
 music:
-- source/diary/1998/0815-memo.html.md.erb
-- source/diary/1998/0902-memo.html.md.erb
 - source/diary/1998/0930-karaoke.html.md.erb
 - source/diary/1998/1002-bb.html.md.erb
 - source/diary/1998/1125-karaoke.html.md.erb
 - source/diary/1998/1204-boa.html.md.erb
 - source/diary/1999/0124-karaoke.html.md.erb
 - source/diary/1999/0615-muthu.html.md.erb
-- source/diary/1999/1125-memo.html.md.erb
-- source/diary/1999/1128-memo.html.md.erb
 - source/diary/2003/1104-ipod.html.md.erb
 - source/diary/2004/0829-concert.html.md.erb
 - source/diary/2005/0127-jazz.html.md.erb
@@ -7068,7 +6965,6 @@ music:
 - source/diary/2024/1223-ren.html.md.erb
 muthu:
 - source/diary/1998/1108-muthu.html.md.erb
-- source/diary/1998/1114-memo.html.md.erb
 - source/diary/1998/1114-muthu.html.md.erb
 - source/diary/1998/1202-muthu.html.md.erb
 - source/diary/1999/0327-muthu.html.md.erb
@@ -7076,16 +6972,9 @@ muthu:
 my number card:
 - source/diary/2025/0410-license.html.md.erb
 mystery:
-- source/diary/1998/1029-memo.html.md.erb
 - source/diary/1998/1219-book.html.md.erb
 - source/diary/1999/0313-book.html.md.erb
-- source/diary/1999/0320-memo.html.md.erb
 - source/diary/1999/0728-book.html.md.erb
-- source/diary/2000/0101-memo.html.md.erb
-- source/diary/2000/0105-memo.html.md.erb
-- source/diary/2000/0111-memo.html.md.erb
-- source/diary/2000/0404-memo.html.md.erb
-- source/diary/2000/0416-memo.html.md.erb
 nabe:
 - source/diary/1998/1125-knc.html.md.erb
 - source/diary/1998/1128-chanko.html.md.erb
@@ -7139,9 +7028,6 @@ nasu:
 - source/diary/2005/0409-nasu.html.md.erb
 - source/diary/2024/1203-siobara.html.md.erb
 - source/diary/2024/1204-siobara.html.md.erb
-negative:
-- source/diary/2000/0608-memo.html.md.erb
-- source/diary/2000/0905-memo.html.md.erb
 negishi:
 - source/diary/2012/0408-negisi.html.md.erb
 - source/diary/2012/0415-negisi.html.md.erb
@@ -7241,16 +7127,7 @@ nokogiri:
 - source/diary/2021/0421-nokogiri.html.md.erb
 non-fiction:
 - source/diary/1998/0806-book.html.md.erb
-- source/diary/1998/0814-memo.html.md.erb
-- source/diary/1998/0913-memo.html.md.erb
-- source/diary/1998/0925-memo.html.md.erb
-- source/diary/1998/1004-memo.html.md.erb
-- source/diary/1998/1220-memo.html.md.erb
-- source/diary/1999/0107-memo.html.md.erb
-- source/diary/1999/0111-memo.html.md.erb
-- source/diary/1999/0131-memo.html.md.erb
 - source/diary/1999/0210-book.html.md.erb
-- source/diary/2000/0801-memo.html.md.erb
 noodle:
 - source/diary/2007/1218-kisimen.html.md.erb
 - source/diary/2014/1222-lunch.html.md.erb
@@ -7275,19 +7152,8 @@ note:
 - source/diary/2026/0528-note.html.md.erb
 - source/diary/2026/0705-note.html.md.erb
 novel:
-- source/diary/1999/0622-memo.html.md.erb
-- source/diary/1999/1011-memo.html.md.erb
-- source/diary/1999/1102-memo.html.md.erb
 - source/diary/1999/1106-book.html.md.erb
-- source/diary/1999/1106-memo.html.md.erb
-- source/diary/1999/1107-memo.html.md.erb
-- source/diary/1999/1115-memo.html.md.erb
 - source/diary/1999/1124-book.html.md.erb
-- source/diary/1999/1127-memo.html.md.erb
-- source/diary/1999/1211-memo.html.md.erb
-- source/diary/1999/1213-memo.html.md.erb
-- source/diary/1999/1215-memo.html.md.erb
-- source/diary/2000/1102-memo.html.md.erb
 observation:
 - source/diary/2006/0616-nani.html.md.erb
 - source/diary/2006/0715-mouth.html.md.erb
@@ -8477,11 +8343,8 @@ psp:
 - source/diary/2007/0920-psp.html.md.erb
 - source/diary/2008/0107-psp.html.md.erb
 psychological:
-- source/diary/1998/1011-memo.html.md.erb
-- source/diary/1998/1012-memo.html.md.erb
 - source/diary/1998/1122-lain.html.md.erb
 - source/diary/1998/1124-lain.html.md.erb
-- source/diary/1999/0126-memo.html.md.erb
 python:
 - source/diary/2025/0929-qiita.html.md.erb
 - source/diary/2025/1124-qiita.html.md.erb
@@ -8857,54 +8720,16 @@ reunion:
 - source/diary/2025/0819-party.html.md.erb
 - source/diary/2026/0530-aws.html.md.erb
 review:
-- source/diary/1998/0829-memo.html.md.erb
-- source/diary/1998/1013-memo.html.md.erb
-- source/diary/1998/1019-memo.html.md.erb
 - source/diary/1998/1124-dvd.html.md.erb
-- source/diary/1998/1204-memo.html.md.erb
-- source/diary/1999/0207-memo.html.md.erb
-- source/diary/1999/0304-memo.html.md.erb
-- source/diary/1999/0505-memo.html.md.erb
-- source/diary/1999/0514-memo.html.md.erb
-- source/diary/1999/0527-memo.html.md.erb
-- source/diary/1999/0622-memo.html.md.erb
 - source/diary/1999/0716-starwars.html.md.erb
 - source/diary/1999/0728-book.html.md.erb
-- source/diary/1999/0814-memo.html.md.erb
-- source/diary/1999/0828-memo.html.md.erb
-- source/diary/1999/0830-memo.html.md.erb
 - source/diary/1999/0904-dvd.html.md.erb
-- source/diary/1999/0904-memo.html.md.erb
-- source/diary/1999/0911-memo.html.md.erb
 - source/diary/1999/0922-matrix.html.md.erb
 - source/diary/1999/1006-book.html.md.erb
-- source/diary/1999/1007-memo.html.md.erb
 - source/diary/1999/1011-dvd.html.md.erb
-- source/diary/1999/1011-memo.html.md.erb
-- source/diary/1999/1021-memo.html.md.erb
-- source/diary/1999/1102-memo.html.md.erb
-- source/diary/1999/1103-memo.html.md.erb
 - source/diary/1999/1106-book.html.md.erb
 - source/diary/1999/1106-book2.html.md.erb
-- source/diary/1999/1106-memo.html.md.erb
-- source/diary/1999/1107-memo.html.md.erb
-- source/diary/1999/1125-memo.html.md.erb
 - source/diary/1999/1127-dvd.html.md.erb
-- source/diary/1999/1127-memo.html.md.erb
-- source/diary/1999/1129-memo.html.md.erb
-- source/diary/1999/1223-memo.html.md.erb
-- source/diary/2000/0123-memo.html.md.erb
-- source/diary/2000/0308-memo.html.md.erb
-- source/diary/2000/0404-memo.html.md.erb
-- source/diary/2000/0410-memo.html.md.erb
-- source/diary/2000/0416-memo.html.md.erb
-- source/diary/2000/0423-memo.html.md.erb
-- source/diary/2000/0608-memo.html.md.erb
-- source/diary/2000/0610-memo.html.md.erb
-- source/diary/2000/0801-memo.html.md.erb
-- source/diary/2000/0905-memo.html.md.erb
-- source/diary/2000/1102-memo.html.md.erb
-- source/diary/2000/1104-memo.html.md.erb
 - source/diary/2010/0828-kindle.html.md.erb
 - source/diary/2015/0409-beer.html.md.erb
 - source/diary/2018/0711-gemini.html.md.erb
@@ -9157,7 +8982,6 @@ school:
 - source/diary/2025/1017-secret.html.md.erb
 - source/diary/2026/0317-secret.html.md.erb
 science:
-- source/diary/1999/1111-memo.html.md.erb
 - source/diary/2011/0211-ren.html.md.erb
 - source/diary/2011/0417-ren.html.md.erb
 - source/diary/2011/0731-hamagin.html.md.erb
@@ -11675,9 +11499,7 @@ turkey:
 turkish:
 - source/diary/2017/0120-dinner.html.md.erb
 tv:
-- source/diary/1998/0829-memo.html.md.erb
 - source/diary/1998/1101-monty.html.md.erb
-- source/diary/1999/0505-memo.html.md.erb
 - source/diary/2002/0208-channel5.html.md.erb
 - source/diary/2006/1106-wa.html.md.erb
 - source/diary/2011/0203-tv.html.md.erb
@@ -11911,8 +11733,6 @@ venice:
 - source/diary/2003/0602-venice.html.md.erb
 video:
 - source/diary/1998/0812-video.html.md.erb
-- source/diary/1998/0927-memo.html.md.erb
-- source/diary/1998/1206-memo.html.md.erb
 - source/diary/2006/0523-baby.html.md.erb
 - source/diary/2006/0613-baby.html.md.erb
 - source/diary/2006/0626-akubi.html.md.erb
