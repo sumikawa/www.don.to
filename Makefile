@@ -1,11 +1,9 @@
-include ~/.env
-
 SHELL := /bin/zsh
 THEME=github
 USER_HOME := $(HOME)
 BUNDLE_USER_HOME=$(USER_HOME)/tmp
 BUNDLE_PATH=$(USER_HOME)/tmp/bundle
-RUBY_BUNDLE_ENV=mkdir -p "$(BUNDLE_USER_HOME)" "$(BUNDLE_PATH)" && BUNDLE_USER_HOME="$(BUNDLE_USER_HOME)" BUNDLE_PATH="$(BUNDLE_PATH)"
+RUBY_BUNDLE_ENV=mkdir -p "$(BUNDLE_USER_HOME)" "$(BUNDLE_PATH)" && BUNDLE_USER_HOME="$(BUNDLE_USER_HOME)" BUNDLE_PATH="$(BUNDLE_PATH)" SECRET_PAGE_PASSWORD='staging'
 RUBY_BUNDLE=$(RUBY_BUNDLE_ENV) bundle exec
 CODEX_BUNDLE_USER_HOME=/private/tmp/bundle
 CODEX_RUBY_BUNDLE=source ~/.zshrc && mkdir -p "$(CODEX_BUNDLE_USER_HOME)" "$(BUNDLE_PATH)" && BUNDLE_USER_HOME="$(CODEX_BUNDLE_USER_HOME)" BUNDLE_PATH="$(BUNDLE_PATH)" bundle exec
@@ -22,7 +20,6 @@ ai:: tags
 year::
 	(cd data ; make year)
 
-build:: export SECRET_PAGE_PASSWORD := $(SECRET_PAGE_PASSWORD)
 build::
 	$(RUBY_BUNDLE) middleman build --verbose
 
