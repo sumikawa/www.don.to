@@ -58,6 +58,11 @@ function unlockSecretPage(html) {
 
   container.innerHTML = html;
   document.body.classList.remove('secret-locked');
+  document.dispatchEvent(new CustomEvent('secret-page:unlock', {
+    detail: {
+      container: container
+    }
+  }));
 }
 
 function initializeSecretGate() {

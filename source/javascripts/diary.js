@@ -2,10 +2,11 @@ function shouldLinkifyAddresses() {
   return window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 }
 
-function decorateAddresses() {
+function decorateAddresses(scope) {
   if (!shouldLinkifyAddresses()) return;
 
-  var addressElements = document.querySelectorAll('pre.address');
+  var root = scope || document;
+  var addressElements = root.querySelectorAll('pre.address');
   addressElements.forEach(function (element) {
     var lines = element.textContent.split('\n');
     if (lines.length < 2 || lines[1].trim() === '') {
@@ -38,8 +39,9 @@ function decorateAddresses() {
   });
 }
 
-function decorateImageParagraphs() {
-  var paragraphs = document.querySelectorAll('main p');
+function decorateImageParagraphs(scope) {
+  var root = scope || document;
+  var paragraphs = root.querySelectorAll('main p');
 
   paragraphs.forEach(function (paragraph) {
     var children = Array.from(paragraph.children);
@@ -70,5 +72,15 @@ function decorateImageParagraphs() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', decorateAddresses);
-document.addEventListener('DOMContentLoaded', decorateImageParagraphs);
+function initializeDiaryEnhancements(scope) {
+  decorateAddresses(scope);
+  decorateImageParagraphs(scope);
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  initializeDiaryEnhancements(document);
+});
+
+document.addEventListener('secret-page:unlock', function (event) {
+  initializeDiaryEnhancements(event.detail && event.detail.container);
+});

@@ -235,6 +235,14 @@ initPhotoSwipeFromDOM = function (gallerySelector) {
   }
 };
 
-document.addEventListener('DOMContentLoaded', function () {
+function initializePhotoSwipe() {
   initPhotoSwipeFromDOM('.mainblock');
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  initializePhotoSwipe();
+});
+
+document.addEventListener('secret-page:unlock', function () {
+  initializePhotoSwipe();
 });
