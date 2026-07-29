@@ -32,6 +32,13 @@ RSpec.describe PageMetadataHelpers do
         expect(helper.gen_title).to eq('2025/02/03: Miyakojima Trip')
       end
 
+      it 'returns the correct date prefix for existing diary entries' do
+        allow(current_page).to receive(:url).and_return('/diary/2013/0227-hoikuen/')
+        allow(current_page.data).to receive(:title).and_return('アルバム作成')
+        expect(helper.gen_title).to eq('2013/02/27: アルバム作成')
+        expect(helper.gen_date).to eq('2013-02-27')
+      end
+
       it 'returns just the title for non-diary pages' do
         allow(current_page).to receive(:url).and_return('/about/')
         expect(helper.gen_title).to eq('Miyakojima Trip')

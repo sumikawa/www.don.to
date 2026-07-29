@@ -50,19 +50,38 @@ module PageMetadataHelpers
   private
 
   def extract_date_string(str)
-    case str
-    when %r{/diary/1995/(\d\d\d\d)(\d\d)(\d\d)-\w+}
-      "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}"
-    when %r{/diary/1995/(\d\d\d\d)(\d\d)-\w+}
-      "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}"
-    when /1995/
-      '1995年以前'
-    when %r{/(\d\d\d\d)/(\d\d)(\d\d)-\w+}
-      "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/#{::Regexp.last_match(3)}"
-    when %r{/(\d\d\d\d)/(\d\d)-\w+}
-      "#{::Regexp.last_match(1)}/#{::Regexp.last_match(2)}/??"
-    when %r{(\d\d\d\d)(/|\.html$)}
-      "#{::Regexp.last_match(1)}年"
-    end
+    extract_full_date(str) ||
+      extract_month_date(str) ||
+      extract_pre_1995_title(str) ||
+      extract_year_title(str)
+  end
+
+  def extract_full_date(str)
+    match = str.match(%r{/diary/1995/(\d\d\d\d)(\d\d)(\d\d)-\w+})
+    match ||= str.match(%r{/(\d\d\d\d)/(\d\d)(\d\d)-\w+})
+    return nil if match.nil?
+
+    "#{match[1]}/#{match[2]}/#{match[3]}"
+  end
+
+  def extract_month_date(str)
+    match = str.match(%r{/diary/1995/(\d\d\d\d)(\d\d)-\w+})
+    return "#{match[1]}/#{match[2]}" unless match.nil?
+
+    match = str.match(%r{/(\d\d\d\d)/(\d\d)-\w+})
+    return nil if match.nil?
+
+    "#{match[1]}/#{match[2]}/??"
+  end
+
+  def extract_year_title(str)
+    match = str.match(%r{(\d\d\d\d)(/|\.html$)})
+    return nil if match.nil?
+
+    "#{match[1]}年"
+  end
+
+  def extract_pre_1995_title(str)
+    '1995年以前' if str.match?(/1995/)
   end
 end
