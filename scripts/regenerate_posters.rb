@@ -29,33 +29,70 @@ thumb_ext = site_config['thumbext'] || 'jpg'
 total_success = 0
 total_failure = 0
 
-ARGV.each do |arg|
+def valid_argument?(arg)
+  arg.match?(%r{\A\d{4}/.+\z})
+end
+
+def video_files_in(src_dir)
+  video_extensions = %w[mp4 mov avi m4v]
+  video_glob = File.join(src_dir, "**/*.{#{video_extensions.join(',')}}")
+  Dir.glob(video_glob, File::FNM_CASEFOLD).select { |path| File.file?(path) }
+end
+
+def probe_prefix(video_path)
+  Video.probe(video_path)[:prefix]
+rescue StandardError => e
+  puts "  Warning: Failed to probe video: #{e.message}. Using default prefix 'hd'."
+  'hd'
+end
+
+def generate_poster(video_path, dst_dir, thumb_height, thumb_ext)
+  puts "Processing #{video_path}..."
+  video_ext = File.extname(video_path)
+  base_name = File.basename(video_path, video_ext)
+  dst_file = "#{probe_prefix(video_path)}#{base_name}.#{thumb_ext}"
+
+  Video.poster(
+    src: video_path,
+    dst_dir: dst_dir,
+    dst_file: dst_file,
+    height: thumb_height
+  )
+
+  puts "  Generated: #{File.join(dst_dir, dst_file)}"
+end
+
+def process_video_files(video_files, dst_dir, thumb_height, thumb_ext)
+  success_count = 0
+  failure_count = 0
+
+  video_files.each do |video_path|
+    generate_poster(video_path, dst_dir, thumb_height, thumb_ext)
+    success_count += 1
+  rescue StandardError => e
+    puts "  Error processing #{video_path}: #{e.message}"
+    failure_count += 1
+  end
+
+  [success_count, failure_count]
+end
+
+def process_argument(arg, imagerootdir, cacherootdir, thumb_height, thumb_ext)
   puts '========================================'
   puts "Processing: #{arg}"
 
-  unless arg.match?(%r{\A\d{4}/.+\z})
-    puts 'Error: Argument format must be YEAR/directory (e.g., 2013/0817-camp). Skipping.'
-    next
-  end
+  return [0, 0] unless valid_argument_format?(arg)
 
   src_dir = File.join(imagerootdir, 'diary', arg)
   dst_dir = File.join(cacherootdir, 'diary', arg)
 
-  unless File.directory?(src_dir)
-    puts "Error: Source directory #{src_dir} does not exist. Skipping."
-    next
-  end
+  return [0, 0] unless source_directory_exists?(src_dir)
 
-  # Supported video extensions
-  video_extensions = %w[mp4 mov avi m4v]
-  video_glob = File.join(src_dir, "**/*.{#{video_extensions.join(',')}}")
-
-  # Search recursively but case-insensitively for video files
-  video_files = Dir.glob(video_glob, File::FNM_CASEFOLD).select { |f| File.file?(f) }
+  video_files = video_files_in(src_dir)
 
   if video_files.empty?
     puts "No video files found in #{src_dir}. Skipping."
-    next
+    return [0, 0]
   end
 
   # Ensure the destination directory exists
@@ -64,45 +101,40 @@ ARGV.each do |arg|
   puts "Found #{video_files.size} video files."
   puts "Regenerating poster images in #{dst_dir} (height: #{thumb_height}, format: #{thumb_ext})..."
 
-  success_count = 0
-  failure_count = 0
-
-  video_files.each do |video_path|
-    puts "Processing #{video_path}..."
-    begin
-      video_ext = File.extname(video_path)
-      base_name = File.basename(video_path, video_ext)
-
-      # Probe original video to get the prefix (e.g. hd, hdtr)
-      begin
-        opts = Video.probe(video_path)
-        prefix = opts[:prefix]
-      rescue StandardError => e
-        puts "  Warning: Failed to probe video: #{e.message}. Using default prefix 'hd'."
-        prefix = 'hd'
-      end
-
-      dst_file = "#{prefix}#{base_name}.#{thumb_ext}"
-
-      # Regenerate poster
-      Video.poster(
-        src: video_path,
-        dst_dir: dst_dir,
-        dst_file: dst_file,
-        height: thumb_height
-      )
-
-      puts "  Generated: #{File.join(dst_dir, dst_file)}"
-      success_count += 1
-      total_success += 1
-    rescue StandardError => e
-      puts "  Error processing #{video_path}: #{e.message}"
-      failure_count += 1
-      total_failure += 1
-    end
-  end
-
+  success_count, failure_count = process_video_files(
+    video_files,
+    dst_dir,
+    thumb_height,
+    thumb_ext
+  )
   puts "Finished #{arg}. Success: #{success_count}, Failure: #{failure_count}"
+  [success_count, failure_count]
+end
+
+def valid_argument_format?(arg)
+  return true if valid_argument?(arg)
+
+  puts 'Error: Argument format must be YEAR/directory (e.g., 2013/0817-camp). Skipping.'
+  false
+end
+
+def source_directory_exists?(src_dir)
+  return true if File.directory?(src_dir)
+
+  puts "Error: Source directory #{src_dir} does not exist. Skipping."
+  false
+end
+
+ARGV.each do |arg|
+  success_count, failure_count = process_argument(
+    arg,
+    imagerootdir,
+    cacherootdir,
+    thumb_height,
+    thumb_ext
+  )
+  total_success += success_count
+  total_failure += failure_count
 end
 
 puts "Done. Total Success: #{total_success}, Total Failure: #{total_failure}"
