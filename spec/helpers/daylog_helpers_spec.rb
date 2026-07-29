@@ -39,11 +39,11 @@ RSpec.describe DaylogHelpers do
       )
 
       expect(result).to eq(
-        "<dt>2025/07/29: Example</dt>\n" \
-        "  <dd>\n" \
-        "    <p>first line</p>\n" \
-        "    <p>second line</p>\n" \
-        "  </dd>"
+        "<dt>2025/07/29: Example</dt>\n  " \
+        "<dd>\n    " \
+        "<p>first line</p>\n    " \
+        "<p>second line</p>\n  " \
+        '</dd>'
       )
     end
   end

@@ -24,12 +24,10 @@ RSpec.describe LinkHelpers do
 
         attributes << "#{key}=\"#{value}\""
       end
-      if options[:data]
-        options[:data].each do |data_key, data_value|
-          next if data_value.nil?
+      options[:data]&.each do |data_key, data_value|
+        next if data_value.nil?
 
-          attributes << "data-#{data_key.to_s.tr('_', '-')}=\"#{data_value}\""
-        end
+        attributes << "data-#{data_key.to_s.tr('_', '-')}=\"#{data_value}\""
       end
       "<a #{attributes.join(' ')}>#{text}</a>"
     end

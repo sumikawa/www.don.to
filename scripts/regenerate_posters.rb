@@ -6,13 +6,11 @@ require 'fileutils'
 require_relative '../lib/video'
 
 def print_usage
-  puts "Usage: bundle exec ruby scripts/regenerate_posters.rb YEAR/directory1 YEAR/directory2 ..."
+  puts 'Usage: bundle exec ruby scripts/regenerate_posters.rb YEAR/directory1 YEAR/directory2 ...'
   exit 1
 end
 
-if ARGV.empty?
-  print_usage
-end
+print_usage if ARGV.empty?
 
 # Load site configuration for paths, thumbheight, and thumbext
 begin
@@ -32,18 +30,18 @@ total_success = 0
 total_failure = 0
 
 ARGV.each do |arg|
-  puts "========================================"
+  puts '========================================'
   puts "Processing: #{arg}"
 
-  if !arg.match?(%r{\A\d{4}/.+\z})
-    puts "Error: Argument format must be YEAR/directory (e.g., 2013/0817-camp). Skipping."
+  unless arg.match?(%r{\A\d{4}/.+\z})
+    puts 'Error: Argument format must be YEAR/directory (e.g., 2013/0817-camp). Skipping.'
     next
   end
 
   src_dir = File.join(imagerootdir, 'diary', arg)
   dst_dir = File.join(cacherootdir, 'diary', arg)
 
-  if !File.directory?(src_dir)
+  unless File.directory?(src_dir)
     puts "Error: Source directory #{src_dir} does not exist. Skipping."
     next
   end
