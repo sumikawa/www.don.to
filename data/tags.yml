@@ -925,6 +925,7 @@ bike:
 - source/diary/2026/0706-miura.html.md.erb
 - source/diary/2026/0713-camp.html.md.erb
 - source/diary/2026/0715-camp.html.md.erb
+- source/diary/2026/0727-gyoza.html.md.erb
 billiards:
 - source/diary/2017/0505-hodogaya.html.md.erb
 - source/diary/2017/0506-ren.html.md.erb
@@ -4495,6 +4496,7 @@ gyoza:
 - source/diary/2024/0615-gyoza.html.md.erb
 - source/diary/2025/0216-gyoza.html.md.erb
 - source/diary/2025/0306-sauna.html.md.erb
+- source/diary/2026/0727-gyoza.html.md.erb
 gyutan:
 - source/diary/2013/1111-lunch.html.md.erb
 - source/diary/2017/0123-lunch.html.md.erb
@@ -8900,6 +8902,7 @@ sagamihara:
 - source/diary/2010/0927-sinsairo.html.md.erb
 - source/diary/2022/0709-white.html.md.erb
 - source/diary/2025/0216-gyoza.html.md.erb
+- source/diary/2026/0727-gyoza.html.md.erb
 sagamiono:
 - source/diary/2001/0413-yamucha.html.md.erb
 - source/diary/2012/0908-lunch.html.md.erb
