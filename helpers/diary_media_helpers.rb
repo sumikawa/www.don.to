@@ -58,6 +58,7 @@ module DiaryIndexHelpers
 
     text = video_embed_text(file_info, opts)
     timestamp = exif_data['CreationDate'] || exif_data['FileModifyDate'] || now
+    timestamp = normalized_media_timestamp(timestamp, now)
 
     [timestamp, text]
   end
