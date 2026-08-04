@@ -205,8 +205,8 @@ RSpec.describe DiaryIndexHelpers do
 
       it 'normalizes EXIF-style creation timestamps with timezone offsets' do
         allow(exif_data).to receive(:[]).with('CreationDate').and_return('2026:08:02 20:50:56+07:00')
-        _timestamp, text = helper.send(:process_video_entry, file_info, exif_data, dirpath, now)
-        expect(_timestamp).to eq('2026-08-02 20:50:56')
+        timestamp, text = helper.send(:process_video_entry, file_info, exif_data, dirpath, now)
+        expect(timestamp).to eq('2026-08-02 20:50:56')
         expect(text).to eq('<%= movie "hdvideo", timestamp: \'2026-08-02 20:50:56\' %>')
       end
     end
