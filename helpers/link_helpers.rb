@@ -51,14 +51,15 @@ module LinkHelpers
     "<img #{attrs} />"
   end
 
-  def movie(file)
+  def movie(file, timestamp: nil)
     year, dirname, file = parse_url(current_page.url, file)
     video_url = dropbox_url(year: year, dirname: dirname, basename: file, ext: data.site.videoext)
     thumb_url = dropbox_url(year: year, dirname: dirname, basename: file, ext: data.site.thumbext)
 
     link_to(image_tag(thumb_url, height: data.site.thumbheight),
             video_url,
-            class: 'video swipe')
+            class: 'video swipe',
+            data: { filename: file, timestamp: timestamp })
   end
 
   def audio(file)

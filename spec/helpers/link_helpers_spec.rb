@@ -164,7 +164,17 @@ RSpec.describe LinkHelpers do
                                                   ext: 'jpg').and_return('https://example.com/img_5678.jpg')
 
       result = helper.movie('img_5678')
-      expect(result).to eq("<a href=\"https://example.com/img_5678.mp4\" class=\"video swipe\"><img src=\"https://example.com/img_5678.jpg\" height=\"#{app.data.site.thumbheight}\" /></a>")
+      expect(result).to eq("<a href=\"https://example.com/img_5678.mp4\" class=\"video swipe\" data-filename=\"img_5678\"><img src=\"https://example.com/img_5678.jpg\" height=\"#{app.data.site.thumbheight}\" /></a>")
+    end
+
+    it 'includes explicit filename and timestamp metadata when provided' do
+      allow(helper).to receive(:dropbox_url).with(year: '1995', dirname: '198508-camp', basename: 'img_5678',
+                                                  ext: 'mp4').and_return('https://example.com/img_5678.mp4')
+      allow(helper).to receive(:dropbox_url).with(year: '1995', dirname: '198508-camp', basename: 'img_5678',
+                                                  ext: 'jpg').and_return('https://example.com/img_5678.jpg')
+
+      result = helper.movie('img_5678', timestamp: '2025-02-03 12:34:56')
+      expect(result).to eq("<a href=\"https://example.com/img_5678.mp4\" class=\"video swipe\" data-filename=\"img_5678\" data-timestamp=\"2025-02-03 12:34:56\"><img src=\"https://example.com/img_5678.jpg\" height=\"#{app.data.site.thumbheight}\" /></a>")
     end
   end
 

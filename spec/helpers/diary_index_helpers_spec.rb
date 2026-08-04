@@ -70,6 +70,7 @@ RSpec.describe DiaryIndexHelpers do
 
       context 'with video files' do
         let(:image_files) { ['/path/to/images/diary/2025/0203-test/video_1234.mp4'] }
+        let(:exif_data) { { 'CreationDate' => Time.new(2025, 2, 3, 12, 0, 0) } }
 
         it 'processes video files correctly' do
           io = StringIO.new
@@ -77,7 +78,7 @@ RSpec.describe DiaryIndexHelpers do
           helper.gen_index('2025/0203-test')
           io.rewind
           output = io.read
-          expect(output).to include('<%= movie "hdvideo_1234" %>')
+          expect(output).to include('<%= movie "hdvideo_1234", timestamp: \'2025-02-03 12:00:00\' %>')
         end
       end
 
@@ -199,14 +200,14 @@ RSpec.describe DiaryIndexHelpers do
       it 'returns timestamp and movie tag' do
         allow(exif_data).to receive(:[]).with('CreationDate').and_return(Time.new(2025, 1, 1, 12, 0, 0))
         _timestamp, text = helper.send(:process_video_entry, file_info, exif_data, dirpath, now)
-        expect(text).to eq('<%= movie "hdvideo" %>')
+        expect(text).to eq('<%= movie "hdvideo", timestamp: \'2025-01-01 12:00:00\' %>')
       end
 
       it 'normalizes EXIF-style creation timestamps with timezone offsets' do
         allow(exif_data).to receive(:[]).with('CreationDate').and_return('2026:08:02 20:50:56+07:00')
         _timestamp, text = helper.send(:process_video_entry, file_info, exif_data, dirpath, now)
         expect(_timestamp).to eq('2026-08-02 20:50:56')
-        expect(text).to eq('<%= movie "hdvideo" %>')
+        expect(text).to eq('<%= movie "hdvideo", timestamp: \'2026-08-02 20:50:56\' %>')
       end
     end
 

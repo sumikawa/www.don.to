@@ -56,9 +56,9 @@ module DiaryIndexHelpers
 
     convert_video_and_create_poster(file_info, opts, dirpath) if localhost?
 
-    text = video_embed_text(file_info, opts)
     timestamp = exif_data['CreationDate'] || exif_data['FileModifyDate'] || now
     timestamp = normalized_media_timestamp(timestamp, now)
+    text = video_embed_text(file_info, opts, timestamp)
 
     [timestamp, text]
   end
@@ -91,12 +91,12 @@ module DiaryIndexHelpers
                  height: data.site.thumbheight)
   end
 
-  def video_embed_text(file_info, opts)
+  def video_embed_text(file_info, opts, timestamp)
     if file_info[:ext].downcase == 'avi'
-      "<%= movie \"#{file_info[:base]}\" %>"
+      "<%= movie \"#{file_info[:base]}\", timestamp: '#{timestamp}' %>"
     else
       prefix = opts ? opts[:prefix] : 'hd'
-      "<%= movie \"#{prefix}#{file_info[:base]}\" %>"
+      "<%= movie \"#{prefix}#{file_info[:base]}\", timestamp: '#{timestamp}' %>"
     end
   end
 
