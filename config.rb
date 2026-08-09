@@ -62,5 +62,5 @@ activate :directory_indexes
 
 # activate :livereload
 if environment?(:development) && ENV['DISABLE_LIVERELOAD'] != '1'
-  #  activate :livereload, host: 'localhost', port: 35729, no_swf: true
+  activate :livereload, host: 'localhost', port: 35729, no_swf: true
 end
