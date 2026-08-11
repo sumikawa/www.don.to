@@ -4609,6 +4609,7 @@ health:
 - source/diary/2025/0731-health.html.md.erb
 - source/diary/2025/1128-note.html.md.erb
 - source/diary/2026/0126-shoulder.html.md.erb
+- source/diary/2026/0808-kubi.html.md.erb
 higashi shinagawa:
 - source/diary/2021/0914-lunch.html.md.erb
 - source/diary/2021/0921-lunch.html.md.erb
@@ -9175,6 +9176,7 @@ secret:
 - source/diary/2025/1017-secret.html.md.erb
 - source/diary/2026/0317-secret.html.md.erb
 - source/diary/2026/0605-secret.html.md.erb
+- source/diary/2026/0808-kubi.html.md.erb
 security:
 - source/diary/2016/0826-qiita.html.md.erb
 senbero:
