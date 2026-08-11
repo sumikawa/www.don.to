@@ -7,6 +7,7 @@ REDUNDANCY_RULES = {
   'higashi shinagawa' => ['shinagawa'],
   'minatomirai' => ['yokohama'],
   'trail' => ['nature'],
+  'vietnam' => ['nha trang'],
   'park' => %w[nature outdoor playground play],
   'camp' => ['outdoor'],
   'uk' => ['photo']
