@@ -24,11 +24,13 @@ function drawChart() {
 
   data.addRows([
 <%
-outputs = []
+rows = []
 
 data.health.each do |k, v|
   d = k.to_s.split(/-0?/)
-  outputs << "    [new Date(#{d[0]}, #{d[1].to_i - 1}, #{d[2]}), #{v[0]}, #{v[1]}]"
+  next if v[1].to_f.zero?
+
+  rows << [d[0].to_i, d[1].to_i, d[2].to_i, v[0], v[1]]
 end
 
 per = 0
@@ -56,7 +58,13 @@ all_daylogs.each do |i|
   end
   next if kg.to_i < 20 # Children
   per = $1 if i['comment'] =~ /([\d.]+)%/
-  outputs << "    [new Date(#{year}, #{month - 1}, #{day}), #{kg}, #{per}]"
+  next if per.to_f.zero?
+
+  rows << [year, month, day, kg, per]
+end
+
+outputs = rows.sort_by { |year, month, day, *_| [year, month, day] }.map do |year, month, day, kg, body_fat_percentage|
+  "    [new Date(#{year}, #{month - 1}, #{day}), #{kg}, #{body_fat_percentage}]"
 end
 %>
 <%=
