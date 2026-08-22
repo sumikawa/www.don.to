@@ -1,0 +1,8 @@
+AuthUserFile /var/middleman/build/.htpasswd
+AuthGroupFile /dev/null
+AuthName "secret"
+AuthType Basic
+
+<Limit GET>
+require user sumikawa
+</Limit>
