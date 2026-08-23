@@ -63,6 +63,17 @@ RSpec.describe DaylogHelpers do
       end
     end
 
+    context 'with secret tag' do
+      it 'adds secret message to the link even when filename does not include secret' do
+        allow(File).to receive(:exist?).with('source/diary/2025/0203-test.html.md.erb').and_return(true)
+        allow(File).to receive(:read).with('source/diary/2025/0203-test.html.md.erb').and_return("---\ntitle: Secret Trip\ntags: travel, secret\n---\ncontent")
+
+        result = helper.gen_link('source/diary/2025/0203-test.html.md.erb', 'Secret Trip', false)
+
+        expect(result).to eq('<dt>2025/02/03: <a href="/diary/2025/0203-test.html">Secret Trip</a> (要パスワード)</dt><dd></dd>')
+      end
+    end
+
     context 'with blank target' do
       it 'adds target="_blank" to the link' do
         result = helper.gen_link('source/diary/2025/0203-test.html.md.erb', 'Miyakojima Trip', true)
