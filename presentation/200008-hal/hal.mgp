@@ -1,0 +1,193 @@
+%include "../default.mgp"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%size 6, font "thick", back "white", fore "blue4", vgap 20
+%center
+
+
+
+What's IPv6? Why IPv6?
+
+%size 4, fore "black"
+
+Munechika Sumikawa
+Hitachi, Ltd. / KAME Project
+sumikawa@ebina.hitachi.co.jp / sumikawa@kame.net
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+what is changed by IPv6?
+
+	just replacing IPv4 essentially
+		just expanding IP address space from 32bit to 128bit
+	many users may not realize the changes
+		they do not know how IP address is used on their PC
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+what is provided by expanding address space
+
+	No NAT world
+	reget bi-directionary in the Internet
+
+	why NAT is harmful?
+		cannot access over their NAT box from the Internet
+
+%size 3, font "typewriter"
+     Computer -- NAT ---- (Internet) ---- Computer
+
+              <-------------------------- NG
+              --------------------------> OK
+%size 4, font "standard"
+
+		cannot communicate between PCs over the NAT box
+
+%size 3, font "typewriter"
+     Computer -- NAT ---- (Internet) ---- NAT -- Computer
+
+              <---------------------------------> NG
+%size 4, font "standard"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+why NAT is harmful?(2)
+
+	many application uses IP address in application protocol
+		ftp
+		multimedia streaming, such as CUSeeMe and NetMeeting
+		network game
+	NAT box must convert not only a header but also a payload of the packet
+		TCP segment has changed
+		must maintain Layer 3, Layer 4, Layer 7 information
+	New protocol always appears!
+		NAT box keep supporting new protocol
+			developers keep developing and checking new protocol
+		many original protocols are not published
+			hard to black-box-analyze
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+So what is benefit?
+
+User side
+	freely access over the internet
+		read mails in the company from home via the internet
+		access home computer in a business trip via the internet
+Operator side
+	release from assigning not enough IPv4 address
+	converting IP address by NAT confuse network administrator
+		routing issue
+		administrate both of private / global address and DNS
+Developer
+	no necessary to silly developing
+		down the cost of developing
+	most of complains to customer support is that caused by NAT
+		"my game does not work on your NAT!!"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+ideal IPv6 world
+
+	single flat layer
+		never distinguish private/global domain
+
+%size 3, font "typewriter"
+Computer -- Organization -- (Internet) -- Organization -- Computer
+            router                        router
+%size 4, font "standard"
+
+	Security?
+		use packet filtering
+		if necessary, lower security level for specified user/computer
+			two servers on different company to want to share database
+			staff using IPsec on a business trip
+			just policy issue. it was impossible to do it in NAT world
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Future?
+
+	Huge IP address space is necessary for mobile nodes
+		over 60 million users in Japan use cellular
+		over 15 million users in Japan use Internet by cellular
+		NTT DoCoMo plans to implement IPv6 on IMT-2000 node
+
+	to develop Internet in large countries
+		China, Thailand, India and other countries
+
+	everything in home will be connected to Internet
+		video player, air conditioner, bath
+		cellular is like a remote controller
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+IPv6 activity in Hitachi
+
+	Lead IPv6 market continuously
+		shipped IPv6 router NR60 4 years ago
+		Toolnet6: IPv4-IPv6 translator for Windows using BIS
+		IETF activity
+			Bump In the Stack (RFC 2767)
+		corporate with KAME Project
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+GR2000
+
+	GR2000 IPv6 beta is already used in over 20 sites
+		using KAME IPv6 stack
+			reference code in IPv6 world
+			provide stability and advanced features
+			already integrated in BSDI, FreeBSD, NetBSD and OpenBSD
+%font "typewriter"
+			http://www.kame.net/
+%font "standard"
+		2 engineers in Hitachi(including me) are core members
+		support many devices
+			POS(include OC-48) / ATM / (Gigabit)Ether
+		supported IPv6 backbone at N+I'2000 Tokyo
+		win the award "best product for carrier backbone"
+		win "R&D 100 awards"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+What is advantage of GR2000
+
+	experiences for 5 years
+	leadership in IPv6 world
+	using KAME stack
+		advanced users put faith in KAME
+		advanced technology
+			PIM-SM for IPv6
+			scoped address supporting
+			useful linklocal address (e.g. BGP peer)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+current status?
+
+	many products are ready to ship
+		GR2000
+		Cisco routers
+		NEC LAN switch
+		.....
+	some ISPs start to provide IPv6 connectivity officially
+		IIJ will provide connectivity in September
+		NTT is already providing beta service
+		NTT MCL will start to support IPv6 IX in US
+	it is like construction city
+		tools are ready
+		roads and streets are started to construct
+		new citizen will move in
+		this produce next rotation
