@@ -65,5 +65,5 @@ if environment?(:development) && ENV['DISABLE_LIVERELOAD'] != '1'
   require_relative 'lib/live_reload_host'
 
   use LiveReloadHost
-  activate :livereload, host: '0.0.0.0', port: 35729, no_swf: true
+  activate :livereload, host: '0.0.0.0', js_port: 443, port: 35729, no_swf: true
 end

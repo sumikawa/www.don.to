@@ -4,6 +4,7 @@ require 'rack'
 
 class LiveReloadHost
   LIVE_RELOAD_SCRIPT = %r{(/__rack/livereload\.js\?host=)[^&"']+}.freeze
+  LIVE_RELOAD_SCHEME = /(RACK_LIVERELOAD_SCHEME = ")[^"]+(")/.freeze
 
   def initialize(app)
     @app = app
@@ -17,10 +18,12 @@ class LiveReloadHost
     content = body_content(body)
 
     host = Rack::Request.new(env).host
+    scheme = host == 'localhost' ? 'ws' : 'wss'
     content.gsub!(LIVE_RELOAD_SCRIPT) do
       match = Regexp.last_match
       "#{match[1]}#{Rack::Utils.escape_html(host)}"
     end
+    content.gsub!(LIVE_RELOAD_SCHEME, "\\1#{scheme}\\2")
     headers['Content-Length'] = content.bytesize.to_s
 
     [status, headers, [content]]
