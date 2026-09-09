@@ -41,6 +41,20 @@ RSpec.describe DiaryIndexHelpers do
       helper.gen_index('2025/0203-test')
     end
 
+    it 'starts catalog registration only after closing the generated local article' do
+      allow(helper).to receive(:localhost?).and_return(true)
+      allow(helper).to receive(:cache_image)
+      written = false
+      allow(File).to receive(:open).with('source/diary/2025/0203-test.html.md.erb', 'w') do |&block|
+        block.call(StringIO.new)
+        written = true
+      end
+      expect(helper).to receive(:schedule_image_catalog).with('2025/0203-test') do
+        expect(written).to be true
+      end
+      helper.gen_index('2025/0203-test')
+    end
+
     context 'with different file types' do
       context 'with jpg files' do
         let(:image_files) { ['/path/to/images/diary/2025/0203-test/img_1234.jpg'] }

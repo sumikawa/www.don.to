@@ -3,6 +3,7 @@
 require 'mini_exiftool'
 require 'rmagick'
 require 'fileutils'
+require 'rbconfig'
 require_relative '../lib/video'
 require_relative 'diary_media_helpers'
 
@@ -13,17 +14,30 @@ module DiaryIndexHelpers
       process_index_file(file_path, dirpath, now)
     end.compact
 
-    sorted_files_data = files_data.sort_by { |data| data[0] }
-    body = build_index_body(sorted_files_data)
+    body = build_index_body(files_data)
 
-    File.open("source/diary/#{dirpath}.html.md.erb", 'w') do |file|
-      file.puts(body)
-    end
+    write_index(dirpath, body)
+    schedule_image_catalog(dirpath) if localhost?
   end
 
   private
 
-  def build_index_body(sorted_files_data)
+  def write_index(dirpath, body)
+    File.open("source/diary/#{dirpath}.html.md.erb", 'w') { |file| file.puts(body) }
+  end
+
+  def schedule_image_catalog(dirpath)
+    root = File.expand_path('..', __dir__)
+    FileUtils.mkdir_p(File.join(root, 'logs'))
+    pid = Process.spawn(RbConfig.ruby, File.join(root, 'scripts/gen_image.rb'), dirpath,
+                        chdir: root, out: [File.join(root, 'logs/gen_image.log'), 'a'], err: %i[child out])
+    Process.detach(pid)
+  rescue SystemCallError => e
+    warn "Image catalog could not start: #{e.message}"
+  end
+
+  def build_index_body(files_data)
+    sorted_files_data = files_data.sort_by { |data| data[0] }
     body = ['---', 'draft: true', 'title: ', '---']
     body.concat(sorted_files_data.map { |data| data[1] })
     body.join("\n")

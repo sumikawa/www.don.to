@@ -1,9 +1,9 @@
 YEAR := $(shell awk '/^thisyear:/ { print $$2 }' year.yml)
 
 all::
-	python3 ./gen_image.py
+	bundle exec ruby ../scripts/gen_image.rb
 year::
-	python3 ./gen_image.py $(YEAR)
+	bundle exec ruby ../scripts/gen_image.rb $(YEAR)
 
 auth::
 	python3 ./auth.py
