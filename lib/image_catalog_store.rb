@@ -34,6 +34,16 @@ class ImageCatalogStore
     @count = 0
   end
 
+  def prune(year, directory, filenames)
+    update(year) do |catalog|
+      entries = catalog[directory]
+      next unless entries
+
+      entries.select! { |filename, _url| filenames.include?(filename) }
+      catalog.delete(directory) if entries.empty?
+    end
+  end
+
   private
 
   def path_for(year)
@@ -45,13 +55,19 @@ class ImageCatalogStore
   end
 
   def save(year, additions)
+    update(year) do |catalog|
+      additions.each { |directory, entries| (catalog[directory] ||= {}).merge!(entries) { |_key, old, _new| old } }
+    end
+  end
+
+  def update(year)
     FileUtils.mkdir_p(@output_dir)
     path = path_for(year)
     lock_path = File.join(Dir.tmpdir, "www-image-#{Digest::SHA256.hexdigest(path)}.lock")
     File.open(lock_path, 'w') do |lock|
       lock.flock(File::LOCK_EX)
       catalog = read_catalog(path)
-      additions.each { |directory, entries| (catalog[directory] ||= {}).merge!(entries) { |_key, old, _new| old } }
+      yield catalog
       write_catalog(path, catalog)
       @catalogs[year] = catalog
     end

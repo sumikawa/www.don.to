@@ -10,7 +10,7 @@ class ImageCatalog
     @client = client
   end
 
-  def sync?(pattern, attempts: 61, interval: 30)
+  def sync?(pattern, attempts: 61, interval: 30, target: nil)
     key = Digest::SHA256.hexdigest([@cache_root, @output_dir, pattern].join("\0"))
     lock_path = File.join(Dir.tmpdir, "www-image-job-#{key}.lock")
     File.open(lock_path, 'w') do |lock|
@@ -18,15 +18,15 @@ class ImageCatalog
         puts "Already running: #{pattern}"
         return true
       end
-      run_sync(pattern, attempts: attempts, interval: interval)
+      run_sync(pattern, attempts: attempts, interval: interval, target: target)
     end
   end
 
   private
 
-  def run_sync(pattern, attempts:, interval:)
+  def run_sync(pattern, attempts:, interval:, target:)
     @store = ImageCatalogStore.new(@output_dir)
-    pending = scan(pattern)
+    pending = scan_target(pattern, target)
     attempts.times do |attempt|
       pending = register_pending(pending)
       if pending.empty?
@@ -46,6 +46,13 @@ class ImageCatalog
     ensure
       @client.close
     end
+  end
+
+  def scan_target(pattern, target)
+    return scan(pattern) unless target
+
+    @store.prune(target.year, target.directory, target.filenames)
+    scan(pattern).select { |path| target.filenames.include?(File.basename(path)) }
   end
 
   def register_pending(pending)
