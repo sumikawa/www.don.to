@@ -5,16 +5,24 @@ require 'set'
 class ImageCatalogTarget
   attr_reader :year, :directory, :filenames
 
-  def initialize(article, root:, site:)
+  def initialize(article, root:, site:, allow_missing_original: false)
     @year, @directory = article_parts(article, root)
     original = File.expand_path(File.join(site.fetch('imagerootdir'), 'diary', year, directory))
-    raise ArgumentError, "Original media directory not found: #{original}" unless File.directory?(original)
-
-    @filenames = media_names(original).flat_map { |name| cache_names(name.downcase, site) }.to_set
+    if File.directory?(original)
+      @filenames = media_names(original).flat_map { |name| cache_names(name.downcase, site) }.to_set
+    elsif allow_missing_original
+      @filenames = Set.new
+    else
+      raise ArgumentError, "Original media directory not found: #{original}"
+    end
   end
 
   def pattern
     "diary/#{year}/#{directory}/*.*"
+  end
+
+  def cache_pattern
+    pattern
   end
 
   private

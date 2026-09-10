@@ -30,6 +30,17 @@ RSpec.describe ImageCatalogCommand do
                          'source/diary/2026/0101-a.html.md.erb'])).to be true
   end
 
+  it 'prints cache-only files for every article in a year without syncing' do
+    expect(catalog).to receive(:cache_only).with(have_attributes(pattern: '0101-a.html.md.erb')).and_return([])
+    expect(catalog).to receive(:cache_only).with(have_attributes(pattern: '0102-b.html.md.erb')).and_return(['stale.jpg'])
+    expect { expect(command.run?(['-p', '2026'])).to be true }.not_to output(/Checking:/).to_stdout
+  end
+
+  it 'prints article checks with verbose cache-only listing' do
+    allow(catalog).to receive(:cache_only).and_return([])
+    expect { command.run?(['-v', '-p', '2026']) }.to output(/Checking:/).to_stdout
+  end
+
   it 'expands a quoted repository-relative glob from the data directory' do
     expect(catalog).to receive(:sync?).with('0101-a.html.md.erb', target: anything).and_return(true)
     expect(catalog).to receive(:sync?).with('0102-b.html.md.erb', target: anything).and_return(true)
@@ -55,5 +66,11 @@ RSpec.describe ImageCatalogCommand do
     expect { command.run?(%w[2025 2026]) }.to raise_error(ArgumentError, /Usage/)
     expect(catalog).to receive(:sync?).with('*/2026/**/*.*').and_return(true)
     expect(command.run?(['2026'])).to be true
+  end
+
+  it 'requires a four-digit year for cache-only listing' do
+    expect { command.run?(['-p']) }.to raise_error(ArgumentError, /Usage/)
+    expect { command.run?(['-p', '2026', '2025']) }.to raise_error(ArgumentError, /Usage/)
+    expect { command.run?(['-p', 'source/diary/2026/*.erb']) }.to raise_error(ArgumentError, /Usage/)
   end
 end

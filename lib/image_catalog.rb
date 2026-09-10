@@ -22,6 +22,15 @@ class ImageCatalog
     end
   end
 
+  def cache_only(target)
+    paths = Dir.glob(File.join(@cache_root, target.cache_pattern))
+               .select { |path| File.file?(path) }
+               .reject { |path| target.filenames.include?(File.basename(path)) }
+               .sort
+    paths.each { |path| puts File.expand_path(path) }
+    paths.map { |path| File.basename(path) }
+  end
+
   private
 
   def run_sync(pattern, attempts:, interval:, target:)
@@ -51,8 +60,17 @@ class ImageCatalog
   def scan_target(pattern, target)
     return scan(pattern) unless target
 
+    remove_stale_cache_files(pattern, target)
     @store.prune(target.year, target.directory, target.filenames)
     scan(pattern).select { |path| target.filenames.include?(File.basename(path)) }
+  end
+
+  def remove_stale_cache_files(pattern, target)
+    stale = scan(pattern).reject { |path| target.filenames.include?(File.basename(path)) }
+    stale.each do |path|
+      File.delete(path)
+      puts "Deleted cache: #{File.expand_path(path)}"
+    end
   end
 
   def register_pending(pending)

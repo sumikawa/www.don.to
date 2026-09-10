@@ -39,6 +39,7 @@ RSpec.describe ImageCatalogTarget do
     catalog = ImageCatalog.new(cache_root: @cache, output_dir: @output, client: client)
     expect(catalog.sync?(target.pattern, target: target)).to be true
     expect(YAML.safe_load_file(path)).to eq('0407-lisbon' => { 'kept.jpg' => 'new-url' }, 'other' => { 'x.jpg' => 'other-url' })
+    expect(File).not_to exist(File.join(@cache, 'diary/2026/0407-lisbon/deleted.jpg'))
   end
 
   it 'rejects a missing original folder instead of deleting its catalog' do
@@ -54,5 +55,16 @@ RSpec.describe ImageCatalogTarget do
     catalog = ImageCatalog.new(cache_root: @cache, output_dir: @output, client: client)
     expect(catalog.sync?(target.pattern, target: target)).to be true
     expect(YAML.safe_load_file(path)).to eq({})
+  end
+
+  it 'lists cache files that have no corresponding original media' do
+    File.write(File.join(@original, 'kept.HEIC'), '')
+    cache_dir = File.join(@cache, 'diary/2026/0407-lisbon')
+    File.write(File.join(cache_dir, 'kept.jpg'), '')
+    File.write(File.join(cache_dir, 'deleted.jpg'), '')
+    catalog = ImageCatalog.new(cache_root: @cache, output_dir: @output,
+                               client: instance_double(DropboxLinks, close: nil))
+    expect { expect(catalog.cache_only(target)).to eq(['deleted.jpg']) }
+      .to output(/#{Regexp.escape(File.join(@cache, 'diary/2026/0407-lisbon/deleted.jpg'))}/).to_stdout
   end
 end
