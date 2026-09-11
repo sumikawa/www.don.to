@@ -1,0 +1,52 @@
+Content-Type: Text/Plain; charset=UTF-8
+Subject: report to 6bone
+From: Kazuhiko Yamamoto <kazu at is.aist-nara.ac.jp>
+To: jun at wide.ad.jp
+Cc: v6 at wide.ad.jp
+Date: Sun, 09 Jun 1996 17:02:40 +0900
+X-Mailer: Mew version 1.06 on Emacs 18.59.1, Mule 1.1
+
+Jun, 
+
+If you wish, please forward this message to 6bone@ISI.EDU.
+
+At 15:22 on Jun 9th, 1996, the first IPv6 packet traveled on the WIDE
+6bone whose topology at that time is as follows:
+
+           133.4.6.34                133.4.21.33
+           ntwo0  Serial(64k)        ntwo1   Serial(64k)
+Univ Tokyo ----------------- Iwanami ---------------  Nara(zeta)
+    | ne0              ntwo1   | ne0            ntwo0   | we0
+    |             133.4.6.33   |          133.4.21.34   |
+----+-----  Ether          ----+---- Ether          ----+---- Ether
+ 133.4.6.66                133.4.49.30               133.4.23.16
+
+
+Every node is equipped with Nara v6 kernel on BSD/OS 2.1 and has
+IPv4-compatible IPv6 address. The two 64k serial lines are saved from
+WIDE v4 backbone with Paradyne, a multiplex CSU and supported by
+RISCOM/N2, a high speed serial interface on PC AT, attached to Cisco
+HDLC. This means that WIDE 6bone is not virtual (like Mbone) but
+physical.
+
+The following is ping results from Nara to Tokyo.
+
+zeta# ./ping6 ::133.4.6.34
+trying to get source for ::133.4.6.34
+source should be ::8504:1522
+PING ::133.4.6.34 (::8504:622): 56 data bytes
+64 bytes from ::8504:622: icmp6_seq=0 ttl=254 time=85.173 ms
+64 bytes from ::8504:622: icmp6_seq=1 ttl=254 time=85.071 ms
+64 bytes from ::8504:622: icmp6_seq=2 ttl=254 time=85.145 ms
+64 bytes from ::8504:622: icmp6_seq=3 ttl=254 time=85.086 ms
+64 bytes from ::8504:622: icmp6_seq=4 ttl=254 time=85.152 ms
+
+We are planning to interconnect to Keiko univ, Osaka univ, Hitachi
+ltd, and NTT in the near future.
+
+P.S.
+
+This experiment was originally planned to carry out on June 6th for
+joking...  Sorry for the delay.
+
+--Kazu

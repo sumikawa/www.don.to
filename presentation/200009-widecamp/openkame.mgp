@@ -1,0 +1,20 @@
+%include "../default.mgp"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Open KAME Meeting
+
+	KAME's GOAL
+		2000/4 - 2002/3 の目標
+		42項目。まだまだすることは多い。
+	STABLE
+		2か月おきから不定期リリースへ
+		各本家OSのリリース時にがんばろう
+	KAME実装議論
+		NEW_STRUCT_ROUTE
+		P2P loop prevention
+		mobile IPv6
+		IF description
+		ifconfig -L
+			各OS間で統一したい
+		mapped address vs IPsec
