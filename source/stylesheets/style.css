@@ -743,8 +743,8 @@ div.amazon-info {
 }
 
 /* Responsive layout */
-/* Phones up to 480px: single-column layout and larger touch targets */
-@media screen and (max-width: 480px) {
+/* Phones and folded cover displays up to 640px: single-column layout */
+@media screen and (max-width: 640px) {
   .container {
     width: min(100% - 20px, 100%);
     margin: 10px auto 24px;
@@ -846,8 +846,8 @@ div.amazon-info {
   }
 }
 
-/* Tablets and desktops from 481px: two-column shell with sidebar navigation */
-@media screen and (min-width: 481px) {
+/* Tablets and desktops from 641px: two-column shell with sidebar navigation */
+@media screen and (min-width: 641px) {
   .container {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 220px;
@@ -896,8 +896,8 @@ div.amazon-info {
   }
 }
 
-/* Small tablets 481px-800px: narrower sidebar and tighter navigation spacing */
-@media screen and (min-width: 481px) and (max-width: 800px) {
+/* Small tablets 641px-800px: narrower sidebar and tighter navigation spacing */
+@media screen and (min-width: 641px) and (max-width: 800px) {
   .container {
     grid-template-columns: minmax(0, 1fr) 120px;
   }
