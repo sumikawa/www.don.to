@@ -902,10 +902,6 @@ div.amazon-info {
     grid-template-columns: minmax(0, 1fr) 120px;
   }
 
-  #search {
-    margin-top: 10px;
-  }
-
   .mainblock {
     font-size: 0.98rem;
   }
@@ -925,8 +921,8 @@ div.amazon-info {
   }
 }
 
-/* Larger tablets: keep the search field aligned with the page heading. */
-@media screen and (min-width: 801px) and (max-width: 1024px) {
+/* Tablets: keep the search field aligned with the page heading. */
+@media screen and (min-width: 641px) and (max-width: 1024px) {
   #search {
     margin-top: 10px;
   }
