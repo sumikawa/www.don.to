@@ -903,7 +903,7 @@ div.amazon-info {
   }
 
   #search {
-    margin-top: 18px;
+    margin-top: 10px;
   }
 
   .mainblock {
@@ -922,6 +922,13 @@ div.amazon-info {
     font-size: 0.82rem;
     letter-spacing: -0.01em;
     text-align: center;
+  }
+}
+
+/* Larger tablets: keep the search field aligned with the page heading. */
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+  #search {
+    margin-top: 10px;
   }
 }
 
