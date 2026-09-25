@@ -19,7 +19,10 @@ RSpec.describe ImageCatalogTarget do
     end
   end
 
-  let(:site) { { 'imagerootdir' => File.join(@root, 'original'), 'thumbext' => 'jpg', 'videoext' => 'mp4' } }
+  let(:site) do
+    { 'imagerootdir' => File.join(@root, 'original'), 'cacherootdir' => @cache,
+      'thumbext' => 'jpg', 'videoext' => 'mp4' }
+  end
   let(:target) { described_class.new(@article, root: @root, site: site) }
 
   it 'maps original HEIC, video and audio names to cache names' do

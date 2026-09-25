@@ -15,9 +15,11 @@ RSpec.describe ImageCatalogCommand do
 
   let(:command) { described_class.new(root: @root, site: { 'cacherootdir' => '/cache' }) }
   let(:catalog) { instance_double(ImageCatalog) }
+  let(:generator) { instance_double(ImageCacheGenerator, generate: nil) }
 
   before do
     allow(ImageCatalog).to receive(:new).and_return(catalog)
+    allow(ImageCacheGenerator).to receive(:new).and_return(generator)
     allow(ImageCatalogTarget).to receive(:new) do |article, **_options|
       double('target', pattern: File.basename(article))
     end

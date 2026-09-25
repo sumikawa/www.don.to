@@ -2,6 +2,7 @@
 
 require_relative 'image_catalog'
 require_relative 'image_catalog_target'
+require_relative 'image_cache_generator'
 
 class ImageCatalogCommand
   USAGE = 'Usage: gen_image.rb [YYYY[/MMDD-title]] | -u ARTICLE [ARTICLE ...] | -p YYYY'
@@ -22,7 +23,7 @@ class ImageCatalogCommand
 
   def run?(arguments)
     return true if print_help?(arguments)
-    return run_special?(arguments) if %w[-u -p].include?(arguments.first)
+    return run_special?(arguments) if (arguments & %w[-u -p]).any?
 
     selection = arguments.first
     validate_selection(arguments, selection)
@@ -87,6 +88,7 @@ class ImageCatalogCommand
   def update_article(article)
     puts "Updating: #{article}"
     target = ImageCatalogTarget.new(article, root: @root, site: @site)
+    ImageCacheGenerator.new(site: @site).generate(target)
     catalog.sync?(target.pattern, target: target)
   rescue StandardError => e
     warn "Image catalog failed (#{article}): #{e.message}"

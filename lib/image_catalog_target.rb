@@ -3,14 +3,17 @@
 require 'set'
 
 class ImageCatalogTarget
-  attr_reader :year, :directory, :filenames
+  attr_reader :year, :directory, :dirpath, :filenames, :original_files, :cache_directory
 
   def initialize(article, root:, site:, allow_missing_original: false)
     @year, @directory = article_parts(article, root)
-    original = File.expand_path(File.join(site.fetch('imagerootdir'), 'diary', year, directory))
+    @dirpath = "#{year}/#{directory}"
+    @cache_directory = media_directory(site.fetch('cacherootdir'))
+    original = media_directory(site.fetch('imagerootdir'))
     if File.directory?(original)
-      @filenames = media_names(original).flat_map { |name| cache_names(name.downcase, site) }.to_set
+      set_media_files(original, site)
     elsif allow_missing_original
+      @original_files = []
       @filenames = Set.new
     else
       raise ArgumentError, "Original media directory not found: #{original}"
@@ -26,6 +29,16 @@ class ImageCatalogTarget
   end
 
   private
+
+  def media_directory(root)
+    File.expand_path(File.join(root, 'diary', year, directory))
+  end
+
+  def set_media_files(original, site)
+    names = media_names(original)
+    @original_files = names.map { |name| File.join(original, name) }
+    @filenames = names.flat_map { |name| cache_names(name.downcase, site) }.to_set
+  end
 
   def article_parts(article, root)
     path = File.expand_path(article, article.start_with?('source/') ? root : Dir.pwd)
