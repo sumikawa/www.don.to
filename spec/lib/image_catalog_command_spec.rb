@@ -73,4 +73,10 @@ RSpec.describe ImageCatalogCommand do
     expect { command.run?(['-p', '2026', '2025']) }.to raise_error(ArgumentError, /Usage/)
     expect { command.run?(['-p', 'source/diary/2026/*.erb']) }.to raise_error(ArgumentError, /Usage/)
   end
+
+  it 'prints help without creating a catalog or changing files' do
+    expect(ImageCatalog).not_to receive(:new)
+    expect { command.run?(['--help']) }.to output(/Options:.*-u ARTICLE/m).to_stdout
+    expect(command.run?(['-h'])).to be true
+  end
 end

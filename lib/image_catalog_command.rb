@@ -5,6 +5,15 @@ require_relative 'image_catalog_target'
 
 class ImageCatalogCommand
   USAGE = 'Usage: gen_image.rb [YYYY[/MMDD-title]] | -u ARTICLE [ARTICLE ...] | -p YYYY'
+  HELP = <<~TEXT
+    #{USAGE}
+
+    Options:
+      -u ARTICLE [ARTICLE ...]  Update YAML and remove stale cache files for articles.
+      -p YYYY                   Print cache files without corresponding original media.
+      -v                        Print article checks for -p.
+      -h, --help                Show this help.
+  TEXT
 
   def initialize(root:, site:)
     @root = root
@@ -12,10 +21,8 @@ class ImageCatalogCommand
   end
 
   def run?(arguments)
-    verbose = arguments.include?('-v')
-    arguments = arguments.reject { |argument| argument == '-v' }
-    return update?(arguments.drop(1)) if arguments.first == '-u'
-    return print_cache_only_year?(arguments.drop(1), verbose: verbose) if arguments.first == '-p'
+    return true if print_help?(arguments)
+    return run_special?(arguments) if %w[-u -p].include?(arguments.first)
 
     selection = arguments.first
     validate_selection(arguments, selection)
@@ -25,6 +32,22 @@ class ImageCatalogCommand
   end
 
   private
+
+  def print_help?(arguments)
+    return false unless %w[-h --help].include?(arguments.first)
+
+    puts HELP
+    true
+  end
+
+  def run_special?(arguments)
+    verbose = arguments.include?('-v')
+    arguments = arguments.reject { |argument| argument == '-v' }
+    case arguments.first
+    when '-u' then update?(arguments.drop(1))
+    when '-p' then print_cache_only_year?(arguments.drop(1), verbose: verbose)
+    end
+  end
 
   def catalog
     ImageCatalog.new(cache_root: @site.fetch('cacherootdir'), output_dir: File.join(@root, 'data/image'))
