@@ -2,13 +2,16 @@
 
 require 'fileutils'
 require_relative '../helpers/diary_index_helpers'
+require_relative 'image_video_cache'
 
 class ImageCacheGenerator
   include DiaryIndexHelpers
 
-  def initialize(site:)
+  def initialize(site:, strict_video: true)
     site_struct = Struct.new(*site.keys.map(&:to_sym), keyword_init: true)
     @data = Struct.new(:site).new(site_struct.new(**site.transform_keys(&:to_sym)))
+    @site = site
+    @strict_video = strict_video
   end
 
   def generate(target)
@@ -54,8 +57,16 @@ class ImageCacheGenerator
   end
 
   def generate_video(file_info, target)
+    return if !@strict_video && video_cache_present?(file_info, target)
+
     opts = Video.probe(file_info[:path])
     send(:convert_video_and_create_poster, file_info, opts, target.dirpath)
+  end
+
+  def video_cache_present?(file_info, target)
+    ImageVideoCache.names(file_info[:path], @site).any? do |name|
+      File.file?(File.join(target.cache_directory, name))
+    end
   end
 
   def cache_exists?(target, file_info)

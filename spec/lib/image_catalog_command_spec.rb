@@ -31,9 +31,40 @@ RSpec.describe ImageCatalogCommand do
 
   it 'syncs a year by generating caches and updating each article catalog' do
     allow(command).to receive(:image_articles).and_return(%w[first second])
+    expect(ImageCacheGenerator).to receive(:new).with(site: site, strict_video: false).twice.and_return(generator)
     expect(generator).to receive(:generate).twice
     expect(catalog).to receive(:sync?).twice.and_return(true)
     expect(command.run?(%w[sync 2026])).to be true
+  end
+
+  it 'checks videos strictly for an article sync' do
+    expect(ImageCacheGenerator).to receive(:new).with(site: site, strict_video: true).and_return(generator)
+    expect(catalog).to receive(:sync?).and_return(true)
+    expect(command.run?(['sync', 'source/diary/2026/0101-a.html.md.erb'])).to be true
+  end
+
+  it 'shows detailed progress only with -v' do
+    allow(catalog).to receive(:sync?) do
+      puts 'Scanning: details'
+      true
+    end
+    expect { command.run?(%w[sync 2026]) }.to output(%r{Syncing: 2026.*Completed: 2/2 articles}m).to_stdout
+    expect { command.run?(%w[sync 2026]) }.not_to output(/Scanning: details/).to_stdout
+    expect { command.run?(%w[sync 2026 -v]) }.to output(/Scanning: details/).to_stdout
+  end
+
+  it 'hides cache regeneration and positional catalog details by default' do
+    allow(regenerator).to receive(:regenerate) { puts 'Regenerated cache: details' }
+    article = 'source/diary/2026/0101-a.html.md.erb'
+    expect { command.run?(['cache', article]) }.not_to output(/Regenerated cache: details/).to_stdout
+    expect { command.run?(['cache', article, '-v']) }.to output(/Regenerated cache: details/).to_stdout
+
+    allow(catalog).to receive(:sync?) do
+      puts 'Requesting Dropbox link: details'
+      true
+    end
+    expect { command.run?(['2026']) }.not_to output(/Requesting Dropbox link: details/).to_stdout
+    expect { command.run?(%w[2026 -v]) }.to output(/Requesting Dropbox link: details/).to_stdout
   end
 
   it 'accepts repository-relative article paths for forced cache regeneration' do

@@ -33,6 +33,12 @@ class ImageCatalogCommand
     return true if print_help?(arguments)
     return run_image_command?(arguments, verbose: verbose) if %w[sync cache].include?(arguments.first)
 
+    run_positional?(arguments, verbose: verbose)
+  end
+
+  private
+
+  def run_positional?(arguments, verbose:)
     selection = arguments.first
     validate_selection(arguments, selection)
 
@@ -42,8 +48,6 @@ class ImageCatalogCommand
     puts(result ? 'URL registration complete.' : 'URL registration incomplete.')
     result
   end
-
-  private
 
   def print_help?(arguments)
     return false unless %w[-h --help].include?(arguments.first)

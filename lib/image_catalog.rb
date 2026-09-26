@@ -94,7 +94,7 @@ class ImageCatalog
   rescue DropboxLinks::Error => e
     raise unless e.retryable
 
-    warn "Dropbox pending: #{relative} (#{e.message})"
+    puts "Dropbox pending: #{relative} (#{e.message})"
     false
   end
 

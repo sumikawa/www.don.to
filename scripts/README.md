@@ -11,6 +11,7 @@
 bundle exec ruby scripts/gen_image.rb sync 2026 --dry-run
 bundle exec ruby scripts/gen_image.rb sync 2026
 bundle exec ruby scripts/gen_image.rb sync source/diary/2026/0407-lisbon.html.md.erb
+bundle exec ruby scripts/gen_image.rb sync 2026 -v
 bundle exec ruby scripts/gen_image.rb cache 2026
 bundle exec ruby scripts/gen_image.rb cache source/diary/2026/0407-lisbon.html.md.erb
 ```
@@ -19,6 +20,8 @@ bundle exec ruby scripts/gen_image.rb cache source/diary/2026/0407-lisbon.html.m
 生成候補、キャッシュ削除、YAML更新候補を表示し、ファイル変更やDropboxへの問い合わせをしません。
 動画は `ffmpeg` で調査せず、動画・ポスターの派生ファイル名のいずれかがあれば生成候補から除きます。
 不足する動画の派生ファイル名は `sync` 実行時に決まります。
+年指定の `sync` も同じ条件で動画の変換・調査を省きます。記事指定の `sync` と
+`--dry-run` は動画を調査して派生ファイルごとの不足を確認します。
 キャッシュのパスは `.cache/diary/...` のようにDropboxフォルダより下を表示します。
 元メディアのない記事は正常に処理し、残存キャッシュとYAML項目を削除候補にします。
 元メディアのルート自体が見つからない場合は処理を止めます。
@@ -26,6 +29,9 @@ bundle exec ruby scripts/gen_image.rb cache source/diary/2026/0407-lisbon.html.m
 `cache` は既存キャッシュも強制再生成します。既存ファイルは削除・リネームせず同じファイルへ
 上書きし、Dropbox上のファイルID、共有URL、内容ハッシュを確認します。Dropbox同期が完了しない、
 またはID・URLが変わった場合は失敗として終了します。`cache` はYAMLを更新しません。
+
+通常実行は対象と完了件数だけを表示します。走査、Dropbox問い合わせ、保存、変換の詳細は
+`-v` を指定したときに表示します。`--dry-run` の変更予定一覧はそのまま表示します。
 
 従来の引数なし・年・記事名はキャッシュからURLを登録する動作として残しています。
 

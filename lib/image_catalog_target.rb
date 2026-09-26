@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'set'
+require_relative 'image_video_cache'
 
 class ImageCatalogTarget
   attr_reader :year, :directory, :dirpath, :filenames, :original_files, :cache_directory
@@ -58,9 +59,7 @@ class ImageCatalogTarget
     when '.png', '.pdf', '.m4a'
       [name]
     when '.mov', '.mp4', '.mts', '.mpg', '.avi'
-      ['', 'hd', 'hdtr'].flat_map do |prefix|
-        ["#{prefix}#{base}.#{site.fetch('videoext')}", "#{prefix}#{base}.#{site.fetch('thumbext')}"]
-      end
+      ImageVideoCache.names(name, site)
     else
       []
     end
