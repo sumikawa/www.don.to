@@ -1012,6 +1012,8 @@ birthday:
 - source/diary/2024/0519-party.html.md.erb
 - source/diary/2025/0502-dinner.html.md.erb
 - source/diary/2025/0523-miyako.html.md.erb
+bluetooth:
+- source/diary/2026/0212-note.html.md.erb
 boat:
 - source/diary/2001/0503-guilin.html.md.erb
 - source/diary/2006/0629-bigsight.html.md.erb
@@ -1501,7 +1503,6 @@ camp:
 - source/diary/2026/0517-miyako.html.md.erb
 - source/diary/2026/0518-miyako.html.md.erb
 - source/diary/2026/0519-miyako.html.md.erb
-- source/diary/2026/0524-note.html.md.erb
 - source/diary/2026/0531-banana.html.md.erb
 - source/diary/2026/0531-camp.html.md.erb
 - source/diary/2026/0622-iida.html.md.erb
@@ -2864,6 +2865,8 @@ entertainment:
 - source/diary/2022/0109-karaok.html.md.erb
 - source/diary/2023/0616-alegria.html.md.erb
 - source/diary/2025/1115-enosima.html.md.erb
+esim:
+- source/diary/2026/0411-note.html.md.erb
 essay:
 - source/diary/1999/0210-book.html.md.erb
 - source/diary/2003/0325-nomi.html.md.erb
@@ -4267,6 +4270,10 @@ gadget:
 - source/diary/2025/1225-note.html.md.erb
 - source/diary/2026/0212-note.html.md.erb
 - source/diary/2026/0316-note.html.md.erb
+galaxyzfold:
+- source/diary/2026/0915-note.html.md.erb
+- source/diary/2026/0917-note.html.md.erb
+- source/diary/2026/0919-note.html.md.erb
 game:
 - source/diary/1999/0819-mania.html.md.erb
 - source/diary/2003/0414-daioujou.html.md.erb
@@ -7045,6 +7052,8 @@ negishi:
 netconf:
 - source/diary/2007/0327-netconf.html.md.erb
 - source/diary/2009/0421-netconf.html.md.erb
+netflix:
+- source/diary/2026/0523-note.html.md.erb
 networking:
 - source/diary/1996/0724-niv6.html.md.erb
 - source/diary/1996/1024-network.html.md.erb
@@ -7162,6 +7171,10 @@ note:
 - source/diary/2026/0524-note.html.md.erb
 - source/diary/2026/0528-note.html.md.erb
 - source/diary/2026/0705-note.html.md.erb
+- source/diary/2026/0915-note.html.md.erb
+- source/diary/2026/0917-note.html.md.erb
+- source/diary/2026/0919-note.html.md.erb
+- source/diary/2026/0925-note.html.md.erb
 novel:
 - source/diary/1999/1106-book.html.md.erb
 - source/diary/1999/1124-book.html.md.erb
@@ -7808,7 +7821,6 @@ park:
 - source/diary/2025/0414-bike.html.md.erb
 - source/diary/2025/0507-park.html.md.erb
 - source/diary/2026/0208-vote.html.md.erb
-- source/diary/2026/0528-note.html.md.erb
 - source/diary/2026/0528-park.html.md.erb
 - source/diary/2026/0530-park.html.md.erb
 party:
@@ -11433,7 +11445,6 @@ travel:
 - source/diary/2026/0409-marrakech.html.md.erb
 - source/diary/2026/0410-moving.html.md.erb
 - source/diary/2026/0411-istanbul.html.md.erb
-- source/diary/2026/0411-note.html.md.erb
 - source/diary/2026/0412-istanbul.html.md.erb
 - source/diary/2026/0413-istanbul.html.md.erb
 - source/diary/2026/0414-nevsehir.html.md.erb
@@ -11461,7 +11472,6 @@ travel:
 - source/diary/2026/0517-miyako.html.md.erb
 - source/diary/2026/0518-miyako.html.md.erb
 - source/diary/2026/0519-miyako.html.md.erb
-- source/diary/2026/0523-note.html.md.erb
 - source/diary/2026/0621-sizuoka.html.md.erb
 - source/diary/2026/0623-iida.html.md.erb
 - source/diary/2026/0624-nagano.html.md.erb
@@ -11568,6 +11578,8 @@ udon:
 ueno:
 - source/diary/2026/0112-ueno.html.md.erb
 - source/diary/2026/0707-ueno.html.md.erb
+ugreen:
+- source/diary/2026/0925-note.html.md.erb
 uk:
 - source/diary/1998/1212-flight.html.md.erb
 - source/diary/1998/1216-flight.html.md.erb
@@ -12126,6 +12138,8 @@ xreal:
 - source/diary/2025/1121-note.html.md.erb
 - source/diary/2025/1213-note.html.md.erb
 - source/diary/2025/1217-note.html.md.erb
+- source/diary/2026/0705-note.html.md.erb
+- source/diary/2026/0915-note.html.md.erb
 yakiniku:
 - source/diary/1996/0706-oucckun.html.md.erb
 - source/diary/1998/1106-zanmai.html.md.erb
@@ -12511,5 +12525,24 @@ zushi:
 - source/diary/2015/0529-fireworks.html.md.erb
 - source/diary/2024/0915-sea.html.md.erb
 - source/diary/2025/0412-zusi.html.md.erb
+ガジェット:
+- source/diary/2026/0524-note.html.md.erb
+キャンプ:
+- source/diary/2026/0524-note.html.md.erb
+- source/diary/2026/0528-note.html.md.erb
+スピーカー:
+- source/diary/2026/0212-note.html.md.erb
+バッグ:
+- source/diary/2026/0316-note.html.md.erb
+ランタン:
+- source/diary/2026/0524-note.html.md.erb
+公園:
+- source/diary/2026/0528-note.html.md.erb
+旅行:
+- source/diary/2026/0411-note.html.md.erb
+椅子:
+- source/diary/2026/0528-note.html.md.erb
 機械学習:
 - source/diary/2025/0929-qiita.html.md.erb
+超急速充電:
+- source/diary/2026/0925-note.html.md.erb
