@@ -2,6 +2,7 @@
 
 require_relative 'image_catalog_store'
 require_relative 'dropbox_links'
+require_relative 'image_cache_path'
 
 class ImageCatalog
   def initialize(cache_root:, output_dir:, client: DropboxLinks.new)
@@ -20,15 +21,6 @@ class ImageCatalog
       end
       run_sync(pattern, attempts: attempts, interval: interval, target: target)
     end
-  end
-
-  def cache_only(target)
-    paths = Dir.glob(File.join(@cache_root, target.cache_pattern))
-               .select { |path| File.file?(path) }
-               .reject { |path| target.filenames.include?(File.basename(path)) }
-               .sort
-    paths.each { |path| puts File.expand_path(path) }
-    paths.map { |path| File.basename(path) }
   end
 
   private
@@ -69,7 +61,7 @@ class ImageCatalog
     stale = scan(pattern).reject { |path| target.filenames.include?(File.basename(path)) }
     stale.each do |path|
       File.delete(path)
-      puts "Deleted cache: #{File.expand_path(path)}"
+      puts "Deleted cache: #{ImageCachePath.display(path, cache_root: @cache_root)}"
     end
   end
 
@@ -80,7 +72,7 @@ class ImageCatalog
   end
 
   def scan(pattern)
-    puts "Scanning: #{@cache_root}/#{pattern}"
+    puts "Scanning: #{ImageCachePath.display(File.join(@cache_root, pattern), cache_root: @cache_root)}"
     files = Dir.glob(File.join(@cache_root, pattern)).select { |path| File.file?(path) }
     puts "Found: #{files.length} file(s)"
     files

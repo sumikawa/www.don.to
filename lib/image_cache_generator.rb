@@ -12,6 +12,8 @@ class ImageCacheGenerator
   end
 
   def generate(target)
+    return if target.original_files.empty?
+
     @data.site.cacherootdir = File.expand_path('../../..', target.cache_directory)
     FileUtils.mkdir_p(target.cache_directory)
     target.original_files.each { |path| generate_file(path, target) }

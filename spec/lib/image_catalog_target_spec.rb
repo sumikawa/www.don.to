@@ -29,6 +29,7 @@ RSpec.describe ImageCatalogTarget do
     %w[IMG_1.HEIC clip.MOV sound.m4a .DS_Store].each { |name| File.write(File.join(@original, name), '') }
     expect(target.filenames).to include('img_1.jpg', 'hdclip.jpg', 'hdclip.mp4', 'hdtrclip.jpg', 'clip.mp4', 'sound.m4a')
     expect(target.filenames).not_to include('.ds_store')
+    expect(target.original_files.map { |path| File.basename(path) }).not_to include('.DS_Store')
     Dir.chdir(File.join(@root, 'data')) { expect(target.pattern).to eq('diary/2026/0407-lisbon/*.*') }
   end
 
@@ -58,16 +59,5 @@ RSpec.describe ImageCatalogTarget do
     catalog = ImageCatalog.new(cache_root: @cache, output_dir: @output, client: client)
     expect(catalog.sync?(target.pattern, target: target)).to be true
     expect(YAML.safe_load_file(path)).to eq({})
-  end
-
-  it 'lists cache files that have no corresponding original media' do
-    File.write(File.join(@original, 'kept.HEIC'), '')
-    cache_dir = File.join(@cache, 'diary/2026/0407-lisbon')
-    File.write(File.join(cache_dir, 'kept.jpg'), '')
-    File.write(File.join(cache_dir, 'deleted.jpg'), '')
-    catalog = ImageCatalog.new(cache_root: @cache, output_dir: @output,
-                               client: instance_double(DropboxLinks, close: nil))
-    expect { expect(catalog.cache_only(target)).to eq(['deleted.jpg']) }
-      .to output(/#{Regexp.escape(File.join(@cache, 'diary/2026/0407-lisbon/deleted.jpg'))}/).to_stdout
   end
 end

@@ -24,6 +24,16 @@ class DropboxLinks
     result.fetch('links').first.fetch('url').sub('https://www.dropbox.com/', 'https://dl.dropboxusercontent.com/')
   end
 
+  def metadata(path)
+    api('files/get_metadata', path: path)
+  end
+
+  def existing_shared_url(path)
+    result = api('sharing/list_shared_links', path: path, direct_only: true)
+    url = result.fetch('links').first&.fetch('url')
+    url&.sub('https://www.dropbox.com/', 'https://dl.dropboxusercontent.com/')
+  end
+
   def close
     connection = @connection
     @connection = nil

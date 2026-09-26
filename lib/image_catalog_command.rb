@@ -3,16 +3,22 @@
 require_relative 'image_catalog'
 require_relative 'image_catalog_target'
 require_relative 'image_cache_generator'
+require_relative 'image_sync_command'
+require_relative 'image_cache_regenerator'
+require_relative 'image_command_output'
 
 class ImageCatalogCommand
-  USAGE = 'Usage: gen_image.rb [YYYY[/MMDD-title]] | -u ARTICLE [ARTICLE ...] | -p YYYY'
+  include ImageSyncCommand
+
+  USAGE = 'Usage: gen_image.rb sync YYYY|ARTICLE [--dry-run] [-v] | cache YYYY|ARTICLE [-v] | [YYYY[/MMDD-title]] [-v]'
   HELP = <<~TEXT
     #{USAGE}
 
     Options:
-      -u ARTICLE [ARTICLE ...]  Update YAML and remove stale cache files for articles.
-      -p YYYY                   Print cache files without corresponding original media.
-      -v                        Print article checks for -p.
+      sync YYYY|ARTICLE        Generate cache files, remove stale files, and update YAML.
+      cache YYYY|ARTICLE       Regenerate cache files while preserving shared links.
+      --dry-run                Preview sync without changing files or contacting Dropbox.
+      -v                       Show detailed progress.
       -h, --help                Show this help.
   TEXT
 
@@ -22,14 +28,19 @@ class ImageCatalogCommand
   end
 
   def run?(arguments)
+    arguments = arguments.dup
+    verbose = arguments.delete('-v') == '-v'
     return true if print_help?(arguments)
-    return run_special?(arguments) if (arguments & %w[-u -p]).any?
+    return run_image_command?(arguments, verbose: verbose) if %w[sync cache].include?(arguments.first)
 
     selection = arguments.first
     validate_selection(arguments, selection)
 
     pattern = selection&.include?('/') ? "diary/#{selection}/*.*" : "*/#{selection || '*'}/**/*.*"
-    catalog.sync?(pattern)
+    puts "Registering URLs: #{selection || 'all'}"
+    result = ImageCommandOutput.with_details(verbose) { catalog.sync?(pattern) }
+    puts(result ? 'URL registration complete.' : 'URL registration incomplete.')
+    result
   end
 
   private
@@ -41,15 +52,6 @@ class ImageCatalogCommand
     true
   end
 
-  def run_special?(arguments)
-    verbose = arguments.include?('-v')
-    arguments = arguments.reject { |argument| argument == '-v' }
-    case arguments.first
-    when '-u' then update?(arguments.drop(1))
-    when '-p' then print_cache_only_year?(arguments.drop(1), verbose: verbose)
-    end
-  end
-
   def catalog
     ImageCatalog.new(cache_root: @site.fetch('cacherootdir'), output_dir: File.join(@root, 'data/image'))
   end
@@ -57,51 +59,5 @@ class ImageCatalogCommand
   def validate_selection(arguments, selection)
     valid = selection.nil? || selection.match?(%r{\A\d{4}(?:/[\w-]+)?\z})
     raise ArgumentError, USAGE unless arguments.size <= 1 && valid
-  end
-
-  def update?(articles)
-    raise ArgumentError, USAGE if articles.empty?
-
-    results = articles.flat_map { |article| expand(article) }.uniq.map do |article|
-      update_article(article)
-    end
-    results.all?
-  end
-
-  def print_cache_only_year?(arguments, verbose: false)
-    year = arguments.first
-    raise ArgumentError, USAGE unless arguments.size == 1 && year.match?(/\A\d{4}\z/)
-
-    articles = Dir.glob(File.join(@root, "source/diary/#{year}/*.html.md.erb"))
-    results = articles.map do |article|
-      print_cache_only_article(article, verbose: verbose)
-    end
-    results.all?
-  end
-
-  def expand(article)
-    path = File.expand_path(article, article.start_with?('source/') ? @root : Dir.pwd)
-    matches = Dir.glob(path)
-    matches.empty? ? [path] : matches
-  end
-
-  def update_article(article)
-    puts "Updating: #{article}"
-    target = ImageCatalogTarget.new(article, root: @root, site: @site)
-    ImageCacheGenerator.new(site: @site).generate(target)
-    catalog.sync?(target.pattern, target: target)
-  rescue StandardError => e
-    warn "Image catalog failed (#{article}): #{e.message}"
-    false
-  end
-
-  def print_cache_only_article(article, verbose:)
-    puts "Checking: #{article}" if verbose
-    target = ImageCatalogTarget.new(article, root: @root, site: @site, allow_missing_original: true)
-    catalog.cache_only(target)
-    true
-  rescue StandardError => e
-    warn "Image catalog failed (#{article}): #{e.message}"
-    false
   end
 end

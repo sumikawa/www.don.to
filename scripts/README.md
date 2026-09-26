@@ -1,16 +1,33 @@
 # 画像URLカタログ
 
-`scripts/gen_image.rb` は `data/site.yml` の `cacherootdir` を走査し、Dropbox の共有リンクを
-`data/image/YYYY.yml` に追加します。既存のURLは維持し、登録済みファイルはスキップします。
+`scripts/gen_image.rb sync` は元メディアから不足するキャッシュを生成し、元メディアに
+対応しないキャッシュとYAML項目を削除して、Dropboxの共有リンクを `data/image/YYYY.yml` に
+登録します。既存のURLは維持し、登録済みファイルはスキップします。
 動画・音声も従来と同じカタログに登録します。年別YAMLは走査中に再利用し、保存時には
 最新内容を読み直して統合します。走査開始・対象件数・API問い合わせ・再試行待ち・完了を表示します。
 
 ```sh
 # リポジトリのルートから実行
-bundle exec ruby scripts/gen_image.rb                 # 全年
-bundle exec ruby scripts/gen_image.rb 2026            # 指定年
-bundle exec ruby scripts/gen_image.rb 2026/0909-test  # 指定記事
+bundle exec ruby scripts/gen_image.rb sync 2026 --dry-run
+bundle exec ruby scripts/gen_image.rb sync 2026
+bundle exec ruby scripts/gen_image.rb sync source/diary/2026/0407-lisbon.html.md.erb
+bundle exec ruby scripts/gen_image.rb cache 2026
+bundle exec ruby scripts/gen_image.rb cache source/diary/2026/0407-lisbon.html.md.erb
 ```
+
+`sync` と `cache` は年またはリポジトリ基準の記事パスを1つ受け付けます。`sync --dry-run` は
+生成候補、キャッシュ削除、YAML更新候補を表示し、ファイル変更やDropboxへの問い合わせをしません。
+動画は `ffmpeg` で調査せず、動画・ポスターの派生ファイル名のいずれかがあれば生成候補から除きます。
+不足する動画の派生ファイル名は `sync` 実行時に決まります。
+キャッシュのパスは `.cache/diary/...` のようにDropboxフォルダより下を表示します。
+元メディアのない記事は正常に処理し、残存キャッシュとYAML項目を削除候補にします。
+元メディアのルート自体が見つからない場合は処理を止めます。
+
+`cache` は既存キャッシュも強制再生成します。既存ファイルは削除・リネームせず同じファイルへ
+上書きし、Dropbox上のファイルID、共有URL、内容ハッシュを確認します。Dropbox同期が完了しない、
+またはID・URLが変わった場合は失敗として終了します。`cache` はYAMLを更新しません。
+
+従来の引数なし・年・記事名はキャッシュからURLを登録する動作として残しています。
 
 `make -C data year` は `data/year.yml` の年、`make -C data` は全年を対象にします。
 認証情報は `~/.env` のみ読み込み、既存の環境変数は上書きしません。
@@ -36,38 +53,3 @@ RSpecではアップロード遅延、再実行、既存情報の保持、記事
 接続の再利用・再接続、重複実行の抑止、まとめ書き、例外時の保存を検証しています。
 2026年9月9日、実際の `make year` で未登録3件の共有リンク取得と年別YAMLへの保存を確認しました。
 Dropboxへのアップロード遅延を伴う再試行はモックテストでの検証です。
-
-## 元メディアの削除を反映する
-
-`-u` 実行時は、元メディアに対応しないキャッシュファイルも対象記事のキャッシュフォルダから削除します。元メディアとDropbox上のファイルは削除しません。
-
-```sh
-bundle exec ruby scripts/gen_image.rb -u source/diary/2026/0407-lisbon.html.md.erb
-# data/ からもリポジトリ基準の source/ パスを指定できます
-bundle exec ruby ../scripts/gen_image.rb -u source/diary/2026/0407-lisbon.html.md.erb
-# リポジトリ直下ではシェルで展開して複数指定
-bundle exec ruby scripts/gen_image.rb -u source/diary/2026/*.erb
-# data/ からは引用符を付け、スクリプト内でリポジトリ基準に展開
-bundle exec ruby ../scripts/gen_image.rb -u 'source/diary/2026/*.erb'
-```
-
-複数指定は順に処理し、重複したファイルは1回だけ処理します。
-途中のエラーや未登録の残りがあっても後続の記事を処理し、1件でも失敗すれば終了コード1を返します。
-元メディアフォルダのない記事もエラーとして記録します。
-
-`-u` は `imagerootdir/diary/YYYY/記事名/` の元ファイルを基準に、対象記事のカタログを更新します。
-元ファイルが削除された項目はYAMLから取り除き、キャッシュだけに残るメディアは無視します。
-元ファイルとキャッシュの両方がある未登録メディアは、従来どおりDropboxの共有リンクを取得します。
-元ファイルが残っている既存URLは、キャッシュがなくても保持します。
-HEICからJPEG、動画から動画ファイル・ポスターへの対応も判定します。
-記事本文・元ファイル・キャッシュ・Dropbox上のファイルは変更しません。
-元フォルダが存在しない場合はエラーにし、存在する空フォルダの場合は対象記事の項目を全削除します。
-通常の年指定・全年指定は従来どおりキャッシュ基準のため、残存キャッシュを再登録する場合があります。
-
-元メディアが削除され、キャッシュだけ残っているファイル名の確認は `-p YYYY` を使います。
-指定年の記事をすべて走査し、出力だけでYAMLとファイル本体は変更しません。
-出力はキャッシュファイルのフルパスです。
-
-```sh
-bundle exec ruby scripts/gen_image.rb -p 2026
-```

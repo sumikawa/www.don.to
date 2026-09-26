@@ -4,6 +4,15 @@ require 'set'
 require_relative '../../lib/image_cache_generator'
 
 RSpec.describe ImageCacheGenerator do
+  it 'does not create a cache directory for an article without media' do
+    Dir.mktmpdir do |root|
+      destination = File.join(root, 'cache/diary/2026/empty')
+      target = instance_double('target', original_files: [], cache_directory: destination)
+      described_class.new(site: { 'cacherootdir' => File.join(root, 'cache') }).generate(target)
+      expect(File.exist?(destination)).to be false
+    end
+  end
+
   it 'copies missing audio cache files without replacing existing files' do
     Dir.mktmpdir do |root|
       source = File.join(root, 'source.m4a')

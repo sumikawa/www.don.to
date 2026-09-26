@@ -24,10 +24,6 @@ class ImageCatalogTarget
     "diary/#{year}/#{directory}/*.*"
   end
 
-  def cache_pattern
-    pattern
-  end
-
   private
 
   def media_directory(root)
@@ -35,7 +31,7 @@ class ImageCatalogTarget
   end
 
   def set_media_files(original, site)
-    names = media_names(original)
+    names = media_names(original).select { |name| cache_names(name.downcase, site).any? }
     @original_files = names.map { |name| File.join(original, name) }
     @filenames = names.flat_map { |name| cache_names(name.downcase, site) }.to_set
   end
