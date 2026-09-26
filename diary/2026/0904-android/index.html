@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <title>2026/09/04: Galaxy ZFold 8 その後</title>
+    <link rel="alternate" type="application/rss+xml" title="rss" href="https://www.don.to/diary/index.rdf">
+      <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <link href="/stylesheets/code.css" rel="stylesheet" />
+    <link href="/stylesheets/photoswipe.css" rel="stylesheet" />
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/ipod-icon.png">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=2.0000">
+    <meta property="og:site_name" content="すみかわ日記">
+    <meta property="og:title" content="2026/09/04: Galaxy ZFold 8 その後">
+  </head>
+
+  <body
+    class=""
+    data-source-path="/diary/2026/0904-android.html.md.erb"
+  >
+    <div class="container">
+      <div class="centerblock">
+        <div class="mainblock">
+          <div id="search"></div>
+          <main data-pagefind-body>
+              <h2 data-pagefind-meta="title" data-pagefind-sort="date:2026-09-04">2026/09/04: Galaxy ZFold 8 その後</h2>
+                <p><a href="https://jp.shop.xreal.com/products/xreal-one-pro">XReal One Pro</a>との組み合わせでスタバで大画面で作業できるようになったわー。
+ただこのBluetoothキーボードはこまめに手元を覗き込む必要があるのと、スマホをタッチパッドとして使ってると指が疲れる。<a href="https://costory.jp/cf-published-sku-groups/1955012598">Orca Echo</a>待ち。</p>
+
+<p><a href="https://dl.dropboxusercontent.com/scl/fi/u8q225kankit7cgqn4ncn/img_0405_edited.jpg?rlkey=m4oo4kbzaoi03uvvm2wu666wd&amp;dl=0" class="image swipe" data-filename="img_0405_edited" data-timestamp="2026-09-04 19:15:07"><img src="https://dl.dropboxusercontent.com/scl/fi/u8q225kankit7cgqn4ncn/img_0405_edited.jpg?rlkey=m4oo4kbzaoi03uvvm2wu666wd&amp;dl=0" alt="img_0405_edited" height="900" /></a></p>
+
+<p>DeXモードはこんな感じ。</p>
+
+<p><a href="https://dl.dropboxusercontent.com/scl/fi/wfb65g0v97q1fu2mmwckm/20260904193300.jpg?rlkey=y5i9t6m6xx68irxkbbqjpf8oo&amp;dl=0" class="image swipe" data-filename="20260904193300" data-timestamp="2026-09-04 19:33:00"><img src="https://dl.dropboxusercontent.com/scl/fi/wfb65g0v97q1fu2mmwckm/20260904193300.jpg?rlkey=y5i9t6m6xx68irxkbbqjpf8oo&amp;dl=0" alt="20260904193300" height="900" /></a></p>
+
+<p>XReal One Proで画面見ても、文字が見辛いということはない。
+縦の視野が若干物足りないので8時間連続で使うにはまだ厳しいかなと思いますが、2〜3時間ぐらいなら問題なし。</p>
+
+<p>DeXモードはまだ細かいところで不満あり。特にSamsungキーボード。</p>
+
+<ul>
+<li>日本語の変換品質がとにかく低い</li>
+<li>Bluetoothで物理キーボードを使うと、Samsungキーボードがキー入力を取りこぼす</li>
+<li>変換候補が別ウィンドウとして表示され、もともとのウィンドウに重なって表示される。その結果、入力している文章が読めなくなる</li>
+</ul>
+
+<p>GBoardが使えればいいんだけど、DeXモードだけなぜかSamsungキーボードを強制されてしまう。</p>
+
+<p>あと、Androidのいいところは、自作アプリの開発が楽。Appleみたいに開発者ライセンスも必要ない。
+玉石混交のアプリをGoogle Playから探すぐらいなら自分で好みのものを作った方が早い。広告で貴重なアプリ画面を埋められることもないし。</p>
+
+<p>以下はCodexに書かせた自分専用のAndroidアプリ。DropboxとEmacsキーバインドに特化させている。</p>
+
+<ul>
+<li>Dropboxにあるファイルを直接編集できるEmacsキーバインドのエディタ。インラインブラウザが右ペインに出る。DeX対応、物理キーボード前提。すみかわ日記記述に便利。</li>
+<li>Dropbox上のファイルを読むために特化した先読みキャッシュが賢い漫画リーダー</li>
+<li>公衆WiFiに自動ログインするアプリ。接続用ブラウザとして登録してあるので、WiFiにつないだらほぼ自動で接続完了までいく</li>
+<li>昭和風2ペインのファイラー。折りたたみスマホを広げた画面に最適化している。Dropboxとローカルストレージ間でファイル移動もできる</li>
+<li>Podcastプレーヤー。RSS以外にもDropboxにおいたメディアをそのまま再生できる。自動でオフラインダウンロードする。</li>
+</ul>
+
+<p>Storage Access Frameworkを使わないでDropbox APIを直接叩いているので自由度が高い。公開アプリだとこうはいかない。
+当然、一行もコードを見ていない。何のプログラミング言語で何のフレームワークを使ってるのかも知らない。上流工程しかやってない。</p>
+
+<p>僕以外の家族はiPhoneなので、撮った写真は、ローカルストレージ -(Android)-&gt; Dropbox -(Mac)-&gt; iCloud Photoへ自動同期している。</p>
+
+<p>あと、Galaxy ZFold 8が縦シューに最適なことに気づいた。
+画面サイズもだけどUSB-Cの位置が丁度いい。</p>
+
+<p><a href="https://dl.dropboxusercontent.com/scl/fi/zm1wj88xrfikxcesz0ier/img_0409_edited.jpg?rlkey=sisb1cun95f8wfy5quxbtbhq6&amp;dl=0" class="image swipe" data-filename="img_0409_edited" data-timestamp="2026-09-04 19:56:23"><img src="https://dl.dropboxusercontent.com/scl/fi/zm1wj88xrfikxcesz0ier/img_0409_edited.jpg?rlkey=sisb1cun95f8wfy5quxbtbhq6&amp;dl=0" alt="img_0409_edited" height="900" /></a></p>
+
+
+              
+          </main>
+
+          <nav class="prev_next" aria-label="Diary navigation"><a class="prev_next-link prev" href="/diary/2026/0830-nagasima/"><span class="prev_next-eyebrow">Previous</span><span class="prev_next-label">&laquo; prev</span></a><span class="prev_next-divider" aria-hidden="true"></span><a class="prev_next-link next" href="/diary/2026/0913-mm/"><span class="prev_next-eyebrow">Next</span><span class="prev_next-label">next &raquo;</span></a></nav>
+
+          <hr>
+          <div id="name">Daydreamers On the Net</div>
+        </div>
+      </div>
+      <div class="sidebar">
+	  <div class="titleblock">
+	    <h1><a href="/">すみかわ日記</a></h1>
+	  </div>
+        <div class="eachindexblock nav">
+  <ul id="gray">
+      <li> <a href="/diary/2026.html">2026年</a></li>
+      <li> <a href="/diary/2025.html">2025年</a></li>
+      <li> <a href="/diary/2024.html">2024年</a></li>
+      <li> <a href="/diary/2023.html">2023年</a></li>
+      <li> <a href="/diary/2022.html">2022年</a></li>
+      <li> <a href="/diary/2021.html">2021年</a></li>
+      <li> <a href="/diary/2020.html">2020年</a></li>
+      <li> <a href="/diary/2019.html">2019年</a></li>
+      <li> <a href="/diary/2018.html">2018年</a></li>
+      <li> <a href="/diary/2017.html">2017年</a></li>
+      <li> <a href="/diary/2016.html">2016年</a></li>
+      <li> <a href="/diary/2015.html">2015年</a></li>
+      <li> <a href="/diary/2014.html">2014年</a></li>
+      <li> <a href="/diary/2013.html">2013年</a></li>
+      <li> <a href="/diary/2012.html">2012年</a></li>
+      <li> <a href="/diary/2011.html">2011年</a></li>
+      <li> <a href="/diary/2010.html">2010年</a></li>
+      <li> <a href="/diary/2009.html">2009年</a></li>
+      <li> <a href="/diary/2008.html">2008年</a></li>
+      <li> <a href="/diary/2007.html">2007年</a></li>
+      <li> <a href="/diary/2006.html">2006年</a></li>
+      <li> <a href="/diary/2005.html">2005年</a></li>
+      <li> <a href="/diary/2004.html">2004年</a></li>
+      <li> <a href="/diary/2003.html">2003年</a></li>
+      <li> <a href="/diary/2002.html">2002年</a></li>
+      <li> <a href="/diary/2001.html">2001年</a></li>
+      <li> <a href="/diary/2000.html">2000年</a></li>
+      <li> <a href="/diary/1999.html">1999年</a></li>
+      <li> <a href="/diary/1998.html">1998年</a></li>
+      <li> <a href="/diary/1997.html">1997年</a></li>
+      <li> <a href="/diary/1996.html">1996年</a></li>
+    <li> <a href="/diary/1995.html">1995年以前</a></li>
+    <li> <a href="/tag/tag_list/">Tags</a></li>
+  </ul>
+</div>
+
+      </div>
+      <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+    <script src="/javascripts/diary.js"></script>
+    <script src="/javascripts/secret-gate.js"></script>
+      <script src="/pagefind/pagefind-ui.js"></script>
+    <script src="/javascripts/search.js"></script>
+    <script src="/javascripts/photoswipe.umd.min.js"></script>
+    <script src="/javascripts/photoswipe-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
+  </body>
+</html>

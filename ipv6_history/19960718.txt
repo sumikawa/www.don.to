@@ -1,0 +1,52 @@
+Subject: 6Bone Status 
+From: Masaki Minami <minami at sfc.wide.ad.jp>
+To: 6bone at isi.edu
+Cc: v6 at wide.ad.jp
+Date: Thu, 18 Jul 1996 18:58:04 +0900
+X-Mailer: Mew version 1.06 on Emacs 19.28.1, Mule 2.3
+
+  Folks,
+
+  Tunnel Link between WIDE and G6 is now UP at " Thu Jul 18 16:11:29
+JST 1996".
+  And we are ready to set the Tunnel Link between WIDE and UNI-C up.
+
+  By the way, we, WIDE Project are going to take place the
+IPv6 demonstration on Interop, Tokyo.  It is between July, 24 and July
+26. You know, some company which is developing IPv6 protocol suite will 
+join it. 
+   We will introduce the "World Wide 6Bone" and show the "ping" and 
+"telnet" DEMO that are toward "World Wide 6Bone".
+
+Regards,
+		Masaki Minami, WIDE Project, Japan
+
+
+
+Subject: Re: 6Bone Status
+From: "Alain Durand" <Alain.Durand@imag.fr>
+To: 6bone@ISI.EDU
+Cc: minami@sfc.wide.ad.jp, g6@imag.fr, v6@wide.ad.jp
+Date: Thu, 18 Jul 1996 00:12:48 +0200
+X-Mailer: Z-Mail (4.0b.514 14may96)
+
+Folks,
+
+I would like to inform you that the tunnel between G6 and UNI-C
+is UP since last friday. The tunnel with WIDE is also UP.
+
+Inside G6, hosts in the ipv6.imag.fr and ipv6.inria.fr are reachable,
+the other G6 domains will be connected soon.
+
+The 6-bone is starting!
+
+	- Alain.
+
+                                                                        ^_^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   U  (* *)
+Alain DURAND                       |  Preserve keyboards:           |  ( v )
+I.M.A.G.                           |     use completion.            |  /~~~\
+Direction des Moyens Informatiques |-----------------------------  <|=< BSD >=
+BP 53 38041 Grenoble Cedex 9       | E-Mail: Alain.Durand@imag.fr   |  \   /
+France                             | Phone: +33 76 63 57 03         |   <~~<
+Postmaster@imag.fr                 | Fax:   +33 76 51 49 64            ~   ~
