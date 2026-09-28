@@ -2,6 +2,21 @@
 
 require 'set'
 
+JAPANESE_TAGS = {
+  'ipアドレス' => 'ip address',
+  'ガジェット' => 'gadget',
+  'キャンプ' => 'camp',
+  'スピーカー' => 'speaker',
+  'バッグ' => 'bag',
+  'ランタン' => 'lantern',
+  '公園' => 'park',
+  '旅行' => 'travel',
+  '椅子' => 'chair',
+  '機械学習' => 'machine learning',
+  '超急速充電' => 'ultra fast charging'
+}.freeze
+JAPANESE_CHARACTERS = /[\p{Hiragana}\p{Katakana}\p{Han}]/.freeze
+
 REDUNDANCY_RULES = {
   'businesstrip' => %w[business work travel],
   'higashi shinagawa' => ['shinagawa'],
@@ -16,6 +31,8 @@ MEAL_TAGS = %w[breakfast lunch dinner party].freeze
 
 def rename_legacy_tags(tags)
   tags.map do |tag|
+    next translate_japanese_tag(tag) if tag.match?(JAPANESE_CHARACTERS)
+
     case tag
     when /^documents$/i then 'document'
     when /^noto$/i then 'kanazawa'
@@ -24,6 +41,10 @@ def rename_legacy_tags(tags)
     else tag
     end
   end
+end
+
+def translate_japanese_tag(tag)
+  JAPANESE_TAGS.fetch(tag) { raise ArgumentError, "Unmapped Japanese tag: #{tag}" }
 end
 
 def add_contextual_tags(tags, content)
@@ -81,6 +102,14 @@ def process_file(file)
   File.write(file, updated_content)
 end
 
-Dir.glob('source/diary/**/*.md.erb').each do |file|
-  process_file(file)
+if __FILE__ == $PROGRAM_NAME
+  files = Dir.glob('source/diary/**/*.md.erb')
+  unmapped_tags = files.flat_map do |file|
+    extract_original_tags(File.read(file))&.select do |tag|
+      tag.match?(JAPANESE_CHARACTERS) && !JAPANESE_TAGS.key?(tag)
+    end || []
+  end.uniq.sort
+  abort "Unmapped Japanese tags: #{unmapped_tags.join(', ')}" unless unmapped_tags.empty?
+
+  files.each { |file| process_file(file) }
 end

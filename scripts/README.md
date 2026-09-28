@@ -1,5 +1,10 @@
 # 画像URLカタログ
 
+`scripts/modify_tags.rb` は記事のタグを整理し、既知の日本語タグを英語に変換します。
+対応表はスクリプト内の `JAPANESE_TAGS` にあります。未登録の日本語タグがある場合は、
+記事を書き換える前にタグ名を表示して停止します。変換後は `scripts/gen_tags.rb` で
+`data/tags.yml` を更新します（`make tags` で両方実行できます）。
+
 `scripts/gen_image.rb sync` は元メディアから不足するキャッシュを生成し、元メディアに
 対応しないキャッシュとYAML項目を削除して、Dropboxの共有リンクを `data/image/YYYY.yml` に
 登録します。既存のURLは維持し、登録済みファイルはスキップします。
