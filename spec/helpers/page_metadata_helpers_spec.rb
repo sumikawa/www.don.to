@@ -55,9 +55,9 @@ RSpec.describe PageMetadataHelpers do
         allow(current_page.data).to receive(:title).and_return(nil)
       end
 
-      it 'returns "1995年以前" for 1995 URLs' do
+      it 'returns "1995年" for the 1995 archive' do
         allow(current_page).to receive(:url).and_return('/diary/1995/')
-        expect(helper.gen_title).to eq('1995年以前')
+        expect(helper.gen_title).to eq('1995年')
       end
 
       it 'returns year for year URLs' do
@@ -113,7 +113,8 @@ RSpec.describe PageMetadataHelpers do
         expect(helper.send(:extract_date_string, 'source/diary/2025/01-test.html.md.erb')).to eq('2025/01/??')
         expect(helper.send(:extract_date_string, '/diary/2025/')).to eq('2025年')
         expect(helper.send(:extract_date_string, '/diary/2025.html')).to eq('2025年')
-        expect(helper.send(:extract_date_string, '/diary/1995/')).to eq('1995年以前')
+        expect(helper.send(:extract_date_string, '/diary/1995/')).to eq('1995年')
+        expect(helper.send(:extract_date_string, '/diary/1995.html')).to eq('1995年')
         expect(helper.send(:extract_date_string, 'foobar')).to be_nil
       end
     end

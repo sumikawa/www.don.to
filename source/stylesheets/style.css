@@ -394,7 +394,7 @@ div.eachindexblock {
 }
 
 .eachindexblock {
-  padding: 1rem 1.1rem;
+  padding: 1rem 0.5rem;
 }
 
 div#dayd {
@@ -709,7 +709,8 @@ div.amazon-info {
 }
 
 .sidebar .nav a {
-  padding: 0.28rem 0.45rem;
+  padding: 0.14rem 0.15rem;
+  line-height: 1.35;
   text-align: center;
 }
 
@@ -857,7 +858,7 @@ div.amazon-info {
 @media screen and (min-width: 641px) {
   .container {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 220px;
+    grid-template-columns: minmax(0, 1fr) 190px;
     gap: var(--margin);
     align-items: start;
     height: calc(100vh - 64px);
@@ -878,7 +879,7 @@ div.amazon-info {
   .sidebar ul {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 0.45rem;
+    column-gap: 0.25rem;
     row-gap: 0.12rem;
   }
 

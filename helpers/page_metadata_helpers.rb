@@ -44,7 +44,6 @@ module PageMetadataHelpers
   def extract_date_string(str)
     extract_full_date(str) ||
       extract_month_date(str) ||
-      extract_pre_1995_title(str) ||
       extract_year_title(str)
   end
 
@@ -71,10 +70,6 @@ module PageMetadataHelpers
     return nil if match.nil?
 
     "#{match[1]}年"
-  end
-
-  def extract_pre_1995_title(str)
-    '1995年以前' if str.match?(/1995/)
   end
 
   def normalize_page_tags(tags)
