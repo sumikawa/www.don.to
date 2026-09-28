@@ -810,14 +810,21 @@ div.amazon-info {
   }
 
   .prev_next {
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: row;
   }
 
   .prev_next-link,
   .prev_next-link.next {
+    flex: 1;
     min-width: 0;
-    text-align: left;
+  }
+
+  .prev_next-link.next {
+    text-align: right;
+  }
+
+  .prev_next-label {
+    white-space: nowrap;
   }
 
   .prev_next-divider {
