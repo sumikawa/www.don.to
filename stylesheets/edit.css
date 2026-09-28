@@ -1,0 +1,67 @@
+.edit-button, .github-button {
+  position: absolute;
+  top: 8px;
+  z-index: 1000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.edit-button {
+  right: 10px;
+  padding: 5px 15px;
+  background-color: #007bff;
+}
+
+.github-button {
+  right: 80px;
+  padding: 5px 10px;
+  background-color: #333;
+}
+
+.editor-wrapper {
+  width: 100%;
+}
+
+.editor-textarea {
+  width: 100%;
+  min-height: 300px;
+  max-height: 80vh;
+  box-sizing: border-box;
+  resize: vertical;
+  overflow-y: auto;
+}
+
+.editor-actions {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.editor-save-button {
+  margin-left: 10px;
+}
+
+.editor-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  padding: 15px 25px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.editor-toast.is-visible {
+  opacity: 1;
+}
+
+main p.image-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}

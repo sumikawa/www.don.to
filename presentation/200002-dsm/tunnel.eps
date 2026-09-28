@@ -1,0 +1,308 @@
+%!
+%%BoundingBox: 68 685 327 799
+%%Title: tunnel
+%%CreationDate: Thu Apr 13 20:24:22 2000
+%%Creator: Tgif-3.0J.18 by William Chia-Wei Cheng (william@cs.UCLA.edu)
+
+/tgifdict 39 dict def
+tgifdict begin
+
+/tgifellipsedict 6 dict def
+tgifellipsedict /mtrx matrix put
+
+/tgifellipse
+ { tgifellipsedict begin
+      /yrad exch def
+      /xrad exch def
+      /y exch def
+      /x exch def
+      /savematrix mtrx currentmatrix def
+      x y translate
+      xrad yrad scale
+      0 0 1 0 360 arc
+      savematrix setmatrix
+   end
+ } def
+
+/tgifarrowtipdict 8 dict def
+tgifarrowtipdict /mtrx matrix put
+
+/tgifarrowtip
+ { tgifarrowtipdict begin
+      /dy exch def
+      /dx exch def
+      /h exch def
+      /w exch def
+      /y exch def
+      /x exch def
+      /savematrix mtrx currentmatrix def
+      x y translate
+      dy dx atan rotate
+      0 0 moveto
+      w neg h lineto
+      w neg h neg lineto
+      savematrix setmatrix
+   end
+ } def
+
+/tgifpatdict 10 dict def
+
+/tgifpatbyte
+ { currentdict /retstr get exch
+   pat i cellsz mod get put
+ } def
+
+/tgifpatproc
+ { 0 1 widthlim {tgifpatbyte} for retstr
+   /i i 1 add def
+ } def
+
+/tgifpatfill
+ { tgifpatdict begin
+      /h exch def
+      /w exch def
+      /lty exch def
+      /ltx exch def
+      /cellsz exch def
+      /pat exch def
+
+      /widthlim w cellsz div cvi 1 sub def
+      /retstr widthlim 1 add string def
+      /i 0 def
+
+      tgiforigctm setmatrix
+      ltx lty translate
+      w h true [1 0 0 1 0 0] {tgifpatproc} imagemask
+      ltx neg lty neg translate
+   end
+ } def
+
+/pat3 <8000000008000000> def
+/pat4 <8800000022000000> def
+/pat5 <8800220088002200> def
+/pat6 <8822882288228822> def
+/pat7 <aa55aa55aa55aa55> def
+/pat8 <77dd77dd77dd77dd> def
+/pat9 <77ffddff77ffddff> def
+/pat10 <77ffffff77ffffff> def
+/pat11 <7fffffff7fffffff> def
+/pat12 <8040200002040800> def
+/pat13 <40a00000040a0000> def
+/pat14 <ff888888ff888888> def
+/pat15 <ff808080ff080808> def
+/pat16 <f87422478f172271> def
+/pat17 <038448300c020101> def
+/pat18 <081c22c180010204> def
+/pat19 <8080413e080814e3> def
+/pat20 <8040201008040201> def
+/pat21 <8844221188442211> def
+/pat22 <77bbddee77bbddee> def
+/pat23 <c1e070381c0e0783> def
+/pat24 <7fbfdfeff7fbfdfe> def
+/pat25 <3e1f8fc7e3f1f87c> def
+/pat26 <0102040810204080> def
+/pat27 <1122448811224488> def
+/pat28 <eeddbb77eeddbb77> def
+/pat29 <83070e1c3870e0c1> def
+/pat30 <fefdfbf7efdfbf7f> def
+/pat31 <7cf8f1e3c78f1f3e> def
+
+end
+
+%%PageBoundingBox: 68 685 327 799
+tgifdict begin
+/tgifsavedpage save def
+
+1 setmiterlimit
+1 setlinewidth
+
+0 setgray
+
+72 0 mul 72 11.70 mul translate
+72 128 div 100.000 mul 100 div dup neg scale
+
+gsave
+
+/tgiforigctm matrix currentmatrix def
+
+% OVAL
+0 setgray
+gsave
+   gsave
+      newpath 176 200 48 40 tgifellipse
+      7 setlinewidth
+      stroke
+   grestore
+grestore
+
+% OVAL
+0 setgray
+gsave
+   gsave
+      newpath 352 196 128 76 tgifellipse
+      7 setlinewidth
+      stroke
+   grestore
+grestore
+
+% TEXT
+0 setgray
+/Courier findfont [24 0 0 -24 0 0] makefont setfont
+   gsave
+      144 211 moveto (IPv6) show
+   grestore
+
+% TEXT
+0 setgray
+/Courier findfont [24 0 0 -24 0 0] makefont setfont
+   gsave
+      320 251 moveto (IPv4) show
+   grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   gsave
+      newpath
+         480 200 moveto
+         -32 -56 atan dup cos 14.000 mul exch sin 14.000 mul rmoveto
+         442.67 178.67 401.33 168.00 356.00 168.00 curveto
+         310.67 168.00 266.67 178.67
+         224 200 curveto
+      tgiforigctm setmatrix
+      4 setlinewidth
+      1 setgray stroke
+      1 setlinewidth
+   grestore
+   newpath
+      480 200 moveto
+      -32 -56 atan dup cos 14.000 mul exch sin 14.000 mul rmoveto
+      442.67 178.67 401.33 168.00 356.00 168.00 curveto
+      310.67 168.00 266.67 178.67
+      224 200 curveto
+   tgiforigctm setmatrix
+   4 setlinewidth
+   flattenpath strokepath clip newpath
+   pat7 8 216 160 272 48 tgifpatfill
+   1 setlinewidth
+grestore
+gsave
+   tgiforigctm setmatrix
+   newpath
+      480 200 14.000 6.000 56 32 tgifarrowtip
+   1 setgray closepath fill
+   0 setgray
+   newpath
+      480 200 14.000 6.000 56 32 tgifarrowtip
+   closepath eoclip newpath
+   pat7 8 464 184 24 24 tgifpatfill
+grestore
+
+% OVAL
+0 setgray
+gsave
+   gsave
+      newpath 528 200 48 40 tgifellipse
+      7 setlinewidth
+      stroke
+   grestore
+grestore
+
+% TEXT
+0 setgray
+/Courier findfont [24 0 0 -24 0 0] makefont setfont
+   gsave
+      496 211 moveto (IPv6) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [20 0 0 -20 0 0] makefont setfont
+   gsave
+      288 162 moveto (IPv6 over IPv4) show
+   grestore
+
+% BOX
+0 setgray
+gsave
+   10 setmiterlimit
+   gsave
+      newpath
+         280 80 moveto 328 80 lineto 328 112 lineto 280 112 lineto
+      closepath
+      4 setlinewidth
+      stroke
+   grestore
+grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [20 0 0 -20 0 0] makefont setfont
+   gsave
+      284 102 moveto (IPv4) show
+   grestore
+
+% BOX
+0 setgray
+gsave
+   10 setmiterlimit
+   gsave
+      newpath
+         332 80 moveto 412 80 lineto 412 112 lineto 332 112 lineto
+      closepath
+      4 setlinewidth
+      stroke
+   grestore
+grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [20 0 0 -20 0 0] makefont setfont
+   gsave
+      352 102 moveto (IPv6) show
+   grestore
+
+% BOX
+0 setgray
+gsave
+   10 setmiterlimit
+   gsave
+      newpath
+         132 80 moveto 212 80 lineto 212 112 lineto 132 112 lineto
+      closepath
+      4 setlinewidth
+      stroke
+   grestore
+grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [20 0 0 -20 0 0] makefont setfont
+   gsave
+      152 102 moveto (IPv6) show
+   grestore
+
+% BOX
+0 setgray
+gsave
+   10 setmiterlimit
+   gsave
+      newpath
+         488 80 moveto 568 80 lineto 568 112 lineto 488 112 lineto
+      closepath
+      4 setlinewidth
+      stroke
+   grestore
+grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [20 0 0 -20 0 0] makefont setfont
+   gsave
+      508 102 moveto (IPv6) show
+   grestore
+
+grestore
+tgifsavedpage restore
+end
+%MatchingCreationDate: Thu Apr 13 20:24:22 2000
