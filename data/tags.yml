@@ -4286,6 +4286,7 @@ gadget:
 - source/diary/2026/0524-note.html.md.erb
 - source/diary/2026/0808-galaxy.html.md.erb
 - source/diary/2026/0904-android.html.md.erb
+- source/diary/2026/0927-note.html.md.erb
 galaxyzfold:
 - source/diary/2026/0808-galaxy.html.md.erb
 - source/diary/2026/0904-android.html.md.erb
@@ -7204,6 +7205,7 @@ note:
 - source/diary/2026/0917-note.html.md.erb
 - source/diary/2026/0919-note.html.md.erb
 - source/diary/2026/0925-note.html.md.erb
+- source/diary/2026/0927-note.html.md.erb
 novel:
 - source/diary/1999/1106-book.html.md.erb
 - source/diary/1999/1124-book.html.md.erb
