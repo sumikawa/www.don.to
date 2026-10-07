@@ -1,0 +1,96 @@
+%include "../default.mgp"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%size 6, font "thick", back "white", fore "blue4", vgap 20
+%center
+
+
+
+
+Hitachi IPv6 activity and GR2000
+
+%size 4, fore "black"
+
+Munechika SUMIKAWA
+Hitachi, Ltd. & KAME Project
+sumikawa@sumikawa.jp
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+IPv6 and Hitachi
+
+	Started developing IPv6 since 1995
+		Homebrew stack on BSD/OS(--> NR60)
+	Joined to KAME Project(Apr/1998)
+	Hitachi IPv6 products
+		Client
+			Toolnet6
+		Router
+			NR60
+			GR2000
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Toolnet6 and NR60
+
+	NR60
+		PC based software router (homebrewed codes)
+		Shipped in Mar/1997
+		Implemented several experimental features.
+			IPsec, IKE and translator(ported to Toolnet6)
+%right
+%image "nr60.jpg" 1300x820
+%left
+	Toolnet6
+		Migration tool from IPv4 to IPv6
+		Self-translator using the Bump-In-the-Stack technique
+			"draft-ietf-ngtrans-bis-00.txt"
+		Free software
+			works on Windows 98/NT
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+GR2000
+
+	IPv4 router
+	Distributed architecture
+		Routing Manager (BSD/OS on AMD K6-2)
+			Easily porting software (rouing daemon, SNMP, httpd)
+		Routing Processor
+			Customed LSI(forwarding engine/routing looking up LSI)
+			Fast forwarding/filtering/diffserv by hardware
+
+%center
+%image "arc.eps" 500x390
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+KAME on GR2000
+
+	Ported KAME on GR2000
+		On Routing Manager
+			IPv6 forwarding by software now
+		Supporting several interfaces
+			Ethernet/Gigabit Ethernet/ATM/POS/Serial
+
+%center
+%image "v6.eps" 400x300
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Future Plans
+
+	Operation in worldwide 6bone
+		One of routers in this network
+			Fixed "src mac address is all zero" bugs in this meeting
+	First beta release on 2Q/2000
+	IPv6 forwarding by hardware
+%center
+%image "gr2000.jpg" 1100x947
+
