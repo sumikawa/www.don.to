@@ -1,0 +1,66 @@
+%include "../default.mgp"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%size 6, font "thick", back "white", fore "blue4", vgap 20
+%center
+
+
+
+Categorizing Translators between IPv4 and IPv6
+<draft-ietf-ngtrans-translator-02.txt>
+
+%size 4, fore "black"
+
+Munechika Sumikawa
+Hitachi, Ltd. / KAME Project
+sumikawa@sumikawa.jp
+
+Kazuhiko Yamamoto 
+Internet Initiative Japan / KAME Project
+kazu@iijlab.net
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Purpose
+
+	To categorize translators from two points of view
+		address interpretation technique
+			header conversion
+			transport relay
+			application proxy
+		address mapping technique
+			static mapping
+			dynamic mapping
+			using FQDN
+
+	Circulation of such knowledge
+		NOT a proposal of new translator
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+changes from -01
+
+	Describe IPv4/IPv6 mixed network 
+		can simplify the combination of practical networks
+	Add security consideration
+		end-to-end authentication(including IPSEC) is not available
+		same as NAT
+	Add the case of A6 records in address mapping
+		the same technique as AAAA can be applied
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Example of A6 records in address mapping
+
+	Session from IPv4 node to IPv6 node
+
+%center, size 2
+%image "4to6.eps" 460x350
+%left
+
+
+	More details are described in NAT-PT
