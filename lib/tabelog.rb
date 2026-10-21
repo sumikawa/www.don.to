@@ -6,9 +6,9 @@ require 'open-uri'
 require 'json'
 require 'unicode_utils'
 
-USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) ' \
-             'AppleWebKit/537.36 (KHTML, like Gecko) ' \
-             'Chrome/77.0.3864.0 Safari/537.36'
+USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) ' \
+             'AppleWebKit/605.1.15 (KHTML, like Gecko) ' \
+             'Version/18.0 Safari/605.1.15'
 
 def tabelog(url)
   raise 'URL parameter is missing' if url.nil? || url.empty?
