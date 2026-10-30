@@ -240,6 +240,7 @@ aquarium:
 - source/diary/2022/0211-izu.html.md.erb
 - source/diary/2024/1103-chiba.html.md.erb
 - source/diary/2025/1115-enosima.html.md.erb
+- source/diary/2026/1010-toba.html.md.erb
 art:
 - source/diary/2009/0222-yokohama.html.md.erb
 - source/diary/2012/1212-ren.html.md.erb
@@ -1396,6 +1397,8 @@ cafe:
 - source/diary/2025/0116-kusatu.html.md.erb
 - source/diary/2025/1114-kamakura.html.md.erb
 - source/diary/2026/0913-mm.html.md.erb
+- source/diary/2026/1006-nagasima.html.md.erb
+- source/diary/2026/1020-mm.html.md.erb
 cairo:
 - source/diary/2004/0709-egypt.html.md.erb
 - source/diary/2004/0710-egypt.html.md.erb
@@ -1928,6 +1931,7 @@ cooking:
 - source/diary/2023/1111-camp.html.md.erb
 - source/diary/2024/0316-dinner.html.md.erb
 - source/diary/2025/0318-potato.html.md.erb
+- source/diary/2026/1004-nagasima.html.md.erb
 costume:
 - source/diary/2006/0822-kin.html.md.erb
 - source/diary/2006/0929-cosplay.html.md.erb
@@ -2635,6 +2639,7 @@ dinner:
 - source/diary/2025/1028-kamata.html.md.erb
 - source/diary/2026/0428-mm.html.md.erb
 - source/diary/2026/0810-yakitori.html.md.erb
+- source/diary/2026/1010-dinner.html.md.erb
 dinosaur:
 - source/diary/2012/0609-museum.html.md.erb
 - source/diary/2012/1222-chiba.html.md.erb
@@ -3999,6 +4004,8 @@ food:
 - source/diary/2025/0405-taiwan.html.md.erb
 - source/diary/2025/0905-yokohama.html.md.erb
 - source/diary/2025/1128-note.html.md.erb
+- source/diary/2026/1003-nagasima.html.md.erb
+- source/diary/2026/1011-nagasima.html.md.erb
 football:
 - source/diary/2003/1018-football.html.md.erb
 - source/diary/2004/0505-tickets.html.md.erb
@@ -4781,6 +4788,7 @@ hodogaya:
 - source/diary/2026/0309-lunch.html.md.erb
 - source/diary/2026/0918-hodogaya.html.md.erb
 - source/diary/2026/0927-tennouchou.html.md.erb
+- source/diary/2026/1018-park.html.md.erb
 hoi an:
 - source/diary/2025/0616-vietnam.html.md.erb
 - source/diary/2025/0617-vietnam.html.md.erb
@@ -5537,6 +5545,8 @@ kamakura:
 - source/diary/2026/0617-kamakura.html.md.erb
 - source/diary/2026/0630-kamakura.html.md.erb
 - source/diary/2026/0722-kamakaura.html.md.erb
+- source/diary/2026/1017-kamakura.html.md.erb
+- source/diary/2026/1023-kamakura.html.md.erb
 kamata:
 - source/diary/2025/1028-kamata.html.md.erb
 kame:
@@ -6713,6 +6723,15 @@ mie:
 - source/diary/2026/0822-nagasima.html.md.erb
 - source/diary/2026/0826-nagasima.html.md.erb
 - source/diary/2026/0830-nagasima.html.md.erb
+- source/diary/2026/1002-nagasima.html.md.erb
+- source/diary/2026/1003-nagasima.html.md.erb
+- source/diary/2026/1004-nagasima.html.md.erb
+- source/diary/2026/1006-nagasima.html.md.erb
+- source/diary/2026/1009-nagasima.html.md.erb
+- source/diary/2026/1010-dinner.html.md.erb
+- source/diary/2026/1010-toba.html.md.erb
+- source/diary/2026/1011-nagasima.html.md.erb
+- source/diary/2026/1015-nagasima.html.md.erb
 milan:
 - source/diary/2003/0606-milan.html.md.erb
 - source/diary/2003/0607-milan.html.md.erb
@@ -6756,6 +6775,7 @@ minatomirai:
 - source/diary/2025/0926-mm.html.md.erb
 - source/diary/2026/0428-mm.html.md.erb
 - source/diary/2026/0913-mm.html.md.erb
+- source/diary/2026/1020-mm.html.md.erb
 minneapolis:
 - source/diary/1999/0313-ietf.html.md.erb
 misaki:
@@ -7320,6 +7340,7 @@ ofuna:
 - source/diary/2025/0601-kamakura.html.md.erb
 - source/diary/2026/0113-kamakura.html.md.erb
 - source/diary/2026/0119-kamakura.html.md.erb
+- source/diary/2026/1017-kamakura.html.md.erb
 oiso:
 - source/diary/2017/0827-pool.html.md.erb
 - source/diary/2019/0729-pool.html.md.erb
@@ -7393,6 +7414,7 @@ okonomiyaki:
 - source/diary/1999/0103-muta.html.md.erb
 - source/diary/2012/1110-dinner.html.md.erb
 - source/diary/2013/0112-dinner.html.md.erb
+- source/diary/2026/1015-nagasima.html.md.erb
 onsen:
 - source/diary/1996/0321-suwa.html.md.erb
 - source/diary/2003/0712-vienna.html.md.erb
@@ -7476,6 +7498,7 @@ onsen:
 - source/diary/2025/1213-iwate.html.md.erb
 - source/diary/2026/0625-nagano.html.md.erb
 - source/diary/2026/0715-camp.html.md.erb
+- source/diary/2026/1009-nagasima.html.md.erb
 ookurayama:
 - source/diary/2025/0824-ookurayama.html.md.erb
 osaka:
@@ -7855,6 +7878,7 @@ park:
 - source/diary/2026/0528-note.html.md.erb
 - source/diary/2026/0528-park.html.md.erb
 - source/diary/2026/0530-park.html.md.erb
+- source/diary/2026/1018-park.html.md.erb
 party:
 - source/diary/1995/199203-ecc.html.md.erb
 - source/diary/1995/19950311-sadaken.html.md.erb
@@ -8004,6 +8028,7 @@ party:
 - source/diary/2026/0605-dinner.html.md.erb
 - source/diary/2026/0610-interop.html.md.erb
 - source/diary/2026/0707-ueno.html.md.erb
+- source/diary/2026/1010-dinner.html.md.erb
 pasta:
 - source/diary/2007/1215-japone.html.md.erb
 - source/diary/2014/0221-lunch.html.md.erb
@@ -8819,6 +8844,7 @@ river:
 - source/diary/2025/0812-nagasima.html.md.erb
 - source/diary/2025/0813-nagasima.html.md.erb
 - source/diary/2026/0826-nagasima.html.md.erb
+- source/diary/2026/1002-nagasima.html.md.erb
 robot:
 - source/diary/2000/0429-mya.html.md.erb
 - source/diary/2015/0906-yokodai.html.md.erb
@@ -10486,6 +10512,7 @@ terminal:
 terrace:
 - source/diary/2020/0909-tumagoi.html.md.erb
 - source/diary/2025/0602-mm.html.md.erb
+- source/diary/2026/1020-mm.html.md.erb
 thai:
 - source/diary/1999/0627-yoshidak.html.md.erb
 - source/diary/2002/1117-thai.html.md.erb
@@ -10869,6 +10896,8 @@ trail:
 - source/diary/2026/0617-kamakura.html.md.erb
 - source/diary/2026/0630-kamakura.html.md.erb
 - source/diary/2026/0722-kamakaura.html.md.erb
+- source/diary/2026/1017-kamakura.html.md.erb
+- source/diary/2026/1023-kamakura.html.md.erb
 train:
 - source/diary/2003/0606-milan.html.md.erb
 - source/diary/2007/0826-park.html.md.erb
@@ -11536,6 +11565,14 @@ travel:
 - source/diary/2026/0822-nagasima.html.md.erb
 - source/diary/2026/0826-nagasima.html.md.erb
 - source/diary/2026/0830-nagasima.html.md.erb
+- source/diary/2026/1002-nagasima.html.md.erb
+- source/diary/2026/1003-nagasima.html.md.erb
+- source/diary/2026/1004-nagasima.html.md.erb
+- source/diary/2026/1006-nagasima.html.md.erb
+- source/diary/2026/1009-nagasima.html.md.erb
+- source/diary/2026/1010-toba.html.md.erb
+- source/diary/2026/1011-nagasima.html.md.erb
+- source/diary/2026/1015-nagasima.html.md.erb
 travelk:
 - source/diary/2005/0621-beer.html.md.erb
 tshirt:
