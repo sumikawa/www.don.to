@@ -1,0 +1,33 @@
+Subject: Tue Jul 16 18:15:51 JST 1996
+From: SUMIKAWA Munechika <muneti-s at is.aist-nara.ac.jp>
+To: v6 at wide.ad.jp
+Cc: muneti-s at is.aist-nara.ac.jp
+Date: Tue, 16 Jul 1996 18:26:31 +0900
+X-Mailer: Mew version 1.06 on Emacs 19.28.2, Mule 2.3
+
+とりあえず報告．
+
+なぜか，初めてのWorld Wide 6boneへの接続相手はCISCOになっちゃいました :-)
+
+----
+june:~% gifconfig gif2
+gif2: gif flags=8011<UP,POINTOPOINT,MULTICAST>
+        inet6 5f09:c400:a3dd:400::1 --> 5f00:6d00:c01f:700:3::2  prefixlen 80 
+        physical address inet 163.221.11.21 --> 192.31.7.41
+june:~% telnet6 5f00:6d00:c01f:700:3::2
+Trying 5f00:6d00:c01f:700:3::2...
+Connected to 5f00:6d00:c01f:700:3::2.
+Escape character is '^]'.
+
+             -------------------------------------------
+             Welcome to cisco System's first IPv6 router
+             -------------------------------------------
+
+Username: 
+---
+
+これから，NRLとかへの接続を試してみます．
+みんな，default routeはjuneに向けてね．
+
+---
+角川宗近＠NAIST

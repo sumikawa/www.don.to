@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns="http://purl.org/rss/1.0/">
+  <channel rdf:about="https://www.don.to/diary/">
+    <title>すみかわ日記</title>
+    <description>子供ネタ7割、食い物2割、技術1割</description>
+    <link>https://www.don.to/diary/</link>
+    <items>
+      <rdf:Seq>
+          <rdf:li resource="2026/1023-kamakura/"/>
+          <rdf:li resource="2026/1020-mm/"/>
+          <rdf:li resource="2026/1015-nagasima/"/>
+          <rdf:li resource="2026/1011-nagasima/"/>
+          <rdf:li resource="2026/1010-toba/"/>
+          <rdf:li resource="2026/1010-dinner/"/>
+          <rdf:li resource="2026/1009-nagasima/"/>
+          <rdf:li resource="2026/1006-nagasima/"/>
+          <rdf:li resource="2026/1004-nagasima/"/>
+          <rdf:li resource="2026/1003-nagasima/"/>
+          <rdf:li resource="2026/1002-nagasima/"/>
+          <rdf:li resource="2026/0927-tennouchou/"/>
+          <rdf:li resource="2026/0927-note/"/>
+          <rdf:li resource="2026/0925-note/"/>
+          <rdf:li resource="2026/0919-note/"/>
+          <rdf:li resource="2026/0918-hodogaya/"/>
+          <rdf:li resource="2026/0917-note/"/>
+          <rdf:li resource="2026/0915-note/"/>
+          <rdf:li resource="2026/0913-mm/"/>
+          <rdf:li resource="2026/0904-android/"/>
+          <rdf:li resource="2026/0830-nagasima/"/>
+          <rdf:li resource="2026/0826-nagasima/"/>
+          <rdf:li resource="2026/0822-nagasima/"/>
+          <rdf:li resource="2026/0821-nagasima/"/>
+          <rdf:li resource="2026/0820-nagasima/"/>
+          <rdf:li resource="2026/0819-nagasima/"/>
+          <rdf:li resource="2026/0818-nagasima/"/>
+      </rdf:Seq>
+    </items>
+  </channel>
+  <item rdf:about="2026/1023-kamakura/">
+            <title>2026/10/23: 鎌倉ハイキング</title>
+        <link>https://www.don.to/diary/2026/1023-kamakura/</link>
+        <description><![CDATA[<p>定点観測。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261023152312" data-timestamp="2026-10-23 15:23:12"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-10T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/1020-mm/">
+            <title>2026/10/20: SHARE LOGUNGE</title>
+        <link>https://www.don.to/diary/2026/1020-mm/</link>
+        <description><![CDATA[<p>みなとみらいのシェアラウンジ。テラス席の気候がちょうどいい。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261020180623" data-timestamp="2026-10-20 18:06:23"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-10T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/1015-nagasima/">
+            <title>2026/10/15: 紀伊長島 その7</title>
+        <link>https://www.don.to/diary/2026/1015-nagasima/</link>
+        <description><![CDATA[<p>夜の冷え込みが強くなって、寝てると底冷えし始めたので帰宅を決める。
+深夜バスに乗る前に唯一遅くまで空いているお好み焼きに行く。</p>
+
+<p>事前に電話したら営業してるというか店閉めないで待ってるという感じだった。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261015214135" data-timestamp="2026-10-15 21:41:35"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>予想通り誰もいない。なんなら鉄板の火も落ちてた。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261015203546" data-timestamp="2026-10-15 20:35:46"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261015213943" data-timestamp="2026-10-15 21:39:43"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>おしぼりが見たことのない色をしている。
+テレビ見ながら手を拭いて、下を見たら悲鳴あげそうになった。
+水と一緒に出されたので台ふきではないはず。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261015203131" data-timestamp="2026-10-15 20:31:31"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>おつまみを出せるというので、鶏肉の味噌炒め。
+想定どおりではあるが30分待ったあと、お好み焼きの5分前に出された。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261015210003" data-timestamp="2026-10-15 21:00:03"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>広島風お好み焼き。キャベツ感はまったくない。大量のマヨネーズがかかってる。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261015210718" data-timestamp="2026-10-15 21:07:18"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>瓶ビール2本飲んで全部で1900円。やたら安い。おしぼりは見かけは汚いが生乾き臭はまったくしなかった。なぜかかりんとうをくれた。</p>
+
+<p>評価の難しい店だ。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261015221025" data-timestamp="2026-10-15 22:10:25"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>バスに乗り込んで帰路につく。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261015215315" data-timestamp="2026-10-15 21:53:15"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261015221309" data-timestamp="2026-10-15 22:13:09"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>ここ数日寝違えたのか首がやたら痛い。</p>
+]]></description>
+        <dc:date>2026-2026-10T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/1011-nagasima/">
+            <title>2026/10/11: 紀伊長島 その6</title>
+        <link>https://www.don.to/diary/2026/1011-nagasima/</link>
+        <description><![CDATA[<p>ミート田中へ買い出し。ヒレ肉あった。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261011093237" data-timestamp="2026-10-11 09:32:37"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>タケシ君が釣ってきたアオリイカ。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261011210316" data-timestamp="2026-10-11 21:03:16"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-10T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/1010-toba/">
+            <title>2026/10/10: 鳥羽</title>
+        <link>https://www.don.to/diary/2026/1010-toba/</link>
+        <description><![CDATA[<p>鳥羽へ向かう。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261010094326" data-timestamp="2026-10-10 09:43:26"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010111359" data-timestamp="2026-10-10 11:13:59"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>通りがかりの店で伊勢うどん食べてみたら大してうまくなかった。スーパーのうどんとタレじゃダメなのね。伊勢神宮行かないと美味しくないのか。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261010123423" data-timestamp="2026-10-10 12:34:23"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p><a href="https://aquarium.co.jp/kannai/">鳥羽水族館</a>へ。
+小学校の修学旅行以来なので42年ぶり2回目。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261010124856" data-timestamp="2026-10-10 12:48:56"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010125810" data-timestamp="2026-10-10 12:58:10"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010130224" data-timestamp="2026-10-10 13:02:24"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010130527" data-timestamp="2026-10-10 13:05:27"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010130630" data-timestamp="2026-10-10 13:06:30"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010130827" data-timestamp="2026-10-10 13:08:27"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010132402" data-timestamp="2026-10-10 13:24:02"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010133003" data-timestamp="2026-10-10 13:30:03"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010133308" data-timestamp="2026-10-10 13:33:08"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010135732" data-timestamp="2026-10-10 13:57:32"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010135735" data-timestamp="2026-10-10 13:57:35"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010135736" data-timestamp="2026-10-10 13:57:36"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010140417" data-timestamp="2026-10-10 14:04:17"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010140529" data-timestamp="2026-10-10 14:05:29"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010140713" data-timestamp="2026-10-10 14:07:13"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>このタコ、小学生のときに見た気がする。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261010140901" data-timestamp="2026-10-10 14:09:01"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>三重県が押してるゆるキャラ、ミジュマル公園。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261010161910" data-timestamp="2026-10-10 16:19:10"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010163522" data-timestamp="2026-10-10 16:35:22"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-10T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/1010-dinner/">
+            <title>2026/10/10: 鳥羽でパーティー</title>
+        <link>https://www.don.to/diary/2026/1010-dinner/</link>
+        <description><![CDATA[<p>親戚の集いにお呼ばれいただく。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261010170453" data-timestamp="2026-10-10 17:04:53"><img src="/images/under.webp" alt="under" height="900" /></a>するの</p>
+
+<pre class="address">
+<a href="https://tabelog.com/mie/A2403/A240302/24000078/">一栄 </a>
+三重県鳥羽市鳥羽1-22-21
+0599-25-2885
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261010175111" data-timestamp="2026-10-10 17:51:11"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010175438" data-timestamp="2026-10-10 17:54:38"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010175444" data-timestamp="2026-10-10 17:54:44"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010180550" data-timestamp="2026-10-10 18:05:50"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010181206" data-timestamp="2026-10-10 18:12:06"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010181510" data-timestamp="2026-10-10 18:15:10"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010181621" data-timestamp="2026-10-10 18:16:21"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010182205" data-timestamp="2026-10-10 18:22:05"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010182209" data-timestamp="2026-10-10 18:22:09"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261010190935" data-timestamp="2026-10-10 19:09:35"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-10T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/1009-nagasima/">
+            <title>2026/10/09: 紀伊長島 その5</title>
+        <link>https://www.don.to/diary/2026/1009-nagasima/</link>
+        <description><![CDATA[<p>川で読書してたら、足を何かに突つかれる。
+見たらテナガエビだった。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261009125655" data-timestamp="2026-10-09 12:56:55"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261009125658" data-timestamp="2026-10-09 12:56:58"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>湯船で足を伸ばしたくなったので古里温泉へ。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261009172422" data-timestamp="2026-10-09 17:24:22"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>来々軒に寄ってチャーハンと餃子。腹いっぱい。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/mie/A2405/A240501/24014295/">来々軒</a>
+三重県北牟婁郡紀北町長島1189-70
+0597-47-2345
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261009173913" data-timestamp="2026-10-09 17:39:13"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261009174650" data-timestamp="2026-10-09 17:46:50"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-10T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/1006-nagasima/">
+            <title>2026/10/06: 紀伊長島 その4</title>
+        <link>https://www.don.to/diary/2026/1006-nagasima/</link>
+        <description><![CDATA[<p>どこからかとうふ屋のラッパの音が聞こえる。
+令和にマジか。年寄りばかりで需要があるのは分かるけど、元取れるのかしら。</p>
+
+<p>今日のカフェ。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261006121023" data-timestamp="2026-10-06 12:10:23"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-10T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/1004-nagasima/">
+            <title>2026/10/04: 紀伊長島 その3</title>
+        <link>https://www.don.to/diary/2026/1004-nagasima/</link>
+        <description><![CDATA[<p>裏手の山にいるサルが芝生に糞をしやがった。まったくもってムカつく。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261004200209" data-timestamp="2026-10-04 20:02:09"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>今までいったことのないスーパーへ。
+地元のカツオを買うならここだそうで。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261004162317" data-timestamp="2026-10-04 16:23:17"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>錆びてたダッチオーブンがあったのでメンテして、手羽元とジャガイモとニンジンを一時間ほど蒸す。
+ニンジンがホクホクで甘くて美味い。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261004183410" data-timestamp="2026-10-04 18:34:10"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261004183415" data-timestamp="2026-10-04 18:34:15"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-10T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/1003-nagasima/">
+            <title>2026/10/03: 紀伊長島 その2</title>
+        <link>https://www.don.to/diary/2026/1003-nagasima/</link>
+        <description><![CDATA[<p>尾鷲にいい<a href="https://www.kiwa-gyu.com/">肉屋</a>を発見したとのことでタケシくんと買い出し。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261003124454" data-timestamp="2026-10-03 12:44:54"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-10T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/1002-nagasima/">
+            <title>2026/10/02: 紀伊長島 その1</title>
+        <link>https://www.don.to/diary/2026/1002-nagasima/</link>
+        <description><![CDATA[<p>9月は雨続きでほとんど引き込もっていたのと、賃貸の契約更新がようやく片付いたので再び長島へ。</p>
+
+<p>深夜バスで早朝に到着。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261002054149" data-timestamp="2026-10-02 05:41:49"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>いつもの川。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20261002132021" data-timestamp="2026-10-02 13:20:21"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20261002132024" data-timestamp="2026-10-02 13:20:24"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-10T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0927-tennouchou/">
+            <title>2026/09/27: 天王町でイタリアン</title>
+        <link>https://www.don.to/diary/2026/0927-tennouchou/</link>
+        <description><![CDATA[<p>突発的に家族ランチ。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140301/14098294/">fragrante tipico</a>
+神奈川県横浜市保土ヶ谷区天王町2-45-2 星天qlay E-1-6
+045-744-8883
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260927150017" data-timestamp="2026-09-27 15:00:17"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="img_0002" data-timestamp="2026-09-27 15:01:09"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260927150009" data-timestamp="2026-09-27 15:00:09"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260927150936" data-timestamp="2026-09-27 15:09:36"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-09T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0927-note/">
+            <title>2026/09/27: 機内映画をAirPods Proで楽しみたい</title>
+        <link>https://www.don.to/diary/2026/0927-note/</link>
+        <description><![CDATA[<p><img src="under.webp" alt="under" height="400" class="simage no-image-grid" /></p>
+
+<div class="note">
+本ドキュメントは<a href="#">note記事</a>のバックアップです。
+</div>
+
+<p>国際線エコノミーの飛行機で、最新の映画を楽しみたい。せっかくAirPods Proを持っているので、機内で配られるショボい有線イヤフォンじゃなくて、ノイズキャンセリング機能がある自分の AirPods Proを使いたい。ということで、 Bluetooth送受信機を買った。</p>
+
+<div class="embeded">
+  <div class="amazon">
+    <div class="amazon-image"><a href="https://amzn.to/4yLqqcM"><img border="0" src="https://m.media-amazon.com/images/I/413dRPQolgL._SL500_.jpg" height=200></a></a></div>
+    <div class="amazon-info"><a href="https://amzn.to/4yLqqcM">YaizK Bluetooth 5.4 トランスミッター & レシーバー ぶるーつーす 受信機+送信機 一台三役 ハンズフリー通話 家庭/テレビ/アウトドア/車用 小型 充電しながら使用可</a></div>
+  </div>
+</div>
+
+<p>受信(RX)モードにして、AirPods Proとペアリングすると、イヤフォンジャックの音がAir Podsに転送される。</p>
+
+<p>飛行機の機材によっては、コネクタが二口になってる場合があるので、さらに変換アダプタが必要。</p>
+
+<div class="embeded">
+  <div class="amazon">
+    <div class="amazon-image"><a href="https://www.amazon.co.jp/dp/B006NTJOXQ?tag=daydreaonthen-22&amp;linkCode=ogi&amp;th=1&amp;psc=1&amp;language=ja_JP"><img border="0" src="https://m.media-amazon.com/images/I/51gC3XuL-pL._SL500_.jpg" height=200></a></a></div>
+    <div class="amazon-info"><a href="https://www.amazon.co.jp/dp/B006NTJOXQ?tag=daydreaonthen-22&amp;linkCode=ogi&amp;th=1&amp;psc=1&amp;language=ja_JP">ヤザワコーポレーション ヤザワ 航空機内用変換プラグ TVR11BK ブラック</a></div>
+  </div>
+</div>
+
+<p>これで酒を飲みながら映画に没入できる。</p>
+]]></description>
+        <dc:date>2026-2026-09T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0925-note/">
+            <title>2026/09/25: 45Wの最小USB-C充電器</title>
+        <link>https://www.don.to/diary/2026/0925-note/</link>
+        <description><![CDATA[<p><img src="under.webp" alt="under" height="400" class="simage no-image-grid" /></p>
+
+<div class="note">
+本ドキュメントは<a href="#">note記事</a>のバックアップです。
+</div>
+
+<p>やたら小さいUSB-Cが発売された。モバイラーだし、タイムセールなこともあり買ってしまった。こんなん何個あっても困りませんからね。</p>
+
+<div class="embeded">
+  <div class="amazon">
+    <div class="amazon-image"><a href="https://amzn.to/46AqaBg"><img border="0" src="https://m.media-amazon.com/images/I/211lItkLmDL._SL500_.jpg" height=200></a></a></div>
+    <div class="amazon-info"><a href="https://amzn.to/46AqaBg">UGREEN Air 45W USB-C 当社最小充電器 GaNII 急速充電器</a></div>
+  </div>
+</div>
+
+<p>今まで使っていたAnker Nano II 45Wと比較すると、大きさは35 × 38 × 41 mm → 30.7 × 30.7 × 36.1 mm で、重さは 68g → 50g となっている。体積は38%、重さは26%小さい。</p>
+
+<p><img src="under.webp" alt="under" height="400" class="simage no-image-grid" /></p>
+
+<p>比較してみる</p>
+
+<p>Macbook Air用かなと思ってたけど、Galaxy Z Fold8も45Wの超急速充電(PD-PPS)に対応していた。早速、鞄に入れっぱなしになった。</p>
+]]></description>
+        <dc:date>2026-2026-09T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0919-note/">
+            <title>2026/09/19: 縦シューに最適なGalaxy Z Fold 8</title>
+        <link>https://www.don.to/diary/2026/0919-note/</link>
+        <description><![CDATA[<p><img src="under.webp" alt="under" height="400" class="simage no-image-grid" /></p>
+
+<div class="note">
+本ドキュメントは<a href="#">note記事</a>のバックアップです。
+</div>
+
+<p>Z Fold 8を購入してから気づいたんだけど、縦型シューティングに最適だった。</p>
+
+<p><img src="under.webp" alt="under" height="400" class="simage no-image-grid" /></p>
+
+<p>開いた画面のサイズが3:4なことと、USB-Cコネクタの位置がコントローラーを刺すのにちょうどいい。</p>
+
+<p>ゲームコントローラーはUSB-Cの有線接続にしている。Bluetoothだと入力遅延が発生するのと、充電が面倒だからだ。</p>
+
+<div class="embeded">
+  <div class="amazon">
+    <div class="amazon-image"><a href="https://amzn.to/4gWddb1"><img border="0" src="https://m.media-amazon.com/images/I/41bAhYZ-PeL._SL500_.jpg" height=200></a></a></div>
+    <div class="amazon-info"><a href="https://amzn.to/4gWddb1">GameSir X5 Lite スマホ コントローラー 有線接続 iPadmini 、Iphone（15-16-17）、Androidスマホゲームコントローラー 高耐久精密ホールジョイスティックゲームパッド TURBO連射機能 軽量 213㎜の伸縮ホルダー型ゲーミングコントローラー パススルー充電可能 Xbox Cloud/Steam Link/ネイティブゲーム/エミュレーターなど幅広い対応性 交換用シリコンパット 保証あり 日本語取扱説明書同梱</a></div>
+  </div>
+</div>
+
+<p>背面側のスマホケースを外さないとUSB-Cコネクタが届かないのは少し残念。</p>
+]]></description>
+        <dc:date>2026-2026-09T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0918-hodogaya/">
+            <title>2026/09/18: 天王町飲み</title>
+        <link>https://www.don.to/diary/2026/0918-hodogaya/</link>
+        <description><![CDATA[<p>池田さんを誘って天王町で昼のみ。</p>
+
+<p>一軒目。昼のみスペシャルセットでビール二杯とおつまみ2品で1000円。安い。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140301/14091052/">炭火やきとり ちる酒場</a>
+神奈川県横浜市保土ヶ谷区天王町1-2-3
+045-442-3440
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260918150342" data-timestamp="2026-09-18 15:03:42"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260918150723" data-timestamp="2026-09-18 15:07:23"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260918151455" data-timestamp="2026-09-18 15:14:55"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>日本酒を追加して退店。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260918153017" data-timestamp="2026-09-18 15:30:17"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>星天qlayへ移動。
+気候がすっかり秋で心地よい。<a href="https://www.fratipi.net/">このイタリアン</a>のテラス席も良さそうだ。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260918160931" data-timestamp="2026-09-18 16:09:31"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>目当ての店がネット情報より一時間遅れだったので、別の店へ。</p>
+
+<p>酒はやや高めだがツマミは安い。
+ホッピーが安かったので次はそれにしよう。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140301/14098293/">もつ焼き串焼き 肉の佐藤 天王町店</a>
+神奈川県横浜市保土ケ谷区天王町2-45-3 星天qlay
+045-744-7205
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260918161035" data-timestamp="2026-09-18 16:10:35"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260918162013" data-timestamp="2026-09-18 16:20:13"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260918162017" data-timestamp="2026-09-18 16:20:17"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260918162127" data-timestamp="2026-09-18 16:21:27"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260918163306" data-timestamp="2026-09-18 16:33:06"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260918163310" data-timestamp="2026-09-18 16:33:10"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>三軒目、ここが本命。ニッカハイボール安い。静岡おでんもおいしかった。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/kanagawa/A1401/A140301/14098292/">寿司と地酒 りくまる</a>
+神奈川県横浜市保土ケ谷区天王町2-45 星天qlay
+050-5596-5381
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260918171059" data-timestamp="2026-09-18 17:10:59"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260918171339" data-timestamp="2026-09-18 17:13:39"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260918171813" data-timestamp="2026-09-18 17:18:13"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-09T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0917-note/">
+            <title>2026/09/17: Galaxy Z Fold 8をMagSafe化する</title>
+        <link>https://www.don.to/diary/2026/0917-note/</link>
+        <description><![CDATA[<p><img src="under.webp" alt="under" height="400" class="simage no-image-grid" /></p>
+
+<div class="note">
+本ドキュメントは<a href="#">note記事</a>のバックアップです。
+</div>
+
+<p>iPhoneからGalaxy Z Fold 8に乗り換えた。18年間スマホケース不要派だったが、MagSafeが使えないとどうにも不便なので、初めてケースを導入した。少し高いがSpigenのものが薄くて使いやすい。最初は安いものを試したが安物買いの銭失いだった。</p>
+
+<div class="embeded">
+  <div class="amazon">
+    <div class="amazon-image"><a href="https://amzn.to/4gUkacD"><img border="0" src="https://m.media-amazon.com/images/I/41tZbpQeymL._SL500_.jpg" height=200></a></a></div>
+    <div class="amazon-info"><a href="https://amzn.to/4gUkacD">Spigen 【Samsung 公式認定】 Galaxy Z Fold8 ケース クリア 薄型 エアスキン・マグフィット (クリア・ホワイト)</a></div>
+  </div>
+</div>
+
+<p>Z Fold 8は隅が角張っているので長時間持っていると手が痛くなるが、ケースのおかげで緩和された。この点は左側を丸くしているiPhone Duoが羨ましい。</p>
+
+<p>野外にいると砂や小石で液晶に細かいキズをつけてしまうので、ガラスフィルムも購入した。同じくSpigen製で、ケースとピッタリ合うし、フィルムを貼るための補助具も付属しているのでズレずに綺麗に貼れた。</p>
+
+<div class="embeded">
+  <div class="amazon">
+    <div class="amazon-image"><a href="https://amzn.to/4j2OYsS"><img border="0" src="https://m.media-amazon.com/images/I/41YHN7K5EHL._SL500_.jpg" height=200></a></a></div>
+    <div class="amazon-info"><a href="https://amzn.to/4j2OYsS">Spigen Galaxy Z Fold8 ガラスフィルム 2枚入 強化ガラス 保護フィルム 10H+硬度 貼り付けキット付き ナノコーティング 飛散防止 EZ Fit Pro AGL11759 (クリスタル・クリア)</a></div>
+  </div>
+</div>
+
+<p>スマホリングも買い変えた。今まで使っていたものは、Z Fold 8を開いたときに床に届かない。写真のようにエレコムのスマホリングは二段階に伸ばせる。</p>
+
+<div class="embeded">
+  <div class="amazon">
+    <div class="amazon-image"><a href="https://amzn.to/4hoTOQ1"><img border="0" src="https://m.media-amazon.com/images/I/41+nyRQnVIL._SL500_.jpg" height=200></a></a></div>
+    <div class="amazon-info"><a href="https://amzn.to/4hoTOQ1">エレコム スマホリング マグネット magsafe マグセーフ スマホスタンド 耐荷重:800g 落下防止 可愛い チタニウムシルバー P-STRMKSLSV</a></div>
+  </div>
+</div>
+
+<p><img src="under.webp" alt="under" height="400" class="simage no-image-grid" /></p>
+
+<p>スマホスタンドを持ち歩く必要がなくなったので外出時の荷物が減った。</p>
+]]></description>
+        <dc:date>2026-2026-09T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0915-note/">
+            <title>2026/09/15: Galaxy Z Fold8 + XREAL One Proで念願のオールインワン環境を手に入れた</title>
+        <link>https://www.don.to/diary/2026/0915-note/</link>
+        <description><![CDATA[<p><img src="under.webp" alt="under" height="400" class="simage no-image-grid" /></p>
+
+<div class="note">
+本ドキュメントは<a href="#">note記事</a>のバックアップです。
+</div>
+
+<p>待ちに待ってたGalaxy Z Fold8が発売されたので早速購入した。</p>
+
+<div class="embeded">
+  <div class="amazon">
+    <div class="amazon-image"><a href="https://amzn.to/3UAaJGx"><img border="0" src="https://m.media-amazon.com/images/I/317bJZ7MRML._SL500_.jpg" height=200></a></a></div>
+    <div class="amazon-info"><a href="https://amzn.to/3UAaJGx">Samsung Galaxy Z Fold8 256GB|ラベンダー|Galaxy AI対応|SIMフリースマホ 本体 端末</a></div>
+  </div>
+</div>
+
+<p>今まではiPhoneとiPad miniを2台持ちしていたが、折り畳みスマホなのでタブレットも兼ねられるようになった。</p>
+
+<p>それに加えて、ZFold 8はDeX(デスクトップ)モードにも対応しており、パソコンが必要になる作業もかなりできる。自宅でもZFold 8を外部ディスプレイに接続して使うことで、作業環境をスマホに一本化できつつある。例えば、途中までスマホでメモ書きした文章をそのままの大画面で推敲できる。</p>
+
+<p>プログラミングをがっつりやるならPCが必要だけど、AIのおかげでコードを自分で書く機会はほぼ無くなった。むしろMacbook Airを自宅に置きっぱなしにして、AI母艦にすることで移動中でもAIエージェントに作業をさせられる。いざとなればリモートデスクトップでログインして使えばいい。</p>
+
+<p>さらにXreal Air Proと組み合わせることで、最小限の荷物でカフェでもデスクトップ環境が手に入った。旅にも簡単に持っていける。</p>
+
+<div class="embeded">
+  <div class="amazon">
+    <div class="amazon-image"><a href="https://amzn.to/4iPPlqC"><img border="0" src="https://m.media-amazon.com/images/I/31ISvY+PjPL._SL500_.jpg" height=200></a></a></div>
+    <div class="amazon-info"><a href="https://amzn.to/4iPPlqC">XREAL One Pro ARグラス｜X1チップ＆X-Prism光学搭載｜ネイティブ3DoF対応｜3Dリアル変換機能｜57°の広視野角・最大428インチ相当・FHD・最大120Hz表示｜iPhone 17/16/15（※eシリーズ除く）、Steam Deck、ROG、Mac、PC、Android & iOS対応｜IPD（瞳孔間距離）に合わせた2サイズ展開［L (IPD 66-75mm)］</a></div>
+  </div>
+</div>
+
+<p>DeXのスクリーンショット。この画面がARグラスの中で見えてる。107インチ、3.0mの設定が自分にはベストだった。</p>
+
+<p><img src="under.webp" alt="under" height="400" class="simage no-image-grid" /></p>
+
+<p>みなとみらいのシェアラウンジに持ち込んでみた。腰を据えて作業したいときはHHKB Type-Sを持ち込めば快適性が上がる。11月下旬になれば<a href="https://costory.jp/cf-published-sku-groups/1955012598">Orca Echo</a>が届くので今から楽しみだ。</p>
+
+<p><img src="under.webp" alt="under" height="400" class="simage no-image-grid" /></p>
+
+<p>シェアラウンジにて。スマホは写真を撮るために外した</p>
+
+<p>まだPCや外部ディスプレイを手放せるまでにはいかないが、この組み合わせをブラッシュアップしていけば、スマホ一つでどこでも仕事ができそうだ。</p>
+]]></description>
+        <dc:date>2026-2026-09T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0913-mm/">
+            <title>2026/09/13: SHARE LOUNGE</title>
+        <link>https://www.don.to/diary/2026/0913-mm/</link>
+        <description><![CDATA[<p>無料チケットがあるので、SHARE LOUNGEに来てみた。</p>
+
+<pre class="address">
+<a href="https://www.sharelounge.jp/store/1790">SHARE LOUNGE みなとみらい</a>
+〒220-0012 神奈川県横浜市西区みなとみらい三丁目3-3 横浜コネクトスクエア2階
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260913183014" data-timestamp="2026-09-13 18:30:14"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>結構混んでて時間帯によっては席とれなかった。
+席もいいし回数券買って12時間滞在すればまあ割安か。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260913173417" data-timestamp="2026-09-13 17:34:17"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>飲み物とスナックの品揃えは良かった。ビールはよなよなと横浜ビールがあった。
+ショボいシェアオフィスより全然良い。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260913173850" data-timestamp="2026-09-13 17:38:50"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260913173702" data-timestamp="2026-09-13 17:37:02"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260913173707" data-timestamp="2026-09-13 17:37:07"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260913173717" data-timestamp="2026-09-13 17:37:17"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260913173731" data-timestamp="2026-09-13 17:37:31"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-09T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0904-android/">
+            <title>2026/09/04: Galaxy ZFold 8 その後</title>
+        <link>https://www.don.to/diary/2026/0904-android/</link>
+        <description><![CDATA[<p><a href="https://jp.shop.xreal.com/products/xreal-one-pro">XReal One Pro</a>との組み合わせでスタバで大画面で作業できるようになったわー。
+ただこのBluetoothキーボードはこまめに手元を覗き込む必要があるのと、スマホをタッチパッドとして使ってると指が疲れる。<a href="https://costory.jp/cf-published-sku-groups/1955012598">Orca Echo</a>待ち。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0405_edited" data-timestamp="2026-09-04 19:15:07"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>DeXモードはこんな感じ。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260904193300" data-timestamp="2026-09-04 19:33:00"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>XReal One Proで画面見ても、文字が見辛いということはない。
+縦の視野が若干物足りないので8時間連続で使うにはまだ厳しいかなと思いますが、2〜3時間ぐらいなら問題なし。</p>
+
+<p>DeXモードはまだ細かいところで不満あり。特にSamsungキーボード。</p>
+
+<ul>
+<li>日本語の変換品質がとにかく低い</li>
+<li>Bluetoothで物理キーボードを使うと、Samsungキーボードがキー入力を取りこぼす</li>
+<li>変換候補が別ウィンドウとして表示され、もともとのウィンドウに重なって表示される。その結果、入力している文章が読めなくなる</li>
+</ul>
+
+<p>GBoardが使えればいいんだけど、DeXモードだけなぜかSamsungキーボードを強制されてしまう。</p>
+
+<p>あと、Androidのいいところは、自作アプリの開発が楽。Appleみたいに開発者ライセンスも必要ない。
+玉石混交のアプリをGoogle Playから探すぐらいなら自分で好みのものを作った方が早い。広告で貴重なアプリ画面を埋められることもないし。</p>
+
+<p>以下はCodexに書かせた自分専用のAndroidアプリ。DropboxとEmacsキーバインドに特化させている。</p>
+
+<ul>
+<li>Dropboxにあるファイルを直接編集できるEmacsキーバインドのエディタ。インラインブラウザが右ペインに出る。DeX対応、物理キーボード前提。すみかわ日記記述に便利。</li>
+<li>Dropbox上のファイルを読むために特化した先読みキャッシュが賢い漫画リーダー</li>
+<li>公衆WiFiに自動ログインするアプリ。接続用ブラウザとして登録してあるので、WiFiにつないだらほぼ自動で接続完了までいく</li>
+<li>昭和風2ペインのファイラー。折りたたみスマホを広げた画面に最適化している。Dropboxとローカルストレージ間でファイル移動もできる</li>
+<li>Podcastプレーヤー。RSS以外にもDropboxにおいたメディアをそのまま再生できる。自動でオフラインダウンロードする。</li>
+</ul>
+
+<p>Storage Access Frameworkを使わないでDropbox APIを直接叩いているので自由度が高い。公開アプリだとこうはいかない。
+当然、一行もコードを見ていない。何のプログラミング言語で何のフレームワークを使ってるのかも知らない。上流工程しかやってない。</p>
+
+<p>僕以外の家族はiPhoneなので、撮った写真は、ローカルストレージ -(Android)-&gt; Dropbox -(Mac)-&gt; iCloud Photoへ自動同期している。</p>
+
+<p>あと、Galaxy ZFold 8が縦シューに最適なことに気づいた。
+画面サイズもだけどUSB-Cの位置が丁度いい。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="img_0409_edited" data-timestamp="2026-09-04 19:56:23"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-09T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0830-nagasima/">
+            <title>2026/08/30: 紀伊長島 その12</title>
+        <link>https://www.don.to/diary/2026/0830-nagasima/</link>
+        <description><![CDATA[<p>帰宅の旅。朝8:04で紀伊長島初の電車に乗る。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260830075805" data-timestamp="2026-08-30 07:58:05"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260830075935" data-timestamp="2026-08-30 07:59:35"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>多気駅着。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260830090928" data-timestamp="2026-08-30 09:09:28"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>先頭のええ席空いてるなあと思ったら指定席だった。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260830091030" data-timestamp="2026-08-30 09:10:30"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>伊勢駅通り抜けて鳥羽駅へ。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260830095505" data-timestamp="2026-08-30 09:55:05"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p><a href="https://www.mikimoto-pearl-island.jp">真珠島</a>に来てみた。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260830104905" data-timestamp="2026-08-30 10:49:05"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260830105549" data-timestamp="2026-08-30 10:55:49"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>真珠博物館。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260830110225" data-timestamp="2026-08-30 11:02:25"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260830110829_edited" data-timestamp="2026-08-30 11:08:29"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260830111446" data-timestamp="2026-08-30 11:14:46"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260830111651" data-timestamp="2026-08-30 11:16:51"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>海女イベント。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260830112453" data-timestamp="2026-08-30 11:24:53"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260830112554" data-timestamp="2026-08-30 11:25:54"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260830113039" data-timestamp="2026-08-30 11:30:39"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260830113431" data-timestamp="2026-08-30 11:34:31"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="video swipe" data-filename="hd20260830113555" data-timestamp="2026-08-30 11:35:55"><img src="/images/under.webp" height="900" alt="" /></a></p>
+
+<p>御木本幸吉記念館。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260830114008" data-timestamp="2026-08-30 11:40:08"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260830120130" data-timestamp="2026-08-30 12:01:30"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>伊勢湾を渡るフェリーに乗る。窓口のおじさんが豊橋駅までのチケットがあることを教えてくれた。かなり安い。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260830113828" data-timestamp="2026-08-30 11:38:28"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260830123704" data-timestamp="2026-08-30 12:37:04"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260830125051" data-timestamp="2026-08-30 12:50:51"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260830124058" data-timestamp="2026-08-30 12:40:58"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>フェリー乗船。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260830130210" data-timestamp="2026-08-30 13:02:10"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="video swipe" data-filename="hd20260830130235" data-timestamp="2026-08-30 13:02:35"><img src="/images/under.webp" height="900" alt="" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260830130354" data-timestamp="2026-08-30 13:03:54"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260830130716" data-timestamp="2026-08-30 13:07:16"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>伊良湖到着。バスに乗り換え。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260830143953" data-timestamp="2026-08-30 14:39:53"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>田原駅。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260830154150" data-timestamp="2026-08-30 15:41:50"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>豊橋着。ここから東海道線を乗り継ぐ。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260830154300" data-timestamp="2026-08-30 15:43:00"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260830164153" data-timestamp="2026-08-30 16:41:53"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>静岡で途中下車して晩飯。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/shizuoka/A2201/A220101/22037398/">石松餃子 アスティ静岡店</a>
+静岡県静岡市葵区黒金町47 アスティ静岡
+054-293-6211
+</pre>
+
+<p>やきやき定食。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260830191425" data-timestamp="2026-08-30 19:14:25"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>23時にようやく家に着く。長かった&hellip;。</p>
+]]></description>
+        <dc:date>2026-2026-08T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0826-nagasima/">
+            <title>2026/08/26: 紀伊長島 その11</title>
+        <link>https://www.don.to/diary/2026/0826-nagasima/</link>
+        <description><![CDATA[<p>連日の快晴で川の水がどんどん減ってきた。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260826141553" data-timestamp="2026-08-26 14:15:53"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>テラス席はテーブルが頑丈になってパラソルが導入された。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260826145740" data-timestamp="2026-08-26 14:57:40"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-08T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0822-nagasima/">
+            <title>2026/08/22: 紀伊長島 その10</title>
+        <link>https://www.don.to/diary/2026/0822-nagasima/</link>
+        <description><![CDATA[<p>たけしくんと海へ。SUPが横波にやられてひっくり返りまくり。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260822125508" data-timestamp="2026-08-22 12:55:08"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>さらに川。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260822153918" data-timestamp="2026-08-22 15:39:18"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-08T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0821-nagasima/">
+            <title>2026/08/21: 紀伊長島 その9</title>
+        <link>https://www.don.to/diary/2026/0821-nagasima/</link>
+        <description><![CDATA[<p>川にカモの親子がいて、毎日見るんだけど、ぜんぜん警戒してなくて、めっちゃ近くを通りすぎていく。
+大丈夫かお前ら。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260821122251" data-timestamp="2026-08-21 12:22:51"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-08T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0820-nagasima/">
+            <title>2026/08/20: 紀伊長島 その8</title>
+        <link>https://www.don.to/diary/2026/0820-nagasima/</link>
+        <description><![CDATA[<p>今日のカフェ。
+まだ水量が多いので日陰エリアに入れない。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260820125723" data-timestamp="2026-08-20 12:57:23"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-08T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0819-nagasima/">
+            <title>2026/08/19: 紀伊長島 その7</title>
+        <link>https://www.don.to/diary/2026/0819-nagasima/</link>
+        <description><![CDATA[<p><a href="https://www.town.mie-kihoku.lg.jp/2026/03/14/8621">古里温泉</a>へ。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260819180835" data-timestamp="2026-08-19 18:08:35"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>評判通りぬるぬるだった。</p>
+]]></description>
+        <dc:date>2026-2026-08T00:00:00+09:00</dc:date>
+
+  </item>
+  <item rdf:about="2026/0818-nagasima/">
+            <title>2026/08/18: 紀伊長島 その6</title>
+        <link>https://www.don.to/diary/2026/0818-nagasima/</link>
+        <description><![CDATA[<p>中華料理屋に来てみた。</p>
+
+<pre class="address">
+<a href="https://tabelog.com/mie/A2405/A240501/24014295/">来々軒</a>
+三重県北牟婁郡紀北町長島1189-70
+0597-47-2345
+</pre>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260818181226" data-timestamp="2026-08-18 18:12:26"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+
+<p>チャーシューメンとハーフ海老チャーハン。</p>
+
+<p><a href="under.webp" class="image swipe" data-filename="20260818182327" data-timestamp="2026-08-18 18:23:27"><img src="/images/under.webp" alt="under" height="900" /></a>
+<a href="under.webp" class="image swipe" data-filename="20260818182058" data-timestamp="2026-08-18 18:20:58"><img src="/images/under.webp" alt="under" height="900" /></a></p>
+]]></description>
+        <dc:date>2026-2026-08T00:00:00+09:00</dc:date>
+
+  </item>
+</rdf:RDF>
