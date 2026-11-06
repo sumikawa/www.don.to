@@ -1,0 +1,1229 @@
+%!
+%%BoundingBox: 6 2 586 828
+%%Title: 6bone
+%%CreationDate: Sat Jul 20 10:25:07 1996
+%%Creator: Tgif-2.16-p12 by William Chia-Wei Cheng (william@cs.UCLA.edu)
+%%Orientation: Landscape
+%%Pages: 1
+%%DocumentFonts: (atend)
+%%EndComments
+%%BeginProlog
+
+/tgifdict 37 dict def
+tgifdict begin
+
+/tgifellipsedict 6 dict def
+tgifellipsedict /mtrx matrix put
+
+/tgifellipse
+ { tgifellipsedict begin
+      /yrad exch def
+      /xrad exch def
+      /y exch def
+      /x exch def
+      /savematrix mtrx currentmatrix def
+      x y translate
+      xrad yrad scale
+      0 0 1 0 360 arc
+      savematrix setmatrix
+   end
+ } def
+
+/tgifsetuserscreendict 22 dict def
+tgifsetuserscreendict begin
+   /tempctm matrix def
+   /temprot matrix def
+   /tempscale matrix def
+
+   /concatprocs
+    { /proc2 exch cvlit def
+      /proc1 exch cvlit def
+      /newproc proc1 length proc2 length add array def
+      newproc 0 proc1 putinterval
+      newproc proc1 length proc2 putinterval
+      newproc cvx
+    } def
+   /resmatrix matrix def
+   /findresolution
+    { 72 0 resmatrix defaultmatrix dtransform
+      /yres exch def /xres exch def
+      xres dup mul yres dup mul add sqrt
+    } def
+end
+
+/tgifsetuserscreen
+ { tgifsetuserscreendict begin
+      /spotfunction exch def
+      /screenangle exch def
+      /cellsize exch def
+
+      /m tempctm currentmatrix def
+      /rm screenangle temprot rotate def
+      /sm cellsize dup tempscale scale def
+
+      sm rm m m concatmatrix m concatmatrix pop
+
+      1 0 m dtransform /y1 exch def /x1 exch def
+
+      /veclength x1 dup mul y1 dup mul add sqrt def
+      /frequency findresolution veclength div def
+
+      /newscreenangle y1 x1 atan def
+
+      m 2 get m 1 get mul m 0 get m 3 get mul sub 0 gt
+
+      {{neg} /spotfunction load concatprocs
+         /spotfunction exch def
+      } if
+
+      frequency newscreenangle /spotfunction load setscreen
+   end
+ } def
+
+/tgifsetpatterndict 18 dict def
+tgifsetpatterndict begin
+   /bitison
+    { /ybit exch def /xbit exch def
+      /bytevalue bstring ybit bwidth mul xbit 8 idiv add get def
+
+      /mask 1 7 xbit 8 mod sub bitshift def
+      bytevalue mask and 0 ne
+    } def
+end
+
+/tgifbitpatternspotfunction
+ { tgifsetpatterndict begin
+      /y exch def /x exch def
+
+      /xindex x 1 add 2 div bpside mul cvi def
+      /yindex y 1 add 2 div bpside mul cvi def
+
+      xindex yindex bitison
+       { /onbits onbits 1 add def 1 }
+       { /offbits offbits 1 add def 0 }
+       ifelse
+   end
+ } def
+
+/tgifsetpattern
+ { tgifsetpatterndict begin
+      /cellsz exch def
+      /angle exch def
+      /bwidth exch def
+      /bpside exch def
+      /bstring exch def
+
+      /onbits 0 def /offbits 0 def
+      cellsz angle /tgifbitpatternspotfunction load tgifsetuserscreen
+      {} settransfer
+      offbits offbits onbits add div setgray
+   end
+ } def
+
+/pat3 <8000000008000000> def
+/pat4 <8800000022000000> def
+/pat5 <8800220088002200> def
+/pat6 <8822882288228822> def
+/pat7 <aa55aa55aa55aa55> def
+/pat8 <77dd77dd77dd77dd> def
+/pat9 <77ffddff77ffddff> def
+/pat10 <77ffffff77ffffff> def
+/pat11 <7fffffff7fffffff> def
+/pat12 <8040200002040800> def
+/pat13 <40a00000040a0000> def
+/pat14 <ff888888ff888888> def
+/pat15 <ff808080ff080808> def
+/pat16 <f87422478f172271> def
+/pat17 <038448300c020101> def
+/pat18 <081c22c180010204> def
+/pat19 <8080413e080814e3> def
+/pat20 <8040201008040201> def
+/pat21 <8844221188442211> def
+/pat22 <77bbddee77bbddee> def
+/pat23 <c1e070381c0e0783> def
+/pat24 <7fbfdfeff7fbfdfe> def
+/pat25 <3e1f8fc7e3f1f87c> def
+/pat26 <0102040810204080> def
+/pat27 <1122448811224488> def
+/pat28 <eeddbb77eeddbb77> def
+/pat29 <83070e1c3870e0c1> def
+/pat30 <fefdfbf7efdfbf7f> def
+/pat31 <7cf8f1e3c78f1f3e> def
+
+end
+
+%%EndProlog
+%%Page: 1 1
+
+%%PageBoundingBox: 6 2 586 828
+tgifdict begin
+/tgifsavedpage save def
+
+1 setmiterlimit
+1 setlinewidth
+
+0 setgray
+
+90 rotate
+72 0 mul 72 0 mul translate
+72 128 div 100 mul 100 div dup neg scale
+
+gsave
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   3 setlinewidth
+   [12 4] 0 setdash
+   newpath
+      96 432 moveto
+      96 552 lineto
+   stroke
+   [] 0 setdash
+   1 setlinewidth
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   3 setlinewidth
+   [12 4] 0 setdash
+   newpath
+      96 552 moveto
+      96 680 lineto
+   stroke
+   [] 0 setdash
+   1 setlinewidth
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   3 setlinewidth
+   [12 4] 0 setdash
+   newpath
+      96 552 moveto
+      224 552 lineto
+   stroke
+   [] 0 setdash
+   1 setlinewidth
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   3 setlinewidth
+   [12 4] 0 setdash
+   newpath
+      576 408 moveto
+      248 192 lineto
+   stroke
+   [] 0 setdash
+   1 setlinewidth
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   3 setlinewidth
+   [12 4] 0 setdash
+   newpath
+      576 408 moveto
+      152 432 lineto
+   stroke
+   [] 0 setdash
+   1 setlinewidth
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   3 setlinewidth
+   [12 4] 0 setdash
+   newpath
+      896 664 moveto
+      1216 664 lineto
+   stroke
+   [] 0 setdash
+   1 setlinewidth
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   3 setlinewidth
+   newpath
+      984 776 moveto
+      984 848 lineto
+   stroke
+   1 setlinewidth
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   3 setlinewidth
+   newpath
+      448 192 moveto
+      576 408 lineto
+      832 408 lineto
+      1216 408 lineto
+   stroke
+   1 setlinewidth
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   3 setlinewidth
+   newpath
+      832 152 moveto
+      1088 152 lineto
+      896 408 lineto
+      896 408 lineto
+   stroke
+   1 setlinewidth
+grestore
+
+% OVAL
+0 setgray
+gsave
+   pat6 8 1 0 72 300 32 div div tgifsetpattern
+   newpath 448 192 16 16 tgifellipse fill
+grestore
+gsave
+   3 setlinewidth
+   newpath 448 192 16 16 tgifellipse stroke
+   1 setlinewidth
+grestore
+
+% OVAL
+0 setgray
+gsave
+   pat6 8 1 0 72 300 32 div div tgifsetpattern
+   newpath 832 152 16 16 tgifellipse fill
+grestore
+gsave
+   3 setlinewidth
+   newpath 832 152 16 16 tgifellipse stroke
+   1 setlinewidth
+grestore
+
+% OVAL
+0 setgray
+gsave
+   pat6 8 1 0 72 300 32 div div tgifsetpattern
+   newpath 1088 152 16 16 tgifellipse fill
+grestore
+gsave
+   3 setlinewidth
+   newpath 1088 152 16 16 tgifellipse stroke
+   1 setlinewidth
+grestore
+
+% OVAL
+0 setgray
+gsave
+   pat6 8 1 0 72 300 32 div div tgifsetpattern
+   newpath 1216 408 16 16 tgifellipse fill
+grestore
+gsave
+   3 setlinewidth
+   newpath 1216 408 16 16 tgifellipse stroke
+   1 setlinewidth
+grestore
+
+% TEXT
+0 setgray
+/NewCenturySchlbk-Roman findfont [20 0 0 -20 0 0] makefont setfont
+   gsave
+      752 131 moveto (Hitachi) show
+   grestore
+
+% TEXT
+0 setgray
+/NewCenturySchlbk-Roman findfont [20 0 0 -20 0 0] makefont setfont
+   gsave
+      1096 123 moveto (SFC) show
+   grestore
+
+% TEXT
+0 setgray
+/NewCenturySchlbk-Roman findfont [20 0 0 -20 0 0] makefont setfont
+   gsave
+      784 363 moveto (WNOC-TYO) show
+   grestore
+
+% TEXT
+0 setgray
+/NewCenturySchlbk-Roman findfont [20 0 0 -20 0 0] makefont setfont
+   gsave
+      1176 379 moveto (Tokyo Univ.) show
+   grestore
+
+% TEXT
+0 setgray
+/NewCenturySchlbk-Roman findfont [20 0 0 -20 0 0] makefont setfont
+   gsave
+      912 643 moveto (CSL) show
+   grestore
+
+% TEXT
+0 setgray
+/NewCenturySchlbk-Roman findfont [20 0 0 -20 0 0] makefont setfont
+   gsave
+      616 451 moveto (NAIST) show
+   grestore
+
+% TEXT
+0 setgray
+/NewCenturySchlbk-Roman findfont [20 0 0 -20 0 0] makefont setfont
+   gsave
+      384 115 moveto (Osaka Univ.) show
+   grestore
+
+% TEXT
+0 setgray
+newpath
+   470 190 moveto 511 190 lineto 511 208 lineto 470 208 lineto
+closepath 1 setgray fill
+0 setgray
+/NewCenturySchlbk-Roman findfont [12 0 0 -12 0 0] makefont setfont
+   gsave
+      472 204 moveto (0c00::2) show
+   grestore
+
+% TEXT
+0 setgray
+newpath
+   558 350 moveto 599 350 lineto 599 368 lineto 558 368 lineto
+closepath 1 setgray fill
+0 setgray
+/NewCenturySchlbk-Roman findfont [12 0 0 -12 0 0] makefont setfont
+   gsave
+      560 364 moveto (0c00::1) show
+   grestore
+
+% TEXT
+0 setgray
+newpath
+   598 382 moveto 639 382 lineto 639 400 lineto 598 400 lineto
+closepath 1 setgray fill
+0 setgray
+/NewCenturySchlbk-Roman findfont [12 0 0 -12 0 0] makefont setfont
+   gsave
+      600 396 moveto (1500::2) show
+   grestore
+
+% TEXT
+0 setgray
+newpath
+   838 374 moveto 879 374 lineto 879 392 lineto 838 392 lineto
+closepath 1 setgray fill
+0 setgray
+/NewCenturySchlbk-Roman findfont [12 0 0 -12 0 0] makefont setfont
+   gsave
+      840 388 moveto (1500::1) show
+   grestore
+
+% TEXT
+0 setgray
+newpath
+   838 438 moveto 879 438 lineto 879 456 lineto 838 456 lineto
+closepath 1 setgray fill
+0 setgray
+/NewCenturySchlbk-Roman findfont [12 0 0 -12 0 0] makefont setfont
+   gsave
+      840 452 moveto (0400::1) show
+   grestore
+
+% TEXT
+0 setgray
+newpath
+   1150 414 moveto 1191 414 lineto 1191 432 lineto 1150 432 lineto
+closepath 1 setgray fill
+0 setgray
+/NewCenturySchlbk-Roman findfont [12 0 0 -12 0 0] makefont setfont
+   gsave
+      1152 428 moveto (0600::2) show
+   grestore
+
+% TEXT
+0 setgray
+newpath
+   934 358 moveto 975 358 lineto 975 376 lineto 934 376 lineto
+closepath 1 setgray fill
+0 setgray
+/NewCenturySchlbk-Roman findfont [12 0 0 -12 0 0] makefont setfont
+   gsave
+      936 372 moveto (0200::2) show
+   grestore
+
+% TEXT
+0 setgray
+newpath
+   1070 182 moveto 1111 182 lineto 1111 200 lineto 1070 200 lineto
+closepath 1 setgray fill
+0 setgray
+/NewCenturySchlbk-Roman findfont [12 0 0 -12 0 0] makefont setfont
+   gsave
+      1072 196 moveto (0200::1) show
+   grestore
+
+% TEXT
+0 setgray
+newpath
+   854 126 moveto 896 126 lineto 896 144 lineto 854 144 lineto
+closepath 1 setgray fill
+0 setgray
+/NewCenturySchlbk-Roman findfont [12 0 0 -12 0 0] makefont setfont
+   gsave
+      856 140 moveto (0d00::2) show
+   grestore
+
+% TEXT
+0 setgray
+newpath
+   918 414 moveto 959 414 lineto 959 432 lineto 918 432 lineto
+closepath 1 setgray fill
+0 setgray
+/NewCenturySchlbk-Roman findfont [12 0 0 -12 0 0] makefont setfont
+   gsave
+      920 428 moveto (0600::1) show
+   grestore
+
+% TEXT
+0 setgray
+newpath
+   838 614 moveto 879 614 lineto 879 632 lineto 838 632 lineto
+closepath 1 setgray fill
+0 setgray
+/NewCenturySchlbk-Roman findfont [12 0 0 -12 0 0] makefont setfont
+   gsave
+      840 628 moveto (0400::2) show
+   grestore
+
+% TEXT
+0 setgray
+newpath
+   1022 126 moveto 1064 126 lineto 1064 144 lineto 1022 144 lineto
+closepath 1 setgray fill
+0 setgray
+/NewCenturySchlbk-Roman findfont [12 0 0 -12 0 0] makefont setfont
+   gsave
+      1024 140 moveto (0d00::1) show
+   grestore
+
+% TEXT
+0 setgray
+/NewCenturySchlbk-Roman findfont [24 0 0 -24 0 0] makefont setfont
+   gsave
+      16 1023 moveto (WIDE BB prefix = 5f09:c400:8504:) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      536 326 moveto (june.aist-nara.ac.jp) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      560 342 moveto (5f09:c400:a3dd:b00::c0e3:665f) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      912 462 moveto (tokyo.v6.wide.ad.jp) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      904 710 moveto (itojun.v6.csl.sony.co.jp) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      392 150 moveto (strawberry-jam.center.osaka-u.ac.jp) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      416 166 moveto (5f09:c400:cae9::20:af6f:be34) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      1128 158 moveto (globe.sfc.wide.ad.jp) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      1152 174 moveto (5f09:c400:851b::a0:2448:7a3c) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      720 190 moveto (eagle.isrd.hitachi.co.jp) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      744 206 moveto (5f09:c400:8590::a0:243a:6f7c) show
+   grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   3 setlinewidth
+   [12 4] 0 setdash
+   newpath
+      896 408 moveto
+      896 664 lineto
+   stroke
+   [] 0 setdash
+   1 setlinewidth
+grestore
+
+% OVAL
+0 setgray
+gsave
+   pat6 8 1 0 72 300 32 div div tgifsetpattern
+   newpath 896 408 16 16 tgifellipse fill
+grestore
+gsave
+   3 setlinewidth
+   newpath 896 408 16 16 tgifellipse stroke
+   1 setlinewidth
+grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      1208 446 moveto (nezu.v6.wide.ad.jp) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      352 550 moveto (bravo.aist-nara.ac.jp) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      376 566 moveto (5f09:c400:a3dd:c600::f801:5df5) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      536 598 moveto (mine.aist-nara.ac.jp) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      560 614 moveto (5f09:c400:a3dd:c600::f801:6317) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      544 790 moveto (calypso.v6.csl.sony.co.jp) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      568 806 moveto (5f09:c400:858a:6200::800:2078:34c4) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      912 886 moveto (shio.v6.csl.sony.co.jp) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      936 910 moveto (5f09:c400:858a.0100::0020:afac:4102) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      928 726 moveto (5f09:c400:858a:6200::80:2963:f6a6) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      928 742 moveto (5f09:c400:858a:100::a0:2459:20d7) show
+   grestore
+
+% TEXT
+0 setgray
+newpath
+   542 14 moveto 733 14 lineto 733 56 lineto 542 56 lineto
+closepath 1 setgray fill
+0 setgray
+/NewCenturySchlbk-Roman findfont [34 0 0 -34 0 0] makefont setfont
+   gsave
+      544 48 moveto (WIDE 6bone) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      936 478 moveto (5f09:c400:8504:3100::e8d5:8923) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      1232 462 moveto (5f09:c400:8245::e8d5:895a) show
+   grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   3 setlinewidth
+   [12 4] 0 setdash
+   newpath
+      464 512 moveto
+      576 408 lineto
+      616 560 lineto
+   stroke
+   [] 0 setdash
+   1 setlinewidth
+grestore
+
+% OVAL
+0 setgray
+newpath 464 512 16 16 tgifellipse
+closepath 1 setgray fill
+0 setgray
+gsave
+   3 setlinewidth
+   newpath 464 512 16 16 tgifellipse stroke
+   1 setlinewidth
+grestore
+
+% OVAL
+0 setgray
+newpath 616 560 16 16 tgifellipse
+closepath 1 setgray fill
+0 setgray
+gsave
+   3 setlinewidth
+   newpath 616 560 16 16 tgifellipse stroke
+   1 setlinewidth
+grestore
+
+% OVAL
+0 setgray
+gsave
+   pat6 8 1 0 72 300 32 div div tgifsetpattern
+   newpath 576 408 16 16 tgifellipse fill
+grestore
+gsave
+   3 setlinewidth
+   newpath 576 408 16 16 tgifellipse stroke
+   1 setlinewidth
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   3 setlinewidth
+   newpath
+      744 664 moveto
+      896 664 lineto
+   stroke
+   1 setlinewidth
+grestore
+
+% OVAL
+0 setgray
+gsave
+   pat6 8 1 0 72 300 32 div div tgifsetpattern
+   newpath 896 664 16 16 tgifellipse fill
+grestore
+gsave
+   3 setlinewidth
+   newpath 896 664 16 16 tgifellipse stroke
+   1 setlinewidth
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   3 setlinewidth
+   newpath
+      744 632 moveto
+      744 768 lineto
+   stroke
+   1 setlinewidth
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   3 setlinewidth
+   newpath
+      896 680 moveto
+      896 776 lineto
+   stroke
+   1 setlinewidth
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   3 setlinewidth
+   newpath
+      744 736 moveto
+      696 736 lineto
+   stroke
+   1 setlinewidth
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   3 setlinewidth
+   newpath
+      864 776 moveto
+      1016 776 lineto
+   stroke
+   1 setlinewidth
+grestore
+
+% OVAL
+0 setgray
+newpath 984 848 16 16 tgifellipse
+closepath 1 setgray fill
+0 setgray
+gsave
+   3 setlinewidth
+   newpath 984 848 16 16 tgifellipse stroke
+   1 setlinewidth
+grestore
+
+% OVAL
+0 setgray
+newpath 696 736 16 16 tgifellipse
+closepath 1 setgray fill
+0 setgray
+gsave
+   3 setlinewidth
+   newpath 696 736 16 16 tgifellipse stroke
+   1 setlinewidth
+grestore
+
+% TEXT
+0 setgray
+/Times-Roman findfont [18 0 0 -18 0 0] makefont setfont
+   gsave
+      1136 1009 moveto (Copyright 1996 Munechika SUMIKAWA) show
+   grestore
+
+% TEXT
+0 setgray
+/Courier findfont [17 0 0 -17 0 0] makefont setfont
+   gsave
+      1184 1032 moveto (muneti-s@is.aist-nara.ac.jp) show
+   grestore
+
+% OVAL
+0 setgray
+gsave
+   pat6 8 1 0 72 300 32 div div tgifsetpattern
+   newpath 1216 664 16 16 tgifellipse fill
+grestore
+gsave
+   3 setlinewidth
+   newpath 1216 664 16 16 tgifellipse stroke
+   1 setlinewidth
+grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      1184 622 moveto (onoe.v6.csl.sony.co.jp) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      1208 638 moveto (5f09:c400:858a:a00::800:4600:e39c) show
+   grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   3 setlinewidth
+   newpath
+      1216 680 moveto
+      1216 728 lineto
+   stroke
+   1 setlinewidth
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   3 setlinewidth
+   newpath
+      1192 728 moveto
+      1328 728 lineto
+   stroke
+   1 setlinewidth
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   3 setlinewidth
+   newpath
+      1304 728 moveto
+      1304 792 lineto
+   stroke
+   1 setlinewidth
+grestore
+
+% OVAL
+0 setgray
+newpath 1304 792 16 16 tgifellipse
+closepath 1 setgray fill
+0 setgray
+gsave
+   3 setlinewidth
+   newpath 1304 792 16 16 tgifellipse stroke
+   1 setlinewidth
+grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      1248 830 moveto (duplo.v6.csl.sony.co.jp) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      1272 846 moveto (5f09:c400:858a:a00::8605:ba0a) show
+   grestore
+
+% RCBOX
+0 setgray
+newpath
+   136 392 moveto
+   152 392 152 472 16 arcto 4 {pop} repeat
+   152 456 lineto
+   152 472 40 472 16 arcto 4 {pop} repeat
+   56 472 lineto
+   40 472 40 392 16 arcto 4 {pop} repeat
+   40 408 lineto
+   40 392 152 392 16 arcto 4 {pop} repeat
+closepath 1 setgray fill
+0 setgray
+gsave
+   3 setlinewidth
+   newpath
+      136 392 moveto
+      152 392 152 472 16 arcto 4 {pop} repeat
+      152 456 lineto
+      152 472 40 472 16 arcto 4 {pop} repeat
+      56 472 lineto
+      40 472 40 392 16 arcto 4 {pop} repeat
+      40 408 lineto
+      40 392 152 392 16 arcto 4 {pop} repeat
+   closepath stroke
+   1 setlinewidth
+grestore
+
+% TEXT
+0 setgray
+/NewCenturySchlbk-Roman findfont [20 0 0 -20 0 0] makefont setfont
+   gsave
+      56 427 moveto (CISCO) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      56 454 moveto (5f00:6d00/32) show
+   grestore
+
+% RCBOX
+0 setgray
+newpath
+   136 512 moveto
+   152 512 152 592 16 arcto 4 {pop} repeat
+   152 576 lineto
+   152 592 40 592 16 arcto 4 {pop} repeat
+   56 592 lineto
+   40 592 40 512 16 arcto 4 {pop} repeat
+   40 528 lineto
+   40 512 152 512 16 arcto 4 {pop} repeat
+closepath 1 setgray fill
+0 setgray
+gsave
+   3 setlinewidth
+   newpath
+      136 512 moveto
+      152 512 152 592 16 arcto 4 {pop} repeat
+      152 576 lineto
+      152 592 40 592 16 arcto 4 {pop} repeat
+      56 592 lineto
+      40 592 40 512 16 arcto 4 {pop} repeat
+      40 528 lineto
+      40 512 152 512 16 arcto 4 {pop} repeat
+   closepath stroke
+   1 setlinewidth
+grestore
+
+% TEXT
+0 setgray
+/NewCenturySchlbk-Roman findfont [20 0 0 -20 0 0] makefont setfont
+   gsave
+      56 547 moveto (NRL) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      56 574 moveto (5f00:3000/32) show
+   grestore
+
+% RCBOX
+0 setgray
+newpath
+   136 640 moveto
+   152 640 152 720 16 arcto 4 {pop} repeat
+   152 704 lineto
+   152 720 40 720 16 arcto 4 {pop} repeat
+   56 720 lineto
+   40 720 40 640 16 arcto 4 {pop} repeat
+   40 656 lineto
+   40 640 152 640 16 arcto 4 {pop} repeat
+closepath 1 setgray fill
+0 setgray
+gsave
+   3 setlinewidth
+   newpath
+      136 640 moveto
+      152 640 152 720 16 arcto 4 {pop} repeat
+      152 704 lineto
+      152 720 40 720 16 arcto 4 {pop} repeat
+      56 720 lineto
+      40 720 40 640 16 arcto 4 {pop} repeat
+      40 656 lineto
+      40 640 152 640 16 arcto 4 {pop} repeat
+   closepath stroke
+   1 setlinewidth
+grestore
+
+% TEXT
+0 setgray
+/NewCenturySchlbk-Roman findfont [20 0 0 -20 0 0] makefont setfont
+   gsave
+      56 675 moveto (Pedro) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      56 702 moveto (5f0c:b300/32) show
+   grestore
+
+% RCBOX
+0 setgray
+newpath
+   288 512 moveto
+   304 512 304 592 16 arcto 4 {pop} repeat
+   304 576 lineto
+   304 592 192 592 16 arcto 4 {pop} repeat
+   208 592 lineto
+   192 592 192 512 16 arcto 4 {pop} repeat
+   192 528 lineto
+   192 512 304 512 16 arcto 4 {pop} repeat
+closepath 1 setgray fill
+0 setgray
+gsave
+   3 setlinewidth
+   newpath
+      288 512 moveto
+      304 512 304 592 16 arcto 4 {pop} repeat
+      304 576 lineto
+      304 592 192 592 16 arcto 4 {pop} repeat
+      208 592 lineto
+      192 592 192 512 16 arcto 4 {pop} repeat
+      192 528 lineto
+      192 512 304 512 16 arcto 4 {pop} repeat
+   closepath stroke
+   1 setlinewidth
+grestore
+
+% TEXT
+0 setgray
+/NewCenturySchlbk-Roman findfont [20 0 0 -20 0 0] makefont setfont
+   gsave
+      208 547 moveto (InnerNet) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      208 574 moveto (5f05:2000/32) show
+   grestore
+
+% RCBOX
+0 setgray
+newpath
+   232 104 moveto
+   248 104 248 184 16 arcto 4 {pop} repeat
+   248 168 lineto
+   248 184 136 184 16 arcto 4 {pop} repeat
+   152 184 lineto
+   136 184 136 104 16 arcto 4 {pop} repeat
+   136 120 lineto
+   136 104 248 104 16 arcto 4 {pop} repeat
+closepath 1 setgray fill
+0 setgray
+gsave
+   3 setlinewidth
+   newpath
+      232 104 moveto
+      248 104 248 184 16 arcto 4 {pop} repeat
+      248 168 lineto
+      248 184 136 184 16 arcto 4 {pop} repeat
+      152 184 lineto
+      136 184 136 104 16 arcto 4 {pop} repeat
+      136 120 lineto
+      136 104 248 104 16 arcto 4 {pop} repeat
+   closepath stroke
+   1 setlinewidth
+grestore
+
+% TEXT
+0 setgray
+/NewCenturySchlbk-Roman findfont [20 0 0 -20 0 0] makefont setfont
+   gsave
+      152 139 moveto (UNI-C) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      152 166 moveto (5f06:b500/32) show
+   grestore
+
+% OVAL
+0 setgray
+gsave
+   pat6 8 1 0 72 300 32 div div tgifsetpattern
+   newpath 160 432 16 16 tgifellipse fill
+grestore
+gsave
+   3 setlinewidth
+   newpath 160 432 16 16 tgifellipse stroke
+   1 setlinewidth
+grestore
+
+% OVAL
+0 setgray
+gsave
+   pat6 8 1 0 72 300 32 div div tgifsetpattern
+   newpath 248 192 16 16 tgifellipse fill
+grestore
+gsave
+   3 setlinewidth
+   newpath 248 192 16 16 tgifellipse stroke
+   1 setlinewidth
+grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      8 230 moveto (ganehsa.imag.fr) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      32 246 moveto (5f06:b500:8158:1a00::800:200c:7a34) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      184 390 moveto (6bone-router.cisco.inner.net) show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica findfont [14 0 0 -14 0 0] makefont setfont
+   gsave
+      208 406 moveto (5f00:6d00:c01f:700:3:2) show
+   grestore
+
+grestore
+tgifsavedpage restore
+end
+showpage
+
+%%Trailer
+%MatchingCreationDate: Sat Jul 20 10:25:07 1996
+%%DocumentFonts: Courier
+%%+ Times-Roman
+%%+ Helvetica
+%%+ NewCenturySchlbk-Roman
+%%EOF
