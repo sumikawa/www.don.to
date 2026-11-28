@@ -1,0 +1,218 @@
+%include "../default.mgp"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%size 6, font "thick", back "white", fore "blue4", vgap 20
+%center
+
+
+
+Hitachi GR2000 current IPv6 implementation and future
+
+%size 4, fore "black"
+
+Munechika Sumikawa
+Hitachi, Ltd. / KAME Project
+sumikawa@ebina.hitachi.co.jp / sumikawa@kame.net
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+What's IPv6? Why IPv6?
+
+%center
+
+%size 10
+
+
+Yes, we know!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+GR2000 IPv6 now is Beta
+
+	GR2000 IPv6 beta is parallely being developed and released from product branch since Aug 1999
+		periodically beta release
+		will be merged in 4.0 Dec 2000(planned for Japanese market)
+		no hardware supporting in 4.0
+
+%size 3, font "typewriter"
+        2000
+                   Aug                                Dec
+         2.3         3.0         3.1         3.2         4.0
+product --+-----------+-----------+-----------+-----------+--------
+branch                                                   /
+                                                        /
+                                                       /
+v6 beta --------+----------+-----------+-----------+---
+branch         2.3        3.0         3.1         3.2
+               w/ v6      w/ v6       w/ v6       w/ v6
+
+%size 4, font "standard"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+GR2000 IPv4 architecure
+
+	IPv4 forwarding by hardware on Rounting Manager
+	Routing, SNMP and so on by software on Routing Processor
+
+%center
+%image "arc.eps" 440x330
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+current IPv6 implementation
+
+	All IPv6 packets are processed by software on RM
+	We use KAME IPv6 stack
+		reference code in IPv6 world
+		already integrated in BSDI, FreeBSD, NetBSD and OpenBSD
+%font "typewriter"
+		http://www.kame.net/
+%font "standard"
+		2 engeneers in Htachi(including me) are core members
+
+%center
+%image "v6.eps" 440x330
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+How to operate GR2000 IPv6?(1)
+
+Point: IPv6 operations in beta version are fairly different with IPv4 operations
+
+	User interface
+		IPv4:
+%cont, size 3, font "typewriter"
+  config ip toCHICAGO 10.0.0.1 mask 255.255.255.0
+%size 4, font "standard"
+		IPv6:
+%cont, size 3, font "typewriter"
+  ifconfig csw256 inet6 2001::1 prefixlen 64
+%size 4, font "standard"
+
+		IPv4 uses logical line names but IPv6 uses raw device name in Routing Manager
+		How to convert from line name to raw device name?
+			use "line2ifname" command
+%size 3, font "typewriter"
+admin: line2ifname toCHICAGO
+csw256
+%size 4, font "standard"
+
+		will be unified in ver.4.0
+%size 3, font "typewriter"
+		config ip toCHICAGO 2001::1/64
+%size 4, font "standard"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+How to operate GR2000 IPv6?(2)
+
+	can't configure only IPv6 adreess for lines
+		need to assign dummy IPv4 address
+		will be fixed in ver.4.0
+
+	routing daemon?
+		we support RIPng and BGP4+
+		edit /usr/local/v6/etc/gated.conf by "vi" command
+		also will be unified in ver4.0
+
+	all of IPv6 setting are written in configuration files avoid to flush after rebooting
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Step-by-step configutation
+
+simple topology
+
+%size 3, font "typewriter"
+   +------+                                          +------+
+   |GR2000|toETHER          Ethernet          toETHER|GR2000|
+   |      +==========================================+      |
+   |  A   |10.0.0.1/24                    10.0.0.2/24|  B   |
+   +------+2001:200::1/64              2001:200::2/64+------+
+%size 4, font "standard"
+
+in A:
+	admin: line toETHER ethernet 0/0;
+	admin: ip toETHER 10.0.0.1 mask 255.255.255.0
+	admin: line2ifname toETHER
+	admin: ifconfig csw0 inet6 20001:200::1 prefixlen 64
+	ping 10.0.0.2
+	ping6 2001:200::2
+
+%center
+try to operate!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+What is target?
+
+	Huge IP address space is necessary for mobile nodes
+		over 60 million users in Japan use cellular
+		over 15 million users in Japan use Internet by cellular
+		NTT DoCoMo plans to implement IPv6 on IMT-2000 node
+
+	some ISPs start to provide IPv6 connectivity
+		IIJ will provide connectivity in Septermber
+		NTT is already providing beta service
+		NTT MCL will start to support IPv6 IX in US
+
+	to develop Internet in large countries
+		China, Thailand, India and other countiries
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+IPv6 activity in Hitachi
+
+	Lead IPv6 market continously
+		shipped IPv6 router NR60 four years ago
+		Toolnet6: IPv4-IPv6 translator for Windows using BIS
+		GR2000 IPv6 beta is already used in over 20 sites
+			POS(include OC-48!) / ATM / (Gigabit)Ether
+			supported IPv6 backbone at N+I'2000 Tokyo
+			win the award "best product for carrier backbone"
+			win "R&D 100 awards"
+		IETF activity
+			Bump In the Stack (RFC 2767)
+		cooporate with KAME Project
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Future plan
+
+	plan hardware forwarding in 2001
+		tentative schedule
+	maintain up-to-date IPv6 features continously
+		PIM-SM for IPv6
+	will support OSPFv3
+	cooporate with 3Com
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Discussion
+
+	Do you have other IPv6 requirements for us?
+	IPv6 IS-IS is neccesary?
+	Market issues?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+End

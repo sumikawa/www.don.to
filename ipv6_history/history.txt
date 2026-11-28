@@ -1,0 +1,128 @@
+------------------------------------ 1995年
+
+1995年 秋のWIDE合宿
+	WIDE合宿ではじめて，v6のsessionがもたれる．
+	世界の動向チェック，draftの議論を行なう．
+	WIDEとして実装を作っていく方向へ．
+	情報は共有するが，実装は共有しない
+
+12/1のcurrent status
+
+minami:
+	IPv6 Core:  BSD Socket API 
+		    Header Parse
+		    Address Parse
+		    NDP (一つ前のドラフト *-ndp-02かな?)
+		    Loopback I/F
+		    Ethernet I/F
+		    TCP/UDPまわり
+	IPv6 Appl:  Library の書き換え(BSD API)
+		    新しい関数の定義  (BSD API)
+
+itojunですが、
+	- inria code for BSD/OS:
+		95/10/1あたりのバージョンを一応mergeしてコンパイルは
+		通ってますが、自分ではなにも動作確認とか虫取りとか遊びを
+		していません(合宿でmergeしたのは95/8/20?くらいのやつ)。
+		あたらしさんが遊んでくださっているそうですが、その後
+		どうでしょうか。
+
+shima:
+Trasport layer:
+	NOT YET IMPLEMENTED
+
+Network layer:
+	IPv6 (except fragmentation, option handling, forwarding)
+	NDP (draft-03 の一部)
+
+Interface layer:
+	Loopback
+	Ethernet
+
+Command:
+	ifconfig
+	route
+
+
+できること:
+	ifconfig でインターフェースにアドレスをつけれる。
+	route で経路の追加削除などができる。
+	ICMP Echo/Reply ができる。
+
+問題:
+	NDP の挙動がちょっとおかしい。
+	WB と組み合わせると panic する(困ってます(^^;)
+
+
+12/14,15 1st v6 workshop @ SFC
+
+参加者(たぶん)
+	kazu, sumikawa, keiiti-s, yusaku-h
+	minami, doi
+	atarashi, nabeken, tsuchi, hama
+	ikob, itojun, onoe, yuko, tera, kato, miyakawa
+
+IPng WGでのWIDE ホームページの作成
+
+UNH対策
+
+ping6 testを行なう
+	hydrangea, NR60, onoe v6d, globe 間で相互にping6できることを確認
+
+広域実験環境を構築するための議論
+	RISCOM < sumikawa
+	PPPv6 < sumikawa
+	radish,DDT < kazu
+	RIPv6 < kei
+	ftp, < yusaku
+	ftp < JAIST
+
+log:
+http://www.v6.wide.ad.jp/MembersOnly/log/19951214-workshop1/
+
+12/19 onoe v6dの開発はじめる
+      ndp LLA問題発見
+      IPng WGにて指摘
+
+12/26 hydrangeaでtcp動き始める
+
+------------------------------------ 1995年
+
+1/29-30 2nd v6 workshop @ SFC
+	TCP test
+        資料ないぞ
+
+2/14
+
+---
+	ところで、それぞれの実装のプラス点とマイナス点を並べませんか?
+
+Hitachi
+aist-nara
+minami
+inria on BSDI
+   (sh.wide.ad.jp:~itojun付近にあり)
+	- NDPが古いスペックに従っている
+	- itojun自身動かしたことがない
+inria on BSDI+onoe
+   (endo.wide.ad.jp:~onoe/v6/inria付近にあり)
+onoe v6d
+NRL on BSDI
+    (endo.wide.ad.jp:~itojun付近にあり)
+	+ Authentication Header
+	+ Encapsulated Security Payload
+	- NDPが古いスペックに従っている
+	- Router Solicitation/Advertisementは未実装
+NRL on BSDI+itojun
+    (endo.wide.ad.jp:~itojun付近にあり、ただしpgp key必要)
+	+ Authentication Header
+	+ Encapsulated Security Payload
+	- NDPのstate machineがインチキ(でも一応喋れる)
+	- Router Solicitation/Advertisementは未実装
+	- v6 socketでselect()すると帰って来ない(∴inetdが動かない)
+---
+
+
+UNHいつだっけ？ ログないぞ
+
+3/21

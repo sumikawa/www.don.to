@@ -1,0 +1,53 @@
+%include "../default.mgp"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%size 6, font "thick", back "white", fore "blue4", vgap 20
+%center
+
+
+
+
+Window Maker
+http://www.windowmaker.org/
+- 畳とウインドゥ・マネージャーは新しい方がいい -
+
+%size 4, fore "black"
+
+角川宗近
+Daydreamers On the Net
+don@don.to
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Window Makerとは？
+
+	特徴
+		まあ、単なるウィンドウマネージャーです
+		ただし、GNUstepの標準ウィンドウマネージャー
+	AfterStepと何が違うか？
+		よりNeXTっぽい
+		アニメーションが恰好いい
+		テーマの概念がある
+			http://wm.themes.org/
+		設定更新はGUIで全部できる
+		Drag&Dropでアプリ登録
+		wm* のアプリケーション多数
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Window Maker
+
+	入手方法
+		ftp://ftp.windowmaker.org/pub/beta/srcs/
+	make方法
+		configure一発
+		FreeBSDなら
+			ports/x11-wm/windowmaker-i18n
+		がある
+	初期設定
+			wmaker.inst
+			wsetfont japanese
+		で設定ファイル( ~/GNUstep )が作られる
